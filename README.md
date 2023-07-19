@@ -28,3 +28,13 @@ openapi-generator-cli generate -i path/to/listingsItems_2020-09-01.json -g php -
 ```
 
 In the generated output, the contents of the `lib` folder were then transferred into this repository's [src/ListingsItems](src/ListingsItems) directory.
+
+### Supply Sources API
+
+The SupplySources API client was generated via the following script using the OpenAPI CLI Java tool, the version of which is `5.2.0-SNAPSHOT`.
+
+```BASH
+openapi-generator-cli generate -i path/to/supplySources_2020-07-01.json -g php -o path/to/output --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\SupplySources"
+```
+
+In the generated output, the contents of the `lib` folder were then transferred into this repository's [src/SupplySources](src/SupplySources) directory.
