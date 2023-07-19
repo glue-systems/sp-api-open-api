@@ -48,3 +48,13 @@ openapi-generator-cli generate -i path/to/definitionsProductTypes_2020-09-01.jso
 ```
 
 In the generated output, the contents of the `lib` folder were then transferred into this repository's [src/DefinitionsProductTypes](src/DefinitionsProductTypes) directory.
+
+### Orders V0 API
+
+The OrdersV0 API client was generated via the following script using the OpenAPI CLI Java tool, the version of which is `5.2.0-SNAPSHOT`.
+
+```BASH
+openapi-generator-cli generate -i path/to/ordersV0.json -g php -o path/to/output --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\OrdersV0"
+```
+
+In the generated output, the contents of the `lib` folder were then transferred into this repository's [src/OrdersV0](src/OrdersV0) directory.
