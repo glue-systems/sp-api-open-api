@@ -1,0 +1,35 @@
+{
+    "name": "glue-systems/sp-api-open-api",
+    "description": "OpenAPI-generated PHP clients for Amazon Selling Partner API",
+    "type": "library",
+    "keywords": [
+        "glue",
+        "amazon",
+        "sp-api",
+        "selling-partner",
+        "php",
+        "client"
+    ],
+    "license": "unlicense",
+    "authors": [
+        {
+            "name": "OpenAPI-Generator contributors",
+            "homepage": "https://openapi-generator.tech"
+        }, {
+            "name": "Glue Systems Dev Team",
+            "role": "Organize API clients into package-able library"
+        }
+    ],
+    "require": {
+        "php": ">=7.2",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Glue\\SPAPI\\OpenAPI\\": "src/"
+        }
+    }
+}
