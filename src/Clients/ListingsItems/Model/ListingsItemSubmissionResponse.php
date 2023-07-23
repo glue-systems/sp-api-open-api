@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\ListingsItems\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\ListingsItems\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ObjectSerializer;
 
 /**
  * ListingsItemSubmissionResponse Class Doc Comment
  *
  * @category Class
  * @description Response containing the results of a submission to the Selling Partner API for Listings Items.
- * @package  Glue\SPAPI\OpenAPI\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -63,7 +63,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
         'sku' => 'string',
         'status' => 'string',
         'submission_id' => 'string',
-        'issues' => '\Glue\SPAPI\OpenAPI\ListingsItems\Model\Issue[]'
+        'issues' => '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\Issue[]'
     ];
 
     /**
@@ -342,7 +342,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets issues
      *
-     * @return \Glue\SPAPI\OpenAPI\ListingsItems\Model\Issue[]|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\Issue[]|null
      */
     public function getIssues()
     {
@@ -352,7 +352,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets issues
      *
-     * @param \Glue\SPAPI\OpenAPI\ListingsItems\Model\Issue[]|null $issues Listings item issues related to the listings item submission.
+     * @param \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\Issue[]|null $issues Listings item issues related to the listings item submission.
      *
      * @return self
      */

@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,14 +25,14 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\OrdersV0;
+namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0;
 
 /**
  * Configuration Class Doc Comment
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -395,7 +395,7 @@ class Configuration
      */
     public static function toDebugReport()
     {
-        $report  = 'PHP SDK (Glue\SPAPI\OpenAPI\OrdersV0) Debug Report:' . PHP_EOL;
+        $report  = 'PHP SDK (Glue\SPAPI\OpenAPI\Clients\OrdersV0) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    The version of the OpenAPI document: v0' . PHP_EOL;

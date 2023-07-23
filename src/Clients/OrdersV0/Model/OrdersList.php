@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\OrdersV0\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\OrdersV0\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * OrdersList Class Doc Comment
  *
  * @category Class
  * @description A list of orders along with additional information to make subsequent API calls.
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'orders' => '\Glue\SPAPI\OpenAPI\OrdersV0\Model\Order[]',
+        'orders' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Order[]',
         'next_token' => 'string',
         'last_updated_before' => 'string',
         'created_before' => 'string'
@@ -230,7 +230,7 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets orders
      *
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\Order[]
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Order[]
      */
     public function getOrders()
     {
@@ -240,7 +240,7 @@ class OrdersList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets orders
      *
-     * @param \Glue\SPAPI\OpenAPI\OrdersV0\Model\Order[] $orders A list of orders.
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Order[] $orders A list of orders.
      *
      * @return self
      */

@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ObjectSerializer;
 
 /**
  * ProductTypeDefinition Class Doc Comment
  *
  * @category Class
  * @description A product type definition represents the attributes and data requirements for a product type in the Amazon catalog. Product type definitions are used interchangeably between the Selling Partner API for Listings Items, Selling Partner API for Catalog Items, and JSON-based listings feeds in the Selling Partner API for Feeds.
- * @package  Glue\SPAPI\OpenAPI\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,15 +60,15 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
       * @var string[]
       */
     protected static $openAPITypes = [
-        'meta_schema' => '\Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\SchemaLink',
-        'schema' => '\Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\SchemaLink',
+        'meta_schema' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\SchemaLink',
+        'schema' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\SchemaLink',
         'requirements' => 'string',
         'requirements_enforced' => 'string',
-        'property_groups' => 'array<string,\Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\PropertyGroup>',
+        'property_groups' => 'array<string,\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\PropertyGroup>',
         'locale' => 'string',
         'marketplace_ids' => 'string[]',
         'product_type' => 'string',
-        'product_type_version' => '\Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\ProductTypeVersion'
+        'product_type_version' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeVersion'
     ];
 
     /**
@@ -331,7 +331,7 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets meta_schema
      *
-     * @return \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\SchemaLink|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\SchemaLink|null
      */
     public function getMetaSchema()
     {
@@ -341,7 +341,7 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets meta_schema
      *
-     * @param \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\SchemaLink|null $meta_schema meta_schema
+     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\SchemaLink|null $meta_schema meta_schema
      *
      * @return self
      */
@@ -355,7 +355,7 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets schema
      *
-     * @return \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\SchemaLink
+     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\SchemaLink
      */
     public function getSchema()
     {
@@ -365,7 +365,7 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets schema
      *
-     * @param \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\SchemaLink $schema schema
+     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\SchemaLink $schema schema
      *
      * @return self
      */
@@ -447,7 +447,7 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets property_groups
      *
-     * @return array<string,\Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\PropertyGroup>
+     * @return array<string,\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\PropertyGroup>
      */
     public function getPropertyGroups()
     {
@@ -457,7 +457,7 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets property_groups
      *
-     * @param array<string,\Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\PropertyGroup> $property_groups Mapping of property group names to property groups. Property groups represent logical groupings of schema properties that can be used for display or informational purposes.
+     * @param array<string,\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\PropertyGroup> $property_groups Mapping of property group names to property groups. Property groups represent logical groupings of schema properties that can be used for display or informational purposes.
      *
      * @return self
      */
@@ -543,7 +543,7 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets product_type_version
      *
-     * @return \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\ProductTypeVersion
+     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeVersion
      */
     public function getProductTypeVersion()
     {
@@ -553,7 +553,7 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets product_type_version
      *
-     * @param \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\ProductTypeVersion $product_type_version product_type_version
+     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeVersion $product_type_version product_type_version
      *
      * @return self
      */

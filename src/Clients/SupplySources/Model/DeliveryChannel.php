@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\SupplySources\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\SupplySources\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\SupplySources\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\SupplySources\ObjectSerializer;
 
 /**
  * DeliveryChannel Class Doc Comment
  *
  * @category Class
  * @description Delivery Channel of a supply source.
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,7 +61,7 @@ class DeliveryChannel implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'is_supported' => 'bool',
-        'operational_configuration' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\OperationalConfiguration'
+        'operational_configuration' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperationalConfiguration'
     ];
 
     /**
@@ -239,7 +239,7 @@ class DeliveryChannel implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets operational_configuration
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\OperationalConfiguration|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperationalConfiguration|null
      */
     public function getOperationalConfiguration()
     {
@@ -249,7 +249,7 @@ class DeliveryChannel implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets operational_configuration
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\OperationalConfiguration|null $operational_configuration operational_configuration
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperationalConfiguration|null $operational_configuration operational_configuration
      *
      * @return self
      */

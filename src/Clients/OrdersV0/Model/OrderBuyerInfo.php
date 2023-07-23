@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\OrdersV0\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\OrdersV0\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * OrderBuyerInfo Class Doc Comment
  *
  * @category Class
  * @description Buyer information for an order.
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -64,7 +64,7 @@ class OrderBuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'buyer_email' => 'string',
         'buyer_name' => 'string',
         'buyer_county' => 'string',
-        'buyer_tax_info' => '\Glue\SPAPI\OpenAPI\OrdersV0\Model\BuyerTaxInfo',
+        'buyer_tax_info' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInfo',
         'purchase_order_number' => 'string'
     ];
 
@@ -338,7 +338,7 @@ class OrderBuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets buyer_tax_info
      *
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\BuyerTaxInfo|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInfo|null
      */
     public function getBuyerTaxInfo()
     {
@@ -348,7 +348,7 @@ class OrderBuyerInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets buyer_tax_info
      *
-     * @param \Glue\SPAPI\OpenAPI\OrdersV0\Model\BuyerTaxInfo|null $buyer_tax_info buyer_tax_info
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInfo|null $buyer_tax_info buyer_tax_info
      *
      * @return self
      */

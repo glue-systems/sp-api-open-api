@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\OrdersV0\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\OrdersV0\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * BuyerTaxInfo Class Doc Comment
  *
  * @category Class
  * @description Tax information about the buyer.
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class BuyerTaxInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     protected static $openAPITypes = [
         'company_legal_name' => 'string',
         'taxing_region' => 'string',
-        'tax_classifications' => '\Glue\SPAPI\OpenAPI\OrdersV0\Model\TaxClassification[]'
+        'tax_classifications' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]'
     ];
 
     /**
@@ -269,7 +269,7 @@ class BuyerTaxInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets tax_classifications
      *
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\TaxClassification[]|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]|null
      */
     public function getTaxClassifications()
     {
@@ -279,7 +279,7 @@ class BuyerTaxInfo implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets tax_classifications
      *
-     * @param \Glue\SPAPI\OpenAPI\OrdersV0\Model\TaxClassification[]|null $tax_classifications A list of tax classifications that apply to the order.
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]|null $tax_classifications A list of tax classifications that apply to the order.
      *
      * @return self
      */

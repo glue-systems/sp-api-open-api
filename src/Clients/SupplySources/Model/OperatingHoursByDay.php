@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\SupplySources\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\SupplySources\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\SupplySources\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\SupplySources\ObjectSerializer;
 
 /**
  * OperatingHoursByDay Class Doc Comment
  *
  * @category Class
  * @description Operating hours per day
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,13 +60,13 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
       * @var string[]
       */
     protected static $openAPITypes = [
-        'monday' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]',
-        'tuesday' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]',
-        'wednesday' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]',
-        'thursday' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]',
-        'friday' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]',
-        'saturday' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]',
-        'sunday' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]'
+        'monday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]',
+        'tuesday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]',
+        'wednesday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]',
+        'thursday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]',
+        'friday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]',
+        'saturday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]',
+        'sunday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]'
     ];
 
     /**
@@ -245,7 +245,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets monday
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null
      */
     public function getMonday()
     {
@@ -255,7 +255,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets monday
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null $monday A list of Operating Hours.
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null $monday A list of Operating Hours.
      *
      * @return self
      */
@@ -269,7 +269,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets tuesday
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null
      */
     public function getTuesday()
     {
@@ -279,7 +279,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets tuesday
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null $tuesday A list of Operating Hours.
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null $tuesday A list of Operating Hours.
      *
      * @return self
      */
@@ -293,7 +293,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets wednesday
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null
      */
     public function getWednesday()
     {
@@ -303,7 +303,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets wednesday
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null $wednesday A list of Operating Hours.
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null $wednesday A list of Operating Hours.
      *
      * @return self
      */
@@ -317,7 +317,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets thursday
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null
      */
     public function getThursday()
     {
@@ -327,7 +327,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets thursday
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null $thursday A list of Operating Hours.
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null $thursday A list of Operating Hours.
      *
      * @return self
      */
@@ -341,7 +341,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets friday
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null
      */
     public function getFriday()
     {
@@ -351,7 +351,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets friday
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null $friday A list of Operating Hours.
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null $friday A list of Operating Hours.
      *
      * @return self
      */
@@ -365,7 +365,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets saturday
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null
      */
     public function getSaturday()
     {
@@ -375,7 +375,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets saturday
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null $saturday A list of Operating Hours.
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null $saturday A list of Operating Hours.
      *
      * @return self
      */
@@ -389,7 +389,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets sunday
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null
      */
     public function getSunday()
     {
@@ -399,7 +399,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets sunday
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHour[]|null $sunday A list of Operating Hours.
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHour[]|null $sunday A list of Operating Hours.
      *
      * @return self
      */

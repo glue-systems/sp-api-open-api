@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\ListingsItems\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\ListingsItems\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ObjectSerializer;
 
 /**
  * Issue Class Doc Comment
  *
  * @category Class
  * @description An issue with a listings item.
- * @package  Glue\SPAPI\OpenAPI\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>

@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\SupplySources\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\SupplySources\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\SupplySources\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\SupplySources\ObjectSerializer;
 
 /**
  * ReturnLocation Class Doc Comment
  *
  * @category Class
  * @description Address or reference to another supplySourceId to act as a return location.
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,7 +61,7 @@ class ReturnLocation implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'supply_source_id' => 'string',
-        'address_with_contact' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\AddressWithContact'
+        'address_with_contact' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\AddressWithContact'
     ];
 
     /**
@@ -239,7 +239,7 @@ class ReturnLocation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets address_with_contact
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\AddressWithContact|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\AddressWithContact|null
      */
     public function getAddressWithContact()
     {
@@ -249,7 +249,7 @@ class ReturnLocation implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets address_with_contact
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\AddressWithContact|null $address_with_contact address_with_contact
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\AddressWithContact|null $address_with_contact address_with_contact
      *
      * @return self
      */

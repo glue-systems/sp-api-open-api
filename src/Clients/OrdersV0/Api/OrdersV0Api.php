@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\OrdersV0\Api;
+namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Glue\SPAPI\OpenAPI\OrdersV0\ApiException;
-use Glue\SPAPI\OpenAPI\OrdersV0\Configuration;
-use Glue\SPAPI\OpenAPI\OrdersV0\HeaderSelector;
-use Glue\SPAPI\OpenAPI\OrdersV0\ObjectSerializer;
+use Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException;
+use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Configuration;
+use Glue\SPAPI\OpenAPI\Clients\OrdersV0\HeaderSelector;
+use Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * OrdersV0Api Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -119,9 +119,9 @@ class OrdersV0Api
      *
      * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse
      */
     public function getOrder($order_id)
     {
@@ -134,9 +134,9 @@ class OrdersV0Api
      *
      * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrderWithHttpInfo($order_id)
     {
@@ -172,92 +172,92 @@ class OrdersV0Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -275,7 +275,7 @@ class OrdersV0Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -283,7 +283,7 @@ class OrdersV0Api
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -291,7 +291,7 @@ class OrdersV0Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -299,7 +299,7 @@ class OrdersV0Api
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -307,7 +307,7 @@ class OrdersV0Api
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -315,7 +315,7 @@ class OrdersV0Api
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -323,7 +323,7 @@ class OrdersV0Api
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -361,7 +361,7 @@ class OrdersV0Api
      */
     public function getOrderAsyncWithHttpInfo($order_id)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderResponse';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse';
         $request = $this->getOrderRequest($order_id);
 
         return $this->client
@@ -495,9 +495,9 @@ class OrdersV0Api
      *
      * @param  string $order_id An orderId is an Amazon-defined order identifier, in 3-7-7 format. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse
      */
     public function getOrderAddress($order_id)
     {
@@ -510,9 +510,9 @@ class OrdersV0Api
      *
      * @param  string $order_id An orderId is an Amazon-defined order identifier, in 3-7-7 format. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrderAddressWithHttpInfo($order_id)
     {
@@ -548,92 +548,92 @@ class OrdersV0Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -651,7 +651,7 @@ class OrdersV0Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -659,7 +659,7 @@ class OrdersV0Api
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -667,7 +667,7 @@ class OrdersV0Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -675,7 +675,7 @@ class OrdersV0Api
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -683,7 +683,7 @@ class OrdersV0Api
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -691,7 +691,7 @@ class OrdersV0Api
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -699,7 +699,7 @@ class OrdersV0Api
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -737,7 +737,7 @@ class OrdersV0Api
      */
     public function getOrderAddressAsyncWithHttpInfo($order_id)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderAddressResponse';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderAddressResponse';
         $request = $this->getOrderAddressRequest($order_id);
 
         return $this->client
@@ -871,9 +871,9 @@ class OrdersV0Api
      *
      * @param  string $order_id An orderId is an Amazon-defined order identifier, in 3-7-7 format. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse
      */
     public function getOrderBuyerInfo($order_id)
     {
@@ -886,9 +886,9 @@ class OrdersV0Api
      *
      * @param  string $order_id An orderId is an Amazon-defined order identifier, in 3-7-7 format. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrderBuyerInfoWithHttpInfo($order_id)
     {
@@ -924,92 +924,92 @@ class OrdersV0Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1027,7 +1027,7 @@ class OrdersV0Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1035,7 +1035,7 @@ class OrdersV0Api
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1043,7 +1043,7 @@ class OrdersV0Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1051,7 +1051,7 @@ class OrdersV0Api
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1059,7 +1059,7 @@ class OrdersV0Api
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1067,7 +1067,7 @@ class OrdersV0Api
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1075,7 +1075,7 @@ class OrdersV0Api
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1113,7 +1113,7 @@ class OrdersV0Api
      */
     public function getOrderBuyerInfoAsyncWithHttpInfo($order_id)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderBuyerInfoResponse';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderBuyerInfoResponse';
         $request = $this->getOrderBuyerInfoRequest($order_id);
 
         return $this->client
@@ -1248,9 +1248,9 @@ class OrdersV0Api
      * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param  string $next_token A string token returned in the response of your previous request. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse
      */
     public function getOrderItems($order_id, $next_token = null)
     {
@@ -1264,9 +1264,9 @@ class OrdersV0Api
      * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param  string $next_token A string token returned in the response of your previous request. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrderItemsWithHttpInfo($order_id, $next_token = null)
     {
@@ -1302,92 +1302,92 @@ class OrdersV0Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1405,7 +1405,7 @@ class OrdersV0Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1413,7 +1413,7 @@ class OrdersV0Api
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1421,7 +1421,7 @@ class OrdersV0Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1429,7 +1429,7 @@ class OrdersV0Api
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1437,7 +1437,7 @@ class OrdersV0Api
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1445,7 +1445,7 @@ class OrdersV0Api
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1453,7 +1453,7 @@ class OrdersV0Api
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1493,7 +1493,7 @@ class OrdersV0Api
      */
     public function getOrderItemsAsyncWithHttpInfo($order_id, $next_token = null)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsResponse';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsResponse';
         $request = $this->getOrderItemsRequest($order_id, $next_token);
 
         return $this->client
@@ -1636,9 +1636,9 @@ class OrdersV0Api
      * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param  string $next_token A string token returned in the response of your previous request. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse
      */
     public function getOrderItemsBuyerInfo($order_id, $next_token = null)
     {
@@ -1652,9 +1652,9 @@ class OrdersV0Api
      * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
      * @param  string $next_token A string token returned in the response of your previous request. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrderItemsBuyerInfoWithHttpInfo($order_id, $next_token = null)
     {
@@ -1690,92 +1690,92 @@ class OrdersV0Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1793,7 +1793,7 @@ class OrdersV0Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1801,7 +1801,7 @@ class OrdersV0Api
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1809,7 +1809,7 @@ class OrdersV0Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1817,7 +1817,7 @@ class OrdersV0Api
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1825,7 +1825,7 @@ class OrdersV0Api
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1833,7 +1833,7 @@ class OrdersV0Api
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1841,7 +1841,7 @@ class OrdersV0Api
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1881,7 +1881,7 @@ class OrdersV0Api
      */
     public function getOrderItemsBuyerInfoAsyncWithHttpInfo($order_id, $next_token = null)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrderItemsBuyerInfoResponse';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderItemsBuyerInfoResponse';
         $request = $this->getOrderItemsBuyerInfoRequest($order_id, $next_token);
 
         return $this->client
@@ -2039,9 +2039,9 @@ class OrdersV0Api
      * @param  bool $is_ispu When true, this order is marked to be picked up from a store rather than delivered. (optional)
      * @param  string $store_chain_store_id The store chain store identifier. Linked to a specific store in a store chain. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse
      */
     public function getOrders($marketplace_ids, $created_after = null, $created_before = null, $last_updated_after = null, $last_updated_before = null, $order_statuses = null, $fulfillment_channels = null, $payment_methods = null, $buyer_email = null, $seller_order_id = null, $max_results_per_page = null, $easy_ship_shipment_statuses = null, $next_token = null, $amazon_order_ids = null, $actual_fulfillment_supply_source_id = null, $is_ispu = null, $store_chain_store_id = null)
     {
@@ -2070,9 +2070,9 @@ class OrdersV0Api
      * @param  bool $is_ispu When true, this order is marked to be picked up from a store rather than delivered. (optional)
      * @param  string $store_chain_store_id The store chain store identifier. Linked to a specific store in a store chain. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse|\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getOrdersWithHttpInfo($marketplace_ids, $created_after = null, $created_before = null, $last_updated_after = null, $last_updated_before = null, $order_statuses = null, $fulfillment_channels = null, $payment_methods = null, $buyer_email = null, $seller_order_id = null, $max_results_per_page = null, $easy_ship_shipment_statuses = null, $next_token = null, $amazon_order_ids = null, $actual_fulfillment_supply_source_id = null, $is_ispu = null, $store_chain_store_id = null)
     {
@@ -2108,92 +2108,92 @@ class OrdersV0Api
 
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2211,7 +2211,7 @@ class OrdersV0Api
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2219,7 +2219,7 @@ class OrdersV0Api
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2227,7 +2227,7 @@ class OrdersV0Api
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2235,7 +2235,7 @@ class OrdersV0Api
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2243,7 +2243,7 @@ class OrdersV0Api
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2251,7 +2251,7 @@ class OrdersV0Api
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2259,7 +2259,7 @@ class OrdersV0Api
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2329,7 +2329,7 @@ class OrdersV0Api
      */
     public function getOrdersAsyncWithHttpInfo($marketplace_ids, $created_after = null, $created_before = null, $last_updated_after = null, $last_updated_before = null, $order_statuses = null, $fulfillment_channels = null, $payment_methods = null, $buyer_email = null, $seller_order_id = null, $max_results_per_page = null, $easy_ship_shipment_statuses = null, $next_token = null, $amazon_order_ids = null, $actual_fulfillment_supply_source_id = null, $is_ispu = null, $store_chain_store_id = null)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\OrdersV0\Model\GetOrdersResponse';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse';
         $request = $this->getOrdersRequest($marketplace_ids, $created_after, $created_before, $last_updated_after, $last_updated_before, $order_statuses, $fulfillment_channels, $payment_methods, $buyer_email, $seller_order_id, $max_results_per_page, $easy_ship_shipment_statuses, $next_token, $amazon_order_ids, $actual_fulfillment_supply_source_id, $is_ispu, $store_chain_store_id);
 
         return $this->client

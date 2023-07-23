@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\ListingsItems\Api;
+namespace Glue\SPAPI\OpenAPI\Clients\ListingsItems\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Glue\SPAPI\OpenAPI\ListingsItems\ApiException;
-use Glue\SPAPI\OpenAPI\ListingsItems\Configuration;
-use Glue\SPAPI\OpenAPI\ListingsItems\HeaderSelector;
-use Glue\SPAPI\OpenAPI\ListingsItems\ObjectSerializer;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItems\ApiException;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Configuration;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItems\HeaderSelector;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItems\ObjectSerializer;
 
 /**
  * ListingsApi Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -122,9 +122,9 @@ class ListingsApi
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\ListingsItems\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList
+     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList
      */
     public function deleteListingsItem($seller_id, $sku, $marketplace_ids, $issue_locale = null)
     {
@@ -140,9 +140,9 @@ class ListingsApi
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\ListingsItems\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function deleteListingsItemWithHttpInfo($seller_id, $sku, $marketplace_ids, $issue_locale = null)
     {
@@ -178,104 +178,104 @@ class ListingsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -293,7 +293,7 @@ class ListingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -301,7 +301,7 @@ class ListingsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -309,7 +309,7 @@ class ListingsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -317,7 +317,7 @@ class ListingsApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -325,7 +325,7 @@ class ListingsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -333,7 +333,7 @@ class ListingsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -341,7 +341,7 @@ class ListingsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -349,7 +349,7 @@ class ListingsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -393,7 +393,7 @@ class ListingsApi
      */
     public function deleteListingsItemAsyncWithHttpInfo($seller_id, $sku, $marketplace_ids, $issue_locale = null)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse';
         $request = $this->deleteListingsItemRequest($seller_id, $sku, $marketplace_ids, $issue_locale);
 
         return $this->client
@@ -565,12 +565,12 @@ class ListingsApi
      * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemPatchRequest $body The request body schema for the patchListingsItem operation. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemPatchRequest $body The request body schema for the patchListingsItem operation. (required)
      * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\ListingsItems\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList
+     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList
      */
     public function patchListingsItem($seller_id, $sku, $marketplace_ids, $body, $issue_locale = null)
     {
@@ -584,12 +584,12 @@ class ListingsApi
      * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemPatchRequest $body The request body schema for the patchListingsItem operation. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemPatchRequest $body The request body schema for the patchListingsItem operation. (required)
      * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\ListingsItems\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function patchListingsItemWithHttpInfo($seller_id, $sku, $marketplace_ids, $body, $issue_locale = null)
     {
@@ -625,104 +625,104 @@ class ListingsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -740,7 +740,7 @@ class ListingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -748,7 +748,7 @@ class ListingsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -756,7 +756,7 @@ class ListingsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -764,7 +764,7 @@ class ListingsApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -772,7 +772,7 @@ class ListingsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -780,7 +780,7 @@ class ListingsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -788,7 +788,7 @@ class ListingsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -796,7 +796,7 @@ class ListingsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -812,7 +812,7 @@ class ListingsApi
      * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemPatchRequest $body The request body schema for the patchListingsItem operation. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemPatchRequest $body The request body schema for the patchListingsItem operation. (required)
      * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
@@ -834,7 +834,7 @@ class ListingsApi
      * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemPatchRequest $body The request body schema for the patchListingsItem operation. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemPatchRequest $body The request body schema for the patchListingsItem operation. (required)
      * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
@@ -842,7 +842,7 @@ class ListingsApi
      */
     public function patchListingsItemAsyncWithHttpInfo($seller_id, $sku, $marketplace_ids, $body, $issue_locale = null)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse';
         $request = $this->patchListingsItemRequest($seller_id, $sku, $marketplace_ids, $body, $issue_locale);
 
         return $this->client
@@ -884,7 +884,7 @@ class ListingsApi
      * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemPatchRequest $body The request body schema for the patchListingsItem operation. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemPatchRequest $body The request body schema for the patchListingsItem operation. (required)
      * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1027,12 +1027,12 @@ class ListingsApi
      * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemPutRequest $body The request body schema for the putListingsItem operation. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemPutRequest $body The request body schema for the putListingsItem operation. (required)
      * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\ListingsItems\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList
+     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList
      */
     public function putListingsItem($seller_id, $sku, $marketplace_ids, $body, $issue_locale = null)
     {
@@ -1046,12 +1046,12 @@ class ListingsApi
      * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemPutRequest $body The request body schema for the putListingsItem operation. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemPutRequest $body The request body schema for the putListingsItem operation. (required)
      * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\ListingsItems\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function putListingsItemWithHttpInfo($seller_id, $sku, $marketplace_ids, $body, $issue_locale = null)
     {
@@ -1087,104 +1087,104 @@ class ListingsApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1202,7 +1202,7 @@ class ListingsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1210,7 +1210,7 @@ class ListingsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1218,7 +1218,7 @@ class ListingsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1226,7 +1226,7 @@ class ListingsApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1234,7 +1234,7 @@ class ListingsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1242,7 +1242,7 @@ class ListingsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1250,7 +1250,7 @@ class ListingsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1258,7 +1258,7 @@ class ListingsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1274,7 +1274,7 @@ class ListingsApi
      * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemPutRequest $body The request body schema for the putListingsItem operation. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemPutRequest $body The request body schema for the putListingsItem operation. (required)
      * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1296,7 +1296,7 @@ class ListingsApi
      * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemPutRequest $body The request body schema for the putListingsItem operation. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemPutRequest $body The request body schema for the putListingsItem operation. (required)
      * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
@@ -1304,7 +1304,7 @@ class ListingsApi
      */
     public function putListingsItemAsyncWithHttpInfo($seller_id, $sku, $marketplace_ids, $body, $issue_locale = null)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemSubmissionResponse';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse';
         $request = $this->putListingsItemRequest($seller_id, $sku, $marketplace_ids, $body, $issue_locale);
 
         return $this->client
@@ -1346,7 +1346,7 @@ class ListingsApi
      * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SPAPI\OpenAPI\ListingsItems\Model\ListingsItemPutRequest $body The request body schema for the putListingsItem operation. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemPutRequest $body The request body schema for the putListingsItem operation. (required)
      * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException

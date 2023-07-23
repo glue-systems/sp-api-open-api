@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\SupplySources\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\SupplySources\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\SupplySources\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\SupplySources\ObjectSerializer;
 
 /**
  * UpdateSupplySourceRequest Class Doc Comment
  *
  * @category Class
  * @description Request to update the configuration and capabilities of a supply source.
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,8 +61,8 @@ class UpdateSupplySourceRequest implements ModelInterface, ArrayAccess, \JsonSer
       */
     protected static $openAPITypes = [
         'alias' => 'string',
-        'configuration' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySourceConfiguration',
-        'capabilities' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySourceCapabilities'
+        'configuration' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySourceConfiguration',
+        'capabilities' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySourceCapabilities'
     ];
 
     /**
@@ -245,7 +245,7 @@ class UpdateSupplySourceRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets configuration
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySourceConfiguration|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySourceConfiguration|null
      */
     public function getConfiguration()
     {
@@ -255,7 +255,7 @@ class UpdateSupplySourceRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets configuration
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySourceConfiguration|null $configuration configuration
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySourceConfiguration|null $configuration configuration
      *
      * @return self
      */
@@ -269,7 +269,7 @@ class UpdateSupplySourceRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets capabilities
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySourceCapabilities|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySourceCapabilities|null
      */
     public function getCapabilities()
     {
@@ -279,7 +279,7 @@ class UpdateSupplySourceRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets capabilities
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySourceCapabilities|null $capabilities capabilities
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySourceCapabilities|null $capabilities capabilities
      *
      * @return self
      */

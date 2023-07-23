@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\SupplySources\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\SupplySources\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\SupplySources\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\SupplySources\ObjectSerializer;
 
 /**
  * PickupChannel Class Doc Comment
  *
  * @category Class
  * @description Pick up channel of a supply source.
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,9 +60,9 @@ class PickupChannel implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'inventory_hold_period' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\Duration',
+        'inventory_hold_period' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\Duration',
         'is_supported' => 'bool',
-        'operational_configuration' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\OperationalConfiguration'
+        'operational_configuration' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperationalConfiguration'
     ];
 
     /**
@@ -221,7 +221,7 @@ class PickupChannel implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets inventory_hold_period
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\Duration|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\Duration|null
      */
     public function getInventoryHoldPeriod()
     {
@@ -231,7 +231,7 @@ class PickupChannel implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets inventory_hold_period
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\Duration|null $inventory_hold_period inventory_hold_period
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\Duration|null $inventory_hold_period inventory_hold_period
      *
      * @return self
      */
@@ -269,7 +269,7 @@ class PickupChannel implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets operational_configuration
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\OperationalConfiguration|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperationalConfiguration|null
      */
     public function getOperationalConfiguration()
     {
@@ -279,7 +279,7 @@ class PickupChannel implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets operational_configuration
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\OperationalConfiguration|null $operational_configuration operational_configuration
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperationalConfiguration|null $operational_configuration operational_configuration
      *
      * @return self
      */

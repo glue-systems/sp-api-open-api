@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\SupplySources\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\SupplySources\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\SupplySources\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\SupplySources\ObjectSerializer;
 
 /**
  * ThroughputCap Class Doc Comment
  *
  * @category Class
  * @description Throughput Capacity
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,7 +61,7 @@ class ThroughputCap implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'value' => 'int',
-        'time_unit' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\TimeUnit'
+        'time_unit' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\TimeUnit'
     ];
 
     /**
@@ -248,7 +248,7 @@ class ThroughputCap implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets time_unit
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\TimeUnit|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\TimeUnit|null
      */
     public function getTimeUnit()
     {
@@ -258,7 +258,7 @@ class ThroughputCap implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets time_unit
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\TimeUnit|null $time_unit time_unit
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\TimeUnit|null $time_unit time_unit
      *
      * @return self
      */

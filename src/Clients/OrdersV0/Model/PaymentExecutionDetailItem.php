@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\OrdersV0\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\OrdersV0\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * PaymentExecutionDetailItem Class Doc Comment
  *
  * @category Class
  * @description Information about a sub-payment method used to pay for a COD order.
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payment' => '\Glue\SPAPI\OpenAPI\OrdersV0\Model\Money',
+        'payment' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
         'payment_method' => 'string'
     ];
 
@@ -221,7 +221,7 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets payment
      *
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\Money
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money
      */
     public function getPayment()
     {
@@ -231,7 +231,7 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets payment
      *
-     * @param \Glue\SPAPI\OpenAPI\OrdersV0\Model\Money $payment payment
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money $payment payment
      *
      * @return self
      */

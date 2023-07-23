@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\SupplySources\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\SupplySources\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\SupplySources\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\SupplySources\ObjectSerializer;
 
 /**
  * SupplySourceCapabilities Class Doc Comment
  *
  * @category Class
  * @description Capabilities of a supply source, only includes outbound capability.
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class SupplySourceCapabilities implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'outbound' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\OutboundCapability'
+        'outbound' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OutboundCapability'
     ];
 
     /**
@@ -209,7 +209,7 @@ class SupplySourceCapabilities implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets outbound
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\OutboundCapability|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OutboundCapability|null
      */
     public function getOutbound()
     {
@@ -219,7 +219,7 @@ class SupplySourceCapabilities implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets outbound
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\OutboundCapability|null $outbound outbound
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OutboundCapability|null $outbound outbound
      *
      * @return self
      */

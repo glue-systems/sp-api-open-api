@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ObjectSerializer;
 
 /**
  * ProductTypeList Class Doc Comment
  *
  * @category Class
  * @description A list of Amazon product types with definitions available.
- * @package  Glue\SPAPI\OpenAPI\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'product_types' => '\Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\ProductType[]'
+        'product_types' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductType[]'
     ];
 
     /**
@@ -212,7 +212,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets product_types
      *
-     * @return \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\ProductType[]
+     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductType[]
      */
     public function getProductTypes()
     {
@@ -222,7 +222,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets product_types
      *
-     * @param \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\ProductType[] $product_types product_types
+     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductType[] $product_types product_types
      *
      * @return self
      */

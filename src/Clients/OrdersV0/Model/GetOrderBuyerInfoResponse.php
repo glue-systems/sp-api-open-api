@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\OrdersV0\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\OrdersV0\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * GetOrderBuyerInfoResponse Class Doc Comment
  *
  * @category Class
  * @description The response schema for the getOrderBuyerInfo operation.
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,8 +60,8 @@ class GetOrderBuyerInfoResponse implements ModelInterface, ArrayAccess, \JsonSer
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payload' => '\Glue\SPAPI\OpenAPI\OrdersV0\Model\OrderBuyerInfo',
-        'errors' => '\Glue\SPAPI\OpenAPI\OrdersV0\Model\Error[]'
+        'payload' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrderBuyerInfo',
+        'errors' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Error[]'
     ];
 
     /**
@@ -215,7 +215,7 @@ class GetOrderBuyerInfoResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets payload
      *
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\OrderBuyerInfo|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrderBuyerInfo|null
      */
     public function getPayload()
     {
@@ -225,7 +225,7 @@ class GetOrderBuyerInfoResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets payload
      *
-     * @param \Glue\SPAPI\OpenAPI\OrdersV0\Model\OrderBuyerInfo|null $payload payload
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrderBuyerInfo|null $payload payload
      *
      * @return self
      */
@@ -239,7 +239,7 @@ class GetOrderBuyerInfoResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets errors
      *
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\Error[]|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Error[]|null
      */
     public function getErrors()
     {
@@ -249,7 +249,7 @@ class GetOrderBuyerInfoResponse implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets errors
      *
-     * @param \Glue\SPAPI\OpenAPI\OrdersV0\Model\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
      *
      * @return self
      */

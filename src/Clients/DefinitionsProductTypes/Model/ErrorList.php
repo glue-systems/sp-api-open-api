@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ObjectSerializer;
 
 /**
  * ErrorList Class Doc Comment
  *
  * @category Class
  * @description A list of error responses returned when a request is unsuccessful.
- * @package  Glue\SPAPI\OpenAPI\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class ErrorList implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => '\Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\Error[]'
+        'errors' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\Error[]'
     ];
 
     /**
@@ -212,7 +212,7 @@ class ErrorList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets errors
      *
-     * @return \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\Error[]
+     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\Error[]
      */
     public function getErrors()
     {
@@ -222,7 +222,7 @@ class ErrorList implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets errors
      *
-     * @param \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\Error[] $errors errors
+     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\Error[] $errors errors
      *
      * @return self
      */

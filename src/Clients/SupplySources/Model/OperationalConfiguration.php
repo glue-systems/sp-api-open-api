@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\SupplySources\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\SupplySources\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\SupplySources\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\SupplySources\ObjectSerializer;
 
 /**
  * OperationalConfiguration Class Doc Comment
  *
  * @category Class
  * @description SupplySources operational configuration
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,10 +60,10 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contact_details' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\ContactDetails',
-        'throughput_config' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\ThroughputConfig',
-        'operating_hours_by_day' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHoursByDay',
-        'handling_time' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\Duration'
+        'contact_details' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ContactDetails',
+        'throughput_config' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ThroughputConfig',
+        'operating_hours_by_day' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHoursByDay',
+        'handling_time' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\Duration'
     ];
 
     /**
@@ -227,7 +227,7 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets contact_details
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\ContactDetails|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ContactDetails|null
      */
     public function getContactDetails()
     {
@@ -237,7 +237,7 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets contact_details
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\ContactDetails|null $contact_details contact_details
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ContactDetails|null $contact_details contact_details
      *
      * @return self
      */
@@ -251,7 +251,7 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets throughput_config
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\ThroughputConfig|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ThroughputConfig|null
      */
     public function getThroughputConfig()
     {
@@ -261,7 +261,7 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets throughput_config
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\ThroughputConfig|null $throughput_config throughput_config
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ThroughputConfig|null $throughput_config throughput_config
      *
      * @return self
      */
@@ -275,7 +275,7 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets operating_hours_by_day
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHoursByDay|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHoursByDay|null
      */
     public function getOperatingHoursByDay()
     {
@@ -285,7 +285,7 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets operating_hours_by_day
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\OperatingHoursByDay|null $operating_hours_by_day operating_hours_by_day
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\OperatingHoursByDay|null $operating_hours_by_day operating_hours_by_day
      *
      * @return self
      */
@@ -299,7 +299,7 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets handling_time
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\Duration|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\Duration|null
      */
     public function getHandlingTime()
     {
@@ -309,7 +309,7 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets handling_time
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\Duration|null $handling_time handling_time
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\Duration|null $handling_time handling_time
      *
      * @return self
      */

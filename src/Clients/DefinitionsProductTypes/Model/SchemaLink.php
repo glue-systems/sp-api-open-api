@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,16 +26,16 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ObjectSerializer;
 
 /**
  * SchemaLink Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -59,7 +59,7 @@ class SchemaLink implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'link' => '\Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\SchemaLinkLink',
+        'link' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\SchemaLinkLink',
         'checksum' => 'string'
     ];
 
@@ -220,7 +220,7 @@ class SchemaLink implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets link
      *
-     * @return \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\SchemaLinkLink
+     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\SchemaLinkLink
      */
     public function getLink()
     {
@@ -230,7 +230,7 @@ class SchemaLink implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets link
      *
-     * @param \Glue\SPAPI\OpenAPI\DefinitionsProductTypes\Model\SchemaLinkLink $link link
+     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\SchemaLinkLink $link link
      *
      * @return self
      */

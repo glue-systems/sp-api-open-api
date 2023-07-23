@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\ListingsItems\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\ListingsItems\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ObjectSerializer;
 
 /**
  * ListingsItemPatchRequest Class Doc Comment
  *
  * @category Class
  * @description The request body schema for the patchListingsItem operation.
- * @package  Glue\SPAPI\OpenAPI\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,7 +61,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess, \JsonSeri
       */
     protected static $openAPITypes = [
         'product_type' => 'string',
-        'patches' => '\Glue\SPAPI\OpenAPI\ListingsItems\Model\PatchOperation[]'
+        'patches' => '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\PatchOperation[]'
     ];
 
     /**
@@ -249,7 +249,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets patches
      *
-     * @return \Glue\SPAPI\OpenAPI\ListingsItems\Model\PatchOperation[]
+     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\PatchOperation[]
      */
     public function getPatches()
     {
@@ -259,7 +259,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets patches
      *
-     * @param \Glue\SPAPI\OpenAPI\ListingsItems\Model\PatchOperation[] $patches One or more JSON Patch operations to perform on the listings item.
+     * @param \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\PatchOperation[] $patches One or more JSON Patch operations to perform on the listings item.
      *
      * @return self
      */

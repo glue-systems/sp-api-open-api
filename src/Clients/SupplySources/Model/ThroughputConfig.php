@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\SupplySources\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\SupplySources\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\SupplySources\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\SupplySources\ObjectSerializer;
 
 /**
  * ThroughputConfig Class Doc Comment
  *
  * @category Class
  * @description Throughput Configuration
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,8 +60,8 @@ class ThroughputConfig implements ModelInterface, ArrayAccess, \JsonSerializable
       * @var string[]
       */
     protected static $openAPITypes = [
-        'throughput_cap' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\ThroughputCap',
-        'throughput_unit' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\ThroughputUnit'
+        'throughput_cap' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ThroughputCap',
+        'throughput_unit' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ThroughputUnit'
     ];
 
     /**
@@ -218,7 +218,7 @@ class ThroughputConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets throughput_cap
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\ThroughputCap|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ThroughputCap|null
      */
     public function getThroughputCap()
     {
@@ -228,7 +228,7 @@ class ThroughputConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets throughput_cap
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\ThroughputCap|null $throughput_cap throughput_cap
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ThroughputCap|null $throughput_cap throughput_cap
      *
      * @return self
      */
@@ -242,7 +242,7 @@ class ThroughputConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets throughput_unit
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\ThroughputUnit
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ThroughputUnit
      */
     public function getThroughputUnit()
     {
@@ -252,7 +252,7 @@ class ThroughputConfig implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets throughput_unit
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\ThroughputUnit $throughput_unit throughput_unit
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ThroughputUnit $throughput_unit throughput_unit
      *
      * @return self
      */

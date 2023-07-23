@@ -4,7 +4,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -25,7 +25,7 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\SupplySources\Api;
+namespace Glue\SPAPI\OpenAPI\Clients\SupplySources\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -33,16 +33,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Glue\SPAPI\OpenAPI\SupplySources\ApiException;
-use Glue\SPAPI\OpenAPI\SupplySources\Configuration;
-use Glue\SPAPI\OpenAPI\SupplySources\HeaderSelector;
-use Glue\SPAPI\OpenAPI\SupplySources\ObjectSerializer;
+use Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException;
+use Glue\SPAPI\OpenAPI\Clients\SupplySources\Configuration;
+use Glue\SPAPI\OpenAPI\Clients\SupplySources\HeaderSelector;
+use Glue\SPAPI\OpenAPI\Clients\SupplySources\ObjectSerializer;
 
 /**
  * SupplySourcesApi Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -119,9 +119,9 @@ class SupplySourcesApi
      *
      * @param  string $supply_source_id Unique identifier of a supply source. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\SupplySources\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList
      */
     public function archiveSupplySource($supply_source_id)
     {
@@ -134,9 +134,9 @@ class SupplySourcesApi
      *
      * @param  string $supply_source_id Unique identifier of a supply source. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\SupplySources\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function archiveSupplySourceWithHttpInfo($supply_source_id)
     {
@@ -172,116 +172,116 @@ class SupplySourcesApi
 
             switch($statusCode) {
                 case 204:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -299,7 +299,7 @@ class SupplySourcesApi
                 case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -307,7 +307,7 @@ class SupplySourcesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -315,7 +315,7 @@ class SupplySourcesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -323,7 +323,7 @@ class SupplySourcesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -331,7 +331,7 @@ class SupplySourcesApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -339,7 +339,7 @@ class SupplySourcesApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -347,7 +347,7 @@ class SupplySourcesApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -355,7 +355,7 @@ class SupplySourcesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -363,7 +363,7 @@ class SupplySourcesApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -401,7 +401,7 @@ class SupplySourcesApi
      */
     public function archiveSupplySourceAsyncWithHttpInfo($supply_source_id)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList';
         $request = $this->archiveSupplySourceRequest($supply_source_id);
 
         return $this->client
@@ -533,11 +533,11 @@ class SupplySourcesApi
     /**
      * Operation createSupplySource
      *
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\CreateSupplySourceRequest $payload Request to create a supply source. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\CreateSupplySourceRequest $payload Request to create a supply source. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\SupplySources\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\CreateSupplySourceResponse|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\CreateSupplySourceResponse|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList
      */
     public function createSupplySource($payload)
     {
@@ -548,11 +548,11 @@ class SupplySourcesApi
     /**
      * Operation createSupplySourceWithHttpInfo
      *
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\CreateSupplySourceRequest $payload Request to create a supply source. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\CreateSupplySourceRequest $payload Request to create a supply source. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\SupplySources\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\SupplySources\Model\CreateSupplySourceResponse|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\CreateSupplySourceResponse|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function createSupplySourceWithHttpInfo($payload)
     {
@@ -588,116 +588,116 @@ class SupplySourcesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\CreateSupplySourceResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\CreateSupplySourceResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\CreateSupplySourceResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\CreateSupplySourceResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\SupplySources\Model\CreateSupplySourceResponse';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\CreateSupplySourceResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -715,7 +715,7 @@ class SupplySourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\CreateSupplySourceResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\CreateSupplySourceResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -723,7 +723,7 @@ class SupplySourcesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -731,7 +731,7 @@ class SupplySourcesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -739,7 +739,7 @@ class SupplySourcesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -747,7 +747,7 @@ class SupplySourcesApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -755,7 +755,7 @@ class SupplySourcesApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -763,7 +763,7 @@ class SupplySourcesApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -771,7 +771,7 @@ class SupplySourcesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -779,7 +779,7 @@ class SupplySourcesApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -792,7 +792,7 @@ class SupplySourcesApi
     /**
      * Operation createSupplySourceAsync
      *
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\CreateSupplySourceRequest $payload Request to create a supply source. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\CreateSupplySourceRequest $payload Request to create a supply source. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -810,14 +810,14 @@ class SupplySourcesApi
     /**
      * Operation createSupplySourceAsyncWithHttpInfo
      *
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\CreateSupplySourceRequest $payload Request to create a supply source. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\CreateSupplySourceRequest $payload Request to create a supply source. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createSupplySourceAsyncWithHttpInfo($payload)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\SupplySources\Model\CreateSupplySourceResponse';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\CreateSupplySourceResponse';
         $request = $this->createSupplySourceRequest($payload);
 
         return $this->client
@@ -856,7 +856,7 @@ class SupplySourcesApi
     /**
      * Create request for operation 'createSupplySource'
      *
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\CreateSupplySourceRequest $payload Request to create a supply source. (required)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\CreateSupplySourceRequest $payload Request to create a supply source. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -949,9 +949,9 @@ class SupplySourcesApi
      *
      * @param  string $supply_source_id Unique identifier of a supply source. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\SupplySources\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySource|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySource|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList
      */
     public function getSupplySource($supply_source_id)
     {
@@ -964,9 +964,9 @@ class SupplySourcesApi
      *
      * @param  string $supply_source_id Unique identifier of a supply source. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\SupplySources\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySource|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySource|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSupplySourceWithHttpInfo($supply_source_id)
     {
@@ -1002,116 +1002,116 @@ class SupplySourcesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySource' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySource' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySource', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySource', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySource';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySource';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1129,7 +1129,7 @@ class SupplySourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySource',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySource',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1137,7 +1137,7 @@ class SupplySourcesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1145,7 +1145,7 @@ class SupplySourcesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1153,7 +1153,7 @@ class SupplySourcesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1161,7 +1161,7 @@ class SupplySourcesApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1169,7 +1169,7 @@ class SupplySourcesApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1177,7 +1177,7 @@ class SupplySourcesApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1185,7 +1185,7 @@ class SupplySourcesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1193,7 +1193,7 @@ class SupplySourcesApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1231,7 +1231,7 @@ class SupplySourcesApi
      */
     public function getSupplySourceAsyncWithHttpInfo($supply_source_id)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\SupplySources\Model\SupplySource';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\SupplySource';
         $request = $this->getSupplySourceRequest($supply_source_id);
 
         return $this->client
@@ -1366,9 +1366,9 @@ class SupplySourcesApi
      * @param  string $next_page_token Pagination token to retrieve a specific page of results. (optional)
      * @param  float $page_size Number of supply sources to return per paginated request. (optional, default to 10.0)
      *
-     * @throws \Glue\SPAPI\OpenAPI\SupplySources\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\GetSupplySourcesResponse|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\GetSupplySourcesResponse|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList
      */
     public function getSupplySources($next_page_token = null, $page_size = 10.0)
     {
@@ -1382,9 +1382,9 @@ class SupplySourcesApi
      * @param  string $next_page_token Pagination token to retrieve a specific page of results. (optional)
      * @param  float $page_size Number of supply sources to return per paginated request. (optional, default to 10.0)
      *
-     * @throws \Glue\SPAPI\OpenAPI\SupplySources\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\SupplySources\Model\GetSupplySourcesResponse|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\GetSupplySourcesResponse|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getSupplySourcesWithHttpInfo($next_page_token = null, $page_size = 10.0)
     {
@@ -1420,116 +1420,116 @@ class SupplySourcesApi
 
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\GetSupplySourcesResponse' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\GetSupplySourcesResponse' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\GetSupplySourcesResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\GetSupplySourcesResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\SupplySources\Model\GetSupplySourcesResponse';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\GetSupplySourcesResponse';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1547,7 +1547,7 @@ class SupplySourcesApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\GetSupplySourcesResponse',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\GetSupplySourcesResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1555,7 +1555,7 @@ class SupplySourcesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1563,7 +1563,7 @@ class SupplySourcesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1571,7 +1571,7 @@ class SupplySourcesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1579,7 +1579,7 @@ class SupplySourcesApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1587,7 +1587,7 @@ class SupplySourcesApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1595,7 +1595,7 @@ class SupplySourcesApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1603,7 +1603,7 @@ class SupplySourcesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1611,7 +1611,7 @@ class SupplySourcesApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1651,7 +1651,7 @@ class SupplySourcesApi
      */
     public function getSupplySourcesAsyncWithHttpInfo($next_page_token = null, $page_size = 10.0)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\SupplySources\Model\GetSupplySourcesResponse';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\GetSupplySourcesResponse';
         $request = $this->getSupplySourcesRequest($next_page_token, $page_size);
 
         return $this->client
@@ -1785,11 +1785,11 @@ class SupplySourcesApi
      * Operation updateSupplySource
      *
      * @param  string $supply_source_id Unique identitier of a supply source. (required)
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\UpdateSupplySourceRequest $payload payload (optional)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\UpdateSupplySourceRequest $payload payload (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\SupplySources\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList
      */
     public function updateSupplySource($supply_source_id, $payload = null)
     {
@@ -1801,11 +1801,11 @@ class SupplySourcesApi
      * Operation updateSupplySourceWithHttpInfo
      *
      * @param  string $supply_source_id Unique identitier of a supply source. (required)
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\UpdateSupplySourceRequest $payload (optional)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\UpdateSupplySourceRequest $payload (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\SupplySources\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateSupplySourceWithHttpInfo($supply_source_id, $payload = null)
     {
@@ -1841,116 +1841,116 @@ class SupplySourcesApi
 
             switch($statusCode) {
                 case 204:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -1968,7 +1968,7 @@ class SupplySourcesApi
                 case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1976,7 +1976,7 @@ class SupplySourcesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1984,7 +1984,7 @@ class SupplySourcesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1992,7 +1992,7 @@ class SupplySourcesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2000,7 +2000,7 @@ class SupplySourcesApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2008,7 +2008,7 @@ class SupplySourcesApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2016,7 +2016,7 @@ class SupplySourcesApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2024,7 +2024,7 @@ class SupplySourcesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2032,7 +2032,7 @@ class SupplySourcesApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2046,7 +2046,7 @@ class SupplySourcesApi
      * Operation updateSupplySourceAsync
      *
      * @param  string $supply_source_id Unique identitier of a supply source. (required)
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\UpdateSupplySourceRequest $payload (optional)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\UpdateSupplySourceRequest $payload (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2065,14 +2065,14 @@ class SupplySourcesApi
      * Operation updateSupplySourceAsyncWithHttpInfo
      *
      * @param  string $supply_source_id Unique identitier of a supply source. (required)
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\UpdateSupplySourceRequest $payload (optional)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\UpdateSupplySourceRequest $payload (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateSupplySourceAsyncWithHttpInfo($supply_source_id, $payload = null)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList';
         $request = $this->updateSupplySourceRequest($supply_source_id, $payload);
 
         return $this->client
@@ -2112,7 +2112,7 @@ class SupplySourcesApi
      * Create request for operation 'updateSupplySource'
      *
      * @param  string $supply_source_id Unique identitier of a supply source. (required)
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\UpdateSupplySourceRequest $payload (optional)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\UpdateSupplySourceRequest $payload (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -2212,11 +2212,11 @@ class SupplySourcesApi
      * Operation updateSupplySourceStatus
      *
      * @param  string $supply_source_id Unique identifier of a supply source. (required)
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\UpdateSupplySourceStatusRequest $payload payload (optional)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\UpdateSupplySourceStatusRequest $payload payload (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\SupplySources\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList
      */
     public function updateSupplySourceStatus($supply_source_id, $payload = null)
     {
@@ -2228,11 +2228,11 @@ class SupplySourcesApi
      * Operation updateSupplySourceStatusWithHttpInfo
      *
      * @param  string $supply_source_id Unique identifier of a supply source. (required)
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\UpdateSupplySourceStatusRequest $payload (optional)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\UpdateSupplySourceStatusRequest $payload (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\SupplySources\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\SupplySources\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function updateSupplySourceStatusWithHttpInfo($supply_source_id, $payload = null)
     {
@@ -2268,116 +2268,116 @@ class SupplySourcesApi
 
             switch($statusCode) {
                 case 204:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList' === '\SplFileObject') {
                         $content = $response->getBody(); //stream goes to serializer
                     } else {
                         $content = (string) $response->getBody();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList';
             if ($returnType === '\SplFileObject') {
                 $content = $response->getBody(); //stream goes to serializer
             } else {
@@ -2395,7 +2395,7 @@ class SupplySourcesApi
                 case 204:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2403,7 +2403,7 @@ class SupplySourcesApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2411,7 +2411,7 @@ class SupplySourcesApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2419,7 +2419,7 @@ class SupplySourcesApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2427,7 +2427,7 @@ class SupplySourcesApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2435,7 +2435,7 @@ class SupplySourcesApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2443,7 +2443,7 @@ class SupplySourcesApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2451,7 +2451,7 @@ class SupplySourcesApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2459,7 +2459,7 @@ class SupplySourcesApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2473,7 +2473,7 @@ class SupplySourcesApi
      * Operation updateSupplySourceStatusAsync
      *
      * @param  string $supply_source_id Unique identifier of a supply source. (required)
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\UpdateSupplySourceStatusRequest $payload (optional)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\UpdateSupplySourceStatusRequest $payload (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -2492,14 +2492,14 @@ class SupplySourcesApi
      * Operation updateSupplySourceStatusAsyncWithHttpInfo
      *
      * @param  string $supply_source_id Unique identifier of a supply source. (required)
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\UpdateSupplySourceStatusRequest $payload (optional)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\UpdateSupplySourceStatusRequest $payload (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function updateSupplySourceStatusAsyncWithHttpInfo($supply_source_id, $payload = null)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\SupplySources\Model\ErrorList';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\ErrorList';
         $request = $this->updateSupplySourceStatusRequest($supply_source_id, $payload);
 
         return $this->client
@@ -2539,7 +2539,7 @@ class SupplySourcesApi
      * Create request for operation 'updateSupplySourceStatus'
      *
      * @param  string $supply_source_id Unique identifier of a supply source. (required)
-     * @param  \Glue\SPAPI\OpenAPI\SupplySources\Model\UpdateSupplySourceStatusRequest $payload (optional)
+     * @param  \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\UpdateSupplySourceStatusRequest $payload (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

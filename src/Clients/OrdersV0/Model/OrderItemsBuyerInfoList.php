@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\OrdersV0\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\OrdersV0\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * OrderItemsBuyerInfoList Class Doc Comment
  *
  * @category Class
  * @description A single order item&#39;s buyer information list with the order ID.
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -60,7 +60,7 @@ class OrderItemsBuyerInfoList implements ModelInterface, ArrayAccess, \JsonSeria
       * @var string[]
       */
     protected static $openAPITypes = [
-        'order_items' => '\Glue\SPAPI\OpenAPI\OrdersV0\Model\OrderItemBuyerInfo[]',
+        'order_items' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrderItemBuyerInfo[]',
         'next_token' => 'string',
         'amazon_order_id' => 'string'
     ];
@@ -227,7 +227,7 @@ class OrderItemsBuyerInfoList implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets order_items
      *
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\OrderItemBuyerInfo[]
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrderItemBuyerInfo[]
      */
     public function getOrderItems()
     {
@@ -237,7 +237,7 @@ class OrderItemsBuyerInfoList implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets order_items
      *
-     * @param \Glue\SPAPI\OpenAPI\OrdersV0\Model\OrderItemBuyerInfo[] $order_items A single order item's buyer information list.
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrderItemBuyerInfo[] $order_items A single order item's buyer information list.
      *
      * @return self
      */

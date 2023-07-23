@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\OrdersV0\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\OrdersV0\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * OrderAddress Class Doc Comment
  *
  * @category Class
  * @description The shipping address for the order.
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -61,7 +61,7 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable
       */
     protected static $openAPITypes = [
         'amazon_order_id' => 'string',
-        'shipping_address' => '\Glue\SPAPI\OpenAPI\OrdersV0\Model\Address'
+        'shipping_address' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address'
     ];
 
     /**
@@ -242,7 +242,7 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets shipping_address
      *
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\Address|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null
      */
     public function getShippingAddress()
     {
@@ -252,7 +252,7 @@ class OrderAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets shipping_address
      *
-     * @param \Glue\SPAPI\OpenAPI\OrdersV0\Model\Address|null $shipping_address shipping_address
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null $shipping_address shipping_address
      *
      * @return self
      */

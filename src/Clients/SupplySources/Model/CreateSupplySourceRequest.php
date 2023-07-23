@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\SupplySources\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\SupplySources\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\SupplySources\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\SupplySources\ObjectSerializer;
 
 /**
  * CreateSupplySourceRequest Class Doc Comment
  *
  * @category Class
  * @description Request to create a supply source.
- * @package  Glue\SPAPI\OpenAPI\SupplySources
+ * @package  Glue\SPAPI\OpenAPI\Clients\SupplySources
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -62,7 +62,7 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess, \JsonSer
     protected static $openAPITypes = [
         'supply_source_code' => 'string',
         'alias' => 'string',
-        'address' => '\Glue\SPAPI\OpenAPI\SupplySources\Model\Address'
+        'address' => '\Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\Address'
     ];
 
     /**
@@ -278,7 +278,7 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets address
      *
-     * @return \Glue\SPAPI\OpenAPI\SupplySources\Model\Address
+     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\Address
      */
     public function getAddress()
     {
@@ -288,7 +288,7 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets address
      *
-     * @param \Glue\SPAPI\OpenAPI\SupplySources\Model\Address $address address
+     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySources\Model\Address $address address
      *
      * @return self
      */

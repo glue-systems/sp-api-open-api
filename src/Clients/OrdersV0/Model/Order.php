@@ -5,7 +5,7 @@
  * PHP version 7.2
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,17 +26,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\OrdersV0\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\OrdersV0\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * Order Class Doc Comment
  *
  * @category Class
  * @description Order information.
- * @package  Glue\SPAPI\OpenAPI\OrdersV0
+ * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  * @implements \ArrayAccess<TKey, TValue>
@@ -69,10 +69,10 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'sales_channel' => 'string',
         'order_channel' => 'string',
         'ship_service_level' => 'string',
-        'order_total' => '\Glue\SPAPI\OpenAPI\OrdersV0\Model\Money',
+        'order_total' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
         'number_of_items_shipped' => 'int',
         'number_of_items_unshipped' => 'int',
-        'payment_execution_detail' => '\Glue\SPAPI\OpenAPI\OrdersV0\Model\PaymentExecutionDetailItem[]',
+        'payment_execution_detail' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\PaymentExecutionDetailItem[]',
         'payment_method' => 'string',
         'payment_method_details' => 'string[]',
         'marketplace_id' => 'string',
@@ -93,8 +93,8 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
         'promise_response_due_date' => 'string',
         'is_estimated_ship_date_set' => 'bool',
         'is_sold_by_ab' => 'bool',
-        'default_ship_from_location_address' => '\Glue\SPAPI\OpenAPI\OrdersV0\Model\Address',
-        'fulfillment_instruction' => '\Glue\SPAPI\OpenAPI\OrdersV0\Model\FulfillmentInstruction',
+        'default_ship_from_location_address' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address',
+        'fulfillment_instruction' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\FulfillmentInstruction',
         'is_ispu' => 'bool'
     ];
 
@@ -783,7 +783,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets order_total
      *
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\Money|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getOrderTotal()
     {
@@ -793,7 +793,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets order_total
      *
-     * @param \Glue\SPAPI\OpenAPI\OrdersV0\Model\Money|null $order_total order_total
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $order_total order_total
      *
      * @return self
      */
@@ -855,7 +855,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets payment_execution_detail
      *
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\PaymentExecutionDetailItem[]|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\PaymentExecutionDetailItem[]|null
      */
     public function getPaymentExecutionDetail()
     {
@@ -865,7 +865,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets payment_execution_detail
      *
-     * @param \Glue\SPAPI\OpenAPI\OrdersV0\Model\PaymentExecutionDetailItem[]|null $payment_execution_detail A list of payment execution detail items.
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\PaymentExecutionDetailItem[]|null $payment_execution_detail A list of payment execution detail items.
      *
      * @return self
      */
@@ -1379,7 +1379,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets default_ship_from_location_address
      *
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\Address|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null
      */
     public function getDefaultShipFromLocationAddress()
     {
@@ -1389,7 +1389,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets default_ship_from_location_address
      *
-     * @param \Glue\SPAPI\OpenAPI\OrdersV0\Model\Address|null $default_ship_from_location_address default_ship_from_location_address
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null $default_ship_from_location_address default_ship_from_location_address
      *
      * @return self
      */
@@ -1403,7 +1403,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets fulfillment_instruction
      *
-     * @return \Glue\SPAPI\OpenAPI\OrdersV0\Model\FulfillmentInstruction|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\FulfillmentInstruction|null
      */
     public function getFulfillmentInstruction()
     {
@@ -1413,7 +1413,7 @@ class Order implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets fulfillment_instruction
      *
-     * @param \Glue\SPAPI\OpenAPI\OrdersV0\Model\FulfillmentInstruction|null $fulfillment_instruction fulfillment_instruction
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\FulfillmentInstruction|null $fulfillment_instruction fulfillment_instruction
      *
      * @return self
      */
