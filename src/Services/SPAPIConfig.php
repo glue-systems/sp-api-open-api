@@ -78,7 +78,7 @@ class SPAPIConfig
         foreach ($data as $field => $value) {
             // Validate the array argument matches the prescribed shape of the target config object,
             // to prevent potential introduction of bugs during development.
-            static::_validateFieldConstructable($field, $allowedFields);
+            static::validateFieldConstructable($field, $allowedFields);
             $config->{$field} = $value;
         }
 
@@ -90,7 +90,7 @@ class SPAPIConfig
      * @param array $allowedFields
      * @return void
      */
-    protected static function _validateFieldConstructable($field, array $allowedFields)
+    public static function validateFieldConstructable($field, array $allowedFields)
     {
         if (!array_key_exists($field, $allowedFields)) {
             $exceptionMessage = "Failed to construct config object from array:"
@@ -102,5 +102,13 @@ class SPAPIConfig
             $exceptionMessage .= " Allowed fields: [" . implode(', ', $allowedFields) . "].";
             throw new \RuntimeException("$exceptionMessage");
         }
+    }
+
+    /**
+     * @return string
+     */
+    public function userAgent()
+    {
+        return "$this->appNameAndVersion (Language=$this->appLanguageAndVersion)";
     }
 }
