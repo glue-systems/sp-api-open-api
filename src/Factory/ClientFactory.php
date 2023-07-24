@@ -1,6 +1,6 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI;
+namespace Glue\SPAPI\OpenAPI\Factory;
 
 use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Api\DefinitionsApi;
 use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Api\ListingsApi;
@@ -140,8 +140,9 @@ class ClientFactory implements ClientFactoryContract
     {
         $lwaAccessToken = $this->_getLwaAccessToken();
 
-        // TODO: Do we need to declare UTC globally as official timezone?
-        $formattedTimestamp = date('Ymd\THis\Z');
+        $now = new \DateTime('now', new \DateTimeZone('UTC'));
+
+        $formattedTimestamp = $now->format('Ymd\THis\Z');
 
         return $this->_makeGuzzleClient($lwaAccessToken, $formattedTimestamp);
     }

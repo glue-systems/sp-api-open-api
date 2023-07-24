@@ -1,6 +1,6 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI;
+namespace Glue\SPAPI\OpenAPI\Factory;
 
 use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Api\DefinitionsApi;
 use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Api\ListingsApi;
