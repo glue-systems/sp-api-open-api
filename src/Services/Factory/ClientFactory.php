@@ -93,7 +93,7 @@ class ClientFactory implements ClientFactoryContract
     {
         $clientConfig->setUserAgent($this->config->userAgent());
 
-        $clientConfig->setHost($this->config->apiBaseUrl);
+        $clientConfig->setHost($this->config->spApiBaseUrl);
 
         return $clientConfig;
     }

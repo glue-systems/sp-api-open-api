@@ -7,6 +7,21 @@ class SPAPIConfig
     /**
      * @var string
      */
+    public $spApiBaseUrl;
+
+    /**
+     * @var string
+     */
+    public $marketplaceId;
+
+    /**
+     * @var string
+     */
+    public $sellerId;
+
+    /**
+     * @var string
+     */
     public $lwaOAuthBaseUrl;
 
     /**
@@ -27,7 +42,12 @@ class SPAPIConfig
     /**
      * @var string
      */
-    public $apiBaseUrl;
+    public $awsAccessKeyId;
+
+    /**
+     * @var string
+     */
+    public $awsSecretAccessKey;
 
     /**
      * @var string
@@ -40,29 +60,14 @@ class SPAPIConfig
     public $appLanguageAndVersion;
 
     /**
-     * @var string
+     * @var bool
      */
-    public $awsAccessKeyId;
-
-    /**
-     * @var string
-     */
-    public $awsSecretAccessKey;
-
-    /**
-     * @var string
-     */
-    public $sellerId;
-
-    /**
-     * @var string
-     */
-    public $marketplaceId;
+    public $sandbox;
 
     /**
      * @var bool
      */
-    public $debug;
+    public $debug = false;
 
     /**
      * Create a new config object from an associative array.
@@ -101,6 +106,47 @@ class SPAPIConfig
             }
             $exceptionMessage .= " Allowed fields: [" . implode(', ', $allowedFields) . "].";
             throw new \RuntimeException("$exceptionMessage");
+        }
+    }
+
+    public function validateConfig()
+    {
+        $requiredStringFields = [
+            'spApiBaseUrl',
+            'marketplaceId',
+            'sellerId',
+            'lwaOAuthBaseUrl',
+            'lwaRefreshToken',
+            'lwaClientId',
+            'lwaClientSecret',
+            'awsAccessKeyId',
+            'awsSecretAccessKey',
+            'appNameAndVersion',
+            'appLanguageAndVersion',
+        ];
+
+        foreach ($requiredStringFields as $field) {
+            if (empty($this->{$field})) {
+                throw new \RuntimeException("Missing required string field '$field' in [" . self::class . '].'
+                    . ' Please check your env for missing values and verify the object is being instantiated properly.');
+            }
+        }
+
+        $requiredBoolFields = [
+            'sandbox',
+        ];
+
+        foreach ($requiredBoolFields as $field) {
+            if (!isset($this->{$field})) {
+                throw new \RuntimeException("Missing required bool field '$field' in [" . self::class . '].'
+                    . ' Please check your env for missing values and verify the object is being instantiated properly.');
+            }
+        }
+
+        if ($this->sandbox && !str_contains(strtolower($this->spApiBaseUrl), 'sandbox')) {
+            throw new \RuntimeException("Production URL detected! Invalid spApiBaseUrl '$this->spApiBaseUrl' when sandbox = true."
+                . " Please adjust your ENV to use the sandbox URL and associated credentials instead."
+                . " For more info, see the Amazon docs: https://developer-docs.amazon.com/amazon-shipping/docs/the-selling-partner-api-sandbox.");
         }
     }
 

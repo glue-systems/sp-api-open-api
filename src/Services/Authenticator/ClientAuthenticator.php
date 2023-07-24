@@ -35,6 +35,8 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     ) {
         $this->cache  = $cache;
         $this->config = $config;
+
+        $this->config->validateConfig();
     }
 
     /**
@@ -118,7 +120,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
         }));
 
         return new Client([
-            'base_uri' => $this->config->apiBaseUrl,
+            'base_uri' => $this->config->spApiBaseUrl,
             'debug'    => $this->config->debug,
             'headers'  => [
                 'x-amz-access-token' => $lwaAccessToken,
