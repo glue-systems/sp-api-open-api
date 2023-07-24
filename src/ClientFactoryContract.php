@@ -17,15 +17,15 @@ interface ClientFactoryContract
     /**
      * @return ListingsApi
      */
-    public function createListingsPatchApiClient();
+    public function createItemsListingsApiClient();
 
     /**
      * @return OrdersV0Api
      */
-    public function createOrdersApiClient();
+    public function createOrdersV0ApiClient();
 
     /**
      * @return DefinitionsApi
      */
-    public function createProductDefinitionsClient();
+    public function createDefinitionsProductTypesApiClient();
 }

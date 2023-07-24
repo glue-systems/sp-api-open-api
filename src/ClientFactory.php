@@ -63,7 +63,7 @@ class ClientFactory implements ClientFactoryContract
     /**
      * @return ListingsApi
      */
-    public function createListingsPatchApiClient()
+    public function createItemsListingsApiClient()
     {
         return new ListingsApi(
             $this->_createAuthenticatedGuzzleClient(),
@@ -74,7 +74,7 @@ class ClientFactory implements ClientFactoryContract
     /**
      * @return OrdersV0Api
      */
-    public function createOrdersApiClient()
+    public function createOrdersV0ApiClient()
     {
         return new OrdersV0Api(
             $this->_createAuthenticatedGuzzleClient(),
@@ -85,7 +85,7 @@ class ClientFactory implements ClientFactoryContract
     /**
      * @return DefinitionsApi
      */
-    public function createProductDefinitionsClient()
+    public function createDefinitionsProductTypesApiClient()
     {
         return new DefinitionsApi(
             $this->_createAuthenticatedGuzzleClient(),
