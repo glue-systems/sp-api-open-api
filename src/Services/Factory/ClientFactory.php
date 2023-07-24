@@ -1,6 +1,6 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI\Factory;
+namespace Glue\SPAPI\OpenAPI\Services\Factory;
 
 use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Api\DefinitionsApi;
 use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Api\ListingsApi;
@@ -17,6 +17,7 @@ use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Configuration as Definiti
 use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Configuration as ListingsItemsConfig;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Configuration as OrdersV0Config;
 use Glue\SPAPI\OpenAPI\Clients\SupplySources\Configuration as SupplySourcesConfig;
+use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 use Illuminate\Contracts\Cache\Store;
 use Psr\Http\Message\RequestInterface;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI\Factory;
+namespace Glue\SPAPI\OpenAPI\Services;
 
 class SPAPIConfig
 {
