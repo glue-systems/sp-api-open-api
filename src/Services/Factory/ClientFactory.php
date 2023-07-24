@@ -16,21 +16,21 @@ use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 class ClientFactory implements ClientFactoryContract
 {
     /**
-     * @var SPAPIConfig
-     */
-    protected $config;
-
-    /**
      * @var ClientAuthenticatorContract
      */
     protected $authenticator;
 
+    /**
+     * @var SPAPIConfig
+     */
+    protected $config;
+
     public function __construct(
-        SPAPIConfig $config,
-        ClientAuthenticatorContract $authenticator
+        ClientAuthenticatorContract $authenticator,
+        SPAPIConfig $config
     ) {
-        $this->config        = $config;
         $this->authenticator = $authenticator;
+        $this->config        = $config;
     }
 
     /**

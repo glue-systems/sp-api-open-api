@@ -20,21 +20,21 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     const CACHE_LIFE_BUFFER_IN_SECONDS = 60;
 
     /**
-     * @var SPAPIConfig
-     */
-    protected $config;
-
-    /**
      * @var Store
      */
     protected $cache;
 
+    /**
+     * @var SPAPIConfig
+     */
+    protected $config;
+
     public function __construct(
-        SPAPIConfig $config,
-        Store $cache
+        Store $cache,
+        SPAPIConfig $config
     ) {
-        $this->config = $config;
         $this->cache  = $cache;
+        $this->config = $config;
     }
 
     /**
