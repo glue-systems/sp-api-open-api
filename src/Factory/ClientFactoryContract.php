@@ -17,7 +17,7 @@ interface ClientFactoryContract
     /**
      * @return ListingsApi
      */
-    public function createItemsListingsApiClient();
+    public function createListingsItemsApiClient();
 
     /**
      * @return OrdersV0Api

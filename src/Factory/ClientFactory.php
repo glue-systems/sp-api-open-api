@@ -13,10 +13,10 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Support\Collection;
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Configuration as ProductDefinitionsConfig;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Configuration as ListingsPatchClientConfig;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Configuration as OrdersClientConfig;
-use Glue\SPAPI\OpenAPI\Clients\SupplySources\Configuration as SupplySourcesClientConfig;
+use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Configuration as DefinitionsProductTypesConfig;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Configuration as ListingsItemsConfig;
+use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Configuration as OrdersV0Config;
+use Glue\SPAPI\OpenAPI\Clients\SupplySources\Configuration as SupplySourcesConfig;
 use Illuminate\Contracts\Cache\Store;
 use Psr\Http\Message\RequestInterface;
 
@@ -25,9 +25,7 @@ class ClientFactory implements ClientFactoryContract
     const LWA_ACCESS_TOKEN_CACHE_KEY = 'lwa_access_token';
 
     /**
-     * TODO: Refactor config to named parameters?
-     * 
-     * @var \stdClass
+     * @var SPAPIConfig
      */
     protected $config;
 
@@ -44,6 +42,9 @@ class ClientFactory implements ClientFactoryContract
         $this->cache  = $cache;
     }
 
+    /**
+     * @return SPAPIConfig
+     */
     public function getConfig()
     {
         return $this->config;
@@ -56,18 +57,18 @@ class ClientFactory implements ClientFactoryContract
     {
         return new SupplySourcesApi(
             $this->_createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new SupplySourcesClientConfig())
+            $this->_setUpClientConfig(new SupplySourcesConfig())
         );
     }
 
     /**
      * @return ListingsApi
      */
-    public function createItemsListingsApiClient()
+    public function createListingsItemsApiClient()
     {
         return new ListingsApi(
             $this->_createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new ListingsPatchClientConfig())
+            $this->_setUpClientConfig(new ListingsItemsConfig())
         );
     }
 
@@ -78,7 +79,7 @@ class ClientFactory implements ClientFactoryContract
     {
         return new OrdersV0Api(
             $this->_createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new OrdersClientConfig())
+            $this->_setUpClientConfig(new OrdersV0Config())
         );
     }
 
@@ -89,7 +90,7 @@ class ClientFactory implements ClientFactoryContract
     {
         return new DefinitionsApi(
             $this->_createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new ProductDefinitionsConfig())
+            $this->_setUpClientConfig(new DefinitionsProductTypesConfig())
         );
     }
 
@@ -148,9 +149,11 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
+     * @param string $lwaAccessToken
+     * @param string $formattedTimestamp
      * @return ClientInterface
      */
-    protected function _makeGuzzleClient(string $lwaAccessToken, string $formattedTimestamp)
+    protected function _makeGuzzleClient($lwaAccessToken, $formattedTimestamp)
     {
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
@@ -175,11 +178,12 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
+     * @param string $formattedTimestamp
      * @return string
      */
     protected function _deriveAuthorizationHeader(
         RequestInterface $request,
-        string $formattedTimestamp
+        $formattedTimestamp
     ) {
         $date              = substr($formattedTimestamp, 0, 8);
         $algorithm         = 'AWS4-HMAC-SHA256';
@@ -190,11 +194,11 @@ class ClientFactory implements ClientFactoryContract
         $accessKeyId     = $this->config->awsAccessKeyId;
         $secretAccessKey = $this->config->awsSecretAccessKey;
 
-        [$canonicalRequest, $signedHeaders] = $this->_task1_createCanonicalRequest(
+        list($canonicalRequest, $signedHeaders) = $this->_task1_createCanonicalRequest(
             $request
         );
 
-        [$stringToSign, $credentialScope] = $this->_task2_createStringToSign(
+        list($stringToSign, $credentialScope) = $this->_task2_createStringToSign(
             $canonicalRequest,
             $region,
             $service,
@@ -219,6 +223,7 @@ class ClientFactory implements ClientFactoryContract
             $signedHeaders,
             $signature
         );
+
         return $authorizationHeader;
     }
 
@@ -251,15 +256,21 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
+     * @param string $canonicalRequest
+     * @param string $region
+     * @param string $service
+     * @param string $terminationString
+     * @param string $algorithm
+     * @param string $formattedTimestamp
      * @return array
      */
     protected function _task2_createStringToSign(
-        string $canonicalRequest,
-        string $region,
-        string $service,
-        string $terminationString,
-        string $algorithm,
-        string $formattedTimestamp
+        $canonicalRequest,
+        $region,
+        $service,
+        $terminationString,
+        $algorithm,
+        $formattedTimestamp
     ) {
         $date                   = substr($formattedTimestamp, 0, 8);
         $hashedCanonicalRequest = hash('sha256', $canonicalRequest);
@@ -285,15 +296,21 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
+     * @param string $secretAccessKey
+     * @param string $date
+     * @param string $region
+     * @param string $service
+     * @param string $terminationString
+     * @param string $stringToSign
      * @return string
      */
     protected function _task3_calculateSignature(
-        string $secretAccessKey,
-        string $date,
-        string $region,
-        string $service,
-        string $terminationString,
-        string $stringToSign
+        $secretAccessKey,
+        $date,
+        $region,
+        $service,
+        $terminationString,
+        $stringToSign
     ) {
         $kSecret  = $secretAccessKey;
         $kDate    = hash_hmac('sha256', $date, "AWS4" . $kSecret, true);
@@ -306,14 +323,19 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
+     * @param string $algorithm
+     * @param string $accessKeyId
+     * @param string $credentialScope
+     * @param string $signedHeaders
+     * @param string $signature
      * @return string
      */
     protected function _task4_buildAuthorizationHeader(
-        string $algorithm,
-        string $accessKeyId,
-        string $credentialScope,
-        string $signedHeaders,
-        string $signature
+        $algorithm,
+        $accessKeyId,
+        $credentialScope,
+        $signedHeaders,
+        $signature
     ) {
         return "$algorithm Credential=$accessKeyId/$credentialScope, SignedHeaders=$signedHeaders, Signature=$signature";
     }
@@ -355,12 +377,12 @@ class ClientFactory implements ClientFactoryContract
                     'paramKey'   => trim($paramKey),
                     'paramValue' => is_array($paramValue)
                         ? Collection::make($paramValue)
-                        ->sort(function (string $valueA, string $valueB) {
+                        ->sort(function ($valueA, $valueB) {
                             // Sort values by character code, not alphabetical order.
                             return $valueA > $valueB;
                         })
                         ->values()
-                        ->map(function (string $value) {
+                        ->map(function ($value) {
                             return trim($value);
                         })
                         ->toArray()
@@ -380,7 +402,7 @@ class ClientFactory implements ClientFactoryContract
                 $paramValue = $queryParam['paramValue'];
                 if (is_array($paramValue)) {
                     return Collection::make($paramValue)
-                        ->reduce(function (string $acc, string $curr) use ($encodedKey) {
+                        ->reduce(function ($acc, $curr) use ($encodedKey) {
                             $encodedValue = $this->_encodeQueryParamValue($curr);
                             $encodedPair  = $encodedKey . "[]=$encodedValue";
                             return $acc === ''
@@ -431,7 +453,7 @@ class ClientFactory implements ClientFactoryContract
         // (https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html)
         return $headers
             ->keys()
-            ->map(function (string $headerKey) {
+            ->map(function ($headerKey) {
                 return strtolower(trim($headerKey));
             })
             ->sort()
@@ -448,9 +470,10 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
+     * @param string $value
      * @return string
      */
-    protected function _encodeQueryParamValue(string $value)
+    protected function _encodeQueryParamValue($value)
     {
         // AWS wants query param values to be URL encoded once
         // but equals signs (=) to be encoded twice.
@@ -476,8 +499,8 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
-     * @param  ListingsPatchClientConfig|OrdersClientConfig|SupplySourcesClientConfig|ProductDefinitionsConfig  $clientConfig
-     * @return ListingsPatchClientConfig|OrdersClientConfig|SupplySourcesClientConfig|ProductDefinitionsConfig
+     * @param  ListingsItemsConfig|OrdersV0Config|SupplySourcesConfig|DefinitionsProductTypesConfig  $clientConfig
+     * @return ListingsItemsConfig|OrdersV0Config|SupplySourcesConfig|DefinitionsProductTypesConfig
      */
     protected function _setUpClientConfig($clientConfig)
     {
