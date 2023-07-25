@@ -437,7 +437,8 @@ class ClientAuthenticator implements ClientAuthenticatorContract
      */
     protected function _deriveHashedPayload(RequestInterface $request)
     {
-        $payload = (clone $request)->getBody()->getContents();
+        $requestCopy = clone $request;
+        $payload     = $requestCopy->getBody()->getContents();
         return hash('sha256', $payload);
     }
 
