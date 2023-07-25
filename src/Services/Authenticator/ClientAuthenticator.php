@@ -9,7 +9,7 @@ use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\RequestOptions;
-use Illuminate\Contracts\Cache\Store;
+use Illuminate\Cache\StoreInterface;
 use Illuminate\Support\Collection;
 use Psr\Http\Message\RequestInterface;
 
@@ -20,7 +20,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     const CACHE_LIFE_BUFFER_IN_SECONDS = 60;
 
     /**
-     * @var Store
+     * @var StoreInterface
      */
     protected $cache;
 
@@ -30,7 +30,8 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     protected $config;
 
     public function __construct(
-        Store $cache,
+        // TODO: Change to Illuminate\Contracts\Cache\Store in upgrading to PHP 7+.
+        StoreInterface $cache,
         SPAPIConfig $config
     ) {
         $this->cache  = $cache;
@@ -300,18 +301,21 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     protected function _deriveCanonicalUri(RequestInterface $request)
     {
         $uriPath = $request->getUri()->getPath();
+
         // Make sure uriPath starts with a forward slash.
         if (substr($uriPath, 0, 1) !== '/') {
             $uriPath = "/$uriPath";
         }
-        return Collection::make(explode('/', $uriPath))
+
+        $canonicalUriParts = Collection::make(explode('/', $uriPath))
             ->map(function ($routePathParam) {
                 // AWS wants this url-encoded twice according to RFC 3986. Since guzzle and the
                 // swagger-code-generated client seem to take care of url-encoding it once, this
                 // extra call serves as the second time it is encoded.
                 return rawurlencode($routePathParam);
-            })
-            ->implode('/');
+            })->toArray();
+
+        return implode('/', $canonicalUriParts);
     }
 
     /**
@@ -366,8 +370,10 @@ class ClientAuthenticator implements ClientAuthenticatorContract
                 }
                 $encodedValue = $this->_encodeQueryParamValue($paramValue);
                 return "$encodedKey=$encodedValue";
-            });
-        return $flattened->implode('&');
+            })
+            ->toArray();
+
+        return implode('&', $flattened);
     }
 
     /**
@@ -376,11 +382,18 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     protected function _deriveCanonicalHeaders(RequestInterface $request)
     {
         $headers = Collection::make($request->getHeaders());
+
+        // TODO: Shouldn't the order of this be swapped, to prevent bugs?
+
+        // Essentially the equivalent of calling Collection method sortKeys(),
+        // which doesn't exist in illuminate/support 4.2.*.
+        $headersSortedByKeys = $headers->toArray();
+        ksort($headersSortedByKeys);
+
         // AWS docs say to sort headers by character code, yet they also say to make them
         // lowercase first. Shouldn't a standard sort be fine in this case?
         // (https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html)
-        $canonicalHeadersList = $headers
-            ->sortKeys()
+        $canonicalHeadersList = Collection::make($headersSortedByKeys)
             ->map(function ($values, $key) {
                 $cleanValues = Collection::make($values)
                     ->map(function ($value) {
@@ -389,11 +402,14 @@ class ClientAuthenticator implements ClientAuthenticatorContract
                         $cleanValue   = trim($value);
                         $cleanerValue = preg_replace('!\s+!', ' ', $cleanValue);
                         return $cleanerValue;
-                    })
-                    ->implode(',');
-                return strtolower($key) . ":$cleanValues";
-            });
-        return $canonicalHeadersList->implode("\n") . "\n";
+                    })->toArray();
+
+                $implodedCleanValues = implode(',', $cleanValues);
+
+                return strtolower($key) . ":$implodedCleanValues";
+            })->toArray();
+
+        return implode("\n", $canonicalHeadersList) . "\n";
     }
 
     /**
@@ -402,16 +418,18 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     protected function _deriveSignedHeaders(RequestInterface $request)
     {
         $headers = Collection::make($request->getHeaders());
+
         // AWS docs say to sort headers by character code, yet they also say to make them
         // lowercase first. Shouldn't a standard sort be fine in this case?
         // (https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html)
-        return $headers
-            ->keys()
+        $cleanHeaders = Collection::make($headers->keys())
             ->map(function ($headerKey) {
                 return strtolower(trim($headerKey));
-            })
-            ->sort()
-            ->implode(';');
+            })->toArray();
+
+        sort($cleanHeaders);
+
+        return implode(';', $cleanHeaders);
     }
 
     /**

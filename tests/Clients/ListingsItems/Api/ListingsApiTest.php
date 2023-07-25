@@ -13,7 +13,8 @@ class ListingsApiTest extends TestCase
      */
     public $clientFactory;
 
-    public function setUp(): void
+    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
+    public function setUp()
     {
         parent::setup();
         $this->clientFactory = $this->buildClientFactory();

@@ -12,11 +12,21 @@ use Glue\SPAPI\OpenAPI\Services\Authenticator\ClientAuthenticator;
 use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 use Illuminate\Cache\ArrayStore;
-use PHPUnit\Framework\TestCase as BaseTestCase;
+// TODO: Switch to this after upgrading.
+// use PHPUnit\Framework\TestCase as BaseTestCase;
+use \PHPUnit_Framework_TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
-    public function setUp(): void
+    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
+    public function setUp()
+    {
+        $this->loadEnv();
+
+        require_once(__DIR__ . '/helpers.php');
+    }
+
+    public function loadEnv()
     {
         try {
             $dotEnv = Dotenv::create(
