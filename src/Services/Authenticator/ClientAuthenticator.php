@@ -113,12 +113,12 @@ class ClientAuthenticator implements ClientAuthenticatorContract
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
 
-        $stack->push(Middleware::mapRequest(function (RequestInterface $request) use (
-            $formattedTimestamp
-        ) {
-            $authorizationHeader = $this->_deriveAuthorizationHeader($request, $formattedTimestamp);
-            return $request->withHeader('Authorization', $authorizationHeader);
-        }));
+        $stack->push(Middleware::mapRequest(
+            function (RequestInterface $request) use ($formattedTimestamp) {
+                $authorizationHeader = $this->_deriveAuthorizationHeader($request, $formattedTimestamp);
+                return $request->withHeader('Authorization', $authorizationHeader);
+            }
+        ));
 
         return new Client([
             'base_uri' => $this->config->spApiBaseUrl,
@@ -126,7 +126,8 @@ class ClientAuthenticator implements ClientAuthenticatorContract
             'headers'  => [
                 'x-amz-access-token' => $lwaAccessToken,
                 'x-amz-date'         => $formattedTimestamp,
-                // (User-Agent and Host are set via each client's config object.)
+                // (User-Agent and Host are set downstream in the internals of the OpenAPI
+                // clients, using data captured in each client's config object.)
             ],
             'handler'  => $stack,
         ]);
@@ -331,7 +332,6 @@ class ClientAuthenticator implements ClientAuthenticatorContract
         $queryString = $uri->getQuery();
         $queryArray  = [];
         parse_str($queryString, $queryArray);
-        //        parse_str('foo[]=baz&foo[]=bar&fizz=buzz&Kiss[]=wut=up&Kiss[]=Ka&Lo=behold', $queryArray);
 
         $valuesSorted = Collection::make($queryArray)
             ->map(function ($paramValue, $paramKey) {
