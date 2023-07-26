@@ -3,6 +3,7 @@
 namespace Glue\SPAPI\OpenAPI\Services\Authenticator;
 
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
+use Glue\SPAPI\OpenAPI\Utilities\Collection;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Handler\CurlHandler;
@@ -10,7 +11,6 @@ use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\RequestOptions;
 use Illuminate\Cache\StoreInterface;
-use Illuminate\Support\Collection;
 use Psr\Http\Message\RequestInterface;
 
 class ClientAuthenticator implements ClientAuthenticatorContract
@@ -135,7 +135,8 @@ class ClientAuthenticator implements ClientAuthenticatorContract
 
     /**
      * Creates an authorization header, which is necessary for creating a signed request that
-     * meets the criteria described in the AWS IAM docs. For more information, see:
+     * meets the criteria described in the SP-API and AWS IAM docs. For more information, see:
+     * https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api#step-4-create-and-sign-your-request
      * https://docs.aws.amazon.com/IAM/latest/UserGuide/create-signed-request.html
      * 
      * @param string $formattedTimestamp
@@ -387,31 +388,27 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     {
         $headers = Collection::make($request->getHeaders());
 
-        // TODO: Shouldn't the order of this be swapped, to prevent bugs?
+        $cleanHeaders = $headers->mapWithKeys(function ($headerValues, $headerKey) {
+            $cleanHeaderValues = Collection::make($headerValues)
+                ->map(function ($value) {
+                    // Trims whitespace before and after headerValues,
+                    // and convert sequential spaces to a single space.
+                    $cleanValue   = trim($value);
+                    $cleanerValue = preg_replace('!\s+!', ' ', $cleanValue);
+                    return $cleanerValue;
+                })->toArray();
+            return [
+                strtolower($headerKey) => implode(',', $cleanHeaderValues),
+            ];
+        });
 
-        // Essentially the equivalent of calling Collection method sortKeys(),
-        // which doesn't exist in illuminate/support 4.2.*.
-        $headersSortedByKeys = $headers->toArray();
-        ksort($headersSortedByKeys);
-
-        // AWS docs say to sort headers by character code, yet they also say to make them
-        // lowercase first. Shouldn't a standard sort be fine in this case?
-        // (https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html)
-        $canonicalHeadersList = Collection::make($headersSortedByKeys)
-            ->map(function ($values, $key) {
-                $cleanValues = Collection::make($values)
-                    ->map(function ($value) {
-                        // Trims whitespace before and after values,
-                        // and convert sequential spaces to a single space.
-                        $cleanValue   = trim($value);
-                        $cleanerValue = preg_replace('!\s+!', ' ', $cleanValue);
-                        return $cleanerValue;
-                    })->toArray();
-
-                $implodedCleanValues = implode(',', $cleanValues);
-
-                return strtolower($key) . ":$implodedCleanValues";
-            })->toArray();
+        $canonicalHeadersList = $cleanHeaders
+            ->sortKeys()
+            ->map(function ($implodedCleanHeaderValues, $cleanHeaderKey) {
+                return "$cleanHeaderKey:$implodedCleanHeaderValues";
+            })
+            ->values()
+            ->toArray();
 
         return implode("\n", $canonicalHeadersList) . "\n";
     }
@@ -423,17 +420,14 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     {
         $headers = Collection::make($request->getHeaders());
 
-        // AWS docs say to sort headers by character code, yet they also say to make them
-        // lowercase first. Shouldn't a standard sort be fine in this case?
-        // (https://docs.aws.amazon.com/general/latest/gr/sigv4-create-canonical-request.html)
-        $cleanHeaders = Collection::make($headers->keys())
+        $cleanHeaderKeys = Collection::make($headers->keys())
             ->map(function ($headerKey) {
                 return strtolower(trim($headerKey));
             })->toArray();
 
-        sort($cleanHeaders);
+        sort($cleanHeaderKeys);
 
-        return implode(';', $cleanHeaders);
+        return implode(';', $cleanHeaderKeys);
     }
 
     /**
