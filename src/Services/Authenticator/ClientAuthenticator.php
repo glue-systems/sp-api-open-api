@@ -133,6 +133,10 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     }
 
     /**
+     * Creates an authorization header, which is necessary for creating a signed request that
+     * meets the criteria described in the AWS IAM docs. For more information, see:
+     * https://docs.aws.amazon.com/IAM/latest/UserGuide/create-signed-request.html
+     * 
      * @param string $formattedTimestamp
      * @return string
      */
