@@ -42,16 +42,6 @@ class SPAPIConfig
     /**
      * @var string
      */
-    public $awsAccessKeyId;
-
-    /**
-     * @var string
-     */
-    public $awsSecretAccessKey;
-
-    /**
-     * @var string
-     */
     public $appNameAndVersion;
 
     /**
@@ -119,8 +109,6 @@ class SPAPIConfig
             'lwaRefreshToken',
             'lwaClientId',
             'lwaClientSecret',
-            'awsAccessKeyId',
-            'awsSecretAccessKey',
             'appNameAndVersion',
             'appLanguageAndVersion',
         ];

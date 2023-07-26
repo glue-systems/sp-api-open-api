@@ -2,6 +2,8 @@
 
 namespace Tests;
 
+use Aws\Credentials\CredentialProvider;
+use Aws\Credentials\Credentials;
 use Dotenv\Dotenv;
 use Dotenv\Environment\Adapter\EnvConstAdapter;
 use Dotenv\Environment\Adapter\PutenvAdapter;
@@ -53,8 +55,6 @@ class TestCase extends BaseTestCase
             'lwaRefreshToken'       => env('LWA_REFRESH_TOKEN'),
             'lwaClientId'           => env('LWA_CLIENT_ID'),
             'lwaClientSecret'       => env('LWA_CLIENT_SECRET'),
-            'awsAccessKeyId'        => env('AWS_ACCESS_KEY_ID'),
-            'awsSecretAccessKey'    => env('AWS_SECRET_ACCESS_KEY'),
             'appNameAndVersion'     => env('APP_NAME_AND_VERSION', 'GLUE_TEST/0.0.1'),
             'appLanguageAndVersion' => env('APP_LANGUAGE_AND_VERSION', 'PHP/7.2'),
             // SANDBOX env is also set to true in phpunit.xml.
@@ -63,9 +63,23 @@ class TestCase extends BaseTestCase
         ]);
 
         $cacheStore          = new ArrayStore();
-        $clientAuthenticator = new ClientAuthenticator($cacheStore, $spApiConfig);
+        $credentialProvider  = $this->buildDotEnvCredentialProvider();
+        $clientAuthenticator = new ClientAuthenticator($cacheStore, $credentialProvider, $spApiConfig);
         $clientFactory       = new ClientFactory($clientAuthenticator, $spApiConfig);
 
         return $clientFactory;
+    }
+
+    /**
+     * @return callable
+     */
+    public function buildDotEnvCredentialProvider()
+    {
+        $credentials = new Credentials(
+            env('AWS_ACCESS_KEY_ID'),
+            env('AWS_SECRET_ACCESS_KEY')
+        );
+
+        return CredentialProvider::fromCredentials($credentials);
     }
 }
