@@ -2,12 +2,10 @@
 
 namespace Tests\Clients\OrdersV0\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Order;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrdersList;
 use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
-use GuzzleHttp\Psr7\Stream;
 use Tests\TestCase;
 
 class OrdersV0ApiTest extends TestCase
@@ -30,19 +28,11 @@ class OrdersV0ApiTest extends TestCase
         // Using this specific string value is a quirky requirement of the sandbox API:
         // https://github.com/amzn/selling-partner-api-docs/issues/2013#issuecomment-1190071175
         $createdAfter = 'TEST_CASE_200';
-        try {
-            $result = $ordersV0Api->getOrdersWithHttpInfo(
-                [$this->clientFactory->getConfig()->marketplaceId],
-                $createdAfter
-            );
-        } catch (ApiException $ex) {
-            $body = $ex->getResponseBody();
-            if ($body instanceof Stream) {
-                $contents = $body->getContents();
-                echo "\n\n$contents\n\n";
-            }
-            throw $ex;
-        }
+
+        $result = $ordersV0Api->getOrdersWithHttpInfo(
+            [$this->clientFactory->getConfig()->marketplaceId],
+            $createdAfter
+        );
 
         /**
          * @var GetOrdersResponse $response
