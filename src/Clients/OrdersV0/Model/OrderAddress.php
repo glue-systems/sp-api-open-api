@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Orders
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools.
+ * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API only supports orders that are less than two years old. Orders more than two years old will not show in the API response.
  *
  * OpenAPI spec version: v0
  * 
@@ -59,7 +59,9 @@ class OrderAddress implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'amazon_order_id' => 'string',
-        'shipping_address' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address'
+        'buyer_company_name' => 'string',
+        'shipping_address' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address',
+        'delivery_preferences' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences'
     ];
 
     /**
@@ -69,7 +71,9 @@ class OrderAddress implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'amazon_order_id' => null,
-        'shipping_address' => null
+        'buyer_company_name' => null,
+        'shipping_address' => null,
+        'delivery_preferences' => null
     ];
 
     /**
@@ -100,7 +104,9 @@ class OrderAddress implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'amazon_order_id' => 'AmazonOrderId',
-        'shipping_address' => 'ShippingAddress'
+        'buyer_company_name' => 'BuyerCompanyName',
+        'shipping_address' => 'ShippingAddress',
+        'delivery_preferences' => 'DeliveryPreferences'
     ];
 
     /**
@@ -110,7 +116,9 @@ class OrderAddress implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'amazon_order_id' => 'setAmazonOrderId',
-        'shipping_address' => 'setShippingAddress'
+        'buyer_company_name' => 'setBuyerCompanyName',
+        'shipping_address' => 'setShippingAddress',
+        'delivery_preferences' => 'setDeliveryPreferences'
     ];
 
     /**
@@ -120,7 +128,9 @@ class OrderAddress implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'amazon_order_id' => 'getAmazonOrderId',
-        'shipping_address' => 'getShippingAddress'
+        'buyer_company_name' => 'getBuyerCompanyName',
+        'shipping_address' => 'getShippingAddress',
+        'delivery_preferences' => 'getDeliveryPreferences'
     ];
 
     /**
@@ -184,7 +194,9 @@ class OrderAddress implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['amazon_order_id'] = isset($data['amazon_order_id']) ? $data['amazon_order_id'] : null;
+        $this->container['buyer_company_name'] = isset($data['buyer_company_name']) ? $data['buyer_company_name'] : null;
         $this->container['shipping_address'] = isset($data['shipping_address']) ? $data['shipping_address'] : null;
+        $this->container['delivery_preferences'] = isset($data['delivery_preferences']) ? $data['delivery_preferences'] : null;
     }
 
     /**
@@ -239,6 +251,30 @@ class OrderAddress implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets buyer_company_name
+     *
+     * @return string|null
+     */
+    public function getBuyerCompanyName()
+    {
+        return $this->container['buyer_company_name'];
+    }
+
+    /**
+     * Sets buyer_company_name
+     *
+     * @param string|null $buyer_company_name Company name of the destination address.
+     *
+     * @return $this
+     */
+    public function setBuyerCompanyName($buyer_company_name)
+    {
+        $this->container['buyer_company_name'] = $buyer_company_name;
+
+        return $this;
+    }
+
+    /**
      * Gets shipping_address
      *
      * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null
@@ -258,6 +294,30 @@ class OrderAddress implements ModelInterface, ArrayAccess
     public function setShippingAddress($shipping_address)
     {
         $this->container['shipping_address'] = $shipping_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets delivery_preferences
+     *
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences|null
+     */
+    public function getDeliveryPreferences()
+    {
+        return $this->container['delivery_preferences'];
+    }
+
+    /**
+     * Sets delivery_preferences
+     *
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences|null $delivery_preferences delivery_preferences
+     *
+     * @return $this
+     */
+    public function setDeliveryPreferences($delivery_preferences)
+    {
+        $this->container['delivery_preferences'] = $delivery_preferences;
 
         return $this;
     }

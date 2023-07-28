@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Orders
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools.
+ * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API only supports orders that are less than two years old. Orders more than two years old will not show in the API response.
  *
  * OpenAPI spec version: v0
  * 
@@ -260,7 +260,7 @@ class Error implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param string $message A message that describes the error condition in a human-readable form.
+     * @param string $message A message that describes the error condition.
      *
      * @return $this
      */

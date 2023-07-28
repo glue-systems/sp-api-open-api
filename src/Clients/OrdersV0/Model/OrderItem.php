@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Orders
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools.
+ * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API only supports orders that are less than two years old. Orders more than two years old will not show in the API response.
  *
  * OpenAPI spec version: v0
  * 
@@ -89,7 +89,10 @@ class OrderItem implements ModelInterface, ArrayAccess
         'is_transparency' => 'bool',
         'ioss_number' => 'string',
         'store_chain_store_id' => 'string',
-        'deemed_reseller_category' => 'string'
+        'deemed_reseller_category' => 'string',
+        'buyer_info' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo',
+        'buyer_requested_cancel' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel',
+        'serial_numbers' => 'string[]'
     ];
 
     /**
@@ -129,7 +132,10 @@ class OrderItem implements ModelInterface, ArrayAccess
         'is_transparency' => null,
         'ioss_number' => null,
         'store_chain_store_id' => null,
-        'deemed_reseller_category' => null
+        'deemed_reseller_category' => null,
+        'buyer_info' => null,
+        'buyer_requested_cancel' => null,
+        'serial_numbers' => null
     ];
 
     /**
@@ -190,7 +196,10 @@ class OrderItem implements ModelInterface, ArrayAccess
         'is_transparency' => 'IsTransparency',
         'ioss_number' => 'IossNumber',
         'store_chain_store_id' => 'StoreChainStoreId',
-        'deemed_reseller_category' => 'DeemedResellerCategory'
+        'deemed_reseller_category' => 'DeemedResellerCategory',
+        'buyer_info' => 'BuyerInfo',
+        'buyer_requested_cancel' => 'BuyerRequestedCancel',
+        'serial_numbers' => 'SerialNumbers'
     ];
 
     /**
@@ -230,7 +239,10 @@ class OrderItem implements ModelInterface, ArrayAccess
         'is_transparency' => 'setIsTransparency',
         'ioss_number' => 'setIossNumber',
         'store_chain_store_id' => 'setStoreChainStoreId',
-        'deemed_reseller_category' => 'setDeemedResellerCategory'
+        'deemed_reseller_category' => 'setDeemedResellerCategory',
+        'buyer_info' => 'setBuyerInfo',
+        'buyer_requested_cancel' => 'setBuyerRequestedCancel',
+        'serial_numbers' => 'setSerialNumbers'
     ];
 
     /**
@@ -270,7 +282,10 @@ class OrderItem implements ModelInterface, ArrayAccess
         'is_transparency' => 'getIsTransparency',
         'ioss_number' => 'getIossNumber',
         'store_chain_store_id' => 'getStoreChainStoreId',
-        'deemed_reseller_category' => 'getDeemedResellerCategory'
+        'deemed_reseller_category' => 'getDeemedResellerCategory',
+        'buyer_info' => 'getBuyerInfo',
+        'buyer_requested_cancel' => 'getBuyerRequestedCancel',
+        'serial_numbers' => 'getSerialNumbers'
     ];
 
     /**
@@ -380,6 +395,9 @@ class OrderItem implements ModelInterface, ArrayAccess
         $this->container['ioss_number'] = isset($data['ioss_number']) ? $data['ioss_number'] : null;
         $this->container['store_chain_store_id'] = isset($data['store_chain_store_id']) ? $data['store_chain_store_id'] : null;
         $this->container['deemed_reseller_category'] = isset($data['deemed_reseller_category']) ? $data['deemed_reseller_category'] : null;
+        $this->container['buyer_info'] = isset($data['buyer_info']) ? $data['buyer_info'] : null;
+        $this->container['buyer_requested_cancel'] = isset($data['buyer_requested_cancel']) ? $data['buyer_requested_cancel'] : null;
+        $this->container['serial_numbers'] = isset($data['serial_numbers']) ? $data['serial_numbers'] : null;
     }
 
     /**
@@ -1132,7 +1150,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets ioss_number
      *
-     * @param string|null $ioss_number The IOSS number of the seller. Sellers selling in the EU will be assigned a unique IOSS number that must be listed on all packages sent to the EU.
+     * @param string|null $ioss_number The IOSS number for the marketplace. Sellers shipping to the European Union (EU) from outside of the EU must provide this IOSS number to their carrier when Amazon has collected the VAT on the sale.
      *
      * @return $this
      */
@@ -1196,6 +1214,78 @@ class OrderItem implements ModelInterface, ArrayAccess
             );
         }
         $this->container['deemed_reseller_category'] = $deemed_reseller_category;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_info
+     *
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo|null
+     */
+    public function getBuyerInfo()
+    {
+        return $this->container['buyer_info'];
+    }
+
+    /**
+     * Sets buyer_info
+     *
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo|null $buyer_info buyer_info
+     *
+     * @return $this
+     */
+    public function setBuyerInfo($buyer_info)
+    {
+        $this->container['buyer_info'] = $buyer_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_requested_cancel
+     *
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel|null
+     */
+    public function getBuyerRequestedCancel()
+    {
+        return $this->container['buyer_requested_cancel'];
+    }
+
+    /**
+     * Sets buyer_requested_cancel
+     *
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel|null $buyer_requested_cancel buyer_requested_cancel
+     *
+     * @return $this
+     */
+    public function setBuyerRequestedCancel($buyer_requested_cancel)
+    {
+        $this->container['buyer_requested_cancel'] = $buyer_requested_cancel;
+
+        return $this;
+    }
+
+    /**
+     * Gets serial_numbers
+     *
+     * @return string[]|null
+     */
+    public function getSerialNumbers()
+    {
+        return $this->container['serial_numbers'];
+    }
+
+    /**
+     * Sets serial_numbers
+     *
+     * @param string[]|null $serial_numbers A list of serial numbers for electronic products that are shipped to customers. Returned for FBA orders only.
+     *
+     * @return $this
+     */
+    public function setSerialNumbers($serial_numbers)
+    {
+        $this->container['serial_numbers'] = $serial_numbers;
 
         return $this;
     }

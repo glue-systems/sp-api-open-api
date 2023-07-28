@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Orders
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools.
+ * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API only supports orders that are less than two years old. Orders more than two years old will not show in the API response.
  *
  * OpenAPI spec version: v0
  * 
@@ -75,7 +75,7 @@ class Order implements ModelInterface, ArrayAccess
         'payment_method_details' => 'string[]',
         'marketplace_id' => 'string',
         'shipment_service_level_category' => 'string',
-        'easy_ship_shipment_status' => 'string',
+        'easy_ship_shipment_status' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\EasyShipShipmentStatus',
         'cba_displayable_shipping_label' => 'string',
         'order_type' => 'string',
         'earliest_ship_date' => 'string',
@@ -91,9 +91,20 @@ class Order implements ModelInterface, ArrayAccess
         'promise_response_due_date' => 'string',
         'is_estimated_ship_date_set' => 'bool',
         'is_sold_by_ab' => 'bool',
+        'is_iba' => 'bool',
         'default_ship_from_location_address' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address',
+        'buyer_invoice_preference' => 'string',
+        'buyer_tax_information' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInformation',
         'fulfillment_instruction' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\FulfillmentInstruction',
-        'is_ispu' => 'bool'
+        'is_ispu' => 'bool',
+        'is_access_point_order' => 'bool',
+        'marketplace_tax_info' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\MarketplaceTaxInfo',
+        'seller_display_name' => 'string',
+        'shipping_address' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address',
+        'buyer_info' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerInfo',
+        'automated_shipping_settings' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\AutomatedShippingSettings',
+        'has_regulated_items' => 'bool',
+        'electronic_invoice_status' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ElectronicInvoiceStatus'
     ];
 
     /**
@@ -135,9 +146,20 @@ class Order implements ModelInterface, ArrayAccess
         'promise_response_due_date' => null,
         'is_estimated_ship_date_set' => null,
         'is_sold_by_ab' => null,
+        'is_iba' => null,
         'default_ship_from_location_address' => null,
+        'buyer_invoice_preference' => null,
+        'buyer_tax_information' => null,
         'fulfillment_instruction' => null,
-        'is_ispu' => null
+        'is_ispu' => null,
+        'is_access_point_order' => null,
+        'marketplace_tax_info' => null,
+        'seller_display_name' => null,
+        'shipping_address' => null,
+        'buyer_info' => null,
+        'automated_shipping_settings' => null,
+        'has_regulated_items' => null,
+        'electronic_invoice_status' => null
     ];
 
     /**
@@ -200,9 +222,20 @@ class Order implements ModelInterface, ArrayAccess
         'promise_response_due_date' => 'PromiseResponseDueDate',
         'is_estimated_ship_date_set' => 'IsEstimatedShipDateSet',
         'is_sold_by_ab' => 'IsSoldByAB',
+        'is_iba' => 'IsIBA',
         'default_ship_from_location_address' => 'DefaultShipFromLocationAddress',
+        'buyer_invoice_preference' => 'BuyerInvoicePreference',
+        'buyer_tax_information' => 'BuyerTaxInformation',
         'fulfillment_instruction' => 'FulfillmentInstruction',
-        'is_ispu' => 'IsISPU'
+        'is_ispu' => 'IsISPU',
+        'is_access_point_order' => 'IsAccessPointOrder',
+        'marketplace_tax_info' => 'MarketplaceTaxInfo',
+        'seller_display_name' => 'SellerDisplayName',
+        'shipping_address' => 'ShippingAddress',
+        'buyer_info' => 'BuyerInfo',
+        'automated_shipping_settings' => 'AutomatedShippingSettings',
+        'has_regulated_items' => 'HasRegulatedItems',
+        'electronic_invoice_status' => 'ElectronicInvoiceStatus'
     ];
 
     /**
@@ -244,9 +277,20 @@ class Order implements ModelInterface, ArrayAccess
         'promise_response_due_date' => 'setPromiseResponseDueDate',
         'is_estimated_ship_date_set' => 'setIsEstimatedShipDateSet',
         'is_sold_by_ab' => 'setIsSoldByAb',
+        'is_iba' => 'setIsIba',
         'default_ship_from_location_address' => 'setDefaultShipFromLocationAddress',
+        'buyer_invoice_preference' => 'setBuyerInvoicePreference',
+        'buyer_tax_information' => 'setBuyerTaxInformation',
         'fulfillment_instruction' => 'setFulfillmentInstruction',
-        'is_ispu' => 'setIsIspu'
+        'is_ispu' => 'setIsIspu',
+        'is_access_point_order' => 'setIsAccessPointOrder',
+        'marketplace_tax_info' => 'setMarketplaceTaxInfo',
+        'seller_display_name' => 'setSellerDisplayName',
+        'shipping_address' => 'setShippingAddress',
+        'buyer_info' => 'setBuyerInfo',
+        'automated_shipping_settings' => 'setAutomatedShippingSettings',
+        'has_regulated_items' => 'setHasRegulatedItems',
+        'electronic_invoice_status' => 'setElectronicInvoiceStatus'
     ];
 
     /**
@@ -288,9 +332,20 @@ class Order implements ModelInterface, ArrayAccess
         'promise_response_due_date' => 'getPromiseResponseDueDate',
         'is_estimated_ship_date_set' => 'getIsEstimatedShipDateSet',
         'is_sold_by_ab' => 'getIsSoldByAb',
+        'is_iba' => 'getIsIba',
         'default_ship_from_location_address' => 'getDefaultShipFromLocationAddress',
+        'buyer_invoice_preference' => 'getBuyerInvoicePreference',
+        'buyer_tax_information' => 'getBuyerTaxInformation',
         'fulfillment_instruction' => 'getFulfillmentInstruction',
-        'is_ispu' => 'getIsIspu'
+        'is_ispu' => 'getIsIspu',
+        'is_access_point_order' => 'getIsAccessPointOrder',
+        'marketplace_tax_info' => 'getMarketplaceTaxInfo',
+        'seller_display_name' => 'getSellerDisplayName',
+        'shipping_address' => 'getShippingAddress',
+        'buyer_info' => 'getBuyerInfo',
+        'automated_shipping_settings' => 'getAutomatedShippingSettings',
+        'has_regulated_items' => 'getHasRegulatedItems',
+        'electronic_invoice_status' => 'getElectronicInvoiceStatus'
     ];
 
     /**
@@ -352,6 +407,8 @@ class Order implements ModelInterface, ArrayAccess
     const ORDER_TYPE_PREORDER = 'Preorder';
     const ORDER_TYPE_BACK_ORDER = 'BackOrder';
     const ORDER_TYPE_SOURCING_ON_DEMAND_ORDER = 'SourcingOnDemandOrder';
+    const BUYER_INVOICE_PREFERENCE_INDIVIDUAL = 'INDIVIDUAL';
+    const BUYER_INVOICE_PREFERENCE_BUSINESS = 'BUSINESS';
     
 
     
@@ -417,6 +474,19 @@ class Order implements ModelInterface, ArrayAccess
         ];
     }
     
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getBuyerInvoicePreferenceAllowableValues()
+    {
+        return [
+            self::BUYER_INVOICE_PREFERENCE_INDIVIDUAL,
+            self::BUYER_INVOICE_PREFERENCE_BUSINESS,
+        ];
+    }
+    
 
     /**
      * Associative array for storing property values
@@ -466,9 +536,20 @@ class Order implements ModelInterface, ArrayAccess
         $this->container['promise_response_due_date'] = isset($data['promise_response_due_date']) ? $data['promise_response_due_date'] : null;
         $this->container['is_estimated_ship_date_set'] = isset($data['is_estimated_ship_date_set']) ? $data['is_estimated_ship_date_set'] : null;
         $this->container['is_sold_by_ab'] = isset($data['is_sold_by_ab']) ? $data['is_sold_by_ab'] : null;
+        $this->container['is_iba'] = isset($data['is_iba']) ? $data['is_iba'] : null;
         $this->container['default_ship_from_location_address'] = isset($data['default_ship_from_location_address']) ? $data['default_ship_from_location_address'] : null;
+        $this->container['buyer_invoice_preference'] = isset($data['buyer_invoice_preference']) ? $data['buyer_invoice_preference'] : null;
+        $this->container['buyer_tax_information'] = isset($data['buyer_tax_information']) ? $data['buyer_tax_information'] : null;
         $this->container['fulfillment_instruction'] = isset($data['fulfillment_instruction']) ? $data['fulfillment_instruction'] : null;
         $this->container['is_ispu'] = isset($data['is_ispu']) ? $data['is_ispu'] : null;
+        $this->container['is_access_point_order'] = isset($data['is_access_point_order']) ? $data['is_access_point_order'] : null;
+        $this->container['marketplace_tax_info'] = isset($data['marketplace_tax_info']) ? $data['marketplace_tax_info'] : null;
+        $this->container['seller_display_name'] = isset($data['seller_display_name']) ? $data['seller_display_name'] : null;
+        $this->container['shipping_address'] = isset($data['shipping_address']) ? $data['shipping_address'] : null;
+        $this->container['buyer_info'] = isset($data['buyer_info']) ? $data['buyer_info'] : null;
+        $this->container['automated_shipping_settings'] = isset($data['automated_shipping_settings']) ? $data['automated_shipping_settings'] : null;
+        $this->container['has_regulated_items'] = isset($data['has_regulated_items']) ? $data['has_regulated_items'] : null;
+        $this->container['electronic_invoice_status'] = isset($data['electronic_invoice_status']) ? $data['electronic_invoice_status'] : null;
     }
 
     /**
@@ -520,6 +601,14 @@ class Order implements ModelInterface, ArrayAccess
         if (!is_null($this->container['order_type']) && !in_array($this->container['order_type'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
                 "invalid value for 'order_type', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        $allowedValues = $this->getBuyerInvoicePreferenceAllowableValues();
+        if (!is_null($this->container['buyer_invoice_preference']) && !in_array($this->container['buyer_invoice_preference'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'buyer_invoice_preference', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -624,7 +713,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets last_update_date
      *
-     * @param string $last_update_date The date when the order was last updated.  Note: LastUpdateDate is returned with an incorrect date for orders that were last updated before 2009-04-01.
+     * @param string $last_update_date The date when the order was last updated.  __Note__: LastUpdateDate is returned with an incorrect date for orders that were last updated before 2009-04-01.
      *
      * @return $this
      */
@@ -977,7 +1066,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets easy_ship_shipment_status
      *
-     * @return string|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\EasyShipShipmentStatus|null
      */
     public function getEasyShipShipmentStatus()
     {
@@ -987,7 +1076,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets easy_ship_shipment_status
      *
-     * @param string|null $easy_ship_shipment_status The status of the Amazon Easy Ship order. This property is included only for Amazon Easy Ship orders.  Possible values: PendingPickUp, LabelCanceled, PickedUp, OutForDelivery, Damaged, Delivered, RejectedByBuyer, Undeliverable, ReturnedToSeller, ReturningToSeller.
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\EasyShipShipmentStatus|null $easy_ship_shipment_status easy_ship_shipment_status
      *
      * @return $this
      */
@@ -1068,7 +1157,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets earliest_ship_date
      *
-     * @param string|null $earliest_ship_date The start of the time period within which you have committed to ship the order. In ISO 8601 date time format. Returned only for seller-fulfilled orders.  Note: EarliestShipDate might not be returned for orders placed before February 1, 2013.
+     * @param string|null $earliest_ship_date The start of the time period within which you have committed to ship the order. In ISO 8601 date time format. Returned only for seller-fulfilled orders.  __Note__: EarliestShipDate might not be returned for orders placed before February 1, 2013.
      *
      * @return $this
      */
@@ -1092,7 +1181,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets latest_ship_date
      *
-     * @param string|null $latest_ship_date The end of the time period within which you have committed to ship the order. In ISO 8601 date time format. Returned only for seller-fulfilled orders.  Note: LatestShipDate might not be returned for orders placed before February 1, 2013.
+     * @param string|null $latest_ship_date The end of the time period within which you have committed to ship the order. In ISO 8601 date time format. Returned only for seller-fulfilled orders.  __Note__: LatestShipDate might not be returned for orders placed before February 1, 2013.
      *
      * @return $this
      */
@@ -1368,6 +1457,30 @@ class Order implements ModelInterface, ArrayAccess
     }
 
     /**
+     * Gets is_iba
+     *
+     * @return bool|null
+     */
+    public function getIsIba()
+    {
+        return $this->container['is_iba'];
+    }
+
+    /**
+     * Sets is_iba
+     *
+     * @param bool|null $is_iba When true, the item within this order was bought and re-sold by Amazon Business EU SARL (ABEU). By buying and instantly re-selling your items, ABEU becomes the seller of record, making your inventory available for sale to customers who would not otherwise purchase from a third-party seller.
+     *
+     * @return $this
+     */
+    public function setIsIba($is_iba)
+    {
+        $this->container['is_iba'] = $is_iba;
+
+        return $this;
+    }
+
+    /**
      * Gets default_ship_from_location_address
      *
      * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null
@@ -1387,6 +1500,63 @@ class Order implements ModelInterface, ArrayAccess
     public function setDefaultShipFromLocationAddress($default_ship_from_location_address)
     {
         $this->container['default_ship_from_location_address'] = $default_ship_from_location_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_invoice_preference
+     *
+     * @return string|null
+     */
+    public function getBuyerInvoicePreference()
+    {
+        return $this->container['buyer_invoice_preference'];
+    }
+
+    /**
+     * Sets buyer_invoice_preference
+     *
+     * @param string|null $buyer_invoice_preference The buyer's invoicing preference. Available only in the TR marketplace.
+     *
+     * @return $this
+     */
+    public function setBuyerInvoicePreference($buyer_invoice_preference)
+    {
+        $allowedValues = $this->getBuyerInvoicePreferenceAllowableValues();
+        if (!is_null($buyer_invoice_preference) && !in_array($buyer_invoice_preference, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'buyer_invoice_preference', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['buyer_invoice_preference'] = $buyer_invoice_preference;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_tax_information
+     *
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInformation|null
+     */
+    public function getBuyerTaxInformation()
+    {
+        return $this->container['buyer_tax_information'];
+    }
+
+    /**
+     * Sets buyer_tax_information
+     *
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInformation|null $buyer_tax_information buyer_tax_information
+     *
+     * @return $this
+     */
+    public function setBuyerTaxInformation($buyer_tax_information)
+    {
+        $this->container['buyer_tax_information'] = $buyer_tax_information;
 
         return $this;
     }
@@ -1435,6 +1605,198 @@ class Order implements ModelInterface, ArrayAccess
     public function setIsIspu($is_ispu)
     {
         $this->container['is_ispu'] = $is_ispu;
+
+        return $this;
+    }
+
+    /**
+     * Gets is_access_point_order
+     *
+     * @return bool|null
+     */
+    public function getIsAccessPointOrder()
+    {
+        return $this->container['is_access_point_order'];
+    }
+
+    /**
+     * Sets is_access_point_order
+     *
+     * @param bool|null $is_access_point_order When true, this order is marked to be delivered to an Access Point. The access location is chosen by the customer. Access Points include Amazon Hub Lockers, Amazon Hub Counters, and pickup points operated by carriers.
+     *
+     * @return $this
+     */
+    public function setIsAccessPointOrder($is_access_point_order)
+    {
+        $this->container['is_access_point_order'] = $is_access_point_order;
+
+        return $this;
+    }
+
+    /**
+     * Gets marketplace_tax_info
+     *
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\MarketplaceTaxInfo|null
+     */
+    public function getMarketplaceTaxInfo()
+    {
+        return $this->container['marketplace_tax_info'];
+    }
+
+    /**
+     * Sets marketplace_tax_info
+     *
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\MarketplaceTaxInfo|null $marketplace_tax_info marketplace_tax_info
+     *
+     * @return $this
+     */
+    public function setMarketplaceTaxInfo($marketplace_tax_info)
+    {
+        $this->container['marketplace_tax_info'] = $marketplace_tax_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets seller_display_name
+     *
+     * @return string|null
+     */
+    public function getSellerDisplayName()
+    {
+        return $this->container['seller_display_name'];
+    }
+
+    /**
+     * Sets seller_display_name
+     *
+     * @param string|null $seller_display_name The seller’s friendly name registered in the marketplace.
+     *
+     * @return $this
+     */
+    public function setSellerDisplayName($seller_display_name)
+    {
+        $this->container['seller_display_name'] = $seller_display_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets shipping_address
+     *
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null
+     */
+    public function getShippingAddress()
+    {
+        return $this->container['shipping_address'];
+    }
+
+    /**
+     * Sets shipping_address
+     *
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null $shipping_address shipping_address
+     *
+     * @return $this
+     */
+    public function setShippingAddress($shipping_address)
+    {
+        $this->container['shipping_address'] = $shipping_address;
+
+        return $this;
+    }
+
+    /**
+     * Gets buyer_info
+     *
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerInfo|null
+     */
+    public function getBuyerInfo()
+    {
+        return $this->container['buyer_info'];
+    }
+
+    /**
+     * Sets buyer_info
+     *
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerInfo|null $buyer_info buyer_info
+     *
+     * @return $this
+     */
+    public function setBuyerInfo($buyer_info)
+    {
+        $this->container['buyer_info'] = $buyer_info;
+
+        return $this;
+    }
+
+    /**
+     * Gets automated_shipping_settings
+     *
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\AutomatedShippingSettings|null
+     */
+    public function getAutomatedShippingSettings()
+    {
+        return $this->container['automated_shipping_settings'];
+    }
+
+    /**
+     * Sets automated_shipping_settings
+     *
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\AutomatedShippingSettings|null $automated_shipping_settings automated_shipping_settings
+     *
+     * @return $this
+     */
+    public function setAutomatedShippingSettings($automated_shipping_settings)
+    {
+        $this->container['automated_shipping_settings'] = $automated_shipping_settings;
+
+        return $this;
+    }
+
+    /**
+     * Gets has_regulated_items
+     *
+     * @return bool|null
+     */
+    public function getHasRegulatedItems()
+    {
+        return $this->container['has_regulated_items'];
+    }
+
+    /**
+     * Sets has_regulated_items
+     *
+     * @param bool|null $has_regulated_items Whether the order contains regulated items which may require additional approval steps before being fulfilled.
+     *
+     * @return $this
+     */
+    public function setHasRegulatedItems($has_regulated_items)
+    {
+        $this->container['has_regulated_items'] = $has_regulated_items;
+
+        return $this;
+    }
+
+    /**
+     * Gets electronic_invoice_status
+     *
+     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ElectronicInvoiceStatus|null
+     */
+    public function getElectronicInvoiceStatus()
+    {
+        return $this->container['electronic_invoice_status'];
+    }
+
+    /**
+     * Sets electronic_invoice_status
+     *
+     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ElectronicInvoiceStatus|null $electronic_invoice_status electronic_invoice_status
+     *
+     * @return $this
+     */
+    public function setElectronicInvoiceStatus($electronic_invoice_status)
+    {
+        $this->container['electronic_invoice_status'] = $electronic_invoice_status;
 
         return $this;
     }
