@@ -57,11 +57,16 @@ class SPAPIConfig
     /**
      * @var bool
      */
-    public $debug = false;
+    public $debugDomainApiCall = false;
+
+    /**
+     * @var bool
+     */
+    public $debugOAuthApiCall = false;
 
     /**
      * Create a new config object from an associative array.
-     * 
+     *
      * @param array $data
      * @return SPAPIConfig
      */

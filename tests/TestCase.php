@@ -20,9 +20,18 @@ use \PHPUnit_Framework_TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
+    /**
+     * @var ArrayStore
+     */
+    public static $arrayCache;
+
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
+        if (!self::$arrayCache instanceof ArrayStore) {
+            self::$arrayCache = new ArrayStore();
+        }
+
         $this->loadEnv();
 
         require_once(__DIR__ . '/helpers.php');
@@ -59,12 +68,15 @@ class TestCase extends BaseTestCase
             'appLanguageAndVersion' => env('APP_LANGUAGE_AND_VERSION', 'PHP/7.2'),
             // SANDBOX env is also set to true in phpunit.xml.
             'sandbox'               => true,
-            'debug'                 => env('DEBUG', false),
+            'debugDomainApiCall'    => env('DEBUG_DOMAIN_API_CALL', false),
+            'debugOAuthApiCall'     => env('DEBUG_O_AUTH_API_CALL', false),
         ]);
 
-        $cacheStore          = new ArrayStore();
+        if (env('TESTING_ALWAYS_RESET_ARRAY_CACHE', false)) {
+            self::$arrayCache = new ArrayStore();
+        }
         $credentialProvider  = $this->buildDotEnvCredentialProvider();
-        $clientAuthenticator = new ClientAuthenticator($cacheStore, $credentialProvider, $spApiConfig);
+        $clientAuthenticator = new ClientAuthenticator(self::$arrayCache, $credentialProvider, $spApiConfig);
         $clientFactory       = new ClientFactory($clientAuthenticator, $spApiConfig);
 
         return $clientFactory;

@@ -82,6 +82,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     {
         $guzzle = new Client([
             'base_uri' => $this->config->lwaOAuthBaseUrl,
+            'debug'    => $this->config->debugOAuthApiCall,
         ]);
 
         $response = $guzzle->request('POST', '/auth/o2/token', [
@@ -134,7 +135,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
 
         return new Client([
             'base_uri' => $this->config->spApiBaseUrl,
-            'debug'    => $this->config->debug,
+            'debug'    => $this->config->debugDomainApiCall,
             'headers'  => [
                 'x-amz-access-token' => $lwaAccessToken,
                 'x-amz-date'         => $formattedTimestamp,
