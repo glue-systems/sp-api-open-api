@@ -14,11 +14,11 @@ As new versions are released for each of the SP-API domains, it will be necessar
 ### Installing Legacy Versions of OpenAPI Generator
 The official docs for version 3.3.4 can be found here: https://github.com/OpenAPITools/openapi-generator/tree/2353d71d4b02be6dbabe25aac1a9e56eb3b812a2
 
-One caveat is that the URL provided for downloading the Java JAR file is invalid -- particularly, the `central.maven.org` subdomain and the `http` protocol no longer work. However, if you change the subdomain to `https://repo1.maven.org` and leave the rest of the URL the same, it should download properly.
+One caveat is that the URL provided for downloading the Java JAR file is invalid -- particularly, the `central.maven.org` subdomain and the `http` protocol no longer work. However, if you change the subdomain with protocol to `https://repo1.maven.org` and leave the rest of the URL the same, it should download properly.
 
 You may find it helpful in your environment to download multiple versions of the JAR file into a dedicated `bin` folder, preserving the version number in the file name itself. This would allow you to use a Bash alias to associate `openapi-generator-cli` with the desired JAR file version depending on your needs.
 
-Example download script for Linux & Mac:
+Example download script for Linux & Mac for version 3.3.4 of the Java JAR file:
 
 ```BASH
 wget https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/3.3.4/openapi-generator-cli-3.3.4.jar -O openapi-generator-cli-3.3.4.jar
@@ -34,10 +34,10 @@ alias openapi-generator-cli='java -jar /path/to/your/bin/openapi-generator-cli-3
 ### Steps for Making Changes via OpenAPI Generator CLI
 
 1. Install [the OpenAPI Generator CLI tool](https://openapi-generator.tech/docs/installation).
-    - For installing a legacy version, see section [Installing Legacy Versions of OpenAPI Generator](#installing-legacy-versions-of-openapi-generator).
+    - For instructions on installing a legacy version, see section [Installing Legacy Versions of OpenAPI Generator](#installing-legacy-versions-of-openapi-generator).
 2. `cd` to the root of your cloned instance of this repository.
-2. Clear out any existing code in your git-ignored `output` sub-directory.
-3. Using your OpenAPI Generator CLI tool, generate the API client package in the following manner:
+3. Clear out any existing code in your git-ignored `output` sub-directory.
+4. Using your OpenAPI Generator CLI tool, generate the API client package follwing the template below:
 
 ```BASH
 openapi-generator-cli generate -i models/[OPENAPI_SCHEMA_NAME.json] -g php -o output/[DOMAIN_SUB_NAMESPACE] --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\[DOMAIN_SUB_NAMESPACE]"
