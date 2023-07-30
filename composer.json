@@ -10,7 +10,7 @@
         "php",
         "client"
     ],
-    "license": "unlicense",
+    "license": "MIT",
     "authors": [
         {
             "name": "OpenAPI-Generator contributors",
