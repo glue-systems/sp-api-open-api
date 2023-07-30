@@ -28,7 +28,7 @@
         "guzzlehttp/guzzle": "^6.2",
         "illuminate/cache": "4.2.*",
         "nesbot/carbon": "1.38.3",
-        "aws/aws-sdk-php": "^3.277"
+        "aws/aws-sdk-php": "3.110.*"
     },
     "autoload": {
         "psr-4": {
