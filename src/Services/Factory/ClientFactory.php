@@ -8,6 +8,7 @@ use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
 use Glue\SPAPI\OpenAPI\Clients\SupplySources\Api\SupplySourcesApi;
 use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Configuration as DefinitionsProductTypesConfig;
 use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Configuration as ListingsItemsConfig;
+use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Configuration as OrdersV0Config;
 use Glue\SPAPI\OpenAPI\Clients\SupplySources\Configuration as SupplySourcesConfig;
 use Glue\SPAPI\OpenAPI\Services\Authenticator\ClientAuthenticatorContract;
@@ -69,6 +70,19 @@ class ClientFactory implements ClientFactoryContract
     public function createOrdersV0ApiClient()
     {
         return new OrdersV0Api(
+            $this->authenticator->createAuthenticatedGuzzleClient(),
+            $this->_setUpClientConfig(new OrdersV0Config())
+        );
+    }
+
+    /**
+     * @return ShipmentApi
+     */
+    public function createShipmentApiClient()
+    {
+        // ShipmentAPi does not have its own Configuration class,
+        // as it originats the same models/ordersV0.json spec.
+        return new ShipmentApi(
             $this->authenticator->createAuthenticatedGuzzleClient(),
             $this->_setUpClientConfig(new OrdersV0Config())
         );
