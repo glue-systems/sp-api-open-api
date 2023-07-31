@@ -3,15 +3,15 @@
 namespace Glue\SPAPI\OpenAPI\Services\Factory;
 
 use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Api\DefinitionsApi;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi as FeedsApiV20200904;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi as FeedsApiV20210630;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi as ListingsApiV20200901;
+use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi as FeedsV20200904Api;
+use Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi as FeedsV20210630Api;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi as ListingsItemsV20200901Api;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsApiV20200904;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsApiV20210630;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi as ShipmentV0Api;
+use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsV20200904Api;
+use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsV20210630Api;
 use Glue\SPAPI\OpenAPI\Clients\SupplySources\Api\SupplySourcesApi;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensApiV20210301;
+use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 
 interface ClientFactoryContract
@@ -27,9 +27,9 @@ interface ClientFactoryContract
     public function createSupplySourcesApiClient();
 
     /**
-     * @return ListingsApiV20200901
+     * @return ListingsItemsV20200901Api
      */
-    public function createListingsItemsApiV20200901Client();
+    public function createListingsItemsV20200901ApiClient();
 
     /**
      * @return OrdersV0Api
@@ -47,27 +47,27 @@ interface ClientFactoryContract
     public function createDefinitionsProductTypesApiClient();
 
     /**
-     * @return TokensApiV20210301
+     * @return TokensV20210301Api
      */
-    public function createTokensApiV20210301Client();
+    public function createTokensV20210301ApiClient();
 
     /**
-     * @return FeedsApiV20200904
+     * @return FeedsV20200904Api
      */
-    public function createFeedsApiV20200904Client();
+    public function createFeedsV20200904ApiClient();
 
     /**
-     * @return FeedsApiV20210630
+     * @return FeedsV20210630Api
      */
-    public function createFeedsApiV20210630Client();
+    public function createFeedsV20210630ApiClient();
 
     /**
-     * @return ReportsApiV20200904
+     * @return ReportsV20200904Api
      */
-    public function createReportsApiV20200904Client();
+    public function createReportsV20200904ApiClient();
 
     /**
-     * @return ReportsApiV20210630
+     * @return ReportsV20210630Api
      */
-    public function createReportsApiV20210630Client();
+    public function createReportsV20210630ApiClient();
 }

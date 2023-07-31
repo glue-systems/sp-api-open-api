@@ -23,7 +23,7 @@ class ReportsApiTest extends TestCase
 
     public function test_getReports()
     {
-        $reportsApi  = $this->clientFactory->createReportsApiV20200904Client();
+        $reportsApi  = $this->clientFactory->createReportsV20200904ApiClient();
 
         $result = $reportsApi->getReportsWithHttpInfo(
             // Specific values come from the sandbox spec in models/reports_2020-09-04.json

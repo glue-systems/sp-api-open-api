@@ -24,7 +24,7 @@ class TokensApiTest extends TestCase
 
     public function test_createRestrictedDataToken()
     {
-        $tokensApi  = $this->clientFactory->createTokensApiV20210301Client();
+        $tokensApi  = $this->clientFactory->createTokensV20210301ApiClient();
 
         $result = $tokensApi->createRestrictedDataTokenWithHttpInfo(
             new CreateRestrictedDataTokenRequest([

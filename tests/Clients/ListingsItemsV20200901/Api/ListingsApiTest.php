@@ -25,7 +25,7 @@ class ListingsApiTest extends TestCase
 
     public function test_deleteListingsItem()
     {
-        $listingsApi = $this->clientFactory->createListingsItemsApiV20200901Client();
+        $listingsApi = $this->clientFactory->createListingsItemsV20200901ApiClient();
 
         $result = $listingsApi->deleteListingsItemWithHttpInfo(
             $this->clientFactory->getConfig()->sellerId,
@@ -38,7 +38,7 @@ class ListingsApiTest extends TestCase
 
     public function test_patchListingsItem()
     {
-        $listingsApi = $this->clientFactory->createListingsItemsApiV20200901Client();
+        $listingsApi = $this->clientFactory->createListingsItemsV20200901ApiClient();
 
         $request = new ListingsItemPatchRequest([
             'product_type' => 'PRODUCT',
@@ -68,7 +68,7 @@ class ListingsApiTest extends TestCase
 
     public function test_putListingsItem()
     {
-        $listingsApi = $this->clientFactory->createListingsItemsApiV20200901Client();
+        $listingsApi = $this->clientFactory->createListingsItemsV20200901ApiClient();
 
         $request = new ListingsItemPutRequest([
             'product_type' => 'PRODUCT',
