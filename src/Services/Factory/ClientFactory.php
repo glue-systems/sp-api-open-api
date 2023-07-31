@@ -12,7 +12,7 @@ use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Configuration as FeedsV20200904Con
 use Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi as FeedsApiV20210630;
 use Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Configuration as FeedsV20210630Config;
 use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Configuration as ListingsItemsConfig;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi;
+use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi as ShipmentV0Api;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Configuration as OrdersV0Config;
 use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsApiV20200904;
 use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Configuration as ReportsV20200904Config;
@@ -86,13 +86,13 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
-     * @return ShipmentApi
+     * @return ShipmentV0Api
      */
-    public function createShipmentApiClient()
+    public function createShipmentV0ApiClient()
     {
-        // ShipmentAPi does not have its own Configuration class,
+        // ShipmentV0Api does not have its own Configuration class,
         // as it originats the same models/ordersV0.json spec.
-        return new ShipmentApi(
+        return new ShipmentV0Api(
             $this->authenticator->createAuthenticatedGuzzleClient(),
             $this->_setUpClientConfig(new OrdersV0Config())
         );
