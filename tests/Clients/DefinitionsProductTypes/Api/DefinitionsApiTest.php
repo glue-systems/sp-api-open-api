@@ -20,7 +20,7 @@ class DefinitionsApiTest extends TestCase
         $this->clientFactory = $this->buildClientFactory();
     }
 
-    public function test_updateShipmentStatus()
+    public function test_getDefinitionsProductType()
     {
         $definitionsApi  = $this->clientFactory->createDefinitionsProductTypesApiClient();
 

@@ -11,6 +11,8 @@ use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Configuration as ListingsItemsConfi
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Configuration as OrdersV0Config;
 use Glue\SPAPI\OpenAPI\Clients\SupplySources\Configuration as SupplySourcesConfig;
+use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensApiV20210301;
+use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration as TokensApiV20210301Config;
 use Glue\SPAPI\OpenAPI\Services\Authenticator\ClientAuthenticatorContract;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 
@@ -100,8 +102,19 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
-     * @param  ListingsItemsConfig|OrdersV0Config|SupplySourcesConfig|DefinitionsProductTypesConfig  $clientConfig
-     * @return ListingsItemsConfig|OrdersV0Config|SupplySourcesConfig|DefinitionsProductTypesConfig
+     * @return TokensApiV20210301
+     */
+    public function createTokensApiV20210301Client()
+    {
+        return new TokensApiV20210301(
+            $this->authenticator->createAuthenticatedGuzzleClient(),
+            $this->_setUpClientConfig(new TokensApiV20210301Config())
+        );
+    }
+
+    /**
+     * @param  ListingsItemsConfig|OrdersV0Config|SupplySourcesConfig|DefinitionsProductTypesConfig|TokensApiV20210301Config  $clientConfig
+     * @return ListingsItemsConfig|OrdersV0Config|SupplySourcesConfig|DefinitionsProductTypesConfig|TokensApiV20210301Config
      */
     protected function _setUpClientConfig($clientConfig)
     {
