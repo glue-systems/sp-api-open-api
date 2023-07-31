@@ -2,7 +2,7 @@
 
 namespace Glue\SPAPI\OpenAPI\Services\Factory;
 
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Api\DefinitionsApi;
+use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi as DefinitionsProductTypesV20200901Api;
 use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi as FeedsV20200904Api;
 use Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi as FeedsV20210630Api;
 use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi as ListingsItemsV20200901Api;
@@ -42,9 +42,9 @@ interface ClientFactoryContract
     public function createShipmentV0ApiClient();
 
     /**
-     * @return DefinitionsApi
+     * @return DefinitionsProductTypesV20200901Api
      */
-    public function createDefinitionsProductTypesApiClient();
+    public function createDefinitionsProductTypesV20200901ApiClient();
 
     /**
      * @return TokensV20210301Api

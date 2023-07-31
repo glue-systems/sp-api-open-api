@@ -76,14 +76,14 @@ rm -rf src/Clients/SupplySources
 mv output/SupplySources/lib src/Clients/SupplySources
 ```
 
-#### Definitions Product Types API
+#### Definitions Product Types API v2020-09-01
 
 ```BASH
 cd path/to/your/sp-api-open-api
-rm -rf output/DefinitionsProduc
-openapi-generator-cli generate -i models/definitionsProductTypes_2020-09-01.json -g php -o output/DefinitionsProductTypes --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes"
-rm -rf src/Clients/DefinitionsProductTypes
-mv output/DefinitionsProductTypes/lib src/Clients/DefinitionsProductTypes
+rm -rf output/DefinitionsProductTypesV20200901
+openapi-generator-cli generate -i models/definitionsProductTypes_2020-09-01.json -g php -o output/DefinitionsProductTypesV20200901 --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901"
+rm -rf src/Clients/DefinitionsProductTypesV20200901
+mv output/DefinitionsProductTypesV20200901/lib src/Clients/DefinitionsProductTypesV20200901
 ```
 
 #### Orders API v0

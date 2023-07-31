@@ -1,11 +1,11 @@
 <?php
 /**
- * ProductTypeList
+ * PropertyGroup
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ObjectSerializer;
 
 /**
- * ProductTypeList Class Doc Comment
+ * PropertyGroup Class Doc Comment
  *
  * @category Class
- * @description A list of Amazon product types with definitions available.
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @description A property group represents a logical grouping of schema properties that can be used for display or informational purposes.
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProductTypeList implements ModelInterface, ArrayAccess
+class PropertyGroup implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProductTypeList';
+    protected static $openAPIModelName = 'PropertyGroup';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class ProductTypeList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'product_types' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductType[]'
+        'title' => 'string',
+        'description' => 'string',
+        'property_names' => 'string[]'
     ];
 
     /**
@@ -67,7 +69,9 @@ class ProductTypeList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'product_types' => null
+        'title' => null,
+        'description' => null,
+        'property_names' => null
     ];
 
     /**
@@ -97,7 +101,9 @@ class ProductTypeList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'product_types' => 'productTypes'
+        'title' => 'title',
+        'description' => 'description',
+        'property_names' => 'propertyNames'
     ];
 
     /**
@@ -106,7 +112,9 @@ class ProductTypeList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'product_types' => 'setProductTypes'
+        'title' => 'setTitle',
+        'description' => 'setDescription',
+        'property_names' => 'setPropertyNames'
     ];
 
     /**
@@ -115,7 +123,9 @@ class ProductTypeList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'product_types' => 'getProductTypes'
+        'title' => 'getTitle',
+        'description' => 'getDescription',
+        'property_names' => 'getPropertyNames'
     ];
 
     /**
@@ -178,7 +188,9 @@ class ProductTypeList implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['product_types'] = isset($data['product_types']) ? $data['product_types'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
+        $this->container['property_names'] = isset($data['property_names']) ? $data['property_names'] : null;
     }
 
     /**
@@ -190,9 +202,6 @@ class ProductTypeList implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_types'] === null) {
-            $invalidProperties[] = "'product_types' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -209,25 +218,73 @@ class ProductTypeList implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets product_types
+     * Gets title
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductType[]
+     * @return string|null
      */
-    public function getProductTypes()
+    public function getTitle()
     {
-        return $this->container['product_types'];
+        return $this->container['title'];
     }
 
     /**
-     * Sets product_types
+     * Sets title
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductType[] $product_types product_types
+     * @param string|null $title The display label of the property group.
      *
      * @return $this
      */
-    public function setProductTypes($product_types)
+    public function setTitle($title)
     {
-        $this->container['product_types'] = $product_types;
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets description
+     *
+     * @return string|null
+     */
+    public function getDescription()
+    {
+        return $this->container['description'];
+    }
+
+    /**
+     * Sets description
+     *
+     * @param string|null $description The description of the property group.
+     *
+     * @return $this
+     */
+    public function setDescription($description)
+    {
+        $this->container['description'] = $description;
+
+        return $this;
+    }
+
+    /**
+     * Gets property_names
+     *
+     * @return string[]|null
+     */
+    public function getPropertyNames()
+    {
+        return $this->container['property_names'];
+    }
+
+    /**
+     * Sets property_names
+     *
+     * @param string[]|null $property_names The names of the schema properties for the property group.
+     *
+     * @return $this
+     */
+    public function setPropertyNames($property_names)
+    {
+        $this->container['property_names'] = $property_names;
 
         return $this;
     }

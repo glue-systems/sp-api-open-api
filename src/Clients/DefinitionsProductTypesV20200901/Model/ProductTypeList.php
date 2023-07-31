@@ -1,11 +1,11 @@
 <?php
 /**
- * ProductTypeVersion
+ * ProductTypeList
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ObjectSerializer;
 
 /**
- * ProductTypeVersion Class Doc Comment
+ * ProductTypeList Class Doc Comment
  *
  * @category Class
- * @description The version details for an Amazon product type.
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @description A list of Amazon product types with definitions available.
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ProductTypeVersion implements ModelInterface, ArrayAccess
+class ProductTypeList implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ProductTypeVersion';
+    protected static $openAPIModelName = 'ProductTypeList';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'version' => 'string',
-        'latest' => 'bool',
-        'release_candidate' => 'bool'
+        'product_types' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[]'
     ];
 
     /**
@@ -69,9 +67,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'version' => null,
-        'latest' => null,
-        'release_candidate' => null
+        'product_types' => null
     ];
 
     /**
@@ -101,9 +97,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'version' => 'version',
-        'latest' => 'latest',
-        'release_candidate' => 'releaseCandidate'
+        'product_types' => 'productTypes'
     ];
 
     /**
@@ -112,9 +106,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'version' => 'setVersion',
-        'latest' => 'setLatest',
-        'release_candidate' => 'setReleaseCandidate'
+        'product_types' => 'setProductTypes'
     ];
 
     /**
@@ -123,9 +115,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'version' => 'getVersion',
-        'latest' => 'getLatest',
-        'release_candidate' => 'getReleaseCandidate'
+        'product_types' => 'getProductTypes'
     ];
 
     /**
@@ -188,9 +178,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
-        $this->container['latest'] = isset($data['latest']) ? $data['latest'] : null;
-        $this->container['release_candidate'] = isset($data['release_candidate']) ? $data['release_candidate'] : null;
+        $this->container['product_types'] = isset($data['product_types']) ? $data['product_types'] : null;
     }
 
     /**
@@ -202,11 +190,8 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['version'] === null) {
-            $invalidProperties[] = "'version' can't be null";
-        }
-        if ($this->container['latest'] === null) {
-            $invalidProperties[] = "'latest' can't be null";
+        if ($this->container['product_types'] === null) {
+            $invalidProperties[] = "'product_types' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +209,25 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets version
+     * Gets product_types
      *
-     * @return string
+     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[]
      */
-    public function getVersion()
+    public function getProductTypes()
     {
-        return $this->container['version'];
+        return $this->container['product_types'];
     }
 
     /**
-     * Sets version
+     * Sets product_types
      *
-     * @param string $version Version identifier.
+     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[] $product_types product_types
      *
      * @return $this
      */
-    public function setVersion($version)
+    public function setProductTypes($product_types)
     {
-        $this->container['version'] = $version;
-
-        return $this;
-    }
-
-    /**
-     * Gets latest
-     *
-     * @return bool
-     */
-    public function getLatest()
-    {
-        return $this->container['latest'];
-    }
-
-    /**
-     * Sets latest
-     *
-     * @param bool $latest When true, the version indicated by the version identifier is the latest available for the Amazon product type.
-     *
-     * @return $this
-     */
-    public function setLatest($latest)
-    {
-        $this->container['latest'] = $latest;
-
-        return $this;
-    }
-
-    /**
-     * Gets release_candidate
-     *
-     * @return bool|null
-     */
-    public function getReleaseCandidate()
-    {
-        return $this->container['release_candidate'];
-    }
-
-    /**
-     * Sets release_candidate
-     *
-     * @param bool|null $release_candidate When true, the version indicated by the version identifier is the prerelease (release candidate) for the Amazon product type.
-     *
-     * @return $this
-     */
-    public function setReleaseCandidate($release_candidate)
-    {
-        $this->container['release_candidate'] = $release_candidate;
+        $this->container['product_types'] = $product_types;
 
         return $this;
     }

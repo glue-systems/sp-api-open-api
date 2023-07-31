@@ -1,11 +1,11 @@
 <?php
 /**
- * PropertyGroup
+ * ErrorList
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ObjectSerializer;
 
 /**
- * PropertyGroup Class Doc Comment
+ * ErrorList Class Doc Comment
  *
  * @category Class
- * @description A property group represents a logical grouping of schema properties that can be used for display or informational purposes.
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @description A list of error responses returned when a request is unsuccessful.
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PropertyGroup implements ModelInterface, ArrayAccess
+class ErrorList implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PropertyGroup';
+    protected static $openAPIModelName = 'ErrorList';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'title' => 'string',
-        'description' => 'string',
-        'property_names' => 'string[]'
+        'errors' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\Error[]'
     ];
 
     /**
@@ -69,9 +67,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'title' => null,
-        'description' => null,
-        'property_names' => null
+        'errors' => null
     ];
 
     /**
@@ -101,9 +97,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'title' => 'title',
-        'description' => 'description',
-        'property_names' => 'propertyNames'
+        'errors' => 'errors'
     ];
 
     /**
@@ -112,9 +106,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'title' => 'setTitle',
-        'description' => 'setDescription',
-        'property_names' => 'setPropertyNames'
+        'errors' => 'setErrors'
     ];
 
     /**
@@ -123,9 +115,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'title' => 'getTitle',
-        'description' => 'getDescription',
-        'property_names' => 'getPropertyNames'
+        'errors' => 'getErrors'
     ];
 
     /**
@@ -188,9 +178,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['property_names'] = isset($data['property_names']) ? $data['property_names'] : null;
+        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
     /**
@@ -202,6 +190,9 @@ class PropertyGroup implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['errors'] === null) {
+            $invalidProperties[] = "'errors' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -218,73 +209,25 @@ class PropertyGroup implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets title
+     * Gets errors
      *
-     * @return string|null
+     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\Error[]
      */
-    public function getTitle()
+    public function getErrors()
     {
-        return $this->container['title'];
+        return $this->container['errors'];
     }
 
     /**
-     * Sets title
+     * Sets errors
      *
-     * @param string|null $title The display label of the property group.
+     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\Error[] $errors errors
      *
      * @return $this
      */
-    public function setTitle($title)
+    public function setErrors($errors)
     {
-        $this->container['title'] = $title;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string|null
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string|null $description The description of the property group.
-     *
-     * @return $this
-     */
-    public function setDescription($description)
-    {
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets property_names
-     *
-     * @return string[]|null
-     */
-    public function getPropertyNames()
-    {
-        return $this->container['property_names'];
-    }
-
-    /**
-     * Sets property_names
-     *
-     * @param string[]|null $property_names The names of the schema properties for the property group.
-     *
-     * @return $this
-     */
-    public function setPropertyNames($property_names)
-    {
-        $this->container['property_names'] = $property_names;
+        $this->container['errors'] = $errors;
 
         return $this;
     }

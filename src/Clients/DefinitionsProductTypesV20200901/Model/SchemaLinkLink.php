@@ -1,11 +1,11 @@
 <?php
 /**
- * ErrorList
+ * SchemaLinkLink
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ObjectSerializer;
 
 /**
- * ErrorList Class Doc Comment
+ * SchemaLinkLink Class Doc Comment
  *
  * @category Class
- * @description A list of error responses returned when a request is unsuccessful.
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @description Link to retrieve the schema.
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ErrorList implements ModelInterface, ArrayAccess
+class SchemaLinkLink implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ErrorList implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ErrorList';
+    protected static $openAPIModelName = 'SchemaLink_link';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,8 @@ class ErrorList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\Error[]'
+        'resource' => 'string',
+        'verb' => 'string'
     ];
 
     /**
@@ -67,7 +68,8 @@ class ErrorList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'resource' => null,
+        'verb' => null
     ];
 
     /**
@@ -97,7 +99,8 @@ class ErrorList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'resource' => 'resource',
+        'verb' => 'verb'
     ];
 
     /**
@@ -106,7 +109,8 @@ class ErrorList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'resource' => 'setResource',
+        'verb' => 'setVerb'
     ];
 
     /**
@@ -115,7 +119,8 @@ class ErrorList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'resource' => 'getResource',
+        'verb' => 'getVerb'
     ];
 
     /**
@@ -159,8 +164,21 @@ class ErrorList implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const VERB_GET = 'GET';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getVerbAllowableValues()
+    {
+        return [
+            self::VERB_GET,
+        ];
+    }
     
 
     /**
@@ -178,7 +196,8 @@ class ErrorList implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
+        $this->container['verb'] = isset($data['verb']) ? $data['verb'] : null;
     }
 
     /**
@@ -190,9 +209,20 @@ class ErrorList implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['errors'] === null) {
-            $invalidProperties[] = "'errors' can't be null";
+        if ($this->container['resource'] === null) {
+            $invalidProperties[] = "'resource' can't be null";
         }
+        if ($this->container['verb'] === null) {
+            $invalidProperties[] = "'verb' can't be null";
+        }
+        $allowedValues = $this->getVerbAllowableValues();
+        if (!is_null($this->container['verb']) && !in_array($this->container['verb'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'verb', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -209,25 +239,58 @@ class ErrorList implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets resource
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\Error[]
+     * @return string
      */
-    public function getErrors()
+    public function getResource()
     {
-        return $this->container['errors'];
+        return $this->container['resource'];
     }
 
     /**
-     * Sets errors
+     * Sets resource
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\Error[] $errors errors
+     * @param string $resource URI resource for the link.
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setResource($resource)
     {
-        $this->container['errors'] = $errors;
+        $this->container['resource'] = $resource;
+
+        return $this;
+    }
+
+    /**
+     * Gets verb
+     *
+     * @return string
+     */
+    public function getVerb()
+    {
+        return $this->container['verb'];
+    }
+
+    /**
+     * Sets verb
+     *
+     * @param string $verb HTTP method for the link operation.
+     *
+     * @return $this
+     */
+    public function setVerb($verb)
+    {
+        $allowedValues = $this->getVerbAllowableValues();
+        if (!in_array($verb, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'verb', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['verb'] = $verb;
 
         return $this;
     }

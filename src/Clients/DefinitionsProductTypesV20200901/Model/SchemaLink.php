@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ObjectSerializer;
 
 /**
  * SchemaLink Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -57,7 +57,7 @@ class SchemaLink implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'link' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\SchemaLinkLink',
+        'link' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\SchemaLinkLink',
         'checksum' => 'string'
     ];
 
@@ -219,7 +219,7 @@ class SchemaLink implements ModelInterface, ArrayAccess
     /**
      * Gets link
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\SchemaLinkLink
+     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\SchemaLinkLink
      */
     public function getLink()
     {
@@ -229,7 +229,7 @@ class SchemaLink implements ModelInterface, ArrayAccess
     /**
      * Sets link
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\SchemaLinkLink $link link
+     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\SchemaLinkLink $link link
      *
      * @return $this
      */

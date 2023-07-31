@@ -1,11 +1,11 @@
 <?php
 /**
- * Error
+ * ProductTypeVersion
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * ProductTypeVersion Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @description The version details for an Amazon product type.
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Error implements ModelInterface, ArrayAccess
+class ProductTypeVersion implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Error';
+    protected static $openAPIModelName = 'ProductTypeVersion';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'details' => 'string'
+        'version' => 'string',
+        'latest' => 'bool',
+        'release_candidate' => 'bool'
     ];
 
     /**
@@ -69,9 +69,9 @@ class Error implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'code' => null,
-        'message' => null,
-        'details' => null
+        'version' => null,
+        'latest' => null,
+        'release_candidate' => null
     ];
 
     /**
@@ -101,9 +101,9 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'details' => 'details'
+        'version' => 'version',
+        'latest' => 'latest',
+        'release_candidate' => 'releaseCandidate'
     ];
 
     /**
@@ -112,9 +112,9 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'details' => 'setDetails'
+        'version' => 'setVersion',
+        'latest' => 'setLatest',
+        'release_candidate' => 'setReleaseCandidate'
     ];
 
     /**
@@ -123,9 +123,9 @@ class Error implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'details' => 'getDetails'
+        'version' => 'getVersion',
+        'latest' => 'getLatest',
+        'release_candidate' => 'getReleaseCandidate'
     ];
 
     /**
@@ -188,9 +188,9 @@ class Error implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['version'] = isset($data['version']) ? $data['version'] : null;
+        $this->container['latest'] = isset($data['latest']) ? $data['latest'] : null;
+        $this->container['release_candidate'] = isset($data['release_candidate']) ? $data['release_candidate'] : null;
     }
 
     /**
@@ -202,11 +202,11 @@ class Error implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
+        if ($this->container['version'] === null) {
+            $invalidProperties[] = "'version' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['latest'] === null) {
+            $invalidProperties[] = "'latest' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +224,73 @@ class Error implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets version
      *
      * @return string
      */
-    public function getCode()
+    public function getVersion()
     {
-        return $this->container['code'];
+        return $this->container['version'];
     }
 
     /**
-     * Sets code
+     * Sets version
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param string $version Version identifier.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setVersion($version)
     {
-        $this->container['code'] = $code;
+        $this->container['version'] = $version;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets latest
      *
-     * @return string
+     * @return bool
      */
-    public function getMessage()
+    public function getLatest()
     {
-        return $this->container['message'];
+        return $this->container['latest'];
     }
 
     /**
-     * Sets message
+     * Sets latest
      *
-     * @param string $message A message that describes the error condition.
+     * @param bool $latest When true, the version indicated by the version identifier is the latest available for the Amazon product type.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setLatest($latest)
     {
-        $this->container['message'] = $message;
+        $this->container['latest'] = $latest;
 
         return $this;
     }
 
     /**
-     * Gets details
+     * Gets release_candidate
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getDetails()
+    public function getReleaseCandidate()
     {
-        return $this->container['details'];
+        return $this->container['release_candidate'];
     }
 
     /**
-     * Sets details
+     * Sets release_candidate
      *
-     * @param string|null $details Additional details that can help the caller understand or fix the issue.
+     * @param bool|null $release_candidate When true, the version indicated by the version identifier is the prerelease (release candidate) for the Amazon product type.
      *
      * @return $this
      */
-    public function setDetails($details)
+    public function setReleaseCandidate($release_candidate)
     {
-        $this->container['details'] = $details;
+        $this->container['release_candidate'] = $release_candidate;
 
         return $this;
     }

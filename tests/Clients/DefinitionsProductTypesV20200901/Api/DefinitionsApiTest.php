@@ -1,8 +1,8 @@
 <?php
 
-namespace Tests\Clients\DefinitionsProductTypes\Api;
+namespace Tests\Clients\DefinitionsProductTypesV20200901\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeDefinition;
+use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition;
 use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
 use Tests\TestCase;
 
@@ -22,7 +22,7 @@ class DefinitionsApiTest extends TestCase
 
     public function test_getDefinitionsProductType()
     {
-        $definitionsApi  = $this->clientFactory->createDefinitionsProductTypesApiClient();
+        $definitionsApi  = $this->clientFactory->createDefinitionsProductTypesV20200901ApiClient();
 
         $result = $definitionsApi->getDefinitionsProductTypeWithHttpInfo(
             'testProductType123',

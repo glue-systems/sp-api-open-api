@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Api;
+namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ApiException;
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Configuration;
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\HeaderSelector;
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ObjectSerializer;
+use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ApiException;
+use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Configuration;
+use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\HeaderSelector;
+use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ObjectSerializer;
 
 /**
  * DefinitionsApi Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -98,9 +98,9 @@ class DefinitionsApi
      * @param  string $requirements_enforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
      * @param  string $locale Locale for retrieving display labels and other presentation details. Defaults to the default language of the first marketplace in the request. (optional, default to 'DEFAULT')
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeDefinition|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList
+     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList
      */
     public function getDefinitionsProductType($product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT')
     {
@@ -119,9 +119,9 @@ class DefinitionsApi
      * @param  string $requirements_enforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
      * @param  string $locale Locale for retrieving display labels and other presentation details. Defaults to the default language of the first marketplace in the request. (optional, default to 'DEFAULT')
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeDefinition|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getDefinitionsProductTypeWithHttpInfo($product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT')
     {
@@ -158,116 +158,116 @@ class DefinitionsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeDefinition' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeDefinition', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeDefinition';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -286,7 +286,7 @@ class DefinitionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeDefinition',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -294,7 +294,7 @@ class DefinitionsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -302,7 +302,7 @@ class DefinitionsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -310,7 +310,7 @@ class DefinitionsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -318,7 +318,7 @@ class DefinitionsApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -326,7 +326,7 @@ class DefinitionsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -334,7 +334,7 @@ class DefinitionsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -342,7 +342,7 @@ class DefinitionsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -350,7 +350,7 @@ class DefinitionsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -404,7 +404,7 @@ class DefinitionsApi
      */
     public function getDefinitionsProductTypeAsyncWithHttpInfo($product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT')
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeDefinition';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition';
         $request = $this->getDefinitionsProductTypeRequest($product_type, $marketplace_ids, $seller_id, $product_type_version, $requirements, $requirements_enforced, $locale);
 
         return $this->client
@@ -584,9 +584,9 @@ class DefinitionsApi
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param  string[] $keywords A comma-delimited list of keywords to search product types by. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList
+     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList
      */
     public function searchDefinitionsProductTypes($marketplace_ids, $keywords = null)
     {
@@ -600,9 +600,9 @@ class DefinitionsApi
      * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param  string[] $keywords A comma-delimited list of keywords to search product types by. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ApiException on non-2xx response
+     * @throws \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function searchDefinitionsProductTypesWithHttpInfo($marketplace_ids, $keywords = null)
     {
@@ -639,116 +639,116 @@ class DefinitionsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeList';
+            $returnType = '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeList';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -767,7 +767,7 @@ class DefinitionsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -775,7 +775,7 @@ class DefinitionsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -783,7 +783,7 @@ class DefinitionsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -791,7 +791,7 @@ class DefinitionsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -799,7 +799,7 @@ class DefinitionsApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -807,7 +807,7 @@ class DefinitionsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -815,7 +815,7 @@ class DefinitionsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -823,7 +823,7 @@ class DefinitionsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -831,7 +831,7 @@ class DefinitionsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ErrorList',
+                        '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -875,7 +875,7 @@ class DefinitionsApi
      */
     public function searchDefinitionsProductTypesAsyncWithHttpInfo($marketplace_ids, $keywords = null)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model\ProductTypeList';
+        $returnType = '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeList';
         $request = $this->searchDefinitionsProductTypesRequest($marketplace_ids, $keywords);
 
         return $this->client

@@ -1,11 +1,11 @@
 <?php
 /**
- * SchemaLinkLink
+ * Error
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ObjectSerializer;
 
 /**
- * SchemaLinkLink Class Doc Comment
+ * Error Class Doc Comment
  *
  * @category Class
- * @description Link to retrieve the schema.
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes
+ * @description Error response returned when the request is unsuccessful.
+ * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class SchemaLinkLink implements ModelInterface, ArrayAccess
+class Error implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class SchemaLinkLink implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'SchemaLink_link';
+    protected static $openAPIModelName = 'Error';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,8 +58,9 @@ class SchemaLinkLink implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'resource' => 'string',
-        'verb' => 'string'
+        'code' => 'string',
+        'message' => 'string',
+        'details' => 'string'
     ];
 
     /**
@@ -68,8 +69,9 @@ class SchemaLinkLink implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'resource' => null,
-        'verb' => null
+        'code' => null,
+        'message' => null,
+        'details' => null
     ];
 
     /**
@@ -99,8 +101,9 @@ class SchemaLinkLink implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'resource' => 'resource',
-        'verb' => 'verb'
+        'code' => 'code',
+        'message' => 'message',
+        'details' => 'details'
     ];
 
     /**
@@ -109,8 +112,9 @@ class SchemaLinkLink implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'resource' => 'setResource',
-        'verb' => 'setVerb'
+        'code' => 'setCode',
+        'message' => 'setMessage',
+        'details' => 'setDetails'
     ];
 
     /**
@@ -119,8 +123,9 @@ class SchemaLinkLink implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'resource' => 'getResource',
-        'verb' => 'getVerb'
+        'code' => 'getCode',
+        'message' => 'getMessage',
+        'details' => 'getDetails'
     ];
 
     /**
@@ -164,21 +169,8 @@ class SchemaLinkLink implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const VERB_GET = 'GET';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getVerbAllowableValues()
-    {
-        return [
-            self::VERB_GET,
-        ];
-    }
     
 
     /**
@@ -196,8 +188,9 @@ class SchemaLinkLink implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['resource'] = isset($data['resource']) ? $data['resource'] : null;
-        $this->container['verb'] = isset($data['verb']) ? $data['verb'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
     }
 
     /**
@@ -209,20 +202,12 @@ class SchemaLinkLink implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['resource'] === null) {
-            $invalidProperties[] = "'resource' can't be null";
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
         }
-        if ($this->container['verb'] === null) {
-            $invalidProperties[] = "'verb' can't be null";
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
-        $allowedValues = $this->getVerbAllowableValues();
-        if (!is_null($this->container['verb']) && !in_array($this->container['verb'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'verb', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
         return $invalidProperties;
     }
 
@@ -239,58 +224,73 @@ class SchemaLinkLink implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets resource
+     * Gets code
      *
      * @return string
      */
-    public function getResource()
+    public function getCode()
     {
-        return $this->container['resource'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets resource
+     * Sets code
      *
-     * @param string $resource URI resource for the link.
+     * @param string $code An error code that identifies the type of error that occurred.
      *
      * @return $this
      */
-    public function setResource($resource)
+    public function setCode($code)
     {
-        $this->container['resource'] = $resource;
+        $this->container['code'] = $code;
 
         return $this;
     }
 
     /**
-     * Gets verb
+     * Gets message
      *
      * @return string
      */
-    public function getVerb()
+    public function getMessage()
     {
-        return $this->container['verb'];
+        return $this->container['message'];
     }
 
     /**
-     * Sets verb
+     * Sets message
      *
-     * @param string $verb HTTP method for the link operation.
+     * @param string $message A message that describes the error condition.
      *
      * @return $this
      */
-    public function setVerb($verb)
+    public function setMessage($message)
     {
-        $allowedValues = $this->getVerbAllowableValues();
-        if (!in_array($verb, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'verb', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['verb'] = $verb;
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets details
+     *
+     * @return string|null
+     */
+    public function getDetails()
+    {
+        return $this->container['details'];
+    }
+
+    /**
+     * Sets details
+     *
+     * @param string|null $details Additional details that can help the caller understand or fix the issue.
+     *
+     * @return $this
+     */
+    public function setDetails($details)
+    {
+        $this->container['details'] = $details;
 
         return $this;
     }
