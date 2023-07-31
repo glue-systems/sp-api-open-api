@@ -1,11 +1,11 @@
 <?php
 /**
- * ListingsItemPutRequest
+ * PatchOperation
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\ObjectSerializer;
 
 /**
- * ListingsItemPutRequest Class Doc Comment
+ * PatchOperation Class Doc Comment
  *
  * @category Class
- * @description The request body schema for the putListingsItem operation.
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @description Individual JSON Patch operation for an HTTP PATCH request.
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ListingsItemPutRequest implements ModelInterface, ArrayAccess
+class PatchOperation implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ListingsItemPutRequest';
+    protected static $openAPIModelName = 'PatchOperation';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'product_type' => 'string',
-        'requirements' => 'string',
-        'attributes' => 'object'
+        'op' => 'string',
+        'path' => 'string',
+        'value' => 'object[]'
     ];
 
     /**
@@ -69,9 +69,9 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'product_type' => null,
-        'requirements' => null,
-        'attributes' => null
+        'op' => null,
+        'path' => null,
+        'value' => null
     ];
 
     /**
@@ -101,9 +101,9 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'product_type' => 'productType',
-        'requirements' => 'requirements',
-        'attributes' => 'attributes'
+        'op' => 'op',
+        'path' => 'path',
+        'value' => 'value'
     ];
 
     /**
@@ -112,9 +112,9 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'product_type' => 'setProductType',
-        'requirements' => 'setRequirements',
-        'attributes' => 'setAttributes'
+        'op' => 'setOp',
+        'path' => 'setPath',
+        'value' => 'setValue'
     ];
 
     /**
@@ -123,9 +123,9 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'product_type' => 'getProductType',
-        'requirements' => 'getRequirements',
-        'attributes' => 'getAttributes'
+        'op' => 'getOp',
+        'path' => 'getPath',
+        'value' => 'getValue'
     ];
 
     /**
@@ -169,9 +169,9 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const REQUIREMENTS_LISTING = 'LISTING';
-    const REQUIREMENTS_LISTING_PRODUCT_ONLY = 'LISTING_PRODUCT_ONLY';
-    const REQUIREMENTS_LISTING_OFFER_ONLY = 'LISTING_OFFER_ONLY';
+    const OP_ADD = 'add';
+    const OP_REPLACE = 'replace';
+    const OP_DELETE = 'delete';
     
 
     
@@ -180,12 +180,12 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getRequirementsAllowableValues()
+    public function getOpAllowableValues()
     {
         return [
-            self::REQUIREMENTS_LISTING,
-            self::REQUIREMENTS_LISTING_PRODUCT_ONLY,
-            self::REQUIREMENTS_LISTING_OFFER_ONLY,
+            self::OP_ADD,
+            self::OP_REPLACE,
+            self::OP_DELETE,
         ];
     }
     
@@ -205,9 +205,9 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['product_type'] = isset($data['product_type']) ? $data['product_type'] : null;
-        $this->container['requirements'] = isset($data['requirements']) ? $data['requirements'] : null;
-        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
+        $this->container['op'] = isset($data['op']) ? $data['op'] : null;
+        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -219,19 +219,19 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_type'] === null) {
-            $invalidProperties[] = "'product_type' can't be null";
+        if ($this->container['op'] === null) {
+            $invalidProperties[] = "'op' can't be null";
         }
-        $allowedValues = $this->getRequirementsAllowableValues();
-        if (!is_null($this->container['requirements']) && !in_array($this->container['requirements'], $allowedValues, true)) {
+        $allowedValues = $this->getOpAllowableValues();
+        if (!is_null($this->container['op']) && !in_array($this->container['op'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'requirements', must be one of '%s'",
+                "invalid value for 'op', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['attributes'] === null) {
-            $invalidProperties[] = "'attributes' can't be null";
+        if ($this->container['path'] === null) {
+            $invalidProperties[] = "'path' can't be null";
         }
         return $invalidProperties;
     }
@@ -249,82 +249,82 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets product_type
+     * Gets op
      *
      * @return string
      */
-    public function getProductType()
+    public function getOp()
     {
-        return $this->container['product_type'];
+        return $this->container['op'];
     }
 
     /**
-     * Sets product_type
+     * Sets op
      *
-     * @param string $product_type The Amazon product type of the listings item.
+     * @param string $op Type of JSON Patch operation. Supported JSON Patch operations include add, replace, and delete. See <https://tools.ietf.org/html/rfc6902>.
      *
      * @return $this
      */
-    public function setProductType($product_type)
+    public function setOp($op)
     {
-        $this->container['product_type'] = $product_type;
-
-        return $this;
-    }
-
-    /**
-     * Gets requirements
-     *
-     * @return string|null
-     */
-    public function getRequirements()
-    {
-        return $this->container['requirements'];
-    }
-
-    /**
-     * Sets requirements
-     *
-     * @param string|null $requirements The name of the requirements set for the provided data.
-     *
-     * @return $this
-     */
-    public function setRequirements($requirements)
-    {
-        $allowedValues = $this->getRequirementsAllowableValues();
-        if (!is_null($requirements) && !in_array($requirements, $allowedValues, true)) {
+        $allowedValues = $this->getOpAllowableValues();
+        if (!in_array($op, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'requirements', must be one of '%s'",
+                    "Invalid value for 'op', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['requirements'] = $requirements;
+        $this->container['op'] = $op;
 
         return $this;
     }
 
     /**
-     * Gets attributes
+     * Gets path
      *
-     * @return object
+     * @return string
      */
-    public function getAttributes()
+    public function getPath()
     {
-        return $this->container['attributes'];
+        return $this->container['path'];
     }
 
     /**
-     * Sets attributes
+     * Sets path
      *
-     * @param object $attributes JSON object containing structured listings item attribute data keyed by attribute name.
+     * @param string $path JSON Pointer path of the element to patch. See <https://tools.ietf.org/html/rfc6902>.
      *
      * @return $this
      */
-    public function setAttributes($attributes)
+    public function setPath($path)
     {
-        $this->container['attributes'] = $attributes;
+        $this->container['path'] = $path;
+
+        return $this;
+    }
+
+    /**
+     * Gets value
+     *
+     * @return object[]|null
+     */
+    public function getValue()
+    {
+        return $this->container['value'];
+    }
+
+    /**
+     * Sets value
+     *
+     * @param object[]|null $value JSON value to add, replace, or delete.
+     *
+     * @return $this
+     */
+    public function setValue($value)
+    {
+        $this->container['value'] = $value;
 
         return $this;
     }

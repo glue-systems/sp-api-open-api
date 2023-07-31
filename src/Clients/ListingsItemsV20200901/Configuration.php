@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,14 +26,14 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ListingsItems;
+namespace Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901;
 
 /**
  * Configuration Class Doc Comment
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -393,7 +393,7 @@ class Configuration
      */
     public static function toDebugReport()
     {
-        $report  = 'PHP SDK (Glue\SPAPI\OpenAPI\Clients\ListingsItems) Debug Report:' . PHP_EOL;
+        $report  = 'PHP SDK (Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    OpenAPI Spec Version: 2020-09-01' . PHP_EOL;

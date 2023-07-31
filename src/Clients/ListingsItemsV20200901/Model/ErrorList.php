@@ -1,11 +1,11 @@
 <?php
 /**
- * PatchOperation
+ * ErrorList
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\ObjectSerializer;
 
 /**
- * PatchOperation Class Doc Comment
+ * ErrorList Class Doc Comment
  *
  * @category Class
- * @description Individual JSON Patch operation for an HTTP PATCH request.
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @description A list of error responses returned when a request is unsuccessful.
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class PatchOperation implements ModelInterface, ArrayAccess
+class ErrorList implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class PatchOperation implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'PatchOperation';
+    protected static $openAPIModelName = 'ErrorList';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class PatchOperation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'op' => 'string',
-        'path' => 'string',
-        'value' => 'object[]'
+        'errors' => '\Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\Error[]'
     ];
 
     /**
@@ -69,9 +67,7 @@ class PatchOperation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'op' => null,
-        'path' => null,
-        'value' => null
+        'errors' => null
     ];
 
     /**
@@ -101,9 +97,7 @@ class PatchOperation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'op' => 'op',
-        'path' => 'path',
-        'value' => 'value'
+        'errors' => 'errors'
     ];
 
     /**
@@ -112,9 +106,7 @@ class PatchOperation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'op' => 'setOp',
-        'path' => 'setPath',
-        'value' => 'setValue'
+        'errors' => 'setErrors'
     ];
 
     /**
@@ -123,9 +115,7 @@ class PatchOperation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'op' => 'getOp',
-        'path' => 'getPath',
-        'value' => 'getValue'
+        'errors' => 'getErrors'
     ];
 
     /**
@@ -169,25 +159,8 @@ class PatchOperation implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const OP_ADD = 'add';
-    const OP_REPLACE = 'replace';
-    const OP_DELETE = 'delete';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getOpAllowableValues()
-    {
-        return [
-            self::OP_ADD,
-            self::OP_REPLACE,
-            self::OP_DELETE,
-        ];
-    }
     
 
     /**
@@ -205,9 +178,7 @@ class PatchOperation implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['op'] = isset($data['op']) ? $data['op'] : null;
-        $this->container['path'] = isset($data['path']) ? $data['path'] : null;
-        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
+        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
     }
 
     /**
@@ -219,19 +190,8 @@ class PatchOperation implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['op'] === null) {
-            $invalidProperties[] = "'op' can't be null";
-        }
-        $allowedValues = $this->getOpAllowableValues();
-        if (!is_null($this->container['op']) && !in_array($this->container['op'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'op', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['path'] === null) {
-            $invalidProperties[] = "'path' can't be null";
+        if ($this->container['errors'] === null) {
+            $invalidProperties[] = "'errors' can't be null";
         }
         return $invalidProperties;
     }
@@ -249,82 +209,25 @@ class PatchOperation implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets op
+     * Gets errors
      *
-     * @return string
+     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\Error[]
      */
-    public function getOp()
+    public function getErrors()
     {
-        return $this->container['op'];
+        return $this->container['errors'];
     }
 
     /**
-     * Sets op
+     * Sets errors
      *
-     * @param string $op Type of JSON Patch operation. Supported JSON Patch operations include add, replace, and delete. See <https://tools.ietf.org/html/rfc6902>.
+     * @param \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\Error[] $errors errors
      *
      * @return $this
      */
-    public function setOp($op)
+    public function setErrors($errors)
     {
-        $allowedValues = $this->getOpAllowableValues();
-        if (!in_array($op, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'op', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['op'] = $op;
-
-        return $this;
-    }
-
-    /**
-     * Gets path
-     *
-     * @return string
-     */
-    public function getPath()
-    {
-        return $this->container['path'];
-    }
-
-    /**
-     * Sets path
-     *
-     * @param string $path JSON Pointer path of the element to patch. See <https://tools.ietf.org/html/rfc6902>.
-     *
-     * @return $this
-     */
-    public function setPath($path)
-    {
-        $this->container['path'] = $path;
-
-        return $this;
-    }
-
-    /**
-     * Gets value
-     *
-     * @return object[]|null
-     */
-    public function getValue()
-    {
-        return $this->container['value'];
-    }
-
-    /**
-     * Sets value
-     *
-     * @param object[]|null $value JSON value to add, replace, or delete.
-     *
-     * @return $this
-     */
-    public function setValue($value)
-    {
-        $this->container['value'] = $value;
+        $this->container['errors'] = $errors;
 
         return $this;
     }

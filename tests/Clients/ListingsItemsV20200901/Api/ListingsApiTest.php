@@ -1,11 +1,11 @@
 <?php
 
-namespace Tests\Clients\ListingsItems\Api;
+namespace Tests\Clients\ListingsItemsV20200901\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemPatchRequest;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemPutRequest;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\ListingsItemSubmissionResponse;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\PatchOperation;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation;
 use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
 use Tests\TestCase;
 
@@ -25,7 +25,7 @@ class ListingsApiTest extends TestCase
 
     public function test_deleteListingsItem()
     {
-        $listingsApi = $this->clientFactory->createListingsItemsApiClient();
+        $listingsApi = $this->clientFactory->createListingsItemsApiV20200901Client();
 
         $result = $listingsApi->deleteListingsItemWithHttpInfo(
             $this->clientFactory->getConfig()->sellerId,
@@ -38,7 +38,7 @@ class ListingsApiTest extends TestCase
 
     public function test_patchListingsItem()
     {
-        $listingsApi = $this->clientFactory->createListingsItemsApiClient();
+        $listingsApi = $this->clientFactory->createListingsItemsApiV20200901Client();
 
         $request = new ListingsItemPatchRequest([
             'product_type' => 'PRODUCT',
@@ -68,7 +68,7 @@ class ListingsApiTest extends TestCase
 
     public function test_putListingsItem()
     {
-        $listingsApi = $this->clientFactory->createListingsItemsApiClient();
+        $listingsApi = $this->clientFactory->createListingsItemsApiV20200901Client();
 
         $request = new ListingsItemPutRequest([
             'product_type' => 'PRODUCT',

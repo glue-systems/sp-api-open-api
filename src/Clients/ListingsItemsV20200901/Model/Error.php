@@ -1,11 +1,11 @@
 <?php
 /**
- * ErrorList
+ * Error
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\ObjectSerializer;
 
 /**
- * ErrorList Class Doc Comment
+ * Error Class Doc Comment
  *
  * @category Class
- * @description A list of error responses returned when a request is unsuccessful.
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @description Error response returned when the request is unsuccessful.
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ErrorList implements ModelInterface, ArrayAccess
+class Error implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ErrorList implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ErrorList';
+    protected static $openAPIModelName = 'Error';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,7 +58,9 @@ class ErrorList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\Error[]'
+        'code' => 'string',
+        'message' => 'string',
+        'details' => 'string'
     ];
 
     /**
@@ -67,7 +69,9 @@ class ErrorList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'errors' => null
+        'code' => null,
+        'message' => null,
+        'details' => null
     ];
 
     /**
@@ -97,7 +101,9 @@ class ErrorList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'errors' => 'errors'
+        'code' => 'code',
+        'message' => 'message',
+        'details' => 'details'
     ];
 
     /**
@@ -106,7 +112,9 @@ class ErrorList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'errors' => 'setErrors'
+        'code' => 'setCode',
+        'message' => 'setMessage',
+        'details' => 'setDetails'
     ];
 
     /**
@@ -115,7 +123,9 @@ class ErrorList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'errors' => 'getErrors'
+        'code' => 'getCode',
+        'message' => 'getMessage',
+        'details' => 'getDetails'
     ];
 
     /**
@@ -178,7 +188,9 @@ class ErrorList implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['errors'] = isset($data['errors']) ? $data['errors'] : null;
+        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
+        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
+        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
     }
 
     /**
@@ -190,8 +202,11 @@ class ErrorList implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['errors'] === null) {
-            $invalidProperties[] = "'errors' can't be null";
+        if ($this->container['code'] === null) {
+            $invalidProperties[] = "'code' can't be null";
+        }
+        if ($this->container['message'] === null) {
+            $invalidProperties[] = "'message' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,25 +224,73 @@ class ErrorList implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets errors
+     * Gets code
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\Error[]
+     * @return string
      */
-    public function getErrors()
+    public function getCode()
     {
-        return $this->container['errors'];
+        return $this->container['code'];
     }
 
     /**
-     * Sets errors
+     * Sets code
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\Error[] $errors errors
+     * @param string $code An error code that identifies the type of error that occurred.
      *
      * @return $this
      */
-    public function setErrors($errors)
+    public function setCode($code)
     {
-        $this->container['errors'] = $errors;
+        $this->container['code'] = $code;
+
+        return $this;
+    }
+
+    /**
+     * Gets message
+     *
+     * @return string
+     */
+    public function getMessage()
+    {
+        return $this->container['message'];
+    }
+
+    /**
+     * Sets message
+     *
+     * @param string $message A message that describes the error condition.
+     *
+     * @return $this
+     */
+    public function setMessage($message)
+    {
+        $this->container['message'] = $message;
+
+        return $this;
+    }
+
+    /**
+     * Gets details
+     *
+     * @return string|null
+     */
+    public function getDetails()
+    {
+        return $this->container['details'];
+    }
+
+    /**
+     * Sets details
+     *
+     * @param string|null $details Additional details that can help the caller understand or fix the issue.
+     *
+     * @return $this
+     */
+    public function setDetails($details)
+    {
+        $this->container['details'] = $details;
 
         return $this;
     }

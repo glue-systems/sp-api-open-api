@@ -56,16 +56,14 @@ Note that following the steps above will have the same end result whether you ar
 
 Example Bash scripts are provided below for each of the included SP-API domains. These are for reference only, as they may vary depending on your environment.
 
-#### Listings Items API
-
-Here are the steps for generating client classes for `ListingsItemsAPI` via OpenAPI. E are provided below as .
+#### Listings Items API v2020-09-01
 
 ```BASH
 cd path/to/your/sp-api-open-api
-rm -rf output/ListingsItems
-openapi-generator-cli generate -i models/listingsItems_2020-09-01.json -g php -o output/ListingsItems --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\ListingsItems"
-rm -rf src/Clients/ListingsItems
-mv output/ListingsItems/lib src/Clients/ListingsItems
+rm -rf output/ListingsItemsV20200901
+openapi-generator-cli generate -i models/listingsItems_2020-09-01.json -g php -o output/ListingsItemsV20200901 --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901"
+rm -rf src/Clients/ListingsItemsV20200901
+mv output/ListingsItemsV20200901/lib src/Clients/ListingsItemsV20200901
 ```
 
 #### Supply Sources API

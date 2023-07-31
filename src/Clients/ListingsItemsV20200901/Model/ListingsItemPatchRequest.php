@@ -1,11 +1,11 @@
 <?php
 /**
- * ListingsItemSubmissionResponse
+ * ListingsItemPatchRequest
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\ObjectSerializer;
 
 /**
- * ListingsItemSubmissionResponse Class Doc Comment
+ * ListingsItemPatchRequest Class Doc Comment
  *
  * @category Class
- * @description Response containing the results of a submission to the Selling Partner API for Listings Items.
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @description The request body schema for the patchListingsItem operation.
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
+class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ListingsItemSubmissionResponse';
+    protected static $openAPIModelName = 'ListingsItemPatchRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,8 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'sku' => 'string',
-        'status' => 'string',
-        'submission_id' => 'string',
-        'issues' => '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\Issue[]'
+        'product_type' => 'string',
+        'patches' => '\Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation[]'
     ];
 
     /**
@@ -70,10 +68,8 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'sku' => null,
-        'status' => null,
-        'submission_id' => null,
-        'issues' => null
+        'product_type' => null,
+        'patches' => null
     ];
 
     /**
@@ -103,10 +99,8 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'sku' => 'sku',
-        'status' => 'status',
-        'submission_id' => 'submissionId',
-        'issues' => 'issues'
+        'product_type' => 'productType',
+        'patches' => 'patches'
     ];
 
     /**
@@ -115,10 +109,8 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'sku' => 'setSku',
-        'status' => 'setStatus',
-        'submission_id' => 'setSubmissionId',
-        'issues' => 'setIssues'
+        'product_type' => 'setProductType',
+        'patches' => 'setPatches'
     ];
 
     /**
@@ -127,10 +119,8 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'sku' => 'getSku',
-        'status' => 'getStatus',
-        'submission_id' => 'getSubmissionId',
-        'issues' => 'getIssues'
+        'product_type' => 'getProductType',
+        'patches' => 'getPatches'
     ];
 
     /**
@@ -174,23 +164,8 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const STATUS_ACCEPTED = 'ACCEPTED';
-    const STATUS_INVALID = 'INVALID';
     
 
-    
-    /**
-     * Gets allowable values of the enum
-     *
-     * @return string[]
-     */
-    public function getStatusAllowableValues()
-    {
-        return [
-            self::STATUS_ACCEPTED,
-            self::STATUS_INVALID,
-        ];
-    }
     
 
     /**
@@ -208,10 +183,8 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
-        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['submission_id'] = isset($data['submission_id']) ? $data['submission_id'] : null;
-        $this->container['issues'] = isset($data['issues']) ? $data['issues'] : null;
+        $this->container['product_type'] = isset($data['product_type']) ? $data['product_type'] : null;
+        $this->container['patches'] = isset($data['patches']) ? $data['patches'] : null;
     }
 
     /**
@@ -223,22 +196,11 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['sku'] === null) {
-            $invalidProperties[] = "'sku' can't be null";
+        if ($this->container['product_type'] === null) {
+            $invalidProperties[] = "'product_type' can't be null";
         }
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
-            $invalidProperties[] = sprintf(
-                "invalid value for 'status', must be one of '%s'",
-                implode("', '", $allowedValues)
-            );
-        }
-
-        if ($this->container['submission_id'] === null) {
-            $invalidProperties[] = "'submission_id' can't be null";
+        if ($this->container['patches'] === null) {
+            $invalidProperties[] = "'patches' can't be null";
         }
         return $invalidProperties;
     }
@@ -256,106 +218,49 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets sku
+     * Gets product_type
      *
      * @return string
      */
-    public function getSku()
+    public function getProductType()
     {
-        return $this->container['sku'];
+        return $this->container['product_type'];
     }
 
     /**
-     * Sets sku
+     * Sets product_type
      *
-     * @param string $sku A selling partner provided identifier for an Amazon listing.
+     * @param string $product_type The Amazon product type of the listings item.
      *
      * @return $this
      */
-    public function setSku($sku)
+    public function setProductType($product_type)
     {
-        $this->container['sku'] = $sku;
+        $this->container['product_type'] = $product_type;
 
         return $this;
     }
 
     /**
-     * Gets status
+     * Gets patches
      *
-     * @return string
+     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation[]
      */
-    public function getStatus()
+    public function getPatches()
     {
-        return $this->container['status'];
+        return $this->container['patches'];
     }
 
     /**
-     * Sets status
+     * Sets patches
      *
-     * @param string $status The status of the listings item submission.
+     * @param \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation[] $patches One or more JSON Patch operations to perform on the listings item.
      *
      * @return $this
      */
-    public function setStatus($status)
+    public function setPatches($patches)
     {
-        $allowedValues = $this->getStatusAllowableValues();
-        if (!in_array($status, $allowedValues, true)) {
-            throw new \InvalidArgumentException(
-                sprintf(
-                    "Invalid value for 'status', must be one of '%s'",
-                    implode("', '", $allowedValues)
-                )
-            );
-        }
-        $this->container['status'] = $status;
-
-        return $this;
-    }
-
-    /**
-     * Gets submission_id
-     *
-     * @return string
-     */
-    public function getSubmissionId()
-    {
-        return $this->container['submission_id'];
-    }
-
-    /**
-     * Sets submission_id
-     *
-     * @param string $submission_id The unique identifier of the listings item submission.
-     *
-     * @return $this
-     */
-    public function setSubmissionId($submission_id)
-    {
-        $this->container['submission_id'] = $submission_id;
-
-        return $this;
-    }
-
-    /**
-     * Gets issues
-     *
-     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\Issue[]|null
-     */
-    public function getIssues()
-    {
-        return $this->container['issues'];
-    }
-
-    /**
-     * Sets issues
-     *
-     * @param \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\Issue[]|null $issues Listings item issues related to the listings item submission.
-     *
-     * @return $this
-     */
-    public function setIssues($issues)
-    {
-        $this->container['issues'] = $issues;
+        $this->container['patches'] = $patches;
 
         return $this;
     }

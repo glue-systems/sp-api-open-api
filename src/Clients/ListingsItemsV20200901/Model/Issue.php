@@ -1,11 +1,11 @@
 <?php
 /**
- * Error
+ * Issue
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\ObjectSerializer;
 
 /**
- * Error Class Doc Comment
+ * Issue Class Doc Comment
  *
  * @category Class
- * @description Error response returned when the request is unsuccessful.
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @description An issue with a listings item.
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Error implements ModelInterface, ArrayAccess
+class Issue implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Error implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Error';
+    protected static $openAPIModelName = 'Issue';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -60,7 +60,8 @@ class Error implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'code' => 'string',
         'message' => 'string',
-        'details' => 'string'
+        'severity' => 'string',
+        'attribute_name' => 'string'
     ];
 
     /**
@@ -71,7 +72,8 @@ class Error implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'code' => null,
         'message' => null,
-        'details' => null
+        'severity' => null,
+        'attribute_name' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class Error implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'code' => 'code',
         'message' => 'message',
-        'details' => 'details'
+        'severity' => 'severity',
+        'attribute_name' => 'attributeName'
     ];
 
     /**
@@ -114,7 +117,8 @@ class Error implements ModelInterface, ArrayAccess
     protected static $setters = [
         'code' => 'setCode',
         'message' => 'setMessage',
-        'details' => 'setDetails'
+        'severity' => 'setSeverity',
+        'attribute_name' => 'setAttributeName'
     ];
 
     /**
@@ -125,7 +129,8 @@ class Error implements ModelInterface, ArrayAccess
     protected static $getters = [
         'code' => 'getCode',
         'message' => 'getMessage',
-        'details' => 'getDetails'
+        'severity' => 'getSeverity',
+        'attribute_name' => 'getAttributeName'
     ];
 
     /**
@@ -169,8 +174,25 @@ class Error implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const SEVERITY_ERROR = 'ERROR';
+    const SEVERITY_WARNING = 'WARNING';
+    const SEVERITY_INFO = 'INFO';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSeverityAllowableValues()
+    {
+        return [
+            self::SEVERITY_ERROR,
+            self::SEVERITY_WARNING,
+            self::SEVERITY_INFO,
+        ];
+    }
     
 
     /**
@@ -190,7 +212,8 @@ class Error implements ModelInterface, ArrayAccess
     {
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['details'] = isset($data['details']) ? $data['details'] : null;
+        $this->container['severity'] = isset($data['severity']) ? $data['severity'] : null;
+        $this->container['attribute_name'] = isset($data['attribute_name']) ? $data['attribute_name'] : null;
     }
 
     /**
@@ -208,6 +231,17 @@ class Error implements ModelInterface, ArrayAccess
         if ($this->container['message'] === null) {
             $invalidProperties[] = "'message' can't be null";
         }
+        if ($this->container['severity'] === null) {
+            $invalidProperties[] = "'severity' can't be null";
+        }
+        $allowedValues = $this->getSeverityAllowableValues();
+        if (!is_null($this->container['severity']) && !in_array($this->container['severity'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'severity', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
         return $invalidProperties;
     }
 
@@ -236,7 +270,7 @@ class Error implements ModelInterface, ArrayAccess
     /**
      * Sets code
      *
-     * @param string $code An error code that identifies the type of error that occurred.
+     * @param string $code An issue code that identifies the type of issue.
      *
      * @return $this
      */
@@ -260,7 +294,7 @@ class Error implements ModelInterface, ArrayAccess
     /**
      * Sets message
      *
-     * @param string $message A message that describes the error condition.
+     * @param string $message A message that describes the issue.
      *
      * @return $this
      */
@@ -272,25 +306,58 @@ class Error implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets details
+     * Gets severity
      *
-     * @return string|null
+     * @return string
      */
-    public function getDetails()
+    public function getSeverity()
     {
-        return $this->container['details'];
+        return $this->container['severity'];
     }
 
     /**
-     * Sets details
+     * Sets severity
      *
-     * @param string|null $details Additional details that can help the caller understand or fix the issue.
+     * @param string $severity The severity of the issue.
      *
      * @return $this
      */
-    public function setDetails($details)
+    public function setSeverity($severity)
     {
-        $this->container['details'] = $details;
+        $allowedValues = $this->getSeverityAllowableValues();
+        if (!in_array($severity, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'severity', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['severity'] = $severity;
+
+        return $this;
+    }
+
+    /**
+     * Gets attribute_name
+     *
+     * @return string|null
+     */
+    public function getAttributeName()
+    {
+        return $this->container['attribute_name'];
+    }
+
+    /**
+     * Sets attribute_name
+     *
+     * @param string|null $attribute_name Name of the attribute associated with the issue, if applicable.
+     *
+     * @return $this
+     */
+    public function setAttributeName($attribute_name)
+    {
+        $this->container['attribute_name'] = $attribute_name;
 
         return $this;
     }

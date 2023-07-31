@@ -5,7 +5,7 @@ namespace Glue\SPAPI\OpenAPI\Services\Factory;
 use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Api\DefinitionsApi;
 use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi as FeedsApiV20200904;
 use Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi as FeedsApiV20210630;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Api\ListingsApi;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi as ListingsApiV20200901;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
 use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsApiV20200904;
 use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsApiV20210630;
@@ -27,9 +27,9 @@ interface ClientFactoryContract
     public function createSupplySourcesApiClient();
 
     /**
-     * @return ListingsApi
+     * @return ListingsApiV20200901
      */
-    public function createListingsItemsApiClient();
+    public function createListingsItemsApiV20200901Client();
 
     /**
      * @return OrdersV0Api

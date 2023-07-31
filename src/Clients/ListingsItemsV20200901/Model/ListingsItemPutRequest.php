@@ -1,11 +1,11 @@
 <?php
 /**
- * ListingsItemPatchRequest
+ * ListingsItemPutRequest
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\ObjectSerializer;
 
 /**
- * ListingsItemPatchRequest Class Doc Comment
+ * ListingsItemPutRequest Class Doc Comment
  *
  * @category Class
- * @description The request body schema for the patchListingsItem operation.
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @description The request body schema for the putListingsItem operation.
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
+class ListingsItemPutRequest implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ListingsItemPatchRequest';
+    protected static $openAPIModelName = 'ListingsItemPutRequest';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -59,7 +59,8 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'product_type' => 'string',
-        'patches' => '\Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\PatchOperation[]'
+        'requirements' => 'string',
+        'attributes' => 'object'
     ];
 
     /**
@@ -69,7 +70,8 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'product_type' => null,
-        'patches' => null
+        'requirements' => null,
+        'attributes' => null
     ];
 
     /**
@@ -100,7 +102,8 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'product_type' => 'productType',
-        'patches' => 'patches'
+        'requirements' => 'requirements',
+        'attributes' => 'attributes'
     ];
 
     /**
@@ -110,7 +113,8 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'product_type' => 'setProductType',
-        'patches' => 'setPatches'
+        'requirements' => 'setRequirements',
+        'attributes' => 'setAttributes'
     ];
 
     /**
@@ -120,7 +124,8 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'product_type' => 'getProductType',
-        'patches' => 'getPatches'
+        'requirements' => 'getRequirements',
+        'attributes' => 'getAttributes'
     ];
 
     /**
@@ -164,8 +169,25 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const REQUIREMENTS_LISTING = 'LISTING';
+    const REQUIREMENTS_LISTING_PRODUCT_ONLY = 'LISTING_PRODUCT_ONLY';
+    const REQUIREMENTS_LISTING_OFFER_ONLY = 'LISTING_OFFER_ONLY';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getRequirementsAllowableValues()
+    {
+        return [
+            self::REQUIREMENTS_LISTING,
+            self::REQUIREMENTS_LISTING_PRODUCT_ONLY,
+            self::REQUIREMENTS_LISTING_OFFER_ONLY,
+        ];
+    }
     
 
     /**
@@ -184,7 +206,8 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['product_type'] = isset($data['product_type']) ? $data['product_type'] : null;
-        $this->container['patches'] = isset($data['patches']) ? $data['patches'] : null;
+        $this->container['requirements'] = isset($data['requirements']) ? $data['requirements'] : null;
+        $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
     }
 
     /**
@@ -199,8 +222,16 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
         if ($this->container['product_type'] === null) {
             $invalidProperties[] = "'product_type' can't be null";
         }
-        if ($this->container['patches'] === null) {
-            $invalidProperties[] = "'patches' can't be null";
+        $allowedValues = $this->getRequirementsAllowableValues();
+        if (!is_null($this->container['requirements']) && !in_array($this->container['requirements'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'requirements', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['attributes'] === null) {
+            $invalidProperties[] = "'attributes' can't be null";
         }
         return $invalidProperties;
     }
@@ -242,25 +273,58 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets patches
+     * Gets requirements
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\PatchOperation[]
+     * @return string|null
      */
-    public function getPatches()
+    public function getRequirements()
     {
-        return $this->container['patches'];
+        return $this->container['requirements'];
     }
 
     /**
-     * Sets patches
+     * Sets requirements
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model\PatchOperation[] $patches One or more JSON Patch operations to perform on the listings item.
+     * @param string|null $requirements The name of the requirements set for the provided data.
      *
      * @return $this
      */
-    public function setPatches($patches)
+    public function setRequirements($requirements)
     {
-        $this->container['patches'] = $patches;
+        $allowedValues = $this->getRequirementsAllowableValues();
+        if (!is_null($requirements) && !in_array($requirements, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'requirements', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['requirements'] = $requirements;
+
+        return $this;
+    }
+
+    /**
+     * Gets attributes
+     *
+     * @return object
+     */
+    public function getAttributes()
+    {
+        return $this->container['attributes'];
+    }
+
+    /**
+     * Sets attributes
+     *
+     * @param object $attributes JSON object containing structured listings item attribute data keyed by attribute name.
+     *
+     * @return $this
+     */
+    public function setAttributes($attributes)
+    {
+        $this->container['attributes'] = $attributes;
 
         return $this;
     }

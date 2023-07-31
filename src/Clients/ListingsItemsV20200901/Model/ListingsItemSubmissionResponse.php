@@ -1,11 +1,11 @@
 <?php
 /**
- * Issue
+ * ListingsItemSubmissionResponse
  *
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,21 +27,21 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ListingsItems\Model;
+namespace Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ListingsItems\ObjectSerializer;
+use \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\ObjectSerializer;
 
 /**
- * Issue Class Doc Comment
+ * ListingsItemSubmissionResponse Class Doc Comment
  *
  * @category Class
- * @description An issue with a listings item.
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItems
+ * @description Response containing the results of a submission to the Selling Partner API for Listings Items.
+ * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class Issue implements ModelInterface, ArrayAccess
+class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class Issue implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'Issue';
+    protected static $openAPIModelName = 'ListingsItemSubmissionResponse';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,10 +58,10 @@ class Issue implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'code' => 'string',
-        'message' => 'string',
-        'severity' => 'string',
-        'attribute_name' => 'string'
+        'sku' => 'string',
+        'status' => 'string',
+        'submission_id' => 'string',
+        'issues' => '\Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\Issue[]'
     ];
 
     /**
@@ -70,10 +70,10 @@ class Issue implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'code' => null,
-        'message' => null,
-        'severity' => null,
-        'attribute_name' => null
+        'sku' => null,
+        'status' => null,
+        'submission_id' => null,
+        'issues' => null
     ];
 
     /**
@@ -103,10 +103,10 @@ class Issue implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'code' => 'code',
-        'message' => 'message',
-        'severity' => 'severity',
-        'attribute_name' => 'attributeName'
+        'sku' => 'sku',
+        'status' => 'status',
+        'submission_id' => 'submissionId',
+        'issues' => 'issues'
     ];
 
     /**
@@ -115,10 +115,10 @@ class Issue implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'code' => 'setCode',
-        'message' => 'setMessage',
-        'severity' => 'setSeverity',
-        'attribute_name' => 'setAttributeName'
+        'sku' => 'setSku',
+        'status' => 'setStatus',
+        'submission_id' => 'setSubmissionId',
+        'issues' => 'setIssues'
     ];
 
     /**
@@ -127,10 +127,10 @@ class Issue implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'code' => 'getCode',
-        'message' => 'getMessage',
-        'severity' => 'getSeverity',
-        'attribute_name' => 'getAttributeName'
+        'sku' => 'getSku',
+        'status' => 'getStatus',
+        'submission_id' => 'getSubmissionId',
+        'issues' => 'getIssues'
     ];
 
     /**
@@ -174,9 +174,8 @@ class Issue implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
-    const SEVERITY_ERROR = 'ERROR';
-    const SEVERITY_WARNING = 'WARNING';
-    const SEVERITY_INFO = 'INFO';
+    const STATUS_ACCEPTED = 'ACCEPTED';
+    const STATUS_INVALID = 'INVALID';
     
 
     
@@ -185,12 +184,11 @@ class Issue implements ModelInterface, ArrayAccess
      *
      * @return string[]
      */
-    public function getSeverityAllowableValues()
+    public function getStatusAllowableValues()
     {
         return [
-            self::SEVERITY_ERROR,
-            self::SEVERITY_WARNING,
-            self::SEVERITY_INFO,
+            self::STATUS_ACCEPTED,
+            self::STATUS_INVALID,
         ];
     }
     
@@ -210,10 +208,10 @@ class Issue implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['code'] = isset($data['code']) ? $data['code'] : null;
-        $this->container['message'] = isset($data['message']) ? $data['message'] : null;
-        $this->container['severity'] = isset($data['severity']) ? $data['severity'] : null;
-        $this->container['attribute_name'] = isset($data['attribute_name']) ? $data['attribute_name'] : null;
+        $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
+        $this->container['status'] = isset($data['status']) ? $data['status'] : null;
+        $this->container['submission_id'] = isset($data['submission_id']) ? $data['submission_id'] : null;
+        $this->container['issues'] = isset($data['issues']) ? $data['issues'] : null;
     }
 
     /**
@@ -225,23 +223,23 @@ class Issue implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
+        if ($this->container['sku'] === null) {
+            $invalidProperties[] = "'sku' can't be null";
         }
-        if ($this->container['message'] === null) {
-            $invalidProperties[] = "'message' can't be null";
+        if ($this->container['status'] === null) {
+            $invalidProperties[] = "'status' can't be null";
         }
-        if ($this->container['severity'] === null) {
-            $invalidProperties[] = "'severity' can't be null";
-        }
-        $allowedValues = $this->getSeverityAllowableValues();
-        if (!is_null($this->container['severity']) && !in_array($this->container['severity'], $allowedValues, true)) {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!is_null($this->container['status']) && !in_array($this->container['status'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'severity', must be one of '%s'",
+                "invalid value for 'status', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
+        if ($this->container['submission_id'] === null) {
+            $invalidProperties[] = "'submission_id' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -258,106 +256,106 @@ class Issue implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets code
+     * Gets sku
      *
      * @return string
      */
-    public function getCode()
+    public function getSku()
     {
-        return $this->container['code'];
+        return $this->container['sku'];
     }
 
     /**
-     * Sets code
+     * Sets sku
      *
-     * @param string $code An issue code that identifies the type of issue.
+     * @param string $sku A selling partner provided identifier for an Amazon listing.
      *
      * @return $this
      */
-    public function setCode($code)
+    public function setSku($sku)
     {
-        $this->container['code'] = $code;
+        $this->container['sku'] = $sku;
 
         return $this;
     }
 
     /**
-     * Gets message
+     * Gets status
      *
      * @return string
      */
-    public function getMessage()
+    public function getStatus()
     {
-        return $this->container['message'];
+        return $this->container['status'];
     }
 
     /**
-     * Sets message
+     * Sets status
      *
-     * @param string $message A message that describes the issue.
+     * @param string $status The status of the listings item submission.
      *
      * @return $this
      */
-    public function setMessage($message)
+    public function setStatus($status)
     {
-        $this->container['message'] = $message;
-
-        return $this;
-    }
-
-    /**
-     * Gets severity
-     *
-     * @return string
-     */
-    public function getSeverity()
-    {
-        return $this->container['severity'];
-    }
-
-    /**
-     * Sets severity
-     *
-     * @param string $severity The severity of the issue.
-     *
-     * @return $this
-     */
-    public function setSeverity($severity)
-    {
-        $allowedValues = $this->getSeverityAllowableValues();
-        if (!in_array($severity, $allowedValues, true)) {
+        $allowedValues = $this->getStatusAllowableValues();
+        if (!in_array($status, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'severity', must be one of '%s'",
+                    "Invalid value for 'status', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['severity'] = $severity;
+        $this->container['status'] = $status;
 
         return $this;
     }
 
     /**
-     * Gets attribute_name
+     * Gets submission_id
      *
-     * @return string|null
+     * @return string
      */
-    public function getAttributeName()
+    public function getSubmissionId()
     {
-        return $this->container['attribute_name'];
+        return $this->container['submission_id'];
     }
 
     /**
-     * Sets attribute_name
+     * Sets submission_id
      *
-     * @param string|null $attribute_name Name of the attribute associated with the issue, if applicable.
+     * @param string $submission_id The unique identifier of the listings item submission.
      *
      * @return $this
      */
-    public function setAttributeName($attribute_name)
+    public function setSubmissionId($submission_id)
     {
-        $this->container['attribute_name'] = $attribute_name;
+        $this->container['submission_id'] = $submission_id;
+
+        return $this;
+    }
+
+    /**
+     * Gets issues
+     *
+     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\Issue[]|null
+     */
+    public function getIssues()
+    {
+        return $this->container['issues'];
+    }
+
+    /**
+     * Sets issues
+     *
+     * @param \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\Issue[]|null $issues Listings item issues related to the listings item submission.
+     *
+     * @return $this
+     */
+    public function setIssues($issues)
+    {
+        $this->container['issues'] = $issues;
 
         return $this;
     }
