@@ -10,7 +10,7 @@ use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi as ShipmentV0Api;
 use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsV20200904Api;
 use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsV20210630Api;
-use Glue\SPAPI\OpenAPI\Clients\SupplySources\Api\SupplySourcesApi;
+use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as SupplySourcesV20200701Api;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 
@@ -22,9 +22,9 @@ interface ClientFactoryContract
     public function getConfig();
 
     /**
-     * @return SupplySourcesApi
+     * @return SupplySourcesV20200701Api
      */
-    public function createSupplySourcesApiClient();
+    public function createSupplySourcesV20200701ApiClient();
 
     /**
      * @return ListingsItemsV20200901Api
