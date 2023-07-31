@@ -7,7 +7,7 @@ use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi as FeedsV20200904Api;
 use Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi as FeedsV20210630Api;
 use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi as ListingsItemsV20200901Api;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi as ShipmentV0Api;
+use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi as OrdersV0ShipmentApi;
 use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsV20200904Api;
 use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsV20210630Api;
 use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as SupplySourcesV20200701Api;
@@ -37,9 +37,9 @@ interface ClientFactoryContract
     public function createOrdersV0ApiClient();
 
     /**
-     * @return ShipmentV0Api
+     * @return OrdersV0ShipmentApi
      */
-    public function createShipmentV0ApiClient();
+    public function createOrdersV0ShipmentApiClient();
 
     /**
      * @return DefinitionsProductTypesV20200901Api

@@ -23,7 +23,7 @@ class ShipmentApiTest extends TestCase
 
     public function test_updateShipmentStatus()
     {
-        $shipmentApi  = $this->clientFactory->createShipmentV0ApiClient();
+        $shipmentApi  = $this->clientFactory->createOrdersV0ShipmentApiClient();
 
         $result = $shipmentApi->updateShipmentStatusWithHttpInfo(
             'testOrder123',
