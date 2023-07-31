@@ -23,7 +23,7 @@ class FeedsApiTest extends TestCase
 
     public function test_getFeeds()
     {
-        $feedsApi  = $this->clientFactory->createFeedsApiV20210630Client();
+        $feedsApi  = $this->clientFactory->createFeedsV20210630ApiClient();
 
         $result = $feedsApi->getFeedsWithHttpInfo(
             // Specific values come from the sandbox spec in models/feeds_2021-06-30.json

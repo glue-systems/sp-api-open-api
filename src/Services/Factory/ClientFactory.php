@@ -2,24 +2,24 @@
 
 namespace Glue\SPAPI\OpenAPI\Services\Factory;
 
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Api\DefinitionsApi;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Api\ListingsApi;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
-use Glue\SPAPI\OpenAPI\Clients\SupplySources\Api\SupplySourcesApi;
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypes\Configuration as DefinitionsProductTypesConfig;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi as FeedsApiV20200904;
+use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi as DefinitionsProductTypesV20200901Api;
+use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Configuration as DefinitionsProductTypesV20200901Config;
+use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi as FeedsV20200904Api;
 use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Configuration as FeedsV20200904Config;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi as FeedsApiV20210630;
+use Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi as FeedsV20210630Api;
 use Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Configuration as FeedsV20210630Config;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItems\Configuration as ListingsItemsConfig;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi as ListingsItemsV20200901Api;
+use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Configuration as ListingsItemsV20200901Config;
+use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
+use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi as OrdersV0ShipmentApi;
 use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Configuration as OrdersV0Config;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsApiV20200904;
+use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsV20200904Api;
 use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Configuration as ReportsV20200904Config;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsApiV20210630;
+use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsV20210630Api;
 use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Configuration as ReportsV20210630Config;
-use Glue\SPAPI\OpenAPI\Clients\SupplySources\Configuration as SupplySourcesConfig;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensApiV20210301;
+use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as SupplySourcesV20200701Api;
+use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
+use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
 use Glue\SPAPI\OpenAPI\Services\Authenticator\ClientAuthenticatorContract;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
@@ -53,24 +53,24 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
-     * @return SupplySourcesApi
+     * @return SupplySourcesV20200701Api
      */
-    public function createSupplySourcesApiClient()
+    public function createSupplySourcesV20200701ApiClient()
     {
-        return new SupplySourcesApi(
+        return new SupplySourcesV20200701Api(
             $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new SupplySourcesConfig())
+            $this->_setUpClientConfig(new SupplySourcesV20200701Config())
         );
     }
 
     /**
-     * @return ListingsApi
+     * @return ListingsItemsV20200901Api
      */
-    public function createListingsItemsApiClient()
+    public function createListingsItemsV20200901ApiClient()
     {
-        return new ListingsApi(
+        return new ListingsItemsV20200901Api(
             $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new ListingsItemsConfig())
+            $this->_setUpClientConfig(new ListingsItemsV20200901Config())
         );
     }
 
@@ -86,87 +86,87 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
-     * @return ShipmentApi
+     * @return OrdersV0ShipmentApi
      */
-    public function createShipmentApiClient()
+    public function createOrdersV0ShipmentApiClient()
     {
-        // ShipmentAPi does not have its own Configuration class,
+        // OrdersV0ShipmentApi does not have its own Configuration class,
         // as it originats the same models/ordersV0.json spec.
-        return new ShipmentApi(
+        return new OrdersV0ShipmentApi(
             $this->authenticator->createAuthenticatedGuzzleClient(),
             $this->_setUpClientConfig(new OrdersV0Config())
         );
     }
 
     /**
-     * @return DefinitionsApi
+     * @return DefinitionsProductTypesV20200901Api
      */
-    public function createDefinitionsProductTypesApiClient()
+    public function createDefinitionsProductTypesV20200901ApiClient()
     {
-        return new DefinitionsApi(
+        return new DefinitionsProductTypesV20200901Api(
             $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new DefinitionsProductTypesConfig())
+            $this->_setUpClientConfig(new DefinitionsProductTypesV20200901Config())
         );
     }
 
     /**
-     * @return TokensApiV20210301
+     * @return TokensV20210301Api
      */
-    public function createTokensApiV20210301Client()
+    public function createTokensV20210301ApiClient()
     {
-        return new TokensApiV20210301(
+        return new TokensV20210301Api(
             $this->authenticator->createAuthenticatedGuzzleClient(),
             $this->_setUpClientConfig(new TokensV20210301Config())
         );
     }
 
     /**
-     * @return FeedsApiV20200904
+     * @return FeedsV20200904Api
      */
-    public function createFeedsApiV20200904Client()
+    public function createFeedsV20200904ApiClient()
     {
-        return new FeedsApiV20200904(
+        return new FeedsV20200904Api(
             $this->authenticator->createAuthenticatedGuzzleClient(),
             $this->_setUpClientConfig(new FeedsV20200904Config())
         );
     }
 
     /**
-     * @return FeedsApiV20210630
+     * @return FeedsV20210630Api
      */
-    public function createFeedsApiV20210630Client()
+    public function createFeedsV20210630ApiClient()
     {
-        return new FeedsApiV20210630(
+        return new FeedsV20210630Api(
             $this->authenticator->createAuthenticatedGuzzleClient(),
             $this->_setUpClientConfig(new FeedsV20210630Config())
         );
     }
 
     /**
-     * @return ReportsApiV20200904
+     * @return ReportsV20200904Api
      */
-    public function createReportsApiV20200904Client()
+    public function createReportsV20200904ApiClient()
     {
-        return new ReportsApiV20200904(
+        return new ReportsV20200904Api(
             $this->authenticator->createAuthenticatedGuzzleClient(),
             $this->_setUpClientConfig(new ReportsV20200904Config())
         );
     }
 
     /**
-     * @return ReportsApiV20210630
+     * @return ReportsV20210630Api
      */
-    public function createReportsApiV20210630Client()
+    public function createReportsV20210630ApiClient()
     {
-        return new ReportsApiV20210630(
+        return new ReportsV20210630Api(
             $this->authenticator->createAuthenticatedGuzzleClient(),
             $this->_setUpClientConfig(new ReportsV20210630Config())
         );
     }
 
     /**
-     * @param  ListingsItemsConfig|OrdersV0Config|SupplySourcesConfig|DefinitionsProductTypesConfig|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config  $clientConfig
-     * @return ListingsItemsConfig|OrdersV0Config|SupplySourcesConfig|DefinitionsProductTypesConfig|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config
+     * @param  ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config  $clientConfig
+     * @return ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config
      */
     protected function _setUpClientConfig($clientConfig)
     {
