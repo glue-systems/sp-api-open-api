@@ -26,7 +26,7 @@ class FeedsApiTest extends TestCase
         $feedsApi  = $this->clientFactory->createFeedsApiV20210630Client();
 
         $result = $feedsApi->getFeedsWithHttpInfo(
-            // Specific values come from the sandbox spec in models/feeds_2020-09-04.json
+            // Specific values come from the sandbox spec in models/feeds_2021-06-30.json
             ['POST_PRODUCT_DATA'],
             [$this->clientFactory->getConfig()->marketplaceId],
             10,
