@@ -12,6 +12,7 @@ use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsV202009
 use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsV20210630Api;
 use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as SupplySourcesV20200701Api;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
+use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 
 interface ClientFactoryContract
@@ -34,7 +35,9 @@ interface ClientFactoryContract
     /**
      * @return OrdersV0Api
      */
-    public function createOrdersV0ApiClient();
+    public function createOrdersV0ApiClient(
+        CreateRestrictedDataTokenRequest $rdtRequest = null
+    );
 
     /**
      * @return OrdersV0ShipmentApi
@@ -64,10 +67,14 @@ interface ClientFactoryContract
     /**
      * @return ReportsV20200904Api
      */
-    public function createReportsV20200904ApiClient();
+    public function createReportsV20200904ApiClient(
+        CreateRestrictedDataTokenRequest $rdtRequest = null
+    );
 
     /**
      * @return ReportsV20210630Api
      */
-    public function createReportsV20210630ApiClient();
+    public function createReportsV20210630ApiClient(
+        CreateRestrictedDataTokenRequest $rdtRequest = null
+    );
 }

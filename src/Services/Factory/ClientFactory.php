@@ -21,6 +21,7 @@ use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as Su
 use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
+use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SPAPI\OpenAPI\Services\Authenticator\ClientAuthenticatorContract;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 
@@ -77,8 +78,9 @@ class ClientFactory implements ClientFactoryContract
     /**
      * @return OrdersV0Api
      */
-    public function createOrdersV0ApiClient()
-    {
+    public function createOrdersV0ApiClient(
+        CreateRestrictedDataTokenRequest $rdtRequest = null
+    ) {
         return new OrdersV0Api(
             $this->authenticator->createAuthenticatedGuzzleClient(),
             $this->_setUpClientConfig(new OrdersV0Config())
@@ -145,8 +147,9 @@ class ClientFactory implements ClientFactoryContract
     /**
      * @return ReportsV20200904Api
      */
-    public function createReportsV20200904ApiClient()
-    {
+    public function createReportsV20200904ApiClient(
+        CreateRestrictedDataTokenRequest $rdtRequest = null
+    ) {
         return new ReportsV20200904Api(
             $this->authenticator->createAuthenticatedGuzzleClient(),
             $this->_setUpClientConfig(new ReportsV20200904Config())
@@ -156,8 +159,9 @@ class ClientFactory implements ClientFactoryContract
     /**
      * @return ReportsV20210630Api
      */
-    public function createReportsV20210630ApiClient()
-    {
+    public function createReportsV20210630ApiClient(
+        CreateRestrictedDataTokenRequest $rdtRequest = null
+    ) {
         return new ReportsV20210630Api(
             $this->authenticator->createAuthenticatedGuzzleClient(),
             $this->_setUpClientConfig(new ReportsV20210630Config())
