@@ -1,6 +1,6 @@
 {
     "name": "glue-systems/sp-api-open-api",
-    "description": "Lightweight, flexible PHP library for making LWA-authorized requests to Amazon Selling Partner API (SP-API) via OpenAPI-generated classes",
+    "description": "Lightweight PHP 5.6+ library for making LWA-authorized requests to Amazon Selling Partner API (SP-API) via OpenAPI-generated classes",
     "type": "library",
     "keywords": [
         "amazon",
