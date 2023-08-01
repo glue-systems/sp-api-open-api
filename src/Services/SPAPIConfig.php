@@ -136,7 +136,7 @@ class SPAPIConfig
             }
         }
 
-        if ($this->sandbox && !str_contains(strtolower($this->spApiBaseUrl), 'sandbox')) {
+        if ($this->sandbox && strpos(strtolower($this->spApiBaseUrl), 'sandbox') === false) {
             throw new \RuntimeException("Production URL detected! Invalid spApiBaseUrl '$this->spApiBaseUrl' when sandbox = true."
                 . " Please adjust your ENV to use the sandbox URL and associated credentials instead."
                 . " For more info, see the Amazon docs: https://developer-docs.amazon.com/amazon-shipping/docs/the-selling-partner-api-sandbox.");

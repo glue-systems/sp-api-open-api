@@ -1,23 +1,24 @@
 {
     "name": "glue-systems/sp-api-open-api",
-    "description": "OpenAPI-generated PHP clients for Amazon Selling Partner API",
+    "description": "Lightweight PHP 5.6+ library for making LWA-authorized requests to Amazon Selling Partner API (SP-API) via OpenAPI-generated classes",
     "type": "library",
     "keywords": [
-        "glue",
         "amazon",
         "sp-api",
         "selling-partner",
         "php",
-        "client"
+        "client",
+        "openapi",
+        "lwa"
     ],
     "license": "MIT",
     "authors": [
         {
+            "name": "Glue Systems, LLC Dev Team",
+            "role": "Package Creators"
+        }, {
             "name": "OpenAPI-Generator contributors",
             "homepage": "https://openapi-generator.tech"
-        }, {
-            "name": "Glue Systems Dev Team",
-            "role": "Organize API clients into package-able library"
         }
     ],
     "require": {
@@ -26,9 +27,8 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "guzzlehttp/guzzle": "^6.2",
-        "illuminate/cache": "4.2.*",
-        "nesbot/carbon": "1.38.3",
-        "aws/aws-sdk-php": "^3.110"
+        "aws/aws-sdk-php": "^3.110",
+        "psr/simple-cache": "^1.0"
     },
     "autoload": {
         "psr-4": {

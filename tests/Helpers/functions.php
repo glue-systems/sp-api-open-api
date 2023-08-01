@@ -7,8 +7,23 @@ use Dotenv\Environment\DotenvFactory;
 use PhpOption\Option;
 
 /**
- * Code ported over from global env helper in illuminate/support 5.8.* (doesn't exist in 4.2.*).
- * TODO: Replace this with env() helper after upgrading to later versions of illuminate/support.
+ * Ported over from illuminate/support 5.8.* package.
+ */
+if (!function_exists('value')) {
+    /**
+     * Return the default value of the given value.
+     *
+     * @param  mixed  $value
+     * @return mixed
+     */
+    function value($value)
+    {
+        return $value instanceof Closure ? $value() : $value;
+    }
+}
+
+/**
+ * Ported over from illuminate/support 5.8.* package.
  */
 if (!function_exists('env')) {
     /**

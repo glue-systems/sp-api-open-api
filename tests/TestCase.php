@@ -13,28 +13,28 @@ use Dotenv\Exception\InvalidFileException;
 use Glue\SPAPI\OpenAPI\Services\Authenticator\ClientAuthenticator;
 use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
-use Illuminate\Cache\ArrayStore;
 // TODO: Switch to this after upgrading.
 // use PHPUnit\Framework\TestCase as BaseTestCase;
 use \PHPUnit_Framework_TestCase as BaseTestCase;
+use Tests\Helpers\ArrayCache;
 
 class TestCase extends BaseTestCase
 {
     /**
-     * @var ArrayStore
+     * @var ArrayCache
      */
     public static $arrayCache;
 
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
-        if (!self::$arrayCache instanceof ArrayStore) {
-            self::$arrayCache = new ArrayStore();
+        if (!self::$arrayCache instanceof ArrayCache) {
+            self::$arrayCache = new ArrayCache();
         }
 
         $this->loadEnv();
 
-        require_once(__DIR__ . '/helpers.php');
+        require_once(__DIR__ . '/Helpers/functions.php');
     }
 
     public function loadEnv()
@@ -73,7 +73,7 @@ class TestCase extends BaseTestCase
         ]);
 
         if (env('TESTING_ALWAYS_RESET_ARRAY_CACHE', false)) {
-            self::$arrayCache = new ArrayStore();
+            self::$arrayCache = new ArrayCache();
         }
         $credentialProvider  = $this->buildDotEnvCredentialProvider();
         $clientAuthenticator = new ClientAuthenticator(self::$arrayCache, $credentialProvider, $spApiConfig);
