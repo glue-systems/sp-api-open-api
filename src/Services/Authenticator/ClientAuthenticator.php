@@ -10,8 +10,8 @@ use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
 use GuzzleHttp\RequestOptions;
-use Illuminate\Cache\StoreInterface;
 use Psr\Http\Message\RequestInterface;
+use Psr\SimpleCache\CacheInterface;
 
 class ClientAuthenticator implements ClientAuthenticatorContract
 {
@@ -20,7 +20,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     const CACHE_LIFE_BUFFER_IN_SECONDS = 60;
 
     /**
-     * @var StoreInterface
+     * @var CacheInterface
      */
     protected $cache;
 
@@ -35,8 +35,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     protected $config;
 
     public function __construct(
-        // TODO: Change to Illuminate\Contracts\Cache\Store in upgrading to PHP 7+.
-        StoreInterface $cache,
+        CacheInterface $cache,
         callable $credentialProvider,
         SPAPIConfig $config
     ) {
@@ -66,7 +65,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
 
         $newToken = $this->generateNewLwaAccessToken();
 
-        $this->cache->put(
+        $this->cache->set(
             self::LWA_ACCESS_TOKEN_CACHE_KEY,
             $newToken['access_token'],
             $newToken['expires_in'] - self::CACHE_LIFE_BUFFER_IN_SECONDS
