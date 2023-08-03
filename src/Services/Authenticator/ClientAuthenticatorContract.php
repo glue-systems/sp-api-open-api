@@ -23,7 +23,8 @@ interface ClientAuthenticatorContract
     public function generateNewLwaAccessToken();
 
     /**
+     * @param string|null $restrictedDataToken
      * @return ClientInterface
      */
-    public function createAuthenticatedGuzzleClient();
+    public function createAuthenticatedGuzzleClient($restrictedDataToken = null);
 }

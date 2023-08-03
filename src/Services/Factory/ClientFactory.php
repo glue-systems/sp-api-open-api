@@ -201,8 +201,16 @@ class ClientFactory implements ClientFactoryContract
             $domainConfigObject = new $domainConfigClassFqn();
         }
 
+        if ($rdtRequest) {
+            $tokensApi           = $this->createTokensV20210301ApiClient();
+            $rdtResponse         = $tokensApi->createRestrictedDataToken($rdtRequest);
+            $restrictedDataToken = $rdtResponse->getRestrictedDataToken();
+        } else {
+            $restrictedDataToken = null;
+        }
+
         return new $domainApiClassFqn(
-            $this->authenticator->createAuthenticatedGuzzleClient(),
+            $this->authenticator->createAuthenticatedGuzzleClient($restrictedDataToken),
             $this->_setUpClientConfig($domainConfigObject)
         );
     }

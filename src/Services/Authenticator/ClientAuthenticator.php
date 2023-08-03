@@ -97,25 +97,31 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     }
 
     /**
+     * @param string|null $restrictedDataToken
      * @return ClientInterface
      */
-    public function createAuthenticatedGuzzleClient()
+    public function createAuthenticatedGuzzleClient($restrictedDataToken = null)
     {
-        $lwaAccessToken = $this->rememberLwaAccessToken();
+        if ($restrictedDataToken) {
+            $accessToken = $restrictedDataToken;
+        } else {
+            $lwaAccessToken = $this->rememberLwaAccessToken();
+            $accessToken    = $lwaAccessToken;
+        }
 
         $now = new \DateTime('now', new \DateTimeZone('UTC'));
 
         $formattedTimestamp = $now->format('Ymd\THis\Z');
 
-        return $this->_makeGuzzleClient($lwaAccessToken, $formattedTimestamp);
+        return $this->_makeGuzzleClient($accessToken, $formattedTimestamp);
     }
 
     /**
-     * @param string $lwaAccessToken
+     * @param string $accessToken
      * @param string $formattedTimestamp
      * @return ClientInterface
      */
-    protected function _makeGuzzleClient($lwaAccessToken, $formattedTimestamp)
+    protected function _makeGuzzleClient($accessToken, $formattedTimestamp)
     {
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
@@ -136,7 +142,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
             'base_uri' => $this->config->spApiBaseUrl,
             'debug'    => $this->config->debugDomainApiCall,
             'headers'  => [
-                'x-amz-access-token' => $lwaAccessToken,
+                'x-amz-access-token' => $accessToken,
                 'x-amz-date'         => $formattedTimestamp,
                 // (User-Agent and Host are set downstream in the internals of the OpenAPI
                 // clients, using data captured in each client's config object.)
