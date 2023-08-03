@@ -21,6 +21,7 @@ use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as Su
 use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
+use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SPAPI\OpenAPI\Services\Authenticator\ClientAuthenticatorContract;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 
@@ -55,112 +56,162 @@ class ClientFactory implements ClientFactoryContract
     /**
      * @return SupplySourcesV20200701Api
      */
-    public function createSupplySourcesV20200701ApiClient()
-    {
-        return new SupplySourcesV20200701Api(
-            $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new SupplySourcesV20200701Config())
+    public function createSupplySourcesV20200701ApiClient(
+        SupplySourcesV20200701Config $configuration = null
+    ) {
+        return $this->_createDomainApiClient(
+            SupplySourcesV20200701Api::class,
+            SupplySourcesV20200701Config::class,
+            $configuration
         );
     }
 
     /**
      * @return ListingsItemsV20200901Api
      */
-    public function createListingsItemsV20200901ApiClient()
-    {
-        return new ListingsItemsV20200901Api(
-            $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new ListingsItemsV20200901Config())
+    public function createListingsItemsV20200901ApiClient(
+        ListingsItemsV20200901Config $configuration = null
+    ) {
+        return $this->_createDomainApiClient(
+            ListingsItemsV20200901Api::class,
+            ListingsItemsV20200901Config::class,
+            $configuration
         );
     }
 
     /**
      * @return OrdersV0Api
      */
-    public function createOrdersV0ApiClient()
-    {
-        return new OrdersV0Api(
-            $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new OrdersV0Config())
+    public function createOrdersV0ApiClient(
+        OrdersV0Config $configuration = null,
+        CreateRestrictedDataTokenRequest $rdtRequest = null
+    ) {
+        return $this->_createDomainApiClient(
+            OrdersV0Api::class,
+            OrdersV0Config::class,
+            $configuration,
+            $rdtRequest
         );
     }
 
     /**
      * @return OrdersV0ShipmentApi
      */
-    public function createOrdersV0ShipmentApiClient()
-    {
+    public function createOrdersV0ShipmentApiClient(
+        OrdersV0Config $configuration = null
+    ) {
         // OrdersV0ShipmentApi does not have its own Configuration class,
-        // as it originats the same models/ordersV0.json spec.
-        return new OrdersV0ShipmentApi(
-            $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new OrdersV0Config())
+        // as it originates the same models/ordersV0.json spec.
+        return $this->_createDomainApiClient(
+            OrdersV0ShipmentApi::class,
+            OrdersV0Config::class,
+            $configuration
         );
     }
 
     /**
      * @return DefinitionsProductTypesV20200901Api
      */
-    public function createDefinitionsProductTypesV20200901ApiClient()
-    {
-        return new DefinitionsProductTypesV20200901Api(
-            $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new DefinitionsProductTypesV20200901Config())
+    public function createDefinitionsProductTypesV20200901ApiClient(
+        DefinitionsProductTypesV20200901Config $configuration = null
+    ) {
+        return $this->_createDomainApiClient(
+            DefinitionsProductTypesV20200901Api::class,
+            DefinitionsProductTypesV20200901Config::class,
+            $configuration
         );
     }
 
     /**
      * @return TokensV20210301Api
      */
-    public function createTokensV20210301ApiClient()
-    {
-        return new TokensV20210301Api(
-            $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new TokensV20210301Config())
+    public function createTokensV20210301ApiClient(
+        TokensV20210301Config $configuration = null
+    ) {
+        return $this->_createDomainApiClient(
+            TokensV20210301Api::class,
+            TokensV20210301Config::class,
+            $configuration
         );
     }
 
     /**
      * @return FeedsV20200904Api
      */
-    public function createFeedsV20200904ApiClient()
-    {
-        return new FeedsV20200904Api(
-            $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new FeedsV20200904Config())
+    public function createFeedsV20200904ApiClient(
+        FeedsV20200904Config $configuration = null
+    ) {
+        return $this->_createDomainApiClient(
+            FeedsV20200904Api::class,
+            FeedsV20200904Config::class,
+            $configuration
         );
     }
 
     /**
      * @return FeedsV20210630Api
      */
-    public function createFeedsV20210630ApiClient()
-    {
-        return new FeedsV20210630Api(
-            $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new FeedsV20210630Config())
+    public function createFeedsV20210630ApiClient(
+        FeedsV20210630Config $configuration = null
+    ) {
+        return $this->_createDomainApiClient(
+            FeedsV20210630Api::class,
+            FeedsV20210630Config::class,
+            $configuration
         );
     }
 
     /**
      * @return ReportsV20200904Api
      */
-    public function createReportsV20200904ApiClient()
-    {
-        return new ReportsV20200904Api(
-            $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new ReportsV20200904Config())
+    public function createReportsV20200904ApiClient(
+        ReportsV20200904Config $configuration = null,
+        CreateRestrictedDataTokenRequest $rdtRequest = null
+    ) {
+        return $this->_createDomainApiClient(
+            ReportsV20200904Api::class,
+            ReportsV20200904Config::class,
+            $configuration,
+            $rdtRequest
         );
     }
 
     /**
      * @return ReportsV20210630Api
      */
-    public function createReportsV20210630ApiClient()
-    {
-        return new ReportsV20210630Api(
-            $this->authenticator->createAuthenticatedGuzzleClient(),
-            $this->_setUpClientConfig(new ReportsV20210630Config())
+    public function createReportsV20210630ApiClient(
+        ReportsV20210630Config $configuration = null,
+        CreateRestrictedDataTokenRequest $rdtRequest = null
+    ) {
+        return $this->_createDomainApiClient(
+            ReportsV20210630Api::class,
+            ReportsV20210630Config::class,
+            $configuration,
+            $rdtRequest
+        );
+    }
+
+    protected function _createDomainApiClient(
+        $domainApiClassFqn,
+        $domainConfigClassFqn,
+        $domainConfigObject = null,
+        CreateRestrictedDataTokenRequest $rdtRequest = null
+    ) {
+        if (is_null($domainConfigObject)) {
+            $domainConfigObject = new $domainConfigClassFqn();
+        }
+
+        if ($rdtRequest) {
+            $tokensApi           = $this->createTokensV20210301ApiClient();
+            $rdtResponse         = $tokensApi->createRestrictedDataToken($rdtRequest);
+            $restrictedDataToken = $rdtResponse->getRestrictedDataToken();
+        } else {
+            $restrictedDataToken = null;
+        }
+
+        return new $domainApiClassFqn(
+            $this->authenticator->createAuthenticatedGuzzleClient($restrictedDataToken),
+            $this->_setUpClientConfig($domainConfigObject)
         );
     }
 
