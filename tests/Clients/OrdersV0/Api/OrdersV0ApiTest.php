@@ -30,7 +30,7 @@ class OrdersV0ApiTest extends TestCase
         $createdAfter = 'TEST_CASE_200';
 
         $result = $ordersV0Api->getOrdersWithHttpInfo(
-            [$this->clientFactory->getConfig()->marketplaceId],
+            [$this->clientFactory->getSpApiConfig()->marketplaceId],
             $createdAfter
         );
 

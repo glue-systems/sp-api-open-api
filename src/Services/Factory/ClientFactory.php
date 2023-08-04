@@ -35,22 +35,22 @@ class ClientFactory implements ClientFactoryContract
     /**
      * @var SPAPIConfig
      */
-    protected $config;
+    protected $spApiConfig;
 
     public function __construct(
         ClientBuilderContract $builder,
-        SPAPIConfig $config
+        SPAPIConfig $spApiConfig
     ) {
-        $this->builder = $builder;
-        $this->config  = $config;
+        $this->builder      = $builder;
+        $this->spApiConfig  = $spApiConfig;
     }
 
     /**
      * @return SPAPIConfig
      */
-    public function getConfig()
+    public function getSpApiConfig()
     {
-        return clone $this->config;
+        return clone $this->spApiConfig;
     }
 
     /**
@@ -75,11 +75,11 @@ class ClientFactory implements ClientFactoryContract
      * @return SupplySourcesV20200701Api
      */
     public function createSupplySourcesV20200701ApiClient(
-        SupplySourcesV20200701Config $configuration = null
+        SupplySourcesV20200701Config $domainConfig = null
     ) {
         return $this->builder
-            ->forDomainApi(SupplySourcesV20200701Api::class)
-            ->withConfig($configuration)
+            ->forApi(SupplySourcesV20200701Api::class)
+            ->withConfig($domainConfig)
             ->createClient();
     }
 
@@ -87,11 +87,11 @@ class ClientFactory implements ClientFactoryContract
      * @return ListingsItemsV20200901Api
      */
     public function createListingsItemsV20200901ApiClient(
-        ListingsItemsV20200901Config $configuration = null
+        ListingsItemsV20200901Config $domainConfig = null
     ) {
         return $this->builder
-            ->forDomainApi(ListingsItemsV20200901Api::class)
-            ->withConfig($configuration)
+            ->forApi(ListingsItemsV20200901Api::class)
+            ->withConfig($domainConfig)
             ->createClient();
     }
 
@@ -99,12 +99,12 @@ class ClientFactory implements ClientFactoryContract
      * @return OrdersV0Api
      */
     public function createOrdersV0ApiClient(
-        OrdersV0Config $configuration = null,
+        OrdersV0Config $domainConfig = null,
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->builder
-            ->forDomainApi(OrdersV0Api::class)
-            ->withConfig($configuration)
+            ->forApi(OrdersV0Api::class)
+            ->withConfig($domainConfig)
             ->withRdtProvider($this->makeRdtProvider($rdtRequest))
             ->createClient();
     }
@@ -116,11 +116,11 @@ class ClientFactory implements ClientFactoryContract
      * @return OrdersV0ShipmentApi
      */
     public function createOrdersV0ShipmentApiClient(
-        OrdersV0Config $configuration = null
+        OrdersV0Config $domainConfig = null
     ) {
         return $this->builder
-            ->forDomainApi(OrdersV0ShipmentApi::class)
-            ->withConfig($configuration)
+            ->forApi(OrdersV0ShipmentApi::class)
+            ->withConfig($domainConfig)
             ->createClient();
     }
 
@@ -128,11 +128,11 @@ class ClientFactory implements ClientFactoryContract
      * @return DefinitionsProductTypesV20200901Api
      */
     public function createDefinitionsProductTypesV20200901ApiClient(
-        DefinitionsProductTypesV20200901Config $configuration = null
+        DefinitionsProductTypesV20200901Config $domainConfig = null
     ) {
         return $this->builder
-            ->forDomainApi(DefinitionsProductTypesV20200901Api::class)
-            ->withConfig($configuration)
+            ->forApi(DefinitionsProductTypesV20200901Api::class)
+            ->withConfig($domainConfig)
             ->createClient();
     }
 
@@ -140,11 +140,11 @@ class ClientFactory implements ClientFactoryContract
      * @return TokensV20210301Api
      */
     public function createTokensV20210301ApiClient(
-        TokensV20210301Config $configuration = null
+        TokensV20210301Config $domainConfig = null
     ) {
         return $this->builder
-            ->forDomainApi(TokensV20210301Api::class)
-            ->withConfig($configuration)
+            ->forApi(TokensV20210301Api::class)
+            ->withConfig($domainConfig)
             ->createClient();
     }
 
@@ -152,11 +152,11 @@ class ClientFactory implements ClientFactoryContract
      * @return FeedsV20200904Api
      */
     public function createFeedsV20200904ApiClient(
-        FeedsV20200904Config $configuration = null
+        FeedsV20200904Config $domainConfig = null
     ) {
         return $this->builder
-            ->forDomainApi(FeedsV20200904Api::class)
-            ->withConfig($configuration)
+            ->forApi(FeedsV20200904Api::class)
+            ->withConfig($domainConfig)
             ->createClient();
     }
 
@@ -164,11 +164,11 @@ class ClientFactory implements ClientFactoryContract
      * @return FeedsV20210630Api
      */
     public function createFeedsV20210630ApiClient(
-        FeedsV20210630Config $configuration = null
+        FeedsV20210630Config $domainConfig = null
     ) {
         return $this->builder
-            ->forDomainApi(FeedsV20210630Api::class)
-            ->withConfig($configuration)
+            ->forApi(FeedsV20210630Api::class)
+            ->withConfig($domainConfig)
             ->createClient();
     }
 
@@ -176,12 +176,12 @@ class ClientFactory implements ClientFactoryContract
      * @return ReportsV20200904Api
      */
     public function createReportsV20200904ApiClient(
-        ReportsV20200904Config $configuration = null,
+        ReportsV20200904Config $domainConfig = null,
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->builder
-            ->forDomainApi(ReportsV20200904Api::class)
-            ->withConfig($configuration)
+            ->forApi(ReportsV20200904Api::class)
+            ->withConfig($domainConfig)
             ->withRdtProvider($this->makeRdtProvider($rdtRequest))
             ->createClient();
     }
@@ -190,12 +190,12 @@ class ClientFactory implements ClientFactoryContract
      * @return ReportsV20210630Api
      */
     public function createReportsV20210630ApiClient(
-        ReportsV20210630Config $configuration = null,
+        ReportsV20210630Config $domainConfig = null,
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->builder
-            ->forDomainApi(ReportsV20210630Api::class)
-            ->withConfig($configuration)
+            ->forApi(ReportsV20210630Api::class)
+            ->withConfig($domainConfig)
             ->withRdtProvider($this->makeRdtProvider($rdtRequest))
             ->createClient();
     }

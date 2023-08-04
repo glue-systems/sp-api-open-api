@@ -21,20 +21,26 @@ use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as Su
 use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
+use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 
 interface ClientBuilderContract
 {
     /**
-     * @param string $domainApiClassFqn Fully qualified class name of the target domain API
-     * @return static
+     * @return SPAPIConfig
      */
-    public function forDomainApi($domainApiClassFqn);
+    public function getSpApiConfig();
 
     /**
-     * @param null|ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config $domainConfigObject
+     * @param string $apiClassFqn Fully qualified class name of the target API
      * @return static
      */
-    public function withConfig($domainConfigObject = null);
+    public function forApi($apiClassFqn);
+
+    /**
+     * @param null|ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config $domainConfig
+     * @return static
+     */
+    public function withConfig($domainConfig = null);
 
     /**
      * @return static

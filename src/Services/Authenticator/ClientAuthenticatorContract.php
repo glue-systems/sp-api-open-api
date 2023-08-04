@@ -10,7 +10,7 @@ interface ClientAuthenticatorContract
     /**
      * @return SPAPIConfig
      */
-    public function getConfig();
+    public function getSpApiConfig();
 
     /**
      * @return string

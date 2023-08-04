@@ -29,7 +29,7 @@ interface ClientFactoryContract
     /**
      * @return SPAPIConfig
      */
-    public function getConfig();
+    public function getSpApiConfig();
 
     /**
      *
@@ -42,21 +42,21 @@ interface ClientFactoryContract
      * @return SupplySourcesV20200701Api
      */
     public function createSupplySourcesV20200701ApiClient(
-        SupplySourcesV20200701Config $configuration = null
+        SupplySourcesV20200701Config $domainConfig = null
     );
 
     /**
      * @return ListingsItemsV20200901Api
      */
     public function createListingsItemsV20200901ApiClient(
-        ListingsItemsV20200901Config $configuration = null
+        ListingsItemsV20200901Config $domainConfig = null
     );
 
     /**
      * @return OrdersV0Api
      */
     public function createOrdersV0ApiClient(
-        OrdersV0Config $configuration = null,
+        OrdersV0Config $domainConfig = null,
         CreateRestrictedDataTokenRequest $rdtRequest = null
     );
 
@@ -64,42 +64,42 @@ interface ClientFactoryContract
      * @return OrdersV0ShipmentApi
      */
     public function createOrdersV0ShipmentApiClient(
-        OrdersV0Config $configuration = null
+        OrdersV0Config $domainConfig = null
     );
 
     /**
      * @return DefinitionsProductTypesV20200901Api
      */
     public function createDefinitionsProductTypesV20200901ApiClient(
-        DefinitionsProductTypesV20200901Config $configuration = null
+        DefinitionsProductTypesV20200901Config $domainConfig = null
     );
 
     /**
      * @return TokensV20210301Api
      */
     public function createTokensV20210301ApiClient(
-        TokensV20210301Config $configuration = null
+        TokensV20210301Config $domainConfig = null
     );
 
     /**
      * @return FeedsV20200904Api
      */
     public function createFeedsV20200904ApiClient(
-        FeedsV20200904Config $configuration = null
+        FeedsV20200904Config $domainConfig = null
     );
 
     /**
      * @return FeedsV20210630Api
      */
     public function createFeedsV20210630ApiClient(
-        FeedsV20210630Config $configuration = null
+        FeedsV20210630Config $domainConfig = null
     );
 
     /**
      * @return ReportsV20200904Api
      */
     public function createReportsV20200904ApiClient(
-        ReportsV20200904Config $configuration = null,
+        ReportsV20200904Config $domainConfig = null,
         CreateRestrictedDataTokenRequest $rdtRequest = null
     );
 
@@ -107,7 +107,7 @@ interface ClientFactoryContract
      * @return ReportsV20210630Api
      */
     public function createReportsV20210630ApiClient(
-        ReportsV20210630Config $configuration = null,
+        ReportsV20210630Config $domainConfig = null,
         CreateRestrictedDataTokenRequest $rdtRequest = null
     );
 }

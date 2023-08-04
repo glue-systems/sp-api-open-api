@@ -28,7 +28,7 @@ class FeedsApiTest extends TestCase
         $result = $feedsApi->getFeedsWithHttpInfo(
             // Specific values come from the sandbox spec in models/feeds_2021-06-30.json
             ['POST_PRODUCT_DATA'],
-            [$this->clientFactory->getConfig()->marketplaceId],
+            [$this->clientFactory->getSpApiConfig()->marketplaceId],
             10,
             ['CANCELLED', 'DONE']
         );

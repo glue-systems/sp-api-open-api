@@ -26,7 +26,7 @@ use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 
 class ClientBuilder implements ClientBuilderContract
 {
-    const API_FQN_TO_CONFIG_FQN_MAPS = [
+    const API_TO_CONFIG_FQN_MAPS = [
         SupplySourcesV20200701Api::class           => SupplySourcesV20200701Config::class,
         ListingsItemsV20200901Api::class           => ListingsItemsV20200901Config::class,
         OrdersV0Api::class                         => OrdersV0Config::class,
@@ -47,17 +47,17 @@ class ClientBuilder implements ClientBuilderContract
     /**
      * @var SPAPIConfig
      */
-    protected $config;
+    protected $spApiConfig;
 
     /**
      * @var string
      */
-    protected $domainApiClassFqn;
+    protected $apiClassFqn;
 
     /**
      * @var ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config
      */
-    protected $domainConfigObject;
+    protected $domainConfig;
 
     /**
      * @var callable|null
@@ -66,59 +66,59 @@ class ClientBuilder implements ClientBuilderContract
 
     public function __construct(
         ClientAuthenticatorContract $authenticator,
-        SPAPIConfig $config
+        SPAPIConfig $spApiConfig
     ) {
         $this->authenticator = $authenticator;
-        $this->config        = $config;
+        $this->spApiConfig   = $spApiConfig;
     }
 
     /**
      * @return SPAPIConfig
      */
-    public function getConfig()
+    public function getSpApiConfig()
     {
-        return clone $this->config;
+        return clone $this->spApiConfig;
     }
 
     /**
-     * @param string $domainApiClassFqn Fully qualified class name of the target domain API
+     * @param string $apiClassFqn Fully qualified class name of the target API
      * @return static
      */
-    public function forDomainApi($domainApiClassFqn)
+    public function forApi($apiClassFqn)
     {
-        if (!array_key_exists($domainApiClassFqn, self::API_FQN_TO_CONFIG_FQN_MAPS)) {
-            throw new \RuntimeException("Invalid domain API class FQN [{$domainApiClassFqn}]: Must be"
-                . " one of: " . implode(', ', array_keys(self::API_FQN_TO_CONFIG_FQN_MAPS)) . ".");
+        if (!array_key_exists($apiClassFqn, self::API_TO_CONFIG_FQN_MAPS)) {
+            throw new \RuntimeException("Invalid API class FQN [{$apiClassFqn}]: Must be"
+                . " one of: " . implode(', ', array_keys(self::API_TO_CONFIG_FQN_MAPS)) . ".");
         }
-        $domainConfigClassFqn = self::API_FQN_TO_CONFIG_FQN_MAPS[$domainApiClassFqn];
+        $domainConfigClassFqn = self::API_TO_CONFIG_FQN_MAPS[$apiClassFqn];
 
-        $this->domainApiClassFqn  = $domainApiClassFqn;
-        $this->domainConfigObject = new $domainConfigClassFqn();
+        $this->apiClassFqn  = $apiClassFqn;
+        $this->domainConfig = new $domainConfigClassFqn();
 
         return $this;
     }
 
     /**
-     * @param null|ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config $domainConfigObject
+     * @param null|ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config $domainConfig
      * @return static
      */
-    public function withConfig($domainConfigObject = null)
+    public function withConfig($domainConfig = null)
     {
-        if (!isset($this->domainApiClassFqn)) {
-            throw new \RuntimeException("Method 'withConfig' cannot be called before the target domain API has been set.");
+        if (!isset($this->apiClassFqn)) {
+            throw new \RuntimeException("Method 'withConfig' cannot be called before the target API has been set.");
         }
 
-        if (is_null($domainConfigObject)) {
+        if (is_null($domainConfig)) {
             return $this;
         }
 
-        $expectedConfigClass = self::API_FQN_TO_CONFIG_FQN_MAPS[$this->domainApiClassFqn];
-        if (!$domainConfigObject instanceof $expectedConfigClass) {
-            throw new \RuntimeException("Invalid configuartion class [" . get_class($domainConfigObject) . "]"
-                . " for domain API [{$this->domainApiClassFqn}]: Expected instance of [{$expectedConfigClass}].");
+        $expectedConfigClass = self::API_TO_CONFIG_FQN_MAPS[$this->apiClassFqn];
+        if (!$domainConfig instanceof $expectedConfigClass) {
+            throw new \RuntimeException("Invalid configuartion class [" . get_class($domainConfig) . "]"
+                . " for API [{$this->apiClassFqn}]: Expected instance of [{$expectedConfigClass}].");
         }
 
-        $this->domainConfigObject = $domainConfigObject;
+        $this->domainConfig = $domainConfig;
         return $this;
     }
 
@@ -144,11 +144,11 @@ class ClientBuilder implements ClientBuilderContract
             $restrictedDataToken = null;
         }
 
-        $domainApiClassFqn = $this->domainApiClassFqn;
+        $apiClassFqn = $this->apiClassFqn;
 
-        return new $domainApiClassFqn(
+        return new $apiClassFqn(
             $this->authenticator->createAuthenticatedGuzzleClient($restrictedDataToken),
-            $this->_setUpClientConfig($this->domainConfigObject)
+            $this->_setUpClientConfig($this->domainConfig)
         );
     }
 
@@ -158,19 +158,19 @@ class ClientBuilder implements ClientBuilderContract
      */
     protected function _setUpClientConfig($clientConfig)
     {
-        $clientConfig->setUserAgent($this->config->userAgent());
+        $clientConfig->setUserAgent($this->spApiConfig->userAgent());
 
-        $clientConfig->setHost($this->config->spApiBaseUrl);
+        $clientConfig->setHost($this->spApiConfig->spApiBaseUrl);
 
         return $clientConfig;
     }
 
     protected function _validateReadyToCreate()
     {
-        if (!isset($this->domainApiClassFqn)) {
-            throw new \RuntimeException("Builder not ready to create: Target domain API has not yet been set.");
+        if (!isset($this->apiClassFqn)) {
+            throw new \RuntimeException("Builder not ready to create: Target API has not yet been set.");
         }
-        if (!isset($this->domainConfigObject)) {
+        if (!isset($this->domainConfig)) {
             throw new \RuntimeException("Builder not ready to create: Domain configuration object has not yet been set.");
         }
     }

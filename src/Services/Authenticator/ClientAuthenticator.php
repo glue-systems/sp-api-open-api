@@ -32,26 +32,26 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     /**
      * @var SPAPIConfig
      */
-    protected $config;
+    protected $spApiConfig;
 
     public function __construct(
         CacheInterface $cache,
         callable $credentialProvider,
-        SPAPIConfig $config
+        SPAPIConfig $spApiConfig
     ) {
         $this->cache               = $cache;
         $this->credentialProvider  = $credentialProvider;
-        $this->config              = $config;
+        $this->spApiConfig         = $spApiConfig;
 
-        $this->config->validateConfig();
+        $this->spApiConfig->validateConfig();
     }
 
     /**
      * @return SPAPIConfig
      */
-    public function getConfig()
+    public function getSpApiConfig()
     {
-        return clone $this->config;
+        return clone $this->spApiConfig;
     }
 
     /**
@@ -80,16 +80,16 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     public function generateNewLwaAccessToken()
     {
         $guzzle = new Client([
-            'base_uri' => $this->config->lwaOAuthBaseUrl,
-            'debug'    => $this->config->debugOAuthApiCall,
+            'base_uri' => $this->spApiConfig->lwaOAuthBaseUrl,
+            'debug'    => $this->spApiConfig->debugOAuthApiCall,
         ]);
 
         $response = $guzzle->request('POST', '/auth/o2/token', [
             RequestOptions::JSON => [
                 'grant_type'    => 'refresh_token',
-                'refresh_token' => $this->config->lwaRefreshToken,
-                'client_id'     => $this->config->lwaClientId,
-                'client_secret' => $this->config->lwaClientSecret,
+                'refresh_token' => $this->spApiConfig->lwaRefreshToken,
+                'client_id'     => $this->spApiConfig->lwaClientId,
+                'client_secret' => $this->spApiConfig->lwaClientSecret,
             ],
         ]);
 
@@ -139,8 +139,8 @@ class ClientAuthenticator implements ClientAuthenticatorContract
         ));
 
         return new Client([
-            'base_uri' => $this->config->spApiBaseUrl,
-            'debug'    => $this->config->debugDomainApiCall,
+            'base_uri' => $this->spApiConfig->spApiBaseUrl,
+            'debug'    => $this->spApiConfig->debugDomainApiCall,
             'headers'  => [
                 'x-amz-access-token' => $accessToken,
                 'x-amz-date'         => $formattedTimestamp,

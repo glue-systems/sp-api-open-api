@@ -28,9 +28,9 @@ class ListingsApiTest extends TestCase
         $listingsApi = $this->clientFactory->createListingsItemsV20200901ApiClient();
 
         $result = $listingsApi->deleteListingsItemWithHttpInfo(
-            $this->clientFactory->getConfig()->sellerId,
+            $this->clientFactory->getSpApiConfig()->sellerId,
             'TESTSKU123',
-            [$this->clientFactory->getConfig()->marketplaceId]
+            [$this->clientFactory->getSpApiConfig()->marketplaceId]
         );
 
         $this->_assertSubmissionResponseMatchesStandardExpectations($result);
@@ -57,9 +57,9 @@ class ListingsApiTest extends TestCase
         ]);
 
         $result = $listingsApi->patchListingsItemWithHttpInfo(
-            $this->clientFactory->getConfig()->sellerId,
+            $this->clientFactory->getSpApiConfig()->sellerId,
             'TESTSKU123',
-            [$this->clientFactory->getConfig()->marketplaceId],
+            [$this->clientFactory->getSpApiConfig()->marketplaceId],
             $request
         );
 
@@ -80,9 +80,9 @@ class ListingsApiTest extends TestCase
         ]);
 
         $result = $listingsApi->putListingsItemWithHttpInfo(
-            $this->clientFactory->getConfig()->sellerId,
+            $this->clientFactory->getSpApiConfig()->sellerId,
             'TESTSKU123',
-            [$this->clientFactory->getConfig()->marketplaceId],
+            [$this->clientFactory->getSpApiConfig()->marketplaceId],
             $request
         );
 
