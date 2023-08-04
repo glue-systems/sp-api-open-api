@@ -21,7 +21,6 @@ use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as Su
 use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 
 interface ClientBuilderContract
 {
@@ -32,23 +31,15 @@ interface ClientBuilderContract
     public function forDomainApi($domainApiClassFqn);
 
     /**
-     * @param ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config $domainConfigObject
+     * @param null|ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config $domainConfigObject
      * @return static
      */
-    public function withConfig($domainConfigObject);
+    public function withConfig($domainConfigObject = null);
 
     /**
      * @return static
      */
-    public function withRdtRequest(CreateRestrictedDataTokenRequest $rdtRequest);
-
-    public function getDomainApiClassFqn();
-
-    public function getDomainConfig();
-
-    public function getRdtRequest();
-
-    public function validateReadyToCreate();
+    public function withRdtProvider(callable $rdtRequest = null);
 
     /**
      * @return SupplySourcesV20200701Api|ListingsItemsV20200901Api|OrdersV0Api|OrdersV0ShipmentApi|DefinitionsProductTypesV20200901Api|TokensV20210301Api|FeedsV20200904Api|FeedsV20210630Api|ReportsV20200904Api|ReportsV20210630Api

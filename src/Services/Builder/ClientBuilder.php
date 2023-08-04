@@ -21,8 +21,8 @@ use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as Su
 use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactoryContract;
+use Glue\SPAPI\OpenAPI\Services\Authenticator\ClientAuthenticatorContract;
+use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 
 class ClientBuilder implements ClientBuilderContract
 {
@@ -40,9 +40,14 @@ class ClientBuilder implements ClientBuilderContract
     ];
 
     /**
-     * @var ClientFactoryContract
+     * @var ClientAuthenticatorContract
      */
-    protected $clientFactory;
+    protected $authenticator;
+
+    /**
+     * @var SPAPIConfig
+     */
+    protected $config;
 
     /**
      * @var string
@@ -55,15 +60,24 @@ class ClientBuilder implements ClientBuilderContract
     protected $domainConfigObject;
 
     /**
-     * @var CreateRestrictedDataTokenRequest|null
+     * @var callable|null
      */
-    protected $rdtRequest = null;
-
+    protected $rdtProvider = null;
 
     public function __construct(
-        ClientFactoryContract $clientFactory
+        ClientAuthenticatorContract $authenticator,
+        SPAPIConfig $config
     ) {
-        $this->clientFactory = $clientFactory;
+        $this->authenticator = $authenticator;
+        $this->config        = $config;
+    }
+
+    /**
+     * @return SPAPIConfig
+     */
+    public function getConfig()
+    {
+        return clone $this->config;
     }
 
     /**
@@ -111,35 +125,10 @@ class ClientBuilder implements ClientBuilderContract
     /**
      * @return static
      */
-    public function withRdtRequest(CreateRestrictedDataTokenRequest $rdtRequest = null)
+    public function withRdtProvider(callable $rdtProvider = null)
     {
-        $this->rdtRequest = $rdtRequest;
+        $this->rdtProvider = $rdtProvider;
         return $this;
-    }
-
-    public function getDomainApiClassFqn()
-    {
-        return $this->domainApiClassFqn;
-    }
-
-    public function getDomainConfig()
-    {
-        return $this->domainConfigObject;
-    }
-
-    public function getRdtRequest()
-    {
-        return $this->rdtRequest;
-    }
-
-    public function validateReadyToCreate()
-    {
-        if (!isset($this->domainApiClassFqn)) {
-            throw new \RuntimeException("Builder not ready to create: Target domain API has not yet been set.");
-        }
-        if (!isset($this->domainConfigObject)) {
-            throw new \RuntimeException("Builder not ready to create: Domain configuration object has not yet been set.");
-        }
     }
 
     /**
@@ -147,6 +136,42 @@ class ClientBuilder implements ClientBuilderContract
      */
     public function createClient()
     {
-        return $this->clientFactory->createFromBuilder($this);
+        $this->_validateReadyToCreate();
+
+        if ($this->rdtProvider) {
+            $restrictedDataToken = call_user_func($this->rdtProvider);
+        } else {
+            $restrictedDataToken = null;
+        }
+
+        $domainApiClassFqn = $this->domainApiClassFqn;
+
+        return new $domainApiClassFqn(
+            $this->authenticator->createAuthenticatedGuzzleClient($restrictedDataToken),
+            $this->_setUpClientConfig($this->domainConfigObject)
+        );
+    }
+
+    /**
+     * @param  ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config  $clientConfig
+     * @return ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config
+     */
+    protected function _setUpClientConfig($clientConfig)
+    {
+        $clientConfig->setUserAgent($this->config->userAgent());
+
+        $clientConfig->setHost($this->config->spApiBaseUrl);
+
+        return $clientConfig;
+    }
+
+    protected function _validateReadyToCreate()
+    {
+        if (!isset($this->domainApiClassFqn)) {
+            throw new \RuntimeException("Builder not ready to create: Target domain API has not yet been set.");
+        }
+        if (!isset($this->domainConfigObject)) {
+            throw new \RuntimeException("Builder not ready to create: Domain configuration object has not yet been set.");
+        }
     }
 }

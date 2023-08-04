@@ -11,6 +11,7 @@ use Dotenv\Environment\Adapter\ServerConstAdapter;
 use Dotenv\Environment\DotenvFactory;
 use Dotenv\Exception\InvalidFileException;
 use Glue\SPAPI\OpenAPI\Services\Authenticator\ClientAuthenticator;
+use Glue\SPAPI\OpenAPI\Services\Builder\ClientBuilder;
 use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 // TODO: Switch to this after upgrading.
@@ -77,7 +78,8 @@ class TestCase extends BaseTestCase
         }
         $credentialProvider  = $this->buildDotEnvCredentialProvider();
         $clientAuthenticator = new ClientAuthenticator(self::$arrayCache, $credentialProvider, $spApiConfig);
-        $clientFactory       = new ClientFactory($clientAuthenticator, $spApiConfig);
+        $clientBuilder       = new ClientBuilder($clientAuthenticator, $spApiConfig);
+        $clientFactory       = new ClientFactory($clientBuilder, $spApiConfig);
 
         return $clientFactory;
     }
