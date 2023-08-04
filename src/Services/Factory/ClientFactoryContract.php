@@ -27,11 +27,15 @@ use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 interface ClientFactoryContract
 {
     /**
+     * Get the global SP-API config object.
+     *
      * @return SPAPIConfig
      */
     public function getSpApiConfig();
 
     /**
+     * Make a provider callback for retrieving a Restricted Data Token (RDT)
+     * based on the RDT request argument.
      *
      * @param CreateRestrictedDataTokenRequest|null $rdtRequest
      * @return callable|null

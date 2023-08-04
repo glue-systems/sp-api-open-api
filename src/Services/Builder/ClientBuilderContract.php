@@ -26,28 +26,39 @@ use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 interface ClientBuilderContract
 {
     /**
+     * Get the global SP-API config object.
+     *
      * @return SPAPIConfig
      */
     public function getSpApiConfig();
 
     /**
+     * Set the target API by fully-qualified class name.
+     *
      * @param string $apiClassFqn Fully qualified class name of the target API
      * @return static
      */
     public function forApi($apiClassFqn);
 
     /**
+     * Set the Configuration object specific to the target API.
+     *
      * @param null|ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config $domainConfig
      * @return static
      */
     public function withConfig($domainConfig = null);
 
     /**
+     * Set the provider callback for retrieving a Restricted Data Token (RDT),
+     * if applicable to the target API.
+     *
      * @return static
      */
-    public function withRdtProvider(callable $rdtRequest = null);
+    public function withRdtProvider(callable $rdtProvider = null);
 
     /**
+     * Create the API client according to the values set up in this builder instance.
+     *
      * @return SupplySourcesV20200701Api|ListingsItemsV20200901Api|OrdersV0Api|OrdersV0ShipmentApi|DefinitionsProductTypesV20200901Api|TokensV20210301Api|FeedsV20200904Api|FeedsV20210630Api|ReportsV20200904Api|ReportsV20210630Api
      */
     public function createClient();
