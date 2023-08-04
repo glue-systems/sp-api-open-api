@@ -121,7 +121,8 @@ class SPAPIConfig
         foreach ($requiredStringFields as $field) {
             if (empty($this->{$field})) {
                 throw new \RuntimeException("Missing required string field '$field' in [" . self::class . '].'
-                    . ' Please check your env for missing values and verify the object is being instantiated properly.');
+                    . ' Please verify the config object is being instantiated properly'
+                    . ' -- e.g. by checking your environment variables.');
             }
         }
 
@@ -132,13 +133,14 @@ class SPAPIConfig
         foreach ($requiredBoolFields as $field) {
             if (!isset($this->{$field})) {
                 throw new \RuntimeException("Missing required bool field '$field' in [" . self::class . '].'
-                    . ' Please check your env for missing values and verify the object is being instantiated properly.');
+                    . ' Please verify the config object is being instantiated properly'
+                    . ' -- e.g. by checking your environment variables.');
             }
         }
 
         if ($this->sandbox && strpos(strtolower($this->spApiBaseUrl), 'sandbox') === false) {
-            throw new \RuntimeException("Production URL detected! Invalid spApiBaseUrl '$this->spApiBaseUrl' when sandbox = true."
-                . " Please adjust your ENV to use the sandbox URL and associated credentials instead."
+            throw new \RuntimeException("Production URL detected! Invalid spApiBaseUrl '$this->spApiBaseUrl'"
+                . " when sandbox = true. Please use the sandbox URL and associated credentials instead."
                 . " For more info, see the Amazon docs: https://developer-docs.amazon.com/amazon-shipping/docs/the-selling-partner-api-sandbox.");
         }
     }
