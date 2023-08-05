@@ -21,7 +21,6 @@ use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as Su
 use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SPAPI\OpenAPI\Services\Builder\ClientBuilderContract;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 
@@ -56,26 +55,6 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
-     * Make a provider callback for retrieving a Restricted Data Token (RDT)
-     * based on the RDT request argument.
-     *
-     * @param CreateRestrictedDataTokenRequest|null $rdtRequest
-     * @return callable|null
-     */
-    public function makeRdtProviderFromRequest(CreateRestrictedDataTokenRequest $rdtRequest = null)
-    {
-        if (is_null($rdtRequest)) {
-            return null;
-        }
-
-        return function () use ($rdtRequest) {
-            $tokensApi           = $this->createTokensV20210301ApiClient();
-            $rdtResponse         = $tokensApi->createRestrictedDataToken($rdtRequest);
-            return $rdtResponse->getRestrictedDataToken();
-        };
-    }
-
-    /**
      * @return SupplySourcesV20200701Api
      */
     public function createSupplySourcesV20200701ApiClient(
@@ -104,12 +83,12 @@ class ClientFactory implements ClientFactoryContract
      */
     public function createOrdersV0ApiClient(
         OrdersV0Config $domainConfig = null,
-        CreateRestrictedDataTokenRequest $rdtRequest = null
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(OrdersV0Api::class)
             ->withConfig($domainConfig)
-            ->withRdtProvider($this->makeRdtProviderFromRequest($rdtRequest))
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 
@@ -181,12 +160,12 @@ class ClientFactory implements ClientFactoryContract
      */
     public function createReportsV20200904ApiClient(
         ReportsV20200904Config $domainConfig = null,
-        CreateRestrictedDataTokenRequest $rdtRequest = null
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(ReportsV20200904Api::class)
             ->withConfig($domainConfig)
-            ->withRdtProvider($this->makeRdtProviderFromRequest($rdtRequest))
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 
@@ -195,12 +174,12 @@ class ClientFactory implements ClientFactoryContract
      */
     public function createReportsV20210630ApiClient(
         ReportsV20210630Config $domainConfig = null,
-        CreateRestrictedDataTokenRequest $rdtRequest = null
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(ReportsV20210630Api::class)
             ->withConfig($domainConfig)
-            ->withRdtProvider($this->makeRdtProviderFromRequest($rdtRequest))
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 }

@@ -21,7 +21,6 @@ use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as Su
 use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 
 interface ClientFactoryContract
@@ -32,15 +31,6 @@ interface ClientFactoryContract
      * @return SPAPIConfig
      */
     public function getSpApiConfig();
-
-    /**
-     * Make a provider callback for retrieving a Restricted Data Token (RDT)
-     * based on the RDT request argument.
-     *
-     * @param CreateRestrictedDataTokenRequest|null $rdtRequest
-     * @return callable|null
-     */
-    public function makeRdtProviderFromRequest(CreateRestrictedDataTokenRequest $rdtRequest = null);
 
     /**
      * @return SupplySourcesV20200701Api
@@ -61,7 +51,7 @@ interface ClientFactoryContract
      */
     public function createOrdersV0ApiClient(
         OrdersV0Config $domainConfig = null,
-        CreateRestrictedDataTokenRequest $rdtRequest = null
+        callable $rdtProvider = null
     );
 
     /**
@@ -104,7 +94,7 @@ interface ClientFactoryContract
      */
     public function createReportsV20200904ApiClient(
         ReportsV20200904Config $domainConfig = null,
-        CreateRestrictedDataTokenRequest $rdtRequest = null
+        callable $rdtProvider = null
     );
 
     /**
@@ -112,6 +102,6 @@ interface ClientFactoryContract
      */
     public function createReportsV20210630ApiClient(
         ReportsV20210630Config $domainConfig = null,
-        CreateRestrictedDataTokenRequest $rdtRequest = null
+        callable $rdtProvider = null
     );
 }
