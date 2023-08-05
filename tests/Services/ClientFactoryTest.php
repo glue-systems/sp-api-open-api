@@ -68,6 +68,98 @@ class ClientFactoryTest extends TestCase
         $this->assertEquals($expectedApiClient, $actualApiClient);
     }
 
+    public function test_createOrdersV0ShipmentApiClient()
+    {
+        $domainConfig      = new \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Configuration();
+        $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi();
+        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
+
+        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $actualApiClient = $sut->createOrdersV0ShipmentApiClient($domainConfig);
+
+        $this->assertEquals($expectedApiClient, $actualApiClient);
+    }
+
+    public function test_createDefinitionsProductTypesV20200901ApiClient()
+    {
+        $domainConfig      = new \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Configuration();
+        $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi();
+        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
+
+        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $actualApiClient = $sut->createDefinitionsProductTypesV20200901ApiClient($domainConfig);
+
+        $this->assertEquals($expectedApiClient, $actualApiClient);
+    }
+
+    public function test_createTokensV20210301ApiClient()
+    {
+        $domainConfig      = new \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration;
+        $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi();
+        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
+
+        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $actualApiClient = $sut->createTokensV20210301ApiClient($domainConfig);
+
+        $this->assertEquals($expectedApiClient, $actualApiClient);
+    }
+
+    public function test_createFeedsV20200904ApiClient()
+    {
+        $domainConfig      = new \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Configuration();
+        $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi();
+        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
+
+        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $actualApiClient = $sut->createFeedsV20200904ApiClient($domainConfig);
+
+        $this->assertEquals($expectedApiClient, $actualApiClient);
+    }
+
+    public function test_createFeedsV20210630ApiClient()
+    {
+        $domainConfig      = new \Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Configuration();
+        $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi();
+        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
+
+        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $actualApiClient = $sut->createFeedsV20210630ApiClient($domainConfig);
+
+        $this->assertEquals($expectedApiClient, $actualApiClient);
+    }
+
+    public function test_createReportsV20200904ApiClient()
+    {
+        $domainConfig      = new \Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Configuration();
+        $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi();
+        $rdtProvider       = function () {
+            return 'foo';
+        };
+        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
+        $this->_setUpRdtProviderExpectations($rdtProvider);
+
+        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $actualApiClient = $sut->createReportsV20200904ApiClient($domainConfig, $rdtProvider);
+
+        $this->assertEquals($expectedApiClient, $actualApiClient);
+    }
+
+    public function test_createReportsV20210630ApiClient()
+    {
+        $domainConfig      = new \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Configuration();
+        $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi();
+        $rdtProvider       = function () {
+            return 'foo';
+        };
+        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
+        $this->_setUpRdtProviderExpectations($rdtProvider);
+
+        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $actualApiClient = $sut->createReportsV20210630ApiClient($domainConfig, $rdtProvider);
+
+        $this->assertEquals($expectedApiClient, $actualApiClient);
+    }
+
     protected function _setUpStandardExpectationsForBuilder(
         $expectedApiClient,
         $domainConfig
