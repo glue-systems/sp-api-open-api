@@ -21,6 +21,7 @@ use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as Su
 use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
+use Glue\SPAPI\OpenAPI\Exceptions\ClientBuilderException;
 use Glue\SPAPI\OpenAPI\Services\Authenticator\ClientAuthenticatorContract;
 use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
 
@@ -94,7 +95,7 @@ class ClientBuilder implements ClientBuilderContract
     public function forApi($apiClassFqn)
     {
         if (!array_key_exists($apiClassFqn, self::API_TO_CONFIG_FQN_MAPS)) {
-            throw new \RuntimeException("Invalid API class FQN [{$apiClassFqn}]: Must be"
+            throw new ClientBuilderException("Invalid API class FQN [{$apiClassFqn}]: Must be"
                 . " one of: " . implode(', ', array_keys(self::API_TO_CONFIG_FQN_MAPS)) . ".");
         }
         $domainConfigClassFqn = self::API_TO_CONFIG_FQN_MAPS[$apiClassFqn];
@@ -114,7 +115,8 @@ class ClientBuilder implements ClientBuilderContract
     public function withConfig($domainConfig = null)
     {
         if (!isset($this->apiClassFqn)) {
-            throw new \RuntimeException("Method 'withConfig' cannot be called before the target API has been set via 'forApi'.");
+            throw new ClientBuilderException("Method 'withConfig' cannot be called"
+                . " before the target API has been set via the 'forApi' method.");
         }
 
         if (is_null($domainConfig)) {
@@ -123,7 +125,7 @@ class ClientBuilder implements ClientBuilderContract
 
         $expectedConfigClass = self::API_TO_CONFIG_FQN_MAPS[$this->apiClassFqn];
         if (!$domainConfig instanceof $expectedConfigClass) {
-            throw new \RuntimeException("Invalid configuartion class [" . get_class($domainConfig) . "]"
+            throw new ClientBuilderException("Invalid configuartion class [" . get_class($domainConfig) . "]"
                 . " for API [{$this->apiClassFqn}]: Expected instance of [{$expectedConfigClass}].");
         }
 
@@ -182,10 +184,10 @@ class ClientBuilder implements ClientBuilderContract
     protected function _validateReadyToCreate()
     {
         if (!isset($this->apiClassFqn)) {
-            throw new \RuntimeException("Builder not ready to create: Target API has not yet been set.");
+            throw new ClientBuilderException("Builder not ready to create: Target API has not yet been set.");
         }
         if (!isset($this->domainConfig)) {
-            throw new \RuntimeException("Builder not ready to create: Domain configuration object has not yet been set.");
+            throw new ClientBuilderException("Builder not ready to create: Domain config has not yet been set.");
         }
     }
 }

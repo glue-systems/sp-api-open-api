@@ -40,7 +40,7 @@ interface ClientFactoryContract
      * @param CreateRestrictedDataTokenRequest|null $rdtRequest
      * @return callable|null
      */
-    public function makeRdtProvider(CreateRestrictedDataTokenRequest $rdtRequest = null);
+    public function makeRdtProviderFromRequest(CreateRestrictedDataTokenRequest $rdtRequest = null);
 
     /**
      * @return SupplySourcesV20200701Api

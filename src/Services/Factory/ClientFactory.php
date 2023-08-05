@@ -62,7 +62,7 @@ class ClientFactory implements ClientFactoryContract
      * @param CreateRestrictedDataTokenRequest|null $rdtRequest
      * @return callable|null
      */
-    public function makeRdtProvider(CreateRestrictedDataTokenRequest $rdtRequest = null)
+    public function makeRdtProviderFromRequest(CreateRestrictedDataTokenRequest $rdtRequest = null)
     {
         if (is_null($rdtRequest)) {
             return null;
@@ -109,7 +109,7 @@ class ClientFactory implements ClientFactoryContract
         return $this->builder
             ->forApi(OrdersV0Api::class)
             ->withConfig($domainConfig)
-            ->withRdtProvider($this->makeRdtProvider($rdtRequest))
+            ->withRdtProvider($this->makeRdtProviderFromRequest($rdtRequest))
             ->createClient();
     }
 
@@ -186,7 +186,7 @@ class ClientFactory implements ClientFactoryContract
         return $this->builder
             ->forApi(ReportsV20200904Api::class)
             ->withConfig($domainConfig)
-            ->withRdtProvider($this->makeRdtProvider($rdtRequest))
+            ->withRdtProvider($this->makeRdtProviderFromRequest($rdtRequest))
             ->createClient();
     }
 
@@ -200,7 +200,7 @@ class ClientFactory implements ClientFactoryContract
         return $this->builder
             ->forApi(ReportsV20210630Api::class)
             ->withConfig($domainConfig)
-            ->withRdtProvider($this->makeRdtProvider($rdtRequest))
+            ->withRdtProvider($this->makeRdtProviderFromRequest($rdtRequest))
             ->createClient();
     }
 }

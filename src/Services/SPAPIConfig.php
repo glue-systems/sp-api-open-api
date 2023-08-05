@@ -2,6 +2,8 @@
 
 namespace Glue\SPAPI\OpenAPI\Services;
 
+use Glue\SPAPI\OpenAPI\Exceptions\SPAPIConfigurationException;
+
 class SPAPIConfig
 {
     /**
@@ -100,7 +102,7 @@ class SPAPIConfig
                     . " a strictly associative array instead of a sequential one.";
             }
             $exceptionMessage .= " Allowed fields: [" . implode(', ', $allowedFields) . "].";
-            throw new \RuntimeException("$exceptionMessage");
+            throw new SPAPIConfigurationException($exceptionMessage);
         }
     }
 
@@ -120,7 +122,7 @@ class SPAPIConfig
 
         foreach ($requiredStringFields as $field) {
             if (empty($this->{$field})) {
-                throw new \RuntimeException("Missing required string field '$field' in [" . self::class . '].'
+                throw new SPAPIConfigurationException("Missing required string field '{$field}' in [" . self::class . '].'
                     . ' Please verify the config object is being instantiated properly'
                     . ' -- e.g. by checking your environment variables.');
             }
@@ -132,14 +134,14 @@ class SPAPIConfig
 
         foreach ($requiredBoolFields as $field) {
             if (!isset($this->{$field})) {
-                throw new \RuntimeException("Missing required bool field '$field' in [" . self::class . '].'
+                throw new SPAPIConfigurationException("Missing required bool field '{$field}' in [" . self::class . '].'
                     . ' Please verify the config object is being instantiated properly'
                     . ' -- e.g. by checking your environment variables.');
             }
         }
 
         if ($this->sandbox && strpos(strtolower($this->spApiBaseUrl), 'sandbox') === false) {
-            throw new \RuntimeException("Production URL detected! Invalid spApiBaseUrl '$this->spApiBaseUrl'"
+            throw new SPAPIConfigurationException("Production URL detected! Invalid spApiBaseUrl '{$this->spApiBaseUrl}'"
                 . " when sandbox = true. Please use the sandbox URL and associated credentials instead."
                 . " For more info, see the Amazon docs: https://developer-docs.amazon.com/amazon-shipping/docs/the-selling-partner-api-sandbox.");
         }
