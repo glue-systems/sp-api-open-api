@@ -56,14 +56,9 @@ class RestrictedDataTokenProviderTest extends TestCase
         $this->assertEquals($expectedRestrictedDataToken, $actualRestrictedDataToken);
     }
 
-    public function test_fromRdtRequest_throws_()
+    public function test_fromRdtRequest_throws_RestrictedDataTokenRequestException()
     {
-        $expectedExceptionMessage    = 'fake exception';
-        $expectedRestrictedDataToken = 'fakeRDT123';
-        $rdtRequest                  = new CreateRestrictedDataTokenRequest();
-        $rdtResponse                 = new CreateRestrictedDataTokenResponse([
-            'restricted_data_token' => $expectedRestrictedDataToken,
-        ]);
+        $expectedExceptionMessage = 'fake exception';
 
         $this->clientFactory->shouldReceive('createTokensV20210301ApiClient')
             ->once()
@@ -75,7 +70,7 @@ class RestrictedDataTokenProviderTest extends TestCase
             ->andThrow(ApiException::class, $expectedExceptionMessage);
 
         $sut         = new RestrictedDataTokenProvider($this->clientFactory);
-        $rdtProvider = $sut->fromRdtRequest($rdtRequest);
+        $rdtProvider = $sut->fromRdtRequest(new CreateRestrictedDataTokenRequest());
 
         $this->setExpectedException(RestrictedDataTokenRequestException::class, $expectedExceptionMessage);
         $rdtProvider();
