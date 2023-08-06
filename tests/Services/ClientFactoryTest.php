@@ -60,7 +60,7 @@ class ClientFactoryTest extends TestCase
             return 'foo';
         };
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectations($rdtProvider);
+        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
 
         $sut             = new ClientFactory($this->builder, $this->spApiConfig);
         $actualApiClient = $sut->createOrdersV0ApiClient($domainConfig, $rdtProvider);
@@ -136,7 +136,7 @@ class ClientFactoryTest extends TestCase
             return 'foo';
         };
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectations($rdtProvider);
+        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
 
         $sut             = new ClientFactory($this->builder, $this->spApiConfig);
         $actualApiClient = $sut->createReportsV20200904ApiClient($domainConfig, $rdtProvider);
@@ -152,7 +152,7 @@ class ClientFactoryTest extends TestCase
             return 'foo';
         };
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectations($rdtProvider);
+        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
 
         $sut             = new ClientFactory($this->builder, $this->spApiConfig);
         $actualApiClient = $sut->createReportsV20210630ApiClient($domainConfig, $rdtProvider);
@@ -177,7 +177,7 @@ class ClientFactoryTest extends TestCase
             ->andReturn($expectedApiClient);
     }
 
-    protected function _setUpRdtProviderExpectations(
+    protected function _setUpRdtProviderExpectationsForBuilder(
         callable $rdtProvider = null
     ) {
         $this->builder->shouldReceive('withRdtProvider')
