@@ -250,6 +250,16 @@ rm -rf src/Clients/TokensV20210301
 mv output/TokensV20210301/lib src/Clients/TokensV20210301
 ```
 
+#### Vendor Direct Fulfillment Sandbox Test Data API v2021-12-28
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/VendorDirectFulfillmentSandboxDataV20211228
+openapi-generator-cli generate -i models/vendorDirectFulfillmentSandboxData_2021-10-28.json -g php -o output/VendorDirectFulfillmentSandboxDataV20211228 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/VendorDirectFulfillmentSandboxDataV20211228
+mv output/VendorDirectFulfillmentSandboxDataV20211228/lib src/Clients/VendorDirectFulfillmentSandboxDataV20211228
+```
+
 #### Vendor Direct Fulfillment Shipping API v1
 
 ```BASH
