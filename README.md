@@ -240,6 +240,10 @@ rm -rf src/Clients/SupplySourcesV20200701
 mv output/SupplySourcesV20200701/lib src/Clients/SupplySourcesV20200701
 ```
 
+#### Shipping API v1
+
+_(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
+
 #### Solicitations API v1
 
 _(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
