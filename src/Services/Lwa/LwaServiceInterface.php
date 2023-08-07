@@ -5,7 +5,7 @@ namespace Glue\SpApi\OpenAPI\Services\Lwa;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenRequestException;
 use GuzzleHttp\ClientInterface;
 
-interface LwaServiceContract
+interface LwaServiceInterface
 {
     /**
      * Request a new LWA access token.

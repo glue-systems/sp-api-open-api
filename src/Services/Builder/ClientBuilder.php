@@ -22,10 +22,10 @@ use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySou
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
 use Glue\SpApi\OpenAPI\Exceptions\ClientBuilderException;
-use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorContract;
+use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 
-class ClientBuilder implements ClientBuilderContract
+class ClientBuilder implements ClientBuilderInterface
 {
     const API_TO_CONFIG_FQN_MAPS = [
         SupplySourcesV20200701Api::class           => SupplySourcesV20200701Config::class,
@@ -41,7 +41,7 @@ class ClientBuilder implements ClientBuilderContract
     ];
 
     /**
-     * @var ClientAuthenticatorContract
+     * @var ClientAuthenticatorInterface
      */
     protected $authenticator;
 
@@ -69,7 +69,7 @@ class ClientBuilder implements ClientBuilderContract
     protected $rdtProvider = null;
 
     public function __construct(
-        ClientAuthenticatorContract $authenticator,
+        ClientAuthenticatorInterface $authenticator,
         SpApiConfig $spApiConfig
     ) {
         $this->authenticator = $authenticator;

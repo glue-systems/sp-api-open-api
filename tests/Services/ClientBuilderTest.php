@@ -5,7 +5,7 @@ namespace Tests\Services;
 use Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
 use Glue\SpApi\OpenAPI\Clients\OrdersV0\Configuration;
 use Glue\SpApi\OpenAPI\Exceptions\ClientBuilderException;
-use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorContract;
+use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
 use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Client;
@@ -15,7 +15,7 @@ use Tests\TestCase;
 class ClientBuilderTest extends TestCase
 {
     /**
-     * @var ClientAuthenticatorContract|MockInterface
+     * @var ClientAuthenticatorInterface|MockInterface
      */
     public $authenticator;
 
@@ -28,7 +28,7 @@ class ClientBuilderTest extends TestCase
     public function setUp()
     {
         parent::setup();
-        $this->authenticator = \Mockery::mock(ClientAuthenticatorContract::class);
+        $this->authenticator = \Mockery::mock(ClientAuthenticatorInterface::class);
         $this->spApiConfig   = $this->buildSpApiConfig();
     }
 

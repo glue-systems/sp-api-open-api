@@ -3,7 +3,7 @@
 namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
 use Aws\Signature\SignatureV4;
-use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceContract;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -13,7 +13,7 @@ use GuzzleHttp\Middleware;
 use Psr\Http\Message\RequestInterface;
 use Psr\SimpleCache\CacheInterface;
 
-class ClientAuthenticator implements ClientAuthenticatorContract
+class ClientAuthenticator implements ClientAuthenticatorInterface
 {
     const LWA_ACCESS_TOKEN_CACHE_KEY = 'lwa_access_token';
 
@@ -25,7 +25,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     protected $cache;
 
     /**
-     * @var LwaServiceContract
+     * @var LwaServiceInterface
      */
     protected $lwaService;
 
@@ -41,7 +41,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
 
     public function __construct(
         CacheInterface $cache,
-        LwaServiceContract $lwaService,
+        LwaServiceInterface $lwaService,
         callable $credentialProvider,
         SpApiConfig $spApiConfig
     ) {

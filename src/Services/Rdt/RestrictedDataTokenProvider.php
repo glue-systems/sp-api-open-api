@@ -5,17 +5,17 @@ namespace Glue\SpApi\OpenAPI\Services\Rdt;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\ApiException;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenRequestException;
-use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryContract;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 
-class RestrictedDataTokenProvider implements RestrictedDataTokenProviderContract
+class RestrictedDataTokenProvider implements RestrictedDataTokenProviderInterface
 {
     /**
-     * @var ClientFactoryContract
+     * @var ClientFactoryInterface
      */
     protected $clientFactory;
 
     public function __construct(
-        ClientFactoryContract $clientFactory
+        ClientFactoryInterface $clientFactory
     ) {
         $this->clientFactory = $clientFactory;
     }

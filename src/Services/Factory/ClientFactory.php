@@ -21,13 +21,13 @@ use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as Su
 use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
-use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilderContract;
+use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilderInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 
-class ClientFactory implements ClientFactoryContract
+class ClientFactory implements ClientFactoryInterface
 {
     /**
-     * @var ClientBuilderContract
+     * @var ClientBuilderInterface
      */
     protected $builder;
 
@@ -37,7 +37,7 @@ class ClientFactory implements ClientFactoryContract
     protected $spApiConfig;
 
     public function __construct(
-        ClientBuilderContract $builder,
+        ClientBuilderInterface $builder,
         SpApiConfig $spApiConfig
     ) {
         $this->builder      = $builder;

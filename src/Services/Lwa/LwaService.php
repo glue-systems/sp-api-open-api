@@ -8,7 +8,7 @@ use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
 
-class LwaService implements LwaServiceContract
+class LwaService implements LwaServiceInterface
 {
     /**
      * @var SpApiConfig

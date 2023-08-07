@@ -4,7 +4,7 @@ namespace Glue\SpApi\OpenAPI\Services\Rdt;
 
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 
-interface RestrictedDataTokenProviderContract
+interface RestrictedDataTokenProviderInterface
 {
     /**
      * Make a provider callback for retrieving a Restricted Data Token (RDT)

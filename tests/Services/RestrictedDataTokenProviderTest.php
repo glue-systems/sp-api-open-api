@@ -7,7 +7,7 @@ use Glue\SpApi\OpenAPI\Clients\TokensV20210301\ApiException;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenRequestException;
-use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryContract;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProvider;
 use Mockery\MockInterface;
 use Tests\TestCase;
@@ -15,7 +15,7 @@ use Tests\TestCase;
 class RestrictedDataTokenProviderTest extends TestCase
 {
     /**
-     * @var ClientFactoryContract|MockInterface
+     * @var ClientFactoryInterface|MockInterface
      */
     public $clientFactory;
 
@@ -28,7 +28,7 @@ class RestrictedDataTokenProviderTest extends TestCase
     public function setUp()
     {
         parent::setup();
-        $this->clientFactory = \Mockery::mock(ClientFactoryContract::class);
+        $this->clientFactory = \Mockery::mock(ClientFactoryInterface::class);
         $this->tokensApi     = \Mockery::mock(TokensApi::class);
     }
 

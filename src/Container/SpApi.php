@@ -13,19 +13,19 @@ use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsV202106
 use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as SupplySourcesV20200701Api;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
-use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryContract;
-use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProviderContract;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
+use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProviderInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 
 class SpApi implements SpApiInterface
 {
     /**
-     * @var ClientFactoryContract
+     * @var ClientFactoryInterface
      */
     protected $clientFactory;
 
     /**
-     * @var RestrictedDataTokenProviderContract
+     * @var RestrictedDataTokenProviderInterface
      */
     protected $rdtProvider;
 
@@ -35,8 +35,8 @@ class SpApi implements SpApiInterface
     protected $spApiConfig;
 
     public function __construct(
-        ClientFactoryContract $clientFactory,
-        RestrictedDataTokenProviderContract $rdtProvider,
+        ClientFactoryInterface $clientFactory,
+        RestrictedDataTokenProviderInterface $rdtProvider,
         SpApiConfig $spApiConfig
     ) {
         $this->clientFactory = $clientFactory;

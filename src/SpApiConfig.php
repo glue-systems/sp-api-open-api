@@ -96,7 +96,7 @@ class SpApiConfig
     {
         if (!array_key_exists($field, $allowedFields)) {
             $exceptionMessage = "Failed to construct config object from array:"
-                . " property '$field' does not exist in class '" . self::class . "'.";
+                . " property '{$field}' does not exist in class '" . self::class . "'.";
             if (is_numeric($field)) {
                 $exceptionMessage .= " Please ensure you are passing in"
                     . " a strictly associative array instead of a sequential one.";
@@ -152,6 +152,6 @@ class SpApiConfig
      */
     public function userAgent()
     {
-        return "$this->appNameAndVersion (Language=$this->appLanguageAndVersion)";
+        return "{$this->appNameAndVersion} (Language={$this->appLanguageAndVersion})";
     }
 }

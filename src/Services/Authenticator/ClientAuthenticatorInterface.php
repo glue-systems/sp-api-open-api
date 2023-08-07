@@ -4,7 +4,7 @@ namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
 use GuzzleHttp\ClientInterface;
 
-interface ClientAuthenticatorContract
+interface ClientAuthenticatorInterface
 {
     /**
      * Create an authenticated Guzzle client, ready to be passed into

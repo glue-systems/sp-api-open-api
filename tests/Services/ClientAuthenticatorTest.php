@@ -4,7 +4,7 @@ namespace Tests\Services;
 
 use Aws\Credentials\CredentialsInterface;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
-use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceContract;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Client;
 use Mockery\MockInterface;
@@ -19,7 +19,7 @@ class ClientAuthenticatorTest extends TestCase
     public $cache;
 
     /**
-     * @var LwaServiceContract|MockInterface
+     * @var LwaServiceInterface|MockInterface
      */
     public $lwaService;
 
@@ -33,7 +33,7 @@ class ClientAuthenticatorTest extends TestCase
     {
         parent::setup();
         $this->cache       = \Mockery::mock(CacheInterface::class);
-        $this->lwaService  = \Mockery::mock(LwaServiceContract::class);
+        $this->lwaService  = \Mockery::mock(LwaServiceInterface::class);
         $this->spApiConfig = $this->buildSpApiConfig();
     }
 

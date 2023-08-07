@@ -2,7 +2,7 @@
 
 namespace Tests\Services;
 
-use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilderContract;
+use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilderInterface;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 use Mockery\MockInterface;
@@ -11,7 +11,7 @@ use Tests\TestCase;
 class ClientFactoryTest extends TestCase
 {
     /**
-     * @var ClientBuilderContract|MockInterface
+     * @var ClientBuilderInterface|MockInterface
      */
     public $builder;
 
@@ -24,7 +24,7 @@ class ClientFactoryTest extends TestCase
     public function setUp()
     {
         parent::setup();
-        $this->builder     = \Mockery::mock(ClientBuilderContract::class);
+        $this->builder     = \Mockery::mock(ClientBuilderInterface::class);
         $this->spApiConfig = \Mockery::mock(SpApiConfig::class);
     }
 
