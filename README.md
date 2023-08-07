@@ -56,6 +56,16 @@ Note that following the steps above will have the same end result whether you ar
 
 Example Bash scripts are provided below for each of the included SP-API domains. These are for reference only, as they may vary depending on your environment.
 
+#### A+ Content Management API v2020-11-01
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/AplusContentV20201101
+openapi-generator-cli generate -i models/aplusContent_2020-11-01.json -g php -o output/AplusContentV20201101 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\AplusContentV20201101" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/AplusContentV20201101
+mv output/AplusContentV20201101/lib src/Clients/AplusContentV20201101
+```
+
 #### Definitions Product Types API v2020-09-01
 
 ```BASH
