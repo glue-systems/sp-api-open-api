@@ -250,6 +250,16 @@ rm -rf src/Clients/TokensV20210301
 mv output/TokensV20210301/lib src/Clients/TokensV20210301
 ```
 
+#### Uploads API v2020-11-01
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/UploadsV20201101
+openapi-generator-cli generate -i models/uploads_2020-11-01.json -g php -o output/UploadsV20201101 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\UploadsV20201101" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/UploadsV20201101
+mv output/UploadsV20201101/lib src/Clients/UploadsV20201101
+```
+
 #### Vendor Direct Fulfillment Inventory API v1
 
 ```BASH
