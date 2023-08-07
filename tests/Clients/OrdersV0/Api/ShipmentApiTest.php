@@ -28,8 +28,8 @@ class ShipmentApiTest extends TestCase
         $result = $shipmentApi->updateShipmentStatusWithHttpInfo(
             'testOrder123',
             new UpdateShipmentStatusRequest([
-                'marketplace_id'  => $this->spApi->getSpApiConfig()->marketplaceId,
-                'shipment_status' => ShipmentStatus::READY_FOR_PICKUP
+                'marketplaceId'  => $this->spApi->getSpApiConfig()->marketplaceId,
+                'shipmentStatus' => ShipmentStatus::READY_FOR_PICKUP
             ])
         );
 

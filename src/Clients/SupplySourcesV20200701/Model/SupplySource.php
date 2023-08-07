@@ -58,15 +58,15 @@ class SupplySource implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'supply_source_id' => 'string',
-        'supply_source_code' => 'string',
+        'supplySourceId' => 'string',
+        'supplySourceCode' => 'string',
         'alias' => 'string',
         'status' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatusReadOnly',
         'address' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Address',
         'configuration' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceConfiguration',
         'capabilities' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceCapabilities',
-        'created_at' => 'string',
-        'updated_at' => 'string'
+        'createdAt' => 'string',
+        'updatedAt' => 'string'
     ];
 
     /**
@@ -75,15 +75,15 @@ class SupplySource implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'supply_source_id' => null,
-        'supply_source_code' => null,
+        'supplySourceId' => null,
+        'supplySourceCode' => null,
         'alias' => null,
         'status' => null,
         'address' => null,
         'configuration' => null,
         'capabilities' => null,
-        'created_at' => null,
-        'updated_at' => null
+        'createdAt' => null,
+        'updatedAt' => null
     ];
 
     /**
@@ -113,15 +113,15 @@ class SupplySource implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'supply_source_id' => 'supplySourceId',
-        'supply_source_code' => 'supplySourceCode',
+        'supplySourceId' => 'supplySourceId',
+        'supplySourceCode' => 'supplySourceCode',
         'alias' => 'alias',
         'status' => 'status',
         'address' => 'address',
         'configuration' => 'configuration',
         'capabilities' => 'capabilities',
-        'created_at' => 'createdAt',
-        'updated_at' => 'updatedAt'
+        'createdAt' => 'createdAt',
+        'updatedAt' => 'updatedAt'
     ];
 
     /**
@@ -130,15 +130,15 @@ class SupplySource implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'supply_source_id' => 'setSupplySourceId',
-        'supply_source_code' => 'setSupplySourceCode',
+        'supplySourceId' => 'setSupplySourceId',
+        'supplySourceCode' => 'setSupplySourceCode',
         'alias' => 'setAlias',
         'status' => 'setStatus',
         'address' => 'setAddress',
         'configuration' => 'setConfiguration',
         'capabilities' => 'setCapabilities',
-        'created_at' => 'setCreatedAt',
-        'updated_at' => 'setUpdatedAt'
+        'createdAt' => 'setCreatedAt',
+        'updatedAt' => 'setUpdatedAt'
     ];
 
     /**
@@ -147,15 +147,15 @@ class SupplySource implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'supply_source_id' => 'getSupplySourceId',
-        'supply_source_code' => 'getSupplySourceCode',
+        'supplySourceId' => 'getSupplySourceId',
+        'supplySourceCode' => 'getSupplySourceCode',
         'alias' => 'getAlias',
         'status' => 'getStatus',
         'address' => 'getAddress',
         'configuration' => 'getConfiguration',
         'capabilities' => 'getCapabilities',
-        'created_at' => 'getCreatedAt',
-        'updated_at' => 'getUpdatedAt'
+        'createdAt' => 'getCreatedAt',
+        'updatedAt' => 'getUpdatedAt'
     ];
 
     /**
@@ -218,15 +218,15 @@ class SupplySource implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['supply_source_id'] = isset($data['supply_source_id']) ? $data['supply_source_id'] : null;
-        $this->container['supply_source_code'] = isset($data['supply_source_code']) ? $data['supply_source_code'] : null;
+        $this->container['supplySourceId'] = isset($data['supplySourceId']) ? $data['supplySourceId'] : null;
+        $this->container['supplySourceCode'] = isset($data['supplySourceCode']) ? $data['supplySourceCode'] : null;
         $this->container['alias'] = isset($data['alias']) ? $data['alias'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
         $this->container['configuration'] = isset($data['configuration']) ? $data['configuration'] : null;
         $this->container['capabilities'] = isset($data['capabilities']) ? $data['capabilities'] : null;
-        $this->container['created_at'] = isset($data['created_at']) ? $data['created_at'] : null;
-        $this->container['updated_at'] = isset($data['updated_at']) ? $data['updated_at'] : null;
+        $this->container['createdAt'] = isset($data['createdAt']) ? $data['createdAt'] : null;
+        $this->container['updatedAt'] = isset($data['updatedAt']) ? $data['updatedAt'] : null;
     }
 
     /**
@@ -254,49 +254,49 @@ class SupplySource implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets supply_source_id
+     * Gets supplySourceId
      *
      * @return string|null
      */
     public function getSupplySourceId()
     {
-        return $this->container['supply_source_id'];
+        return $this->container['supplySourceId'];
     }
 
     /**
-     * Sets supply_source_id
+     * Sets supplySourceId
      *
-     * @param string|null $supply_source_id Amazon generated unique supply source id.
+     * @param string|null $supplySourceId Amazon generated unique supply source id.
      *
      * @return $this
      */
-    public function setSupplySourceId($supply_source_id)
+    public function setSupplySourceId($supplySourceId)
     {
-        $this->container['supply_source_id'] = $supply_source_id;
+        $this->container['supplySourceId'] = $supplySourceId;
 
         return $this;
     }
 
     /**
-     * Gets supply_source_code
+     * Gets supplySourceCode
      *
      * @return string|null
      */
     public function getSupplySourceCode()
     {
-        return $this->container['supply_source_code'];
+        return $this->container['supplySourceCode'];
     }
 
     /**
-     * Sets supply_source_code
+     * Sets supplySourceCode
      *
-     * @param string|null $supply_source_code Seller provided unique supply source code.
+     * @param string|null $supplySourceCode Seller provided unique supply source code.
      *
      * @return $this
      */
-    public function setSupplySourceCode($supply_source_code)
+    public function setSupplySourceCode($supplySourceCode)
     {
-        $this->container['supply_source_code'] = $supply_source_code;
+        $this->container['supplySourceCode'] = $supplySourceCode;
 
         return $this;
     }
@@ -422,49 +422,49 @@ class SupplySource implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets created_at
+     * Gets createdAt
      *
      * @return string|null
      */
     public function getCreatedAt()
     {
-        return $this->container['created_at'];
+        return $this->container['createdAt'];
     }
 
     /**
-     * Sets created_at
+     * Sets createdAt
      *
-     * @param string|null $created_at A date and time in the rfc3339 format.
+     * @param string|null $createdAt A date and time in the rfc3339 format.
      *
      * @return $this
      */
-    public function setCreatedAt($created_at)
+    public function setCreatedAt($createdAt)
     {
-        $this->container['created_at'] = $created_at;
+        $this->container['createdAt'] = $createdAt;
 
         return $this;
     }
 
     /**
-     * Gets updated_at
+     * Gets updatedAt
      *
      * @return string|null
      */
     public function getUpdatedAt()
     {
-        return $this->container['updated_at'];
+        return $this->container['updatedAt'];
     }
 
     /**
-     * Sets updated_at
+     * Sets updatedAt
      *
-     * @param string|null $updated_at A date and time in the rfc3339 format.
+     * @param string|null $updatedAt A date and time in the rfc3339 format.
      *
      * @return $this
      */
-    public function setUpdatedAt($updated_at)
+    public function setUpdatedAt($updatedAt)
     {
-        $this->container['updated_at'] = $updated_at;
+        $this->container['updatedAt'] = $updatedAt;
 
         return $this;
     }

@@ -58,8 +58,8 @@ class BuyerRequestedCancel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'is_buyer_requested_cancel' => 'bool',
-        'buyer_cancel_reason' => 'string'
+        'isBuyerRequestedCancel' => 'bool',
+        'buyerCancelReason' => 'string'
     ];
 
     /**
@@ -68,8 +68,8 @@ class BuyerRequestedCancel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'is_buyer_requested_cancel' => null,
-        'buyer_cancel_reason' => null
+        'isBuyerRequestedCancel' => null,
+        'buyerCancelReason' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class BuyerRequestedCancel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_buyer_requested_cancel' => 'IsBuyerRequestedCancel',
-        'buyer_cancel_reason' => 'BuyerCancelReason'
+        'isBuyerRequestedCancel' => 'IsBuyerRequestedCancel',
+        'buyerCancelReason' => 'BuyerCancelReason'
     ];
 
     /**
@@ -109,8 +109,8 @@ class BuyerRequestedCancel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_buyer_requested_cancel' => 'setIsBuyerRequestedCancel',
-        'buyer_cancel_reason' => 'setBuyerCancelReason'
+        'isBuyerRequestedCancel' => 'setIsBuyerRequestedCancel',
+        'buyerCancelReason' => 'setBuyerCancelReason'
     ];
 
     /**
@@ -119,8 +119,8 @@ class BuyerRequestedCancel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_buyer_requested_cancel' => 'getIsBuyerRequestedCancel',
-        'buyer_cancel_reason' => 'getBuyerCancelReason'
+        'isBuyerRequestedCancel' => 'getIsBuyerRequestedCancel',
+        'buyerCancelReason' => 'getBuyerCancelReason'
     ];
 
     /**
@@ -183,8 +183,8 @@ class BuyerRequestedCancel implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['is_buyer_requested_cancel'] = isset($data['is_buyer_requested_cancel']) ? $data['is_buyer_requested_cancel'] : null;
-        $this->container['buyer_cancel_reason'] = isset($data['buyer_cancel_reason']) ? $data['buyer_cancel_reason'] : null;
+        $this->container['isBuyerRequestedCancel'] = isset($data['isBuyerRequestedCancel']) ? $data['isBuyerRequestedCancel'] : null;
+        $this->container['buyerCancelReason'] = isset($data['buyerCancelReason']) ? $data['buyerCancelReason'] : null;
     }
 
     /**
@@ -212,49 +212,49 @@ class BuyerRequestedCancel implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets is_buyer_requested_cancel
+     * Gets isBuyerRequestedCancel
      *
      * @return bool|null
      */
     public function getIsBuyerRequestedCancel()
     {
-        return $this->container['is_buyer_requested_cancel'];
+        return $this->container['isBuyerRequestedCancel'];
     }
 
     /**
-     * Sets is_buyer_requested_cancel
+     * Sets isBuyerRequestedCancel
      *
-     * @param bool|null $is_buyer_requested_cancel When true, the buyer has requested cancellation.
+     * @param bool|null $isBuyerRequestedCancel When true, the buyer has requested cancellation.
      *
      * @return $this
      */
-    public function setIsBuyerRequestedCancel($is_buyer_requested_cancel)
+    public function setIsBuyerRequestedCancel($isBuyerRequestedCancel)
     {
-        $this->container['is_buyer_requested_cancel'] = $is_buyer_requested_cancel;
+        $this->container['isBuyerRequestedCancel'] = $isBuyerRequestedCancel;
 
         return $this;
     }
 
     /**
-     * Gets buyer_cancel_reason
+     * Gets buyerCancelReason
      *
      * @return string|null
      */
     public function getBuyerCancelReason()
     {
-        return $this->container['buyer_cancel_reason'];
+        return $this->container['buyerCancelReason'];
     }
 
     /**
-     * Sets buyer_cancel_reason
+     * Sets buyerCancelReason
      *
-     * @param string|null $buyer_cancel_reason The reason that the buyer requested cancellation.
+     * @param string|null $buyerCancelReason The reason that the buyer requested cancellation.
      *
      * @return $this
      */
-    public function setBuyerCancelReason($buyer_cancel_reason)
+    public function setBuyerCancelReason($buyerCancelReason)
     {
-        $this->container['buyer_cancel_reason'] = $buyer_cancel_reason;
+        $this->container['buyerCancelReason'] = $buyerCancelReason;
 
         return $this;
     }

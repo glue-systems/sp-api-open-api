@@ -58,8 +58,8 @@ class OperatingHour implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'start_time' => 'string',
-        'end_time' => 'string'
+        'startTime' => 'string',
+        'endTime' => 'string'
     ];
 
     /**
@@ -68,8 +68,8 @@ class OperatingHour implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'start_time' => null,
-        'end_time' => null
+        'startTime' => null,
+        'endTime' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class OperatingHour implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'start_time' => 'startTime',
-        'end_time' => 'endTime'
+        'startTime' => 'startTime',
+        'endTime' => 'endTime'
     ];
 
     /**
@@ -109,8 +109,8 @@ class OperatingHour implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'start_time' => 'setStartTime',
-        'end_time' => 'setEndTime'
+        'startTime' => 'setStartTime',
+        'endTime' => 'setEndTime'
     ];
 
     /**
@@ -119,8 +119,8 @@ class OperatingHour implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'start_time' => 'getStartTime',
-        'end_time' => 'getEndTime'
+        'startTime' => 'getStartTime',
+        'endTime' => 'getEndTime'
     ];
 
     /**
@@ -183,8 +183,8 @@ class OperatingHour implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
-        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
+        $this->container['endTime'] = isset($data['endTime']) ? $data['endTime'] : null;
     }
 
     /**
@@ -212,49 +212,49 @@ class OperatingHour implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets start_time
+     * Gets startTime
      *
      * @return string|null
      */
     public function getStartTime()
     {
-        return $this->container['start_time'];
+        return $this->container['startTime'];
     }
 
     /**
-     * Sets start_time
+     * Sets startTime
      *
-     * @param string|null $start_time Opening time, ISO 8601 formatted timestamp without date, HH:mm.
+     * @param string|null $startTime Opening time, ISO 8601 formatted timestamp without date, HH:mm.
      *
      * @return $this
      */
-    public function setStartTime($start_time)
+    public function setStartTime($startTime)
     {
-        $this->container['start_time'] = $start_time;
+        $this->container['startTime'] = $startTime;
 
         return $this;
     }
 
     /**
-     * Gets end_time
+     * Gets endTime
      *
      * @return string|null
      */
     public function getEndTime()
     {
-        return $this->container['end_time'];
+        return $this->container['endTime'];
     }
 
     /**
-     * Sets end_time
+     * Sets endTime
      *
-     * @param string|null $end_time Closing time, ISO 8601 formatted timestamp without date, HH:mm.
+     * @param string|null $endTime Closing time, ISO 8601 formatted timestamp without date, HH:mm.
      *
      * @return $this
      */
-    public function setEndTime($end_time)
+    public function setEndTime($endTime)
     {
-        $this->container['end_time'] = $end_time;
+        $this->container['endTime'] = $endTime;
 
         return $this;
     }

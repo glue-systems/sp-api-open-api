@@ -59,8 +59,8 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus',
-        'external_reviewer_id' => 'string',
-        'rejection_reason_id' => 'string'
+        'externalReviewerId' => 'string',
+        'rejectionReasonId' => 'string'
     ];
 
     /**
@@ -70,8 +70,8 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'status' => null,
-        'external_reviewer_id' => null,
-        'rejection_reason_id' => null
+        'externalReviewerId' => null,
+        'rejectionReasonId' => null
     ];
 
     /**
@@ -102,8 +102,8 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'status' => 'status',
-        'external_reviewer_id' => 'externalReviewerId',
-        'rejection_reason_id' => 'rejectionReasonId'
+        'externalReviewerId' => 'externalReviewerId',
+        'rejectionReasonId' => 'rejectionReasonId'
     ];
 
     /**
@@ -113,8 +113,8 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'status' => 'setStatus',
-        'external_reviewer_id' => 'setExternalReviewerId',
-        'rejection_reason_id' => 'setRejectionReasonId'
+        'externalReviewerId' => 'setExternalReviewerId',
+        'rejectionReasonId' => 'setRejectionReasonId'
     ];
 
     /**
@@ -124,8 +124,8 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'status' => 'getStatus',
-        'external_reviewer_id' => 'getExternalReviewerId',
-        'rejection_reason_id' => 'getRejectionReasonId'
+        'externalReviewerId' => 'getExternalReviewerId',
+        'rejectionReasonId' => 'getRejectionReasonId'
     ];
 
     /**
@@ -189,8 +189,8 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['external_reviewer_id'] = isset($data['external_reviewer_id']) ? $data['external_reviewer_id'] : null;
-        $this->container['rejection_reason_id'] = isset($data['rejection_reason_id']) ? $data['rejection_reason_id'] : null;
+        $this->container['externalReviewerId'] = isset($data['externalReviewerId']) ? $data['externalReviewerId'] : null;
+        $this->container['rejectionReasonId'] = isset($data['rejectionReasonId']) ? $data['rejectionReasonId'] : null;
     }
 
     /**
@@ -205,8 +205,8 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
-        if ($this->container['external_reviewer_id'] === null) {
-            $invalidProperties[] = "'external_reviewer_id' can't be null";
+        if ($this->container['externalReviewerId'] === null) {
+            $invalidProperties[] = "'externalReviewerId' can't be null";
         }
         return $invalidProperties;
     }
@@ -248,49 +248,49 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets external_reviewer_id
+     * Gets externalReviewerId
      *
      * @return string
      */
     public function getExternalReviewerId()
     {
-        return $this->container['external_reviewer_id'];
+        return $this->container['externalReviewerId'];
     }
 
     /**
-     * Sets external_reviewer_id
+     * Sets externalReviewerId
      *
-     * @param string $external_reviewer_id The identifier for the order's regulated information reviewer.
+     * @param string $externalReviewerId The identifier for the order's regulated information reviewer.
      *
      * @return $this
      */
-    public function setExternalReviewerId($external_reviewer_id)
+    public function setExternalReviewerId($externalReviewerId)
     {
-        $this->container['external_reviewer_id'] = $external_reviewer_id;
+        $this->container['externalReviewerId'] = $externalReviewerId;
 
         return $this;
     }
 
     /**
-     * Gets rejection_reason_id
+     * Gets rejectionReasonId
      *
      * @return string|null
      */
     public function getRejectionReasonId()
     {
-        return $this->container['rejection_reason_id'];
+        return $this->container['rejectionReasonId'];
     }
 
     /**
-     * Sets rejection_reason_id
+     * Sets rejectionReasonId
      *
-     * @param string|null $rejection_reason_id The unique identifier for the rejection reason used for rejecting the order's regulated information. Only required if the new status is rejected.
+     * @param string|null $rejectionReasonId The unique identifier for the rejection reason used for rejecting the order's regulated information. Only required if the new status is rejected.
      *
      * @return $this
      */
-    public function setRejectionReasonId($rejection_reason_id)
+    public function setRejectionReasonId($rejectionReasonId)
     {
-        $this->container['rejection_reason_id'] = $rejection_reason_id;
+        $this->container['rejectionReasonId'] = $rejectionReasonId;
 
         return $this;
     }

@@ -60,7 +60,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'title' => 'string',
         'description' => 'string',
-        'property_names' => 'string[]'
+        'propertyNames' => 'string[]'
     ];
 
     /**
@@ -71,7 +71,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'title' => null,
         'description' => null,
-        'property_names' => null
+        'propertyNames' => null
     ];
 
     /**
@@ -103,7 +103,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'title' => 'title',
         'description' => 'description',
-        'property_names' => 'propertyNames'
+        'propertyNames' => 'propertyNames'
     ];
 
     /**
@@ -114,7 +114,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
     protected static $setters = [
         'title' => 'setTitle',
         'description' => 'setDescription',
-        'property_names' => 'setPropertyNames'
+        'propertyNames' => 'setPropertyNames'
     ];
 
     /**
@@ -125,7 +125,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
     protected static $getters = [
         'title' => 'getTitle',
         'description' => 'getDescription',
-        'property_names' => 'getPropertyNames'
+        'propertyNames' => 'getPropertyNames'
     ];
 
     /**
@@ -190,7 +190,7 @@ class PropertyGroup implements ModelInterface, ArrayAccess
     {
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
         $this->container['description'] = isset($data['description']) ? $data['description'] : null;
-        $this->container['property_names'] = isset($data['property_names']) ? $data['property_names'] : null;
+        $this->container['propertyNames'] = isset($data['propertyNames']) ? $data['propertyNames'] : null;
     }
 
     /**
@@ -266,25 +266,25 @@ class PropertyGroup implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets property_names
+     * Gets propertyNames
      *
      * @return string[]|null
      */
     public function getPropertyNames()
     {
-        return $this->container['property_names'];
+        return $this->container['propertyNames'];
     }
 
     /**
-     * Sets property_names
+     * Sets propertyNames
      *
-     * @param string[]|null $property_names The names of the schema properties for the property group.
+     * @param string[]|null $propertyNames The names of the schema properties for the property group.
      *
      * @return $this
      */
-    public function setPropertyNames($property_names)
+    public function setPropertyNames($propertyNames)
     {
-        $this->container['property_names'] = $property_names;
+        $this->container['propertyNames'] = $propertyNames;
 
         return $this;
     }

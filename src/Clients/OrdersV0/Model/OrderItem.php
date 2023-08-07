@@ -58,41 +58,41 @@ class OrderItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'asin' => 'string',
-        'seller_sku' => 'string',
-        'order_item_id' => 'string',
+        'aSIN' => 'string',
+        'sellerSKU' => 'string',
+        'orderItemId' => 'string',
         'title' => 'string',
-        'quantity_ordered' => 'int',
-        'quantity_shipped' => 'int',
-        'product_info' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ProductInfoDetail',
-        'points_granted' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PointsGrantedDetail',
-        'item_price' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'shipping_price' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'item_tax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'shipping_tax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'shipping_discount' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'shipping_discount_tax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'promotion_discount' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'promotion_discount_tax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'promotion_ids' => 'string[]',
-        'cod_fee' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'cod_fee_discount' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'is_gift' => 'bool',
-        'condition_note' => 'string',
-        'condition_id' => 'string',
-        'condition_subtype_id' => 'string',
-        'scheduled_delivery_start_date' => 'string',
-        'scheduled_delivery_end_date' => 'string',
-        'price_designation' => 'string',
-        'tax_collection' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxCollection',
-        'serial_number_required' => 'bool',
-        'is_transparency' => 'bool',
-        'ioss_number' => 'string',
-        'store_chain_store_id' => 'string',
-        'deemed_reseller_category' => 'string',
-        'buyer_info' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo',
-        'buyer_requested_cancel' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel',
-        'serial_numbers' => 'string[]'
+        'quantityOrdered' => 'int',
+        'quantityShipped' => 'int',
+        'productInfo' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ProductInfoDetail',
+        'pointsGranted' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PointsGrantedDetail',
+        'itemPrice' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'shippingPrice' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'itemTax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'shippingTax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'shippingDiscount' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'shippingDiscountTax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'promotionDiscount' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'promotionDiscountTax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'promotionIds' => 'string[]',
+        'cODFee' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'cODFeeDiscount' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'isGift' => 'bool',
+        'conditionNote' => 'string',
+        'conditionId' => 'string',
+        'conditionSubtypeId' => 'string',
+        'scheduledDeliveryStartDate' => 'string',
+        'scheduledDeliveryEndDate' => 'string',
+        'priceDesignation' => 'string',
+        'taxCollection' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxCollection',
+        'serialNumberRequired' => 'bool',
+        'isTransparency' => 'bool',
+        'iossNumber' => 'string',
+        'storeChainStoreId' => 'string',
+        'deemedResellerCategory' => 'string',
+        'buyerInfo' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo',
+        'buyerRequestedCancel' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel',
+        'serialNumbers' => 'string[]'
     ];
 
     /**
@@ -101,41 +101,41 @@ class OrderItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'asin' => null,
-        'seller_sku' => null,
-        'order_item_id' => null,
+        'aSIN' => null,
+        'sellerSKU' => null,
+        'orderItemId' => null,
         'title' => null,
-        'quantity_ordered' => null,
-        'quantity_shipped' => null,
-        'product_info' => null,
-        'points_granted' => null,
-        'item_price' => null,
-        'shipping_price' => null,
-        'item_tax' => null,
-        'shipping_tax' => null,
-        'shipping_discount' => null,
-        'shipping_discount_tax' => null,
-        'promotion_discount' => null,
-        'promotion_discount_tax' => null,
-        'promotion_ids' => null,
-        'cod_fee' => null,
-        'cod_fee_discount' => null,
-        'is_gift' => null,
-        'condition_note' => null,
-        'condition_id' => null,
-        'condition_subtype_id' => null,
-        'scheduled_delivery_start_date' => null,
-        'scheduled_delivery_end_date' => null,
-        'price_designation' => null,
-        'tax_collection' => null,
-        'serial_number_required' => null,
-        'is_transparency' => null,
-        'ioss_number' => null,
-        'store_chain_store_id' => null,
-        'deemed_reseller_category' => null,
-        'buyer_info' => null,
-        'buyer_requested_cancel' => null,
-        'serial_numbers' => null
+        'quantityOrdered' => null,
+        'quantityShipped' => null,
+        'productInfo' => null,
+        'pointsGranted' => null,
+        'itemPrice' => null,
+        'shippingPrice' => null,
+        'itemTax' => null,
+        'shippingTax' => null,
+        'shippingDiscount' => null,
+        'shippingDiscountTax' => null,
+        'promotionDiscount' => null,
+        'promotionDiscountTax' => null,
+        'promotionIds' => null,
+        'cODFee' => null,
+        'cODFeeDiscount' => null,
+        'isGift' => null,
+        'conditionNote' => null,
+        'conditionId' => null,
+        'conditionSubtypeId' => null,
+        'scheduledDeliveryStartDate' => null,
+        'scheduledDeliveryEndDate' => null,
+        'priceDesignation' => null,
+        'taxCollection' => null,
+        'serialNumberRequired' => null,
+        'isTransparency' => null,
+        'iossNumber' => null,
+        'storeChainStoreId' => null,
+        'deemedResellerCategory' => null,
+        'buyerInfo' => null,
+        'buyerRequestedCancel' => null,
+        'serialNumbers' => null
     ];
 
     /**
@@ -165,41 +165,41 @@ class OrderItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'asin' => 'ASIN',
-        'seller_sku' => 'SellerSKU',
-        'order_item_id' => 'OrderItemId',
+        'aSIN' => 'ASIN',
+        'sellerSKU' => 'SellerSKU',
+        'orderItemId' => 'OrderItemId',
         'title' => 'Title',
-        'quantity_ordered' => 'QuantityOrdered',
-        'quantity_shipped' => 'QuantityShipped',
-        'product_info' => 'ProductInfo',
-        'points_granted' => 'PointsGranted',
-        'item_price' => 'ItemPrice',
-        'shipping_price' => 'ShippingPrice',
-        'item_tax' => 'ItemTax',
-        'shipping_tax' => 'ShippingTax',
-        'shipping_discount' => 'ShippingDiscount',
-        'shipping_discount_tax' => 'ShippingDiscountTax',
-        'promotion_discount' => 'PromotionDiscount',
-        'promotion_discount_tax' => 'PromotionDiscountTax',
-        'promotion_ids' => 'PromotionIds',
-        'cod_fee' => 'CODFee',
-        'cod_fee_discount' => 'CODFeeDiscount',
-        'is_gift' => 'IsGift',
-        'condition_note' => 'ConditionNote',
-        'condition_id' => 'ConditionId',
-        'condition_subtype_id' => 'ConditionSubtypeId',
-        'scheduled_delivery_start_date' => 'ScheduledDeliveryStartDate',
-        'scheduled_delivery_end_date' => 'ScheduledDeliveryEndDate',
-        'price_designation' => 'PriceDesignation',
-        'tax_collection' => 'TaxCollection',
-        'serial_number_required' => 'SerialNumberRequired',
-        'is_transparency' => 'IsTransparency',
-        'ioss_number' => 'IossNumber',
-        'store_chain_store_id' => 'StoreChainStoreId',
-        'deemed_reseller_category' => 'DeemedResellerCategory',
-        'buyer_info' => 'BuyerInfo',
-        'buyer_requested_cancel' => 'BuyerRequestedCancel',
-        'serial_numbers' => 'SerialNumbers'
+        'quantityOrdered' => 'QuantityOrdered',
+        'quantityShipped' => 'QuantityShipped',
+        'productInfo' => 'ProductInfo',
+        'pointsGranted' => 'PointsGranted',
+        'itemPrice' => 'ItemPrice',
+        'shippingPrice' => 'ShippingPrice',
+        'itemTax' => 'ItemTax',
+        'shippingTax' => 'ShippingTax',
+        'shippingDiscount' => 'ShippingDiscount',
+        'shippingDiscountTax' => 'ShippingDiscountTax',
+        'promotionDiscount' => 'PromotionDiscount',
+        'promotionDiscountTax' => 'PromotionDiscountTax',
+        'promotionIds' => 'PromotionIds',
+        'cODFee' => 'CODFee',
+        'cODFeeDiscount' => 'CODFeeDiscount',
+        'isGift' => 'IsGift',
+        'conditionNote' => 'ConditionNote',
+        'conditionId' => 'ConditionId',
+        'conditionSubtypeId' => 'ConditionSubtypeId',
+        'scheduledDeliveryStartDate' => 'ScheduledDeliveryStartDate',
+        'scheduledDeliveryEndDate' => 'ScheduledDeliveryEndDate',
+        'priceDesignation' => 'PriceDesignation',
+        'taxCollection' => 'TaxCollection',
+        'serialNumberRequired' => 'SerialNumberRequired',
+        'isTransparency' => 'IsTransparency',
+        'iossNumber' => 'IossNumber',
+        'storeChainStoreId' => 'StoreChainStoreId',
+        'deemedResellerCategory' => 'DeemedResellerCategory',
+        'buyerInfo' => 'BuyerInfo',
+        'buyerRequestedCancel' => 'BuyerRequestedCancel',
+        'serialNumbers' => 'SerialNumbers'
     ];
 
     /**
@@ -208,41 +208,41 @@ class OrderItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'asin' => 'setAsin',
-        'seller_sku' => 'setSellerSku',
-        'order_item_id' => 'setOrderItemId',
+        'aSIN' => 'setASIN',
+        'sellerSKU' => 'setSellerSKU',
+        'orderItemId' => 'setOrderItemId',
         'title' => 'setTitle',
-        'quantity_ordered' => 'setQuantityOrdered',
-        'quantity_shipped' => 'setQuantityShipped',
-        'product_info' => 'setProductInfo',
-        'points_granted' => 'setPointsGranted',
-        'item_price' => 'setItemPrice',
-        'shipping_price' => 'setShippingPrice',
-        'item_tax' => 'setItemTax',
-        'shipping_tax' => 'setShippingTax',
-        'shipping_discount' => 'setShippingDiscount',
-        'shipping_discount_tax' => 'setShippingDiscountTax',
-        'promotion_discount' => 'setPromotionDiscount',
-        'promotion_discount_tax' => 'setPromotionDiscountTax',
-        'promotion_ids' => 'setPromotionIds',
-        'cod_fee' => 'setCodFee',
-        'cod_fee_discount' => 'setCodFeeDiscount',
-        'is_gift' => 'setIsGift',
-        'condition_note' => 'setConditionNote',
-        'condition_id' => 'setConditionId',
-        'condition_subtype_id' => 'setConditionSubtypeId',
-        'scheduled_delivery_start_date' => 'setScheduledDeliveryStartDate',
-        'scheduled_delivery_end_date' => 'setScheduledDeliveryEndDate',
-        'price_designation' => 'setPriceDesignation',
-        'tax_collection' => 'setTaxCollection',
-        'serial_number_required' => 'setSerialNumberRequired',
-        'is_transparency' => 'setIsTransparency',
-        'ioss_number' => 'setIossNumber',
-        'store_chain_store_id' => 'setStoreChainStoreId',
-        'deemed_reseller_category' => 'setDeemedResellerCategory',
-        'buyer_info' => 'setBuyerInfo',
-        'buyer_requested_cancel' => 'setBuyerRequestedCancel',
-        'serial_numbers' => 'setSerialNumbers'
+        'quantityOrdered' => 'setQuantityOrdered',
+        'quantityShipped' => 'setQuantityShipped',
+        'productInfo' => 'setProductInfo',
+        'pointsGranted' => 'setPointsGranted',
+        'itemPrice' => 'setItemPrice',
+        'shippingPrice' => 'setShippingPrice',
+        'itemTax' => 'setItemTax',
+        'shippingTax' => 'setShippingTax',
+        'shippingDiscount' => 'setShippingDiscount',
+        'shippingDiscountTax' => 'setShippingDiscountTax',
+        'promotionDiscount' => 'setPromotionDiscount',
+        'promotionDiscountTax' => 'setPromotionDiscountTax',
+        'promotionIds' => 'setPromotionIds',
+        'cODFee' => 'setCODFee',
+        'cODFeeDiscount' => 'setCODFeeDiscount',
+        'isGift' => 'setIsGift',
+        'conditionNote' => 'setConditionNote',
+        'conditionId' => 'setConditionId',
+        'conditionSubtypeId' => 'setConditionSubtypeId',
+        'scheduledDeliveryStartDate' => 'setScheduledDeliveryStartDate',
+        'scheduledDeliveryEndDate' => 'setScheduledDeliveryEndDate',
+        'priceDesignation' => 'setPriceDesignation',
+        'taxCollection' => 'setTaxCollection',
+        'serialNumberRequired' => 'setSerialNumberRequired',
+        'isTransparency' => 'setIsTransparency',
+        'iossNumber' => 'setIossNumber',
+        'storeChainStoreId' => 'setStoreChainStoreId',
+        'deemedResellerCategory' => 'setDeemedResellerCategory',
+        'buyerInfo' => 'setBuyerInfo',
+        'buyerRequestedCancel' => 'setBuyerRequestedCancel',
+        'serialNumbers' => 'setSerialNumbers'
     ];
 
     /**
@@ -251,41 +251,41 @@ class OrderItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'asin' => 'getAsin',
-        'seller_sku' => 'getSellerSku',
-        'order_item_id' => 'getOrderItemId',
+        'aSIN' => 'getASIN',
+        'sellerSKU' => 'getSellerSKU',
+        'orderItemId' => 'getOrderItemId',
         'title' => 'getTitle',
-        'quantity_ordered' => 'getQuantityOrdered',
-        'quantity_shipped' => 'getQuantityShipped',
-        'product_info' => 'getProductInfo',
-        'points_granted' => 'getPointsGranted',
-        'item_price' => 'getItemPrice',
-        'shipping_price' => 'getShippingPrice',
-        'item_tax' => 'getItemTax',
-        'shipping_tax' => 'getShippingTax',
-        'shipping_discount' => 'getShippingDiscount',
-        'shipping_discount_tax' => 'getShippingDiscountTax',
-        'promotion_discount' => 'getPromotionDiscount',
-        'promotion_discount_tax' => 'getPromotionDiscountTax',
-        'promotion_ids' => 'getPromotionIds',
-        'cod_fee' => 'getCodFee',
-        'cod_fee_discount' => 'getCodFeeDiscount',
-        'is_gift' => 'getIsGift',
-        'condition_note' => 'getConditionNote',
-        'condition_id' => 'getConditionId',
-        'condition_subtype_id' => 'getConditionSubtypeId',
-        'scheduled_delivery_start_date' => 'getScheduledDeliveryStartDate',
-        'scheduled_delivery_end_date' => 'getScheduledDeliveryEndDate',
-        'price_designation' => 'getPriceDesignation',
-        'tax_collection' => 'getTaxCollection',
-        'serial_number_required' => 'getSerialNumberRequired',
-        'is_transparency' => 'getIsTransparency',
-        'ioss_number' => 'getIossNumber',
-        'store_chain_store_id' => 'getStoreChainStoreId',
-        'deemed_reseller_category' => 'getDeemedResellerCategory',
-        'buyer_info' => 'getBuyerInfo',
-        'buyer_requested_cancel' => 'getBuyerRequestedCancel',
-        'serial_numbers' => 'getSerialNumbers'
+        'quantityOrdered' => 'getQuantityOrdered',
+        'quantityShipped' => 'getQuantityShipped',
+        'productInfo' => 'getProductInfo',
+        'pointsGranted' => 'getPointsGranted',
+        'itemPrice' => 'getItemPrice',
+        'shippingPrice' => 'getShippingPrice',
+        'itemTax' => 'getItemTax',
+        'shippingTax' => 'getShippingTax',
+        'shippingDiscount' => 'getShippingDiscount',
+        'shippingDiscountTax' => 'getShippingDiscountTax',
+        'promotionDiscount' => 'getPromotionDiscount',
+        'promotionDiscountTax' => 'getPromotionDiscountTax',
+        'promotionIds' => 'getPromotionIds',
+        'cODFee' => 'getCODFee',
+        'cODFeeDiscount' => 'getCODFeeDiscount',
+        'isGift' => 'getIsGift',
+        'conditionNote' => 'getConditionNote',
+        'conditionId' => 'getConditionId',
+        'conditionSubtypeId' => 'getConditionSubtypeId',
+        'scheduledDeliveryStartDate' => 'getScheduledDeliveryStartDate',
+        'scheduledDeliveryEndDate' => 'getScheduledDeliveryEndDate',
+        'priceDesignation' => 'getPriceDesignation',
+        'taxCollection' => 'getTaxCollection',
+        'serialNumberRequired' => 'getSerialNumberRequired',
+        'isTransparency' => 'getIsTransparency',
+        'iossNumber' => 'getIossNumber',
+        'storeChainStoreId' => 'getStoreChainStoreId',
+        'deemedResellerCategory' => 'getDeemedResellerCategory',
+        'buyerInfo' => 'getBuyerInfo',
+        'buyerRequestedCancel' => 'getBuyerRequestedCancel',
+        'serialNumbers' => 'getSerialNumbers'
     ];
 
     /**
@@ -363,41 +363,41 @@ class OrderItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['asin'] = isset($data['asin']) ? $data['asin'] : null;
-        $this->container['seller_sku'] = isset($data['seller_sku']) ? $data['seller_sku'] : null;
-        $this->container['order_item_id'] = isset($data['order_item_id']) ? $data['order_item_id'] : null;
+        $this->container['aSIN'] = isset($data['aSIN']) ? $data['aSIN'] : null;
+        $this->container['sellerSKU'] = isset($data['sellerSKU']) ? $data['sellerSKU'] : null;
+        $this->container['orderItemId'] = isset($data['orderItemId']) ? $data['orderItemId'] : null;
         $this->container['title'] = isset($data['title']) ? $data['title'] : null;
-        $this->container['quantity_ordered'] = isset($data['quantity_ordered']) ? $data['quantity_ordered'] : null;
-        $this->container['quantity_shipped'] = isset($data['quantity_shipped']) ? $data['quantity_shipped'] : null;
-        $this->container['product_info'] = isset($data['product_info']) ? $data['product_info'] : null;
-        $this->container['points_granted'] = isset($data['points_granted']) ? $data['points_granted'] : null;
-        $this->container['item_price'] = isset($data['item_price']) ? $data['item_price'] : null;
-        $this->container['shipping_price'] = isset($data['shipping_price']) ? $data['shipping_price'] : null;
-        $this->container['item_tax'] = isset($data['item_tax']) ? $data['item_tax'] : null;
-        $this->container['shipping_tax'] = isset($data['shipping_tax']) ? $data['shipping_tax'] : null;
-        $this->container['shipping_discount'] = isset($data['shipping_discount']) ? $data['shipping_discount'] : null;
-        $this->container['shipping_discount_tax'] = isset($data['shipping_discount_tax']) ? $data['shipping_discount_tax'] : null;
-        $this->container['promotion_discount'] = isset($data['promotion_discount']) ? $data['promotion_discount'] : null;
-        $this->container['promotion_discount_tax'] = isset($data['promotion_discount_tax']) ? $data['promotion_discount_tax'] : null;
-        $this->container['promotion_ids'] = isset($data['promotion_ids']) ? $data['promotion_ids'] : null;
-        $this->container['cod_fee'] = isset($data['cod_fee']) ? $data['cod_fee'] : null;
-        $this->container['cod_fee_discount'] = isset($data['cod_fee_discount']) ? $data['cod_fee_discount'] : null;
-        $this->container['is_gift'] = isset($data['is_gift']) ? $data['is_gift'] : null;
-        $this->container['condition_note'] = isset($data['condition_note']) ? $data['condition_note'] : null;
-        $this->container['condition_id'] = isset($data['condition_id']) ? $data['condition_id'] : null;
-        $this->container['condition_subtype_id'] = isset($data['condition_subtype_id']) ? $data['condition_subtype_id'] : null;
-        $this->container['scheduled_delivery_start_date'] = isset($data['scheduled_delivery_start_date']) ? $data['scheduled_delivery_start_date'] : null;
-        $this->container['scheduled_delivery_end_date'] = isset($data['scheduled_delivery_end_date']) ? $data['scheduled_delivery_end_date'] : null;
-        $this->container['price_designation'] = isset($data['price_designation']) ? $data['price_designation'] : null;
-        $this->container['tax_collection'] = isset($data['tax_collection']) ? $data['tax_collection'] : null;
-        $this->container['serial_number_required'] = isset($data['serial_number_required']) ? $data['serial_number_required'] : null;
-        $this->container['is_transparency'] = isset($data['is_transparency']) ? $data['is_transparency'] : null;
-        $this->container['ioss_number'] = isset($data['ioss_number']) ? $data['ioss_number'] : null;
-        $this->container['store_chain_store_id'] = isset($data['store_chain_store_id']) ? $data['store_chain_store_id'] : null;
-        $this->container['deemed_reseller_category'] = isset($data['deemed_reseller_category']) ? $data['deemed_reseller_category'] : null;
-        $this->container['buyer_info'] = isset($data['buyer_info']) ? $data['buyer_info'] : null;
-        $this->container['buyer_requested_cancel'] = isset($data['buyer_requested_cancel']) ? $data['buyer_requested_cancel'] : null;
-        $this->container['serial_numbers'] = isset($data['serial_numbers']) ? $data['serial_numbers'] : null;
+        $this->container['quantityOrdered'] = isset($data['quantityOrdered']) ? $data['quantityOrdered'] : null;
+        $this->container['quantityShipped'] = isset($data['quantityShipped']) ? $data['quantityShipped'] : null;
+        $this->container['productInfo'] = isset($data['productInfo']) ? $data['productInfo'] : null;
+        $this->container['pointsGranted'] = isset($data['pointsGranted']) ? $data['pointsGranted'] : null;
+        $this->container['itemPrice'] = isset($data['itemPrice']) ? $data['itemPrice'] : null;
+        $this->container['shippingPrice'] = isset($data['shippingPrice']) ? $data['shippingPrice'] : null;
+        $this->container['itemTax'] = isset($data['itemTax']) ? $data['itemTax'] : null;
+        $this->container['shippingTax'] = isset($data['shippingTax']) ? $data['shippingTax'] : null;
+        $this->container['shippingDiscount'] = isset($data['shippingDiscount']) ? $data['shippingDiscount'] : null;
+        $this->container['shippingDiscountTax'] = isset($data['shippingDiscountTax']) ? $data['shippingDiscountTax'] : null;
+        $this->container['promotionDiscount'] = isset($data['promotionDiscount']) ? $data['promotionDiscount'] : null;
+        $this->container['promotionDiscountTax'] = isset($data['promotionDiscountTax']) ? $data['promotionDiscountTax'] : null;
+        $this->container['promotionIds'] = isset($data['promotionIds']) ? $data['promotionIds'] : null;
+        $this->container['cODFee'] = isset($data['cODFee']) ? $data['cODFee'] : null;
+        $this->container['cODFeeDiscount'] = isset($data['cODFeeDiscount']) ? $data['cODFeeDiscount'] : null;
+        $this->container['isGift'] = isset($data['isGift']) ? $data['isGift'] : null;
+        $this->container['conditionNote'] = isset($data['conditionNote']) ? $data['conditionNote'] : null;
+        $this->container['conditionId'] = isset($data['conditionId']) ? $data['conditionId'] : null;
+        $this->container['conditionSubtypeId'] = isset($data['conditionSubtypeId']) ? $data['conditionSubtypeId'] : null;
+        $this->container['scheduledDeliveryStartDate'] = isset($data['scheduledDeliveryStartDate']) ? $data['scheduledDeliveryStartDate'] : null;
+        $this->container['scheduledDeliveryEndDate'] = isset($data['scheduledDeliveryEndDate']) ? $data['scheduledDeliveryEndDate'] : null;
+        $this->container['priceDesignation'] = isset($data['priceDesignation']) ? $data['priceDesignation'] : null;
+        $this->container['taxCollection'] = isset($data['taxCollection']) ? $data['taxCollection'] : null;
+        $this->container['serialNumberRequired'] = isset($data['serialNumberRequired']) ? $data['serialNumberRequired'] : null;
+        $this->container['isTransparency'] = isset($data['isTransparency']) ? $data['isTransparency'] : null;
+        $this->container['iossNumber'] = isset($data['iossNumber']) ? $data['iossNumber'] : null;
+        $this->container['storeChainStoreId'] = isset($data['storeChainStoreId']) ? $data['storeChainStoreId'] : null;
+        $this->container['deemedResellerCategory'] = isset($data['deemedResellerCategory']) ? $data['deemedResellerCategory'] : null;
+        $this->container['buyerInfo'] = isset($data['buyerInfo']) ? $data['buyerInfo'] : null;
+        $this->container['buyerRequestedCancel'] = isset($data['buyerRequestedCancel']) ? $data['buyerRequestedCancel'] : null;
+        $this->container['serialNumbers'] = isset($data['serialNumbers']) ? $data['serialNumbers'] : null;
     }
 
     /**
@@ -409,19 +409,19 @@ class OrderItem implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['asin'] === null) {
-            $invalidProperties[] = "'asin' can't be null";
+        if ($this->container['aSIN'] === null) {
+            $invalidProperties[] = "'aSIN' can't be null";
         }
-        if ($this->container['order_item_id'] === null) {
-            $invalidProperties[] = "'order_item_id' can't be null";
+        if ($this->container['orderItemId'] === null) {
+            $invalidProperties[] = "'orderItemId' can't be null";
         }
-        if ($this->container['quantity_ordered'] === null) {
-            $invalidProperties[] = "'quantity_ordered' can't be null";
+        if ($this->container['quantityOrdered'] === null) {
+            $invalidProperties[] = "'quantityOrdered' can't be null";
         }
         $allowedValues = $this->getDeemedResellerCategoryAllowableValues();
-        if (!is_null($this->container['deemed_reseller_category']) && !in_array($this->container['deemed_reseller_category'], $allowedValues, true)) {
+        if (!is_null($this->container['deemedResellerCategory']) && !in_array($this->container['deemedResellerCategory'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'deemed_reseller_category', must be one of '%s'",
+                "invalid value for 'deemedResellerCategory', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -442,73 +442,73 @@ class OrderItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets asin
+     * Gets aSIN
      *
      * @return string
      */
-    public function getAsin()
+    public function getASIN()
     {
-        return $this->container['asin'];
+        return $this->container['aSIN'];
     }
 
     /**
-     * Sets asin
+     * Sets aSIN
      *
-     * @param string $asin The Amazon Standard Identification Number (ASIN) of the item.
+     * @param string $aSIN The Amazon Standard Identification Number (ASIN) of the item.
      *
      * @return $this
      */
-    public function setAsin($asin)
+    public function setASIN($aSIN)
     {
-        $this->container['asin'] = $asin;
+        $this->container['aSIN'] = $aSIN;
 
         return $this;
     }
 
     /**
-     * Gets seller_sku
+     * Gets sellerSKU
      *
      * @return string|null
      */
-    public function getSellerSku()
+    public function getSellerSKU()
     {
-        return $this->container['seller_sku'];
+        return $this->container['sellerSKU'];
     }
 
     /**
-     * Sets seller_sku
+     * Sets sellerSKU
      *
-     * @param string|null $seller_sku The seller stock keeping unit (SKU) of the item.
+     * @param string|null $sellerSKU The seller stock keeping unit (SKU) of the item.
      *
      * @return $this
      */
-    public function setSellerSku($seller_sku)
+    public function setSellerSKU($sellerSKU)
     {
-        $this->container['seller_sku'] = $seller_sku;
+        $this->container['sellerSKU'] = $sellerSKU;
 
         return $this;
     }
 
     /**
-     * Gets order_item_id
+     * Gets orderItemId
      *
      * @return string
      */
     public function getOrderItemId()
     {
-        return $this->container['order_item_id'];
+        return $this->container['orderItemId'];
     }
 
     /**
-     * Sets order_item_id
+     * Sets orderItemId
      *
-     * @param string $order_item_id An Amazon-defined order item identifier.
+     * @param string $orderItemId An Amazon-defined order item identifier.
      *
      * @return $this
      */
-    public function setOrderItemId($order_item_id)
+    public function setOrderItemId($orderItemId)
     {
-        $this->container['order_item_id'] = $order_item_id;
+        $this->container['orderItemId'] = $orderItemId;
 
         return $this;
     }
@@ -538,754 +538,754 @@ class OrderItem implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets quantity_ordered
+     * Gets quantityOrdered
      *
      * @return int
      */
     public function getQuantityOrdered()
     {
-        return $this->container['quantity_ordered'];
+        return $this->container['quantityOrdered'];
     }
 
     /**
-     * Sets quantity_ordered
+     * Sets quantityOrdered
      *
-     * @param int $quantity_ordered The number of items in the order.
+     * @param int $quantityOrdered The number of items in the order.
      *
      * @return $this
      */
-    public function setQuantityOrdered($quantity_ordered)
+    public function setQuantityOrdered($quantityOrdered)
     {
-        $this->container['quantity_ordered'] = $quantity_ordered;
+        $this->container['quantityOrdered'] = $quantityOrdered;
 
         return $this;
     }
 
     /**
-     * Gets quantity_shipped
+     * Gets quantityShipped
      *
      * @return int|null
      */
     public function getQuantityShipped()
     {
-        return $this->container['quantity_shipped'];
+        return $this->container['quantityShipped'];
     }
 
     /**
-     * Sets quantity_shipped
+     * Sets quantityShipped
      *
-     * @param int|null $quantity_shipped The number of items shipped.
+     * @param int|null $quantityShipped The number of items shipped.
      *
      * @return $this
      */
-    public function setQuantityShipped($quantity_shipped)
+    public function setQuantityShipped($quantityShipped)
     {
-        $this->container['quantity_shipped'] = $quantity_shipped;
+        $this->container['quantityShipped'] = $quantityShipped;
 
         return $this;
     }
 
     /**
-     * Gets product_info
+     * Gets productInfo
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ProductInfoDetail|null
      */
     public function getProductInfo()
     {
-        return $this->container['product_info'];
+        return $this->container['productInfo'];
     }
 
     /**
-     * Sets product_info
+     * Sets productInfo
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ProductInfoDetail|null $product_info product_info
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ProductInfoDetail|null $productInfo productInfo
      *
      * @return $this
      */
-    public function setProductInfo($product_info)
+    public function setProductInfo($productInfo)
     {
-        $this->container['product_info'] = $product_info;
+        $this->container['productInfo'] = $productInfo;
 
         return $this;
     }
 
     /**
-     * Gets points_granted
+     * Gets pointsGranted
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PointsGrantedDetail|null
      */
     public function getPointsGranted()
     {
-        return $this->container['points_granted'];
+        return $this->container['pointsGranted'];
     }
 
     /**
-     * Sets points_granted
+     * Sets pointsGranted
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PointsGrantedDetail|null $points_granted points_granted
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PointsGrantedDetail|null $pointsGranted pointsGranted
      *
      * @return $this
      */
-    public function setPointsGranted($points_granted)
+    public function setPointsGranted($pointsGranted)
     {
-        $this->container['points_granted'] = $points_granted;
+        $this->container['pointsGranted'] = $pointsGranted;
 
         return $this;
     }
 
     /**
-     * Gets item_price
+     * Gets itemPrice
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getItemPrice()
     {
-        return $this->container['item_price'];
+        return $this->container['itemPrice'];
     }
 
     /**
-     * Sets item_price
+     * Sets itemPrice
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $item_price item_price
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $itemPrice itemPrice
      *
      * @return $this
      */
-    public function setItemPrice($item_price)
+    public function setItemPrice($itemPrice)
     {
-        $this->container['item_price'] = $item_price;
+        $this->container['itemPrice'] = $itemPrice;
 
         return $this;
     }
 
     /**
-     * Gets shipping_price
+     * Gets shippingPrice
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getShippingPrice()
     {
-        return $this->container['shipping_price'];
+        return $this->container['shippingPrice'];
     }
 
     /**
-     * Sets shipping_price
+     * Sets shippingPrice
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $shipping_price shipping_price
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $shippingPrice shippingPrice
      *
      * @return $this
      */
-    public function setShippingPrice($shipping_price)
+    public function setShippingPrice($shippingPrice)
     {
-        $this->container['shipping_price'] = $shipping_price;
+        $this->container['shippingPrice'] = $shippingPrice;
 
         return $this;
     }
 
     /**
-     * Gets item_tax
+     * Gets itemTax
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getItemTax()
     {
-        return $this->container['item_tax'];
+        return $this->container['itemTax'];
     }
 
     /**
-     * Sets item_tax
+     * Sets itemTax
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $item_tax item_tax
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $itemTax itemTax
      *
      * @return $this
      */
-    public function setItemTax($item_tax)
+    public function setItemTax($itemTax)
     {
-        $this->container['item_tax'] = $item_tax;
+        $this->container['itemTax'] = $itemTax;
 
         return $this;
     }
 
     /**
-     * Gets shipping_tax
+     * Gets shippingTax
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getShippingTax()
     {
-        return $this->container['shipping_tax'];
+        return $this->container['shippingTax'];
     }
 
     /**
-     * Sets shipping_tax
+     * Sets shippingTax
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $shipping_tax shipping_tax
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $shippingTax shippingTax
      *
      * @return $this
      */
-    public function setShippingTax($shipping_tax)
+    public function setShippingTax($shippingTax)
     {
-        $this->container['shipping_tax'] = $shipping_tax;
+        $this->container['shippingTax'] = $shippingTax;
 
         return $this;
     }
 
     /**
-     * Gets shipping_discount
+     * Gets shippingDiscount
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getShippingDiscount()
     {
-        return $this->container['shipping_discount'];
+        return $this->container['shippingDiscount'];
     }
 
     /**
-     * Sets shipping_discount
+     * Sets shippingDiscount
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $shipping_discount shipping_discount
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $shippingDiscount shippingDiscount
      *
      * @return $this
      */
-    public function setShippingDiscount($shipping_discount)
+    public function setShippingDiscount($shippingDiscount)
     {
-        $this->container['shipping_discount'] = $shipping_discount;
+        $this->container['shippingDiscount'] = $shippingDiscount;
 
         return $this;
     }
 
     /**
-     * Gets shipping_discount_tax
+     * Gets shippingDiscountTax
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getShippingDiscountTax()
     {
-        return $this->container['shipping_discount_tax'];
+        return $this->container['shippingDiscountTax'];
     }
 
     /**
-     * Sets shipping_discount_tax
+     * Sets shippingDiscountTax
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $shipping_discount_tax shipping_discount_tax
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $shippingDiscountTax shippingDiscountTax
      *
      * @return $this
      */
-    public function setShippingDiscountTax($shipping_discount_tax)
+    public function setShippingDiscountTax($shippingDiscountTax)
     {
-        $this->container['shipping_discount_tax'] = $shipping_discount_tax;
+        $this->container['shippingDiscountTax'] = $shippingDiscountTax;
 
         return $this;
     }
 
     /**
-     * Gets promotion_discount
+     * Gets promotionDiscount
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getPromotionDiscount()
     {
-        return $this->container['promotion_discount'];
+        return $this->container['promotionDiscount'];
     }
 
     /**
-     * Sets promotion_discount
+     * Sets promotionDiscount
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $promotion_discount promotion_discount
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $promotionDiscount promotionDiscount
      *
      * @return $this
      */
-    public function setPromotionDiscount($promotion_discount)
+    public function setPromotionDiscount($promotionDiscount)
     {
-        $this->container['promotion_discount'] = $promotion_discount;
+        $this->container['promotionDiscount'] = $promotionDiscount;
 
         return $this;
     }
 
     /**
-     * Gets promotion_discount_tax
+     * Gets promotionDiscountTax
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getPromotionDiscountTax()
     {
-        return $this->container['promotion_discount_tax'];
+        return $this->container['promotionDiscountTax'];
     }
 
     /**
-     * Sets promotion_discount_tax
+     * Sets promotionDiscountTax
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $promotion_discount_tax promotion_discount_tax
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $promotionDiscountTax promotionDiscountTax
      *
      * @return $this
      */
-    public function setPromotionDiscountTax($promotion_discount_tax)
+    public function setPromotionDiscountTax($promotionDiscountTax)
     {
-        $this->container['promotion_discount_tax'] = $promotion_discount_tax;
+        $this->container['promotionDiscountTax'] = $promotionDiscountTax;
 
         return $this;
     }
 
     /**
-     * Gets promotion_ids
+     * Gets promotionIds
      *
      * @return string[]|null
      */
     public function getPromotionIds()
     {
-        return $this->container['promotion_ids'];
+        return $this->container['promotionIds'];
     }
 
     /**
-     * Sets promotion_ids
+     * Sets promotionIds
      *
-     * @param string[]|null $promotion_ids A list of promotion identifiers provided by the seller when the promotions were created.
+     * @param string[]|null $promotionIds A list of promotion identifiers provided by the seller when the promotions were created.
      *
      * @return $this
      */
-    public function setPromotionIds($promotion_ids)
+    public function setPromotionIds($promotionIds)
     {
-        $this->container['promotion_ids'] = $promotion_ids;
+        $this->container['promotionIds'] = $promotionIds;
 
         return $this;
     }
 
     /**
-     * Gets cod_fee
+     * Gets cODFee
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
-    public function getCodFee()
+    public function getCODFee()
     {
-        return $this->container['cod_fee'];
+        return $this->container['cODFee'];
     }
 
     /**
-     * Sets cod_fee
+     * Sets cODFee
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $cod_fee cod_fee
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $cODFee cODFee
      *
      * @return $this
      */
-    public function setCodFee($cod_fee)
+    public function setCODFee($cODFee)
     {
-        $this->container['cod_fee'] = $cod_fee;
+        $this->container['cODFee'] = $cODFee;
 
         return $this;
     }
 
     /**
-     * Gets cod_fee_discount
+     * Gets cODFeeDiscount
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
-    public function getCodFeeDiscount()
+    public function getCODFeeDiscount()
     {
-        return $this->container['cod_fee_discount'];
+        return $this->container['cODFeeDiscount'];
     }
 
     /**
-     * Sets cod_fee_discount
+     * Sets cODFeeDiscount
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $cod_fee_discount cod_fee_discount
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $cODFeeDiscount cODFeeDiscount
      *
      * @return $this
      */
-    public function setCodFeeDiscount($cod_fee_discount)
+    public function setCODFeeDiscount($cODFeeDiscount)
     {
-        $this->container['cod_fee_discount'] = $cod_fee_discount;
+        $this->container['cODFeeDiscount'] = $cODFeeDiscount;
 
         return $this;
     }
 
     /**
-     * Gets is_gift
+     * Gets isGift
      *
      * @return bool|null
      */
     public function getIsGift()
     {
-        return $this->container['is_gift'];
+        return $this->container['isGift'];
     }
 
     /**
-     * Sets is_gift
+     * Sets isGift
      *
-     * @param bool|null $is_gift When true, the item is a gift.
+     * @param bool|null $isGift When true, the item is a gift.
      *
      * @return $this
      */
-    public function setIsGift($is_gift)
+    public function setIsGift($isGift)
     {
-        $this->container['is_gift'] = $is_gift;
+        $this->container['isGift'] = $isGift;
 
         return $this;
     }
 
     /**
-     * Gets condition_note
+     * Gets conditionNote
      *
      * @return string|null
      */
     public function getConditionNote()
     {
-        return $this->container['condition_note'];
+        return $this->container['conditionNote'];
     }
 
     /**
-     * Sets condition_note
+     * Sets conditionNote
      *
-     * @param string|null $condition_note The condition of the item as described by the seller.
+     * @param string|null $conditionNote The condition of the item as described by the seller.
      *
      * @return $this
      */
-    public function setConditionNote($condition_note)
+    public function setConditionNote($conditionNote)
     {
-        $this->container['condition_note'] = $condition_note;
+        $this->container['conditionNote'] = $conditionNote;
 
         return $this;
     }
 
     /**
-     * Gets condition_id
+     * Gets conditionId
      *
      * @return string|null
      */
     public function getConditionId()
     {
-        return $this->container['condition_id'];
+        return $this->container['conditionId'];
     }
 
     /**
-     * Sets condition_id
+     * Sets conditionId
      *
-     * @param string|null $condition_id The condition of the item.  Possible values: New, Used, Collectible, Refurbished, Preorder, Club.
+     * @param string|null $conditionId The condition of the item.  Possible values: New, Used, Collectible, Refurbished, Preorder, Club.
      *
      * @return $this
      */
-    public function setConditionId($condition_id)
+    public function setConditionId($conditionId)
     {
-        $this->container['condition_id'] = $condition_id;
+        $this->container['conditionId'] = $conditionId;
 
         return $this;
     }
 
     /**
-     * Gets condition_subtype_id
+     * Gets conditionSubtypeId
      *
      * @return string|null
      */
     public function getConditionSubtypeId()
     {
-        return $this->container['condition_subtype_id'];
+        return $this->container['conditionSubtypeId'];
     }
 
     /**
-     * Sets condition_subtype_id
+     * Sets conditionSubtypeId
      *
-     * @param string|null $condition_subtype_id The subcondition of the item.  Possible values: New, Mint, Very Good, Good, Acceptable, Poor, Club, OEM, Warranty, Refurbished Warranty, Refurbished, Open Box, Any, Other.
+     * @param string|null $conditionSubtypeId The subcondition of the item.  Possible values: New, Mint, Very Good, Good, Acceptable, Poor, Club, OEM, Warranty, Refurbished Warranty, Refurbished, Open Box, Any, Other.
      *
      * @return $this
      */
-    public function setConditionSubtypeId($condition_subtype_id)
+    public function setConditionSubtypeId($conditionSubtypeId)
     {
-        $this->container['condition_subtype_id'] = $condition_subtype_id;
+        $this->container['conditionSubtypeId'] = $conditionSubtypeId;
 
         return $this;
     }
 
     /**
-     * Gets scheduled_delivery_start_date
+     * Gets scheduledDeliveryStartDate
      *
      * @return string|null
      */
     public function getScheduledDeliveryStartDate()
     {
-        return $this->container['scheduled_delivery_start_date'];
+        return $this->container['scheduledDeliveryStartDate'];
     }
 
     /**
-     * Sets scheduled_delivery_start_date
+     * Sets scheduledDeliveryStartDate
      *
-     * @param string|null $scheduled_delivery_start_date The start date of the scheduled delivery window in the time zone of the order destination. In ISO 8601 date time format.
+     * @param string|null $scheduledDeliveryStartDate The start date of the scheduled delivery window in the time zone of the order destination. In ISO 8601 date time format.
      *
      * @return $this
      */
-    public function setScheduledDeliveryStartDate($scheduled_delivery_start_date)
+    public function setScheduledDeliveryStartDate($scheduledDeliveryStartDate)
     {
-        $this->container['scheduled_delivery_start_date'] = $scheduled_delivery_start_date;
+        $this->container['scheduledDeliveryStartDate'] = $scheduledDeliveryStartDate;
 
         return $this;
     }
 
     /**
-     * Gets scheduled_delivery_end_date
+     * Gets scheduledDeliveryEndDate
      *
      * @return string|null
      */
     public function getScheduledDeliveryEndDate()
     {
-        return $this->container['scheduled_delivery_end_date'];
+        return $this->container['scheduledDeliveryEndDate'];
     }
 
     /**
-     * Sets scheduled_delivery_end_date
+     * Sets scheduledDeliveryEndDate
      *
-     * @param string|null $scheduled_delivery_end_date The end date of the scheduled delivery window in the time zone of the order destination. In ISO 8601 date time format.
+     * @param string|null $scheduledDeliveryEndDate The end date of the scheduled delivery window in the time zone of the order destination. In ISO 8601 date time format.
      *
      * @return $this
      */
-    public function setScheduledDeliveryEndDate($scheduled_delivery_end_date)
+    public function setScheduledDeliveryEndDate($scheduledDeliveryEndDate)
     {
-        $this->container['scheduled_delivery_end_date'] = $scheduled_delivery_end_date;
+        $this->container['scheduledDeliveryEndDate'] = $scheduledDeliveryEndDate;
 
         return $this;
     }
 
     /**
-     * Gets price_designation
+     * Gets priceDesignation
      *
      * @return string|null
      */
     public function getPriceDesignation()
     {
-        return $this->container['price_designation'];
+        return $this->container['priceDesignation'];
     }
 
     /**
-     * Sets price_designation
+     * Sets priceDesignation
      *
-     * @param string|null $price_designation Indicates that the selling price is a special price that is available only for Amazon Business orders. For more information about the Amazon Business Seller Program, see the [Amazon Business website](https://www.amazon.com/b2b/info/amazon-business).   Possible values: BusinessPrice - A special price that is available only for Amazon Business orders.
+     * @param string|null $priceDesignation Indicates that the selling price is a special price that is available only for Amazon Business orders. For more information about the Amazon Business Seller Program, see the [Amazon Business website](https://www.amazon.com/b2b/info/amazon-business).   Possible values: BusinessPrice - A special price that is available only for Amazon Business orders.
      *
      * @return $this
      */
-    public function setPriceDesignation($price_designation)
+    public function setPriceDesignation($priceDesignation)
     {
-        $this->container['price_designation'] = $price_designation;
+        $this->container['priceDesignation'] = $priceDesignation;
 
         return $this;
     }
 
     /**
-     * Gets tax_collection
+     * Gets taxCollection
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxCollection|null
      */
     public function getTaxCollection()
     {
-        return $this->container['tax_collection'];
+        return $this->container['taxCollection'];
     }
 
     /**
-     * Sets tax_collection
+     * Sets taxCollection
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxCollection|null $tax_collection tax_collection
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxCollection|null $taxCollection taxCollection
      *
      * @return $this
      */
-    public function setTaxCollection($tax_collection)
+    public function setTaxCollection($taxCollection)
     {
-        $this->container['tax_collection'] = $tax_collection;
+        $this->container['taxCollection'] = $taxCollection;
 
         return $this;
     }
 
     /**
-     * Gets serial_number_required
+     * Gets serialNumberRequired
      *
      * @return bool|null
      */
     public function getSerialNumberRequired()
     {
-        return $this->container['serial_number_required'];
+        return $this->container['serialNumberRequired'];
     }
 
     /**
-     * Sets serial_number_required
+     * Sets serialNumberRequired
      *
-     * @param bool|null $serial_number_required When true, the product type for this item has a serial number.  Returned only for Amazon Easy Ship orders.
+     * @param bool|null $serialNumberRequired When true, the product type for this item has a serial number.  Returned only for Amazon Easy Ship orders.
      *
      * @return $this
      */
-    public function setSerialNumberRequired($serial_number_required)
+    public function setSerialNumberRequired($serialNumberRequired)
     {
-        $this->container['serial_number_required'] = $serial_number_required;
+        $this->container['serialNumberRequired'] = $serialNumberRequired;
 
         return $this;
     }
 
     /**
-     * Gets is_transparency
+     * Gets isTransparency
      *
      * @return bool|null
      */
     public function getIsTransparency()
     {
-        return $this->container['is_transparency'];
+        return $this->container['isTransparency'];
     }
 
     /**
-     * Sets is_transparency
+     * Sets isTransparency
      *
-     * @param bool|null $is_transparency When true, transparency codes are required.
+     * @param bool|null $isTransparency When true, transparency codes are required.
      *
      * @return $this
      */
-    public function setIsTransparency($is_transparency)
+    public function setIsTransparency($isTransparency)
     {
-        $this->container['is_transparency'] = $is_transparency;
+        $this->container['isTransparency'] = $isTransparency;
 
         return $this;
     }
 
     /**
-     * Gets ioss_number
+     * Gets iossNumber
      *
      * @return string|null
      */
     public function getIossNumber()
     {
-        return $this->container['ioss_number'];
+        return $this->container['iossNumber'];
     }
 
     /**
-     * Sets ioss_number
+     * Sets iossNumber
      *
-     * @param string|null $ioss_number The IOSS number for the marketplace. Sellers shipping to the European Union (EU) from outside of the EU must provide this IOSS number to their carrier when Amazon has collected the VAT on the sale.
+     * @param string|null $iossNumber The IOSS number for the marketplace. Sellers shipping to the European Union (EU) from outside of the EU must provide this IOSS number to their carrier when Amazon has collected the VAT on the sale.
      *
      * @return $this
      */
-    public function setIossNumber($ioss_number)
+    public function setIossNumber($iossNumber)
     {
-        $this->container['ioss_number'] = $ioss_number;
+        $this->container['iossNumber'] = $iossNumber;
 
         return $this;
     }
 
     /**
-     * Gets store_chain_store_id
+     * Gets storeChainStoreId
      *
      * @return string|null
      */
     public function getStoreChainStoreId()
     {
-        return $this->container['store_chain_store_id'];
+        return $this->container['storeChainStoreId'];
     }
 
     /**
-     * Sets store_chain_store_id
+     * Sets storeChainStoreId
      *
-     * @param string|null $store_chain_store_id The store chain store identifier. Linked to a specific store in a store chain.
+     * @param string|null $storeChainStoreId The store chain store identifier. Linked to a specific store in a store chain.
      *
      * @return $this
      */
-    public function setStoreChainStoreId($store_chain_store_id)
+    public function setStoreChainStoreId($storeChainStoreId)
     {
-        $this->container['store_chain_store_id'] = $store_chain_store_id;
+        $this->container['storeChainStoreId'] = $storeChainStoreId;
 
         return $this;
     }
 
     /**
-     * Gets deemed_reseller_category
+     * Gets deemedResellerCategory
      *
      * @return string|null
      */
     public function getDeemedResellerCategory()
     {
-        return $this->container['deemed_reseller_category'];
+        return $this->container['deemedResellerCategory'];
     }
 
     /**
-     * Sets deemed_reseller_category
+     * Sets deemedResellerCategory
      *
-     * @param string|null $deemed_reseller_category The category of deemed reseller. This applies to selling partners that are not based in the EU and is used to help them meet the VAT Deemed Reseller tax laws in the EU and UK.
+     * @param string|null $deemedResellerCategory The category of deemed reseller. This applies to selling partners that are not based in the EU and is used to help them meet the VAT Deemed Reseller tax laws in the EU and UK.
      *
      * @return $this
      */
-    public function setDeemedResellerCategory($deemed_reseller_category)
+    public function setDeemedResellerCategory($deemedResellerCategory)
     {
         $allowedValues = $this->getDeemedResellerCategoryAllowableValues();
-        if (!is_null($deemed_reseller_category) && !in_array($deemed_reseller_category, $allowedValues, true)) {
+        if (!is_null($deemedResellerCategory) && !in_array($deemedResellerCategory, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'deemed_reseller_category', must be one of '%s'",
+                    "Invalid value for 'deemedResellerCategory', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['deemed_reseller_category'] = $deemed_reseller_category;
+        $this->container['deemedResellerCategory'] = $deemedResellerCategory;
 
         return $this;
     }
 
     /**
-     * Gets buyer_info
+     * Gets buyerInfo
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo|null
      */
     public function getBuyerInfo()
     {
-        return $this->container['buyer_info'];
+        return $this->container['buyerInfo'];
     }
 
     /**
-     * Sets buyer_info
+     * Sets buyerInfo
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo|null $buyer_info buyer_info
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo|null $buyerInfo buyerInfo
      *
      * @return $this
      */
-    public function setBuyerInfo($buyer_info)
+    public function setBuyerInfo($buyerInfo)
     {
-        $this->container['buyer_info'] = $buyer_info;
+        $this->container['buyerInfo'] = $buyerInfo;
 
         return $this;
     }
 
     /**
-     * Gets buyer_requested_cancel
+     * Gets buyerRequestedCancel
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel|null
      */
     public function getBuyerRequestedCancel()
     {
-        return $this->container['buyer_requested_cancel'];
+        return $this->container['buyerRequestedCancel'];
     }
 
     /**
-     * Sets buyer_requested_cancel
+     * Sets buyerRequestedCancel
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel|null $buyer_requested_cancel buyer_requested_cancel
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel|null $buyerRequestedCancel buyerRequestedCancel
      *
      * @return $this
      */
-    public function setBuyerRequestedCancel($buyer_requested_cancel)
+    public function setBuyerRequestedCancel($buyerRequestedCancel)
     {
-        $this->container['buyer_requested_cancel'] = $buyer_requested_cancel;
+        $this->container['buyerRequestedCancel'] = $buyerRequestedCancel;
 
         return $this;
     }
 
     /**
-     * Gets serial_numbers
+     * Gets serialNumbers
      *
      * @return string[]|null
      */
     public function getSerialNumbers()
     {
-        return $this->container['serial_numbers'];
+        return $this->container['serialNumbers'];
     }
 
     /**
-     * Sets serial_numbers
+     * Sets serialNumbers
      *
-     * @param string[]|null $serial_numbers A list of serial numbers for electronic products that are shipped to customers. Returned for FBA orders only.
+     * @param string[]|null $serialNumbers A list of serial numbers for electronic products that are shipped to customers. Returned for FBA orders only.
      *
      * @return $this
      */
-    public function setSerialNumbers($serial_numbers)
+    public function setSerialNumbers($serialNumbers)
     {
-        $this->container['serial_numbers'] = $serial_numbers;
+        $this->container['serialNumbers'] = $serialNumbers;
 
         return $this;
     }

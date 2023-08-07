@@ -58,7 +58,7 @@ class ReportScheduleList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'report_schedules' => '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule[]'
+        'reportSchedules' => '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule[]'
     ];
 
     /**
@@ -67,7 +67,7 @@ class ReportScheduleList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'report_schedules' => null
+        'reportSchedules' => null
     ];
 
     /**
@@ -97,7 +97,7 @@ class ReportScheduleList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'report_schedules' => 'reportSchedules'
+        'reportSchedules' => 'reportSchedules'
     ];
 
     /**
@@ -106,7 +106,7 @@ class ReportScheduleList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'report_schedules' => 'setReportSchedules'
+        'reportSchedules' => 'setReportSchedules'
     ];
 
     /**
@@ -115,7 +115,7 @@ class ReportScheduleList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'report_schedules' => 'getReportSchedules'
+        'reportSchedules' => 'getReportSchedules'
     ];
 
     /**
@@ -178,7 +178,7 @@ class ReportScheduleList implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['report_schedules'] = isset($data['report_schedules']) ? $data['report_schedules'] : null;
+        $this->container['reportSchedules'] = isset($data['reportSchedules']) ? $data['reportSchedules'] : null;
     }
 
     /**
@@ -190,8 +190,8 @@ class ReportScheduleList implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['report_schedules'] === null) {
-            $invalidProperties[] = "'report_schedules' can't be null";
+        if ($this->container['reportSchedules'] === null) {
+            $invalidProperties[] = "'reportSchedules' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,25 +209,25 @@ class ReportScheduleList implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets report_schedules
+     * Gets reportSchedules
      *
      * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule[]
      */
     public function getReportSchedules()
     {
-        return $this->container['report_schedules'];
+        return $this->container['reportSchedules'];
     }
 
     /**
-     * Sets report_schedules
+     * Sets reportSchedules
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule[] $report_schedules report_schedules
+     * @param \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule[] $reportSchedules reportSchedules
      *
      * @return $this
      */
-    public function setReportSchedules($report_schedules)
+    public function setReportSchedules($reportSchedules)
     {
-        $this->container['report_schedules'] = $report_schedules;
+        $this->container['reportSchedules'] = $reportSchedules;
 
         return $this;
     }

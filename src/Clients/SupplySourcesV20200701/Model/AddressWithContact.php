@@ -58,7 +58,7 @@ class AddressWithContact implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contact_details' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails',
+        'contactDetails' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails',
         'address' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Address'
     ];
 
@@ -68,7 +68,7 @@ class AddressWithContact implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'contact_details' => null,
+        'contactDetails' => null,
         'address' => null
     ];
 
@@ -99,7 +99,7 @@ class AddressWithContact implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'contact_details' => 'contactDetails',
+        'contactDetails' => 'contactDetails',
         'address' => 'address'
     ];
 
@@ -109,7 +109,7 @@ class AddressWithContact implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'contact_details' => 'setContactDetails',
+        'contactDetails' => 'setContactDetails',
         'address' => 'setAddress'
     ];
 
@@ -119,7 +119,7 @@ class AddressWithContact implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'contact_details' => 'getContactDetails',
+        'contactDetails' => 'getContactDetails',
         'address' => 'getAddress'
     ];
 
@@ -183,7 +183,7 @@ class AddressWithContact implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['contact_details'] = isset($data['contact_details']) ? $data['contact_details'] : null;
+        $this->container['contactDetails'] = isset($data['contactDetails']) ? $data['contactDetails'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
     }
 
@@ -212,25 +212,25 @@ class AddressWithContact implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets contact_details
+     * Gets contactDetails
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails|null
      */
     public function getContactDetails()
     {
-        return $this->container['contact_details'];
+        return $this->container['contactDetails'];
     }
 
     /**
-     * Sets contact_details
+     * Sets contactDetails
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails|null $contact_details contact_details
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails|null $contactDetails contactDetails
      *
      * @return $this
      */
-    public function setContactDetails($contact_details)
+    public function setContactDetails($contactDetails)
     {
-        $this->container['contact_details'] = $contact_details;
+        $this->container['contactDetails'] = $contactDetails;
 
         return $this;
     }

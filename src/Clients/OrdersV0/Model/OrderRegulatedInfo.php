@@ -58,10 +58,10 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'amazon_order_id' => 'string',
-        'regulated_information' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedInformation',
-        'requires_dosage_label' => 'bool',
-        'regulated_order_verification_status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedOrderVerificationStatus'
+        'amazonOrderId' => 'string',
+        'regulatedInformation' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedInformation',
+        'requiresDosageLabel' => 'bool',
+        'regulatedOrderVerificationStatus' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedOrderVerificationStatus'
     ];
 
     /**
@@ -70,10 +70,10 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'amazon_order_id' => null,
-        'regulated_information' => null,
-        'requires_dosage_label' => null,
-        'regulated_order_verification_status' => null
+        'amazonOrderId' => null,
+        'regulatedInformation' => null,
+        'requiresDosageLabel' => null,
+        'regulatedOrderVerificationStatus' => null
     ];
 
     /**
@@ -103,10 +103,10 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'amazon_order_id' => 'AmazonOrderId',
-        'regulated_information' => 'RegulatedInformation',
-        'requires_dosage_label' => 'RequiresDosageLabel',
-        'regulated_order_verification_status' => 'RegulatedOrderVerificationStatus'
+        'amazonOrderId' => 'AmazonOrderId',
+        'regulatedInformation' => 'RegulatedInformation',
+        'requiresDosageLabel' => 'RequiresDosageLabel',
+        'regulatedOrderVerificationStatus' => 'RegulatedOrderVerificationStatus'
     ];
 
     /**
@@ -115,10 +115,10 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'amazon_order_id' => 'setAmazonOrderId',
-        'regulated_information' => 'setRegulatedInformation',
-        'requires_dosage_label' => 'setRequiresDosageLabel',
-        'regulated_order_verification_status' => 'setRegulatedOrderVerificationStatus'
+        'amazonOrderId' => 'setAmazonOrderId',
+        'regulatedInformation' => 'setRegulatedInformation',
+        'requiresDosageLabel' => 'setRequiresDosageLabel',
+        'regulatedOrderVerificationStatus' => 'setRegulatedOrderVerificationStatus'
     ];
 
     /**
@@ -127,10 +127,10 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'amazon_order_id' => 'getAmazonOrderId',
-        'regulated_information' => 'getRegulatedInformation',
-        'requires_dosage_label' => 'getRequiresDosageLabel',
-        'regulated_order_verification_status' => 'getRegulatedOrderVerificationStatus'
+        'amazonOrderId' => 'getAmazonOrderId',
+        'regulatedInformation' => 'getRegulatedInformation',
+        'requiresDosageLabel' => 'getRequiresDosageLabel',
+        'regulatedOrderVerificationStatus' => 'getRegulatedOrderVerificationStatus'
     ];
 
     /**
@@ -193,10 +193,10 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['amazon_order_id'] = isset($data['amazon_order_id']) ? $data['amazon_order_id'] : null;
-        $this->container['regulated_information'] = isset($data['regulated_information']) ? $data['regulated_information'] : null;
-        $this->container['requires_dosage_label'] = isset($data['requires_dosage_label']) ? $data['requires_dosage_label'] : null;
-        $this->container['regulated_order_verification_status'] = isset($data['regulated_order_verification_status']) ? $data['regulated_order_verification_status'] : null;
+        $this->container['amazonOrderId'] = isset($data['amazonOrderId']) ? $data['amazonOrderId'] : null;
+        $this->container['regulatedInformation'] = isset($data['regulatedInformation']) ? $data['regulatedInformation'] : null;
+        $this->container['requiresDosageLabel'] = isset($data['requiresDosageLabel']) ? $data['requiresDosageLabel'] : null;
+        $this->container['regulatedOrderVerificationStatus'] = isset($data['regulatedOrderVerificationStatus']) ? $data['regulatedOrderVerificationStatus'] : null;
     }
 
     /**
@@ -208,17 +208,17 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['amazon_order_id'] === null) {
-            $invalidProperties[] = "'amazon_order_id' can't be null";
+        if ($this->container['amazonOrderId'] === null) {
+            $invalidProperties[] = "'amazonOrderId' can't be null";
         }
-        if ($this->container['regulated_information'] === null) {
-            $invalidProperties[] = "'regulated_information' can't be null";
+        if ($this->container['regulatedInformation'] === null) {
+            $invalidProperties[] = "'regulatedInformation' can't be null";
         }
-        if ($this->container['requires_dosage_label'] === null) {
-            $invalidProperties[] = "'requires_dosage_label' can't be null";
+        if ($this->container['requiresDosageLabel'] === null) {
+            $invalidProperties[] = "'requiresDosageLabel' can't be null";
         }
-        if ($this->container['regulated_order_verification_status'] === null) {
-            $invalidProperties[] = "'regulated_order_verification_status' can't be null";
+        if ($this->container['regulatedOrderVerificationStatus'] === null) {
+            $invalidProperties[] = "'regulatedOrderVerificationStatus' can't be null";
         }
         return $invalidProperties;
     }
@@ -236,97 +236,97 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets amazon_order_id
+     * Gets amazonOrderId
      *
      * @return string
      */
     public function getAmazonOrderId()
     {
-        return $this->container['amazon_order_id'];
+        return $this->container['amazonOrderId'];
     }
 
     /**
-     * Sets amazon_order_id
+     * Sets amazonOrderId
      *
-     * @param string $amazon_order_id An Amazon-defined order identifier, in 3-7-7 format.
+     * @param string $amazonOrderId An Amazon-defined order identifier, in 3-7-7 format.
      *
      * @return $this
      */
-    public function setAmazonOrderId($amazon_order_id)
+    public function setAmazonOrderId($amazonOrderId)
     {
-        $this->container['amazon_order_id'] = $amazon_order_id;
+        $this->container['amazonOrderId'] = $amazonOrderId;
 
         return $this;
     }
 
     /**
-     * Gets regulated_information
+     * Gets regulatedInformation
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedInformation
      */
     public function getRegulatedInformation()
     {
-        return $this->container['regulated_information'];
+        return $this->container['regulatedInformation'];
     }
 
     /**
-     * Sets regulated_information
+     * Sets regulatedInformation
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedInformation $regulated_information regulated_information
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedInformation $regulatedInformation regulatedInformation
      *
      * @return $this
      */
-    public function setRegulatedInformation($regulated_information)
+    public function setRegulatedInformation($regulatedInformation)
     {
-        $this->container['regulated_information'] = $regulated_information;
+        $this->container['regulatedInformation'] = $regulatedInformation;
 
         return $this;
     }
 
     /**
-     * Gets requires_dosage_label
+     * Gets requiresDosageLabel
      *
      * @return bool
      */
     public function getRequiresDosageLabel()
     {
-        return $this->container['requires_dosage_label'];
+        return $this->container['requiresDosageLabel'];
     }
 
     /**
-     * Sets requires_dosage_label
+     * Sets requiresDosageLabel
      *
-     * @param bool $requires_dosage_label When true, the order requires attaching a dosage information label when shipped.
+     * @param bool $requiresDosageLabel When true, the order requires attaching a dosage information label when shipped.
      *
      * @return $this
      */
-    public function setRequiresDosageLabel($requires_dosage_label)
+    public function setRequiresDosageLabel($requiresDosageLabel)
     {
-        $this->container['requires_dosage_label'] = $requires_dosage_label;
+        $this->container['requiresDosageLabel'] = $requiresDosageLabel;
 
         return $this;
     }
 
     /**
-     * Gets regulated_order_verification_status
+     * Gets regulatedOrderVerificationStatus
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedOrderVerificationStatus
      */
     public function getRegulatedOrderVerificationStatus()
     {
-        return $this->container['regulated_order_verification_status'];
+        return $this->container['regulatedOrderVerificationStatus'];
     }
 
     /**
-     * Sets regulated_order_verification_status
+     * Sets regulatedOrderVerificationStatus
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedOrderVerificationStatus $regulated_order_verification_status regulated_order_verification_status
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedOrderVerificationStatus $regulatedOrderVerificationStatus regulatedOrderVerificationStatus
      *
      * @return $this
      */
-    public function setRegulatedOrderVerificationStatus($regulated_order_verification_status)
+    public function setRegulatedOrderVerificationStatus($regulatedOrderVerificationStatus)
     {
-        $this->container['regulated_order_verification_status'] = $regulated_order_verification_status;
+        $this->container['regulatedOrderVerificationStatus'] = $regulatedOrderVerificationStatus;
 
         return $this;
     }

@@ -58,9 +58,9 @@ class ConfirmShipmentOrderItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'order_item_id' => 'string',
+        'orderItemId' => 'string',
         'quantity' => 'int',
-        'transparency_codes' => 'string[]'
+        'transparencyCodes' => 'string[]'
     ];
 
     /**
@@ -69,9 +69,9 @@ class ConfirmShipmentOrderItem implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'order_item_id' => null,
+        'orderItemId' => null,
         'quantity' => null,
-        'transparency_codes' => null
+        'transparencyCodes' => null
     ];
 
     /**
@@ -101,9 +101,9 @@ class ConfirmShipmentOrderItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'order_item_id' => 'orderItemId',
+        'orderItemId' => 'orderItemId',
         'quantity' => 'quantity',
-        'transparency_codes' => 'transparencyCodes'
+        'transparencyCodes' => 'transparencyCodes'
     ];
 
     /**
@@ -112,9 +112,9 @@ class ConfirmShipmentOrderItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'order_item_id' => 'setOrderItemId',
+        'orderItemId' => 'setOrderItemId',
         'quantity' => 'setQuantity',
-        'transparency_codes' => 'setTransparencyCodes'
+        'transparencyCodes' => 'setTransparencyCodes'
     ];
 
     /**
@@ -123,9 +123,9 @@ class ConfirmShipmentOrderItem implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'order_item_id' => 'getOrderItemId',
+        'orderItemId' => 'getOrderItemId',
         'quantity' => 'getQuantity',
-        'transparency_codes' => 'getTransparencyCodes'
+        'transparencyCodes' => 'getTransparencyCodes'
     ];
 
     /**
@@ -188,9 +188,9 @@ class ConfirmShipmentOrderItem implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['order_item_id'] = isset($data['order_item_id']) ? $data['order_item_id'] : null;
+        $this->container['orderItemId'] = isset($data['orderItemId']) ? $data['orderItemId'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;
-        $this->container['transparency_codes'] = isset($data['transparency_codes']) ? $data['transparency_codes'] : null;
+        $this->container['transparencyCodes'] = isset($data['transparencyCodes']) ? $data['transparencyCodes'] : null;
     }
 
     /**
@@ -202,8 +202,8 @@ class ConfirmShipmentOrderItem implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['order_item_id'] === null) {
-            $invalidProperties[] = "'order_item_id' can't be null";
+        if ($this->container['orderItemId'] === null) {
+            $invalidProperties[] = "'orderItemId' can't be null";
         }
         if ($this->container['quantity'] === null) {
             $invalidProperties[] = "'quantity' can't be null";
@@ -224,25 +224,25 @@ class ConfirmShipmentOrderItem implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets order_item_id
+     * Gets orderItemId
      *
      * @return string
      */
     public function getOrderItemId()
     {
-        return $this->container['order_item_id'];
+        return $this->container['orderItemId'];
     }
 
     /**
-     * Sets order_item_id
+     * Sets orderItemId
      *
-     * @param string $order_item_id The unique identifier of the order item.
+     * @param string $orderItemId The unique identifier of the order item.
      *
      * @return $this
      */
-    public function setOrderItemId($order_item_id)
+    public function setOrderItemId($orderItemId)
     {
-        $this->container['order_item_id'] = $order_item_id;
+        $this->container['orderItemId'] = $orderItemId;
 
         return $this;
     }
@@ -272,25 +272,25 @@ class ConfirmShipmentOrderItem implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets transparency_codes
+     * Gets transparencyCodes
      *
      * @return string[]|null
      */
     public function getTransparencyCodes()
     {
-        return $this->container['transparency_codes'];
+        return $this->container['transparencyCodes'];
     }
 
     /**
-     * Sets transparency_codes
+     * Sets transparencyCodes
      *
-     * @param string[]|null $transparency_codes A list of order items.
+     * @param string[]|null $transparencyCodes A list of order items.
      *
      * @return $this
      */
-    public function setTransparencyCodes($transparency_codes)
+    public function setTransparencyCodes($transparencyCodes)
     {
-        $this->container['transparency_codes'] = $transparency_codes;
+        $this->container['transparencyCodes'] = $transparencyCodes;
 
         return $this;
     }

@@ -58,7 +58,7 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'feed_id' => 'string'
+        'feedId' => 'string'
     ];
 
     /**
@@ -67,7 +67,7 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'feed_id' => null
+        'feedId' => null
     ];
 
     /**
@@ -97,7 +97,7 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'feed_id' => 'feedId'
+        'feedId' => 'feedId'
     ];
 
     /**
@@ -106,7 +106,7 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'feed_id' => 'setFeedId'
+        'feedId' => 'setFeedId'
     ];
 
     /**
@@ -115,7 +115,7 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'feed_id' => 'getFeedId'
+        'feedId' => 'getFeedId'
     ];
 
     /**
@@ -178,7 +178,7 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['feed_id'] = isset($data['feed_id']) ? $data['feed_id'] : null;
+        $this->container['feedId'] = isset($data['feedId']) ? $data['feedId'] : null;
     }
 
     /**
@@ -190,8 +190,8 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['feed_id'] === null) {
-            $invalidProperties[] = "'feed_id' can't be null";
+        if ($this->container['feedId'] === null) {
+            $invalidProperties[] = "'feedId' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,25 +209,25 @@ class CreateFeedResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets feed_id
+     * Gets feedId
      *
      * @return string
      */
     public function getFeedId()
     {
-        return $this->container['feed_id'];
+        return $this->container['feedId'];
     }
 
     /**
-     * Sets feed_id
+     * Sets feedId
      *
-     * @param string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID.
+     * @param string $feedId The identifier for the feed. This identifier is unique only in combination with a seller ID.
      *
      * @return $this
      */
-    public function setFeedId($feed_id)
+    public function setFeedId($feedId)
     {
-        $this->container['feed_id'] = $feed_id;
+        $this->container['feedId'] = $feedId;
 
         return $this;
     }

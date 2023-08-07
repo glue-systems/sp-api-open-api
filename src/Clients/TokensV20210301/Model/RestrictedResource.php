@@ -60,7 +60,7 @@ class RestrictedResource implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'method' => 'string',
         'path' => 'string',
-        'data_elements' => 'string[]'
+        'dataElements' => 'string[]'
     ];
 
     /**
@@ -71,7 +71,7 @@ class RestrictedResource implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'method' => null,
         'path' => null,
-        'data_elements' => null
+        'dataElements' => null
     ];
 
     /**
@@ -103,7 +103,7 @@ class RestrictedResource implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'method' => 'method',
         'path' => 'path',
-        'data_elements' => 'dataElements'
+        'dataElements' => 'dataElements'
     ];
 
     /**
@@ -114,7 +114,7 @@ class RestrictedResource implements ModelInterface, ArrayAccess
     protected static $setters = [
         'method' => 'setMethod',
         'path' => 'setPath',
-        'data_elements' => 'setDataElements'
+        'dataElements' => 'setDataElements'
     ];
 
     /**
@@ -125,7 +125,7 @@ class RestrictedResource implements ModelInterface, ArrayAccess
     protected static $getters = [
         'method' => 'getMethod',
         'path' => 'getPath',
-        'data_elements' => 'getDataElements'
+        'dataElements' => 'getDataElements'
     ];
 
     /**
@@ -209,7 +209,7 @@ class RestrictedResource implements ModelInterface, ArrayAccess
     {
         $this->container['method'] = isset($data['method']) ? $data['method'] : null;
         $this->container['path'] = isset($data['path']) ? $data['path'] : null;
-        $this->container['data_elements'] = isset($data['data_elements']) ? $data['data_elements'] : null;
+        $this->container['dataElements'] = isset($data['dataElements']) ? $data['dataElements'] : null;
     }
 
     /**
@@ -308,25 +308,25 @@ class RestrictedResource implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets data_elements
+     * Gets dataElements
      *
      * @return string[]|null
      */
     public function getDataElements()
     {
-        return $this->container['data_elements'];
+        return $this->container['dataElements'];
     }
 
     /**
-     * Sets data_elements
+     * Sets dataElements
      *
-     * @param string[]|null $data_elements Indicates the type of Personally Identifiable Information requested. This parameter is required only when getting an RDT for use with the getOrder, getOrders, or getOrderItems operation of the Orders API. For more information, see the [Tokens API Use Case Guide](doc:tokens-api-use-case-guide). Possible values include: - **buyerInfo**. On the order level this includes general identifying information about the buyer and tax-related information. On the order item level this includes gift wrap information and custom order information, if available. - **shippingAddress**. This includes information for fulfilling orders. - **buyerTaxInformation**. This includes information for issuing tax invoices.
+     * @param string[]|null $dataElements Indicates the type of Personally Identifiable Information requested. This parameter is required only when getting an RDT for use with the getOrder, getOrders, or getOrderItems operation of the Orders API. For more information, see the [Tokens API Use Case Guide](doc:tokens-api-use-case-guide). Possible values include: - **buyerInfo**. On the order level this includes general identifying information about the buyer and tax-related information. On the order item level this includes gift wrap information and custom order information, if available. - **shippingAddress**. This includes information for fulfilling orders. - **buyerTaxInformation**. This includes information for issuing tax invoices.
      *
      * @return $this
      */
-    public function setDataElements($data_elements)
+    public function setDataElements($dataElements)
     {
-        $this->container['data_elements'] = $data_elements;
+        $this->container['dataElements'] = $dataElements;
 
         return $this;
     }

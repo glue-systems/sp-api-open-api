@@ -58,11 +58,11 @@ class BuyerInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'buyer_email' => 'string',
-        'buyer_name' => 'string',
-        'buyer_county' => 'string',
-        'buyer_tax_info' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInfo',
-        'purchase_order_number' => 'string'
+        'buyerEmail' => 'string',
+        'buyerName' => 'string',
+        'buyerCounty' => 'string',
+        'buyerTaxInfo' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInfo',
+        'purchaseOrderNumber' => 'string'
     ];
 
     /**
@@ -71,11 +71,11 @@ class BuyerInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'buyer_email' => null,
-        'buyer_name' => null,
-        'buyer_county' => null,
-        'buyer_tax_info' => null,
-        'purchase_order_number' => null
+        'buyerEmail' => null,
+        'buyerName' => null,
+        'buyerCounty' => null,
+        'buyerTaxInfo' => null,
+        'purchaseOrderNumber' => null
     ];
 
     /**
@@ -105,11 +105,11 @@ class BuyerInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'buyer_email' => 'BuyerEmail',
-        'buyer_name' => 'BuyerName',
-        'buyer_county' => 'BuyerCounty',
-        'buyer_tax_info' => 'BuyerTaxInfo',
-        'purchase_order_number' => 'PurchaseOrderNumber'
+        'buyerEmail' => 'BuyerEmail',
+        'buyerName' => 'BuyerName',
+        'buyerCounty' => 'BuyerCounty',
+        'buyerTaxInfo' => 'BuyerTaxInfo',
+        'purchaseOrderNumber' => 'PurchaseOrderNumber'
     ];
 
     /**
@@ -118,11 +118,11 @@ class BuyerInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'buyer_email' => 'setBuyerEmail',
-        'buyer_name' => 'setBuyerName',
-        'buyer_county' => 'setBuyerCounty',
-        'buyer_tax_info' => 'setBuyerTaxInfo',
-        'purchase_order_number' => 'setPurchaseOrderNumber'
+        'buyerEmail' => 'setBuyerEmail',
+        'buyerName' => 'setBuyerName',
+        'buyerCounty' => 'setBuyerCounty',
+        'buyerTaxInfo' => 'setBuyerTaxInfo',
+        'purchaseOrderNumber' => 'setPurchaseOrderNumber'
     ];
 
     /**
@@ -131,11 +131,11 @@ class BuyerInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'buyer_email' => 'getBuyerEmail',
-        'buyer_name' => 'getBuyerName',
-        'buyer_county' => 'getBuyerCounty',
-        'buyer_tax_info' => 'getBuyerTaxInfo',
-        'purchase_order_number' => 'getPurchaseOrderNumber'
+        'buyerEmail' => 'getBuyerEmail',
+        'buyerName' => 'getBuyerName',
+        'buyerCounty' => 'getBuyerCounty',
+        'buyerTaxInfo' => 'getBuyerTaxInfo',
+        'purchaseOrderNumber' => 'getPurchaseOrderNumber'
     ];
 
     /**
@@ -198,11 +198,11 @@ class BuyerInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['buyer_email'] = isset($data['buyer_email']) ? $data['buyer_email'] : null;
-        $this->container['buyer_name'] = isset($data['buyer_name']) ? $data['buyer_name'] : null;
-        $this->container['buyer_county'] = isset($data['buyer_county']) ? $data['buyer_county'] : null;
-        $this->container['buyer_tax_info'] = isset($data['buyer_tax_info']) ? $data['buyer_tax_info'] : null;
-        $this->container['purchase_order_number'] = isset($data['purchase_order_number']) ? $data['purchase_order_number'] : null;
+        $this->container['buyerEmail'] = isset($data['buyerEmail']) ? $data['buyerEmail'] : null;
+        $this->container['buyerName'] = isset($data['buyerName']) ? $data['buyerName'] : null;
+        $this->container['buyerCounty'] = isset($data['buyerCounty']) ? $data['buyerCounty'] : null;
+        $this->container['buyerTaxInfo'] = isset($data['buyerTaxInfo']) ? $data['buyerTaxInfo'] : null;
+        $this->container['purchaseOrderNumber'] = isset($data['purchaseOrderNumber']) ? $data['purchaseOrderNumber'] : null;
     }
 
     /**
@@ -230,121 +230,121 @@ class BuyerInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets buyer_email
+     * Gets buyerEmail
      *
      * @return string|null
      */
     public function getBuyerEmail()
     {
-        return $this->container['buyer_email'];
+        return $this->container['buyerEmail'];
     }
 
     /**
-     * Sets buyer_email
+     * Sets buyerEmail
      *
-     * @param string|null $buyer_email The anonymized email address of the buyer.
+     * @param string|null $buyerEmail The anonymized email address of the buyer.
      *
      * @return $this
      */
-    public function setBuyerEmail($buyer_email)
+    public function setBuyerEmail($buyerEmail)
     {
-        $this->container['buyer_email'] = $buyer_email;
+        $this->container['buyerEmail'] = $buyerEmail;
 
         return $this;
     }
 
     /**
-     * Gets buyer_name
+     * Gets buyerName
      *
      * @return string|null
      */
     public function getBuyerName()
     {
-        return $this->container['buyer_name'];
+        return $this->container['buyerName'];
     }
 
     /**
-     * Sets buyer_name
+     * Sets buyerName
      *
-     * @param string|null $buyer_name The buyer name or the recipient name.
+     * @param string|null $buyerName The buyer name or the recipient name.
      *
      * @return $this
      */
-    public function setBuyerName($buyer_name)
+    public function setBuyerName($buyerName)
     {
-        $this->container['buyer_name'] = $buyer_name;
+        $this->container['buyerName'] = $buyerName;
 
         return $this;
     }
 
     /**
-     * Gets buyer_county
+     * Gets buyerCounty
      *
      * @return string|null
      */
     public function getBuyerCounty()
     {
-        return $this->container['buyer_county'];
+        return $this->container['buyerCounty'];
     }
 
     /**
-     * Sets buyer_county
+     * Sets buyerCounty
      *
-     * @param string|null $buyer_county The county of the buyer.
+     * @param string|null $buyerCounty The county of the buyer.
      *
      * @return $this
      */
-    public function setBuyerCounty($buyer_county)
+    public function setBuyerCounty($buyerCounty)
     {
-        $this->container['buyer_county'] = $buyer_county;
+        $this->container['buyerCounty'] = $buyerCounty;
 
         return $this;
     }
 
     /**
-     * Gets buyer_tax_info
+     * Gets buyerTaxInfo
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInfo|null
      */
     public function getBuyerTaxInfo()
     {
-        return $this->container['buyer_tax_info'];
+        return $this->container['buyerTaxInfo'];
     }
 
     /**
-     * Sets buyer_tax_info
+     * Sets buyerTaxInfo
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInfo|null $buyer_tax_info buyer_tax_info
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInfo|null $buyerTaxInfo buyerTaxInfo
      *
      * @return $this
      */
-    public function setBuyerTaxInfo($buyer_tax_info)
+    public function setBuyerTaxInfo($buyerTaxInfo)
     {
-        $this->container['buyer_tax_info'] = $buyer_tax_info;
+        $this->container['buyerTaxInfo'] = $buyerTaxInfo;
 
         return $this;
     }
 
     /**
-     * Gets purchase_order_number
+     * Gets purchaseOrderNumber
      *
      * @return string|null
      */
     public function getPurchaseOrderNumber()
     {
-        return $this->container['purchase_order_number'];
+        return $this->container['purchaseOrderNumber'];
     }
 
     /**
-     * Sets purchase_order_number
+     * Sets purchaseOrderNumber
      *
-     * @param string|null $purchase_order_number The purchase order (PO) number entered by the buyer at checkout. Returned only for orders where the buyer entered a PO number at checkout.
+     * @param string|null $purchaseOrderNumber The purchase order (PO) number entered by the buyer at checkout. Returned only for orders where the buyer entered a PO number at checkout.
      *
      * @return $this
      */
-    public function setPurchaseOrderNumber($purchase_order_number)
+    public function setPurchaseOrderNumber($purchaseOrderNumber)
     {
-        $this->container['purchase_order_number'] = $purchase_order_number;
+        $this->container['purchaseOrderNumber'] = $purchaseOrderNumber;
 
         return $this;
     }

@@ -58,9 +58,9 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'package_detail' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PackageDetail',
-        'cod_collection_method' => 'string',
-        'marketplace_id' => 'string'
+        'packageDetail' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PackageDetail',
+        'codCollectionMethod' => 'string',
+        'marketplaceId' => 'string'
     ];
 
     /**
@@ -69,9 +69,9 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'package_detail' => null,
-        'cod_collection_method' => null,
-        'marketplace_id' => null
+        'packageDetail' => null,
+        'codCollectionMethod' => null,
+        'marketplaceId' => null
     ];
 
     /**
@@ -101,9 +101,9 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'package_detail' => 'packageDetail',
-        'cod_collection_method' => 'codCollectionMethod',
-        'marketplace_id' => 'marketplaceId'
+        'packageDetail' => 'packageDetail',
+        'codCollectionMethod' => 'codCollectionMethod',
+        'marketplaceId' => 'marketplaceId'
     ];
 
     /**
@@ -112,9 +112,9 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'package_detail' => 'setPackageDetail',
-        'cod_collection_method' => 'setCodCollectionMethod',
-        'marketplace_id' => 'setMarketplaceId'
+        'packageDetail' => 'setPackageDetail',
+        'codCollectionMethod' => 'setCodCollectionMethod',
+        'marketplaceId' => 'setMarketplaceId'
     ];
 
     /**
@@ -123,9 +123,9 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'package_detail' => 'getPackageDetail',
-        'cod_collection_method' => 'getCodCollectionMethod',
-        'marketplace_id' => 'getMarketplaceId'
+        'packageDetail' => 'getPackageDetail',
+        'codCollectionMethod' => 'getCodCollectionMethod',
+        'marketplaceId' => 'getMarketplaceId'
     ];
 
     /**
@@ -201,9 +201,9 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['package_detail'] = isset($data['package_detail']) ? $data['package_detail'] : null;
-        $this->container['cod_collection_method'] = isset($data['cod_collection_method']) ? $data['cod_collection_method'] : null;
-        $this->container['marketplace_id'] = isset($data['marketplace_id']) ? $data['marketplace_id'] : null;
+        $this->container['packageDetail'] = isset($data['packageDetail']) ? $data['packageDetail'] : null;
+        $this->container['codCollectionMethod'] = isset($data['codCollectionMethod']) ? $data['codCollectionMethod'] : null;
+        $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
     }
 
     /**
@@ -215,19 +215,19 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['package_detail'] === null) {
-            $invalidProperties[] = "'package_detail' can't be null";
+        if ($this->container['packageDetail'] === null) {
+            $invalidProperties[] = "'packageDetail' can't be null";
         }
         $allowedValues = $this->getCodCollectionMethodAllowableValues();
-        if (!is_null($this->container['cod_collection_method']) && !in_array($this->container['cod_collection_method'], $allowedValues, true)) {
+        if (!is_null($this->container['codCollectionMethod']) && !in_array($this->container['codCollectionMethod'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'cod_collection_method', must be one of '%s'",
+                "invalid value for 'codCollectionMethod', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['marketplace_id'] === null) {
-            $invalidProperties[] = "'marketplace_id' can't be null";
+        if ($this->container['marketplaceId'] === null) {
+            $invalidProperties[] = "'marketplaceId' can't be null";
         }
         return $invalidProperties;
     }
@@ -245,82 +245,82 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets package_detail
+     * Gets packageDetail
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PackageDetail
      */
     public function getPackageDetail()
     {
-        return $this->container['package_detail'];
+        return $this->container['packageDetail'];
     }
 
     /**
-     * Sets package_detail
+     * Sets packageDetail
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PackageDetail $package_detail package_detail
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PackageDetail $packageDetail packageDetail
      *
      * @return $this
      */
-    public function setPackageDetail($package_detail)
+    public function setPackageDetail($packageDetail)
     {
-        $this->container['package_detail'] = $package_detail;
+        $this->container['packageDetail'] = $packageDetail;
 
         return $this;
     }
 
     /**
-     * Gets cod_collection_method
+     * Gets codCollectionMethod
      *
      * @return string|null
      */
     public function getCodCollectionMethod()
     {
-        return $this->container['cod_collection_method'];
+        return $this->container['codCollectionMethod'];
     }
 
     /**
-     * Sets cod_collection_method
+     * Sets codCollectionMethod
      *
-     * @param string|null $cod_collection_method The cod collection method, support in JP only.
+     * @param string|null $codCollectionMethod The cod collection method, support in JP only.
      *
      * @return $this
      */
-    public function setCodCollectionMethod($cod_collection_method)
+    public function setCodCollectionMethod($codCollectionMethod)
     {
         $allowedValues = $this->getCodCollectionMethodAllowableValues();
-        if (!is_null($cod_collection_method) && !in_array($cod_collection_method, $allowedValues, true)) {
+        if (!is_null($codCollectionMethod) && !in_array($codCollectionMethod, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'cod_collection_method', must be one of '%s'",
+                    "Invalid value for 'codCollectionMethod', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['cod_collection_method'] = $cod_collection_method;
+        $this->container['codCollectionMethod'] = $codCollectionMethod;
 
         return $this;
     }
 
     /**
-     * Gets marketplace_id
+     * Gets marketplaceId
      *
      * @return string
      */
     public function getMarketplaceId()
     {
-        return $this->container['marketplace_id'];
+        return $this->container['marketplaceId'];
     }
 
     /**
-     * Sets marketplace_id
+     * Sets marketplaceId
      *
-     * @param string $marketplace_id The unobfuscated marketplace identifier.
+     * @param string $marketplaceId The unobfuscated marketplace identifier.
      *
      * @return $this
      */
-    public function setMarketplaceId($marketplace_id)
+    public function setMarketplaceId($marketplaceId)
     {
-        $this->container['marketplace_id'] = $marketplace_id;
+        $this->container['marketplaceId'] = $marketplaceId;
 
         return $this;
     }

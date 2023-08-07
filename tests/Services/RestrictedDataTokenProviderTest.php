@@ -37,7 +37,7 @@ class RestrictedDataTokenProviderTest extends TestCase
         $expectedRestrictedDataToken = 'fake-rdt-123';
         $rdtRequest                  = new CreateRestrictedDataTokenRequest();
         $rdtResponse                 = new CreateRestrictedDataTokenResponse([
-            'restricted_data_token' => $expectedRestrictedDataToken,
+            'restrictedDataToken' => $expectedRestrictedDataToken,
         ]);
 
         $this->clientFactory->shouldReceive('createTokensV20210301ApiClient')

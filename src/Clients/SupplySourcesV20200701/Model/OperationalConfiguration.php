@@ -58,10 +58,10 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contact_details' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails',
-        'throughput_config' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputConfig',
-        'operating_hours_by_day' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHoursByDay',
-        'handling_time' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Duration'
+        'contactDetails' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails',
+        'throughputConfig' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputConfig',
+        'operatingHoursByDay' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHoursByDay',
+        'handlingTime' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Duration'
     ];
 
     /**
@@ -70,10 +70,10 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'contact_details' => null,
-        'throughput_config' => null,
-        'operating_hours_by_day' => null,
-        'handling_time' => null
+        'contactDetails' => null,
+        'throughputConfig' => null,
+        'operatingHoursByDay' => null,
+        'handlingTime' => null
     ];
 
     /**
@@ -103,10 +103,10 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'contact_details' => 'contactDetails',
-        'throughput_config' => 'throughputConfig',
-        'operating_hours_by_day' => 'operatingHoursByDay',
-        'handling_time' => 'handlingTime'
+        'contactDetails' => 'contactDetails',
+        'throughputConfig' => 'throughputConfig',
+        'operatingHoursByDay' => 'operatingHoursByDay',
+        'handlingTime' => 'handlingTime'
     ];
 
     /**
@@ -115,10 +115,10 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'contact_details' => 'setContactDetails',
-        'throughput_config' => 'setThroughputConfig',
-        'operating_hours_by_day' => 'setOperatingHoursByDay',
-        'handling_time' => 'setHandlingTime'
+        'contactDetails' => 'setContactDetails',
+        'throughputConfig' => 'setThroughputConfig',
+        'operatingHoursByDay' => 'setOperatingHoursByDay',
+        'handlingTime' => 'setHandlingTime'
     ];
 
     /**
@@ -127,10 +127,10 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'contact_details' => 'getContactDetails',
-        'throughput_config' => 'getThroughputConfig',
-        'operating_hours_by_day' => 'getOperatingHoursByDay',
-        'handling_time' => 'getHandlingTime'
+        'contactDetails' => 'getContactDetails',
+        'throughputConfig' => 'getThroughputConfig',
+        'operatingHoursByDay' => 'getOperatingHoursByDay',
+        'handlingTime' => 'getHandlingTime'
     ];
 
     /**
@@ -193,10 +193,10 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['contact_details'] = isset($data['contact_details']) ? $data['contact_details'] : null;
-        $this->container['throughput_config'] = isset($data['throughput_config']) ? $data['throughput_config'] : null;
-        $this->container['operating_hours_by_day'] = isset($data['operating_hours_by_day']) ? $data['operating_hours_by_day'] : null;
-        $this->container['handling_time'] = isset($data['handling_time']) ? $data['handling_time'] : null;
+        $this->container['contactDetails'] = isset($data['contactDetails']) ? $data['contactDetails'] : null;
+        $this->container['throughputConfig'] = isset($data['throughputConfig']) ? $data['throughputConfig'] : null;
+        $this->container['operatingHoursByDay'] = isset($data['operatingHoursByDay']) ? $data['operatingHoursByDay'] : null;
+        $this->container['handlingTime'] = isset($data['handlingTime']) ? $data['handlingTime'] : null;
     }
 
     /**
@@ -224,97 +224,97 @@ class OperationalConfiguration implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets contact_details
+     * Gets contactDetails
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails|null
      */
     public function getContactDetails()
     {
-        return $this->container['contact_details'];
+        return $this->container['contactDetails'];
     }
 
     /**
-     * Sets contact_details
+     * Sets contactDetails
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails|null $contact_details contact_details
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails|null $contactDetails contactDetails
      *
      * @return $this
      */
-    public function setContactDetails($contact_details)
+    public function setContactDetails($contactDetails)
     {
-        $this->container['contact_details'] = $contact_details;
+        $this->container['contactDetails'] = $contactDetails;
 
         return $this;
     }
 
     /**
-     * Gets throughput_config
+     * Gets throughputConfig
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputConfig|null
      */
     public function getThroughputConfig()
     {
-        return $this->container['throughput_config'];
+        return $this->container['throughputConfig'];
     }
 
     /**
-     * Sets throughput_config
+     * Sets throughputConfig
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputConfig|null $throughput_config throughput_config
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputConfig|null $throughputConfig throughputConfig
      *
      * @return $this
      */
-    public function setThroughputConfig($throughput_config)
+    public function setThroughputConfig($throughputConfig)
     {
-        $this->container['throughput_config'] = $throughput_config;
+        $this->container['throughputConfig'] = $throughputConfig;
 
         return $this;
     }
 
     /**
-     * Gets operating_hours_by_day
+     * Gets operatingHoursByDay
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHoursByDay|null
      */
     public function getOperatingHoursByDay()
     {
-        return $this->container['operating_hours_by_day'];
+        return $this->container['operatingHoursByDay'];
     }
 
     /**
-     * Sets operating_hours_by_day
+     * Sets operatingHoursByDay
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHoursByDay|null $operating_hours_by_day operating_hours_by_day
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHoursByDay|null $operatingHoursByDay operatingHoursByDay
      *
      * @return $this
      */
-    public function setOperatingHoursByDay($operating_hours_by_day)
+    public function setOperatingHoursByDay($operatingHoursByDay)
     {
-        $this->container['operating_hours_by_day'] = $operating_hours_by_day;
+        $this->container['operatingHoursByDay'] = $operatingHoursByDay;
 
         return $this;
     }
 
     /**
-     * Gets handling_time
+     * Gets handlingTime
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Duration|null
      */
     public function getHandlingTime()
     {
-        return $this->container['handling_time'];
+        return $this->container['handlingTime'];
     }
 
     /**
-     * Sets handling_time
+     * Sets handlingTime
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Duration|null $handling_time handling_time
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Duration|null $handlingTime handlingTime
      *
      * @return $this
      */
-    public function setHandlingTime($handling_time)
+    public function setHandlingTime($handlingTime)
     {
-        $this->container['handling_time'] = $handling_time;
+        $this->container['handlingTime'] = $handlingTime;
 
         return $this;
     }

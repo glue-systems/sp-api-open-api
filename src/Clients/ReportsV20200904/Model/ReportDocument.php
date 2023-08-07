@@ -57,10 +57,10 @@ class ReportDocument implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'report_document_id' => 'string',
+        'reportDocumentId' => 'string',
         'url' => 'string',
-        'encryption_details' => '\Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\ReportDocumentEncryptionDetails',
-        'compression_algorithm' => 'string'
+        'encryptionDetails' => '\Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\ReportDocumentEncryptionDetails',
+        'compressionAlgorithm' => 'string'
     ];
 
     /**
@@ -69,10 +69,10 @@ class ReportDocument implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'report_document_id' => null,
+        'reportDocumentId' => null,
         'url' => null,
-        'encryption_details' => null,
-        'compression_algorithm' => null
+        'encryptionDetails' => null,
+        'compressionAlgorithm' => null
     ];
 
     /**
@@ -102,10 +102,10 @@ class ReportDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'report_document_id' => 'reportDocumentId',
+        'reportDocumentId' => 'reportDocumentId',
         'url' => 'url',
-        'encryption_details' => 'encryptionDetails',
-        'compression_algorithm' => 'compressionAlgorithm'
+        'encryptionDetails' => 'encryptionDetails',
+        'compressionAlgorithm' => 'compressionAlgorithm'
     ];
 
     /**
@@ -114,10 +114,10 @@ class ReportDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'report_document_id' => 'setReportDocumentId',
+        'reportDocumentId' => 'setReportDocumentId',
         'url' => 'setUrl',
-        'encryption_details' => 'setEncryptionDetails',
-        'compression_algorithm' => 'setCompressionAlgorithm'
+        'encryptionDetails' => 'setEncryptionDetails',
+        'compressionAlgorithm' => 'setCompressionAlgorithm'
     ];
 
     /**
@@ -126,10 +126,10 @@ class ReportDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'report_document_id' => 'getReportDocumentId',
+        'reportDocumentId' => 'getReportDocumentId',
         'url' => 'getUrl',
-        'encryption_details' => 'getEncryptionDetails',
-        'compression_algorithm' => 'getCompressionAlgorithm'
+        'encryptionDetails' => 'getEncryptionDetails',
+        'compressionAlgorithm' => 'getCompressionAlgorithm'
     ];
 
     /**
@@ -205,10 +205,10 @@ class ReportDocument implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['report_document_id'] = isset($data['report_document_id']) ? $data['report_document_id'] : null;
+        $this->container['reportDocumentId'] = isset($data['reportDocumentId']) ? $data['reportDocumentId'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['encryption_details'] = isset($data['encryption_details']) ? $data['encryption_details'] : null;
-        $this->container['compression_algorithm'] = isset($data['compression_algorithm']) ? $data['compression_algorithm'] : null;
+        $this->container['encryptionDetails'] = isset($data['encryptionDetails']) ? $data['encryptionDetails'] : null;
+        $this->container['compressionAlgorithm'] = isset($data['compressionAlgorithm']) ? $data['compressionAlgorithm'] : null;
     }
 
     /**
@@ -220,19 +220,19 @@ class ReportDocument implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['report_document_id'] === null) {
-            $invalidProperties[] = "'report_document_id' can't be null";
+        if ($this->container['reportDocumentId'] === null) {
+            $invalidProperties[] = "'reportDocumentId' can't be null";
         }
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
         }
-        if ($this->container['encryption_details'] === null) {
-            $invalidProperties[] = "'encryption_details' can't be null";
+        if ($this->container['encryptionDetails'] === null) {
+            $invalidProperties[] = "'encryptionDetails' can't be null";
         }
         $allowedValues = $this->getCompressionAlgorithmAllowableValues();
-        if (!is_null($this->container['compression_algorithm']) && !in_array($this->container['compression_algorithm'], $allowedValues, true)) {
+        if (!is_null($this->container['compressionAlgorithm']) && !in_array($this->container['compressionAlgorithm'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'compression_algorithm', must be one of '%s'",
+                "invalid value for 'compressionAlgorithm', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -253,25 +253,25 @@ class ReportDocument implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets report_document_id
+     * Gets reportDocumentId
      *
      * @return string
      */
     public function getReportDocumentId()
     {
-        return $this->container['report_document_id'];
+        return $this->container['reportDocumentId'];
     }
 
     /**
-     * Sets report_document_id
+     * Sets reportDocumentId
      *
-     * @param string $report_document_id The identifier for the report document. This identifier is unique only in combination with a seller ID.
+     * @param string $reportDocumentId The identifier for the report document. This identifier is unique only in combination with a seller ID.
      *
      * @return $this
      */
-    public function setReportDocumentId($report_document_id)
+    public function setReportDocumentId($reportDocumentId)
     {
-        $this->container['report_document_id'] = $report_document_id;
+        $this->container['reportDocumentId'] = $reportDocumentId;
 
         return $this;
     }
@@ -301,58 +301,58 @@ class ReportDocument implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets encryption_details
+     * Gets encryptionDetails
      *
      * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\ReportDocumentEncryptionDetails
      */
     public function getEncryptionDetails()
     {
-        return $this->container['encryption_details'];
+        return $this->container['encryptionDetails'];
     }
 
     /**
-     * Sets encryption_details
+     * Sets encryptionDetails
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\ReportDocumentEncryptionDetails $encryption_details encryption_details
+     * @param \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\ReportDocumentEncryptionDetails $encryptionDetails encryptionDetails
      *
      * @return $this
      */
-    public function setEncryptionDetails($encryption_details)
+    public function setEncryptionDetails($encryptionDetails)
     {
-        $this->container['encryption_details'] = $encryption_details;
+        $this->container['encryptionDetails'] = $encryptionDetails;
 
         return $this;
     }
 
     /**
-     * Gets compression_algorithm
+     * Gets compressionAlgorithm
      *
      * @return string|null
      */
     public function getCompressionAlgorithm()
     {
-        return $this->container['compression_algorithm'];
+        return $this->container['compressionAlgorithm'];
     }
 
     /**
-     * Sets compression_algorithm
+     * Sets compressionAlgorithm
      *
-     * @param string|null $compression_algorithm If the report document contents have been compressed, the compression algorithm used is returned in this property and you must decompress the report when you download. Otherwise, you can download the report directly. Refer to [Step 2. Download and decrypt the report](doc:reports-api-v2020-09-04-use-case-guide#step-2-download-and-decrypt-the-report) in the use case guide, where sample code is provided.
+     * @param string|null $compressionAlgorithm If the report document contents have been compressed, the compression algorithm used is returned in this property and you must decompress the report when you download. Otherwise, you can download the report directly. Refer to [Step 2. Download and decrypt the report](doc:reports-api-v2020-09-04-use-case-guide#step-2-download-and-decrypt-the-report) in the use case guide, where sample code is provided.
      *
      * @return $this
      */
-    public function setCompressionAlgorithm($compression_algorithm)
+    public function setCompressionAlgorithm($compressionAlgorithm)
     {
         $allowedValues = $this->getCompressionAlgorithmAllowableValues();
-        if (!is_null($compression_algorithm) && !in_array($compression_algorithm, $allowedValues, true)) {
+        if (!is_null($compressionAlgorithm) && !in_array($compressionAlgorithm, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'compression_algorithm', must be one of '%s'",
+                    "Invalid value for 'compressionAlgorithm', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['compression_algorithm'] = $compression_algorithm;
+        $this->container['compressionAlgorithm'] = $compressionAlgorithm;
 
         return $this;
     }

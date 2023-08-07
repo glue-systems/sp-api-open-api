@@ -58,7 +58,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'product_type' => 'string',
+        'productType' => 'string',
         'patches' => '\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation[]'
     ];
 
@@ -68,7 +68,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'product_type' => null,
+        'productType' => null,
         'patches' => null
     ];
 
@@ -99,7 +99,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'product_type' => 'productType',
+        'productType' => 'productType',
         'patches' => 'patches'
     ];
 
@@ -109,7 +109,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'product_type' => 'setProductType',
+        'productType' => 'setProductType',
         'patches' => 'setPatches'
     ];
 
@@ -119,7 +119,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'product_type' => 'getProductType',
+        'productType' => 'getProductType',
         'patches' => 'getPatches'
     ];
 
@@ -183,7 +183,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['product_type'] = isset($data['product_type']) ? $data['product_type'] : null;
+        $this->container['productType'] = isset($data['productType']) ? $data['productType'] : null;
         $this->container['patches'] = isset($data['patches']) ? $data['patches'] : null;
     }
 
@@ -196,8 +196,8 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_type'] === null) {
-            $invalidProperties[] = "'product_type' can't be null";
+        if ($this->container['productType'] === null) {
+            $invalidProperties[] = "'productType' can't be null";
         }
         if ($this->container['patches'] === null) {
             $invalidProperties[] = "'patches' can't be null";
@@ -218,25 +218,25 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets product_type
+     * Gets productType
      *
      * @return string
      */
     public function getProductType()
     {
-        return $this->container['product_type'];
+        return $this->container['productType'];
     }
 
     /**
-     * Sets product_type
+     * Sets productType
      *
-     * @param string $product_type The Amazon product type of the listings item.
+     * @param string $productType The Amazon product type of the listings item.
      *
      * @return $this
      */
-    public function setProductType($product_type)
+    public function setProductType($productType)
     {
-        $this->container['product_type'] = $product_type;
+        $this->container['productType'] = $productType;
 
         return $this;
     }

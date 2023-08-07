@@ -29,11 +29,11 @@ class TokensApiTest extends TestCase
         $result = $tokensApi->createRestrictedDataTokenWithHttpInfo(
             new CreateRestrictedDataTokenRequest([
                 // Using these specific strings as a quirky requirement of the sandbox API (see models/tokens_2021-03-01.json)
-                'target_application' => 'amzn1.sellerapps.app.target-application',
-                'restricted_resources' => [
+                'targetApplication'   => 'amzn1.sellerapps.app.target-application',
+                'restrictedResources' => [
                     new RestrictedResource([
                         'method' => 'GET',
-                        'path' => '/orders/v0/orders/{orderId}/address',
+                        'path'   => '/orders/v0/orders/{orderId}/address',
                     ]),
                 ],
             ])

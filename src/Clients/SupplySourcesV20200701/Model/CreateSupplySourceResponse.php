@@ -58,8 +58,8 @@ class CreateSupplySourceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'supply_source_id' => 'string',
-        'supply_source_code' => 'string'
+        'supplySourceId' => 'string',
+        'supplySourceCode' => 'string'
     ];
 
     /**
@@ -68,8 +68,8 @@ class CreateSupplySourceResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'supply_source_id' => null,
-        'supply_source_code' => null
+        'supplySourceId' => null,
+        'supplySourceCode' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class CreateSupplySourceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'supply_source_id' => 'supplySourceId',
-        'supply_source_code' => 'supplySourceCode'
+        'supplySourceId' => 'supplySourceId',
+        'supplySourceCode' => 'supplySourceCode'
     ];
 
     /**
@@ -109,8 +109,8 @@ class CreateSupplySourceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'supply_source_id' => 'setSupplySourceId',
-        'supply_source_code' => 'setSupplySourceCode'
+        'supplySourceId' => 'setSupplySourceId',
+        'supplySourceCode' => 'setSupplySourceCode'
     ];
 
     /**
@@ -119,8 +119,8 @@ class CreateSupplySourceResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'supply_source_id' => 'getSupplySourceId',
-        'supply_source_code' => 'getSupplySourceCode'
+        'supplySourceId' => 'getSupplySourceId',
+        'supplySourceCode' => 'getSupplySourceCode'
     ];
 
     /**
@@ -183,8 +183,8 @@ class CreateSupplySourceResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['supply_source_id'] = isset($data['supply_source_id']) ? $data['supply_source_id'] : null;
-        $this->container['supply_source_code'] = isset($data['supply_source_code']) ? $data['supply_source_code'] : null;
+        $this->container['supplySourceId'] = isset($data['supplySourceId']) ? $data['supplySourceId'] : null;
+        $this->container['supplySourceCode'] = isset($data['supplySourceCode']) ? $data['supplySourceCode'] : null;
     }
 
     /**
@@ -196,11 +196,11 @@ class CreateSupplySourceResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['supply_source_id'] === null) {
-            $invalidProperties[] = "'supply_source_id' can't be null";
+        if ($this->container['supplySourceId'] === null) {
+            $invalidProperties[] = "'supplySourceId' can't be null";
         }
-        if ($this->container['supply_source_code'] === null) {
-            $invalidProperties[] = "'supply_source_code' can't be null";
+        if ($this->container['supplySourceCode'] === null) {
+            $invalidProperties[] = "'supplySourceCode' can't be null";
         }
         return $invalidProperties;
     }
@@ -218,49 +218,49 @@ class CreateSupplySourceResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets supply_source_id
+     * Gets supplySourceId
      *
      * @return string
      */
     public function getSupplySourceId()
     {
-        return $this->container['supply_source_id'];
+        return $this->container['supplySourceId'];
     }
 
     /**
-     * Sets supply_source_id
+     * Sets supplySourceId
      *
-     * @param string $supply_source_id Amazon generated unique supply source id.
+     * @param string $supplySourceId Amazon generated unique supply source id.
      *
      * @return $this
      */
-    public function setSupplySourceId($supply_source_id)
+    public function setSupplySourceId($supplySourceId)
     {
-        $this->container['supply_source_id'] = $supply_source_id;
+        $this->container['supplySourceId'] = $supplySourceId;
 
         return $this;
     }
 
     /**
-     * Gets supply_source_code
+     * Gets supplySourceCode
      *
      * @return string
      */
     public function getSupplySourceCode()
     {
-        return $this->container['supply_source_code'];
+        return $this->container['supplySourceCode'];
     }
 
     /**
-     * Sets supply_source_code
+     * Sets supplySourceCode
      *
-     * @param string $supply_source_code Seller provided unique supply source code.
+     * @param string $supplySourceCode Seller provided unique supply source code.
      *
      * @return $this
      */
-    public function setSupplySourceCode($supply_source_code)
+    public function setSupplySourceCode($supplySourceCode)
     {
-        $this->container['supply_source_code'] = $supply_source_code;
+        $this->container['supplySourceCode'] = $supplySourceCode;
 
         return $this;
     }

@@ -58,7 +58,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'product_types' => '\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[]'
+        'productTypes' => '\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[]'
     ];
 
     /**
@@ -67,7 +67,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'product_types' => null
+        'productTypes' => null
     ];
 
     /**
@@ -97,7 +97,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'product_types' => 'productTypes'
+        'productTypes' => 'productTypes'
     ];
 
     /**
@@ -106,7 +106,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'product_types' => 'setProductTypes'
+        'productTypes' => 'setProductTypes'
     ];
 
     /**
@@ -115,7 +115,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'product_types' => 'getProductTypes'
+        'productTypes' => 'getProductTypes'
     ];
 
     /**
@@ -178,7 +178,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['product_types'] = isset($data['product_types']) ? $data['product_types'] : null;
+        $this->container['productTypes'] = isset($data['productTypes']) ? $data['productTypes'] : null;
     }
 
     /**
@@ -190,8 +190,8 @@ class ProductTypeList implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_types'] === null) {
-            $invalidProperties[] = "'product_types' can't be null";
+        if ($this->container['productTypes'] === null) {
+            $invalidProperties[] = "'productTypes' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,25 +209,25 @@ class ProductTypeList implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets product_types
+     * Gets productTypes
      *
      * @return \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[]
      */
     public function getProductTypes()
     {
-        return $this->container['product_types'];
+        return $this->container['productTypes'];
     }
 
     /**
-     * Sets product_types
+     * Sets productTypes
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[] $product_types product_types
+     * @param \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[] $productTypes productTypes
      *
      * @return $this
      */
-    public function setProductTypes($product_types)
+    public function setProductTypes($productTypes)
     {
-        $this->container['product_types'] = $product_types;
+        $this->container['productTypes'] = $productTypes;
 
         return $this;
     }

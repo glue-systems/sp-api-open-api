@@ -90,36 +90,36 @@ class ListingsApi
     /**
      * Operation deleteListingsItem
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList
      */
-    public function deleteListingsItem($seller_id, $sku, $marketplace_ids, $issue_locale = null)
+    public function deleteListingsItem($sellerId, $sku, $marketplaceIds, $issueLocale = null)
     {
-        list($response) = $this->deleteListingsItemWithHttpInfo($seller_id, $sku, $marketplace_ids, $issue_locale);
+        list($response) = $this->deleteListingsItemWithHttpInfo($sellerId, $sku, $marketplaceIds, $issueLocale);
         return $response;
     }
 
     /**
      * Operation deleteListingsItemWithHttpInfo
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function deleteListingsItemWithHttpInfo($seller_id, $sku, $marketplace_ids, $issue_locale = null)
+    public function deleteListingsItemWithHttpInfo($sellerId, $sku, $marketplaceIds, $issueLocale = null)
     {
-        $request = $this->deleteListingsItemRequest($seller_id, $sku, $marketplace_ids, $issue_locale);
+        $request = $this->deleteListingsItemRequest($sellerId, $sku, $marketplaceIds, $issueLocale);
 
         try {
             $options = $this->createHttpClientOption();
@@ -339,17 +339,17 @@ class ListingsApi
      *
      * 
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListingsItemAsync($seller_id, $sku, $marketplace_ids, $issue_locale = null)
+    public function deleteListingsItemAsync($sellerId, $sku, $marketplaceIds, $issueLocale = null)
     {
-        return $this->deleteListingsItemAsyncWithHttpInfo($seller_id, $sku, $marketplace_ids, $issue_locale)
+        return $this->deleteListingsItemAsyncWithHttpInfo($sellerId, $sku, $marketplaceIds, $issueLocale)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -362,18 +362,18 @@ class ListingsApi
      *
      * 
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function deleteListingsItemAsyncWithHttpInfo($seller_id, $sku, $marketplace_ids, $issue_locale = null)
+    public function deleteListingsItemAsyncWithHttpInfo($sellerId, $sku, $marketplaceIds, $issueLocale = null)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse';
-        $request = $this->deleteListingsItemRequest($seller_id, $sku, $marketplace_ids, $issue_locale);
+        $request = $this->deleteListingsItemRequest($sellerId, $sku, $marketplaceIds, $issueLocale);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -412,20 +412,20 @@ class ListingsApi
     /**
      * Create request for operation 'deleteListingsItem'
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function deleteListingsItemRequest($seller_id, $sku, $marketplace_ids, $issue_locale = null)
+    protected function deleteListingsItemRequest($sellerId, $sku, $marketplaceIds, $issueLocale = null)
     {
-        // verify the required parameter 'seller_id' is set
-        if ($seller_id === null || (is_array($seller_id) && count($seller_id) === 0)) {
+        // verify the required parameter 'sellerId' is set
+        if ($sellerId === null || (is_array($sellerId) && count($sellerId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $seller_id when calling deleteListingsItem'
+                'Missing the required parameter $sellerId when calling deleteListingsItem'
             );
         }
         // verify the required parameter 'sku' is set
@@ -434,10 +434,10 @@ class ListingsApi
                 'Missing the required parameter $sku when calling deleteListingsItem'
             );
         }
-        // verify the required parameter 'marketplace_ids' is set
-        if ($marketplace_ids === null || (is_array($marketplace_ids) && count($marketplace_ids) === 0)) {
+        // verify the required parameter 'marketplaceIds' is set
+        if ($marketplaceIds === null || (is_array($marketplaceIds) && count($marketplaceIds) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $marketplace_ids when calling deleteListingsItem'
+                'Missing the required parameter $marketplaceIds when calling deleteListingsItem'
             );
         }
 
@@ -449,22 +449,22 @@ class ListingsApi
         $multipart = false;
 
         // query params
-        if (is_array($marketplace_ids)) {
-            $marketplace_ids = ObjectSerializer::serializeCollection($marketplace_ids, 'csv', true);
+        if (is_array($marketplaceIds)) {
+            $marketplaceIds = ObjectSerializer::serializeCollection($marketplaceIds, 'csv', true);
         }
-        if ($marketplace_ids !== null) {
-            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplace_ids);
+        if ($marketplaceIds !== null) {
+            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplaceIds);
         }
         // query params
-        if ($issue_locale !== null) {
-            $queryParams['issueLocale'] = ObjectSerializer::toQueryValue($issue_locale);
+        if ($issueLocale !== null) {
+            $queryParams['issueLocale'] = ObjectSerializer::toQueryValue($issueLocale);
         }
 
         // path params
-        if ($seller_id !== null) {
+        if ($sellerId !== null) {
             $resourcePath = str_replace(
                 '{' . 'sellerId' . '}',
-                ObjectSerializer::toPathValue($seller_id),
+                ObjectSerializer::toPathValue($sellerId),
                 $resourcePath
             );
         }
@@ -544,38 +544,38 @@ class ListingsApi
     /**
      * Operation patchListingsItem
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest $listings_item_patch_request The request body schema for the patchListingsItem operation. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest $listingsItemPatchRequest The request body schema for the patchListingsItem operation. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList
      */
-    public function patchListingsItem($seller_id, $sku, $marketplace_ids, $listings_item_patch_request, $issue_locale = null)
+    public function patchListingsItem($sellerId, $sku, $marketplaceIds, $listingsItemPatchRequest, $issueLocale = null)
     {
-        list($response) = $this->patchListingsItemWithHttpInfo($seller_id, $sku, $marketplace_ids, $listings_item_patch_request, $issue_locale);
+        list($response) = $this->patchListingsItemWithHttpInfo($sellerId, $sku, $marketplaceIds, $listingsItemPatchRequest, $issueLocale);
         return $response;
     }
 
     /**
      * Operation patchListingsItemWithHttpInfo
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest $listings_item_patch_request The request body schema for the patchListingsItem operation. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest $listingsItemPatchRequest The request body schema for the patchListingsItem operation. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function patchListingsItemWithHttpInfo($seller_id, $sku, $marketplace_ids, $listings_item_patch_request, $issue_locale = null)
+    public function patchListingsItemWithHttpInfo($sellerId, $sku, $marketplaceIds, $listingsItemPatchRequest, $issueLocale = null)
     {
-        $request = $this->patchListingsItemRequest($seller_id, $sku, $marketplace_ids, $listings_item_patch_request, $issue_locale);
+        $request = $this->patchListingsItemRequest($sellerId, $sku, $marketplaceIds, $listingsItemPatchRequest, $issueLocale);
 
         try {
             $options = $this->createHttpClientOption();
@@ -795,18 +795,18 @@ class ListingsApi
      *
      * 
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest $listings_item_patch_request The request body schema for the patchListingsItem operation. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest $listingsItemPatchRequest The request body schema for the patchListingsItem operation. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchListingsItemAsync($seller_id, $sku, $marketplace_ids, $listings_item_patch_request, $issue_locale = null)
+    public function patchListingsItemAsync($sellerId, $sku, $marketplaceIds, $listingsItemPatchRequest, $issueLocale = null)
     {
-        return $this->patchListingsItemAsyncWithHttpInfo($seller_id, $sku, $marketplace_ids, $listings_item_patch_request, $issue_locale)
+        return $this->patchListingsItemAsyncWithHttpInfo($sellerId, $sku, $marketplaceIds, $listingsItemPatchRequest, $issueLocale)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -819,19 +819,19 @@ class ListingsApi
      *
      * 
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest $listings_item_patch_request The request body schema for the patchListingsItem operation. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest $listingsItemPatchRequest The request body schema for the patchListingsItem operation. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function patchListingsItemAsyncWithHttpInfo($seller_id, $sku, $marketplace_ids, $listings_item_patch_request, $issue_locale = null)
+    public function patchListingsItemAsyncWithHttpInfo($sellerId, $sku, $marketplaceIds, $listingsItemPatchRequest, $issueLocale = null)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse';
-        $request = $this->patchListingsItemRequest($seller_id, $sku, $marketplace_ids, $listings_item_patch_request, $issue_locale);
+        $request = $this->patchListingsItemRequest($sellerId, $sku, $marketplaceIds, $listingsItemPatchRequest, $issueLocale);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -870,21 +870,21 @@ class ListingsApi
     /**
      * Create request for operation 'patchListingsItem'
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest $listings_item_patch_request The request body schema for the patchListingsItem operation. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest $listingsItemPatchRequest The request body schema for the patchListingsItem operation. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function patchListingsItemRequest($seller_id, $sku, $marketplace_ids, $listings_item_patch_request, $issue_locale = null)
+    protected function patchListingsItemRequest($sellerId, $sku, $marketplaceIds, $listingsItemPatchRequest, $issueLocale = null)
     {
-        // verify the required parameter 'seller_id' is set
-        if ($seller_id === null || (is_array($seller_id) && count($seller_id) === 0)) {
+        // verify the required parameter 'sellerId' is set
+        if ($sellerId === null || (is_array($sellerId) && count($sellerId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $seller_id when calling patchListingsItem'
+                'Missing the required parameter $sellerId when calling patchListingsItem'
             );
         }
         // verify the required parameter 'sku' is set
@@ -893,16 +893,16 @@ class ListingsApi
                 'Missing the required parameter $sku when calling patchListingsItem'
             );
         }
-        // verify the required parameter 'marketplace_ids' is set
-        if ($marketplace_ids === null || (is_array($marketplace_ids) && count($marketplace_ids) === 0)) {
+        // verify the required parameter 'marketplaceIds' is set
+        if ($marketplaceIds === null || (is_array($marketplaceIds) && count($marketplaceIds) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $marketplace_ids when calling patchListingsItem'
+                'Missing the required parameter $marketplaceIds when calling patchListingsItem'
             );
         }
-        // verify the required parameter 'listings_item_patch_request' is set
-        if ($listings_item_patch_request === null || (is_array($listings_item_patch_request) && count($listings_item_patch_request) === 0)) {
+        // verify the required parameter 'listingsItemPatchRequest' is set
+        if ($listingsItemPatchRequest === null || (is_array($listingsItemPatchRequest) && count($listingsItemPatchRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $listings_item_patch_request when calling patchListingsItem'
+                'Missing the required parameter $listingsItemPatchRequest when calling patchListingsItem'
             );
         }
 
@@ -914,22 +914,22 @@ class ListingsApi
         $multipart = false;
 
         // query params
-        if (is_array($marketplace_ids)) {
-            $marketplace_ids = ObjectSerializer::serializeCollection($marketplace_ids, 'csv', true);
+        if (is_array($marketplaceIds)) {
+            $marketplaceIds = ObjectSerializer::serializeCollection($marketplaceIds, 'csv', true);
         }
-        if ($marketplace_ids !== null) {
-            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplace_ids);
+        if ($marketplaceIds !== null) {
+            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplaceIds);
         }
         // query params
-        if ($issue_locale !== null) {
-            $queryParams['issueLocale'] = ObjectSerializer::toQueryValue($issue_locale);
+        if ($issueLocale !== null) {
+            $queryParams['issueLocale'] = ObjectSerializer::toQueryValue($issueLocale);
         }
 
         // path params
-        if ($seller_id !== null) {
+        if ($sellerId !== null) {
             $resourcePath = str_replace(
                 '{' . 'sellerId' . '}',
-                ObjectSerializer::toPathValue($seller_id),
+                ObjectSerializer::toPathValue($sellerId),
                 $resourcePath
             );
         }
@@ -944,8 +944,8 @@ class ListingsApi
 
         // body params
         $_tempBody = null;
-        if (isset($listings_item_patch_request)) {
-            $_tempBody = $listings_item_patch_request;
+        if (isset($listingsItemPatchRequest)) {
+            $_tempBody = $listingsItemPatchRequest;
         }
 
         if ($multipart) {
@@ -1012,38 +1012,38 @@ class ListingsApi
     /**
      * Operation putListingsItem
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest $listings_item_put_request The request body schema for the putListingsItem operation. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest $listingsItemPutRequest The request body schema for the putListingsItem operation. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList
      */
-    public function putListingsItem($seller_id, $sku, $marketplace_ids, $listings_item_put_request, $issue_locale = null)
+    public function putListingsItem($sellerId, $sku, $marketplaceIds, $listingsItemPutRequest, $issueLocale = null)
     {
-        list($response) = $this->putListingsItemWithHttpInfo($seller_id, $sku, $marketplace_ids, $listings_item_put_request, $issue_locale);
+        list($response) = $this->putListingsItemWithHttpInfo($sellerId, $sku, $marketplaceIds, $listingsItemPutRequest, $issueLocale);
         return $response;
     }
 
     /**
      * Operation putListingsItemWithHttpInfo
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest $listings_item_put_request The request body schema for the putListingsItem operation. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest $listingsItemPutRequest The request body schema for the putListingsItem operation. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function putListingsItemWithHttpInfo($seller_id, $sku, $marketplace_ids, $listings_item_put_request, $issue_locale = null)
+    public function putListingsItemWithHttpInfo($sellerId, $sku, $marketplaceIds, $listingsItemPutRequest, $issueLocale = null)
     {
-        $request = $this->putListingsItemRequest($seller_id, $sku, $marketplace_ids, $listings_item_put_request, $issue_locale);
+        $request = $this->putListingsItemRequest($sellerId, $sku, $marketplaceIds, $listingsItemPutRequest, $issueLocale);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1263,18 +1263,18 @@ class ListingsApi
      *
      * 
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest $listings_item_put_request The request body schema for the putListingsItem operation. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest $listingsItemPutRequest The request body schema for the putListingsItem operation. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putListingsItemAsync($seller_id, $sku, $marketplace_ids, $listings_item_put_request, $issue_locale = null)
+    public function putListingsItemAsync($sellerId, $sku, $marketplaceIds, $listingsItemPutRequest, $issueLocale = null)
     {
-        return $this->putListingsItemAsyncWithHttpInfo($seller_id, $sku, $marketplace_ids, $listings_item_put_request, $issue_locale)
+        return $this->putListingsItemAsyncWithHttpInfo($sellerId, $sku, $marketplaceIds, $listingsItemPutRequest, $issueLocale)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1287,19 +1287,19 @@ class ListingsApi
      *
      * 
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest $listings_item_put_request The request body schema for the putListingsItem operation. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest $listingsItemPutRequest The request body schema for the putListingsItem operation. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function putListingsItemAsyncWithHttpInfo($seller_id, $sku, $marketplace_ids, $listings_item_put_request, $issue_locale = null)
+    public function putListingsItemAsyncWithHttpInfo($sellerId, $sku, $marketplaceIds, $listingsItemPutRequest, $issueLocale = null)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse';
-        $request = $this->putListingsItemRequest($seller_id, $sku, $marketplace_ids, $listings_item_put_request, $issue_locale);
+        $request = $this->putListingsItemRequest($sellerId, $sku, $marketplaceIds, $listingsItemPutRequest, $issueLocale);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1338,21 +1338,21 @@ class ListingsApi
     /**
      * Create request for operation 'putListingsItem'
      *
-     * @param  string $seller_id A selling partner identifier, such as a merchant account or vendor code. (required)
+     * @param  string $sellerId A selling partner identifier, such as a merchant account or vendor code. (required)
      * @param  string $sku A selling partner provided identifier for an Amazon listing. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest $listings_item_put_request The request body schema for the putListingsItem operation. (required)
-     * @param  string $issue_locale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest $listingsItemPutRequest The request body schema for the putListingsItem operation. (required)
+     * @param  string $issueLocale A locale for localization of issues. When not provided, the default language code of the first marketplace is used. Examples: \&quot;en_US\&quot;, \&quot;fr_CA\&quot;, \&quot;fr_FR\&quot;. Localized messages default to \&quot;en_US\&quot; when a localization is not available in the specified locale. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function putListingsItemRequest($seller_id, $sku, $marketplace_ids, $listings_item_put_request, $issue_locale = null)
+    protected function putListingsItemRequest($sellerId, $sku, $marketplaceIds, $listingsItemPutRequest, $issueLocale = null)
     {
-        // verify the required parameter 'seller_id' is set
-        if ($seller_id === null || (is_array($seller_id) && count($seller_id) === 0)) {
+        // verify the required parameter 'sellerId' is set
+        if ($sellerId === null || (is_array($sellerId) && count($sellerId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $seller_id when calling putListingsItem'
+                'Missing the required parameter $sellerId when calling putListingsItem'
             );
         }
         // verify the required parameter 'sku' is set
@@ -1361,16 +1361,16 @@ class ListingsApi
                 'Missing the required parameter $sku when calling putListingsItem'
             );
         }
-        // verify the required parameter 'marketplace_ids' is set
-        if ($marketplace_ids === null || (is_array($marketplace_ids) && count($marketplace_ids) === 0)) {
+        // verify the required parameter 'marketplaceIds' is set
+        if ($marketplaceIds === null || (is_array($marketplaceIds) && count($marketplaceIds) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $marketplace_ids when calling putListingsItem'
+                'Missing the required parameter $marketplaceIds when calling putListingsItem'
             );
         }
-        // verify the required parameter 'listings_item_put_request' is set
-        if ($listings_item_put_request === null || (is_array($listings_item_put_request) && count($listings_item_put_request) === 0)) {
+        // verify the required parameter 'listingsItemPutRequest' is set
+        if ($listingsItemPutRequest === null || (is_array($listingsItemPutRequest) && count($listingsItemPutRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $listings_item_put_request when calling putListingsItem'
+                'Missing the required parameter $listingsItemPutRequest when calling putListingsItem'
             );
         }
 
@@ -1382,22 +1382,22 @@ class ListingsApi
         $multipart = false;
 
         // query params
-        if (is_array($marketplace_ids)) {
-            $marketplace_ids = ObjectSerializer::serializeCollection($marketplace_ids, 'csv', true);
+        if (is_array($marketplaceIds)) {
+            $marketplaceIds = ObjectSerializer::serializeCollection($marketplaceIds, 'csv', true);
         }
-        if ($marketplace_ids !== null) {
-            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplace_ids);
+        if ($marketplaceIds !== null) {
+            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplaceIds);
         }
         // query params
-        if ($issue_locale !== null) {
-            $queryParams['issueLocale'] = ObjectSerializer::toQueryValue($issue_locale);
+        if ($issueLocale !== null) {
+            $queryParams['issueLocale'] = ObjectSerializer::toQueryValue($issueLocale);
         }
 
         // path params
-        if ($seller_id !== null) {
+        if ($sellerId !== null) {
             $resourcePath = str_replace(
                 '{' . 'sellerId' . '}',
-                ObjectSerializer::toPathValue($seller_id),
+                ObjectSerializer::toPathValue($sellerId),
                 $resourcePath
             );
         }
@@ -1412,8 +1412,8 @@ class ListingsApi
 
         // body params
         $_tempBody = null;
-        if (isset($listings_item_put_request)) {
-            $_tempBody = $listings_item_put_request;
+        if (isset($listingsItemPutRequest)) {
+            $_tempBody = $listingsItemPutRequest;
         }
 
         if ($multipart) {

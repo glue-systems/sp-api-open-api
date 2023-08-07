@@ -58,8 +58,8 @@ class ThroughputConfig implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'throughput_cap' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputCap',
-        'throughput_unit' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputUnit'
+        'throughputCap' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputCap',
+        'throughputUnit' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputUnit'
     ];
 
     /**
@@ -68,8 +68,8 @@ class ThroughputConfig implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'throughput_cap' => null,
-        'throughput_unit' => null
+        'throughputCap' => null,
+        'throughputUnit' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class ThroughputConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'throughput_cap' => 'throughputCap',
-        'throughput_unit' => 'throughputUnit'
+        'throughputCap' => 'throughputCap',
+        'throughputUnit' => 'throughputUnit'
     ];
 
     /**
@@ -109,8 +109,8 @@ class ThroughputConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'throughput_cap' => 'setThroughputCap',
-        'throughput_unit' => 'setThroughputUnit'
+        'throughputCap' => 'setThroughputCap',
+        'throughputUnit' => 'setThroughputUnit'
     ];
 
     /**
@@ -119,8 +119,8 @@ class ThroughputConfig implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'throughput_cap' => 'getThroughputCap',
-        'throughput_unit' => 'getThroughputUnit'
+        'throughputCap' => 'getThroughputCap',
+        'throughputUnit' => 'getThroughputUnit'
     ];
 
     /**
@@ -183,8 +183,8 @@ class ThroughputConfig implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['throughput_cap'] = isset($data['throughput_cap']) ? $data['throughput_cap'] : null;
-        $this->container['throughput_unit'] = isset($data['throughput_unit']) ? $data['throughput_unit'] : null;
+        $this->container['throughputCap'] = isset($data['throughputCap']) ? $data['throughputCap'] : null;
+        $this->container['throughputUnit'] = isset($data['throughputUnit']) ? $data['throughputUnit'] : null;
     }
 
     /**
@@ -196,8 +196,8 @@ class ThroughputConfig implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['throughput_unit'] === null) {
-            $invalidProperties[] = "'throughput_unit' can't be null";
+        if ($this->container['throughputUnit'] === null) {
+            $invalidProperties[] = "'throughputUnit' can't be null";
         }
         return $invalidProperties;
     }
@@ -215,49 +215,49 @@ class ThroughputConfig implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets throughput_cap
+     * Gets throughputCap
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputCap|null
      */
     public function getThroughputCap()
     {
-        return $this->container['throughput_cap'];
+        return $this->container['throughputCap'];
     }
 
     /**
-     * Sets throughput_cap
+     * Sets throughputCap
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputCap|null $throughput_cap throughput_cap
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputCap|null $throughputCap throughputCap
      *
      * @return $this
      */
-    public function setThroughputCap($throughput_cap)
+    public function setThroughputCap($throughputCap)
     {
-        $this->container['throughput_cap'] = $throughput_cap;
+        $this->container['throughputCap'] = $throughputCap;
 
         return $this;
     }
 
     /**
-     * Gets throughput_unit
+     * Gets throughputUnit
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputUnit
      */
     public function getThroughputUnit()
     {
-        return $this->container['throughput_unit'];
+        return $this->container['throughputUnit'];
     }
 
     /**
-     * Sets throughput_unit
+     * Sets throughputUnit
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputUnit $throughput_unit throughput_unit
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ThroughputUnit $throughputUnit throughputUnit
      *
      * @return $this
      */
-    public function setThroughputUnit($throughput_unit)
+    public function setThroughputUnit($throughputUnit)
     {
-        $this->container['throughput_unit'] = $throughput_unit;
+        $this->container['throughputUnit'] = $throughputUnit;
 
         return $this;
     }

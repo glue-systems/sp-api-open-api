@@ -58,10 +58,10 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'field_id' => 'string',
-        'field_label' => 'string',
-        'field_type' => 'string',
-        'field_value' => 'string'
+        'fieldId' => 'string',
+        'fieldLabel' => 'string',
+        'fieldType' => 'string',
+        'fieldValue' => 'string'
     ];
 
     /**
@@ -70,10 +70,10 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'field_id' => null,
-        'field_label' => null,
-        'field_type' => null,
-        'field_value' => null
+        'fieldId' => null,
+        'fieldLabel' => null,
+        'fieldType' => null,
+        'fieldValue' => null
     ];
 
     /**
@@ -103,10 +103,10 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'field_id' => 'FieldId',
-        'field_label' => 'FieldLabel',
-        'field_type' => 'FieldType',
-        'field_value' => 'FieldValue'
+        'fieldId' => 'FieldId',
+        'fieldLabel' => 'FieldLabel',
+        'fieldType' => 'FieldType',
+        'fieldValue' => 'FieldValue'
     ];
 
     /**
@@ -115,10 +115,10 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'field_id' => 'setFieldId',
-        'field_label' => 'setFieldLabel',
-        'field_type' => 'setFieldType',
-        'field_value' => 'setFieldValue'
+        'fieldId' => 'setFieldId',
+        'fieldLabel' => 'setFieldLabel',
+        'fieldType' => 'setFieldType',
+        'fieldValue' => 'setFieldValue'
     ];
 
     /**
@@ -127,10 +127,10 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'field_id' => 'getFieldId',
-        'field_label' => 'getFieldLabel',
-        'field_type' => 'getFieldType',
-        'field_value' => 'getFieldValue'
+        'fieldId' => 'getFieldId',
+        'fieldLabel' => 'getFieldLabel',
+        'fieldType' => 'getFieldType',
+        'fieldValue' => 'getFieldValue'
     ];
 
     /**
@@ -208,10 +208,10 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['field_id'] = isset($data['field_id']) ? $data['field_id'] : null;
-        $this->container['field_label'] = isset($data['field_label']) ? $data['field_label'] : null;
-        $this->container['field_type'] = isset($data['field_type']) ? $data['field_type'] : null;
-        $this->container['field_value'] = isset($data['field_value']) ? $data['field_value'] : null;
+        $this->container['fieldId'] = isset($data['fieldId']) ? $data['fieldId'] : null;
+        $this->container['fieldLabel'] = isset($data['fieldLabel']) ? $data['fieldLabel'] : null;
+        $this->container['fieldType'] = isset($data['fieldType']) ? $data['fieldType'] : null;
+        $this->container['fieldValue'] = isset($data['fieldValue']) ? $data['fieldValue'] : null;
     }
 
     /**
@@ -223,25 +223,25 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['field_id'] === null) {
-            $invalidProperties[] = "'field_id' can't be null";
+        if ($this->container['fieldId'] === null) {
+            $invalidProperties[] = "'fieldId' can't be null";
         }
-        if ($this->container['field_label'] === null) {
-            $invalidProperties[] = "'field_label' can't be null";
+        if ($this->container['fieldLabel'] === null) {
+            $invalidProperties[] = "'fieldLabel' can't be null";
         }
-        if ($this->container['field_type'] === null) {
-            $invalidProperties[] = "'field_type' can't be null";
+        if ($this->container['fieldType'] === null) {
+            $invalidProperties[] = "'fieldType' can't be null";
         }
         $allowedValues = $this->getFieldTypeAllowableValues();
-        if (!is_null($this->container['field_type']) && !in_array($this->container['field_type'], $allowedValues, true)) {
+        if (!is_null($this->container['fieldType']) && !in_array($this->container['fieldType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'field_type', must be one of '%s'",
+                "invalid value for 'fieldType', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['field_value'] === null) {
-            $invalidProperties[] = "'field_value' can't be null";
+        if ($this->container['fieldValue'] === null) {
+            $invalidProperties[] = "'fieldValue' can't be null";
         }
         return $invalidProperties;
     }
@@ -259,106 +259,106 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets field_id
+     * Gets fieldId
      *
      * @return string
      */
     public function getFieldId()
     {
-        return $this->container['field_id'];
+        return $this->container['fieldId'];
     }
 
     /**
-     * Sets field_id
+     * Sets fieldId
      *
-     * @param string $field_id The unique identifier for the field.
+     * @param string $fieldId The unique identifier for the field.
      *
      * @return $this
      */
-    public function setFieldId($field_id)
+    public function setFieldId($fieldId)
     {
-        $this->container['field_id'] = $field_id;
+        $this->container['fieldId'] = $fieldId;
 
         return $this;
     }
 
     /**
-     * Gets field_label
+     * Gets fieldLabel
      *
      * @return string
      */
     public function getFieldLabel()
     {
-        return $this->container['field_label'];
+        return $this->container['fieldLabel'];
     }
 
     /**
-     * Sets field_label
+     * Sets fieldLabel
      *
-     * @param string $field_label The name for the field.
+     * @param string $fieldLabel The name for the field.
      *
      * @return $this
      */
-    public function setFieldLabel($field_label)
+    public function setFieldLabel($fieldLabel)
     {
-        $this->container['field_label'] = $field_label;
+        $this->container['fieldLabel'] = $fieldLabel;
 
         return $this;
     }
 
     /**
-     * Gets field_type
+     * Gets fieldType
      *
      * @return string
      */
     public function getFieldType()
     {
-        return $this->container['field_type'];
+        return $this->container['fieldType'];
     }
 
     /**
-     * Sets field_type
+     * Sets fieldType
      *
-     * @param string $field_type The type of field.
+     * @param string $fieldType The type of field.
      *
      * @return $this
      */
-    public function setFieldType($field_type)
+    public function setFieldType($fieldType)
     {
         $allowedValues = $this->getFieldTypeAllowableValues();
-        if (!in_array($field_type, $allowedValues, true)) {
+        if (!in_array($fieldType, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'field_type', must be one of '%s'",
+                    "Invalid value for 'fieldType', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['field_type'] = $field_type;
+        $this->container['fieldType'] = $fieldType;
 
         return $this;
     }
 
     /**
-     * Gets field_value
+     * Gets fieldValue
      *
      * @return string
      */
     public function getFieldValue()
     {
-        return $this->container['field_value'];
+        return $this->container['fieldValue'];
     }
 
     /**
-     * Sets field_value
+     * Sets fieldValue
      *
-     * @param string $field_value The content of the field as collected in regulatory form. Note that FileAttachment type fields will contain a URL to download the attachment here.
+     * @param string $fieldValue The content of the field as collected in regulatory form. Note that FileAttachment type fields will contain a URL to download the attachment here.
      *
      * @return $this
      */
-    public function setFieldValue($field_value)
+    public function setFieldValue($fieldValue)
     {
-        $this->container['field_value'] = $field_value;
+        $this->container['fieldValue'] = $fieldValue;
 
         return $this;
     }

@@ -58,8 +58,8 @@ class CreateRestrictedDataTokenResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'restricted_data_token' => 'string',
-        'expires_in' => 'int'
+        'restrictedDataToken' => 'string',
+        'expiresIn' => 'int'
     ];
 
     /**
@@ -68,8 +68,8 @@ class CreateRestrictedDataTokenResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'restricted_data_token' => null,
-        'expires_in' => null
+        'restrictedDataToken' => null,
+        'expiresIn' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class CreateRestrictedDataTokenResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'restricted_data_token' => 'restrictedDataToken',
-        'expires_in' => 'expiresIn'
+        'restrictedDataToken' => 'restrictedDataToken',
+        'expiresIn' => 'expiresIn'
     ];
 
     /**
@@ -109,8 +109,8 @@ class CreateRestrictedDataTokenResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'restricted_data_token' => 'setRestrictedDataToken',
-        'expires_in' => 'setExpiresIn'
+        'restrictedDataToken' => 'setRestrictedDataToken',
+        'expiresIn' => 'setExpiresIn'
     ];
 
     /**
@@ -119,8 +119,8 @@ class CreateRestrictedDataTokenResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'restricted_data_token' => 'getRestrictedDataToken',
-        'expires_in' => 'getExpiresIn'
+        'restrictedDataToken' => 'getRestrictedDataToken',
+        'expiresIn' => 'getExpiresIn'
     ];
 
     /**
@@ -183,8 +183,8 @@ class CreateRestrictedDataTokenResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['restricted_data_token'] = isset($data['restricted_data_token']) ? $data['restricted_data_token'] : null;
-        $this->container['expires_in'] = isset($data['expires_in']) ? $data['expires_in'] : null;
+        $this->container['restrictedDataToken'] = isset($data['restrictedDataToken']) ? $data['restrictedDataToken'] : null;
+        $this->container['expiresIn'] = isset($data['expiresIn']) ? $data['expiresIn'] : null;
     }
 
     /**
@@ -212,49 +212,49 @@ class CreateRestrictedDataTokenResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets restricted_data_token
+     * Gets restrictedDataToken
      *
      * @return string|null
      */
     public function getRestrictedDataToken()
     {
-        return $this->container['restricted_data_token'];
+        return $this->container['restrictedDataToken'];
     }
 
     /**
-     * Sets restricted_data_token
+     * Sets restrictedDataToken
      *
-     * @param string|null $restricted_data_token A Restricted Data Token (RDT). This is a short-lived access token that authorizes calls to restricted operations. Pass this value with the x-amz-access-token header when making subsequent calls to these restricted resources.
+     * @param string|null $restrictedDataToken A Restricted Data Token (RDT). This is a short-lived access token that authorizes calls to restricted operations. Pass this value with the x-amz-access-token header when making subsequent calls to these restricted resources.
      *
      * @return $this
      */
-    public function setRestrictedDataToken($restricted_data_token)
+    public function setRestrictedDataToken($restrictedDataToken)
     {
-        $this->container['restricted_data_token'] = $restricted_data_token;
+        $this->container['restrictedDataToken'] = $restrictedDataToken;
 
         return $this;
     }
 
     /**
-     * Gets expires_in
+     * Gets expiresIn
      *
      * @return int|null
      */
     public function getExpiresIn()
     {
-        return $this->container['expires_in'];
+        return $this->container['expiresIn'];
     }
 
     /**
-     * Sets expires_in
+     * Sets expiresIn
      *
-     * @param int|null $expires_in The lifetime of the Restricted Data Token, in seconds.
+     * @param int|null $expiresIn The lifetime of the Restricted Data Token, in seconds.
      *
      * @return $this
      */
-    public function setExpiresIn($expires_in)
+    public function setExpiresIn($expiresIn)
     {
-        $this->container['expires_in'] = $expires_in;
+        $this->container['expiresIn'] = $expiresIn;
 
         return $this;
     }

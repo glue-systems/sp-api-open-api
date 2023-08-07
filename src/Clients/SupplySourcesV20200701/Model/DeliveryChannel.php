@@ -58,8 +58,8 @@ class DeliveryChannel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'is_supported' => 'bool',
-        'operational_configuration' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration'
+        'isSupported' => 'bool',
+        'operationalConfiguration' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration'
     ];
 
     /**
@@ -68,8 +68,8 @@ class DeliveryChannel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'is_supported' => null,
-        'operational_configuration' => null
+        'isSupported' => null,
+        'operationalConfiguration' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class DeliveryChannel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_supported' => 'isSupported',
-        'operational_configuration' => 'operationalConfiguration'
+        'isSupported' => 'isSupported',
+        'operationalConfiguration' => 'operationalConfiguration'
     ];
 
     /**
@@ -109,8 +109,8 @@ class DeliveryChannel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_supported' => 'setIsSupported',
-        'operational_configuration' => 'setOperationalConfiguration'
+        'isSupported' => 'setIsSupported',
+        'operationalConfiguration' => 'setOperationalConfiguration'
     ];
 
     /**
@@ -119,8 +119,8 @@ class DeliveryChannel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_supported' => 'getIsSupported',
-        'operational_configuration' => 'getOperationalConfiguration'
+        'isSupported' => 'getIsSupported',
+        'operationalConfiguration' => 'getOperationalConfiguration'
     ];
 
     /**
@@ -183,8 +183,8 @@ class DeliveryChannel implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['is_supported'] = isset($data['is_supported']) ? $data['is_supported'] : null;
-        $this->container['operational_configuration'] = isset($data['operational_configuration']) ? $data['operational_configuration'] : null;
+        $this->container['isSupported'] = isset($data['isSupported']) ? $data['isSupported'] : null;
+        $this->container['operationalConfiguration'] = isset($data['operationalConfiguration']) ? $data['operationalConfiguration'] : null;
     }
 
     /**
@@ -212,49 +212,49 @@ class DeliveryChannel implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets is_supported
+     * Gets isSupported
      *
      * @return bool|null
      */
     public function getIsSupported()
     {
-        return $this->container['is_supported'];
+        return $this->container['isSupported'];
     }
 
     /**
-     * Sets is_supported
+     * Sets isSupported
      *
-     * @param bool|null $is_supported is_supported
+     * @param bool|null $isSupported isSupported
      *
      * @return $this
      */
-    public function setIsSupported($is_supported)
+    public function setIsSupported($isSupported)
     {
-        $this->container['is_supported'] = $is_supported;
+        $this->container['isSupported'] = $isSupported;
 
         return $this;
     }
 
     /**
-     * Gets operational_configuration
+     * Gets operationalConfiguration
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null
      */
     public function getOperationalConfiguration()
     {
-        return $this->container['operational_configuration'];
+        return $this->container['operationalConfiguration'];
     }
 
     /**
-     * Sets operational_configuration
+     * Sets operationalConfiguration
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null $operational_configuration operational_configuration
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null $operationalConfiguration operationalConfiguration
      *
      * @return $this
      */
-    public function setOperationalConfiguration($operational_configuration)
+    public function setOperationalConfiguration($operationalConfiguration)
     {
-        $this->container['operational_configuration'] = $operational_configuration;
+        $this->container['operationalConfiguration'] = $operationalConfiguration;
 
         return $this;
     }

@@ -58,7 +58,7 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'feed_document_id' => 'string',
+        'feedDocumentId' => 'string',
         'url' => 'string'
     ];
 
@@ -68,7 +68,7 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'feed_document_id' => null,
+        'feedDocumentId' => null,
         'url' => null
     ];
 
@@ -99,7 +99,7 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'feed_document_id' => 'feedDocumentId',
+        'feedDocumentId' => 'feedDocumentId',
         'url' => 'url'
     ];
 
@@ -109,7 +109,7 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'feed_document_id' => 'setFeedDocumentId',
+        'feedDocumentId' => 'setFeedDocumentId',
         'url' => 'setUrl'
     ];
 
@@ -119,7 +119,7 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'feed_document_id' => 'getFeedDocumentId',
+        'feedDocumentId' => 'getFeedDocumentId',
         'url' => 'getUrl'
     ];
 
@@ -183,7 +183,7 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['feed_document_id'] = isset($data['feed_document_id']) ? $data['feed_document_id'] : null;
+        $this->container['feedDocumentId'] = isset($data['feedDocumentId']) ? $data['feedDocumentId'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
     }
 
@@ -196,8 +196,8 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['feed_document_id'] === null) {
-            $invalidProperties[] = "'feed_document_id' can't be null";
+        if ($this->container['feedDocumentId'] === null) {
+            $invalidProperties[] = "'feedDocumentId' can't be null";
         }
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
@@ -218,25 +218,25 @@ class CreateFeedDocumentResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets feed_document_id
+     * Gets feedDocumentId
      *
      * @return string
      */
     public function getFeedDocumentId()
     {
-        return $this->container['feed_document_id'];
+        return $this->container['feedDocumentId'];
     }
 
     /**
-     * Sets feed_document_id
+     * Sets feedDocumentId
      *
-     * @param string $feed_document_id The identifier of the feed document.
+     * @param string $feedDocumentId The identifier of the feed document.
      *
      * @return $this
      */
-    public function setFeedDocumentId($feed_document_id)
+    public function setFeedDocumentId($feedDocumentId)
     {
-        $this->container['feed_document_id'] = $feed_document_id;
+        $this->container['feedDocumentId'] = $feedDocumentId;
 
         return $this;
     }

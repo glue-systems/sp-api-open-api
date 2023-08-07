@@ -58,7 +58,7 @@ class CreateFeedDocumentSpecification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'content_type' => 'string'
+        'contentType' => 'string'
     ];
 
     /**
@@ -67,7 +67,7 @@ class CreateFeedDocumentSpecification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'content_type' => null
+        'contentType' => null
     ];
 
     /**
@@ -97,7 +97,7 @@ class CreateFeedDocumentSpecification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'content_type' => 'contentType'
+        'contentType' => 'contentType'
     ];
 
     /**
@@ -106,7 +106,7 @@ class CreateFeedDocumentSpecification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'content_type' => 'setContentType'
+        'contentType' => 'setContentType'
     ];
 
     /**
@@ -115,7 +115,7 @@ class CreateFeedDocumentSpecification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'content_type' => 'getContentType'
+        'contentType' => 'getContentType'
     ];
 
     /**
@@ -178,7 +178,7 @@ class CreateFeedDocumentSpecification implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['content_type'] = isset($data['content_type']) ? $data['content_type'] : null;
+        $this->container['contentType'] = isset($data['contentType']) ? $data['contentType'] : null;
     }
 
     /**
@@ -190,8 +190,8 @@ class CreateFeedDocumentSpecification implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['content_type'] === null) {
-            $invalidProperties[] = "'content_type' can't be null";
+        if ($this->container['contentType'] === null) {
+            $invalidProperties[] = "'contentType' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,25 +209,25 @@ class CreateFeedDocumentSpecification implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets content_type
+     * Gets contentType
      *
      * @return string
      */
     public function getContentType()
     {
-        return $this->container['content_type'];
+        return $this->container['contentType'];
     }
 
     /**
-     * Sets content_type
+     * Sets contentType
      *
-     * @param string $content_type The content type of the feed.
+     * @param string $contentType The content type of the feed.
      *
      * @return $this
      */
-    public function setContentType($content_type)
+    public function setContentType($contentType)
     {
-        $this->container['content_type'] = $content_type;
+        $this->container['contentType'] = $contentType;
 
         return $this;
     }

@@ -58,8 +58,8 @@ class RejectionReason implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'rejection_reason_id' => 'string',
-        'rejection_reason_description' => 'string'
+        'rejectionReasonId' => 'string',
+        'rejectionReasonDescription' => 'string'
     ];
 
     /**
@@ -68,8 +68,8 @@ class RejectionReason implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'rejection_reason_id' => null,
-        'rejection_reason_description' => null
+        'rejectionReasonId' => null,
+        'rejectionReasonDescription' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class RejectionReason implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'rejection_reason_id' => 'RejectionReasonId',
-        'rejection_reason_description' => 'RejectionReasonDescription'
+        'rejectionReasonId' => 'RejectionReasonId',
+        'rejectionReasonDescription' => 'RejectionReasonDescription'
     ];
 
     /**
@@ -109,8 +109,8 @@ class RejectionReason implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'rejection_reason_id' => 'setRejectionReasonId',
-        'rejection_reason_description' => 'setRejectionReasonDescription'
+        'rejectionReasonId' => 'setRejectionReasonId',
+        'rejectionReasonDescription' => 'setRejectionReasonDescription'
     ];
 
     /**
@@ -119,8 +119,8 @@ class RejectionReason implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'rejection_reason_id' => 'getRejectionReasonId',
-        'rejection_reason_description' => 'getRejectionReasonDescription'
+        'rejectionReasonId' => 'getRejectionReasonId',
+        'rejectionReasonDescription' => 'getRejectionReasonDescription'
     ];
 
     /**
@@ -183,8 +183,8 @@ class RejectionReason implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['rejection_reason_id'] = isset($data['rejection_reason_id']) ? $data['rejection_reason_id'] : null;
-        $this->container['rejection_reason_description'] = isset($data['rejection_reason_description']) ? $data['rejection_reason_description'] : null;
+        $this->container['rejectionReasonId'] = isset($data['rejectionReasonId']) ? $data['rejectionReasonId'] : null;
+        $this->container['rejectionReasonDescription'] = isset($data['rejectionReasonDescription']) ? $data['rejectionReasonDescription'] : null;
     }
 
     /**
@@ -196,11 +196,11 @@ class RejectionReason implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['rejection_reason_id'] === null) {
-            $invalidProperties[] = "'rejection_reason_id' can't be null";
+        if ($this->container['rejectionReasonId'] === null) {
+            $invalidProperties[] = "'rejectionReasonId' can't be null";
         }
-        if ($this->container['rejection_reason_description'] === null) {
-            $invalidProperties[] = "'rejection_reason_description' can't be null";
+        if ($this->container['rejectionReasonDescription'] === null) {
+            $invalidProperties[] = "'rejectionReasonDescription' can't be null";
         }
         return $invalidProperties;
     }
@@ -218,49 +218,49 @@ class RejectionReason implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets rejection_reason_id
+     * Gets rejectionReasonId
      *
      * @return string
      */
     public function getRejectionReasonId()
     {
-        return $this->container['rejection_reason_id'];
+        return $this->container['rejectionReasonId'];
     }
 
     /**
-     * Sets rejection_reason_id
+     * Sets rejectionReasonId
      *
-     * @param string $rejection_reason_id The unique identifier for the rejection reason.
+     * @param string $rejectionReasonId The unique identifier for the rejection reason.
      *
      * @return $this
      */
-    public function setRejectionReasonId($rejection_reason_id)
+    public function setRejectionReasonId($rejectionReasonId)
     {
-        $this->container['rejection_reason_id'] = $rejection_reason_id;
+        $this->container['rejectionReasonId'] = $rejectionReasonId;
 
         return $this;
     }
 
     /**
-     * Gets rejection_reason_description
+     * Gets rejectionReasonDescription
      *
      * @return string
      */
     public function getRejectionReasonDescription()
     {
-        return $this->container['rejection_reason_description'];
+        return $this->container['rejectionReasonDescription'];
     }
 
     /**
-     * Sets rejection_reason_description
+     * Sets rejectionReasonDescription
      *
-     * @param string $rejection_reason_description The description of this rejection reason.
+     * @param string $rejectionReasonDescription The description of this rejection reason.
      *
      * @return $this
      */
-    public function setRejectionReasonDescription($rejection_reason_description)
+    public function setRejectionReasonDescription($rejectionReasonDescription)
     {
-        $this->container['rejection_reason_description'] = $rejection_reason_description;
+        $this->container['rejectionReasonDescription'] = $rejectionReasonDescription;
 
         return $this;
     }

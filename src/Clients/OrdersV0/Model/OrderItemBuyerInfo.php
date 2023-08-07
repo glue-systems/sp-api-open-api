@@ -58,12 +58,12 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'order_item_id' => 'string',
-        'buyer_customized_info' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerCustomizedInfoDetail',
-        'gift_wrap_price' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'gift_wrap_tax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'gift_message_text' => 'string',
-        'gift_wrap_level' => 'string'
+        'orderItemId' => 'string',
+        'buyerCustomizedInfo' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerCustomizedInfoDetail',
+        'giftWrapPrice' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'giftWrapTax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'giftMessageText' => 'string',
+        'giftWrapLevel' => 'string'
     ];
 
     /**
@@ -72,12 +72,12 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'order_item_id' => null,
-        'buyer_customized_info' => null,
-        'gift_wrap_price' => null,
-        'gift_wrap_tax' => null,
-        'gift_message_text' => null,
-        'gift_wrap_level' => null
+        'orderItemId' => null,
+        'buyerCustomizedInfo' => null,
+        'giftWrapPrice' => null,
+        'giftWrapTax' => null,
+        'giftMessageText' => null,
+        'giftWrapLevel' => null
     ];
 
     /**
@@ -107,12 +107,12 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'order_item_id' => 'OrderItemId',
-        'buyer_customized_info' => 'BuyerCustomizedInfo',
-        'gift_wrap_price' => 'GiftWrapPrice',
-        'gift_wrap_tax' => 'GiftWrapTax',
-        'gift_message_text' => 'GiftMessageText',
-        'gift_wrap_level' => 'GiftWrapLevel'
+        'orderItemId' => 'OrderItemId',
+        'buyerCustomizedInfo' => 'BuyerCustomizedInfo',
+        'giftWrapPrice' => 'GiftWrapPrice',
+        'giftWrapTax' => 'GiftWrapTax',
+        'giftMessageText' => 'GiftMessageText',
+        'giftWrapLevel' => 'GiftWrapLevel'
     ];
 
     /**
@@ -121,12 +121,12 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'order_item_id' => 'setOrderItemId',
-        'buyer_customized_info' => 'setBuyerCustomizedInfo',
-        'gift_wrap_price' => 'setGiftWrapPrice',
-        'gift_wrap_tax' => 'setGiftWrapTax',
-        'gift_message_text' => 'setGiftMessageText',
-        'gift_wrap_level' => 'setGiftWrapLevel'
+        'orderItemId' => 'setOrderItemId',
+        'buyerCustomizedInfo' => 'setBuyerCustomizedInfo',
+        'giftWrapPrice' => 'setGiftWrapPrice',
+        'giftWrapTax' => 'setGiftWrapTax',
+        'giftMessageText' => 'setGiftMessageText',
+        'giftWrapLevel' => 'setGiftWrapLevel'
     ];
 
     /**
@@ -135,12 +135,12 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'order_item_id' => 'getOrderItemId',
-        'buyer_customized_info' => 'getBuyerCustomizedInfo',
-        'gift_wrap_price' => 'getGiftWrapPrice',
-        'gift_wrap_tax' => 'getGiftWrapTax',
-        'gift_message_text' => 'getGiftMessageText',
-        'gift_wrap_level' => 'getGiftWrapLevel'
+        'orderItemId' => 'getOrderItemId',
+        'buyerCustomizedInfo' => 'getBuyerCustomizedInfo',
+        'giftWrapPrice' => 'getGiftWrapPrice',
+        'giftWrapTax' => 'getGiftWrapTax',
+        'giftMessageText' => 'getGiftMessageText',
+        'giftWrapLevel' => 'getGiftWrapLevel'
     ];
 
     /**
@@ -203,12 +203,12 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['order_item_id'] = isset($data['order_item_id']) ? $data['order_item_id'] : null;
-        $this->container['buyer_customized_info'] = isset($data['buyer_customized_info']) ? $data['buyer_customized_info'] : null;
-        $this->container['gift_wrap_price'] = isset($data['gift_wrap_price']) ? $data['gift_wrap_price'] : null;
-        $this->container['gift_wrap_tax'] = isset($data['gift_wrap_tax']) ? $data['gift_wrap_tax'] : null;
-        $this->container['gift_message_text'] = isset($data['gift_message_text']) ? $data['gift_message_text'] : null;
-        $this->container['gift_wrap_level'] = isset($data['gift_wrap_level']) ? $data['gift_wrap_level'] : null;
+        $this->container['orderItemId'] = isset($data['orderItemId']) ? $data['orderItemId'] : null;
+        $this->container['buyerCustomizedInfo'] = isset($data['buyerCustomizedInfo']) ? $data['buyerCustomizedInfo'] : null;
+        $this->container['giftWrapPrice'] = isset($data['giftWrapPrice']) ? $data['giftWrapPrice'] : null;
+        $this->container['giftWrapTax'] = isset($data['giftWrapTax']) ? $data['giftWrapTax'] : null;
+        $this->container['giftMessageText'] = isset($data['giftMessageText']) ? $data['giftMessageText'] : null;
+        $this->container['giftWrapLevel'] = isset($data['giftWrapLevel']) ? $data['giftWrapLevel'] : null;
     }
 
     /**
@@ -220,8 +220,8 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['order_item_id'] === null) {
-            $invalidProperties[] = "'order_item_id' can't be null";
+        if ($this->container['orderItemId'] === null) {
+            $invalidProperties[] = "'orderItemId' can't be null";
         }
         return $invalidProperties;
     }
@@ -239,145 +239,145 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets order_item_id
+     * Gets orderItemId
      *
      * @return string
      */
     public function getOrderItemId()
     {
-        return $this->container['order_item_id'];
+        return $this->container['orderItemId'];
     }
 
     /**
-     * Sets order_item_id
+     * Sets orderItemId
      *
-     * @param string $order_item_id An Amazon-defined order item identifier.
+     * @param string $orderItemId An Amazon-defined order item identifier.
      *
      * @return $this
      */
-    public function setOrderItemId($order_item_id)
+    public function setOrderItemId($orderItemId)
     {
-        $this->container['order_item_id'] = $order_item_id;
+        $this->container['orderItemId'] = $orderItemId;
 
         return $this;
     }
 
     /**
-     * Gets buyer_customized_info
+     * Gets buyerCustomizedInfo
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerCustomizedInfoDetail|null
      */
     public function getBuyerCustomizedInfo()
     {
-        return $this->container['buyer_customized_info'];
+        return $this->container['buyerCustomizedInfo'];
     }
 
     /**
-     * Sets buyer_customized_info
+     * Sets buyerCustomizedInfo
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerCustomizedInfoDetail|null $buyer_customized_info buyer_customized_info
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerCustomizedInfoDetail|null $buyerCustomizedInfo buyerCustomizedInfo
      *
      * @return $this
      */
-    public function setBuyerCustomizedInfo($buyer_customized_info)
+    public function setBuyerCustomizedInfo($buyerCustomizedInfo)
     {
-        $this->container['buyer_customized_info'] = $buyer_customized_info;
+        $this->container['buyerCustomizedInfo'] = $buyerCustomizedInfo;
 
         return $this;
     }
 
     /**
-     * Gets gift_wrap_price
+     * Gets giftWrapPrice
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getGiftWrapPrice()
     {
-        return $this->container['gift_wrap_price'];
+        return $this->container['giftWrapPrice'];
     }
 
     /**
-     * Sets gift_wrap_price
+     * Sets giftWrapPrice
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $gift_wrap_price gift_wrap_price
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $giftWrapPrice giftWrapPrice
      *
      * @return $this
      */
-    public function setGiftWrapPrice($gift_wrap_price)
+    public function setGiftWrapPrice($giftWrapPrice)
     {
-        $this->container['gift_wrap_price'] = $gift_wrap_price;
+        $this->container['giftWrapPrice'] = $giftWrapPrice;
 
         return $this;
     }
 
     /**
-     * Gets gift_wrap_tax
+     * Gets giftWrapTax
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getGiftWrapTax()
     {
-        return $this->container['gift_wrap_tax'];
+        return $this->container['giftWrapTax'];
     }
 
     /**
-     * Sets gift_wrap_tax
+     * Sets giftWrapTax
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $gift_wrap_tax gift_wrap_tax
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $giftWrapTax giftWrapTax
      *
      * @return $this
      */
-    public function setGiftWrapTax($gift_wrap_tax)
+    public function setGiftWrapTax($giftWrapTax)
     {
-        $this->container['gift_wrap_tax'] = $gift_wrap_tax;
+        $this->container['giftWrapTax'] = $giftWrapTax;
 
         return $this;
     }
 
     /**
-     * Gets gift_message_text
+     * Gets giftMessageText
      *
      * @return string|null
      */
     public function getGiftMessageText()
     {
-        return $this->container['gift_message_text'];
+        return $this->container['giftMessageText'];
     }
 
     /**
-     * Sets gift_message_text
+     * Sets giftMessageText
      *
-     * @param string|null $gift_message_text A gift message provided by the buyer.
+     * @param string|null $giftMessageText A gift message provided by the buyer.
      *
      * @return $this
      */
-    public function setGiftMessageText($gift_message_text)
+    public function setGiftMessageText($giftMessageText)
     {
-        $this->container['gift_message_text'] = $gift_message_text;
+        $this->container['giftMessageText'] = $giftMessageText;
 
         return $this;
     }
 
     /**
-     * Gets gift_wrap_level
+     * Gets giftWrapLevel
      *
      * @return string|null
      */
     public function getGiftWrapLevel()
     {
-        return $this->container['gift_wrap_level'];
+        return $this->container['giftWrapLevel'];
     }
 
     /**
-     * Sets gift_wrap_level
+     * Sets giftWrapLevel
      *
-     * @param string|null $gift_wrap_level The gift wrap level specified by the buyer.
+     * @param string|null $giftWrapLevel The gift wrap level specified by the buyer.
      *
      * @return $this
      */
-    public function setGiftWrapLevel($gift_wrap_level)
+    public function setGiftWrapLevel($giftWrapLevel)
     {
-        $this->container['gift_wrap_level'] = $gift_wrap_level;
+        $this->container['giftWrapLevel'] = $giftWrapLevel;
 
         return $this;
     }

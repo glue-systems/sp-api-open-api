@@ -57,10 +57,10 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'feed_type' => 'string',
-        'marketplace_ids' => 'string[]',
-        'input_feed_document_id' => 'string',
-        'feed_options' => 'map[string,string]'
+        'feedType' => 'string',
+        'marketplaceIds' => 'string[]',
+        'inputFeedDocumentId' => 'string',
+        'feedOptions' => 'map[string,string]'
     ];
 
     /**
@@ -69,10 +69,10 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'feed_type' => null,
-        'marketplace_ids' => null,
-        'input_feed_document_id' => null,
-        'feed_options' => null
+        'feedType' => null,
+        'marketplaceIds' => null,
+        'inputFeedDocumentId' => null,
+        'feedOptions' => null
     ];
 
     /**
@@ -102,10 +102,10 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'feed_type' => 'feedType',
-        'marketplace_ids' => 'marketplaceIds',
-        'input_feed_document_id' => 'inputFeedDocumentId',
-        'feed_options' => 'feedOptions'
+        'feedType' => 'feedType',
+        'marketplaceIds' => 'marketplaceIds',
+        'inputFeedDocumentId' => 'inputFeedDocumentId',
+        'feedOptions' => 'feedOptions'
     ];
 
     /**
@@ -114,10 +114,10 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'feed_type' => 'setFeedType',
-        'marketplace_ids' => 'setMarketplaceIds',
-        'input_feed_document_id' => 'setInputFeedDocumentId',
-        'feed_options' => 'setFeedOptions'
+        'feedType' => 'setFeedType',
+        'marketplaceIds' => 'setMarketplaceIds',
+        'inputFeedDocumentId' => 'setInputFeedDocumentId',
+        'feedOptions' => 'setFeedOptions'
     ];
 
     /**
@@ -126,10 +126,10 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'feed_type' => 'getFeedType',
-        'marketplace_ids' => 'getMarketplaceIds',
-        'input_feed_document_id' => 'getInputFeedDocumentId',
-        'feed_options' => 'getFeedOptions'
+        'feedType' => 'getFeedType',
+        'marketplaceIds' => 'getMarketplaceIds',
+        'inputFeedDocumentId' => 'getInputFeedDocumentId',
+        'feedOptions' => 'getFeedOptions'
     ];
 
     /**
@@ -192,10 +192,10 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['feed_type'] = isset($data['feed_type']) ? $data['feed_type'] : null;
-        $this->container['marketplace_ids'] = isset($data['marketplace_ids']) ? $data['marketplace_ids'] : null;
-        $this->container['input_feed_document_id'] = isset($data['input_feed_document_id']) ? $data['input_feed_document_id'] : null;
-        $this->container['feed_options'] = isset($data['feed_options']) ? $data['feed_options'] : null;
+        $this->container['feedType'] = isset($data['feedType']) ? $data['feedType'] : null;
+        $this->container['marketplaceIds'] = isset($data['marketplaceIds']) ? $data['marketplaceIds'] : null;
+        $this->container['inputFeedDocumentId'] = isset($data['inputFeedDocumentId']) ? $data['inputFeedDocumentId'] : null;
+        $this->container['feedOptions'] = isset($data['feedOptions']) ? $data['feedOptions'] : null;
     }
 
     /**
@@ -207,14 +207,14 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['feed_type'] === null) {
-            $invalidProperties[] = "'feed_type' can't be null";
+        if ($this->container['feedType'] === null) {
+            $invalidProperties[] = "'feedType' can't be null";
         }
-        if ($this->container['marketplace_ids'] === null) {
-            $invalidProperties[] = "'marketplace_ids' can't be null";
+        if ($this->container['marketplaceIds'] === null) {
+            $invalidProperties[] = "'marketplaceIds' can't be null";
         }
-        if ($this->container['input_feed_document_id'] === null) {
-            $invalidProperties[] = "'input_feed_document_id' can't be null";
+        if ($this->container['inputFeedDocumentId'] === null) {
+            $invalidProperties[] = "'inputFeedDocumentId' can't be null";
         }
         return $invalidProperties;
     }
@@ -232,97 +232,97 @@ class CreateFeedSpecification implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets feed_type
+     * Gets feedType
      *
      * @return string
      */
     public function getFeedType()
     {
-        return $this->container['feed_type'];
+        return $this->container['feedType'];
     }
 
     /**
-     * Sets feed_type
+     * Sets feedType
      *
-     * @param string $feed_type The feed type.
+     * @param string $feedType The feed type.
      *
      * @return $this
      */
-    public function setFeedType($feed_type)
+    public function setFeedType($feedType)
     {
-        $this->container['feed_type'] = $feed_type;
+        $this->container['feedType'] = $feedType;
 
         return $this;
     }
 
     /**
-     * Gets marketplace_ids
+     * Gets marketplaceIds
      *
      * @return string[]
      */
     public function getMarketplaceIds()
     {
-        return $this->container['marketplace_ids'];
+        return $this->container['marketplaceIds'];
     }
 
     /**
-     * Sets marketplace_ids
+     * Sets marketplaceIds
      *
-     * @param string[] $marketplace_ids A list of identifiers for marketplaces that you want the feed to be applied to.
+     * @param string[] $marketplaceIds A list of identifiers for marketplaces that you want the feed to be applied to.
      *
      * @return $this
      */
-    public function setMarketplaceIds($marketplace_ids)
+    public function setMarketplaceIds($marketplaceIds)
     {
-        $this->container['marketplace_ids'] = $marketplace_ids;
+        $this->container['marketplaceIds'] = $marketplaceIds;
 
         return $this;
     }
 
     /**
-     * Gets input_feed_document_id
+     * Gets inputFeedDocumentId
      *
      * @return string
      */
     public function getInputFeedDocumentId()
     {
-        return $this->container['input_feed_document_id'];
+        return $this->container['inputFeedDocumentId'];
     }
 
     /**
-     * Sets input_feed_document_id
+     * Sets inputFeedDocumentId
      *
-     * @param string $input_feed_document_id The document identifier returned by the createFeedDocument operation. Encrypt and upload the feed document contents before calling the createFeed operation.
+     * @param string $inputFeedDocumentId The document identifier returned by the createFeedDocument operation. Encrypt and upload the feed document contents before calling the createFeed operation.
      *
      * @return $this
      */
-    public function setInputFeedDocumentId($input_feed_document_id)
+    public function setInputFeedDocumentId($inputFeedDocumentId)
     {
-        $this->container['input_feed_document_id'] = $input_feed_document_id;
+        $this->container['inputFeedDocumentId'] = $inputFeedDocumentId;
 
         return $this;
     }
 
     /**
-     * Gets feed_options
+     * Gets feedOptions
      *
      * @return map[string,string]|null
      */
     public function getFeedOptions()
     {
-        return $this->container['feed_options'];
+        return $this->container['feedOptions'];
     }
 
     /**
-     * Sets feed_options
+     * Sets feedOptions
      *
-     * @param map[string,string]|null $feed_options Additional options to control the feed. For feeds that use the feedOptions parameter, you can find the parameter values in the feed description in [feedType values](https://github.com/amzn/selling-partner-api-docs/blob/main/references/feeds-api/feedtype-values.md).
+     * @param map[string,string]|null $feedOptions Additional options to control the feed. For feeds that use the feedOptions parameter, you can find the parameter values in the feed description in [feedType values](https://github.com/amzn/selling-partner-api-docs/blob/main/references/feeds-api/feedtype-values.md).
      *
      * @return $this
      */
-    public function setFeedOptions($feed_options)
+    public function setFeedOptions($feedOptions)
     {
-        $this->container['feed_options'] = $feed_options;
+        $this->container['feedOptions'] = $feedOptions;
 
         return $this;
     }

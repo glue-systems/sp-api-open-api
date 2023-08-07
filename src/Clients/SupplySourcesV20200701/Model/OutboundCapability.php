@@ -58,11 +58,11 @@ class OutboundCapability implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'is_supported' => 'bool',
-        'operational_configuration' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration',
-        'return_location' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ReturnLocation',
-        'delivery_channel' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\DeliveryChannel',
-        'pickup_channel' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\PickupChannel'
+        'isSupported' => 'bool',
+        'operationalConfiguration' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration',
+        'returnLocation' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ReturnLocation',
+        'deliveryChannel' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\DeliveryChannel',
+        'pickupChannel' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\PickupChannel'
     ];
 
     /**
@@ -71,11 +71,11 @@ class OutboundCapability implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'is_supported' => null,
-        'operational_configuration' => null,
-        'return_location' => null,
-        'delivery_channel' => null,
-        'pickup_channel' => null
+        'isSupported' => null,
+        'operationalConfiguration' => null,
+        'returnLocation' => null,
+        'deliveryChannel' => null,
+        'pickupChannel' => null
     ];
 
     /**
@@ -105,11 +105,11 @@ class OutboundCapability implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'is_supported' => 'isSupported',
-        'operational_configuration' => 'operationalConfiguration',
-        'return_location' => 'returnLocation',
-        'delivery_channel' => 'deliveryChannel',
-        'pickup_channel' => 'pickupChannel'
+        'isSupported' => 'isSupported',
+        'operationalConfiguration' => 'operationalConfiguration',
+        'returnLocation' => 'returnLocation',
+        'deliveryChannel' => 'deliveryChannel',
+        'pickupChannel' => 'pickupChannel'
     ];
 
     /**
@@ -118,11 +118,11 @@ class OutboundCapability implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'is_supported' => 'setIsSupported',
-        'operational_configuration' => 'setOperationalConfiguration',
-        'return_location' => 'setReturnLocation',
-        'delivery_channel' => 'setDeliveryChannel',
-        'pickup_channel' => 'setPickupChannel'
+        'isSupported' => 'setIsSupported',
+        'operationalConfiguration' => 'setOperationalConfiguration',
+        'returnLocation' => 'setReturnLocation',
+        'deliveryChannel' => 'setDeliveryChannel',
+        'pickupChannel' => 'setPickupChannel'
     ];
 
     /**
@@ -131,11 +131,11 @@ class OutboundCapability implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'is_supported' => 'getIsSupported',
-        'operational_configuration' => 'getOperationalConfiguration',
-        'return_location' => 'getReturnLocation',
-        'delivery_channel' => 'getDeliveryChannel',
-        'pickup_channel' => 'getPickupChannel'
+        'isSupported' => 'getIsSupported',
+        'operationalConfiguration' => 'getOperationalConfiguration',
+        'returnLocation' => 'getReturnLocation',
+        'deliveryChannel' => 'getDeliveryChannel',
+        'pickupChannel' => 'getPickupChannel'
     ];
 
     /**
@@ -198,11 +198,11 @@ class OutboundCapability implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['is_supported'] = isset($data['is_supported']) ? $data['is_supported'] : null;
-        $this->container['operational_configuration'] = isset($data['operational_configuration']) ? $data['operational_configuration'] : null;
-        $this->container['return_location'] = isset($data['return_location']) ? $data['return_location'] : null;
-        $this->container['delivery_channel'] = isset($data['delivery_channel']) ? $data['delivery_channel'] : null;
-        $this->container['pickup_channel'] = isset($data['pickup_channel']) ? $data['pickup_channel'] : null;
+        $this->container['isSupported'] = isset($data['isSupported']) ? $data['isSupported'] : null;
+        $this->container['operationalConfiguration'] = isset($data['operationalConfiguration']) ? $data['operationalConfiguration'] : null;
+        $this->container['returnLocation'] = isset($data['returnLocation']) ? $data['returnLocation'] : null;
+        $this->container['deliveryChannel'] = isset($data['deliveryChannel']) ? $data['deliveryChannel'] : null;
+        $this->container['pickupChannel'] = isset($data['pickupChannel']) ? $data['pickupChannel'] : null;
     }
 
     /**
@@ -230,121 +230,121 @@ class OutboundCapability implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets is_supported
+     * Gets isSupported
      *
      * @return bool|null
      */
     public function getIsSupported()
     {
-        return $this->container['is_supported'];
+        return $this->container['isSupported'];
     }
 
     /**
-     * Sets is_supported
+     * Sets isSupported
      *
-     * @param bool|null $is_supported is_supported
+     * @param bool|null $isSupported isSupported
      *
      * @return $this
      */
-    public function setIsSupported($is_supported)
+    public function setIsSupported($isSupported)
     {
-        $this->container['is_supported'] = $is_supported;
+        $this->container['isSupported'] = $isSupported;
 
         return $this;
     }
 
     /**
-     * Gets operational_configuration
+     * Gets operationalConfiguration
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null
      */
     public function getOperationalConfiguration()
     {
-        return $this->container['operational_configuration'];
+        return $this->container['operationalConfiguration'];
     }
 
     /**
-     * Sets operational_configuration
+     * Sets operationalConfiguration
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null $operational_configuration operational_configuration
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null $operationalConfiguration operationalConfiguration
      *
      * @return $this
      */
-    public function setOperationalConfiguration($operational_configuration)
+    public function setOperationalConfiguration($operationalConfiguration)
     {
-        $this->container['operational_configuration'] = $operational_configuration;
+        $this->container['operationalConfiguration'] = $operationalConfiguration;
 
         return $this;
     }
 
     /**
-     * Gets return_location
+     * Gets returnLocation
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ReturnLocation|null
      */
     public function getReturnLocation()
     {
-        return $this->container['return_location'];
+        return $this->container['returnLocation'];
     }
 
     /**
-     * Sets return_location
+     * Sets returnLocation
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ReturnLocation|null $return_location return_location
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ReturnLocation|null $returnLocation returnLocation
      *
      * @return $this
      */
-    public function setReturnLocation($return_location)
+    public function setReturnLocation($returnLocation)
     {
-        $this->container['return_location'] = $return_location;
+        $this->container['returnLocation'] = $returnLocation;
 
         return $this;
     }
 
     /**
-     * Gets delivery_channel
+     * Gets deliveryChannel
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\DeliveryChannel|null
      */
     public function getDeliveryChannel()
     {
-        return $this->container['delivery_channel'];
+        return $this->container['deliveryChannel'];
     }
 
     /**
-     * Sets delivery_channel
+     * Sets deliveryChannel
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\DeliveryChannel|null $delivery_channel delivery_channel
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\DeliveryChannel|null $deliveryChannel deliveryChannel
      *
      * @return $this
      */
-    public function setDeliveryChannel($delivery_channel)
+    public function setDeliveryChannel($deliveryChannel)
     {
-        $this->container['delivery_channel'] = $delivery_channel;
+        $this->container['deliveryChannel'] = $deliveryChannel;
 
         return $this;
     }
 
     /**
-     * Gets pickup_channel
+     * Gets pickupChannel
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\PickupChannel|null
      */
     public function getPickupChannel()
     {
-        return $this->container['pickup_channel'];
+        return $this->container['pickupChannel'];
     }
 
     /**
-     * Sets pickup_channel
+     * Sets pickupChannel
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\PickupChannel|null $pickup_channel pickup_channel
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\PickupChannel|null $pickupChannel pickupChannel
      *
      * @return $this
      */
-    public function setPickupChannel($pickup_channel)
+    public function setPickupChannel($pickupChannel)
     {
-        $this->container['pickup_channel'] = $pickup_channel;
+        $this->container['pickupChannel'] = $pickupChannel;
 
         return $this;
     }

@@ -58,9 +58,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exception_date' => 'string',
-        'is_open' => 'bool',
-        'open_intervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
+        'exceptionDate' => 'string',
+        'isOpen' => 'bool',
+        'openIntervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
     ];
 
     /**
@@ -69,9 +69,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'exception_date' => null,
-        'is_open' => null,
-        'open_intervals' => null
+        'exceptionDate' => null,
+        'isOpen' => null,
+        'openIntervals' => null
     ];
 
     /**
@@ -101,9 +101,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exception_date' => 'ExceptionDate',
-        'is_open' => 'IsOpen',
-        'open_intervals' => 'OpenIntervals'
+        'exceptionDate' => 'ExceptionDate',
+        'isOpen' => 'IsOpen',
+        'openIntervals' => 'OpenIntervals'
     ];
 
     /**
@@ -112,9 +112,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exception_date' => 'setExceptionDate',
-        'is_open' => 'setIsOpen',
-        'open_intervals' => 'setOpenIntervals'
+        'exceptionDate' => 'setExceptionDate',
+        'isOpen' => 'setIsOpen',
+        'openIntervals' => 'setOpenIntervals'
     ];
 
     /**
@@ -123,9 +123,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exception_date' => 'getExceptionDate',
-        'is_open' => 'getIsOpen',
-        'open_intervals' => 'getOpenIntervals'
+        'exceptionDate' => 'getExceptionDate',
+        'isOpen' => 'getIsOpen',
+        'openIntervals' => 'getOpenIntervals'
     ];
 
     /**
@@ -188,9 +188,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exception_date'] = isset($data['exception_date']) ? $data['exception_date'] : null;
-        $this->container['is_open'] = isset($data['is_open']) ? $data['is_open'] : null;
-        $this->container['open_intervals'] = isset($data['open_intervals']) ? $data['open_intervals'] : null;
+        $this->container['exceptionDate'] = isset($data['exceptionDate']) ? $data['exceptionDate'] : null;
+        $this->container['isOpen'] = isset($data['isOpen']) ? $data['isOpen'] : null;
+        $this->container['openIntervals'] = isset($data['openIntervals']) ? $data['openIntervals'] : null;
     }
 
     /**
@@ -218,73 +218,73 @@ class ExceptionDates implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exception_date
+     * Gets exceptionDate
      *
      * @return string|null
      */
     public function getExceptionDate()
     {
-        return $this->container['exception_date'];
+        return $this->container['exceptionDate'];
     }
 
     /**
-     * Sets exception_date
+     * Sets exceptionDate
      *
-     * @param string|null $exception_date Date when the business is closed, in ISO-8601 date format.
+     * @param string|null $exceptionDate Date when the business is closed, in ISO-8601 date format.
      *
      * @return $this
      */
-    public function setExceptionDate($exception_date)
+    public function setExceptionDate($exceptionDate)
     {
-        $this->container['exception_date'] = $exception_date;
+        $this->container['exceptionDate'] = $exceptionDate;
 
         return $this;
     }
 
     /**
-     * Gets is_open
+     * Gets isOpen
      *
      * @return bool|null
      */
     public function getIsOpen()
     {
-        return $this->container['is_open'];
+        return $this->container['isOpen'];
     }
 
     /**
-     * Sets is_open
+     * Sets isOpen
      *
-     * @param bool|null $is_open Boolean indicating if the business is closed or open on that date.
+     * @param bool|null $isOpen Boolean indicating if the business is closed or open on that date.
      *
      * @return $this
      */
-    public function setIsOpen($is_open)
+    public function setIsOpen($isOpen)
     {
-        $this->container['is_open'] = $is_open;
+        $this->container['isOpen'] = $isOpen;
 
         return $this;
     }
 
     /**
-     * Gets open_intervals
+     * Gets openIntervals
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
      */
     public function getOpenIntervals()
     {
-        return $this->container['open_intervals'];
+        return $this->container['openIntervals'];
     }
 
     /**
-     * Sets open_intervals
+     * Sets openIntervals
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $open_intervals Time window during the day when the business is open.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $openIntervals Time window during the day when the business is open.
      *
      * @return $this
      */
-    public function setOpenIntervals($open_intervals)
+    public function setOpenIntervals($openIntervals)
     {
-        $this->container['open_intervals'] = $open_intervals;
+        $this->container['openIntervals'] = $openIntervals;
 
         return $this;
     }

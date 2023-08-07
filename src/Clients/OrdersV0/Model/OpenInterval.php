@@ -58,8 +58,8 @@ class OpenInterval implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'start_time' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval',
-        'end_time' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval'
+        'startTime' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval',
+        'endTime' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval'
     ];
 
     /**
@@ -68,8 +68,8 @@ class OpenInterval implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'start_time' => null,
-        'end_time' => null
+        'startTime' => null,
+        'endTime' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class OpenInterval implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'start_time' => 'StartTime',
-        'end_time' => 'EndTime'
+        'startTime' => 'StartTime',
+        'endTime' => 'EndTime'
     ];
 
     /**
@@ -109,8 +109,8 @@ class OpenInterval implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'start_time' => 'setStartTime',
-        'end_time' => 'setEndTime'
+        'startTime' => 'setStartTime',
+        'endTime' => 'setEndTime'
     ];
 
     /**
@@ -119,8 +119,8 @@ class OpenInterval implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'start_time' => 'getStartTime',
-        'end_time' => 'getEndTime'
+        'startTime' => 'getStartTime',
+        'endTime' => 'getEndTime'
     ];
 
     /**
@@ -183,8 +183,8 @@ class OpenInterval implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['start_time'] = isset($data['start_time']) ? $data['start_time'] : null;
-        $this->container['end_time'] = isset($data['end_time']) ? $data['end_time'] : null;
+        $this->container['startTime'] = isset($data['startTime']) ? $data['startTime'] : null;
+        $this->container['endTime'] = isset($data['endTime']) ? $data['endTime'] : null;
     }
 
     /**
@@ -212,49 +212,49 @@ class OpenInterval implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets start_time
+     * Gets startTime
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null
      */
     public function getStartTime()
     {
-        return $this->container['start_time'];
+        return $this->container['startTime'];
     }
 
     /**
-     * Sets start_time
+     * Sets startTime
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null $start_time start_time
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null $startTime startTime
      *
      * @return $this
      */
-    public function setStartTime($start_time)
+    public function setStartTime($startTime)
     {
-        $this->container['start_time'] = $start_time;
+        $this->container['startTime'] = $startTime;
 
         return $this;
     }
 
     /**
-     * Gets end_time
+     * Gets endTime
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null
      */
     public function getEndTime()
     {
-        return $this->container['end_time'];
+        return $this->container['endTime'];
     }
 
     /**
-     * Sets end_time
+     * Sets endTime
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null $end_time end_time
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null $endTime endTime
      *
      * @return $this
      */
-    public function setEndTime($end_time)
+    public function setEndTime($endTime)
     {
-        $this->container['end_time'] = $end_time;
+        $this->container['endTime'] = $endTime;
 
         return $this;
     }

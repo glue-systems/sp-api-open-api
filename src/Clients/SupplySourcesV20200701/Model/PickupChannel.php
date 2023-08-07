@@ -58,9 +58,9 @@ class PickupChannel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'inventory_hold_period' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Duration',
-        'is_supported' => 'bool',
-        'operational_configuration' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration'
+        'inventoryHoldPeriod' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Duration',
+        'isSupported' => 'bool',
+        'operationalConfiguration' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration'
     ];
 
     /**
@@ -69,9 +69,9 @@ class PickupChannel implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'inventory_hold_period' => null,
-        'is_supported' => null,
-        'operational_configuration' => null
+        'inventoryHoldPeriod' => null,
+        'isSupported' => null,
+        'operationalConfiguration' => null
     ];
 
     /**
@@ -101,9 +101,9 @@ class PickupChannel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'inventory_hold_period' => 'inventoryHoldPeriod',
-        'is_supported' => 'isSupported',
-        'operational_configuration' => 'operationalConfiguration'
+        'inventoryHoldPeriod' => 'inventoryHoldPeriod',
+        'isSupported' => 'isSupported',
+        'operationalConfiguration' => 'operationalConfiguration'
     ];
 
     /**
@@ -112,9 +112,9 @@ class PickupChannel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'inventory_hold_period' => 'setInventoryHoldPeriod',
-        'is_supported' => 'setIsSupported',
-        'operational_configuration' => 'setOperationalConfiguration'
+        'inventoryHoldPeriod' => 'setInventoryHoldPeriod',
+        'isSupported' => 'setIsSupported',
+        'operationalConfiguration' => 'setOperationalConfiguration'
     ];
 
     /**
@@ -123,9 +123,9 @@ class PickupChannel implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'inventory_hold_period' => 'getInventoryHoldPeriod',
-        'is_supported' => 'getIsSupported',
-        'operational_configuration' => 'getOperationalConfiguration'
+        'inventoryHoldPeriod' => 'getInventoryHoldPeriod',
+        'isSupported' => 'getIsSupported',
+        'operationalConfiguration' => 'getOperationalConfiguration'
     ];
 
     /**
@@ -188,9 +188,9 @@ class PickupChannel implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['inventory_hold_period'] = isset($data['inventory_hold_period']) ? $data['inventory_hold_period'] : null;
-        $this->container['is_supported'] = isset($data['is_supported']) ? $data['is_supported'] : null;
-        $this->container['operational_configuration'] = isset($data['operational_configuration']) ? $data['operational_configuration'] : null;
+        $this->container['inventoryHoldPeriod'] = isset($data['inventoryHoldPeriod']) ? $data['inventoryHoldPeriod'] : null;
+        $this->container['isSupported'] = isset($data['isSupported']) ? $data['isSupported'] : null;
+        $this->container['operationalConfiguration'] = isset($data['operationalConfiguration']) ? $data['operationalConfiguration'] : null;
     }
 
     /**
@@ -218,73 +218,73 @@ class PickupChannel implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets inventory_hold_period
+     * Gets inventoryHoldPeriod
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Duration|null
      */
     public function getInventoryHoldPeriod()
     {
-        return $this->container['inventory_hold_period'];
+        return $this->container['inventoryHoldPeriod'];
     }
 
     /**
-     * Sets inventory_hold_period
+     * Sets inventoryHoldPeriod
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Duration|null $inventory_hold_period inventory_hold_period
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Duration|null $inventoryHoldPeriod inventoryHoldPeriod
      *
      * @return $this
      */
-    public function setInventoryHoldPeriod($inventory_hold_period)
+    public function setInventoryHoldPeriod($inventoryHoldPeriod)
     {
-        $this->container['inventory_hold_period'] = $inventory_hold_period;
+        $this->container['inventoryHoldPeriod'] = $inventoryHoldPeriod;
 
         return $this;
     }
 
     /**
-     * Gets is_supported
+     * Gets isSupported
      *
      * @return bool|null
      */
     public function getIsSupported()
     {
-        return $this->container['is_supported'];
+        return $this->container['isSupported'];
     }
 
     /**
-     * Sets is_supported
+     * Sets isSupported
      *
-     * @param bool|null $is_supported is_supported
+     * @param bool|null $isSupported isSupported
      *
      * @return $this
      */
-    public function setIsSupported($is_supported)
+    public function setIsSupported($isSupported)
     {
-        $this->container['is_supported'] = $is_supported;
+        $this->container['isSupported'] = $isSupported;
 
         return $this;
     }
 
     /**
-     * Gets operational_configuration
+     * Gets operationalConfiguration
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null
      */
     public function getOperationalConfiguration()
     {
-        return $this->container['operational_configuration'];
+        return $this->container['operationalConfiguration'];
     }
 
     /**
-     * Sets operational_configuration
+     * Sets operationalConfiguration
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null $operational_configuration operational_configuration
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null $operationalConfiguration operationalConfiguration
      *
      * @return $this
      */
-    public function setOperationalConfiguration($operational_configuration)
+    public function setOperationalConfiguration($operationalConfiguration)
     {
-        $this->container['operational_configuration'] = $operational_configuration;
+        $this->container['operationalConfiguration'] = $operationalConfiguration;
 
         return $this;
     }

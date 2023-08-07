@@ -58,14 +58,14 @@ class Feed implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'feed_id' => 'string',
-        'feed_type' => 'string',
-        'marketplace_ids' => 'string[]',
-        'created_time' => '\DateTime',
-        'processing_status' => 'string',
-        'processing_start_time' => '\DateTime',
-        'processing_end_time' => '\DateTime',
-        'result_feed_document_id' => 'string'
+        'feedId' => 'string',
+        'feedType' => 'string',
+        'marketplaceIds' => 'string[]',
+        'createdTime' => '\DateTime',
+        'processingStatus' => 'string',
+        'processingStartTime' => '\DateTime',
+        'processingEndTime' => '\DateTime',
+        'resultFeedDocumentId' => 'string'
     ];
 
     /**
@@ -74,14 +74,14 @@ class Feed implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'feed_id' => null,
-        'feed_type' => null,
-        'marketplace_ids' => null,
-        'created_time' => 'date-time',
-        'processing_status' => null,
-        'processing_start_time' => 'date-time',
-        'processing_end_time' => 'date-time',
-        'result_feed_document_id' => null
+        'feedId' => null,
+        'feedType' => null,
+        'marketplaceIds' => null,
+        'createdTime' => 'date-time',
+        'processingStatus' => null,
+        'processingStartTime' => 'date-time',
+        'processingEndTime' => 'date-time',
+        'resultFeedDocumentId' => null
     ];
 
     /**
@@ -111,14 +111,14 @@ class Feed implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'feed_id' => 'feedId',
-        'feed_type' => 'feedType',
-        'marketplace_ids' => 'marketplaceIds',
-        'created_time' => 'createdTime',
-        'processing_status' => 'processingStatus',
-        'processing_start_time' => 'processingStartTime',
-        'processing_end_time' => 'processingEndTime',
-        'result_feed_document_id' => 'resultFeedDocumentId'
+        'feedId' => 'feedId',
+        'feedType' => 'feedType',
+        'marketplaceIds' => 'marketplaceIds',
+        'createdTime' => 'createdTime',
+        'processingStatus' => 'processingStatus',
+        'processingStartTime' => 'processingStartTime',
+        'processingEndTime' => 'processingEndTime',
+        'resultFeedDocumentId' => 'resultFeedDocumentId'
     ];
 
     /**
@@ -127,14 +127,14 @@ class Feed implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'feed_id' => 'setFeedId',
-        'feed_type' => 'setFeedType',
-        'marketplace_ids' => 'setMarketplaceIds',
-        'created_time' => 'setCreatedTime',
-        'processing_status' => 'setProcessingStatus',
-        'processing_start_time' => 'setProcessingStartTime',
-        'processing_end_time' => 'setProcessingEndTime',
-        'result_feed_document_id' => 'setResultFeedDocumentId'
+        'feedId' => 'setFeedId',
+        'feedType' => 'setFeedType',
+        'marketplaceIds' => 'setMarketplaceIds',
+        'createdTime' => 'setCreatedTime',
+        'processingStatus' => 'setProcessingStatus',
+        'processingStartTime' => 'setProcessingStartTime',
+        'processingEndTime' => 'setProcessingEndTime',
+        'resultFeedDocumentId' => 'setResultFeedDocumentId'
     ];
 
     /**
@@ -143,14 +143,14 @@ class Feed implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'feed_id' => 'getFeedId',
-        'feed_type' => 'getFeedType',
-        'marketplace_ids' => 'getMarketplaceIds',
-        'created_time' => 'getCreatedTime',
-        'processing_status' => 'getProcessingStatus',
-        'processing_start_time' => 'getProcessingStartTime',
-        'processing_end_time' => 'getProcessingEndTime',
-        'result_feed_document_id' => 'getResultFeedDocumentId'
+        'feedId' => 'getFeedId',
+        'feedType' => 'getFeedType',
+        'marketplaceIds' => 'getMarketplaceIds',
+        'createdTime' => 'getCreatedTime',
+        'processingStatus' => 'getProcessingStatus',
+        'processingStartTime' => 'getProcessingStartTime',
+        'processingEndTime' => 'getProcessingEndTime',
+        'resultFeedDocumentId' => 'getResultFeedDocumentId'
     ];
 
     /**
@@ -234,14 +234,14 @@ class Feed implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['feed_id'] = isset($data['feed_id']) ? $data['feed_id'] : null;
-        $this->container['feed_type'] = isset($data['feed_type']) ? $data['feed_type'] : null;
-        $this->container['marketplace_ids'] = isset($data['marketplace_ids']) ? $data['marketplace_ids'] : null;
-        $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
-        $this->container['processing_status'] = isset($data['processing_status']) ? $data['processing_status'] : null;
-        $this->container['processing_start_time'] = isset($data['processing_start_time']) ? $data['processing_start_time'] : null;
-        $this->container['processing_end_time'] = isset($data['processing_end_time']) ? $data['processing_end_time'] : null;
-        $this->container['result_feed_document_id'] = isset($data['result_feed_document_id']) ? $data['result_feed_document_id'] : null;
+        $this->container['feedId'] = isset($data['feedId']) ? $data['feedId'] : null;
+        $this->container['feedType'] = isset($data['feedType']) ? $data['feedType'] : null;
+        $this->container['marketplaceIds'] = isset($data['marketplaceIds']) ? $data['marketplaceIds'] : null;
+        $this->container['createdTime'] = isset($data['createdTime']) ? $data['createdTime'] : null;
+        $this->container['processingStatus'] = isset($data['processingStatus']) ? $data['processingStatus'] : null;
+        $this->container['processingStartTime'] = isset($data['processingStartTime']) ? $data['processingStartTime'] : null;
+        $this->container['processingEndTime'] = isset($data['processingEndTime']) ? $data['processingEndTime'] : null;
+        $this->container['resultFeedDocumentId'] = isset($data['resultFeedDocumentId']) ? $data['resultFeedDocumentId'] : null;
     }
 
     /**
@@ -253,22 +253,22 @@ class Feed implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['feed_id'] === null) {
-            $invalidProperties[] = "'feed_id' can't be null";
+        if ($this->container['feedId'] === null) {
+            $invalidProperties[] = "'feedId' can't be null";
         }
-        if ($this->container['feed_type'] === null) {
-            $invalidProperties[] = "'feed_type' can't be null";
+        if ($this->container['feedType'] === null) {
+            $invalidProperties[] = "'feedType' can't be null";
         }
-        if ($this->container['created_time'] === null) {
-            $invalidProperties[] = "'created_time' can't be null";
+        if ($this->container['createdTime'] === null) {
+            $invalidProperties[] = "'createdTime' can't be null";
         }
-        if ($this->container['processing_status'] === null) {
-            $invalidProperties[] = "'processing_status' can't be null";
+        if ($this->container['processingStatus'] === null) {
+            $invalidProperties[] = "'processingStatus' can't be null";
         }
         $allowedValues = $this->getProcessingStatusAllowableValues();
-        if (!is_null($this->container['processing_status']) && !in_array($this->container['processing_status'], $allowedValues, true)) {
+        if (!is_null($this->container['processingStatus']) && !in_array($this->container['processingStatus'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'processing_status', must be one of '%s'",
+                "invalid value for 'processingStatus', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -289,202 +289,202 @@ class Feed implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets feed_id
+     * Gets feedId
      *
      * @return string
      */
     public function getFeedId()
     {
-        return $this->container['feed_id'];
+        return $this->container['feedId'];
     }
 
     /**
-     * Sets feed_id
+     * Sets feedId
      *
-     * @param string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID.
+     * @param string $feedId The identifier for the feed. This identifier is unique only in combination with a seller ID.
      *
      * @return $this
      */
-    public function setFeedId($feed_id)
+    public function setFeedId($feedId)
     {
-        $this->container['feed_id'] = $feed_id;
+        $this->container['feedId'] = $feedId;
 
         return $this;
     }
 
     /**
-     * Gets feed_type
+     * Gets feedType
      *
      * @return string
      */
     public function getFeedType()
     {
-        return $this->container['feed_type'];
+        return $this->container['feedType'];
     }
 
     /**
-     * Sets feed_type
+     * Sets feedType
      *
-     * @param string $feed_type The feed type.
+     * @param string $feedType The feed type.
      *
      * @return $this
      */
-    public function setFeedType($feed_type)
+    public function setFeedType($feedType)
     {
-        $this->container['feed_type'] = $feed_type;
+        $this->container['feedType'] = $feedType;
 
         return $this;
     }
 
     /**
-     * Gets marketplace_ids
+     * Gets marketplaceIds
      *
      * @return string[]|null
      */
     public function getMarketplaceIds()
     {
-        return $this->container['marketplace_ids'];
+        return $this->container['marketplaceIds'];
     }
 
     /**
-     * Sets marketplace_ids
+     * Sets marketplaceIds
      *
-     * @param string[]|null $marketplace_ids A list of identifiers for the marketplaces that the feed is applied to.
+     * @param string[]|null $marketplaceIds A list of identifiers for the marketplaces that the feed is applied to.
      *
      * @return $this
      */
-    public function setMarketplaceIds($marketplace_ids)
+    public function setMarketplaceIds($marketplaceIds)
     {
-        $this->container['marketplace_ids'] = $marketplace_ids;
+        $this->container['marketplaceIds'] = $marketplaceIds;
 
         return $this;
     }
 
     /**
-     * Gets created_time
+     * Gets createdTime
      *
      * @return \DateTime
      */
     public function getCreatedTime()
     {
-        return $this->container['created_time'];
+        return $this->container['createdTime'];
     }
 
     /**
-     * Sets created_time
+     * Sets createdTime
      *
-     * @param \DateTime $created_time The date and time when the feed was created, in ISO 8601 date time format.
+     * @param \DateTime $createdTime The date and time when the feed was created, in ISO 8601 date time format.
      *
      * @return $this
      */
-    public function setCreatedTime($created_time)
+    public function setCreatedTime($createdTime)
     {
-        $this->container['created_time'] = $created_time;
+        $this->container['createdTime'] = $createdTime;
 
         return $this;
     }
 
     /**
-     * Gets processing_status
+     * Gets processingStatus
      *
      * @return string
      */
     public function getProcessingStatus()
     {
-        return $this->container['processing_status'];
+        return $this->container['processingStatus'];
     }
 
     /**
-     * Sets processing_status
+     * Sets processingStatus
      *
-     * @param string $processing_status The processing status of the feed.
+     * @param string $processingStatus The processing status of the feed.
      *
      * @return $this
      */
-    public function setProcessingStatus($processing_status)
+    public function setProcessingStatus($processingStatus)
     {
         $allowedValues = $this->getProcessingStatusAllowableValues();
-        if (!in_array($processing_status, $allowedValues, true)) {
+        if (!in_array($processingStatus, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'processing_status', must be one of '%s'",
+                    "Invalid value for 'processingStatus', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['processing_status'] = $processing_status;
+        $this->container['processingStatus'] = $processingStatus;
 
         return $this;
     }
 
     /**
-     * Gets processing_start_time
+     * Gets processingStartTime
      *
      * @return \DateTime|null
      */
     public function getProcessingStartTime()
     {
-        return $this->container['processing_start_time'];
+        return $this->container['processingStartTime'];
     }
 
     /**
-     * Sets processing_start_time
+     * Sets processingStartTime
      *
-     * @param \DateTime|null $processing_start_time The date and time when feed processing started, in ISO 8601 date time format.
+     * @param \DateTime|null $processingStartTime The date and time when feed processing started, in ISO 8601 date time format.
      *
      * @return $this
      */
-    public function setProcessingStartTime($processing_start_time)
+    public function setProcessingStartTime($processingStartTime)
     {
-        $this->container['processing_start_time'] = $processing_start_time;
+        $this->container['processingStartTime'] = $processingStartTime;
 
         return $this;
     }
 
     /**
-     * Gets processing_end_time
+     * Gets processingEndTime
      *
      * @return \DateTime|null
      */
     public function getProcessingEndTime()
     {
-        return $this->container['processing_end_time'];
+        return $this->container['processingEndTime'];
     }
 
     /**
-     * Sets processing_end_time
+     * Sets processingEndTime
      *
-     * @param \DateTime|null $processing_end_time The date and time when feed processing completed, in ISO 8601 date time format.
+     * @param \DateTime|null $processingEndTime The date and time when feed processing completed, in ISO 8601 date time format.
      *
      * @return $this
      */
-    public function setProcessingEndTime($processing_end_time)
+    public function setProcessingEndTime($processingEndTime)
     {
-        $this->container['processing_end_time'] = $processing_end_time;
+        $this->container['processingEndTime'] = $processingEndTime;
 
         return $this;
     }
 
     /**
-     * Gets result_feed_document_id
+     * Gets resultFeedDocumentId
      *
      * @return string|null
      */
     public function getResultFeedDocumentId()
     {
-        return $this->container['result_feed_document_id'];
+        return $this->container['resultFeedDocumentId'];
     }
 
     /**
-     * Sets result_feed_document_id
+     * Sets resultFeedDocumentId
      *
-     * @param string|null $result_feed_document_id The identifier for the feed document. This identifier is unique only in combination with a seller ID.
+     * @param string|null $resultFeedDocumentId The identifier for the feed document. This identifier is unique only in combination with a seller ID.
      *
      * @return $this
      */
-    public function setResultFeedDocumentId($result_feed_document_id)
+    public function setResultFeedDocumentId($resultFeedDocumentId)
     {
-        $this->container['result_feed_document_id'] = $result_feed_document_id;
+        $this->container['resultFeedDocumentId'] = $resultFeedDocumentId;
 
         return $this;
     }
