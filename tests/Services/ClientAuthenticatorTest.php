@@ -109,4 +109,26 @@ class ClientAuthenticatorTest extends TestCase
         $this->assertEquals($newLwaToken, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
         $this->assertEquals($this->spApiConfig->spApiBaseUrl, $guzzleClient->getConfig()['base_uri']);
     }
+
+    public function test_createAuthenticatedGuzzleClient_with_RDT()
+    {
+        $rdt                = 'fake-rdt123';
+        $credentialProvider = function () {
+            return \Mockery::mock(CredentialsInterface::class);
+        };
+
+        $sut = new ClientAuthenticator(
+            $this->cache,
+            $this->lwaService,
+            $credentialProvider,
+            $this->spApiConfig
+        );
+
+        $guzzleClient = $sut->createAuthenticatedGuzzleClient($rdt);
+        $guzzleConfig = $guzzleClient->getConfig();
+
+        $this->assertFalse(empty($guzzleConfig['headers']['x-amz-access-token']));
+        $this->assertEquals($rdt, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
+        $this->assertEquals($this->spApiConfig->spApiBaseUrl, $guzzleClient->getConfig()['base_uri']);
+    }
 }
