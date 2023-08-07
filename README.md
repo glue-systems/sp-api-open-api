@@ -210,6 +210,16 @@ rm -rf src/Clients/OrdersV0
 mv output/OrdersV0/lib src/Clients/OrdersV0
 ```
 
+#### Product Pricing API v0
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/ProductPricingV0
+openapi-generator-cli generate -i models/productPricingV0.json -g php -o output/ProductPricingV0 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ProductPricingV0" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/ProductPricingV0
+mv output/ProductPricingV0/lib src/Clients/ProductPricingV0
+```
+
 #### Product Pricing API v2022-05-01
 
 _(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
