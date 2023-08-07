@@ -8,7 +8,7 @@ use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRe
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenRequestException;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryContract;
-use Glue\SpApi\OpenAPI\Services\RDT\RestrictedDataTokenProvider;
+use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProvider;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
@@ -34,7 +34,7 @@ class RestrictedDataTokenProviderTest extends TestCase
 
     public function test_fromRdtRequest_happy_case()
     {
-        $expectedRestrictedDataToken = 'fakeRDT123';
+        $expectedRestrictedDataToken = 'fake-rdt-123';
         $rdtRequest                  = new CreateRestrictedDataTokenRequest();
         $rdtResponse                 = new CreateRestrictedDataTokenResponse([
             'restricted_data_token' => $expectedRestrictedDataToken,
