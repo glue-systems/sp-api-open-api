@@ -138,6 +138,16 @@ rm -rf src/Clients/FbaInventoryV1
 mv output/FbaInventoryV1/lib src/Clients/FbaInventoryV1
 ```
 
+#### FBA Small and Light API v1
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/FbaSmallAndLightV1
+openapi-generator-cli generate -i models/fbaSmallandLightV1.json -g php -o output/FbaSmallAndLightV1 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/FbaSmallAndLightV1
+mv output/FbaSmallAndLightV1/lib src/Clients/FbaSmallAndLightV1
+```
+
 #### Feeds API v2020-09-04
 
 ```BASH
