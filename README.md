@@ -98,7 +98,7 @@ mv output/CatalogItemsV20201201/lib src/Clients/CatalogItemsV20201201
 
 #### Catalog Items API v2022-04-01 (Not included: Latest JSON schema incompatible with this version of OpenAPI Generator CLI)
 
-#### Definitions Product Types API v2020-09-01
+#### Definitions Product Types API v2020-09-01 (AKA Product Type Definitions API v2020-09-01)
 
 ```BASH
 cd path/to/your/sp-api-open-api
@@ -166,6 +166,16 @@ rm -rf output/FeedsV20210630
 openapi-generator-cli generate -i models/feeds_2021-06-30.json -g php -o output/FeedsV20210630 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\FeedsV20210630" --additional-properties=variableNamingConvention=camelCase
 rm -rf src/Clients/FeedsV20210630
 mv output/FeedsV20210630/lib src/Clients/FeedsV20210630
+```
+
+#### Finances API v0
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/FinancesV0
+openapi-generator-cli generate -i models/financesV0.json -g php -o output/FinancesV0 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\FinancesV0" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/FinancesV0
+mv output/FinancesV0/lib src/Clients/FinancesV0
 ```
 
 #### Listings Items API v2020-09-01
