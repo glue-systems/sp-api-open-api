@@ -8,6 +8,7 @@ use Glue\SpApi\OpenAPI\Exceptions\ClientBuilderException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorContract;
 use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\SpApiConfig;
+use GuzzleHttp\Client;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
@@ -19,7 +20,7 @@ class ClientBuilderTest extends TestCase
     public $authenticator;
 
     /**
-     * @var SpApiConfig|MockInterface
+     * @var SpApiConfig
      */
     public $spApiConfig;
 
@@ -28,7 +29,7 @@ class ClientBuilderTest extends TestCase
     {
         parent::setup();
         $this->authenticator = \Mockery::mock(ClientAuthenticatorContract::class);
-        $this->spApiConfig   = \Mockery::mock(SpApiConfig::class);
+        $this->spApiConfig   = $this->buildSpApiConfig();
     }
 
     public function test_forApi_happy_case()
@@ -47,6 +48,114 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
 
         $this->expectException(ClientBuilderException::class);
+        $this->expectExceptionMessage('Invalid API class FQN');
         $sut->forApi('\Invalid\Api\Class');
+    }
+
+    public function test_withConfig_happy_case_with_non_null_argument()
+    {
+        $expectedDomainConfig = (new Configuration())
+            ->setUsername('username-for-testing-only');
+
+        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut->forApi(OrdersV0Api::class);
+        $sut->withConfig($expectedDomainConfig);
+
+        $this->assertEquals($expectedDomainConfig, $sut->getDomainConfig());
+    }
+
+    public function test_withConfig_happy_case_with_null_argument()
+    {
+        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut->forApi(OrdersV0Api::class);
+        $sut->withConfig(null);
+
+        $this->assertEquals(new Configuration(), $sut->getDomainConfig());
+    }
+
+    public function test_withConfig_called_before_forApi_throws_ClientBuilderException()
+    {
+        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+
+        $this->expectException(ClientBuilderException::class);
+        $this->expectExceptionMessage("Method 'withConfig' cannot be called before");
+        $sut->withConfig(new Configuration());
+    }
+
+    public function test_withConfig_of_incorrect_type_throws_ClientBuilderException()
+    {
+        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut->forApi(OrdersV0Api::class);
+
+        $this->expectException(ClientBuilderException::class);
+        $this->expectExceptionMessage('Invalid configuartion class');
+        $sut->withConfig(new \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Configuration());
+    }
+
+    public function test_withRdtProvider()
+    {
+        $expectedRdtProvider = function () {
+            return 'foo';
+        };
+
+        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut->withRdtProvider($expectedRdtProvider);
+
+        $this->assertEquals($expectedRdtProvider, $sut->getRdtProvider());
+    }
+
+    public function test_createClient_happy_case_with_non_null_rdtProvider()
+    {
+        $expectedRdtProvider  = function () {
+            return 'foo';
+        };
+        $expectedGuzzleClient = new Client(['base_uri' => 'https://example.com']);
+        $expectedDomainConfig = (new Configuration())
+            ->setUserAgent($this->spApiConfig->userAgent())
+            ->setHost($this->spApiConfig->spApiBaseUrl);
+        $expectedDomainClient = new OrdersV0Api(
+            $expectedGuzzleClient,
+            $expectedDomainConfig
+        );
+
+        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut->forApi(OrdersV0Api::class);
+        $sut->withConfig(new Configuration());
+        $sut->withRdtProvider($expectedRdtProvider);
+
+        $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
+            ->once()
+            ->with(call_user_func($expectedRdtProvider))
+            ->andReturn($expectedGuzzleClient);
+
+        $actualDomainClient = $sut->createClient();
+
+        $this->assertEquals($expectedDomainClient, $actualDomainClient);
+    }
+
+    public function test_createClient_happy_case_with_null_rdtProvider()
+    {
+        $expectedGuzzleClient = new Client(['base_uri' => 'https://example.com']);
+        $expectedDomainConfig = (new Configuration())
+            ->setUserAgent($this->spApiConfig->userAgent())
+            ->setHost($this->spApiConfig->spApiBaseUrl);
+        $expectedDomainClient = new OrdersV0Api(
+            $expectedGuzzleClient,
+            $expectedDomainConfig
+        );
+
+        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut->forApi(OrdersV0Api::class);
+        $sut->withConfig(new Configuration());
+        $sut->withRdtProvider(null);
+
+        $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
+            ->once()
+            ->with(null)
+            ->andReturn($expectedGuzzleClient);
+
+        $actualDomainClient = $sut->createClient();
+
+        $this->assertEquals($expectedDomainClient, $actualDomainClient);
     }
 }
