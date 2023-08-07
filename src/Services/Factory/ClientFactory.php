@@ -55,13 +55,37 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
-     * @return SupplySourcesV20200701Api
+     * @return DefinitionsProductTypesV20200901Api
      */
-    public function createSupplySourcesV20200701ApiClient(
-        SupplySourcesV20200701Config $domainConfig = null
+    public function createDefinitionsProductTypesV20200901ApiClient(
+        DefinitionsProductTypesV20200901Config $domainConfig = null
     ) {
         return $this->builder
-            ->forApi(SupplySourcesV20200701Api::class)
+            ->forApi(DefinitionsProductTypesV20200901Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return FeedsV20200904Api
+     */
+    public function createFeedsV20200904ApiClient(
+        FeedsV20200904Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(FeedsV20200904Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return FeedsV20210630Api
+     */
+    public function createFeedsV20210630ApiClient(
+        FeedsV20210630Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(FeedsV20210630Api::class)
             ->withConfig($domainConfig)
             ->createClient();
     }
@@ -108,54 +132,6 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
-     * @return DefinitionsProductTypesV20200901Api
-     */
-    public function createDefinitionsProductTypesV20200901ApiClient(
-        DefinitionsProductTypesV20200901Config $domainConfig = null
-    ) {
-        return $this->builder
-            ->forApi(DefinitionsProductTypesV20200901Api::class)
-            ->withConfig($domainConfig)
-            ->createClient();
-    }
-
-    /**
-     * @return TokensV20210301Api
-     */
-    public function createTokensV20210301ApiClient(
-        TokensV20210301Config $domainConfig = null
-    ) {
-        return $this->builder
-            ->forApi(TokensV20210301Api::class)
-            ->withConfig($domainConfig)
-            ->createClient();
-    }
-
-    /**
-     * @return FeedsV20200904Api
-     */
-    public function createFeedsV20200904ApiClient(
-        FeedsV20200904Config $domainConfig = null
-    ) {
-        return $this->builder
-            ->forApi(FeedsV20200904Api::class)
-            ->withConfig($domainConfig)
-            ->createClient();
-    }
-
-    /**
-     * @return FeedsV20210630Api
-     */
-    public function createFeedsV20210630ApiClient(
-        FeedsV20210630Config $domainConfig = null
-    ) {
-        return $this->builder
-            ->forApi(FeedsV20210630Api::class)
-            ->withConfig($domainConfig)
-            ->createClient();
-    }
-
-    /**
      * @return ReportsV20200904Api
      */
     public function createReportsV20200904ApiClient(
@@ -180,6 +156,30 @@ class ClientFactory implements ClientFactoryContract
             ->forApi(ReportsV20210630Api::class)
             ->withConfig($domainConfig)
             ->withRdtProvider($rdtProvider)
+            ->createClient();
+    }
+
+    /**
+     * @return SupplySourcesV20200701Api
+     */
+    public function createSupplySourcesV20200701ApiClient(
+        SupplySourcesV20200701Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(SupplySourcesV20200701Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return TokensV20210301Api
+     */
+    public function createTokensV20210301ApiClient(
+        TokensV20210301Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(TokensV20210301Api::class)
+            ->withConfig($domainConfig)
             ->createClient();
     }
 }

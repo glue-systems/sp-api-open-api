@@ -33,10 +33,24 @@ interface ClientFactoryContract
     public function getSpApiConfig();
 
     /**
-     * @return SupplySourcesV20200701Api
+     * @return DefinitionsProductTypesV20200901Api
      */
-    public function createSupplySourcesV20200701ApiClient(
-        SupplySourcesV20200701Config $domainConfig = null
+    public function createDefinitionsProductTypesV20200901ApiClient(
+        DefinitionsProductTypesV20200901Config $domainConfig = null
+    );
+
+    /**
+     * @return FeedsV20200904Api
+     */
+    public function createFeedsV20200904ApiClient(
+        FeedsV20200904Config $domainConfig = null
+    );
+
+    /**
+     * @return FeedsV20210630Api
+     */
+    public function createFeedsV20210630ApiClient(
+        FeedsV20210630Config $domainConfig = null
     );
 
     /**
@@ -62,34 +76,6 @@ interface ClientFactoryContract
     );
 
     /**
-     * @return DefinitionsProductTypesV20200901Api
-     */
-    public function createDefinitionsProductTypesV20200901ApiClient(
-        DefinitionsProductTypesV20200901Config $domainConfig = null
-    );
-
-    /**
-     * @return TokensV20210301Api
-     */
-    public function createTokensV20210301ApiClient(
-        TokensV20210301Config $domainConfig = null
-    );
-
-    /**
-     * @return FeedsV20200904Api
-     */
-    public function createFeedsV20200904ApiClient(
-        FeedsV20200904Config $domainConfig = null
-    );
-
-    /**
-     * @return FeedsV20210630Api
-     */
-    public function createFeedsV20210630ApiClient(
-        FeedsV20210630Config $domainConfig = null
-    );
-
-    /**
      * @return ReportsV20200904Api
      */
     public function createReportsV20200904ApiClient(
@@ -103,5 +89,19 @@ interface ClientFactoryContract
     public function createReportsV20210630ApiClient(
         ReportsV20210630Config $domainConfig = null,
         callable $rdtProvider = null
+    );
+
+    /**
+     * @return SupplySourcesV20200701Api
+     */
+    public function createSupplySourcesV20200701ApiClient(
+        SupplySourcesV20200701Config $domainConfig = null
+    );
+
+    /**
+     * @return TokensV20210301Api
+     */
+    public function createTokensV20210301ApiClient(
+        TokensV20210301Config $domainConfig = null
     );
 }
