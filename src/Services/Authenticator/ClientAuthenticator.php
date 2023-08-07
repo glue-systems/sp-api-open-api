@@ -59,7 +59,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     }
 
     /**
-     * Get the cached LWA access token if it exists, or fetch a new one
+     * Get the cached LWA access token if it exists, or request a new one
      * and save it in the cache.
      *
      * @return string
@@ -82,7 +82,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     }
 
     /**
-     * Generate a new LWA access token.
+     * Request a new LWA access token.
      *
      * @return array
      */
