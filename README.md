@@ -230,6 +230,14 @@ rm -rf src/Clients/ReportsV20210630
 mv output/ReportsV20210630/lib src/Clients/ReportsV20210630
 ```
 
+#### Shipping API v1
+
+_(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
+
+#### Solicitations API v1
+
+_(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
+
 #### Supply Sources API v2020-07-01
 
 ```BASH
@@ -239,14 +247,6 @@ openapi-generator-cli generate -i models/supplySources_2020-07-01.json -g php -o
 rm -rf src/Clients/SupplySourcesV20200701
 mv output/SupplySourcesV20200701/lib src/Clients/SupplySourcesV20200701
 ```
-
-#### Shipping API v1
-
-_(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
-
-#### Solicitations API v1
-
-_(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
 
 #### Tokens API v2021-03-01
 
