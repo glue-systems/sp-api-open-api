@@ -70,7 +70,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
             return $cachedToken;
         }
 
-        $newToken = $this->generateNewLwaAccessToken();
+        $newToken = $this->requestNewLwaAccessToken();
 
         $this->cache->set(
             self::LWA_ACCESS_TOKEN_CACHE_KEY,
@@ -86,7 +86,7 @@ class ClientAuthenticator implements ClientAuthenticatorContract
      *
      * @return array
      */
-    public function generateNewLwaAccessToken()
+    public function requestNewLwaAccessToken()
     {
         $guzzle = new Client([
             'base_uri' => $this->spapiConfig->lwaOAuthBaseUrl,

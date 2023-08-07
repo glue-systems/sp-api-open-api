@@ -27,7 +27,7 @@ interface ClientAuthenticatorContract
      *
      * @return array
      */
-    public function generateNewLwaAccessToken();
+    public function requestNewLwaAccessToken();
 
     /**
      * Create an authenticated Guzzle client, ready to be passed into
