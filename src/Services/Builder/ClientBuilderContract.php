@@ -30,7 +30,7 @@ interface ClientBuilderContract
      *
      * @return SPAPIConfig
      */
-    public function getSpApiConfig();
+    public function getSPAPIConfig();
 
     /**
      * Set the target API by fully-qualified class name.

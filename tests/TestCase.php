@@ -57,8 +57,8 @@ class TestCase extends BaseTestCase
      */
     public function buildClientFactory()
     {
-        $spApiConfig = SPAPIConfig::make([
-            'spApiBaseUrl'          => env('SP_API_BASE_URL', 'https://sandbox.sellingpartnerapi-na.amazon.com'),
+        $spapiConfig = SPAPIConfig::make([
+            'spapiBaseUrl'          => env('SP_API_BASE_URL', 'https://sandbox.sellingpartnerapi-na.amazon.com'),
             'marketplaceId'         => env('MARKETPLACE_ID'),
             'sellerId'              => env('SELLER_ID'),
             'lwaOAuthBaseUrl'       => env('LWA_O_AUTH_BASE_URL', 'https://api.amazon.com'),
@@ -77,9 +77,9 @@ class TestCase extends BaseTestCase
             self::$arrayCache = new ArrayCache();
         }
         $credentialProvider  = $this->buildDotEnvCredentialProvider();
-        $clientAuthenticator = new ClientAuthenticator(self::$arrayCache, $credentialProvider, $spApiConfig);
-        $clientBuilder       = new ClientBuilder($clientAuthenticator, $spApiConfig);
-        $clientFactory       = new ClientFactory($clientBuilder, $spApiConfig);
+        $clientAuthenticator = new ClientAuthenticator(self::$arrayCache, $credentialProvider, $spapiConfig);
+        $clientBuilder       = new ClientBuilder($clientAuthenticator, $spapiConfig);
+        $clientFactory       = new ClientFactory($clientBuilder, $spapiConfig);
 
         return $clientFactory;
     }

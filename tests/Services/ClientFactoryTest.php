@@ -18,14 +18,14 @@ class ClientFactoryTest extends TestCase
     /**
      * @var SPAPIConfig|MockInterface
      */
-    public $spApiConfig;
+    public $spapiConfig;
 
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
         $this->builder     = \Mockery::mock(ClientBuilderContract::class);
-        $this->spApiConfig = \Mockery::mock(SPAPIConfig::class);
+        $this->spapiConfig = \Mockery::mock(SPAPIConfig::class);
     }
 
     public function test_createSupplySourcesV20200701ApiClient()
@@ -34,7 +34,7 @@ class ClientFactoryTest extends TestCase
         $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi();
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
 
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $sut             = new ClientFactory($this->builder, $this->spapiConfig);
         $actualApiClient = $sut->createSupplySourcesV20200701ApiClient($domainConfig);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
@@ -46,7 +46,7 @@ class ClientFactoryTest extends TestCase
         $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi();
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
 
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $sut             = new ClientFactory($this->builder, $this->spapiConfig);
         $actualApiClient = $sut->createListingsItemsV20200901ApiClient($domainConfig);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
@@ -62,7 +62,7 @@ class ClientFactoryTest extends TestCase
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
         $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
 
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $sut             = new ClientFactory($this->builder, $this->spapiConfig);
         $actualApiClient = $sut->createOrdersV0ApiClient($domainConfig, $rdtProvider);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
@@ -74,7 +74,7 @@ class ClientFactoryTest extends TestCase
         $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi();
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
 
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $sut             = new ClientFactory($this->builder, $this->spapiConfig);
         $actualApiClient = $sut->createOrdersV0ShipmentApiClient($domainConfig);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
@@ -86,7 +86,7 @@ class ClientFactoryTest extends TestCase
         $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi();
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
 
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $sut             = new ClientFactory($this->builder, $this->spapiConfig);
         $actualApiClient = $sut->createDefinitionsProductTypesV20200901ApiClient($domainConfig);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
@@ -98,7 +98,7 @@ class ClientFactoryTest extends TestCase
         $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi();
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
 
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $sut             = new ClientFactory($this->builder, $this->spapiConfig);
         $actualApiClient = $sut->createTokensV20210301ApiClient($domainConfig);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
@@ -110,7 +110,7 @@ class ClientFactoryTest extends TestCase
         $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi();
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
 
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $sut             = new ClientFactory($this->builder, $this->spapiConfig);
         $actualApiClient = $sut->createFeedsV20200904ApiClient($domainConfig);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
@@ -122,7 +122,7 @@ class ClientFactoryTest extends TestCase
         $expectedApiClient = new \Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi();
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
 
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $sut             = new ClientFactory($this->builder, $this->spapiConfig);
         $actualApiClient = $sut->createFeedsV20210630ApiClient($domainConfig);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
@@ -138,7 +138,7 @@ class ClientFactoryTest extends TestCase
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
         $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
 
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $sut             = new ClientFactory($this->builder, $this->spapiConfig);
         $actualApiClient = $sut->createReportsV20200904ApiClient($domainConfig, $rdtProvider);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
@@ -154,7 +154,7 @@ class ClientFactoryTest extends TestCase
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
         $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
 
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $sut             = new ClientFactory($this->builder, $this->spapiConfig);
         $actualApiClient = $sut->createReportsV20210630ApiClient($domainConfig, $rdtProvider);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);

@@ -48,7 +48,7 @@ class ClientBuilder implements ClientBuilderContract
     /**
      * @var SPAPIConfig
      */
-    protected $spApiConfig;
+    protected $spapiConfig;
 
     /**
      * @var string
@@ -70,10 +70,10 @@ class ClientBuilder implements ClientBuilderContract
 
     public function __construct(
         ClientAuthenticatorContract $authenticator,
-        SPAPIConfig $spApiConfig
+        SPAPIConfig $spapiConfig
     ) {
         $this->authenticator = $authenticator;
-        $this->spApiConfig   = $spApiConfig;
+        $this->spapiConfig   = $spapiConfig;
     }
 
     /**
@@ -81,9 +81,9 @@ class ClientBuilder implements ClientBuilderContract
      *
      * @return SPAPIConfig
      */
-    public function getSpApiConfig()
+    public function getSPAPIConfig()
     {
-        return clone $this->spApiConfig;
+        return clone $this->spapiConfig;
     }
 
     /**
@@ -174,9 +174,9 @@ class ClientBuilder implements ClientBuilderContract
      */
     protected function _setUpClientConfig($clientConfig)
     {
-        $clientConfig->setUserAgent($this->spApiConfig->userAgent());
+        $clientConfig->setUserAgent($this->spapiConfig->userAgent());
 
-        $clientConfig->setHost($this->spApiConfig->spApiBaseUrl);
+        $clientConfig->setHost($this->spapiConfig->spapiBaseUrl);
 
         return $clientConfig;
     }

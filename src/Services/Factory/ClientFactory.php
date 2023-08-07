@@ -34,14 +34,14 @@ class ClientFactory implements ClientFactoryContract
     /**
      * @var SPAPIConfig
      */
-    protected $spApiConfig;
+    protected $spapiConfig;
 
     public function __construct(
         ClientBuilderContract $builder,
-        SPAPIConfig $spApiConfig
+        SPAPIConfig $spapiConfig
     ) {
         $this->builder      = $builder;
-        $this->spApiConfig  = $spApiConfig;
+        $this->spapiConfig  = $spapiConfig;
     }
 
     /**
@@ -49,9 +49,9 @@ class ClientFactory implements ClientFactoryContract
      *
      * @return SPAPIConfig
      */
-    public function getSpApiConfig()
+    public function getSPAPIConfig()
     {
-        return clone $this->spApiConfig;
+        return clone $this->spapiConfig;
     }
 
     /**

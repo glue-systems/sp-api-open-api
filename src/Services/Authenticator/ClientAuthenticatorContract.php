@@ -12,7 +12,7 @@ interface ClientAuthenticatorContract
      *
      * @return SPAPIConfig
      */
-    public function getSpApiConfig();
+    public function getSPAPIConfig();
 
     /**
      * Get the cached LWA access token if it exists, or fetch a new one

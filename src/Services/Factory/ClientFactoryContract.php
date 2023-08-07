@@ -30,7 +30,7 @@ interface ClientFactoryContract
      *
      * @return SPAPIConfig
      */
-    public function getSpApiConfig();
+    public function getSPAPIConfig();
 
     /**
      * @return SupplySourcesV20200701Api

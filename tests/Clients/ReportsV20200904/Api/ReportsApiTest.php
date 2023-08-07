@@ -29,7 +29,7 @@ class ReportsApiTest extends TestCase
             // Specific values come from the sandbox spec in models/reports_2020-09-04.json
             ['FEE_DISCOUNTS_REPORT', 'GET_AFN_INVENTORY_DATA'],
             ['IN_QUEUE', 'IN_PROGRESS'],
-            [$this->clientFactory->getSpApiConfig()->marketplaceId],
+            [$this->clientFactory->getSPAPIConfig()->marketplaceId],
             10
         );
 

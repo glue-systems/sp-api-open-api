@@ -9,7 +9,7 @@ class SPAPIConfig
     /**
      * @var string
      */
-    public $spApiBaseUrl;
+    public $spapiBaseUrl;
 
     /**
      * @var string
@@ -109,7 +109,7 @@ class SPAPIConfig
     public function validateConfig()
     {
         $requiredStringFields = [
-            'spApiBaseUrl',
+            'spapiBaseUrl',
             'marketplaceId',
             'sellerId',
             'lwaOAuthBaseUrl',
@@ -140,8 +140,8 @@ class SPAPIConfig
             }
         }
 
-        if ($this->sandbox && strpos(strtolower($this->spApiBaseUrl), 'sandbox') === false) {
-            throw new SPAPIConfigurationException("Production URL detected! Invalid spApiBaseUrl '{$this->spApiBaseUrl}'"
+        if ($this->sandbox && strpos(strtolower($this->spapiBaseUrl), 'sandbox') === false) {
+            throw new SPAPIConfigurationException("Production URL detected! Invalid spapiBaseUrl '{$this->spapiBaseUrl}'"
                 . " when sandbox = true. Please use the sandbox URL and associated credentials instead."
                 . " For more info, see the Amazon docs: https://developer-docs.amazon.com/amazon-shipping/docs/the-selling-partner-api-sandbox.");
         }

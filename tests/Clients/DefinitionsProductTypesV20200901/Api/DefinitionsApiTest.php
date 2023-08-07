@@ -26,7 +26,7 @@ class DefinitionsApiTest extends TestCase
 
         $result = $definitionsApi->getDefinitionsProductTypeWithHttpInfo(
             'testProductType123',
-            [$this->clientFactory->getSpApiConfig()->marketplaceId]
+            [$this->clientFactory->getSPAPIConfig()->marketplaceId]
         );
 
         /**
