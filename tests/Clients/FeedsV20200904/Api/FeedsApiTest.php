@@ -2,9 +2,9 @@
 
 namespace Tests\Clients\FeedsV20200904\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\Feed;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\Feed;
+use Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Tests\TestCase;
 
 class FeedsApiTest extends TestCase
@@ -28,7 +28,7 @@ class FeedsApiTest extends TestCase
         $result = $feedsApi->getFeedsWithHttpInfo(
             // Specific values come from the sandbox spec in models/feeds_2020-09-04.json
             ['POST_PRODUCT_DATA'],
-            [$this->clientFactory->getSPAPIConfig()->marketplaceId],
+            [$this->clientFactory->getSpApiConfig()->marketplaceId],
             10,
             ['CANCELLED', 'DONE']
         );

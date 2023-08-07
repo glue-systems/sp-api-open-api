@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * Error Class Doc Comment
  *
  * @category Class
  * @description Error response returned when the request is unsuccessful.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

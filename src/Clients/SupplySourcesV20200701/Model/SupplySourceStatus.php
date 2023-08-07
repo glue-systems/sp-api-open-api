@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,15 +27,15 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model;
-use \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
+namespace Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model;
+use \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
 
 /**
  * SupplySourceStatus Class Doc Comment
  *
  * @category Class
  * @description SupplySource status
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

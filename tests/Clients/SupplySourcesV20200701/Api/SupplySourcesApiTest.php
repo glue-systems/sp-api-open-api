@@ -2,8 +2,8 @@
 
 namespace Tests\Clients\SupplySourcesV20200701\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\GetSupplySourcesResponse;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\GetSupplySourcesResponse;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Tests\TestCase;
 
 class SupplySourcesApiTest extends TestCase

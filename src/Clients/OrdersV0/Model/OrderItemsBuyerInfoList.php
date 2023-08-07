@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * OrderItemsBuyerInfoList Class Doc Comment
  *
  * @category Class
  * @description A single order item&#39;s buyer information list with the order ID.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class OrderItemsBuyerInfoList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'order_items' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrderItemBuyerInfo[]',
+        'order_items' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OrderItemBuyerInfo[]',
         'next_token' => 'string',
         'amazon_order_id' => 'string'
     ];
@@ -226,7 +226,7 @@ class OrderItemsBuyerInfoList implements ModelInterface, ArrayAccess
     /**
      * Gets order_items
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrderItemBuyerInfo[]
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OrderItemBuyerInfo[]
      */
     public function getOrderItems()
     {
@@ -236,7 +236,7 @@ class OrderItemsBuyerInfoList implements ModelInterface, ArrayAccess
     /**
      * Sets order_items
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrderItemBuyerInfo[] $order_items A single order item's buyer information list.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OrderItemBuyerInfo[] $order_items A single order item's buyer information list.
      *
      * @return $this
      */

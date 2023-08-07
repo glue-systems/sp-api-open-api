@@ -2,11 +2,11 @@
 
 namespace Tests\Clients\ListingsItemsV20200901\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchRequest;
+use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest;
+use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse;
+use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Tests\TestCase;
 
 class ListingsApiTest extends TestCase
@@ -28,9 +28,9 @@ class ListingsApiTest extends TestCase
         $listingsApi = $this->clientFactory->createListingsItemsV20200901ApiClient();
 
         $result = $listingsApi->deleteListingsItemWithHttpInfo(
-            $this->clientFactory->getSPAPIConfig()->sellerId,
+            $this->clientFactory->getSpApiConfig()->sellerId,
             'TESTSKU123',
-            [$this->clientFactory->getSPAPIConfig()->marketplaceId]
+            [$this->clientFactory->getSpApiConfig()->marketplaceId]
         );
 
         $this->_assertSubmissionResponseMatchesStandardExpectations($result);
@@ -57,9 +57,9 @@ class ListingsApiTest extends TestCase
         ]);
 
         $result = $listingsApi->patchListingsItemWithHttpInfo(
-            $this->clientFactory->getSPAPIConfig()->sellerId,
+            $this->clientFactory->getSpApiConfig()->sellerId,
             'TESTSKU123',
-            [$this->clientFactory->getSPAPIConfig()->marketplaceId],
+            [$this->clientFactory->getSpApiConfig()->marketplaceId],
             $request
         );
 
@@ -80,9 +80,9 @@ class ListingsApiTest extends TestCase
         ]);
 
         $result = $listingsApi->putListingsItemWithHttpInfo(
-            $this->clientFactory->getSPAPIConfig()->sellerId,
+            $this->clientFactory->getSpApiConfig()->sellerId,
             'TESTSKU123',
-            [$this->clientFactory->getSPAPIConfig()->marketplaceId],
+            [$this->clientFactory->getSpApiConfig()->marketplaceId],
             $request
         );
 

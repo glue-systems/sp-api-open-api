@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\TokensV20210301
+ * @package  Glue\SpApi\OpenAPI\Clients\TokensV20210301
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,14 +26,14 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\TokensV20210301;
+namespace Glue\SpApi\OpenAPI\Clients\TokensV20210301;
 
 /**
  * Configuration Class Doc Comment
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\TokensV20210301
+ * @package  Glue\SpApi\OpenAPI\Clients\TokensV20210301
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -393,7 +393,7 @@ class Configuration
      */
     public static function toDebugReport()
     {
-        $report  = 'PHP SDK (Glue\SPAPI\OpenAPI\Clients\TokensV20210301) Debug Report:' . PHP_EOL;
+        $report  = 'PHP SDK (Glue\SpApi\OpenAPI\Clients\TokensV20210301) Debug Report:' . PHP_EOL;
         $report .= '    OS: ' . php_uname() . PHP_EOL;
         $report .= '    PHP Version: ' . PHP_VERSION . PHP_EOL;
         $report .= '    OpenAPI Spec Version: 2021-03-01' . PHP_EOL;

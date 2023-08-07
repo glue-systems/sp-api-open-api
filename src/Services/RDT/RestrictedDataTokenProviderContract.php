@@ -1,8 +1,8 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI\Services\RDT;
+namespace Glue\SpApi\OpenAPI\Services\RDT;
 
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 
 interface RestrictedDataTokenProviderContract
 {

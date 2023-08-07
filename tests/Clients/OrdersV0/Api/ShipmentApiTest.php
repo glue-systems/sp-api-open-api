@@ -2,9 +2,9 @@
 
 namespace Tests\Clients\OrdersV0\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Tests\TestCase;
 
 class ShipmentApiTest extends TestCase
@@ -28,7 +28,7 @@ class ShipmentApiTest extends TestCase
         $result = $shipmentApi->updateShipmentStatusWithHttpInfo(
             'testOrder123',
             new UpdateShipmentStatusRequest([
-                'marketplace_id'  => $this->clientFactory->getSPAPIConfig()->marketplaceId,
+                'marketplace_id'  => $this->clientFactory->getSpApiConfig()->marketplaceId,
                 'shipment_status' => ShipmentStatus::READY_FOR_PICKUP
             ])
         );

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model;
+namespace Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
 
 /**
  * SupplySource Class Doc Comment
  *
  * @category Class
  * @description Supply source details, including configurations and capabilities.
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -61,10 +61,10 @@ class SupplySource implements ModelInterface, ArrayAccess
         'supply_source_id' => 'string',
         'supply_source_code' => 'string',
         'alias' => 'string',
-        'status' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatusReadOnly',
-        'address' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\Address',
-        'configuration' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceConfiguration',
-        'capabilities' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceCapabilities',
+        'status' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatusReadOnly',
+        'address' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Address',
+        'configuration' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceConfiguration',
+        'capabilities' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceCapabilities',
         'created_at' => 'string',
         'updated_at' => 'string'
     ];
@@ -328,7 +328,7 @@ class SupplySource implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatusReadOnly|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatusReadOnly|null
      */
     public function getStatus()
     {
@@ -338,7 +338,7 @@ class SupplySource implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatusReadOnly|null $status status
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatusReadOnly|null $status status
      *
      * @return $this
      */
@@ -352,7 +352,7 @@ class SupplySource implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\Address|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Address|null
      */
     public function getAddress()
     {
@@ -362,7 +362,7 @@ class SupplySource implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\Address|null $address address
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Address|null $address address
      *
      * @return $this
      */
@@ -376,7 +376,7 @@ class SupplySource implements ModelInterface, ArrayAccess
     /**
      * Gets configuration
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceConfiguration|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceConfiguration|null
      */
     public function getConfiguration()
     {
@@ -386,7 +386,7 @@ class SupplySource implements ModelInterface, ArrayAccess
     /**
      * Sets configuration
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceConfiguration|null $configuration configuration
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceConfiguration|null $configuration configuration
      *
      * @return $this
      */
@@ -400,7 +400,7 @@ class SupplySource implements ModelInterface, ArrayAccess
     /**
      * Gets capabilities
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceCapabilities|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceCapabilities|null
      */
     public function getCapabilities()
     {
@@ -410,7 +410,7 @@ class SupplySource implements ModelInterface, ArrayAccess
     /**
      * Sets capabilities
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceCapabilities|null $capabilities capabilities
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceCapabilities|null $capabilities capabilities
      *
      * @return $this
      */

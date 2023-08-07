@@ -2,10 +2,10 @@
 
 namespace Tests\Clients\TokensV20210301\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Tests\TestCase;
 
 class TokensApiTest extends TestCase

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model;
+namespace Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
 
 /**
  * ContactDetails Class Doc Comment
  *
  * @category Class
  * @description Contact details
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class ContactDetails implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'primary' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetailsPrimary'
+        'primary' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetailsPrimary'
     ];
 
     /**
@@ -208,7 +208,7 @@ class ContactDetails implements ModelInterface, ArrayAccess
     /**
      * Gets primary
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetailsPrimary|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetailsPrimary|null
      */
     public function getPrimary()
     {
@@ -218,7 +218,7 @@ class ContactDetails implements ModelInterface, ArrayAccess
     /**
      * Sets primary
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetailsPrimary|null $primary primary
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetailsPrimary|null $primary primary
      *
      * @return $this
      */

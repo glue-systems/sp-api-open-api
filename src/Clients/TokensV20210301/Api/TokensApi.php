@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\TokensV20210301
+ * @package  Glue\SpApi\OpenAPI\Clients\TokensV20210301
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api;
+namespace Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\ApiException;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\HeaderSelector;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\ObjectSerializer;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\ApiException;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Configuration;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\HeaderSelector;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\ObjectSerializer;
 
 /**
  * TokensApi Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\TokensV20210301
+ * @package  Glue\SpApi\OpenAPI\Clients\TokensV20210301
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -90,11 +90,11 @@ class TokensApi
     /**
      * Operation createRestrictedDataToken
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\TokensV20210301\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList
+     * @return \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList
      */
     public function createRestrictedDataToken($create_restricted_data_token_request)
     {
@@ -105,11 +105,11 @@ class TokensApi
     /**
      * Operation createRestrictedDataTokenWithHttpInfo
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\TokensV20210301\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function createRestrictedDataTokenWithHttpInfo($create_restricted_data_token_request)
     {
@@ -146,116 +146,116 @@ class TokensApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -274,7 +274,7 @@ class TokensApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -282,7 +282,7 @@ class TokensApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -290,7 +290,7 @@ class TokensApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -298,7 +298,7 @@ class TokensApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -306,7 +306,7 @@ class TokensApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -314,7 +314,7 @@ class TokensApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -322,7 +322,7 @@ class TokensApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -330,7 +330,7 @@ class TokensApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -338,7 +338,7 @@ class TokensApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -353,7 +353,7 @@ class TokensApi
      *
      * 
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -373,14 +373,14 @@ class TokensApi
      *
      * 
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createRestrictedDataTokenAsyncWithHttpInfo($create_restricted_data_token_request)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse';
         $request = $this->createRestrictedDataTokenRequest($create_restricted_data_token_request);
 
         return $this->client
@@ -420,7 +420,7 @@ class TokensApi
     /**
      * Create request for operation 'createRestrictedDataToken'
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

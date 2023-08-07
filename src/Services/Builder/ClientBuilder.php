@@ -1,29 +1,29 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI\Services\Builder;
+namespace Glue\SpApi\OpenAPI\Services\Builder;
 
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi as DefinitionsProductTypesV20200901Api;
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Configuration as DefinitionsProductTypesV20200901Config;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi as FeedsV20200904Api;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Configuration as FeedsV20200904Config;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi as FeedsV20210630Api;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Configuration as FeedsV20210630Config;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi as ListingsItemsV20200901Api;
-use Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Configuration as ListingsItemsV20200901Config;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api\ShipmentApi as OrdersV0ShipmentApi;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Configuration as OrdersV0Config;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsV20200904Api;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Configuration as ReportsV20200904Config;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsV20210630Api;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Configuration as ReportsV20210630Config;
-use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as SupplySourcesV20200701Api;
-use Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
-use Glue\SPAPI\OpenAPI\Exceptions\ClientBuilderException;
-use Glue\SPAPI\OpenAPI\Services\Authenticator\ClientAuthenticatorContract;
-use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
+use Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi as DefinitionsProductTypesV20200901Api;
+use Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Configuration as DefinitionsProductTypesV20200901Config;
+use Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi as FeedsV20200904Api;
+use Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Configuration as FeedsV20200904Config;
+use Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi as FeedsV20210630Api;
+use Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Configuration as FeedsV20210630Config;
+use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi as ListingsItemsV20200901Api;
+use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Configuration as ListingsItemsV20200901Config;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi as OrdersV0ShipmentApi;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\Configuration as OrdersV0Config;
+use Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsV20200904Api;
+use Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Configuration as ReportsV20200904Config;
+use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsV20210630Api;
+use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Configuration as ReportsV20210630Config;
+use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as SupplySourcesV20200701Api;
+use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
+use Glue\SpApi\OpenAPI\Exceptions\ClientBuilderException;
+use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorContract;
+use Glue\SpApi\OpenAPI\Services\SpApiConfig;
 
 class ClientBuilder implements ClientBuilderContract
 {
@@ -46,9 +46,9 @@ class ClientBuilder implements ClientBuilderContract
     protected $authenticator;
 
     /**
-     * @var SPAPIConfig
+     * @var SpApiConfig
      */
-    protected $spapiConfig;
+    protected $spApiConfig;
 
     /**
      * @var string
@@ -70,20 +70,20 @@ class ClientBuilder implements ClientBuilderContract
 
     public function __construct(
         ClientAuthenticatorContract $authenticator,
-        SPAPIConfig $spapiConfig
+        SpApiConfig $spApiConfig
     ) {
         $this->authenticator = $authenticator;
-        $this->spapiConfig   = $spapiConfig;
+        $this->spApiConfig   = $spApiConfig;
     }
 
     /**
      * Get the global SP-API config object.
      *
-     * @return SPAPIConfig
+     * @return SpApiConfig
      */
-    public function getSPAPIConfig()
+    public function getSpApiConfig()
     {
-        return clone $this->spapiConfig;
+        return clone $this->spApiConfig;
     }
 
     /**
@@ -174,9 +174,9 @@ class ClientBuilder implements ClientBuilderContract
      */
     protected function _setUpClientConfig($clientConfig)
     {
-        $clientConfig->setUserAgent($this->spapiConfig->userAgent());
+        $clientConfig->setUserAgent($this->spApiConfig->userAgent());
 
-        $clientConfig->setHost($this->spapiConfig->spapiBaseUrl);
+        $clientConfig->setHost($this->spApiConfig->spApiBaseUrl);
 
         return $clientConfig;
     }

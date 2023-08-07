@@ -1,8 +1,8 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI\Services\Authenticator;
+namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
-use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
+use Glue\SpApi\OpenAPI\Services\SpApiConfig;
 use GuzzleHttp\ClientInterface;
 
 interface ClientAuthenticatorContract
@@ -10,9 +10,9 @@ interface ClientAuthenticatorContract
     /**
      * Get the global SP-API config object.
      *
-     * @return SPAPIConfig
+     * @return SpApiConfig
      */
-    public function getSPAPIConfig();
+    public function getSpApiConfig();
 
     /**
      * Get the cached LWA access token if it exists, or fetch a new one

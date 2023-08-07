@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,12 +27,12 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model;
+namespace Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model
+ * @package Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

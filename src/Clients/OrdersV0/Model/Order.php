@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * Order Class Doc Comment
  *
  * @category Class
  * @description Order information.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -67,15 +67,15 @@ class Order implements ModelInterface, ArrayAccess
         'sales_channel' => 'string',
         'order_channel' => 'string',
         'ship_service_level' => 'string',
-        'order_total' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
+        'order_total' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
         'number_of_items_shipped' => 'int',
         'number_of_items_unshipped' => 'int',
-        'payment_execution_detail' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\PaymentExecutionDetailItem[]',
+        'payment_execution_detail' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PaymentExecutionDetailItem[]',
         'payment_method' => 'string',
         'payment_method_details' => 'string[]',
         'marketplace_id' => 'string',
         'shipment_service_level_category' => 'string',
-        'easy_ship_shipment_status' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\EasyShipShipmentStatus',
+        'easy_ship_shipment_status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\EasyShipShipmentStatus',
         'cba_displayable_shipping_label' => 'string',
         'order_type' => 'string',
         'earliest_ship_date' => 'string',
@@ -92,19 +92,19 @@ class Order implements ModelInterface, ArrayAccess
         'is_estimated_ship_date_set' => 'bool',
         'is_sold_by_ab' => 'bool',
         'is_iba' => 'bool',
-        'default_ship_from_location_address' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address',
+        'default_ship_from_location_address' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address',
         'buyer_invoice_preference' => 'string',
-        'buyer_tax_information' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInformation',
-        'fulfillment_instruction' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\FulfillmentInstruction',
+        'buyer_tax_information' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInformation',
+        'fulfillment_instruction' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\FulfillmentInstruction',
         'is_ispu' => 'bool',
         'is_access_point_order' => 'bool',
-        'marketplace_tax_info' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\MarketplaceTaxInfo',
+        'marketplace_tax_info' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\MarketplaceTaxInfo',
         'seller_display_name' => 'string',
-        'shipping_address' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address',
-        'buyer_info' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerInfo',
-        'automated_shipping_settings' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\AutomatedShippingSettings',
+        'shipping_address' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address',
+        'buyer_info' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerInfo',
+        'automated_shipping_settings' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\AutomatedShippingSettings',
         'has_regulated_items' => 'bool',
-        'electronic_invoice_status' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ElectronicInvoiceStatus'
+        'electronic_invoice_status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ElectronicInvoiceStatus'
     ];
 
     /**
@@ -865,7 +865,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets order_total
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getOrderTotal()
     {
@@ -875,7 +875,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets order_total
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $order_total order_total
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $order_total order_total
      *
      * @return $this
      */
@@ -937,7 +937,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets payment_execution_detail
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\PaymentExecutionDetailItem[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PaymentExecutionDetailItem[]|null
      */
     public function getPaymentExecutionDetail()
     {
@@ -947,7 +947,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets payment_execution_detail
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\PaymentExecutionDetailItem[]|null $payment_execution_detail A list of payment execution detail items.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PaymentExecutionDetailItem[]|null $payment_execution_detail A list of payment execution detail items.
      *
      * @return $this
      */
@@ -1066,7 +1066,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets easy_ship_shipment_status
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\EasyShipShipmentStatus|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\EasyShipShipmentStatus|null
      */
     public function getEasyShipShipmentStatus()
     {
@@ -1076,7 +1076,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets easy_ship_shipment_status
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\EasyShipShipmentStatus|null $easy_ship_shipment_status easy_ship_shipment_status
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\EasyShipShipmentStatus|null $easy_ship_shipment_status easy_ship_shipment_status
      *
      * @return $this
      */
@@ -1483,7 +1483,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets default_ship_from_location_address
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address|null
      */
     public function getDefaultShipFromLocationAddress()
     {
@@ -1493,7 +1493,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets default_ship_from_location_address
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null $default_ship_from_location_address default_ship_from_location_address
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address|null $default_ship_from_location_address default_ship_from_location_address
      *
      * @return $this
      */
@@ -1540,7 +1540,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets buyer_tax_information
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInformation|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInformation|null
      */
     public function getBuyerTaxInformation()
     {
@@ -1550,7 +1550,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets buyer_tax_information
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInformation|null $buyer_tax_information buyer_tax_information
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerTaxInformation|null $buyer_tax_information buyer_tax_information
      *
      * @return $this
      */
@@ -1564,7 +1564,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets fulfillment_instruction
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\FulfillmentInstruction|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\FulfillmentInstruction|null
      */
     public function getFulfillmentInstruction()
     {
@@ -1574,7 +1574,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets fulfillment_instruction
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\FulfillmentInstruction|null $fulfillment_instruction fulfillment_instruction
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\FulfillmentInstruction|null $fulfillment_instruction fulfillment_instruction
      *
      * @return $this
      */
@@ -1636,7 +1636,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets marketplace_tax_info
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\MarketplaceTaxInfo|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\MarketplaceTaxInfo|null
      */
     public function getMarketplaceTaxInfo()
     {
@@ -1646,7 +1646,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets marketplace_tax_info
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\MarketplaceTaxInfo|null $marketplace_tax_info marketplace_tax_info
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\MarketplaceTaxInfo|null $marketplace_tax_info marketplace_tax_info
      *
      * @return $this
      */
@@ -1684,7 +1684,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets shipping_address
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address|null
      */
     public function getShippingAddress()
     {
@@ -1694,7 +1694,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_address
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null $shipping_address shipping_address
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address|null $shipping_address shipping_address
      *
      * @return $this
      */
@@ -1708,7 +1708,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets buyer_info
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerInfo|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerInfo|null
      */
     public function getBuyerInfo()
     {
@@ -1718,7 +1718,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets buyer_info
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerInfo|null $buyer_info buyer_info
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerInfo|null $buyer_info buyer_info
      *
      * @return $this
      */
@@ -1732,7 +1732,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets automated_shipping_settings
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\AutomatedShippingSettings|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\AutomatedShippingSettings|null
      */
     public function getAutomatedShippingSettings()
     {
@@ -1742,7 +1742,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets automated_shipping_settings
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\AutomatedShippingSettings|null $automated_shipping_settings automated_shipping_settings
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\AutomatedShippingSettings|null $automated_shipping_settings automated_shipping_settings
      *
      * @return $this
      */
@@ -1780,7 +1780,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Gets electronic_invoice_status
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ElectronicInvoiceStatus|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ElectronicInvoiceStatus|null
      */
     public function getElectronicInvoiceStatus()
     {
@@ -1790,7 +1790,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets electronic_invoice_status
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ElectronicInvoiceStatus|null $electronic_invoice_status electronic_invoice_status
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ElectronicInvoiceStatus|null $electronic_invoice_status electronic_invoice_status
      *
      * @return $this
      */

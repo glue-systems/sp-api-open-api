@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * RegulatedOrderVerificationStatus Class Doc Comment
  *
  * @category Class
  * @description The verification status of the order along with associated approval or rejection metadata.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,10 +58,10 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\VerificationStatus',
+        'status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus',
         'requires_merchant_action' => 'bool',
-        'valid_rejection_reasons' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RejectionReason[]',
-        'rejection_reason' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RejectionReason',
+        'valid_rejection_reasons' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason[]',
+        'rejection_reason' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason',
         'review_date' => 'string',
         'external_reviewer_id' => 'string'
     ];
@@ -247,7 +247,7 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\VerificationStatus
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus
      */
     public function getStatus()
     {
@@ -257,7 +257,7 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\VerificationStatus $status status
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus $status status
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
     /**
      * Gets valid_rejection_reasons
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RejectionReason[]
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason[]
      */
     public function getValidRejectionReasons()
     {
@@ -305,7 +305,7 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
     /**
      * Sets valid_rejection_reasons
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RejectionReason[] $valid_rejection_reasons A list of valid rejection reasons that may be used to reject the order's regulated information.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason[] $valid_rejection_reasons A list of valid rejection reasons that may be used to reject the order's regulated information.
      *
      * @return $this
      */
@@ -319,7 +319,7 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
     /**
      * Gets rejection_reason
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RejectionReason|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason|null
      */
     public function getRejectionReason()
     {
@@ -329,7 +329,7 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
     /**
      * Sets rejection_reason
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RejectionReason|null $rejection_reason rejection_reason
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason|null $rejection_reason rejection_reason
      *
      * @return $this
      */

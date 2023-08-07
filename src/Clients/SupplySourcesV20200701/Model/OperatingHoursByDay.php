@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model;
+namespace Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
 
 /**
  * OperatingHoursByDay Class Doc Comment
  *
  * @category Class
  * @description Operating hours per day
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,13 +58,13 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'monday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]',
-        'tuesday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]',
-        'wednesday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]',
-        'thursday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]',
-        'friday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]',
-        'saturday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]',
-        'sunday' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]'
+        'monday' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]',
+        'tuesday' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]',
+        'wednesday' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]',
+        'thursday' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]',
+        'friday' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]',
+        'saturday' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]',
+        'sunday' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]'
     ];
 
     /**
@@ -244,7 +244,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Gets monday
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
      */
     public function getMonday()
     {
@@ -254,7 +254,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Sets monday
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $monday A list of Operating Hours.
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $monday A list of Operating Hours.
      *
      * @return $this
      */
@@ -268,7 +268,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Gets tuesday
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
      */
     public function getTuesday()
     {
@@ -278,7 +278,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Sets tuesday
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $tuesday A list of Operating Hours.
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $tuesday A list of Operating Hours.
      *
      * @return $this
      */
@@ -292,7 +292,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Gets wednesday
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
      */
     public function getWednesday()
     {
@@ -302,7 +302,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Sets wednesday
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $wednesday A list of Operating Hours.
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $wednesday A list of Operating Hours.
      *
      * @return $this
      */
@@ -316,7 +316,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Gets thursday
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
      */
     public function getThursday()
     {
@@ -326,7 +326,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Sets thursday
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $thursday A list of Operating Hours.
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $thursday A list of Operating Hours.
      *
      * @return $this
      */
@@ -340,7 +340,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Gets friday
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
      */
     public function getFriday()
     {
@@ -350,7 +350,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Sets friday
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $friday A list of Operating Hours.
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $friday A list of Operating Hours.
      *
      * @return $this
      */
@@ -364,7 +364,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Gets saturday
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
      */
     public function getSaturday()
     {
@@ -374,7 +374,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Sets saturday
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $saturday A list of Operating Hours.
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $saturday A list of Operating Hours.
      *
      * @return $this
      */
@@ -388,7 +388,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Gets sunday
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null
      */
     public function getSunday()
     {
@@ -398,7 +398,7 @@ class OperatingHoursByDay implements ModelInterface, ArrayAccess
     /**
      * Sets sunday
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $sunday A list of Operating Hours.
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperatingHour[]|null $sunday A list of Operating Hours.
      *
      * @return $this
      */

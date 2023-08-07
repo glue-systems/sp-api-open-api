@@ -10,10 +10,10 @@ use Dotenv\Environment\Adapter\PutenvAdapter;
 use Dotenv\Environment\Adapter\ServerConstAdapter;
 use Dotenv\Environment\DotenvFactory;
 use Dotenv\Exception\InvalidFileException;
-use Glue\SPAPI\OpenAPI\Services\Authenticator\ClientAuthenticator;
-use Glue\SPAPI\OpenAPI\Services\Builder\ClientBuilder;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
-use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
+use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
+use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilder;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Services\SpApiConfig;
 // TODO: Switch to this after upgrading.
 // use PHPUnit\Framework\TestCase as BaseTestCase;
 use \PHPUnit_Framework_TestCase as BaseTestCase;
@@ -57,8 +57,8 @@ class TestCase extends BaseTestCase
      */
     public function buildClientFactory()
     {
-        $spapiConfig = SPAPIConfig::make([
-            'spapiBaseUrl'          => env('SP_API_BASE_URL', 'https://sandbox.sellingpartnerapi-na.amazon.com'),
+        $spApiConfig = SpApiConfig::make([
+            'spApiBaseUrl'          => env('SP_API_BASE_URL', 'https://sandbox.sellingpartnerapi-na.amazon.com'),
             'marketplaceId'         => env('MARKETPLACE_ID'),
             'sellerId'              => env('SELLER_ID'),
             'lwaOAuthBaseUrl'       => env('LWA_O_AUTH_BASE_URL', 'https://api.amazon.com'),
@@ -77,9 +77,9 @@ class TestCase extends BaseTestCase
             self::$arrayCache = new ArrayCache();
         }
         $credentialProvider  = $this->buildDotEnvCredentialProvider();
-        $clientAuthenticator = new ClientAuthenticator(self::$arrayCache, $credentialProvider, $spapiConfig);
-        $clientBuilder       = new ClientBuilder($clientAuthenticator, $spapiConfig);
-        $clientFactory       = new ClientFactory($clientBuilder, $spapiConfig);
+        $clientAuthenticator = new ClientAuthenticator(self::$arrayCache, $credentialProvider, $spApiConfig);
+        $clientBuilder       = new ClientBuilder($clientAuthenticator, $spApiConfig);
+        $clientFactory       = new ClientFactory($clientBuilder, $spApiConfig);
 
         return $clientFactory;
     }

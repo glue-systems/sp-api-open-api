@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\TokensV20210301
+ * @package  Glue\SpApi\OpenAPI\Clients\TokensV20210301
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model;
+namespace Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\TokensV20210301\ObjectSerializer;
 
 /**
  * CreateRestrictedDataTokenRequest Class Doc Comment
  *
  * @category Class
  * @description The request schema for the createRestrictedDataToken operation.
- * @package  Glue\SPAPI\OpenAPI\Clients\TokensV20210301
+ * @package  Glue\SpApi\OpenAPI\Clients\TokensV20210301
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'target_application' => 'string',
-        'restricted_resources' => '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource[]'
+        'restricted_resources' => '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource[]'
     ];
 
     /**
@@ -241,7 +241,7 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess
     /**
      * Gets restricted_resources
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource[]
+     * @return \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource[]
      */
     public function getRestrictedResources()
     {
@@ -251,7 +251,7 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess
     /**
      * Sets restricted_resources
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource[] $restricted_resources A list of restricted resources. Maximum: 50
+     * @param \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource[] $restricted_resources A list of restricted resources. Maximum: 50
      *
      * @return $this
      */

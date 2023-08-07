@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * UpdateVerificationStatusRequestBody Class Doc Comment
  *
  * @category Class
  * @description The updated values of the VerificationStatus field.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\VerificationStatus',
+        'status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus',
         'external_reviewer_id' => 'string',
         'rejection_reason_id' => 'string'
     ];
@@ -226,7 +226,7 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\VerificationStatus
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus
      */
     public function getStatus()
     {
@@ -236,7 +236,7 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\VerificationStatus $status status
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus $status status
      *
      * @return $this
      */

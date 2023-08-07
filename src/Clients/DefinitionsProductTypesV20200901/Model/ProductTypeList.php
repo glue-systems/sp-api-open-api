@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
+ * @package  Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model;
+namespace Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\ObjectSerializer;
 
 /**
  * ProductTypeList Class Doc Comment
  *
  * @category Class
  * @description A list of Amazon product types with definitions available.
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
+ * @package  Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'product_types' => '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[]'
+        'product_types' => '\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[]'
     ];
 
     /**
@@ -211,7 +211,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess
     /**
      * Gets product_types
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[]
+     * @return \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[]
      */
     public function getProductTypes()
     {
@@ -221,7 +221,7 @@ class ProductTypeList implements ModelInterface, ArrayAccess
     /**
      * Sets product_types
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[] $product_types product_types
+     * @param \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductType[] $product_types product_types
      *
      * @return $this
      */

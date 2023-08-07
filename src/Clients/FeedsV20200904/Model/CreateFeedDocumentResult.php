@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\FeedsV20200904
+ * @package  Glue\SpApi\OpenAPI\Clients\FeedsV20200904
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model;
+namespace Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ObjectSerializer;
 
 /**
  * CreateFeedDocumentResult Class Doc Comment
  *
  * @category Class
  * @description Information required to encrypt and upload a feed document&#39;s contents.
- * @package  Glue\SPAPI\OpenAPI\Clients\FeedsV20200904
+ * @package  Glue\SpApi\OpenAPI\Clients\FeedsV20200904
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -60,7 +60,7 @@ class CreateFeedDocumentResult implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'feed_document_id' => 'string',
         'url' => 'string',
-        'encryption_details' => '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\FeedDocumentEncryptionDetails'
+        'encryption_details' => '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\FeedDocumentEncryptionDetails'
     ];
 
     /**
@@ -277,7 +277,7 @@ class CreateFeedDocumentResult implements ModelInterface, ArrayAccess
     /**
      * Gets encryption_details
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\FeedDocumentEncryptionDetails
+     * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\FeedDocumentEncryptionDetails
      */
     public function getEncryptionDetails()
     {
@@ -287,7 +287,7 @@ class CreateFeedDocumentResult implements ModelInterface, ArrayAccess
     /**
      * Sets encryption_details
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\FeedDocumentEncryptionDetails $encryption_details encryption_details
+     * @param \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\FeedDocumentEncryptionDetails $encryption_details encryption_details
      *
      * @return $this
      */

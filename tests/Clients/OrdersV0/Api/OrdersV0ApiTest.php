@@ -2,11 +2,11 @@
 
 namespace Tests\Clients\OrdersV0\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Order;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrdersList;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Order;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OrdersList;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Tests\TestCase;
 
 class OrdersV0ApiTest extends TestCase
@@ -30,7 +30,7 @@ class OrdersV0ApiTest extends TestCase
         $createdAfter = 'TEST_CASE_200';
 
         $result = $ordersV0Api->getOrdersWithHttpInfo(
-            [$this->clientFactory->getSPAPIConfig()->marketplaceId],
+            [$this->clientFactory->getSpApiConfig()->marketplaceId],
             $createdAfter
         );
 

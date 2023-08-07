@@ -43,7 +43,7 @@ alias openapi-generator-cli='java -jar /path/to/your/bin/openapi-generator-cli-3
 4. Using your OpenAPI Generator CLI tool, generate the API client package follwing the template below:
 
 ```BASH
-openapi-generator-cli generate -i models/[OPENAPI_SCHEMA_NAME.json] -g php -o output/[DOMAIN_SUB_NAMESPACE] --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\[DOMAIN_SUB_NAMESPACE]"
+openapi-generator-cli generate -i models/[OPENAPI_SCHEMA_NAME.json] -g php -o output/[DOMAIN_SUB_NAMESPACE] --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\[DOMAIN_SUB_NAMESPACE]"
 ```
 
 5. Delete the source-controlled version of the API client that is to be replaced by the new output -- if it exists, it will be at `src/Clients/[DOMAIN_SUB_NAMESPACE]`.
@@ -61,7 +61,7 @@ Example Bash scripts are provided below for each of the included SP-API domains.
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/ListingsItemsV20200901
-openapi-generator-cli generate -i models/listingsItems_2020-09-01.json -g php -o output/ListingsItemsV20200901 --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901"
+openapi-generator-cli generate -i models/listingsItems_2020-09-01.json -g php -o output/ListingsItemsV20200901 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901"
 rm -rf src/Clients/ListingsItemsV20200901
 mv output/ListingsItemsV20200901/lib src/Clients/ListingsItemsV20200901
 ```
@@ -71,7 +71,7 @@ mv output/ListingsItemsV20200901/lib src/Clients/ListingsItemsV20200901
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/SupplySourcesV20200701
-openapi-generator-cli generate -i models/supplySources_2020-07-01.json -g php -o output/SupplySourcesV20200701 --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701"
+openapi-generator-cli generate -i models/supplySources_2020-07-01.json -g php -o output/SupplySourcesV20200701 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701"
 rm -rf src/Clients/SupplySourcesV20200701
 mv output/SupplySourcesV20200701/lib src/Clients/SupplySourcesV20200701
 ```
@@ -81,7 +81,7 @@ mv output/SupplySourcesV20200701/lib src/Clients/SupplySourcesV20200701
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/DefinitionsProductTypesV20200901
-openapi-generator-cli generate -i models/definitionsProductTypes_2020-09-01.json -g php -o output/DefinitionsProductTypesV20200901 --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901"
+openapi-generator-cli generate -i models/definitionsProductTypes_2020-09-01.json -g php -o output/DefinitionsProductTypesV20200901 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901"
 rm -rf src/Clients/DefinitionsProductTypesV20200901
 mv output/DefinitionsProductTypesV20200901/lib src/Clients/DefinitionsProductTypesV20200901
 ```
@@ -91,7 +91,7 @@ mv output/DefinitionsProductTypesV20200901/lib src/Clients/DefinitionsProductTyp
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/OrdersV0
-openapi-generator-cli generate -i models/ordersV0.json -g php -o output/OrdersV0 --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\OrdersV0"
+openapi-generator-cli generate -i models/ordersV0.json -g php -o output/OrdersV0 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\OrdersV0"
 rm -rf src/Clients/OrdersV0
 mv output/OrdersV0/lib src/Clients/OrdersV0
 ```
@@ -101,7 +101,7 @@ mv output/OrdersV0/lib src/Clients/OrdersV0
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/FeedsV20200904
-openapi-generator-cli generate -i models/feeds_2020-09-04.json -g php -o output/FeedsV20200904 --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\FeedsV20200904"
+openapi-generator-cli generate -i models/feeds_2020-09-04.json -g php -o output/FeedsV20200904 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\FeedsV20200904"
 rm -rf src/Clients/FeedsV20200904
 mv output/FeedsV20200904/lib src/Clients/FeedsV20200904
 ```
@@ -111,7 +111,7 @@ mv output/FeedsV20200904/lib src/Clients/FeedsV20200904
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/FeedsV20210630
-openapi-generator-cli generate -i models/feeds_2021-06-30.json -g php -o output/FeedsV20210630 --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\FeedsV20210630"
+openapi-generator-cli generate -i models/feeds_2021-06-30.json -g php -o output/FeedsV20210630 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\FeedsV20210630"
 rm -rf src/Clients/FeedsV20210630
 mv output/FeedsV20210630/lib src/Clients/FeedsV20210630
 ```
@@ -121,7 +121,7 @@ mv output/FeedsV20210630/lib src/Clients/FeedsV20210630
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/ReportsV20200904
-openapi-generator-cli generate -i models/reports_2020-09-04.json -g php -o output/ReportsV20200904 --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\ReportsV20200904"
+openapi-generator-cli generate -i models/reports_2020-09-04.json -g php -o output/ReportsV20200904 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ReportsV20200904"
 rm -rf src/Clients/ReportsV20200904
 mv output/ReportsV20200904/lib src/Clients/ReportsV20200904
 ```
@@ -131,7 +131,7 @@ mv output/ReportsV20200904/lib src/Clients/ReportsV20200904
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/ReportsV20210630
-openapi-generator-cli generate -i models/reports_2021-06-30.json -g php -o output/ReportsV20210630 --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\ReportsV20210630"
+openapi-generator-cli generate -i models/reports_2021-06-30.json -g php -o output/ReportsV20210630 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ReportsV20210630"
 rm -rf src/Clients/ReportsV20210630
 mv output/ReportsV20210630/lib src/Clients/ReportsV20210630
 ```
@@ -141,7 +141,7 @@ mv output/ReportsV20210630/lib src/Clients/ReportsV20210630
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/TokensV20210301
-openapi-generator-cli generate -i models/tokens_2021-03-01.json -g php -o output/TokensV20210301 --additional-properties=invokerPackage="Glue\SPAPI\OpenAPI\Clients\TokensV20210301"
+openapi-generator-cli generate -i models/tokens_2021-03-01.json -g php -o output/TokensV20210301 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\TokensV20210301"
 rm -rf src/Clients/TokensV20210301
 mv output/TokensV20210301/lib src/Clients/TokensV20210301
 ```

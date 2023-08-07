@@ -1,11 +1,11 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI\Services\RDT;
+namespace Glue\SpApi\OpenAPI\Services\RDT;
 
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\ApiException;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
-use Glue\SPAPI\OpenAPI\Exceptions\RestrictedDataTokenRequestException;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactoryContract;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\ApiException;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
+use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenRequestException;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryContract;
 
 class RestrictedDataTokenProvider implements RestrictedDataTokenProviderContract
 {

@@ -1,15 +1,15 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI\Services;
+namespace Glue\SpApi\OpenAPI\Services;
 
-use Glue\SPAPI\OpenAPI\Exceptions\SPAPIConfigurationException;
+use Glue\SpApi\OpenAPI\Exceptions\SpApiConfigurationException;
 
-class SPAPIConfig
+class SpApiConfig
 {
     /**
      * @var string
      */
-    public $spapiBaseUrl;
+    public $spApiBaseUrl;
 
     /**
      * @var string
@@ -70,11 +70,11 @@ class SPAPIConfig
      * Create a new config object from an associative array.
      *
      * @param array $data
-     * @return SPAPIConfig
+     * @return SpApiConfig
      */
     public static function make(array $data)
     {
-        $config        = new SPAPIConfig();
+        $config        = new SpApiConfig();
         $allowedFields = get_class_vars(self::class);
 
         foreach ($data as $field => $value) {
@@ -102,14 +102,14 @@ class SPAPIConfig
                     . " a strictly associative array instead of a sequential one.";
             }
             $exceptionMessage .= " Allowed fields: [" . implode(', ', $allowedFields) . "].";
-            throw new SPAPIConfigurationException($exceptionMessage);
+            throw new SpApiConfigurationException($exceptionMessage);
         }
     }
 
     public function validateConfig()
     {
         $requiredStringFields = [
-            'spapiBaseUrl',
+            'spApiBaseUrl',
             'marketplaceId',
             'sellerId',
             'lwaOAuthBaseUrl',
@@ -122,7 +122,7 @@ class SPAPIConfig
 
         foreach ($requiredStringFields as $field) {
             if (empty($this->{$field})) {
-                throw new SPAPIConfigurationException("Missing required string field '{$field}' in [" . self::class . '].'
+                throw new SpApiConfigurationException("Missing required string field '{$field}' in [" . self::class . '].'
                     . ' Please verify the config object is being instantiated properly'
                     . ' -- e.g. by checking your environment variables.');
             }
@@ -134,14 +134,14 @@ class SPAPIConfig
 
         foreach ($requiredBoolFields as $field) {
             if (!isset($this->{$field})) {
-                throw new SPAPIConfigurationException("Missing required bool field '{$field}' in [" . self::class . '].'
+                throw new SpApiConfigurationException("Missing required bool field '{$field}' in [" . self::class . '].'
                     . ' Please verify the config object is being instantiated properly'
                     . ' -- e.g. by checking your environment variables.');
             }
         }
 
-        if ($this->sandbox && strpos(strtolower($this->spapiBaseUrl), 'sandbox') === false) {
-            throw new SPAPIConfigurationException("Production URL detected! Invalid spapiBaseUrl '{$this->spapiBaseUrl}'"
+        if ($this->sandbox && strpos(strtolower($this->spApiBaseUrl), 'sandbox') === false) {
+            throw new SpApiConfigurationException("Production URL detected! Invalid spApiBaseUrl '{$this->spApiBaseUrl}'"
                 . " when sandbox = true. Please use the sandbox URL and associated credentials instead."
                 . " For more info, see the Amazon docs: https://developer-docs.amazon.com/amazon-shipping/docs/the-selling-partner-api-sandbox.");
         }

@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * GetOrderAddressResponse Class Doc Comment
  *
  * @category Class
  * @description The response schema for the getOrderAddress operation.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,8 +58,8 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payload' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrderAddress',
-        'errors' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Error[]'
+        'payload' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OrderAddress',
+        'errors' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Error[]'
     ];
 
     /**
@@ -214,7 +214,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
     /**
      * Gets payload
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrderAddress|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OrderAddress|null
      */
     public function getPayload()
     {
@@ -224,7 +224,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
     /**
      * Sets payload
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OrderAddress|null $payload payload
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OrderAddress|null $payload payload
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
     /**
      * Gets errors
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Error[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Error[]|null
      */
     public function getErrors()
     {
@@ -248,7 +248,7 @@ class GetOrderAddressResponse implements ModelInterface, ArrayAccess
     /**
      * Sets errors
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
      *
      * @return $this
      */

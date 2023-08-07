@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * OrderAddress Class Doc Comment
  *
  * @category Class
  * @description The shipping address for the order.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -60,8 +60,8 @@ class OrderAddress implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'amazon_order_id' => 'string',
         'buyer_company_name' => 'string',
-        'shipping_address' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address',
-        'delivery_preferences' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences'
+        'shipping_address' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address',
+        'delivery_preferences' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences'
     ];
 
     /**
@@ -277,7 +277,7 @@ class OrderAddress implements ModelInterface, ArrayAccess
     /**
      * Gets shipping_address
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address|null
      */
     public function getShippingAddress()
     {
@@ -287,7 +287,7 @@ class OrderAddress implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_address
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Address|null $shipping_address shipping_address
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address|null $shipping_address shipping_address
      *
      * @return $this
      */
@@ -301,7 +301,7 @@ class OrderAddress implements ModelInterface, ArrayAccess
     /**
      * Gets delivery_preferences
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences|null
      */
     public function getDeliveryPreferences()
     {
@@ -311,7 +311,7 @@ class OrderAddress implements ModelInterface, ArrayAccess
     /**
      * Sets delivery_preferences
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences|null $delivery_preferences delivery_preferences
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences|null $delivery_preferences delivery_preferences
      *
      * @return $this
      */

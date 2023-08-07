@@ -2,9 +2,9 @@
 
 namespace Tests\Clients\ReportsV20210630\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\Report;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\Report;
+use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Tests\TestCase;
 
 class ReportsApiTest extends TestCase
@@ -29,7 +29,7 @@ class ReportsApiTest extends TestCase
             // Specific values come from the sandbox spec in models/reports_2021-06-30.json
             ['FEE_DISCOUNTS_REPORT', 'GET_AFN_INVENTORY_DATA'],
             ['IN_QUEUE', 'IN_PROGRESS'],
-            [$this->clientFactory->getSPAPIConfig()->marketplaceId],
+            [$this->clientFactory->getSpApiConfig()->marketplaceId],
             10
         );
 

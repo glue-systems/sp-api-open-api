@@ -2,8 +2,8 @@
 
 namespace Tests\Clients\DefinitionsProductTypesV20200901\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Tests\TestCase;
 
 class DefinitionsApiTest extends TestCase
@@ -26,7 +26,7 @@ class DefinitionsApiTest extends TestCase
 
         $result = $definitionsApi->getDefinitionsProductTypeWithHttpInfo(
             'testProductType123',
-            [$this->clientFactory->getSPAPIConfig()->marketplaceId]
+            [$this->clientFactory->getSpApiConfig()->marketplaceId]
         );
 
         /**

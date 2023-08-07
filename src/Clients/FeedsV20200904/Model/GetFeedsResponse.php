@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\FeedsV20200904
+ * @package  Glue\SpApi\OpenAPI\Clients\FeedsV20200904
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model;
+namespace Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ObjectSerializer;
 
 /**
  * GetFeedsResponse Class Doc Comment
  *
  * @category Class
  * @description Response schema.
- * @package  Glue\SPAPI\OpenAPI\Clients\FeedsV20200904
+ * @package  Glue\SpApi\OpenAPI\Clients\FeedsV20200904
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,9 +58,9 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payload' => '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\Feed[]',
+        'payload' => '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\Feed[]',
         'next_token' => 'string',
-        'errors' => '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\Error[]'
+        'errors' => '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\Error[]'
     ];
 
     /**
@@ -220,7 +220,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets payload
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\Feed[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\Feed[]|null
      */
     public function getPayload()
     {
@@ -230,7 +230,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets payload
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\Feed[]|null $payload payload
+     * @param \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\Feed[]|null $payload payload
      *
      * @return $this
      */
@@ -268,7 +268,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets errors
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\Error[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\Error[]|null
      */
     public function getErrors()
     {
@@ -278,7 +278,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets errors
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
+     * @param \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
      *
      * @return $this
      */

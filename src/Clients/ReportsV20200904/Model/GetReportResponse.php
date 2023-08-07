@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ReportsV20200904
+ * @package  Glue\SpApi\OpenAPI\Clients\ReportsV20200904
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Model;
+namespace Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\ObjectSerializer;
 
 /**
  * GetReportResponse Class Doc Comment
  *
  * @category Class
  * @description The response for the getReport operation.
- * @package  Glue\SPAPI\OpenAPI\Clients\ReportsV20200904
+ * @package  Glue\SpApi\OpenAPI\Clients\ReportsV20200904
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,8 +58,8 @@ class GetReportResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'payload' => '\Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Model\Report',
-        'errors' => '\Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Model\Error[]'
+        'payload' => '\Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\Report',
+        'errors' => '\Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\Error[]'
     ];
 
     /**
@@ -214,7 +214,7 @@ class GetReportResponse implements ModelInterface, ArrayAccess
     /**
      * Gets payload
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Model\Report|null
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\Report|null
      */
     public function getPayload()
     {
@@ -224,7 +224,7 @@ class GetReportResponse implements ModelInterface, ArrayAccess
     /**
      * Sets payload
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Model\Report|null $payload payload
+     * @param \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\Report|null $payload payload
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class GetReportResponse implements ModelInterface, ArrayAccess
     /**
      * Gets errors
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Model\Error[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\Error[]|null
      */
     public function getErrors()
     {
@@ -248,7 +248,7 @@ class GetReportResponse implements ModelInterface, ArrayAccess
     /**
      * Sets errors
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Model\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
+     * @param \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
      *
      * @return $this
      */

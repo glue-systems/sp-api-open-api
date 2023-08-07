@@ -2,13 +2,13 @@
 
 namespace Tests\Services;
 
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Api\TokensApi;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\ApiException;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse;
-use Glue\SPAPI\OpenAPI\Exceptions\RestrictedDataTokenRequestException;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactoryContract;
-use Glue\SPAPI\OpenAPI\Services\RDT\RestrictedDataTokenProvider;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\ApiException;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse;
+use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenRequestException;
+use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryContract;
+use Glue\SpApi\OpenAPI\Services\RDT\RestrictedDataTokenProvider;
 use Mockery\MockInterface;
 use Tests\TestCase;
 

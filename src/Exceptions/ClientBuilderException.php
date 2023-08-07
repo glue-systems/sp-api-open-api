@@ -1,6 +1,6 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI\Exceptions;
+namespace Glue\SpApi\OpenAPI\Exceptions;
 
 class ClientBuilderException extends \Exception
 {

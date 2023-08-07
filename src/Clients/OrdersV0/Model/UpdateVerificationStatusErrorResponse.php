@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * UpdateVerificationStatusErrorResponse Class Doc Comment
  *
  * @category Class
  * @description The error response schema for the UpdateVerificationStatus operation.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class UpdateVerificationStatusErrorResponse implements ModelInterface, ArrayAcce
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Error[]'
+        'errors' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Error[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class UpdateVerificationStatusErrorResponse implements ModelInterface, ArrayAcce
     /**
      * Gets errors
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Error[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Error[]|null
      */
     public function getErrors()
     {
@@ -218,7 +218,7 @@ class UpdateVerificationStatusErrorResponse implements ModelInterface, ArrayAcce
     /**
      * Sets errors
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Error[]|null $errors A list of error responses returned when a request is unsuccessful.
      *
      * @return $this
      */

@@ -1,8 +1,8 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI\Exceptions;
+namespace Glue\SpApi\OpenAPI\Exceptions;
 
-class SPAPIConfigurationException extends \Exception
+class SpApiConfigurationException extends \Exception
 {
     //
 }

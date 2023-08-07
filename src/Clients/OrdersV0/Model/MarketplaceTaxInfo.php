@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * MarketplaceTaxInfo Class Doc Comment
  *
  * @category Class
  * @description Tax information about the marketplace.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class MarketplaceTaxInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'tax_classifications' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]'
+        'tax_classifications' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class MarketplaceTaxInfo implements ModelInterface, ArrayAccess
     /**
      * Gets tax_classifications
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]|null
      */
     public function getTaxClassifications()
     {
@@ -218,7 +218,7 @@ class MarketplaceTaxInfo implements ModelInterface, ArrayAccess
     /**
      * Sets tax_classifications
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]|null $tax_classifications A list of tax classifications that apply to the order.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]|null $tax_classifications A list of tax classifications that apply to the order.
      *
      * @return $this
      */

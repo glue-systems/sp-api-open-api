@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\FeedsV20210630
+ * @package  Glue\SpApi\OpenAPI\Clients\FeedsV20210630
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Model;
+namespace Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\ObjectSerializer;
 
 /**
  * Feed Class Doc Comment
  *
  * @category Class
  * @description Detailed information about the feed.
- * @package  Glue\SPAPI\OpenAPI\Clients\FeedsV20210630
+ * @package  Glue\SpApi\OpenAPI\Clients\FeedsV20210630
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

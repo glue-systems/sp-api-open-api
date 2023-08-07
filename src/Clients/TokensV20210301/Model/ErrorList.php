@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\TokensV20210301
+ * @package  Glue\SpApi\OpenAPI\Clients\TokensV20210301
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model;
+namespace Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\TokensV20210301\ObjectSerializer;
 
 /**
  * ErrorList Class Doc Comment
  *
  * @category Class
  * @description A list of error responses returned when a request is unsuccessful.
- * @package  Glue\SPAPI\OpenAPI\Clients\TokensV20210301
+ * @package  Glue\SpApi\OpenAPI\Clients\TokensV20210301
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class ErrorList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'errors' => '\Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\Error[]'
+        'errors' => '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\Error[]'
     ];
 
     /**
@@ -208,7 +208,7 @@ class ErrorList implements ModelInterface, ArrayAccess
     /**
      * Gets errors
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\Error[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\Error[]|null
      */
     public function getErrors()
     {
@@ -218,7 +218,7 @@ class ErrorList implements ModelInterface, ArrayAccess
     /**
      * Sets errors
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\Error[]|null $errors errors
+     * @param \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\Error[]|null $errors errors
      *
      * @return $this
      */

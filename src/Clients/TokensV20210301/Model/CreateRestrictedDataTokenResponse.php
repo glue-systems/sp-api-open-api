@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\TokensV20210301
+ * @package  Glue\SpApi\OpenAPI\Clients\TokensV20210301
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model;
+namespace Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\TokensV20210301\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\TokensV20210301\ObjectSerializer;
 
 /**
  * CreateRestrictedDataTokenResponse Class Doc Comment
  *
  * @category Class
  * @description The response schema for the createRestrictedDataToken operation.
- * @package  Glue\SPAPI\OpenAPI\Clients\TokensV20210301
+ * @package  Glue\SpApi\OpenAPI\Clients\TokensV20210301
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

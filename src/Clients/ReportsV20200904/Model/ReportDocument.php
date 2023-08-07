@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ReportsV20200904
+ * @package  Glue\SpApi\OpenAPI\Clients\ReportsV20200904
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Model;
+namespace Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\ObjectSerializer;
 
 /**
  * ReportDocument Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ReportsV20200904
+ * @package  Glue\SpApi\OpenAPI\Clients\ReportsV20200904
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class ReportDocument implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'report_document_id' => 'string',
         'url' => 'string',
-        'encryption_details' => '\Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Model\ReportDocumentEncryptionDetails',
+        'encryption_details' => '\Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\ReportDocumentEncryptionDetails',
         'compression_algorithm' => 'string'
     ];
 
@@ -303,7 +303,7 @@ class ReportDocument implements ModelInterface, ArrayAccess
     /**
      * Gets encryption_details
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Model\ReportDocumentEncryptionDetails
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\ReportDocumentEncryptionDetails
      */
     public function getEncryptionDetails()
     {
@@ -313,7 +313,7 @@ class ReportDocument implements ModelInterface, ArrayAccess
     /**
      * Sets encryption_details
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Model\ReportDocumentEncryptionDetails $encryption_details encryption_details
+     * @param \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model\ReportDocumentEncryptionDetails $encryption_details encryption_details
      *
      * @return $this
      */

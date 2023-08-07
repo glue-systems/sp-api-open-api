@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
+ * @package  Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model;
+namespace Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\ObjectSerializer;
 
 /**
  * ListingsItemSubmissionResponse Class Doc Comment
  *
  * @category Class
  * @description Response containing the results of a submission to the Selling Partner API for Listings Items.
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
+ * @package  Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -61,7 +61,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
         'sku' => 'string',
         'status' => 'string',
         'submission_id' => 'string',
-        'issues' => '\Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\Issue[]'
+        'issues' => '\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\Issue[]'
     ];
 
     /**
@@ -339,7 +339,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
     /**
      * Gets issues
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\Issue[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\Issue[]|null
      */
     public function getIssues()
     {
@@ -349,7 +349,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets issues
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\Issue[]|null $issues Listings item issues related to the listings item submission.
+     * @param \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\Issue[]|null $issues Listings item issues related to the listings item submission.
      *
      * @return $this
      */

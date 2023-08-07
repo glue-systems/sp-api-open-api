@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * PointsGrantedDetail Class Doc Comment
  *
  * @category Class
  * @description The number of Amazon Points offered with the purchase of an item, and their monetary value.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class PointsGrantedDetail implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'points_number' => 'int',
-        'points_monetary_value' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money'
+        'points_monetary_value' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money'
     ];
 
     /**
@@ -238,7 +238,7 @@ class PointsGrantedDetail implements ModelInterface, ArrayAccess
     /**
      * Gets points_monetary_value
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getPointsMonetaryValue()
     {
@@ -248,7 +248,7 @@ class PointsGrantedDetail implements ModelInterface, ArrayAccess
     /**
      * Sets points_monetary_value
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $points_monetary_value points_monetary_value
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $points_monetary_value points_monetary_value
      *
      * @return $this
      */

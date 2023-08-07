@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model;
+namespace Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
 
 /**
  * SupplySourceCapabilities Class Doc Comment
  *
  * @category Class
  * @description Capabilities of a supply source, only includes outbound capability.
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class SupplySourceCapabilities implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'outbound' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OutboundCapability'
+        'outbound' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OutboundCapability'
     ];
 
     /**
@@ -208,7 +208,7 @@ class SupplySourceCapabilities implements ModelInterface, ArrayAccess
     /**
      * Gets outbound
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OutboundCapability|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OutboundCapability|null
      */
     public function getOutbound()
     {
@@ -218,7 +218,7 @@ class SupplySourceCapabilities implements ModelInterface, ArrayAccess
     /**
      * Sets outbound
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OutboundCapability|null $outbound outbound
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OutboundCapability|null $outbound outbound
      *
      * @return $this
      */

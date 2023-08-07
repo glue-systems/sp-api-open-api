@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\FeedsV20210630
+ * @package  Glue\SpApi\OpenAPI\Clients\FeedsV20210630
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Model;
+namespace Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\ObjectSerializer;
 
 /**
  * GetFeedsResponse Class Doc Comment
  *
  * @category Class
  * @description Response schema.
- * @package  Glue\SPAPI\OpenAPI\Clients\FeedsV20210630
+ * @package  Glue\SpApi\OpenAPI\Clients\FeedsV20210630
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'feeds' => '\Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Model\Feed[]',
+        'feeds' => '\Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Model\Feed[]',
         'next_token' => 'string'
     ];
 
@@ -217,7 +217,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
     /**
      * Gets feeds
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Model\Feed[]
+     * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Model\Feed[]
      */
     public function getFeeds()
     {
@@ -227,7 +227,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
     /**
      * Sets feeds
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\FeedsV20210630\Model\Feed[] $feeds A list of feeds.
+     * @param \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Model\Feed[] $feeds A list of feeds.
      *
      * @return $this
      */

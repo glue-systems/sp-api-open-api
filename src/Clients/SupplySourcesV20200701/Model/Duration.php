@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model;
+namespace Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
 
 /**
  * Duration Class Doc Comment
  *
  * @category Class
  * @description Duration of time
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class Duration implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'value' => 'int',
-        'time_unit' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\TimeUnit'
+        'time_unit' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\TimeUnit'
     ];
 
     /**
@@ -247,7 +247,7 @@ class Duration implements ModelInterface, ArrayAccess
     /**
      * Gets time_unit
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\TimeUnit|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\TimeUnit|null
      */
     public function getTimeUnit()
     {
@@ -257,7 +257,7 @@ class Duration implements ModelInterface, ArrayAccess
     /**
      * Sets time_unit
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\TimeUnit|null $time_unit time_unit
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\TimeUnit|null $time_unit time_unit
      *
      * @return $this
      */

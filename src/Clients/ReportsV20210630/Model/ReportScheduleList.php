@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ReportsV20210630
+ * @package  Glue\SpApi\OpenAPI\Clients\ReportsV20210630
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model;
+namespace Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ObjectSerializer;
 
 /**
  * ReportScheduleList Class Doc Comment
  *
  * @category Class
  * @description A list of report schedules.
- * @package  Glue\SPAPI\OpenAPI\Clients\ReportsV20210630
+ * @package  Glue\SpApi\OpenAPI\Clients\ReportsV20210630
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class ReportScheduleList implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'report_schedules' => '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule[]'
+        'report_schedules' => '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule[]'
     ];
 
     /**
@@ -211,7 +211,7 @@ class ReportScheduleList implements ModelInterface, ArrayAccess
     /**
      * Gets report_schedules
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule[]
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule[]
      */
     public function getReportSchedules()
     {
@@ -221,7 +221,7 @@ class ReportScheduleList implements ModelInterface, ArrayAccess
     /**
      * Sets report_schedules
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule[] $report_schedules report_schedules
+     * @param \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule[] $report_schedules report_schedules
      *
      * @return $this
      */

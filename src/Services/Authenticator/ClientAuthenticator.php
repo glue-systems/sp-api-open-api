@@ -1,10 +1,10 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI\Services\Authenticator;
+namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
 use Aws\Signature\SignatureV4;
-use Glue\SPAPI\OpenAPI\Exceptions\LwaAccessTokenRequestException;
-use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
+use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenRequestException;
+use Glue\SpApi\OpenAPI\Services\SpApiConfig;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
@@ -32,30 +32,30 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     protected $credentialProvider;
 
     /**
-     * @var SPAPIConfig
+     * @var SpApiConfig
      */
-    protected $spapiConfig;
+    protected $spApiConfig;
 
     public function __construct(
         CacheInterface $cache,
         callable $credentialProvider,
-        SPAPIConfig $spapiConfig
+        SpApiConfig $spApiConfig
     ) {
         $this->cache               = $cache;
         $this->credentialProvider  = $credentialProvider;
-        $this->spapiConfig         = $spapiConfig;
+        $this->spApiConfig         = $spApiConfig;
 
-        $this->spapiConfig->validateConfig();
+        $this->spApiConfig->validateConfig();
     }
 
     /**
      * Get the global SP-API config object.
      *
-     * @return SPAPIConfig
+     * @return SpApiConfig
      */
-    public function getSPAPIConfig()
+    public function getSpApiConfig()
     {
-        return clone $this->spapiConfig;
+        return clone $this->spApiConfig;
     }
 
     /**
@@ -89,17 +89,17 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     public function requestNewLwaAccessToken()
     {
         $guzzle = new Client([
-            'base_uri' => $this->spapiConfig->lwaOAuthBaseUrl,
-            'debug'    => $this->spapiConfig->debugOAuthApiCall,
+            'base_uri' => $this->spApiConfig->lwaOAuthBaseUrl,
+            'debug'    => $this->spApiConfig->debugOAuthApiCall,
         ]);
 
         try {
             $response = $guzzle->request('POST', '/auth/o2/token', [
                 RequestOptions::JSON => [
                     'grant_type'    => 'refresh_token',
-                    'refresh_token' => $this->spapiConfig->lwaRefreshToken,
-                    'client_id'     => $this->spapiConfig->lwaClientId,
-                    'client_secret' => $this->spapiConfig->lwaClientSecret,
+                    'refresh_token' => $this->spApiConfig->lwaRefreshToken,
+                    'client_id'     => $this->spApiConfig->lwaClientId,
+                    'client_secret' => $this->spApiConfig->lwaClientSecret,
                 ],
             ]);
         } catch (GuzzleException $ex) {
@@ -156,8 +156,8 @@ class ClientAuthenticator implements ClientAuthenticatorContract
         ));
 
         return new Client([
-            'base_uri' => $this->spapiConfig->spapiBaseUrl,
-            'debug'    => $this->spapiConfig->debugDomainApiCall,
+            'base_uri' => $this->spApiConfig->spApiBaseUrl,
+            'debug'    => $this->spApiConfig->debugDomainApiCall,
             'headers'  => [
                 'x-amz-access-token' => $accessToken,
                 'x-amz-date'         => $formattedTimestamp,

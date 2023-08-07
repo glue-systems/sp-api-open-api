@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\FeedsV20210630
+ * @package  Glue\SpApi\OpenAPI\Clients\FeedsV20210630
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\FeedsV20210630;
+namespace Glue\SpApi\OpenAPI\Clients\FeedsV20210630;
 
 use \Exception;
 
@@ -34,7 +34,7 @@ use \Exception;
  * ApiException Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\FeedsV20210630
+ * @package  Glue\SpApi\OpenAPI\Clients\FeedsV20210630
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
