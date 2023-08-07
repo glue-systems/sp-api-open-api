@@ -96,7 +96,9 @@ rm -rf src/Clients/CatalogItemsV20201201
 mv output/CatalogItemsV20201201/lib src/Clients/CatalogItemsV20201201
 ```
 
-#### Catalog Items API v2022-04-01 (Not included: Latest JSON schema incompatible with this version of OpenAPI Generator CLI)
+#### Catalog Items API v2022-04-01
+
+_(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
 
 #### Definitions Product Types API v2020-09-01 (AKA Product Type Definitions API v2020-09-01)
 
@@ -247,6 +249,10 @@ openapi-generator-cli generate -i models/tokens_2021-03-01.json -g php -o output
 rm -rf src/Clients/TokensV20210301
 mv output/TokensV20210301/lib src/Clients/TokensV20210301
 ```
+
+#### Vendor Retail Procurement Shipments API v1
+
+_(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
 
 #### Vendor Retail Procurement Transaction Status API v1
 
