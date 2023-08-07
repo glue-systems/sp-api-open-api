@@ -230,6 +230,16 @@ rm -rf src/Clients/ReportsV20210630
 mv output/ReportsV20210630/lib src/Clients/ReportsV20210630
 ```
 
+#### Sales API v1
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/SalesV1
+openapi-generator-cli generate -i models/salesV1.json -g php -o output/SalesV1 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\SalesV1" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/SalesV1
+mv output/SalesV1/lib src/Clients/SalesV1
+```
+
 #### Sellers API v1
 
 ```BASH
