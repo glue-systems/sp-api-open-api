@@ -230,6 +230,16 @@ rm -rf src/Clients/ReportsV20210630
 mv output/ReportsV20210630/lib src/Clients/ReportsV20210630
 ```
 
+#### Shipment Invoicing API v0
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/ShipmentInvoicingV0
+openapi-generator-cli generate -i models/shipmentInvoicingV0.json -g php -o output/ShipmentInvoicingV0 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/ShipmentInvoicingV0
+mv output/ShipmentInvoicingV0/lib src/Clients/ShipmentInvoicingV0
+```
+
 #### Shipping API v1
 
 _(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
