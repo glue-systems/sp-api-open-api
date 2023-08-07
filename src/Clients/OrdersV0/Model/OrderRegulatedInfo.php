@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * OrderRegulatedInfo Class Doc Comment
  *
  * @category Class
  * @description The order&#39;s regulated information along with its verification status.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,9 +59,9 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'amazon_order_id' => 'string',
-        'regulated_information' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RegulatedInformation',
+        'regulated_information' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedInformation',
         'requires_dosage_label' => 'bool',
-        'regulated_order_verification_status' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RegulatedOrderVerificationStatus'
+        'regulated_order_verification_status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedOrderVerificationStatus'
     ];
 
     /**
@@ -262,7 +262,7 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
     /**
      * Gets regulated_information
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RegulatedInformation
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedInformation
      */
     public function getRegulatedInformation()
     {
@@ -272,7 +272,7 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
     /**
      * Sets regulated_information
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RegulatedInformation $regulated_information regulated_information
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedInformation $regulated_information regulated_information
      *
      * @return $this
      */
@@ -310,7 +310,7 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
     /**
      * Gets regulated_order_verification_status
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RegulatedOrderVerificationStatus
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedOrderVerificationStatus
      */
     public function getRegulatedOrderVerificationStatus()
     {
@@ -320,7 +320,7 @@ class OrderRegulatedInfo implements ModelInterface, ArrayAccess
     /**
      * Sets regulated_order_verification_status
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RegulatedOrderVerificationStatus $regulated_order_verification_status regulated_order_verification_status
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedOrderVerificationStatus $regulated_order_verification_status regulated_order_verification_status
      *
      * @return $this
      */

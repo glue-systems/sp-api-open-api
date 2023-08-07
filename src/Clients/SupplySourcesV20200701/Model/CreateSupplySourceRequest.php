@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model;
+namespace Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
 
 /**
  * CreateSupplySourceRequest Class Doc Comment
  *
  * @category Class
  * @description Request to create a supply source.
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -60,7 +60,7 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'supply_source_code' => 'string',
         'alias' => 'string',
-        'address' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\Address'
+        'address' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Address'
     ];
 
     /**
@@ -277,7 +277,7 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\Address
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Address
      */
     public function getAddress()
     {
@@ -287,7 +287,7 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\Address $address address
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Address $address address
      *
      * @return $this
      */

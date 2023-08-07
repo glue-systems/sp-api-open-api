@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\FeedsV20200904
+ * @package  Glue\SpApi\OpenAPI\Clients\FeedsV20200904
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Api;
+namespace Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Configuration;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\HeaderSelector;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ObjectSerializer;
+use Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException;
+use Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Configuration;
+use Glue\SpApi\OpenAPI\Clients\FeedsV20200904\HeaderSelector;
+use Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ObjectSerializer;
 
 /**
  * FeedsApi Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\FeedsV20200904
+ * @package  Glue\SpApi\OpenAPI\Clients\FeedsV20200904
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -92,9 +92,9 @@ class FeedsApi
      *
      * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse
+     * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse
      */
     public function cancelFeed($feed_id)
     {
@@ -107,9 +107,9 @@ class FeedsApi
      *
      * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function cancelFeedWithHttpInfo($feed_id)
     {
@@ -146,116 +146,116 @@ class FeedsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -274,7 +274,7 @@ class FeedsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -282,7 +282,7 @@ class FeedsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -290,7 +290,7 @@ class FeedsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -298,7 +298,7 @@ class FeedsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -306,7 +306,7 @@ class FeedsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -314,7 +314,7 @@ class FeedsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -322,7 +322,7 @@ class FeedsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -330,7 +330,7 @@ class FeedsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -338,7 +338,7 @@ class FeedsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -380,7 +380,7 @@ class FeedsApi
      */
     public function cancelFeedAsyncWithHttpInfo($feed_id)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse';
         $request = $this->cancelFeedRequest($feed_id);
 
         return $this->client
@@ -518,11 +518,11 @@ class FeedsApi
     /**
      * Operation createFeed
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification create_feed_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification create_feed_specification (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse
+     * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse
      */
     public function createFeed($create_feed_specification)
     {
@@ -533,11 +533,11 @@ class FeedsApi
     /**
      * Operation createFeedWithHttpInfo
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createFeedWithHttpInfo($create_feed_specification)
     {
@@ -574,116 +574,116 @@ class FeedsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -702,7 +702,7 @@ class FeedsApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -710,7 +710,7 @@ class FeedsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -718,7 +718,7 @@ class FeedsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -726,7 +726,7 @@ class FeedsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -734,7 +734,7 @@ class FeedsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -742,7 +742,7 @@ class FeedsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -750,7 +750,7 @@ class FeedsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -758,7 +758,7 @@ class FeedsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -766,7 +766,7 @@ class FeedsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -781,7 +781,7 @@ class FeedsApi
      *
      * 
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -801,14 +801,14 @@ class FeedsApi
      *
      * 
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createFeedAsyncWithHttpInfo($create_feed_specification)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse';
         $request = $this->createFeedRequest($create_feed_specification);
 
         return $this->client
@@ -848,7 +848,7 @@ class FeedsApi
     /**
      * Create request for operation 'createFeed'
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -941,11 +941,11 @@ class FeedsApi
     /**
      * Operation createFeedDocument
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification create_feed_document_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification create_feed_document_specification (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse
+     * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse
      */
     public function createFeedDocument($create_feed_document_specification)
     {
@@ -956,11 +956,11 @@ class FeedsApi
     /**
      * Operation createFeedDocumentWithHttpInfo
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function createFeedDocumentWithHttpInfo($create_feed_document_specification)
     {
@@ -997,116 +997,116 @@ class FeedsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 413:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1125,7 +1125,7 @@ class FeedsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1133,7 +1133,7 @@ class FeedsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1141,7 +1141,7 @@ class FeedsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1149,7 +1149,7 @@ class FeedsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1157,7 +1157,7 @@ class FeedsApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1165,7 +1165,7 @@ class FeedsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1173,7 +1173,7 @@ class FeedsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1181,7 +1181,7 @@ class FeedsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1189,7 +1189,7 @@ class FeedsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1204,7 +1204,7 @@ class FeedsApi
      *
      * 
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1224,14 +1224,14 @@ class FeedsApi
      *
      * 
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createFeedDocumentAsyncWithHttpInfo($create_feed_document_specification)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse';
         $request = $this->createFeedDocumentRequest($create_feed_document_specification);
 
         return $this->client
@@ -1271,7 +1271,7 @@ class FeedsApi
     /**
      * Create request for operation 'createFeedDocument'
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1366,9 +1366,9 @@ class FeedsApi
      *
      * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse
+     * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse
      */
     public function getFeed($feed_id)
     {
@@ -1381,9 +1381,9 @@ class FeedsApi
      *
      * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeedWithHttpInfo($feed_id)
     {
@@ -1420,116 +1420,116 @@ class FeedsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1548,7 +1548,7 @@ class FeedsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1556,7 +1556,7 @@ class FeedsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1564,7 +1564,7 @@ class FeedsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1572,7 +1572,7 @@ class FeedsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1580,7 +1580,7 @@ class FeedsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1588,7 +1588,7 @@ class FeedsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1596,7 +1596,7 @@ class FeedsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1604,7 +1604,7 @@ class FeedsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1612,7 +1612,7 @@ class FeedsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1654,7 +1654,7 @@ class FeedsApi
      */
     public function getFeedAsyncWithHttpInfo($feed_id)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse';
         $request = $this->getFeedRequest($feed_id);
 
         return $this->client
@@ -1794,9 +1794,9 @@ class FeedsApi
      *
      * @param  string $feed_document_id The identifier of the feed document. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse
+     * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse
      */
     public function getFeedDocument($feed_document_id)
     {
@@ -1809,9 +1809,9 @@ class FeedsApi
      *
      * @param  string $feed_document_id The identifier of the feed document. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeedDocumentWithHttpInfo($feed_document_id)
     {
@@ -1848,116 +1848,116 @@ class FeedsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1976,7 +1976,7 @@ class FeedsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1984,7 +1984,7 @@ class FeedsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1992,7 +1992,7 @@ class FeedsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2000,7 +2000,7 @@ class FeedsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2008,7 +2008,7 @@ class FeedsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2016,7 +2016,7 @@ class FeedsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2024,7 +2024,7 @@ class FeedsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2032,7 +2032,7 @@ class FeedsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2040,7 +2040,7 @@ class FeedsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2082,7 +2082,7 @@ class FeedsApi
      */
     public function getFeedDocumentAsyncWithHttpInfo($feed_document_id)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse';
         $request = $this->getFeedDocumentRequest($feed_document_id);
 
         return $this->client
@@ -2228,9 +2228,9 @@ class FeedsApi
      * @param  \DateTime $created_until The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
      * @param  string $next_token A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse
+     * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse
      */
     public function getFeeds($feed_types = null, $marketplace_ids = null, $page_size = 10, $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null)
     {
@@ -2249,9 +2249,9 @@ class FeedsApi
      * @param  \DateTime $created_until The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
      * @param  string $next_token A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse, HTTP status code, HTTP response headers (array of strings)
      */
     public function getFeedsWithHttpInfo($feed_types = null, $marketplace_ids = null, $page_size = 10, $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null)
     {
@@ -2288,116 +2288,116 @@ class FeedsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2416,7 +2416,7 @@ class FeedsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2424,7 +2424,7 @@ class FeedsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2432,7 +2432,7 @@ class FeedsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2440,7 +2440,7 @@ class FeedsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2448,7 +2448,7 @@ class FeedsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2456,7 +2456,7 @@ class FeedsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2464,7 +2464,7 @@ class FeedsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2472,7 +2472,7 @@ class FeedsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2480,7 +2480,7 @@ class FeedsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2534,7 +2534,7 @@ class FeedsApi
      */
     public function getFeedsAsyncWithHttpInfo($feed_types = null, $marketplace_ids = null, $page_size = 10, $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse';
         $request = $this->getFeedsRequest($feed_types, $marketplace_ids, $page_size, $processing_statuses, $created_since, $created_until, $next_token);
 
         return $this->client

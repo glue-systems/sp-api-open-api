@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model;
+namespace Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
 
 /**
  * UpdateSupplySourceStatusRequest Class Doc Comment
  *
  * @category Class
  * @description Request to update the status of a supply source.
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class UpdateSupplySourceStatusRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'status' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatus'
+        'status' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatus'
     ];
 
     /**
@@ -208,7 +208,7 @@ class UpdateSupplySourceStatusRequest implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatus|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatus|null
      */
     public function getStatus()
     {
@@ -218,7 +218,7 @@ class UpdateSupplySourceStatusRequest implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatus|null $status status
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySourceStatus|null $status status
      *
      * @return $this
      */

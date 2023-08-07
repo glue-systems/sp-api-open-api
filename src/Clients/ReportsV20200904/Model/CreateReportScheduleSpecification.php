@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ReportsV20200904
+ * @package  Glue\SpApi\OpenAPI\Clients\ReportsV20200904
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,16 +27,16 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\Model;
+namespace Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ReportsV20200904\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\ObjectSerializer;
 
 /**
  * CreateReportScheduleSpecification Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ReportsV20200904
+ * @package  Glue\SpApi\OpenAPI\Clients\ReportsV20200904
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */

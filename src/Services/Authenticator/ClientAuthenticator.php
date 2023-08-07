@@ -1,19 +1,19 @@
 <?php
 
-namespace Glue\SPAPI\OpenAPI\Services\Authenticator;
+namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
 use Aws\Signature\SignatureV4;
-use Glue\SPAPI\OpenAPI\Services\SPAPIConfig;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
+use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
-use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\SimpleCache\CacheInterface;
 
-class ClientAuthenticator implements ClientAuthenticatorContract
+class ClientAuthenticator implements ClientAuthenticatorInterface
 {
     const LWA_ACCESS_TOKEN_CACHE_KEY = 'lwa_access_token';
 
@@ -25,36 +25,56 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     protected $cache;
 
     /**
+     * @var LwaServiceInterface
+     */
+    protected $lwaService;
+
+    /**
      * @var callable
      */
     protected $credentialProvider;
 
     /**
-     * @var SPAPIConfig
+     * @var SpApiConfig
      */
-    protected $config;
+    protected $spApiConfig;
 
     public function __construct(
         CacheInterface $cache,
+        LwaServiceInterface $lwaService,
         callable $credentialProvider,
-        SPAPIConfig $config
+        SpApiConfig $spApiConfig
     ) {
-        $this->cache               = $cache;
-        $this->credentialProvider  = $credentialProvider;
-        $this->config              = $config;
+        $this->cache              = $cache;
+        $this->lwaService         = $lwaService;
+        $this->credentialProvider = $credentialProvider;
+        $this->spApiConfig        = $spApiConfig;
 
-        $this->config->validateConfig();
+        $this->spApiConfig->validateConfig();
     }
 
     /**
-     * @return SPAPIConfig
+     * Create an authenticated Guzzle client, ready to be passed into
+     * the constructor of an SP-API client class.
+     *
+     * @param string|null $restrictedDataToken
+     * @return ClientInterface
      */
-    public function getConfig()
+    public function createAuthenticatedGuzzleClient($restrictedDataToken = null)
     {
-        return clone $this->config;
+        if ($restrictedDataToken) {
+            $accessToken = $restrictedDataToken;
+        } else {
+            $accessToken = $this->rememberLwaAccessToken();
+        }
+
+        return $this->_makeGuzzleClient($accessToken);
     }
 
     /**
+     * Get the cached Login with Amazon (LWA) access token if it exists, or request a new one
+     * and save it in the cache.
+     *
      * @return string
      */
     public function rememberLwaAccessToken()
@@ -63,7 +83,10 @@ class ClientAuthenticator implements ClientAuthenticatorContract
             return $cachedToken;
         }
 
-        $newToken = $this->generateNewLwaAccessToken();
+        $newToken = $this->lwaService->requestNewLwaAccessToken(new Client([
+            'base_uri' => $this->spApiConfig->lwaOAuthBaseUrl,
+            'debug'    => $this->spApiConfig->debugOAuthApiCall,
+        ]));
 
         $this->cache->set(
             self::LWA_ACCESS_TOKEN_CACHE_KEY,
@@ -75,59 +98,16 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     }
 
     /**
-     * @return array
-     */
-    public function generateNewLwaAccessToken()
-    {
-        $guzzle = new Client([
-            'base_uri' => $this->config->lwaOAuthBaseUrl,
-            'debug'    => $this->config->debugOAuthApiCall,
-        ]);
-
-        $response = $guzzle->request('POST', '/auth/o2/token', [
-            RequestOptions::JSON => [
-                'grant_type'    => 'refresh_token',
-                'refresh_token' => $this->config->lwaRefreshToken,
-                'client_id'     => $this->config->lwaClientId,
-                'client_secret' => $this->config->lwaClientSecret,
-            ],
-        ]);
-
-        return json_decode($response->getBody()->getContents(), true);
-    }
-
-    /**
-     * @param string|null $restrictedDataToken
-     * @return ClientInterface
-     */
-    public function createAuthenticatedGuzzleClient($restrictedDataToken = null)
-    {
-        if ($restrictedDataToken) {
-            $accessToken = $restrictedDataToken;
-        } else {
-            $lwaAccessToken = $this->rememberLwaAccessToken();
-            $accessToken    = $lwaAccessToken;
-        }
-
-        $now = new \DateTime('now', new \DateTimeZone('UTC'));
-
-        $formattedTimestamp = $now->format('Ymd\THis\Z');
-
-        return $this->_makeGuzzleClient($accessToken, $formattedTimestamp);
-    }
-
-    /**
      * @param string $accessToken
-     * @param string $formattedTimestamp
      * @return ClientInterface
      */
-    protected function _makeGuzzleClient($accessToken, $formattedTimestamp)
+    protected function _makeGuzzleClient($accessToken)
     {
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
 
         $stack->push(Middleware::mapRequest(
-            function (RequestInterface $request) use ($formattedTimestamp) {
+            function (RequestInterface $request) {
                 // Example from official docs: https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/service_cloudsearch-custom-requests.html
                 $credentials = call_user_func($this->credentialProvider)->wait();
 
@@ -139,11 +119,12 @@ class ClientAuthenticator implements ClientAuthenticatorContract
         ));
 
         return new Client([
-            'base_uri' => $this->config->spApiBaseUrl,
-            'debug'    => $this->config->debugDomainApiCall,
+            'base_uri' => $this->spApiConfig->spApiBaseUrl,
+            'debug'    => $this->spApiConfig->debugDomainApiCall,
             'headers'  => [
                 'x-amz-access-token' => $accessToken,
-                'x-amz-date'         => $formattedTimestamp,
+                // TODO: Verify x-amz-date header is safe to remove as it's overwritten in AWS's SignatureV4?
+                // 'x-amz-date'         => $formattedTimestamp,
                 // (User-Agent and Host are set downstream in the internals of the OpenAPI
                 // clients, using data captured in each client's config object.)
             ],

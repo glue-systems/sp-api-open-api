@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * OrderItem Class Doc Comment
  *
  * @category Class
  * @description A single order item.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -64,19 +64,19 @@ class OrderItem implements ModelInterface, ArrayAccess
         'title' => 'string',
         'quantity_ordered' => 'int',
         'quantity_shipped' => 'int',
-        'product_info' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ProductInfoDetail',
-        'points_granted' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\PointsGrantedDetail',
-        'item_price' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
-        'shipping_price' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
-        'item_tax' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
-        'shipping_tax' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
-        'shipping_discount' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
-        'shipping_discount_tax' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
-        'promotion_discount' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
-        'promotion_discount_tax' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
+        'product_info' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ProductInfoDetail',
+        'points_granted' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PointsGrantedDetail',
+        'item_price' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'shipping_price' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'item_tax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'shipping_tax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'shipping_discount' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'shipping_discount_tax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'promotion_discount' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'promotion_discount_tax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
         'promotion_ids' => 'string[]',
-        'cod_fee' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
-        'cod_fee_discount' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
+        'cod_fee' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'cod_fee_discount' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
         'is_gift' => 'bool',
         'condition_note' => 'string',
         'condition_id' => 'string',
@@ -84,14 +84,14 @@ class OrderItem implements ModelInterface, ArrayAccess
         'scheduled_delivery_start_date' => 'string',
         'scheduled_delivery_end_date' => 'string',
         'price_designation' => 'string',
-        'tax_collection' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\TaxCollection',
+        'tax_collection' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxCollection',
         'serial_number_required' => 'bool',
         'is_transparency' => 'bool',
         'ioss_number' => 'string',
         'store_chain_store_id' => 'string',
         'deemed_reseller_category' => 'string',
-        'buyer_info' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo',
-        'buyer_requested_cancel' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel',
+        'buyer_info' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo',
+        'buyer_requested_cancel' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel',
         'serial_numbers' => 'string[]'
     ];
 
@@ -588,7 +588,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets product_info
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ProductInfoDetail|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ProductInfoDetail|null
      */
     public function getProductInfo()
     {
@@ -598,7 +598,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets product_info
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ProductInfoDetail|null $product_info product_info
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ProductInfoDetail|null $product_info product_info
      *
      * @return $this
      */
@@ -612,7 +612,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets points_granted
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\PointsGrantedDetail|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PointsGrantedDetail|null
      */
     public function getPointsGranted()
     {
@@ -622,7 +622,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets points_granted
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\PointsGrantedDetail|null $points_granted points_granted
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PointsGrantedDetail|null $points_granted points_granted
      *
      * @return $this
      */
@@ -636,7 +636,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets item_price
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getItemPrice()
     {
@@ -646,7 +646,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets item_price
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $item_price item_price
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $item_price item_price
      *
      * @return $this
      */
@@ -660,7 +660,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets shipping_price
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getShippingPrice()
     {
@@ -670,7 +670,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_price
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $shipping_price shipping_price
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $shipping_price shipping_price
      *
      * @return $this
      */
@@ -684,7 +684,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets item_tax
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getItemTax()
     {
@@ -694,7 +694,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets item_tax
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $item_tax item_tax
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $item_tax item_tax
      *
      * @return $this
      */
@@ -708,7 +708,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets shipping_tax
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getShippingTax()
     {
@@ -718,7 +718,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_tax
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $shipping_tax shipping_tax
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $shipping_tax shipping_tax
      *
      * @return $this
      */
@@ -732,7 +732,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets shipping_discount
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getShippingDiscount()
     {
@@ -742,7 +742,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_discount
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $shipping_discount shipping_discount
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $shipping_discount shipping_discount
      *
      * @return $this
      */
@@ -756,7 +756,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets shipping_discount_tax
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getShippingDiscountTax()
     {
@@ -766,7 +766,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets shipping_discount_tax
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $shipping_discount_tax shipping_discount_tax
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $shipping_discount_tax shipping_discount_tax
      *
      * @return $this
      */
@@ -780,7 +780,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets promotion_discount
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getPromotionDiscount()
     {
@@ -790,7 +790,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets promotion_discount
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $promotion_discount promotion_discount
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $promotion_discount promotion_discount
      *
      * @return $this
      */
@@ -804,7 +804,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets promotion_discount_tax
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getPromotionDiscountTax()
     {
@@ -814,7 +814,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets promotion_discount_tax
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $promotion_discount_tax promotion_discount_tax
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $promotion_discount_tax promotion_discount_tax
      *
      * @return $this
      */
@@ -852,7 +852,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets cod_fee
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getCodFee()
     {
@@ -862,7 +862,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets cod_fee
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $cod_fee cod_fee
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $cod_fee cod_fee
      *
      * @return $this
      */
@@ -876,7 +876,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets cod_fee_discount
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getCodFeeDiscount()
     {
@@ -886,7 +886,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets cod_fee_discount
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $cod_fee_discount cod_fee_discount
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $cod_fee_discount cod_fee_discount
      *
      * @return $this
      */
@@ -1068,7 +1068,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets tax_collection
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\TaxCollection|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxCollection|null
      */
     public function getTaxCollection()
     {
@@ -1078,7 +1078,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets tax_collection
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\TaxCollection|null $tax_collection tax_collection
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxCollection|null $tax_collection tax_collection
      *
      * @return $this
      */
@@ -1221,7 +1221,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets buyer_info
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo|null
      */
     public function getBuyerInfo()
     {
@@ -1231,7 +1231,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets buyer_info
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo|null $buyer_info buyer_info
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ItemBuyerInfo|null $buyer_info buyer_info
      *
      * @return $this
      */
@@ -1245,7 +1245,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Gets buyer_requested_cancel
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel|null
      */
     public function getBuyerRequestedCancel()
     {
@@ -1255,7 +1255,7 @@ class OrderItem implements ModelInterface, ArrayAccess
     /**
      * Sets buyer_requested_cancel
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel|null $buyer_requested_cancel buyer_requested_cancel
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerRequestedCancel|null $buyer_requested_cancel buyer_requested_cancel
      *
      * @return $this
      */

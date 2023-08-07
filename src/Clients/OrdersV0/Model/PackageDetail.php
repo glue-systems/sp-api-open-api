@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * PackageDetail Class Doc Comment
  *
  * @category Class
  * @description Properties of packages
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -65,7 +65,7 @@ class PackageDetail implements ModelInterface, ArrayAccess
         'tracking_number' => 'string',
         'ship_date' => '\DateTime',
         'ship_from_supply_source_id' => 'string',
-        'order_items' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ConfirmShipmentOrderItem[]'
+        'order_items' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConfirmShipmentOrderItem[]'
     ];
 
     /**
@@ -433,7 +433,7 @@ class PackageDetail implements ModelInterface, ArrayAccess
     /**
      * Gets order_items
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ConfirmShipmentOrderItem[]
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConfirmShipmentOrderItem[]
      */
     public function getOrderItems()
     {
@@ -443,7 +443,7 @@ class PackageDetail implements ModelInterface, ArrayAccess
     /**
      * Sets order_items
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ConfirmShipmentOrderItem[] $order_items A list of order items.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConfirmShipmentOrderItem[] $order_items A list of order items.
      *
      * @return $this
      */

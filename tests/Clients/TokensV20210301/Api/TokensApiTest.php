@@ -2,29 +2,29 @@
 
 namespace Tests\Clients\TokensV20210301\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse;
-use Glue\SPAPI\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse;
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource;
+use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class TokensApiTest extends TestCase
 {
     /**
-     * @var ClientFactory
+     * @var SpApi
      */
-    public $clientFactory;
+    public $spApi;
 
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->clientFactory = $this->buildClientFactory();
+        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_createRestrictedDataToken()
     {
-        $tokensApi  = $this->clientFactory->createTokensV20210301ApiClient();
+        $tokensApi  = $this->spApi->tokensV20210301();
 
         $result = $tokensApi->createRestrictedDataTokenWithHttpInfo(
             new CreateRestrictedDataTokenRequest([

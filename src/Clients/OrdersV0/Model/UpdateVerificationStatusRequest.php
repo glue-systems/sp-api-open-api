@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * UpdateVerificationStatusRequest Class Doc Comment
  *
  * @category Class
  * @description The request body for the updateVerificationStatus operation.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'regulated_order_verification_status' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateVerificationStatusRequestBody'
+        'regulated_order_verification_status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateVerificationStatusRequestBody'
     ];
 
     /**
@@ -211,7 +211,7 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess
     /**
      * Gets regulated_order_verification_status
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateVerificationStatusRequestBody
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateVerificationStatusRequestBody
      */
     public function getRegulatedOrderVerificationStatus()
     {
@@ -221,7 +221,7 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess
     /**
      * Sets regulated_order_verification_status
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateVerificationStatusRequestBody $regulated_order_verification_status regulated_order_verification_status
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateVerificationStatusRequestBody $regulated_order_verification_status regulated_order_verification_status
      *
      * @return $this
      */

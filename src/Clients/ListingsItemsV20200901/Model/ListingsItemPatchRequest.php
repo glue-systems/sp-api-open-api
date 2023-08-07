@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
+ * @package  Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model;
+namespace Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\ObjectSerializer;
 
 /**
  * ListingsItemPatchRequest Class Doc Comment
  *
  * @category Class
  * @description The request body schema for the patchListingsItem operation.
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901
+ * @package  Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'product_type' => 'string',
-        'patches' => '\Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation[]'
+        'patches' => '\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation[]'
     ];
 
     /**
@@ -244,7 +244,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
     /**
      * Gets patches
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation[]
+     * @return \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation[]
      */
     public function getPatches()
     {
@@ -254,7 +254,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
     /**
      * Sets patches
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation[] $patches One or more JSON Patch operations to perform on the listings item.
+     * @param \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation[] $patches One or more JSON Patch operations to perform on the listings item.
      *
      * @return $this
      */

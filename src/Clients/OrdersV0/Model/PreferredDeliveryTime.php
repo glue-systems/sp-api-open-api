@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * PreferredDeliveryTime Class Doc Comment
  *
  * @category Class
  * @description The time window when the delivery is preferred.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,8 +58,8 @@ class PreferredDeliveryTime implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'business_hours' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BusinessHours[]',
-        'exception_dates' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ExceptionDates[]'
+        'business_hours' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BusinessHours[]',
+        'exception_dates' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ExceptionDates[]'
     ];
 
     /**
@@ -214,7 +214,7 @@ class PreferredDeliveryTime implements ModelInterface, ArrayAccess
     /**
      * Gets business_hours
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BusinessHours[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BusinessHours[]|null
      */
     public function getBusinessHours()
     {
@@ -224,7 +224,7 @@ class PreferredDeliveryTime implements ModelInterface, ArrayAccess
     /**
      * Sets business_hours
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BusinessHours[]|null $business_hours Business hours when the business is open for deliveries.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BusinessHours[]|null $business_hours Business hours when the business is open for deliveries.
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class PreferredDeliveryTime implements ModelInterface, ArrayAccess
     /**
      * Gets exception_dates
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ExceptionDates[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ExceptionDates[]|null
      */
     public function getExceptionDates()
     {
@@ -248,7 +248,7 @@ class PreferredDeliveryTime implements ModelInterface, ArrayAccess
     /**
      * Sets exception_dates
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ExceptionDates[]|null $exception_dates Dates when the business is closed in the next 30 days.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ExceptionDates[]|null $exception_dates Dates when the business is closed in the next 30 days.
      *
      * @return $this
      */

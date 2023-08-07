@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model;
+namespace Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
 
 /**
  * AddressWithContact Class Doc Comment
  *
  * @category Class
  * @description Includes address and contact details.
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,8 +58,8 @@ class AddressWithContact implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'contact_details' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails',
-        'address' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\Address'
+        'contact_details' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails',
+        'address' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Address'
     ];
 
     /**
@@ -214,7 +214,7 @@ class AddressWithContact implements ModelInterface, ArrayAccess
     /**
      * Gets contact_details
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails|null
      */
     public function getContactDetails()
     {
@@ -224,7 +224,7 @@ class AddressWithContact implements ModelInterface, ArrayAccess
     /**
      * Sets contact_details
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails|null $contact_details contact_details
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ContactDetails|null $contact_details contact_details
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class AddressWithContact implements ModelInterface, ArrayAccess
     /**
      * Gets address
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\Address|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Address|null
      */
     public function getAddress()
     {
@@ -248,7 +248,7 @@ class AddressWithContact implements ModelInterface, ArrayAccess
     /**
      * Sets address
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\Address|null $address address
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Address|null $address address
      *
      * @return $this
      */

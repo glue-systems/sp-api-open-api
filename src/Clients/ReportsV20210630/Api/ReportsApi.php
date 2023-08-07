@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ReportsV20210630
+ * @package  Glue\SpApi\OpenAPI\Clients\ReportsV20210630
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Api;
+namespace Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Configuration;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\HeaderSelector;
-use Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ObjectSerializer;
+use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException;
+use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Configuration;
+use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\HeaderSelector;
+use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ObjectSerializer;
 
 /**
  * ReportsApi Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ReportsV20210630
+ * @package  Glue\SpApi\OpenAPI\Clients\ReportsV20210630
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -92,7 +92,7 @@ class ReportsApi
      *
      * @param  string $report_id The identifier for the report. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -106,7 +106,7 @@ class ReportsApi
      *
      * @param  string $report_id The identifier for the report. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -149,7 +149,7 @@ class ReportsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -157,7 +157,7 @@ class ReportsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -165,7 +165,7 @@ class ReportsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -173,7 +173,7 @@ class ReportsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -181,7 +181,7 @@ class ReportsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -189,7 +189,7 @@ class ReportsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -197,7 +197,7 @@ class ReportsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -205,7 +205,7 @@ class ReportsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -376,7 +376,7 @@ class ReportsApi
      *
      * @param  string $report_schedule_id The identifier for the report schedule. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -390,7 +390,7 @@ class ReportsApi
      *
      * @param  string $report_schedule_id The identifier for the report schedule. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -433,7 +433,7 @@ class ReportsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -441,7 +441,7 @@ class ReportsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -449,7 +449,7 @@ class ReportsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -457,7 +457,7 @@ class ReportsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -465,7 +465,7 @@ class ReportsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -473,7 +473,7 @@ class ReportsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -481,7 +481,7 @@ class ReportsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -489,7 +489,7 @@ class ReportsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -658,11 +658,11 @@ class ReportsApi
     /**
      * Operation createReport
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportSpecification $create_report_specification create_report_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportSpecification $create_report_specification create_report_specification (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
      */
     public function createReport($create_report_specification)
     {
@@ -673,11 +673,11 @@ class ReportsApi
     /**
      * Operation createReportWithHttpInfo
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportSpecification $create_report_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportSpecification $create_report_specification (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function createReportWithHttpInfo($create_report_specification)
     {
@@ -714,116 +714,116 @@ class ReportsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 202:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -842,7 +842,7 @@ class ReportsApi
                 case 202:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -850,7 +850,7 @@ class ReportsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -858,7 +858,7 @@ class ReportsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -866,7 +866,7 @@ class ReportsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -874,7 +874,7 @@ class ReportsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -882,7 +882,7 @@ class ReportsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -890,7 +890,7 @@ class ReportsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -898,7 +898,7 @@ class ReportsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -906,7 +906,7 @@ class ReportsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -921,7 +921,7 @@ class ReportsApi
      *
      * 
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportSpecification $create_report_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportSpecification $create_report_specification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -941,14 +941,14 @@ class ReportsApi
      *
      * 
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportSpecification $create_report_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportSpecification $create_report_specification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createReportAsyncWithHttpInfo($create_report_specification)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportResponse';
         $request = $this->createReportRequest($create_report_specification);
 
         return $this->client
@@ -988,7 +988,7 @@ class ReportsApi
     /**
      * Create request for operation 'createReport'
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportSpecification $create_report_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportSpecification $create_report_specification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1081,11 +1081,11 @@ class ReportsApi
     /**
      * Operation createReportSchedule
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleSpecification $create_report_schedule_specification create_report_schedule_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleSpecification $create_report_schedule_specification create_report_schedule_specification (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
      */
     public function createReportSchedule($create_report_schedule_specification)
     {
@@ -1096,11 +1096,11 @@ class ReportsApi
     /**
      * Operation createReportScheduleWithHttpInfo
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleSpecification $create_report_schedule_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleSpecification $create_report_schedule_specification (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function createReportScheduleWithHttpInfo($create_report_schedule_specification)
     {
@@ -1137,116 +1137,116 @@ class ReportsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 201:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1265,7 +1265,7 @@ class ReportsApi
                 case 201:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1273,7 +1273,7 @@ class ReportsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1281,7 +1281,7 @@ class ReportsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1289,7 +1289,7 @@ class ReportsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1297,7 +1297,7 @@ class ReportsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1305,7 +1305,7 @@ class ReportsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1313,7 +1313,7 @@ class ReportsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1321,7 +1321,7 @@ class ReportsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1329,7 +1329,7 @@ class ReportsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1344,7 +1344,7 @@ class ReportsApi
      *
      * 
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleSpecification $create_report_schedule_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleSpecification $create_report_schedule_specification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -1364,14 +1364,14 @@ class ReportsApi
      *
      * 
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleSpecification $create_report_schedule_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleSpecification $create_report_schedule_specification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
     public function createReportScheduleAsyncWithHttpInfo($create_report_schedule_specification)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleResponse';
         $request = $this->createReportScheduleRequest($create_report_schedule_specification);
 
         return $this->client
@@ -1411,7 +1411,7 @@ class ReportsApi
     /**
      * Create request for operation 'createReportSchedule'
      *
-     * @param  \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleSpecification $create_report_schedule_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\CreateReportScheduleSpecification $create_report_schedule_specification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
@@ -1506,9 +1506,9 @@ class ReportsApi
      *
      * @param  string $report_id The identifier for the report. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\Report|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\Report|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
      */
     public function getReport($report_id)
     {
@@ -1521,9 +1521,9 @@ class ReportsApi
      *
      * @param  string $report_id The identifier for the report. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\Report|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\Report|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportWithHttpInfo($report_id)
     {
@@ -1560,116 +1560,116 @@ class ReportsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\Report' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\Report' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\Report', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\Report', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\Report';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\Report';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -1688,7 +1688,7 @@ class ReportsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\Report',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\Report',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1696,7 +1696,7 @@ class ReportsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1704,7 +1704,7 @@ class ReportsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1712,7 +1712,7 @@ class ReportsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1720,7 +1720,7 @@ class ReportsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1728,7 +1728,7 @@ class ReportsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1736,7 +1736,7 @@ class ReportsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1744,7 +1744,7 @@ class ReportsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1752,7 +1752,7 @@ class ReportsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -1794,7 +1794,7 @@ class ReportsApi
      */
     public function getReportAsyncWithHttpInfo($report_id)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\Report';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\Report';
         $request = $this->getReportRequest($report_id);
 
         return $this->client
@@ -1934,9 +1934,9 @@ class ReportsApi
      *
      * @param  string $report_document_id The identifier for the report document. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
      */
     public function getReportDocument($report_document_id)
     {
@@ -1949,9 +1949,9 @@ class ReportsApi
      *
      * @param  string $report_document_id The identifier for the report document. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportDocumentWithHttpInfo($report_document_id)
     {
@@ -1988,116 +1988,116 @@ class ReportsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2116,7 +2116,7 @@ class ReportsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2124,7 +2124,7 @@ class ReportsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2132,7 +2132,7 @@ class ReportsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2140,7 +2140,7 @@ class ReportsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2148,7 +2148,7 @@ class ReportsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2156,7 +2156,7 @@ class ReportsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2164,7 +2164,7 @@ class ReportsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2172,7 +2172,7 @@ class ReportsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2180,7 +2180,7 @@ class ReportsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2222,7 +2222,7 @@ class ReportsApi
      */
     public function getReportDocumentAsyncWithHttpInfo($report_document_id)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportDocument';
         $request = $this->getReportDocumentRequest($report_document_id);
 
         return $this->client
@@ -2362,9 +2362,9 @@ class ReportsApi
      *
      * @param  string $report_schedule_id The identifier for the report schedule. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
      */
     public function getReportSchedule($report_schedule_id)
     {
@@ -2377,9 +2377,9 @@ class ReportsApi
      *
      * @param  string $report_schedule_id The identifier for the report schedule. This identifier is unique only in combination with a seller ID. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportScheduleWithHttpInfo($report_schedule_id)
     {
@@ -2416,116 +2416,116 @@ class ReportsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2544,7 +2544,7 @@ class ReportsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2552,7 +2552,7 @@ class ReportsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2560,7 +2560,7 @@ class ReportsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2568,7 +2568,7 @@ class ReportsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2576,7 +2576,7 @@ class ReportsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2584,7 +2584,7 @@ class ReportsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2592,7 +2592,7 @@ class ReportsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2600,7 +2600,7 @@ class ReportsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2608,7 +2608,7 @@ class ReportsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2650,7 +2650,7 @@ class ReportsApi
      */
     public function getReportScheduleAsyncWithHttpInfo($report_schedule_id)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportSchedule';
         $request = $this->getReportScheduleRequest($report_schedule_id);
 
         return $this->client
@@ -2790,9 +2790,9 @@ class ReportsApi
      *
      * @param  string[] $report_types A list of report types used to filter report schedules. Refer to [Report Type Values](https://developer-docs.amazon.com/sp-api/docs/report-type-values) for more information. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
      */
     public function getReportSchedules($report_types)
     {
@@ -2805,9 +2805,9 @@ class ReportsApi
      *
      * @param  string[] $report_types A list of report types used to filter report schedules. Refer to [Report Type Values](https://developer-docs.amazon.com/sp-api/docs/report-type-values) for more information. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportSchedulesWithHttpInfo($report_types)
     {
@@ -2844,116 +2844,116 @@ class ReportsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -2972,7 +2972,7 @@ class ReportsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2980,7 +2980,7 @@ class ReportsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2988,7 +2988,7 @@ class ReportsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -2996,7 +2996,7 @@ class ReportsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3004,7 +3004,7 @@ class ReportsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3012,7 +3012,7 @@ class ReportsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3020,7 +3020,7 @@ class ReportsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3028,7 +3028,7 @@ class ReportsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3036,7 +3036,7 @@ class ReportsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3078,7 +3078,7 @@ class ReportsApi
      */
     public function getReportSchedulesAsyncWithHttpInfo($report_types)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ReportScheduleList';
         $request = $this->getReportSchedulesRequest($report_types);
 
         return $this->client
@@ -3230,9 +3230,9 @@ class ReportsApi
      * @param  \DateTime $created_until The latest report creation date and time for reports to include in the response, in ISO 8601 date time format. The default is now. (optional)
      * @param  string $next_token A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getReports operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList
      */
     public function getReports($report_types = null, $processing_statuses = null, $marketplace_ids = null, $page_size = 10, $created_since = null, $created_until = null, $next_token = null)
     {
@@ -3251,9 +3251,9 @@ class ReportsApi
      * @param  \DateTime $created_until The latest report creation date and time for reports to include in the response, in ISO 8601 date time format. The default is now. (optional)
      * @param  string $next_token A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getReports operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\ApiException on non-2xx response
      * @throws \InvalidArgumentException
-     * @return array of \Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
+     * @return array of \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
     public function getReportsWithHttpInfo($report_types = null, $processing_statuses = null, $marketplace_ids = null, $page_size = 10, $created_since = null, $created_until = null, $next_token = null)
     {
@@ -3290,116 +3290,116 @@ class ReportsApi
             $responseBody = $response->getBody();
             switch($statusCode) {
                 case 200:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 400:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 401:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 403:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 404:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 415:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 429:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 500:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
                 case 503:
-                    if ('\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
+                    if ('\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList' === '\SplFileObject') {
                         $content = $responseBody; //stream goes to serializer
                     } else {
                         $content = $responseBody->getContents();
                     }
 
                     return [
-                        ObjectSerializer::deserialize($content, '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
+                        ObjectSerializer::deserialize($content, '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList', []),
                         $response->getStatusCode(),
                         $response->getHeaders()
                     ];
             }
 
-            $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse';
+            $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse';
             $responseBody = $response->getBody();
             if ($returnType === '\SplFileObject') {
                 $content = $responseBody; //stream goes to serializer
@@ -3418,7 +3418,7 @@ class ReportsApi
                 case 200:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3426,7 +3426,7 @@ class ReportsApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3434,7 +3434,7 @@ class ReportsApi
                 case 401:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3442,7 +3442,7 @@ class ReportsApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3450,7 +3450,7 @@ class ReportsApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3458,7 +3458,7 @@ class ReportsApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3466,7 +3466,7 @@ class ReportsApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3474,7 +3474,7 @@ class ReportsApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3482,7 +3482,7 @@ class ReportsApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
+                        '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\ErrorList',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -3536,7 +3536,7 @@ class ReportsApi
      */
     public function getReportsAsyncWithHttpInfo($report_types = null, $processing_statuses = null, $marketplace_ids = null, $page_size = 10, $created_since = null, $created_until = null, $next_token = null)
     {
-        $returnType = '\Glue\SPAPI\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse';
+        $returnType = '\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse';
         $request = $this->getReportsRequest($report_types, $processing_statuses, $marketplace_ids, $page_size, $created_since, $created_until, $next_token);
 
         return $this->client

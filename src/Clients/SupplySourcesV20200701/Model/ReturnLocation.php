@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model;
+namespace Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
 
 /**
  * ReturnLocation Class Doc Comment
  *
  * @category Class
  * @description Address or reference to another supplySourceId to act as a return location.
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class ReturnLocation implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'supply_source_id' => 'string',
-        'address_with_contact' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\AddressWithContact'
+        'address_with_contact' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\AddressWithContact'
     ];
 
     /**
@@ -238,7 +238,7 @@ class ReturnLocation implements ModelInterface, ArrayAccess
     /**
      * Gets address_with_contact
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\AddressWithContact|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\AddressWithContact|null
      */
     public function getAddressWithContact()
     {
@@ -248,7 +248,7 @@ class ReturnLocation implements ModelInterface, ArrayAccess
     /**
      * Sets address_with_contact
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\AddressWithContact|null $address_with_contact address_with_contact
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\AddressWithContact|null $address_with_contact address_with_contact
      *
      * @return $this
      */

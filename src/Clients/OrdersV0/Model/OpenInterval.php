@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * OpenInterval Class Doc Comment
  *
  * @category Class
  * @description The time interval for which the business is open.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,8 +58,8 @@ class OpenInterval implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'start_time' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval',
-        'end_time' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval'
+        'start_time' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval',
+        'end_time' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval'
     ];
 
     /**
@@ -214,7 +214,7 @@ class OpenInterval implements ModelInterface, ArrayAccess
     /**
      * Gets start_time
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null
      */
     public function getStartTime()
     {
@@ -224,7 +224,7 @@ class OpenInterval implements ModelInterface, ArrayAccess
     /**
      * Sets start_time
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null $start_time start_time
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null $start_time start_time
      *
      * @return $this
      */
@@ -238,7 +238,7 @@ class OpenInterval implements ModelInterface, ArrayAccess
     /**
      * Gets end_time
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null
      */
     public function getEndTime()
     {
@@ -248,7 +248,7 @@ class OpenInterval implements ModelInterface, ArrayAccess
     /**
      * Sets end_time
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null $end_time end_time
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenTimeInterval|null $end_time end_time
      *
      * @return $this
      */

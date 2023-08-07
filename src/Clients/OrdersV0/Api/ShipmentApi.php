@@ -4,7 +4,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -26,7 +26,7 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Api;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Api;
 
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -34,16 +34,16 @@ use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\Psr7\MultipartStream;
 use GuzzleHttp\Psr7\Request;
 use GuzzleHttp\RequestOptions;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\Configuration;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\HeaderSelector;
-use Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\ApiException;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\Configuration;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\HeaderSelector;
+use Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * ShipmentApi Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -91,9 +91,9 @@ class ShipmentApi
      * Operation updateShipmentStatus
      *
      * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param  \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
@@ -106,9 +106,9 @@ class ShipmentApi
      * Operation updateShipmentStatusWithHttpInfo
      *
      * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param  \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
      *
-     * @throws \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
+     * @throws \Glue\SpApi\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
@@ -151,7 +151,7 @@ class ShipmentApi
                 case 400:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -159,7 +159,7 @@ class ShipmentApi
                 case 403:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -167,7 +167,7 @@ class ShipmentApi
                 case 404:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -175,7 +175,7 @@ class ShipmentApi
                 case 413:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -183,7 +183,7 @@ class ShipmentApi
                 case 415:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -191,7 +191,7 @@ class ShipmentApi
                 case 429:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -199,7 +199,7 @@ class ShipmentApi
                 case 500:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -207,7 +207,7 @@ class ShipmentApi
                 case 503:
                     $data = ObjectSerializer::deserialize(
                         $e->getResponseBody(),
-                        '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
+                        '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusErrorResponse',
                         $e->getResponseHeaders()
                     );
                     $e->setResponseObject($data);
@@ -223,7 +223,7 @@ class ShipmentApi
      * 
      *
      * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param  \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -244,7 +244,7 @@ class ShipmentApi
      * 
      *
      * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param  \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
@@ -281,7 +281,7 @@ class ShipmentApi
      * Create request for operation 'updateShipmentStatus'
      *
      * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param  \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request

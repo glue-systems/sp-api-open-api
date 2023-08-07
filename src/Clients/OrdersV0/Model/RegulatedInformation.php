@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * RegulatedInformation Class Doc Comment
  *
  * @category Class
  * @description The regulated information collected during purchase and used to verify the order.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class RegulatedInformation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'fields' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RegulatedInformationField[]'
+        'fields' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedInformationField[]'
     ];
 
     /**
@@ -211,7 +211,7 @@ class RegulatedInformation implements ModelInterface, ArrayAccess
     /**
      * Gets fields
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RegulatedInformationField[]
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedInformationField[]
      */
     public function getFields()
     {
@@ -221,7 +221,7 @@ class RegulatedInformation implements ModelInterface, ArrayAccess
     /**
      * Sets fields
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\RegulatedInformationField[] $fields A list of regulated information fields as collected from the regulatory form.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RegulatedInformationField[] $fields A list of regulated information fields as collected from the regulatory form.
      *
      * @return $this
      */

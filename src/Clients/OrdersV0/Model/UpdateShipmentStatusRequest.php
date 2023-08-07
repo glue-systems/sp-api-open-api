@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * UpdateShipmentStatusRequest Class Doc Comment
  *
  * @category Class
  * @description The request body for the updateShipmentStatus operation.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class UpdateShipmentStatusRequest implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'marketplace_id' => 'string',
-        'shipment_status' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus',
+        'shipment_status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus',
         'order_items' => 'object[]'
     ];
 
@@ -250,7 +250,7 @@ class UpdateShipmentStatusRequest implements ModelInterface, ArrayAccess
     /**
      * Gets shipment_status
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus
      */
     public function getShipmentStatus()
     {
@@ -260,7 +260,7 @@ class UpdateShipmentStatusRequest implements ModelInterface, ArrayAccess
     /**
      * Sets shipment_status
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus $shipment_status shipment_status
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus $shipment_status shipment_status
      *
      * @return $this
      */

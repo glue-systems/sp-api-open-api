@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model
+ * @package  Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,12 +27,12 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model;
+namespace Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model;
 
 /**
  * Interface abstracting model access.
  *
- * @package Glue\SPAPI\OpenAPI\Clients\ListingsItemsV20200901\Model
+ * @package Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model
  * @author  OpenAPI Generator team
  */
 interface ModelInterface

@@ -2,33 +2,33 @@
 
 namespace Tests\Clients\FeedsV20200904\Api;
 
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\Feed;
-use Glue\SPAPI\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse;
-use Glue\SPAPI\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\Feed;
+use Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse;
+use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class FeedsApiTest extends TestCase
 {
     /**
-     * @var ClientFactory
+     * @var SpApi
      */
-    public $clientFactory;
+    public $spApi;
 
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->clientFactory = $this->buildClientFactory();
+        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_getFeeds()
     {
-        $feedsApi  = $this->clientFactory->createFeedsV20200904ApiClient();
+        $feedsApi  = $this->spApi->feedsV20200904();
 
         $result = $feedsApi->getFeedsWithHttpInfo(
             // Specific values come from the sandbox spec in models/feeds_2020-09-04.json
             ['POST_PRODUCT_DATA'],
-            [$this->clientFactory->getConfig()->marketplaceId],
+            [$this->spApi->getSpApiConfig()->marketplaceId],
             10,
             ['CANCELLED', 'DONE']
         );

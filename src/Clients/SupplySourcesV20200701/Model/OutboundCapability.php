@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model;
+namespace Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ObjectSerializer;
 
 /**
  * OutboundCapability Class Doc Comment
  *
  * @category Class
  * @description Outbound capability of a supply source.
- * @package  Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701
+ * @package  Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,10 +59,10 @@ class OutboundCapability implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'is_supported' => 'bool',
-        'operational_configuration' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration',
-        'return_location' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\ReturnLocation',
-        'delivery_channel' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\DeliveryChannel',
-        'pickup_channel' => '\Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\PickupChannel'
+        'operational_configuration' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration',
+        'return_location' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ReturnLocation',
+        'delivery_channel' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\DeliveryChannel',
+        'pickup_channel' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\PickupChannel'
     ];
 
     /**
@@ -256,7 +256,7 @@ class OutboundCapability implements ModelInterface, ArrayAccess
     /**
      * Gets operational_configuration
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null
      */
     public function getOperationalConfiguration()
     {
@@ -266,7 +266,7 @@ class OutboundCapability implements ModelInterface, ArrayAccess
     /**
      * Sets operational_configuration
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null $operational_configuration operational_configuration
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null $operational_configuration operational_configuration
      *
      * @return $this
      */
@@ -280,7 +280,7 @@ class OutboundCapability implements ModelInterface, ArrayAccess
     /**
      * Gets return_location
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\ReturnLocation|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ReturnLocation|null
      */
     public function getReturnLocation()
     {
@@ -290,7 +290,7 @@ class OutboundCapability implements ModelInterface, ArrayAccess
     /**
      * Sets return_location
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\ReturnLocation|null $return_location return_location
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ReturnLocation|null $return_location return_location
      *
      * @return $this
      */
@@ -304,7 +304,7 @@ class OutboundCapability implements ModelInterface, ArrayAccess
     /**
      * Gets delivery_channel
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\DeliveryChannel|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\DeliveryChannel|null
      */
     public function getDeliveryChannel()
     {
@@ -314,7 +314,7 @@ class OutboundCapability implements ModelInterface, ArrayAccess
     /**
      * Sets delivery_channel
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\DeliveryChannel|null $delivery_channel delivery_channel
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\DeliveryChannel|null $delivery_channel delivery_channel
      *
      * @return $this
      */
@@ -328,7 +328,7 @@ class OutboundCapability implements ModelInterface, ArrayAccess
     /**
      * Gets pickup_channel
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\PickupChannel|null
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\PickupChannel|null
      */
     public function getPickupChannel()
     {
@@ -338,7 +338,7 @@ class OutboundCapability implements ModelInterface, ArrayAccess
     /**
      * Sets pickup_channel
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\SupplySourcesV20200701\Model\PickupChannel|null $pickup_channel pickup_channel
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\PickupChannel|null $pickup_channel pickup_channel
      *
      * @return $this
      */

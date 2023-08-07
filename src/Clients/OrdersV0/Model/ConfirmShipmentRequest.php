@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * ConfirmShipmentRequest Class Doc Comment
  *
  * @category Class
  * @description The request schema for an shipment confirmation.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -58,7 +58,7 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'package_detail' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\PackageDetail',
+        'package_detail' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PackageDetail',
         'cod_collection_method' => 'string',
         'marketplace_id' => 'string'
     ];
@@ -247,7 +247,7 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess
     /**
      * Gets package_detail
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\PackageDetail
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PackageDetail
      */
     public function getPackageDetail()
     {
@@ -257,7 +257,7 @@ class ConfirmShipmentRequest implements ModelInterface, ArrayAccess
     /**
      * Sets package_detail
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\PackageDetail $package_detail package_detail
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PackageDetail $package_detail package_detail
      *
      * @return $this
      */

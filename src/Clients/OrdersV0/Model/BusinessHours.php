@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * BusinessHours Class Doc Comment
  *
  * @category Class
  * @description Business days and hours when the destination is open for deliveries.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,7 +59,7 @@ class BusinessHours implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'day_of_week' => 'string',
-        'open_intervals' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
+        'open_intervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
     ];
 
     /**
@@ -280,7 +280,7 @@ class BusinessHours implements ModelInterface, ArrayAccess
     /**
      * Gets open_intervals
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
      */
     public function getOpenIntervals()
     {
@@ -290,7 +290,7 @@ class BusinessHours implements ModelInterface, ArrayAccess
     /**
      * Sets open_intervals
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $open_intervals Time window during the day when the business is open.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $open_intervals Time window during the day when the business is open.
      *
      * @return $this
      */

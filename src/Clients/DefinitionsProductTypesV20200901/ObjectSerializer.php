@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
+ * @package  Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,15 +27,15 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901;
+namespace Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901;
 
-use Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ModelInterface;
+use Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ModelInterface;
 
 /**
  * ObjectSerializer Class Doc Comment
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901
+ * @package  Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -305,7 +305,7 @@ class ObjectSerializer
             // If a discriminator is defined and points to a valid subclass, use it.
             $discriminator = $class::DISCRIMINATOR;
             if (!empty($discriminator) && isset($data->{$discriminator}) && is_string($data->{$discriminator})) {
-                $subclass = '\Glue\SPAPI\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\\' . $data->{$discriminator};
+                $subclass = '\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\\' . $data->{$discriminator};
                 if (is_subclass_of($subclass, $class)) {
                     $class = $subclass;
                 }

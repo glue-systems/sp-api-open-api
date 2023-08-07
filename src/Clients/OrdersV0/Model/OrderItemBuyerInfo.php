@@ -5,7 +5,7 @@
  * PHP version 5
  *
  * @category Class
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -27,17 +27,17 @@
  * Do not edit the class manually.
  */
 
-namespace Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model;
+namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 
 use \ArrayAccess;
-use \Glue\SPAPI\OpenAPI\Clients\OrdersV0\ObjectSerializer;
+use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
  * OrderItemBuyerInfo Class Doc Comment
  *
  * @category Class
  * @description A single order item&#39;s buyer information.
- * @package  Glue\SPAPI\OpenAPI\Clients\OrdersV0
+ * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
@@ -59,9 +59,9 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'order_item_id' => 'string',
-        'buyer_customized_info' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerCustomizedInfoDetail',
-        'gift_wrap_price' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
-        'gift_wrap_tax' => '\Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money',
+        'buyer_customized_info' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerCustomizedInfoDetail',
+        'gift_wrap_price' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
+        'gift_wrap_tax' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
         'gift_message_text' => 'string',
         'gift_wrap_level' => 'string'
     ];
@@ -265,7 +265,7 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
     /**
      * Gets buyer_customized_info
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerCustomizedInfoDetail|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerCustomizedInfoDetail|null
      */
     public function getBuyerCustomizedInfo()
     {
@@ -275,7 +275,7 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
     /**
      * Sets buyer_customized_info
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\BuyerCustomizedInfoDetail|null $buyer_customized_info buyer_customized_info
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\BuyerCustomizedInfoDetail|null $buyer_customized_info buyer_customized_info
      *
      * @return $this
      */
@@ -289,7 +289,7 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
     /**
      * Gets gift_wrap_price
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getGiftWrapPrice()
     {
@@ -299,7 +299,7 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
     /**
      * Sets gift_wrap_price
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $gift_wrap_price gift_wrap_price
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $gift_wrap_price gift_wrap_price
      *
      * @return $this
      */
@@ -313,7 +313,7 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
     /**
      * Gets gift_wrap_tax
      *
-     * @return \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getGiftWrapTax()
     {
@@ -323,7 +323,7 @@ class OrderItemBuyerInfo implements ModelInterface, ArrayAccess
     /**
      * Sets gift_wrap_tax
      *
-     * @param \Glue\SPAPI\OpenAPI\Clients\OrdersV0\Model\Money|null $gift_wrap_tax gift_wrap_tax
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $gift_wrap_tax gift_wrap_tax
      *
      * @return $this
      */
