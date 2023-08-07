@@ -250,6 +250,26 @@ rm -rf src/Clients/TokensV20210301
 mv output/TokensV20210301/lib src/Clients/TokensV20210301
 ```
 
+#### Vendor Direct Fulfillment Transactions API v1
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/VendorDirectFulfillmentTransactionsV1
+openapi-generator-cli generate -i models/vendorDirectFulfillmentTransactionsV1.json -g php -o output/VendorDirectFulfillmentTransactionsV1 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/VendorDirectFulfillmentTransactionsV1
+mv output/VendorDirectFulfillmentTransactionsV1/lib src/Clients/VendorDirectFulfillmentTransactionsV1
+```
+
+#### Vendor Direct Fulfillment Transactions API v2021-12-28
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/VendorDirectFulfillmentTransactionsV20211228
+openapi-generator-cli generate -i models/vendorDirectFulfillmentTransactions_2021-12-28.json -g php -o output/VendorDirectFulfillmentTransactionsV20211228 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/VendorDirectFulfillmentTransactionsV20211228
+mv output/VendorDirectFulfillmentTransactionsV20211228/lib src/Clients/VendorDirectFulfillmentTransactionsV20211228
+```
+
 #### Vendor Retail Procurement Invoices API v1
 
 _(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
