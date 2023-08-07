@@ -66,6 +66,16 @@ rm -rf src/Clients/AplusContentV20201101
 mv output/AplusContentV20201101/lib src/Clients/AplusContentV20201101
 ```
 
+#### Authorization API v1
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/AuthorizationV1
+openapi-generator-cli generate -i models/authorizationV1.json -g php -o output/AuthorizationV1 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\AuthorizationV1" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/AuthorizationV1
+mv output/AuthorizationV1/lib src/Clients/AuthorizationV1
+```
+
 #### Definitions Product Types API v2020-09-01
 
 ```BASH
