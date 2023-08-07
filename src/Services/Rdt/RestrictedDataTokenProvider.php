@@ -35,7 +35,7 @@ class RestrictedDataTokenProvider implements RestrictedDataTokenProviderContract
                 $rdtResponse = $tokensApi->createRestrictedDataToken($rdtRequest);
                 return $rdtResponse->getRestrictedDataToken();
             } catch (ApiException $ex) {
-                $msg = "Failed to retrieve Restricted Data Token: '{$ex->getMessage()}'";
+                $msg = "Failed to retrieve Restricted Data Token (RDT): '{$ex->getMessage()}'";
                 throw new RestrictedDataTokenRequestException($msg, 0, $ex);
             }
         };

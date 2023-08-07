@@ -72,7 +72,8 @@ class RestrictedDataTokenProviderTest extends TestCase
         $sut         = new RestrictedDataTokenProvider($this->clientFactory);
         $rdtProvider = $sut->fromRdtRequest(new CreateRestrictedDataTokenRequest());
 
-        $this->setExpectedException(RestrictedDataTokenRequestException::class, $expectedExceptionMessage);
+        $this->expectException(RestrictedDataTokenRequestException::class);
+        $this->expectExceptionMessage($expectedExceptionMessage);
         $rdtProvider();
     }
 }
