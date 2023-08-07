@@ -108,6 +108,16 @@ rm -rf src/Clients/DefinitionsProductTypesV20200901
 mv output/DefinitionsProductTypesV20200901/lib src/Clients/DefinitionsProductTypesV20200901
 ```
 
+#### Easy Ship API v2022-03-23
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/EasyShipV20220323
+openapi-generator-cli generate -i models/easyShip_2022-03-23.json -g php -o output/EasyShipV20220323 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\EasyShipV20220323" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/EasyShipV20220323
+mv output/EasyShipV20220323/lib src/Clients/EasyShipV20220323
+```
+
 #### Feeds API v2020-09-04
 
 ```BASH
