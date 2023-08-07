@@ -2,18 +2,10 @@
 
 namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
-use Glue\SpApi\OpenAPI\Services\SpApiConfig;
 use GuzzleHttp\ClientInterface;
 
 interface ClientAuthenticatorContract
 {
-    /**
-     * Get the global SP-API config object.
-     *
-     * @return SpApiConfig
-     */
-    public function getSpApiConfig();
-
     /**
      * Create an authenticated Guzzle client, ready to be passed into
      * the constructor of an SP-API client class.

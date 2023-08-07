@@ -21,17 +21,9 @@ use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as Su
 use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
-use Glue\SpApi\OpenAPI\Services\SpApiConfig;
 
 interface ClientBuilderContract
 {
-    /**
-     * Get the global SP-API config object.
-     *
-     * @return SpApiConfig
-     */
-    public function getSpApiConfig();
-
     /**
      * Set the target API by fully-qualified class name.
      *

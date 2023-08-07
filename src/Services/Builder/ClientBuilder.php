@@ -77,16 +77,6 @@ class ClientBuilder implements ClientBuilderContract
     }
 
     /**
-     * Get the global SP-API config object.
-     *
-     * @return SpApiConfig
-     */
-    public function getSpApiConfig()
-    {
-        return clone $this->spApiConfig;
-    }
-
-    /**
      * Set the target API by fully-qualified class name.
      *
      * @param string $apiClassFqn Fully qualified class name of the target API
