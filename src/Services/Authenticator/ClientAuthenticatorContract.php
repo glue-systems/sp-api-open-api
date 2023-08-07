@@ -15,19 +15,19 @@ interface ClientAuthenticatorContract
     public function getSpApiConfig();
 
     /**
+     * Generate a new LWA access token.
+     *
+     * @return array
+     */
+    public function requestNewLwaAccessToken();
+
+    /**
      * Get the cached LWA access token if it exists, or fetch a new one
      * and save it in the cache.
      *
      * @return string
      */
     public function rememberLwaAccessToken();
-
-    /**
-     * Generate a new LWA access token.
-     *
-     * @return array
-     */
-    public function requestNewLwaAccessToken();
 
     /**
      * Create an authenticated Guzzle client, ready to be passed into

@@ -57,26 +57,11 @@ class TestCase extends BaseTestCase
      */
     public function buildClientFactory()
     {
-        $spApiConfig = SpApiConfig::make([
-            'spApiBaseUrl'          => env('SP_API_BASE_URL', 'https://sandbox.sellingpartnerapi-na.amazon.com'),
-            'marketplaceId'         => env('MARKETPLACE_ID'),
-            'sellerId'              => env('SELLER_ID'),
-            'lwaOAuthBaseUrl'       => env('LWA_O_AUTH_BASE_URL', 'https://api.amazon.com'),
-            'lwaRefreshToken'       => env('LWA_REFRESH_TOKEN'),
-            'lwaClientId'           => env('LWA_CLIENT_ID'),
-            'lwaClientSecret'       => env('LWA_CLIENT_SECRET'),
-            'appNameAndVersion'     => env('APP_NAME_AND_VERSION', 'GLUE_TEST/0.0.1'),
-            'appLanguageAndVersion' => env('APP_LANGUAGE_AND_VERSION', 'PHP/7.2'),
-            // SANDBOX env is also set to true in phpunit.xml.
-            'sandbox'               => true,
-            'debugDomainApiCall'    => env('DEBUG_DOMAIN_API_CALL', false),
-            'debugOAuthApiCall'     => env('DEBUG_O_AUTH_API_CALL', false),
-        ]);
-
         if (env('TESTING_ALWAYS_RESET_ARRAY_CACHE', false)) {
             self::$arrayCache = new ArrayCache();
         }
         $credentialProvider  = $this->buildDotEnvCredentialProvider();
+        $spApiConfig         = $this->buildSpApiConfig();
         $clientAuthenticator = new ClientAuthenticator(self::$arrayCache, $credentialProvider, $spApiConfig);
         $clientBuilder       = new ClientBuilder($clientAuthenticator, $spApiConfig);
         $clientFactory       = new ClientFactory($clientBuilder, $spApiConfig);
@@ -95,5 +80,24 @@ class TestCase extends BaseTestCase
         );
 
         return CredentialProvider::fromCredentials($credentials);
+    }
+
+    public function buildSpApiConfig()
+    {
+        return SpApiConfig::make([
+            'spApiBaseUrl'          => env('SP_API_BASE_URL', 'https://sandbox.sellingpartnerapi-na.amazon.com'),
+            'marketplaceId'         => env('MARKETPLACE_ID'),
+            'sellerId'              => env('SELLER_ID'),
+            'lwaOAuthBaseUrl'       => env('LWA_O_AUTH_BASE_URL', 'https://api.amazon.com'),
+            'lwaRefreshToken'       => env('LWA_REFRESH_TOKEN'),
+            'lwaClientId'           => env('LWA_CLIENT_ID'),
+            'lwaClientSecret'       => env('LWA_CLIENT_SECRET'),
+            'appNameAndVersion'     => env('APP_NAME_AND_VERSION', 'GLUE_TEST/0.0.1'),
+            'appLanguageAndVersion' => env('APP_LANGUAGE_AND_VERSION', 'PHP/7.2'),
+            // SANDBOX env is also set to true in phpunit.xml.
+            'sandbox'               => true,
+            'debugDomainApiCall'    => env('DEBUG_DOMAIN_API_CALL', false),
+            'debugOAuthApiCall'     => env('DEBUG_O_AUTH_API_CALL', false),
+        ]);
     }
 }

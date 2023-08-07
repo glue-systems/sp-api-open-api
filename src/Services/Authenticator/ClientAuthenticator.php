@@ -59,29 +59,6 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     }
 
     /**
-     * Get the cached LWA access token if it exists, or request a new one
-     * and save it in the cache.
-     *
-     * @return string
-     */
-    public function rememberLwaAccessToken()
-    {
-        if ($cachedToken = $this->cache->get(self::LWA_ACCESS_TOKEN_CACHE_KEY)) {
-            return $cachedToken;
-        }
-
-        $newToken = $this->requestNewLwaAccessToken();
-
-        $this->cache->set(
-            self::LWA_ACCESS_TOKEN_CACHE_KEY,
-            $newToken['access_token'],
-            $newToken['expires_in'] - self::CACHE_LIFE_BUFFER_IN_SECONDS
-        );
-
-        return $newToken['access_token'];
-    }
-
-    /**
      * Request a new LWA access token.
      *
      * @return array
@@ -111,6 +88,29 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     }
 
     /**
+     * Get the cached LWA access token if it exists, or request a new one
+     * and save it in the cache.
+     *
+     * @return string
+     */
+    public function rememberLwaAccessToken()
+    {
+        if ($cachedToken = $this->cache->get(self::LWA_ACCESS_TOKEN_CACHE_KEY)) {
+            return $cachedToken;
+        }
+
+        $newToken = $this->requestNewLwaAccessToken();
+
+        $this->cache->set(
+            self::LWA_ACCESS_TOKEN_CACHE_KEY,
+            $newToken['access_token'],
+            $newToken['expires_in'] - self::CACHE_LIFE_BUFFER_IN_SECONDS
+        );
+
+        return $newToken['access_token'];
+    }
+
+    /**
      * Create an authenticated Guzzle client, ready to be passed into
      * the constructor of an SP-API client class.
      *
@@ -126,25 +126,20 @@ class ClientAuthenticator implements ClientAuthenticatorContract
             $accessToken    = $lwaAccessToken;
         }
 
-        $now = new \DateTime('now', new \DateTimeZone('UTC'));
-
-        $formattedTimestamp = $now->format('Ymd\THis\Z');
-
-        return $this->_makeGuzzleClient($accessToken, $formattedTimestamp);
+        return $this->_makeGuzzleClient($accessToken);
     }
 
     /**
      * @param string $accessToken
-     * @param string $formattedTimestamp
      * @return ClientInterface
      */
-    protected function _makeGuzzleClient($accessToken, $formattedTimestamp)
+    protected function _makeGuzzleClient($accessToken)
     {
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
 
         $stack->push(Middleware::mapRequest(
-            function (RequestInterface $request) use ($formattedTimestamp) {
+            function (RequestInterface $request) {
                 // Example from official docs: https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/service_cloudsearch-custom-requests.html
                 $credentials = call_user_func($this->credentialProvider)->wait();
 
@@ -160,7 +155,8 @@ class ClientAuthenticator implements ClientAuthenticatorContract
             'debug'    => $this->spApiConfig->debugDomainApiCall,
             'headers'  => [
                 'x-amz-access-token' => $accessToken,
-                'x-amz-date'         => $formattedTimestamp,
+                // TODO: Verify x-amz-date header is safe to remove as it's overwritten in AWS's SignatureV4?
+                // 'x-amz-date'         => $formattedTimestamp,
                 // (User-Agent and Host are set downstream in the internals of the OpenAPI
                 // clients, using data captured in each client's config object.)
             ],
