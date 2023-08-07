@@ -210,6 +210,10 @@ rm -rf src/Clients/OrdersV0
 mv output/OrdersV0/lib src/Clients/OrdersV0
 ```
 
+#### Product Pricing API v2022-05-01
+
+_(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
+
 #### Replenishment API v2022-11-07
 
 ```BASH
