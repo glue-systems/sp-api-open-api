@@ -210,6 +210,16 @@ rm -rf src/Clients/OrdersV0
 mv output/OrdersV0/lib src/Clients/OrdersV0
 ```
 
+#### Product Fees API v0
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/ProductFeesV0
+openapi-generator-cli generate -i models/productFeesV0.json -g php -o output/ProductFeesV0 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ProductFeesV0" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/ProductFeesV0
+mv output/ProductFeesV0/lib src/Clients/ProductFeesV0
+```
+
 #### Product Pricing API v0
 
 ```BASH
