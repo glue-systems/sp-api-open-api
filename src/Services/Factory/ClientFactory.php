@@ -45,16 +45,6 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
-     * Get the global SP-API config object.
-     *
-     * @return SpApiConfig
-     */
-    public function getSpApiConfig()
-    {
-        return clone $this->spApiConfig;
-    }
-
-    /**
      * @return DefinitionsProductTypesV20200901Api
      */
     public function createDefinitionsProductTypesV20200901ApiClient(
@@ -117,9 +107,6 @@ class ClientFactory implements ClientFactoryContract
     }
 
     /**
-     * Note that OrdersV0ShipmentApi does not have its own Configuration class,
-     * as it originates the same models/ordersV0.json spec.
-     *
      * @return OrdersV0ShipmentApi
      */
     public function createOrdersV0ShipmentApiClient(

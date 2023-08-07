@@ -4,32 +4,32 @@ namespace Tests\Clients\ReportsV20210630\Api;
 
 use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\Report;
 use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse;
-use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class ReportsApiTest extends TestCase
 {
     /**
-     * @var ClientFactory
+     * @var SpApi
      */
-    public $clientFactory;
+    public $spApi;
 
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->clientFactory = $this->buildClientFactory();
+        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_getReports()
     {
-        $reportsApi  = $this->clientFactory->createReportsV20210630ApiClient();
+        $reportsApi  = $this->spApi->reportsV20210630();
 
         $result = $reportsApi->getReportsWithHttpInfo(
             // Specific values come from the sandbox spec in models/reports_2021-06-30.json
             ['FEE_DISCOUNTS_REPORT', 'GET_AFN_INVENTORY_DATA'],
             ['IN_QUEUE', 'IN_PROGRESS'],
-            [$this->clientFactory->getSpApiConfig()->marketplaceId],
+            [$this->spApi->getSpApiConfig()->marketplaceId],
             10
         );
 

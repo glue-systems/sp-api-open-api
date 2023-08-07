@@ -6,31 +6,31 @@ use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchReq
 use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest;
 use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse;
 use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation;
-use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class ListingsApiTest extends TestCase
 {
     /**
-     * @var ClientFactory
+     * @var SpApi
      */
-    public $clientFactory;
+    public $spApi;
 
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->clientFactory = $this->buildClientFactory();
+        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_deleteListingsItem()
     {
-        $listingsApi = $this->clientFactory->createListingsItemsV20200901ApiClient();
+        $listingsApi = $this->spApi->listingsItemsV20200901();
 
         $result = $listingsApi->deleteListingsItemWithHttpInfo(
-            $this->clientFactory->getSpApiConfig()->sellerId,
+            $this->spApi->getSpApiConfig()->sellerId,
             'TESTSKU123',
-            [$this->clientFactory->getSpApiConfig()->marketplaceId]
+            [$this->spApi->getSpApiConfig()->marketplaceId]
         );
 
         $this->_assertSubmissionResponseMatchesStandardExpectations($result);
@@ -38,7 +38,7 @@ class ListingsApiTest extends TestCase
 
     public function test_patchListingsItem()
     {
-        $listingsApi = $this->clientFactory->createListingsItemsV20200901ApiClient();
+        $listingsApi = $this->spApi->listingsItemsV20200901();
 
         $request = new ListingsItemPatchRequest([
             'product_type' => 'PRODUCT',
@@ -57,9 +57,9 @@ class ListingsApiTest extends TestCase
         ]);
 
         $result = $listingsApi->patchListingsItemWithHttpInfo(
-            $this->clientFactory->getSpApiConfig()->sellerId,
+            $this->spApi->getSpApiConfig()->sellerId,
             'TESTSKU123',
-            [$this->clientFactory->getSpApiConfig()->marketplaceId],
+            [$this->spApi->getSpApiConfig()->marketplaceId],
             $request
         );
 
@@ -68,7 +68,7 @@ class ListingsApiTest extends TestCase
 
     public function test_putListingsItem()
     {
-        $listingsApi = $this->clientFactory->createListingsItemsV20200901ApiClient();
+        $listingsApi = $this->spApi->listingsItemsV20200901();
 
         $request = new ListingsItemPutRequest([
             'product_type' => 'PRODUCT',
@@ -80,9 +80,9 @@ class ListingsApiTest extends TestCase
         ]);
 
         $result = $listingsApi->putListingsItemWithHttpInfo(
-            $this->clientFactory->getSpApiConfig()->sellerId,
+            $this->spApi->getSpApiConfig()->sellerId,
             'TESTSKU123',
-            [$this->clientFactory->getSpApiConfig()->marketplaceId],
+            [$this->spApi->getSpApiConfig()->marketplaceId],
             $request
         );
 

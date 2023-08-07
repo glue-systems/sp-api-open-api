@@ -10,10 +10,12 @@ use Dotenv\Environment\Adapter\PutenvAdapter;
 use Dotenv\Environment\Adapter\ServerConstAdapter;
 use Dotenv\Environment\DotenvFactory;
 use Dotenv\Exception\InvalidFileException;
+use Glue\SpApi\OpenAPI\Container\SpApi;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
 use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
+use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProvider;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 // TODO: Switch to this after upgrading.
 // use PHPUnit\Framework\TestCase as BaseTestCase;
@@ -51,6 +53,17 @@ class TestCase extends BaseTestCase
         } catch (InvalidFileException $ex) {
             throw new \RuntimeException("The environment file is invalid: " . $ex->getMessage(), 0, $ex);
         }
+    }
+
+    /**
+     * @return SpAPi
+     */
+    public function buildSpApiContainer()
+    {
+        $spApiConfig   = $this->buildSpApiConfig();
+        $clientFacotry = $this->buildClientFactory();
+        $rdtProvider   = new RestrictedDataTokenProvider($clientFacotry);
+        return new SpApi($clientFacotry, $rdtProvider, $spApiConfig);
     }
 
     /**

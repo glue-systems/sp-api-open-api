@@ -6,31 +6,31 @@ use Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\GetOrderResponse;
 use Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\GetOrdersResponse;
 use Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Order;
 use Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OrdersList;
-use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class OrdersV0ApiTest extends TestCase
 {
     /**
-     * @var ClientFactory
+     * @var SpApi
      */
-    public $clientFactory;
+    public $spApi;
 
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->clientFactory = $this->buildClientFactory();
+        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_getOrders()
     {
-        $ordersV0Api  = $this->clientFactory->createOrdersV0ApiClient();
+        $ordersV0Api  = $this->spApi->ordersV0();
         // Using this specific string value as a quirky requirement of the sandbox API (see models/ordersV0.json)
         $createdAfter = 'TEST_CASE_200';
 
         $result = $ordersV0Api->getOrdersWithHttpInfo(
-            [$this->clientFactory->getSpApiConfig()->marketplaceId],
+            [$this->spApi->getSpApiConfig()->marketplaceId],
             $createdAfter
         );
 
@@ -48,7 +48,7 @@ class OrdersV0ApiTest extends TestCase
 
     public function test_getOrder()
     {
-        $ordersV0Api  = $this->clientFactory->createOrdersV0ApiClient();
+        $ordersV0Api  = $this->spApi->ordersV0();
         // Using this specific string value as a quirky requirement of the sandbox API (see models/ordersV0.json)
         $orderId = 'TEST_CASE_200';
 

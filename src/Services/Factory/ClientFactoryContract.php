@@ -26,13 +26,6 @@ use Glue\SpApi\OpenAPI\SpApiConfig;
 interface ClientFactoryContract
 {
     /**
-     * Get the global SP-API config object.
-     *
-     * @return SpApiConfig
-     */
-    public function getSpApiConfig();
-
-    /**
      * @return DefinitionsProductTypesV20200901Api
      */
     public function createDefinitionsProductTypesV20200901ApiClient(

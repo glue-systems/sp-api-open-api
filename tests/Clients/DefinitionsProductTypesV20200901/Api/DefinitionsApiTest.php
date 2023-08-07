@@ -3,30 +3,30 @@
 namespace Tests\Clients\DefinitionsProductTypesV20200901\Api;
 
 use Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition;
-use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class DefinitionsApiTest extends TestCase
 {
     /**
-     * @var ClientFactory
+     * @var SpApi
      */
-    public $clientFactory;
+    public $spApi;
 
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->clientFactory = $this->buildClientFactory();
+        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_getDefinitionsProductType()
     {
-        $definitionsApi  = $this->clientFactory->createDefinitionsProductTypesV20200901ApiClient();
+        $definitionsApi  = $this->spApi->definitionsProductTypesV20200901();
 
         $result = $definitionsApi->getDefinitionsProductTypeWithHttpInfo(
             'testProductType123',
-            [$this->clientFactory->getSpApiConfig()->marketplaceId]
+            [$this->spApi->getSpApiConfig()->marketplaceId]
         );
 
         /**
