@@ -247,3 +247,13 @@ openapi-generator-cli generate -i models/tokens_2021-03-01.json -g php -o output
 rm -rf src/Clients/TokensV20210301
 mv output/TokensV20210301/lib src/Clients/TokensV20210301
 ```
+
+#### Vendor Retail Procurement Transaction Status API v1
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/VendorTransactionStatusV1
+openapi-generator-cli generate -i models/vendorTransactionStatusV1.json -g php -o output/VendorTransactionStatusV1 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/VendorTransactionStatusV1
+mv output/VendorTransactionStatusV1/lib src/Clients/VendorTransactionStatusV1
+```
