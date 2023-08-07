@@ -250,6 +250,16 @@ rm -rf src/Clients/TokensV20210301
 mv output/TokensV20210301/lib src/Clients/TokensV20210301
 ```
 
+#### Vendor Direct Fulfillment Inventory API v1
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/VendorDirectFulfillmentInventoryV1
+openapi-generator-cli generate -i models/vendorDirectFulfillmentInventoryV1.json -g php -o output/VendorDirectFulfillmentInventoryV1 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/VendorDirectFulfillmentInventoryV1
+mv output/VendorDirectFulfillmentInventoryV1/lib src/Clients/VendorDirectFulfillmentInventoryV1
+```
+
 #### Vendor Direct Fulfillment Orders API v1
 
 ```BASH
