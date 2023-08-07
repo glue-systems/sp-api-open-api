@@ -118,6 +118,16 @@ rm -rf src/Clients/EasyShipV20220323
 mv output/EasyShipV20220323/lib src/Clients/EasyShipV20220323
 ```
 
+#### FBA Inbound Eligibility API v1
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/FbaInboundEligibilityV1
+openapi-generator-cli generate -i models/fbaInboundV1.json -g php -o output/FbaInboundEligibilityV1 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/FbaInboundEligibilityV1
+mv output/FbaInboundEligibilityV1/lib src/Clients/FbaInboundEligibilityV1
+```
+
 #### Feeds API v2020-09-04
 
 ```BASH
