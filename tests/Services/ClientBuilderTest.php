@@ -158,4 +158,13 @@ class ClientBuilderTest extends TestCase
 
         $this->assertEquals($expectedDomainClient, $actualDomainClient);
     }
+
+    public function test_createClient_with_null_apiClassFqn_throws_ClientBuilderException()
+    {
+        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+
+        $this->expectException(ClientBuilderException::class);
+        $this->expectExceptionMessage('Builder not ready to create');
+        $sut->createClient();
+    }
 }
