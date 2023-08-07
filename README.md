@@ -86,6 +86,16 @@ rm -rf src/Clients/CatalogItemsV0
 mv output/CatalogItemsV0/lib src/Clients/CatalogItemsV0
 ```
 
+#### Catalog Items API v2020-12-01
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/CatalogItemsV20201201
+openapi-generator-cli generate -i models/catalogItems_2020-12-01.json -g php -o output/CatalogItemsV20201201 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/CatalogItemsV20201201
+mv output/CatalogItemsV20201201/lib src/Clients/CatalogItemsV20201201
+```
+
 #### Definitions Product Types API v2020-09-01
 
 ```BASH
