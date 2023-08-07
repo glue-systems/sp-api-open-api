@@ -3,15 +3,13 @@
 namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
 use Aws\Signature\SignatureV4;
-use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenRequestException;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceContract;
 use Glue\SpApi\OpenAPI\Services\SpApiConfig;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 use GuzzleHttp\Middleware;
-use GuzzleHttp\RequestOptions;
 use Psr\Http\Message\RequestInterface;
 use Psr\SimpleCache\CacheInterface;
 
@@ -27,6 +25,11 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     protected $cache;
 
     /**
+     * @var LwaServiceContract
+     */
+    protected $lwaService;
+
+    /**
      * @var callable
      */
     protected $credentialProvider;
@@ -38,12 +41,14 @@ class ClientAuthenticator implements ClientAuthenticatorContract
 
     public function __construct(
         CacheInterface $cache,
+        LwaServiceContract $lwaService,
         callable $credentialProvider,
         SpApiConfig $spApiConfig
     ) {
-        $this->cache               = $cache;
-        $this->credentialProvider  = $credentialProvider;
-        $this->spApiConfig         = $spApiConfig;
+        $this->cache              = $cache;
+        $this->lwaService         = $lwaService;
+        $this->credentialProvider = $credentialProvider;
+        $this->spApiConfig        = $spApiConfig;
 
         $this->spApiConfig->validateConfig();
     }
@@ -59,32 +64,21 @@ class ClientAuthenticator implements ClientAuthenticatorContract
     }
 
     /**
-     * Request a new LWA access token.
+     * Create an authenticated Guzzle client, ready to be passed into
+     * the constructor of an SP-API client class.
      *
-     * @return array
+     * @param string|null $restrictedDataToken
+     * @return ClientInterface
      */
-    public function requestNewLwaAccessToken()
+    public function createAuthenticatedGuzzleClient($restrictedDataToken = null)
     {
-        $guzzle = new Client([
-            'base_uri' => $this->spApiConfig->lwaOAuthBaseUrl,
-            'debug'    => $this->spApiConfig->debugOAuthApiCall,
-        ]);
-
-        try {
-            $response = $guzzle->request('POST', '/auth/o2/token', [
-                RequestOptions::JSON => [
-                    'grant_type'    => 'refresh_token',
-                    'refresh_token' => $this->spApiConfig->lwaRefreshToken,
-                    'client_id'     => $this->spApiConfig->lwaClientId,
-                    'client_secret' => $this->spApiConfig->lwaClientSecret,
-                ],
-            ]);
-        } catch (GuzzleException $ex) {
-            $msg = "Failed to retrieve Login With Amazon (LWA) Access Token: '{$ex->getMessage()}'";
-            throw new LwaAccessTokenRequestException($msg, 0, $ex);
+        if ($restrictedDataToken) {
+            $accessToken = $restrictedDataToken;
+        } else {
+            $accessToken = $this->rememberLwaAccessToken();
         }
 
-        return json_decode($response->getBody()->getContents(), true);
+        return $this->_makeGuzzleClient($accessToken);
     }
 
     /**
@@ -99,7 +93,10 @@ class ClientAuthenticator implements ClientAuthenticatorContract
             return $cachedToken;
         }
 
-        $newToken = $this->requestNewLwaAccessToken();
+        $newToken = $this->lwaService->requestNewLwaAccessToken(new Client([
+            'base_uri' => $this->spApiConfig->lwaOAuthBaseUrl,
+            'debug'    => $this->spApiConfig->debugOAuthApiCall,
+        ]));
 
         $this->cache->set(
             self::LWA_ACCESS_TOKEN_CACHE_KEY,
@@ -108,25 +105,6 @@ class ClientAuthenticator implements ClientAuthenticatorContract
         );
 
         return $newToken['access_token'];
-    }
-
-    /**
-     * Create an authenticated Guzzle client, ready to be passed into
-     * the constructor of an SP-API client class.
-     *
-     * @param string|null $restrictedDataToken
-     * @return ClientInterface
-     */
-    public function createAuthenticatedGuzzleClient($restrictedDataToken = null)
-    {
-        if ($restrictedDataToken) {
-            $accessToken = $restrictedDataToken;
-        } else {
-            $lwaAccessToken = $this->rememberLwaAccessToken();
-            $accessToken    = $lwaAccessToken;
-        }
-
-        return $this->_makeGuzzleClient($accessToken);
     }
 
     /**

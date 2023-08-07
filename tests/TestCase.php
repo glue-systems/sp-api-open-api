@@ -13,6 +13,7 @@ use Dotenv\Exception\InvalidFileException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
 use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
 use Glue\SpApi\OpenAPI\Services\SpApiConfig;
 // TODO: Switch to this after upgrading.
 // use PHPUnit\Framework\TestCase as BaseTestCase;
@@ -62,7 +63,8 @@ class TestCase extends BaseTestCase
         }
         $credentialProvider  = $this->buildDotEnvCredentialProvider();
         $spApiConfig         = $this->buildSpApiConfig();
-        $clientAuthenticator = new ClientAuthenticator(self::$arrayCache, $credentialProvider, $spApiConfig);
+        $lwaService          = new LwaService($spApiConfig);
+        $clientAuthenticator = new ClientAuthenticator(self::$arrayCache, $lwaService, $credentialProvider, $spApiConfig);
         $clientBuilder       = new ClientBuilder($clientAuthenticator, $spApiConfig);
         $clientFactory       = new ClientFactory($clientBuilder, $spApiConfig);
 
@@ -82,6 +84,9 @@ class TestCase extends BaseTestCase
         return CredentialProvider::fromCredentials($credentials);
     }
 
+    /**
+     * @return SpApiConfig
+     */
     public function buildSpApiConfig()
     {
         return SpApiConfig::make([

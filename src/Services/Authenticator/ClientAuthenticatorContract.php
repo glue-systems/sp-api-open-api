@@ -15,11 +15,13 @@ interface ClientAuthenticatorContract
     public function getSpApiConfig();
 
     /**
-     * Generate a new LWA access token.
+     * Create an authenticated Guzzle client, ready to be passed into
+     * the constructor of an SP-API client class.
      *
-     * @return array
+     * @param string|null $restrictedDataToken
+     * @return ClientInterface
      */
-    public function requestNewLwaAccessToken();
+    public function createAuthenticatedGuzzleClient($restrictedDataToken = null);
 
     /**
      * Get the cached LWA access token if it exists, or fetch a new one
@@ -28,13 +30,4 @@ interface ClientAuthenticatorContract
      * @return string
      */
     public function rememberLwaAccessToken();
-
-    /**
-     * Create an authenticated Guzzle client, ready to be passed into
-     * the constructor of an SP-API client class.
-     *
-     * @param string|null $restrictedDataToken
-     * @return ClientInterface
-     */
-    public function createAuthenticatedGuzzleClient($restrictedDataToken = null);
 }
