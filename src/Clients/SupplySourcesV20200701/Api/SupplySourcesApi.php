@@ -90,30 +90,30 @@ class SupplySourcesApi
     /**
      * Operation archiveSupplySource
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList
      */
-    public function archiveSupplySource($supply_source_id)
+    public function archiveSupplySource($supplySourceId)
     {
-        list($response) = $this->archiveSupplySourceWithHttpInfo($supply_source_id);
+        list($response) = $this->archiveSupplySourceWithHttpInfo($supplySourceId);
         return $response;
     }
 
     /**
      * Operation archiveSupplySourceWithHttpInfo
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function archiveSupplySourceWithHttpInfo($supply_source_id)
+    public function archiveSupplySourceWithHttpInfo($supplySourceId)
     {
-        $request = $this->archiveSupplySourceRequest($supply_source_id);
+        $request = $this->archiveSupplySourceRequest($supplySourceId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -353,14 +353,14 @@ class SupplySourcesApi
      *
      * 
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function archiveSupplySourceAsync($supply_source_id)
+    public function archiveSupplySourceAsync($supplySourceId)
     {
-        return $this->archiveSupplySourceAsyncWithHttpInfo($supply_source_id)
+        return $this->archiveSupplySourceAsyncWithHttpInfo($supplySourceId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -373,15 +373,15 @@ class SupplySourcesApi
      *
      * 
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function archiveSupplySourceAsyncWithHttpInfo($supply_source_id)
+    public function archiveSupplySourceAsyncWithHttpInfo($supplySourceId)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList';
-        $request = $this->archiveSupplySourceRequest($supply_source_id);
+        $request = $this->archiveSupplySourceRequest($supplySourceId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -420,17 +420,17 @@ class SupplySourcesApi
     /**
      * Create request for operation 'archiveSupplySource'
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function archiveSupplySourceRequest($supply_source_id)
+    protected function archiveSupplySourceRequest($supplySourceId)
     {
-        // verify the required parameter 'supply_source_id' is set
-        if ($supply_source_id === null || (is_array($supply_source_id) && count($supply_source_id) === 0)) {
+        // verify the required parameter 'supplySourceId' is set
+        if ($supplySourceId === null || (is_array($supplySourceId) && count($supplySourceId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $supply_source_id when calling archiveSupplySource'
+                'Missing the required parameter $supplySourceId when calling archiveSupplySource'
             );
         }
 
@@ -443,10 +443,10 @@ class SupplySourcesApi
 
 
         // path params
-        if ($supply_source_id !== null) {
+        if ($supplySourceId !== null) {
             $resourcePath = str_replace(
                 '{' . 'supplySourceId' . '}',
-                ObjectSerializer::toPathValue($supply_source_id),
+                ObjectSerializer::toPathValue($supplySourceId),
                 $resourcePath
             );
         }
@@ -518,30 +518,30 @@ class SupplySourcesApi
     /**
      * Operation createSupplySource
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceRequest $create_supply_source_request Request to create a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceRequest $createSupplySourceRequest Request to create a supply source. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceResponse|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList
      */
-    public function createSupplySource($create_supply_source_request)
+    public function createSupplySource($createSupplySourceRequest)
     {
-        list($response) = $this->createSupplySourceWithHttpInfo($create_supply_source_request);
+        list($response) = $this->createSupplySourceWithHttpInfo($createSupplySourceRequest);
         return $response;
     }
 
     /**
      * Operation createSupplySourceWithHttpInfo
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceRequest $create_supply_source_request Request to create a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceRequest $createSupplySourceRequest Request to create a supply source. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceResponse|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createSupplySourceWithHttpInfo($create_supply_source_request)
+    public function createSupplySourceWithHttpInfo($createSupplySourceRequest)
     {
-        $request = $this->createSupplySourceRequest($create_supply_source_request);
+        $request = $this->createSupplySourceRequest($createSupplySourceRequest);
 
         try {
             $options = $this->createHttpClientOption();
@@ -781,14 +781,14 @@ class SupplySourcesApi
      *
      * 
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceRequest $create_supply_source_request Request to create a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceRequest $createSupplySourceRequest Request to create a supply source. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSupplySourceAsync($create_supply_source_request)
+    public function createSupplySourceAsync($createSupplySourceRequest)
     {
-        return $this->createSupplySourceAsyncWithHttpInfo($create_supply_source_request)
+        return $this->createSupplySourceAsyncWithHttpInfo($createSupplySourceRequest)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -801,15 +801,15 @@ class SupplySourcesApi
      *
      * 
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceRequest $create_supply_source_request Request to create a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceRequest $createSupplySourceRequest Request to create a supply source. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createSupplySourceAsyncWithHttpInfo($create_supply_source_request)
+    public function createSupplySourceAsyncWithHttpInfo($createSupplySourceRequest)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceResponse';
-        $request = $this->createSupplySourceRequest($create_supply_source_request);
+        $request = $this->createSupplySourceRequest($createSupplySourceRequest);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -848,17 +848,17 @@ class SupplySourcesApi
     /**
      * Create request for operation 'createSupplySource'
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceRequest $create_supply_source_request Request to create a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\CreateSupplySourceRequest $createSupplySourceRequest Request to create a supply source. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createSupplySourceRequest($create_supply_source_request)
+    protected function createSupplySourceRequest($createSupplySourceRequest)
     {
-        // verify the required parameter 'create_supply_source_request' is set
-        if ($create_supply_source_request === null || (is_array($create_supply_source_request) && count($create_supply_source_request) === 0)) {
+        // verify the required parameter 'createSupplySourceRequest' is set
+        if ($createSupplySourceRequest === null || (is_array($createSupplySourceRequest) && count($createSupplySourceRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_supply_source_request when calling createSupplySource'
+                'Missing the required parameter $createSupplySourceRequest when calling createSupplySource'
             );
         }
 
@@ -873,8 +873,8 @@ class SupplySourcesApi
 
         // body params
         $_tempBody = null;
-        if (isset($create_supply_source_request)) {
-            $_tempBody = $create_supply_source_request;
+        if (isset($createSupplySourceRequest)) {
+            $_tempBody = $createSupplySourceRequest;
         }
 
         if ($multipart) {
@@ -941,30 +941,30 @@ class SupplySourcesApi
     /**
      * Operation getSupplySource
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySource|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList
      */
-    public function getSupplySource($supply_source_id)
+    public function getSupplySource($supplySourceId)
     {
-        list($response) = $this->getSupplySourceWithHttpInfo($supply_source_id);
+        list($response) = $this->getSupplySourceWithHttpInfo($supplySourceId);
         return $response;
     }
 
     /**
      * Operation getSupplySourceWithHttpInfo
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySource|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSupplySourceWithHttpInfo($supply_source_id)
+    public function getSupplySourceWithHttpInfo($supplySourceId)
     {
-        $request = $this->getSupplySourceRequest($supply_source_id);
+        $request = $this->getSupplySourceRequest($supplySourceId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1204,14 +1204,14 @@ class SupplySourcesApi
      *
      * 
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupplySourceAsync($supply_source_id)
+    public function getSupplySourceAsync($supplySourceId)
     {
-        return $this->getSupplySourceAsyncWithHttpInfo($supply_source_id)
+        return $this->getSupplySourceAsyncWithHttpInfo($supplySourceId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1224,15 +1224,15 @@ class SupplySourcesApi
      *
      * 
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupplySourceAsyncWithHttpInfo($supply_source_id)
+    public function getSupplySourceAsyncWithHttpInfo($supplySourceId)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\SupplySource';
-        $request = $this->getSupplySourceRequest($supply_source_id);
+        $request = $this->getSupplySourceRequest($supplySourceId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1271,17 +1271,17 @@ class SupplySourcesApi
     /**
      * Create request for operation 'getSupplySource'
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSupplySourceRequest($supply_source_id)
+    protected function getSupplySourceRequest($supplySourceId)
     {
-        // verify the required parameter 'supply_source_id' is set
-        if ($supply_source_id === null || (is_array($supply_source_id) && count($supply_source_id) === 0)) {
+        // verify the required parameter 'supplySourceId' is set
+        if ($supplySourceId === null || (is_array($supplySourceId) && count($supplySourceId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $supply_source_id when calling getSupplySource'
+                'Missing the required parameter $supplySourceId when calling getSupplySource'
             );
         }
 
@@ -1294,10 +1294,10 @@ class SupplySourcesApi
 
 
         // path params
-        if ($supply_source_id !== null) {
+        if ($supplySourceId !== null) {
             $resourcePath = str_replace(
                 '{' . 'supplySourceId' . '}',
-                ObjectSerializer::toPathValue($supply_source_id),
+                ObjectSerializer::toPathValue($supplySourceId),
                 $resourcePath
             );
         }
@@ -1369,32 +1369,32 @@ class SupplySourcesApi
     /**
      * Operation getSupplySources
      *
-     * @param  string $next_page_token Pagination token to retrieve a specific page of results. (optional)
-     * @param  float $page_size Number of supply sources to return per paginated request. (optional, default to 10.0)
+     * @param  string $nextPageToken Pagination token to retrieve a specific page of results. (optional)
+     * @param  float $pageSize Number of supply sources to return per paginated request. (optional, default to 10.0)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\GetSupplySourcesResponse|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList
      */
-    public function getSupplySources($next_page_token = null, $page_size = 10.0)
+    public function getSupplySources($nextPageToken = null, $pageSize = 10.0)
     {
-        list($response) = $this->getSupplySourcesWithHttpInfo($next_page_token, $page_size);
+        list($response) = $this->getSupplySourcesWithHttpInfo($nextPageToken, $pageSize);
         return $response;
     }
 
     /**
      * Operation getSupplySourcesWithHttpInfo
      *
-     * @param  string $next_page_token Pagination token to retrieve a specific page of results. (optional)
-     * @param  float $page_size Number of supply sources to return per paginated request. (optional, default to 10.0)
+     * @param  string $nextPageToken Pagination token to retrieve a specific page of results. (optional)
+     * @param  float $pageSize Number of supply sources to return per paginated request. (optional, default to 10.0)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\GetSupplySourcesResponse|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getSupplySourcesWithHttpInfo($next_page_token = null, $page_size = 10.0)
+    public function getSupplySourcesWithHttpInfo($nextPageToken = null, $pageSize = 10.0)
     {
-        $request = $this->getSupplySourcesRequest($next_page_token, $page_size);
+        $request = $this->getSupplySourcesRequest($nextPageToken, $pageSize);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1634,15 +1634,15 @@ class SupplySourcesApi
      *
      * 
      *
-     * @param  string $next_page_token Pagination token to retrieve a specific page of results. (optional)
-     * @param  float $page_size Number of supply sources to return per paginated request. (optional, default to 10.0)
+     * @param  string $nextPageToken Pagination token to retrieve a specific page of results. (optional)
+     * @param  float $pageSize Number of supply sources to return per paginated request. (optional, default to 10.0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupplySourcesAsync($next_page_token = null, $page_size = 10.0)
+    public function getSupplySourcesAsync($nextPageToken = null, $pageSize = 10.0)
     {
-        return $this->getSupplySourcesAsyncWithHttpInfo($next_page_token, $page_size)
+        return $this->getSupplySourcesAsyncWithHttpInfo($nextPageToken, $pageSize)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1655,16 +1655,16 @@ class SupplySourcesApi
      *
      * 
      *
-     * @param  string $next_page_token Pagination token to retrieve a specific page of results. (optional)
-     * @param  float $page_size Number of supply sources to return per paginated request. (optional, default to 10.0)
+     * @param  string $nextPageToken Pagination token to retrieve a specific page of results. (optional)
+     * @param  float $pageSize Number of supply sources to return per paginated request. (optional, default to 10.0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getSupplySourcesAsyncWithHttpInfo($next_page_token = null, $page_size = 10.0)
+    public function getSupplySourcesAsyncWithHttpInfo($nextPageToken = null, $pageSize = 10.0)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\GetSupplySourcesResponse';
-        $request = $this->getSupplySourcesRequest($next_page_token, $page_size);
+        $request = $this->getSupplySourcesRequest($nextPageToken, $pageSize);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1703,13 +1703,13 @@ class SupplySourcesApi
     /**
      * Create request for operation 'getSupplySources'
      *
-     * @param  string $next_page_token Pagination token to retrieve a specific page of results. (optional)
-     * @param  float $page_size Number of supply sources to return per paginated request. (optional, default to 10.0)
+     * @param  string $nextPageToken Pagination token to retrieve a specific page of results. (optional)
+     * @param  float $pageSize Number of supply sources to return per paginated request. (optional, default to 10.0)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getSupplySourcesRequest($next_page_token = null, $page_size = 10.0)
+    protected function getSupplySourcesRequest($nextPageToken = null, $pageSize = 10.0)
     {
 
         $resourcePath = '/supplySources/2020-07-01/supplySources';
@@ -1720,12 +1720,12 @@ class SupplySourcesApi
         $multipart = false;
 
         // query params
-        if ($next_page_token !== null) {
-            $queryParams['nextPageToken'] = ObjectSerializer::toQueryValue($next_page_token);
+        if ($nextPageToken !== null) {
+            $queryParams['nextPageToken'] = ObjectSerializer::toQueryValue($nextPageToken);
         }
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
 
 
@@ -1796,32 +1796,32 @@ class SupplySourcesApi
     /**
      * Operation updateSupplySource
      *
-     * @param  string $supply_source_id Unique identitier of a supply source. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceRequest $update_supply_source_request update_supply_source_request (optional)
+     * @param  string $supplySourceId Unique identitier of a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceRequest $updateSupplySourceRequest updateSupplySourceRequest (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList
      */
-    public function updateSupplySource($supply_source_id, $update_supply_source_request = null)
+    public function updateSupplySource($supplySourceId, $updateSupplySourceRequest = null)
     {
-        list($response) = $this->updateSupplySourceWithHttpInfo($supply_source_id, $update_supply_source_request);
+        list($response) = $this->updateSupplySourceWithHttpInfo($supplySourceId, $updateSupplySourceRequest);
         return $response;
     }
 
     /**
      * Operation updateSupplySourceWithHttpInfo
      *
-     * @param  string $supply_source_id Unique identitier of a supply source. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceRequest $update_supply_source_request (optional)
+     * @param  string $supplySourceId Unique identitier of a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceRequest $updateSupplySourceRequest (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSupplySourceWithHttpInfo($supply_source_id, $update_supply_source_request = null)
+    public function updateSupplySourceWithHttpInfo($supplySourceId, $updateSupplySourceRequest = null)
     {
-        $request = $this->updateSupplySourceRequest($supply_source_id, $update_supply_source_request);
+        $request = $this->updateSupplySourceRequest($supplySourceId, $updateSupplySourceRequest);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2061,15 +2061,15 @@ class SupplySourcesApi
      *
      * 
      *
-     * @param  string $supply_source_id Unique identitier of a supply source. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceRequest $update_supply_source_request (optional)
+     * @param  string $supplySourceId Unique identitier of a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceRequest $updateSupplySourceRequest (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSupplySourceAsync($supply_source_id, $update_supply_source_request = null)
+    public function updateSupplySourceAsync($supplySourceId, $updateSupplySourceRequest = null)
     {
-        return $this->updateSupplySourceAsyncWithHttpInfo($supply_source_id, $update_supply_source_request)
+        return $this->updateSupplySourceAsyncWithHttpInfo($supplySourceId, $updateSupplySourceRequest)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2082,16 +2082,16 @@ class SupplySourcesApi
      *
      * 
      *
-     * @param  string $supply_source_id Unique identitier of a supply source. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceRequest $update_supply_source_request (optional)
+     * @param  string $supplySourceId Unique identitier of a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceRequest $updateSupplySourceRequest (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSupplySourceAsyncWithHttpInfo($supply_source_id, $update_supply_source_request = null)
+    public function updateSupplySourceAsyncWithHttpInfo($supplySourceId, $updateSupplySourceRequest = null)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList';
-        $request = $this->updateSupplySourceRequest($supply_source_id, $update_supply_source_request);
+        $request = $this->updateSupplySourceRequest($supplySourceId, $updateSupplySourceRequest);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2130,18 +2130,18 @@ class SupplySourcesApi
     /**
      * Create request for operation 'updateSupplySource'
      *
-     * @param  string $supply_source_id Unique identitier of a supply source. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceRequest $update_supply_source_request (optional)
+     * @param  string $supplySourceId Unique identitier of a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceRequest $updateSupplySourceRequest (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateSupplySourceRequest($supply_source_id, $update_supply_source_request = null)
+    protected function updateSupplySourceRequest($supplySourceId, $updateSupplySourceRequest = null)
     {
-        // verify the required parameter 'supply_source_id' is set
-        if ($supply_source_id === null || (is_array($supply_source_id) && count($supply_source_id) === 0)) {
+        // verify the required parameter 'supplySourceId' is set
+        if ($supplySourceId === null || (is_array($supplySourceId) && count($supplySourceId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $supply_source_id when calling updateSupplySource'
+                'Missing the required parameter $supplySourceId when calling updateSupplySource'
             );
         }
 
@@ -2154,18 +2154,18 @@ class SupplySourcesApi
 
 
         // path params
-        if ($supply_source_id !== null) {
+        if ($supplySourceId !== null) {
             $resourcePath = str_replace(
                 '{' . 'supplySourceId' . '}',
-                ObjectSerializer::toPathValue($supply_source_id),
+                ObjectSerializer::toPathValue($supplySourceId),
                 $resourcePath
             );
         }
 
         // body params
         $_tempBody = null;
-        if (isset($update_supply_source_request)) {
-            $_tempBody = $update_supply_source_request;
+        if (isset($updateSupplySourceRequest)) {
+            $_tempBody = $updateSupplySourceRequest;
         }
 
         if ($multipart) {
@@ -2232,32 +2232,32 @@ class SupplySourcesApi
     /**
      * Operation updateSupplySourceStatus
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceStatusRequest $update_supply_source_status_request update_supply_source_status_request (optional)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceStatusRequest $updateSupplySourceStatusRequest updateSupplySourceStatusRequest (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList
      */
-    public function updateSupplySourceStatus($supply_source_id, $update_supply_source_status_request = null)
+    public function updateSupplySourceStatus($supplySourceId, $updateSupplySourceStatusRequest = null)
     {
-        list($response) = $this->updateSupplySourceStatusWithHttpInfo($supply_source_id, $update_supply_source_status_request);
+        list($response) = $this->updateSupplySourceStatusWithHttpInfo($supplySourceId, $updateSupplySourceStatusRequest);
         return $response;
     }
 
     /**
      * Operation updateSupplySourceStatusWithHttpInfo
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceStatusRequest $update_supply_source_status_request (optional)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceStatusRequest $updateSupplySourceStatusRequest (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateSupplySourceStatusWithHttpInfo($supply_source_id, $update_supply_source_status_request = null)
+    public function updateSupplySourceStatusWithHttpInfo($supplySourceId, $updateSupplySourceStatusRequest = null)
     {
-        $request = $this->updateSupplySourceStatusRequest($supply_source_id, $update_supply_source_status_request);
+        $request = $this->updateSupplySourceStatusRequest($supplySourceId, $updateSupplySourceStatusRequest);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2497,15 +2497,15 @@ class SupplySourcesApi
      *
      * 
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceStatusRequest $update_supply_source_status_request (optional)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceStatusRequest $updateSupplySourceStatusRequest (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSupplySourceStatusAsync($supply_source_id, $update_supply_source_status_request = null)
+    public function updateSupplySourceStatusAsync($supplySourceId, $updateSupplySourceStatusRequest = null)
     {
-        return $this->updateSupplySourceStatusAsyncWithHttpInfo($supply_source_id, $update_supply_source_status_request)
+        return $this->updateSupplySourceStatusAsyncWithHttpInfo($supplySourceId, $updateSupplySourceStatusRequest)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2518,16 +2518,16 @@ class SupplySourcesApi
      *
      * 
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceStatusRequest $update_supply_source_status_request (optional)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceStatusRequest $updateSupplySourceStatusRequest (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateSupplySourceStatusAsyncWithHttpInfo($supply_source_id, $update_supply_source_status_request = null)
+    public function updateSupplySourceStatusAsyncWithHttpInfo($supplySourceId, $updateSupplySourceStatusRequest = null)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\ErrorList';
-        $request = $this->updateSupplySourceStatusRequest($supply_source_id, $update_supply_source_status_request);
+        $request = $this->updateSupplySourceStatusRequest($supplySourceId, $updateSupplySourceStatusRequest);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2566,18 +2566,18 @@ class SupplySourcesApi
     /**
      * Create request for operation 'updateSupplySourceStatus'
      *
-     * @param  string $supply_source_id Unique identifier of a supply source. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceStatusRequest $update_supply_source_status_request (optional)
+     * @param  string $supplySourceId Unique identifier of a supply source. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\UpdateSupplySourceStatusRequest $updateSupplySourceStatusRequest (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateSupplySourceStatusRequest($supply_source_id, $update_supply_source_status_request = null)
+    protected function updateSupplySourceStatusRequest($supplySourceId, $updateSupplySourceStatusRequest = null)
     {
-        // verify the required parameter 'supply_source_id' is set
-        if ($supply_source_id === null || (is_array($supply_source_id) && count($supply_source_id) === 0)) {
+        // verify the required parameter 'supplySourceId' is set
+        if ($supplySourceId === null || (is_array($supplySourceId) && count($supplySourceId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $supply_source_id when calling updateSupplySourceStatus'
+                'Missing the required parameter $supplySourceId when calling updateSupplySourceStatus'
             );
         }
 
@@ -2590,18 +2590,18 @@ class SupplySourcesApi
 
 
         // path params
-        if ($supply_source_id !== null) {
+        if ($supplySourceId !== null) {
             $resourcePath = str_replace(
                 '{' . 'supplySourceId' . '}',
-                ObjectSerializer::toPathValue($supply_source_id),
+                ObjectSerializer::toPathValue($supplySourceId),
                 $resourcePath
             );
         }
 
         // body params
         $_tempBody = null;
-        if (isset($update_supply_source_status_request)) {
-            $_tempBody = $update_supply_source_status_request;
+        if (isset($updateSupplySourceStatusRequest)) {
+            $_tempBody = $updateSupplySourceStatusRequest;
         }
 
         if ($multipart) {

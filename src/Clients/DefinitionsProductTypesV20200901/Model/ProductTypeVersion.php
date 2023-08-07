@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Product Type Definitions
  *
- * The Selling Partner API for Product Type Definitions provides programmatic access to attribute and data requirements for product types in the Amazon catalog. Use this API to return the JSON Schema for a product type that you can then use with other Selling Partner APIs, such as the Selling Partner API for Listings Items, the Selling Partner API for Catalog Items, and the Selling Partner API for Feeds (for JSON-based listing feeds).
+ * The Selling Partner API for Product Type Definitions provides programmatic access to attribute and data requirements for product types in the Amazon catalog. Use this API to return the JSON Schema for a product type that you can then use with other Selling Partner APIs, such as the Selling Partner API for Listings Items, the Selling Partner API for Catalog Items, and the Selling Partner API for Feeds (for JSON-based listing feeds).  For more information, see the [Product Type Definitions API Use Case Guide](doc:product-type-api-use-case-guide).
  *
  * OpenAPI spec version: 2020-09-01
  * 
@@ -60,7 +60,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'version' => 'string',
         'latest' => 'bool',
-        'release_candidate' => 'bool'
+        'releaseCandidate' => 'bool'
     ];
 
     /**
@@ -71,7 +71,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'version' => null,
         'latest' => null,
-        'release_candidate' => null
+        'releaseCandidate' => null
     ];
 
     /**
@@ -103,7 +103,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'version' => 'version',
         'latest' => 'latest',
-        'release_candidate' => 'releaseCandidate'
+        'releaseCandidate' => 'releaseCandidate'
     ];
 
     /**
@@ -114,7 +114,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
     protected static $setters = [
         'version' => 'setVersion',
         'latest' => 'setLatest',
-        'release_candidate' => 'setReleaseCandidate'
+        'releaseCandidate' => 'setReleaseCandidate'
     ];
 
     /**
@@ -125,7 +125,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
     protected static $getters = [
         'version' => 'getVersion',
         'latest' => 'getLatest',
-        'release_candidate' => 'getReleaseCandidate'
+        'releaseCandidate' => 'getReleaseCandidate'
     ];
 
     /**
@@ -190,7 +190,7 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
     {
         $this->container['version'] = isset($data['version']) ? $data['version'] : null;
         $this->container['latest'] = isset($data['latest']) ? $data['latest'] : null;
-        $this->container['release_candidate'] = isset($data['release_candidate']) ? $data['release_candidate'] : null;
+        $this->container['releaseCandidate'] = isset($data['releaseCandidate']) ? $data['releaseCandidate'] : null;
     }
 
     /**
@@ -272,25 +272,25 @@ class ProductTypeVersion implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets release_candidate
+     * Gets releaseCandidate
      *
      * @return bool|null
      */
     public function getReleaseCandidate()
     {
-        return $this->container['release_candidate'];
+        return $this->container['releaseCandidate'];
     }
 
     /**
-     * Sets release_candidate
+     * Sets releaseCandidate
      *
-     * @param bool|null $release_candidate When true, the version indicated by the version identifier is the prerelease (release candidate) for the Amazon product type.
+     * @param bool|null $releaseCandidate When true, the version indicated by the version identifier is the prerelease (release candidate) for the Amazon product type.
      *
      * @return $this
      */
-    public function setReleaseCandidate($release_candidate)
+    public function setReleaseCandidate($releaseCandidate)
     {
-        $this->container['release_candidate'] = $release_candidate;
+        $this->container['releaseCandidate'] = $releaseCandidate;
 
         return $this;
     }

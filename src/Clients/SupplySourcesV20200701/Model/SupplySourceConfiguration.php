@@ -58,7 +58,7 @@ class SupplySourceConfiguration implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'operational_configuration' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration',
+        'operationalConfiguration' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration',
         'timezone' => 'string'
     ];
 
@@ -68,7 +68,7 @@ class SupplySourceConfiguration implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'operational_configuration' => null,
+        'operationalConfiguration' => null,
         'timezone' => null
     ];
 
@@ -99,7 +99,7 @@ class SupplySourceConfiguration implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'operational_configuration' => 'operationalConfiguration',
+        'operationalConfiguration' => 'operationalConfiguration',
         'timezone' => 'timezone'
     ];
 
@@ -109,7 +109,7 @@ class SupplySourceConfiguration implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'operational_configuration' => 'setOperationalConfiguration',
+        'operationalConfiguration' => 'setOperationalConfiguration',
         'timezone' => 'setTimezone'
     ];
 
@@ -119,7 +119,7 @@ class SupplySourceConfiguration implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'operational_configuration' => 'getOperationalConfiguration',
+        'operationalConfiguration' => 'getOperationalConfiguration',
         'timezone' => 'getTimezone'
     ];
 
@@ -183,7 +183,7 @@ class SupplySourceConfiguration implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['operational_configuration'] = isset($data['operational_configuration']) ? $data['operational_configuration'] : null;
+        $this->container['operationalConfiguration'] = isset($data['operationalConfiguration']) ? $data['operationalConfiguration'] : null;
         $this->container['timezone'] = isset($data['timezone']) ? $data['timezone'] : null;
     }
 
@@ -212,25 +212,25 @@ class SupplySourceConfiguration implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets operational_configuration
+     * Gets operationalConfiguration
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null
      */
     public function getOperationalConfiguration()
     {
-        return $this->container['operational_configuration'];
+        return $this->container['operationalConfiguration'];
     }
 
     /**
-     * Sets operational_configuration
+     * Sets operationalConfiguration
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null $operational_configuration operational_configuration
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\OperationalConfiguration|null $operationalConfiguration operationalConfiguration
      *
      * @return $this
      */
-    public function setOperationalConfiguration($operational_configuration)
+    public function setOperationalConfiguration($operationalConfiguration)
     {
-        $this->container['operational_configuration'] = $operational_configuration;
+        $this->container['operationalConfiguration'] = $operationalConfiguration;
 
         return $this;
     }

@@ -58,9 +58,9 @@ class UpdateShipmentStatusRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'marketplace_id' => 'string',
-        'shipment_status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus',
-        'order_items' => 'object[]'
+        'marketplaceId' => 'string',
+        'shipmentStatus' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus',
+        'orderItems' => 'object[]'
     ];
 
     /**
@@ -69,9 +69,9 @@ class UpdateShipmentStatusRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'marketplace_id' => null,
-        'shipment_status' => null,
-        'order_items' => null
+        'marketplaceId' => null,
+        'shipmentStatus' => null,
+        'orderItems' => null
     ];
 
     /**
@@ -101,9 +101,9 @@ class UpdateShipmentStatusRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'marketplace_id' => 'marketplaceId',
-        'shipment_status' => 'shipmentStatus',
-        'order_items' => 'orderItems'
+        'marketplaceId' => 'marketplaceId',
+        'shipmentStatus' => 'shipmentStatus',
+        'orderItems' => 'orderItems'
     ];
 
     /**
@@ -112,9 +112,9 @@ class UpdateShipmentStatusRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'marketplace_id' => 'setMarketplaceId',
-        'shipment_status' => 'setShipmentStatus',
-        'order_items' => 'setOrderItems'
+        'marketplaceId' => 'setMarketplaceId',
+        'shipmentStatus' => 'setShipmentStatus',
+        'orderItems' => 'setOrderItems'
     ];
 
     /**
@@ -123,9 +123,9 @@ class UpdateShipmentStatusRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'marketplace_id' => 'getMarketplaceId',
-        'shipment_status' => 'getShipmentStatus',
-        'order_items' => 'getOrderItems'
+        'marketplaceId' => 'getMarketplaceId',
+        'shipmentStatus' => 'getShipmentStatus',
+        'orderItems' => 'getOrderItems'
     ];
 
     /**
@@ -188,9 +188,9 @@ class UpdateShipmentStatusRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['marketplace_id'] = isset($data['marketplace_id']) ? $data['marketplace_id'] : null;
-        $this->container['shipment_status'] = isset($data['shipment_status']) ? $data['shipment_status'] : null;
-        $this->container['order_items'] = isset($data['order_items']) ? $data['order_items'] : null;
+        $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
+        $this->container['shipmentStatus'] = isset($data['shipmentStatus']) ? $data['shipmentStatus'] : null;
+        $this->container['orderItems'] = isset($data['orderItems']) ? $data['orderItems'] : null;
     }
 
     /**
@@ -202,11 +202,11 @@ class UpdateShipmentStatusRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['marketplace_id'] === null) {
-            $invalidProperties[] = "'marketplace_id' can't be null";
+        if ($this->container['marketplaceId'] === null) {
+            $invalidProperties[] = "'marketplaceId' can't be null";
         }
-        if ($this->container['shipment_status'] === null) {
-            $invalidProperties[] = "'shipment_status' can't be null";
+        if ($this->container['shipmentStatus'] === null) {
+            $invalidProperties[] = "'shipmentStatus' can't be null";
         }
         return $invalidProperties;
     }
@@ -224,73 +224,73 @@ class UpdateShipmentStatusRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets marketplace_id
+     * Gets marketplaceId
      *
      * @return string
      */
     public function getMarketplaceId()
     {
-        return $this->container['marketplace_id'];
+        return $this->container['marketplaceId'];
     }
 
     /**
-     * Sets marketplace_id
+     * Sets marketplaceId
      *
-     * @param string $marketplace_id The unobfuscated marketplace identifier.
+     * @param string $marketplaceId The unobfuscated marketplace identifier.
      *
      * @return $this
      */
-    public function setMarketplaceId($marketplace_id)
+    public function setMarketplaceId($marketplaceId)
     {
-        $this->container['marketplace_id'] = $marketplace_id;
+        $this->container['marketplaceId'] = $marketplaceId;
 
         return $this;
     }
 
     /**
-     * Gets shipment_status
+     * Gets shipmentStatus
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus
      */
     public function getShipmentStatus()
     {
-        return $this->container['shipment_status'];
+        return $this->container['shipmentStatus'];
     }
 
     /**
-     * Sets shipment_status
+     * Sets shipmentStatus
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus $shipment_status shipment_status
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ShipmentStatus $shipmentStatus shipmentStatus
      *
      * @return $this
      */
-    public function setShipmentStatus($shipment_status)
+    public function setShipmentStatus($shipmentStatus)
     {
-        $this->container['shipment_status'] = $shipment_status;
+        $this->container['shipmentStatus'] = $shipmentStatus;
 
         return $this;
     }
 
     /**
-     * Gets order_items
+     * Gets orderItems
      *
      * @return object[]|null
      */
     public function getOrderItems()
     {
-        return $this->container['order_items'];
+        return $this->container['orderItems'];
     }
 
     /**
-     * Sets order_items
+     * Sets orderItems
      *
-     * @param object[]|null $order_items For partial shipment status updates, the list of order items and quantities to be updated.
+     * @param object[]|null $orderItems For partial shipment status updates, the list of order items and quantities to be updated.
      *
      * @return $this
      */
-    public function setOrderItems($order_items)
+    public function setOrderItems($orderItems)
     {
-        $this->container['order_items'] = $order_items;
+        $this->container['orderItems'] = $orderItems;
 
         return $this;
     }

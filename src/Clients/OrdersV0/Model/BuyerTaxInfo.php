@@ -58,9 +58,9 @@ class BuyerTaxInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'company_legal_name' => 'string',
-        'taxing_region' => 'string',
-        'tax_classifications' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]'
+        'companyLegalName' => 'string',
+        'taxingRegion' => 'string',
+        'taxClassifications' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]'
     ];
 
     /**
@@ -69,9 +69,9 @@ class BuyerTaxInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'company_legal_name' => null,
-        'taxing_region' => null,
-        'tax_classifications' => null
+        'companyLegalName' => null,
+        'taxingRegion' => null,
+        'taxClassifications' => null
     ];
 
     /**
@@ -101,9 +101,9 @@ class BuyerTaxInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'company_legal_name' => 'CompanyLegalName',
-        'taxing_region' => 'TaxingRegion',
-        'tax_classifications' => 'TaxClassifications'
+        'companyLegalName' => 'CompanyLegalName',
+        'taxingRegion' => 'TaxingRegion',
+        'taxClassifications' => 'TaxClassifications'
     ];
 
     /**
@@ -112,9 +112,9 @@ class BuyerTaxInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'company_legal_name' => 'setCompanyLegalName',
-        'taxing_region' => 'setTaxingRegion',
-        'tax_classifications' => 'setTaxClassifications'
+        'companyLegalName' => 'setCompanyLegalName',
+        'taxingRegion' => 'setTaxingRegion',
+        'taxClassifications' => 'setTaxClassifications'
     ];
 
     /**
@@ -123,9 +123,9 @@ class BuyerTaxInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'company_legal_name' => 'getCompanyLegalName',
-        'taxing_region' => 'getTaxingRegion',
-        'tax_classifications' => 'getTaxClassifications'
+        'companyLegalName' => 'getCompanyLegalName',
+        'taxingRegion' => 'getTaxingRegion',
+        'taxClassifications' => 'getTaxClassifications'
     ];
 
     /**
@@ -188,9 +188,9 @@ class BuyerTaxInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['company_legal_name'] = isset($data['company_legal_name']) ? $data['company_legal_name'] : null;
-        $this->container['taxing_region'] = isset($data['taxing_region']) ? $data['taxing_region'] : null;
-        $this->container['tax_classifications'] = isset($data['tax_classifications']) ? $data['tax_classifications'] : null;
+        $this->container['companyLegalName'] = isset($data['companyLegalName']) ? $data['companyLegalName'] : null;
+        $this->container['taxingRegion'] = isset($data['taxingRegion']) ? $data['taxingRegion'] : null;
+        $this->container['taxClassifications'] = isset($data['taxClassifications']) ? $data['taxClassifications'] : null;
     }
 
     /**
@@ -218,73 +218,73 @@ class BuyerTaxInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets company_legal_name
+     * Gets companyLegalName
      *
      * @return string|null
      */
     public function getCompanyLegalName()
     {
-        return $this->container['company_legal_name'];
+        return $this->container['companyLegalName'];
     }
 
     /**
-     * Sets company_legal_name
+     * Sets companyLegalName
      *
-     * @param string|null $company_legal_name The legal name of the company.
+     * @param string|null $companyLegalName The legal name of the company.
      *
      * @return $this
      */
-    public function setCompanyLegalName($company_legal_name)
+    public function setCompanyLegalName($companyLegalName)
     {
-        $this->container['company_legal_name'] = $company_legal_name;
+        $this->container['companyLegalName'] = $companyLegalName;
 
         return $this;
     }
 
     /**
-     * Gets taxing_region
+     * Gets taxingRegion
      *
      * @return string|null
      */
     public function getTaxingRegion()
     {
-        return $this->container['taxing_region'];
+        return $this->container['taxingRegion'];
     }
 
     /**
-     * Sets taxing_region
+     * Sets taxingRegion
      *
-     * @param string|null $taxing_region The country or region imposing the tax.
+     * @param string|null $taxingRegion The country or region imposing the tax.
      *
      * @return $this
      */
-    public function setTaxingRegion($taxing_region)
+    public function setTaxingRegion($taxingRegion)
     {
-        $this->container['taxing_region'] = $taxing_region;
+        $this->container['taxingRegion'] = $taxingRegion;
 
         return $this;
     }
 
     /**
-     * Gets tax_classifications
+     * Gets taxClassifications
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]|null
      */
     public function getTaxClassifications()
     {
-        return $this->container['tax_classifications'];
+        return $this->container['taxClassifications'];
     }
 
     /**
-     * Sets tax_classifications
+     * Sets taxClassifications
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]|null $tax_classifications A list of tax classifications that apply to the order.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]|null $taxClassifications A list of tax classifications that apply to the order.
      *
      * @return $this
      */
-    public function setTaxClassifications($tax_classifications)
+    public function setTaxClassifications($taxClassifications)
     {
-        $this->container['tax_classifications'] = $tax_classifications;
+        $this->container['taxClassifications'] = $taxClassifications;
 
         return $this;
     }

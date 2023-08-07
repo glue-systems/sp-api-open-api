@@ -58,8 +58,8 @@ class GetSupplySourcesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'supply_sources' => 'object[]',
-        'next_page_token' => 'string'
+        'supplySources' => 'object[]',
+        'nextPageToken' => 'string'
     ];
 
     /**
@@ -68,8 +68,8 @@ class GetSupplySourcesResponse implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'supply_sources' => null,
-        'next_page_token' => null
+        'supplySources' => null,
+        'nextPageToken' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class GetSupplySourcesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'supply_sources' => 'supplySources',
-        'next_page_token' => 'nextPageToken'
+        'supplySources' => 'supplySources',
+        'nextPageToken' => 'nextPageToken'
     ];
 
     /**
@@ -109,8 +109,8 @@ class GetSupplySourcesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'supply_sources' => 'setSupplySources',
-        'next_page_token' => 'setNextPageToken'
+        'supplySources' => 'setSupplySources',
+        'nextPageToken' => 'setNextPageToken'
     ];
 
     /**
@@ -119,8 +119,8 @@ class GetSupplySourcesResponse implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'supply_sources' => 'getSupplySources',
-        'next_page_token' => 'getNextPageToken'
+        'supplySources' => 'getSupplySources',
+        'nextPageToken' => 'getNextPageToken'
     ];
 
     /**
@@ -183,8 +183,8 @@ class GetSupplySourcesResponse implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['supply_sources'] = isset($data['supply_sources']) ? $data['supply_sources'] : null;
-        $this->container['next_page_token'] = isset($data['next_page_token']) ? $data['next_page_token'] : null;
+        $this->container['supplySources'] = isset($data['supplySources']) ? $data['supplySources'] : null;
+        $this->container['nextPageToken'] = isset($data['nextPageToken']) ? $data['nextPageToken'] : null;
     }
 
     /**
@@ -212,49 +212,49 @@ class GetSupplySourcesResponse implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets supply_sources
+     * Gets supplySources
      *
      * @return object[]|null
      */
     public function getSupplySources()
     {
-        return $this->container['supply_sources'];
+        return $this->container['supplySources'];
     }
 
     /**
-     * Sets supply_sources
+     * Sets supplySources
      *
-     * @param object[]|null $supply_sources List of SupplySources
+     * @param object[]|null $supplySources List of SupplySources
      *
      * @return $this
      */
-    public function setSupplySources($supply_sources)
+    public function setSupplySources($supplySources)
     {
-        $this->container['supply_sources'] = $supply_sources;
+        $this->container['supplySources'] = $supplySources;
 
         return $this;
     }
 
     /**
-     * Gets next_page_token
+     * Gets nextPageToken
      *
      * @return string|null
      */
     public function getNextPageToken()
     {
-        return $this->container['next_page_token'];
+        return $this->container['nextPageToken'];
     }
 
     /**
-     * Sets next_page_token
+     * Sets nextPageToken
      *
-     * @param string|null $next_page_token If present, use this pagination token to retrieve the next page of supply sources.
+     * @param string|null $nextPageToken If present, use this pagination token to retrieve the next page of supply sources.
      *
      * @return $this
      */
-    public function setNextPageToken($next_page_token)
+    public function setNextPageToken($nextPageToken)
     {
-        $this->container['next_page_token'] = $next_page_token;
+        $this->container['nextPageToken'] = $nextPageToken;
 
         return $this;
     }

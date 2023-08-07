@@ -1,7 +1,7 @@
 {
   "swagger": "2.0",
   "info": {
-    "description": "The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.",
+    "description": "The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.\n\nFor more information, see the [Listing Items API Use Case Guide](doc:listings-items-api-v2020-09-01-use-case-guide).",
     "version": "2020-09-01",
     "title": "Selling Partner API for Listings Items",
     "contact": {
@@ -29,7 +29,7 @@
         "tags": [
           "listings"
         ],
-        "description": "Delete a listings item for a selling partner.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 5 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
+        "description": "Delete a listings item for a selling partner.\n\n**Note:** The parameters associated with this operation may contain special characters that must be encoded to successfully call the API. To avoid errors with SKUs when encoding URLs, refer to [URL Encoding](https://developer-docs.amazon.com/sp-api/docs/url-encoding).\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 5 | 10 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
         "operationId": "deleteListingsItem",
         "consumes": [
           "application/json"
@@ -97,20 +97,22 @@
                 "issues":[]
               }
             },
-            "x-amazon-spds-sandbox-behaviors": [
-              {
-                "request": {
-                  "parameters": {
+            "x-amzn-api-sandbox": {
+              "static": [
+                {
+                  "request": {
+                    "parameters": {
+                    }
+                  },
+                  "response": {
+                    "sku": "GM-ZDPI-9B4E",
+                    "status": "ACCEPTED",
+                    "submissionId": "f1dc2914-75dd-11ea-bc55-0242ac130003",
+                    "issues": []
                   }
-                },
-                "response": {
-                  "sku": "GM-ZDPI-9B4E",
-                  "status": "ACCEPTED",
-                  "submissionId": "f1dc2914-75dd-11ea-bc55-0242ac130003",
-                  "issues": []
                 }
-              }
-            ]
+              ]
+            }
           },
           "400": {
             "description": "Request has missing or invalid parameters and cannot be parsed.",
@@ -127,26 +129,28 @@
             "schema": {
               "$ref": "#/definitions/ErrorList"
             },
-            "x-amazon-spds-sandbox-behaviors": [
-              {
-                "request": {
-                  "parameters": {
-                    "sku": {
-                      "value": "BadSKU"
+            "x-amzn-api-sandbox": {
+              "static": [
+                {
+                  "request": {
+                    "parameters": {
+                      "sku": {
+                        "value": "BadSKU"
+                      }
                     }
+                  },
+                  "response": {
+                    "errors": [
+                      {
+                        "code": "BAD_REQUEST",
+                        "message": "Invalid input",
+                        "details": "Invalid input"
+                      }
+                    ]
                   }
-                },
-                "response": {
-                  "errors": [
-                    {
-                      "code": "BAD_REQUEST",
-                      "message": "Invalid input",
-                      "details": "Invalid input"
-                    }
-                  ]
                 }
-              }
-            ]
+              ]
+            }
           },
           "403": {
             "description": "Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature.",
@@ -164,7 +168,7 @@
             "description": "The request size exceeded the maximum accepted size.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -180,7 +184,7 @@
             "description": "The request payload is in an unsupported format.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -196,7 +200,7 @@
             "description": "The frequency of requests was greater than allowed.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -212,7 +216,7 @@
             "description": "An unexpected condition occurred that prevented the server from fulfilling the request.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -228,7 +232,7 @@
             "description": "Temporary overloading or maintenance of the server.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -246,7 +250,7 @@
         "tags": [
           "listings"
         ],
-        "description": "Partially update (patch) a listings item for a selling partner. Only top-level listings item attributes can be patched. Patching nested attributes is not supported.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 5 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
+        "description": "Partially update (patch) a listings item for a selling partner. Only top-level listings item attributes can be patched. Patching nested attributes is not supported.\n\n**Note:** The parameters associated with this operation may contain special characters that must be encoded to successfully call the API. To avoid errors with SKUs when encoding URLs, refer to [URL Encoding](https://developer-docs.amazon.com/sp-api/docs/url-encoding).\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 5 | 10 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
         "operationId": "patchListingsItem",
         "consumes": [
           "application/json"
@@ -317,28 +321,30 @@
             },
             "examples": {
               "application/json": {
-                "sku":"GM-ZDPI-9B4E",
-                "status":"ACCEPTED",
-                "submissionId":"f1dc2914-75dd-11ea-bc55-0242ac130003",
-                "issues":[]
+                "sku": "GM-ZDPI-9B4E",
+                "status": "ACCEPTED",
+                "submissionId": "f1dc2914-75dd-11ea-bc55-0242ac130003",
+                "issues": []
               }
             },
-            "x-amazon-spds-sandbox-behaviors": [
-              {
-                "request": {
-                  "parameters": {
-                    "body": {
+            "x-amzn-api-sandbox": {
+              "static": [
+                {
+                  "request": {
+                    "parameters": {
+                      "body": {
+                      }
                     }
+                  },
+                  "response": {
+                    "sku": "GM-ZDPI-9B4E",
+                    "status": "ACCEPTED",
+                    "submissionId": "f1dc2914-75dd-11ea-bc55-0242ac130003",
+                    "issues": []
                   }
-                },
-                "response": {
-                  "sku": "GM-ZDPI-9B4E",
-                  "status": "ACCEPTED",
-                  "submissionId": "f1dc2914-75dd-11ea-bc55-0242ac130003",
-                  "issues": []
                 }
-              }
-            ]
+              ]
+            }
           },
           "400": {
             "description": "Request has missing or invalid parameters and cannot be parsed.",
@@ -355,26 +361,28 @@
             "schema": {
               "$ref": "#/definitions/ErrorList"
             },
-            "x-amazon-spds-sandbox-behaviors": [
-              {
-                "request": {
-                  "parameters": {
-                    "sku": {
-                      "value": "BadSKU"
+            "x-amzn-api-sandbox": {
+              "static": [
+                {
+                  "request": {
+                    "parameters": {
+                      "sku": {
+                        "value": "BadSKU"
+                      }
                     }
+                  },
+                  "response": {
+                    "errors": [
+                      {
+                        "code": "BAD_REQUEST",
+                        "message": "Invalid input",
+                        "details": "Invalid input"
+                      }
+                    ]
                   }
-                },
-                "response": {
-                  "errors": [
-                    {
-                      "code": "BAD_REQUEST",
-                      "message": "Invalid input",
-                      "details": "Invalid input"
-                    }
-                  ]
                 }
-              }
-            ]
+              ]
+            }
           },
           "403": {
             "description": "Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature.",
@@ -392,7 +400,7 @@
             "description": "The request size exceeded the maximum accepted size.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -408,7 +416,7 @@
             "description": "The request payload is in an unsupported format.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -424,7 +432,7 @@
             "description": "The frequency of requests was greater than allowed.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -440,7 +448,7 @@
             "description": "An unexpected condition occurred that prevented the server from fulfilling the request.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -456,7 +464,7 @@
             "description": "Temporary overloading or maintenance of the server.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -474,7 +482,7 @@
         "tags": [
           "listings"
         ],
-        "description": "Creates a new or fully-updates an existing listings item for a selling partner.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 5 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
+        "description": "Creates a new or fully-updates an existing listings item for a selling partner.\n\n**Note:** The parameters associated with this operation may contain special characters that must be encoded to successfully call the API. To avoid errors with SKUs when encoding URLs, refer to [URL Encoding](https://developer-docs.amazon.com/sp-api/docs/url-encoding).\n\n**Usage Plan:**\n\n| Rate (requests per second) | Burst |\n| ---- | ---- |\n| 5 | 10 |\n\nThe `x-amzn-RateLimit-Limit` response header returns the usage plan rate limits that were applied to the requested operation, when available. The table above indicates the default rate and burst values for this operation. Selling partners whose business demands require higher throughput may see higher rate and burst values than those shown here. For more information, see [Usage Plans and Rate Limits in the Selling Partner API](https://developer-docs.amazon.com/sp-api/docs/usage-plans-and-rate-limits-in-the-sp-api).",
         "operationId": "putListingsItem",
         "consumes": [
           "application/json"
@@ -545,28 +553,30 @@
             },
             "examples": {
               "application/json": {
-                "sku":"GM-ZDPI-9B4E",
-                "status":"ACCEPTED",
-                "submissionId":"f1dc2914-75dd-11ea-bc55-0242ac130003",
-                "issues":[]
+                "sku": "GM-ZDPI-9B4E",
+                "status": "ACCEPTED",
+                "submissionId": "f1dc2914-75dd-11ea-bc55-0242ac130003",
+                "issues": []
               }
             },
-            "x-amazon-spds-sandbox-behaviors": [
-              {
-                "request": {
-                  "parameters": {
-                    "body": {
+            "x-amzn-api-sandbox": {
+              "static": [
+                {
+                  "request": {
+                    "parameters": {
+                      "body": {
+                      }
                     }
+                  },
+                  "response": {
+                    "sku": "GM-ZDPI-9B4E",
+                    "status": "ACCEPTED",
+                    "submissionId": "f1dc2914-75dd-11ea-bc55-0242ac130003",
+                    "issues": []
                   }
-                },
-                "response": {
-                  "sku": "GM-ZDPI-9B4E",
-                  "status": "ACCEPTED",
-                  "submissionId": "f1dc2914-75dd-11ea-bc55-0242ac130003",
-                  "issues": []
                 }
-              }
-            ]
+              ]
+            }
           },
           "400": {
             "description": "Request has missing or invalid parameters and cannot be parsed.",
@@ -583,26 +593,28 @@
             "schema": {
               "$ref": "#/definitions/ErrorList"
             },
-            "x-amazon-spds-sandbox-behaviors": [
-              {
-                "request": {
-                  "parameters": {
-                    "sku": {
-                      "value": "BadSKU"
+            "x-amzn-api-sandbox": {
+              "static": [
+                {
+                  "request": {
+                    "parameters": {
+                      "sku": {
+                        "value": "BadSKU"
+                      }
                     }
+                  },
+                  "response": {
+                    "errors": [
+                      {
+                        "code": "BAD_REQUEST",
+                        "message": "Invalid input",
+                        "details": "Invalid input"
+                      }
+                    ]
                   }
-                },
-                "response": {
-                  "errors": [
-                    {
-                      "code": "BAD_REQUEST",
-                      "message": "Invalid input",
-                      "details": "Invalid input"
-                    }
-                  ]
                 }
-              }
-            ]
+              ]
+            }
           },
           "403": {
             "description": "Indicates that access to the resource is forbidden. Possible reasons include Access Denied, Unauthorized, Expired Token, or Invalid Signature.",
@@ -620,7 +632,7 @@
             "description": "The request size exceeded the maximum accepted size.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -636,7 +648,7 @@
             "description": "The request payload is in an unsupported format.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -652,7 +664,7 @@
             "description": "The frequency of requests was greater than allowed.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -668,7 +680,7 @@
             "description": "An unexpected condition occurred that prevented the server from fulfilling the request.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -684,7 +696,7 @@
             "description": "Temporary overloading or maintenance of the server.",
             "headers": {
               "x-amzn-RateLimit-Limit": {
-                "description": "Your rate limit (requests per second) for this operation.",
+                "description": "Your rate limit (requests per second) for this operation.\n_Note:_ For this status code, the rate limit header is deprecated and no longer returned.",
                 "type": "string"
               },
               "x-amzn-RequestId": {
@@ -805,7 +817,7 @@
             },
             {
               "value": "delete",
-              "description": "The \"delete\" operation removes the target property."
+              "description": "The \"delete\" operation removes the target property. Not supported for vendors (vendors will receive an HTTP status code 400 response)."
             }
           ],
           "type": "string"
@@ -876,7 +888,7 @@
             },
             {
               "value": "LISTING_OFFER_ONLY",
-              "description": "Indicates the submitted data contains sales terms only."
+              "description": "Indicates the submitted data contains sales terms only. Not supported for vendors (vendors will receive an HTTP status code 400 response)."
             }
           ],
           "type": "string"

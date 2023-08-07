@@ -58,7 +58,7 @@ class MarketplaceTaxInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'tax_classifications' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]'
+        'taxClassifications' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]'
     ];
 
     /**
@@ -67,7 +67,7 @@ class MarketplaceTaxInfo implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'tax_classifications' => null
+        'taxClassifications' => null
     ];
 
     /**
@@ -97,7 +97,7 @@ class MarketplaceTaxInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'tax_classifications' => 'TaxClassifications'
+        'taxClassifications' => 'TaxClassifications'
     ];
 
     /**
@@ -106,7 +106,7 @@ class MarketplaceTaxInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'tax_classifications' => 'setTaxClassifications'
+        'taxClassifications' => 'setTaxClassifications'
     ];
 
     /**
@@ -115,7 +115,7 @@ class MarketplaceTaxInfo implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'tax_classifications' => 'getTaxClassifications'
+        'taxClassifications' => 'getTaxClassifications'
     ];
 
     /**
@@ -178,7 +178,7 @@ class MarketplaceTaxInfo implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['tax_classifications'] = isset($data['tax_classifications']) ? $data['tax_classifications'] : null;
+        $this->container['taxClassifications'] = isset($data['taxClassifications']) ? $data['taxClassifications'] : null;
     }
 
     /**
@@ -206,25 +206,25 @@ class MarketplaceTaxInfo implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets tax_classifications
+     * Gets taxClassifications
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]|null
      */
     public function getTaxClassifications()
     {
-        return $this->container['tax_classifications'];
+        return $this->container['taxClassifications'];
     }
 
     /**
-     * Sets tax_classifications
+     * Sets taxClassifications
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]|null $tax_classifications A list of tax classifications that apply to the order.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\TaxClassification[]|null $taxClassifications A list of tax classifications that apply to the order.
      *
      * @return $this
      */
-    public function setTaxClassifications($tax_classifications)
+    public function setTaxClassifications($taxClassifications)
     {
-        $this->container['tax_classifications'] = $tax_classifications;
+        $this->container['taxClassifications'] = $taxClassifications;
 
         return $this;
     }

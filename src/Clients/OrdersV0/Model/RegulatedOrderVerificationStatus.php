@@ -59,11 +59,11 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus',
-        'requires_merchant_action' => 'bool',
-        'valid_rejection_reasons' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason[]',
-        'rejection_reason' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason',
-        'review_date' => 'string',
-        'external_reviewer_id' => 'string'
+        'requiresMerchantAction' => 'bool',
+        'validRejectionReasons' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason[]',
+        'rejectionReason' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason',
+        'reviewDate' => 'string',
+        'externalReviewerId' => 'string'
     ];
 
     /**
@@ -73,11 +73,11 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'status' => null,
-        'requires_merchant_action' => null,
-        'valid_rejection_reasons' => null,
-        'rejection_reason' => null,
-        'review_date' => null,
-        'external_reviewer_id' => null
+        'requiresMerchantAction' => null,
+        'validRejectionReasons' => null,
+        'rejectionReason' => null,
+        'reviewDate' => null,
+        'externalReviewerId' => null
     ];
 
     /**
@@ -108,11 +108,11 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'status' => 'Status',
-        'requires_merchant_action' => 'RequiresMerchantAction',
-        'valid_rejection_reasons' => 'ValidRejectionReasons',
-        'rejection_reason' => 'RejectionReason',
-        'review_date' => 'ReviewDate',
-        'external_reviewer_id' => 'ExternalReviewerId'
+        'requiresMerchantAction' => 'RequiresMerchantAction',
+        'validRejectionReasons' => 'ValidRejectionReasons',
+        'rejectionReason' => 'RejectionReason',
+        'reviewDate' => 'ReviewDate',
+        'externalReviewerId' => 'ExternalReviewerId'
     ];
 
     /**
@@ -122,11 +122,11 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'status' => 'setStatus',
-        'requires_merchant_action' => 'setRequiresMerchantAction',
-        'valid_rejection_reasons' => 'setValidRejectionReasons',
-        'rejection_reason' => 'setRejectionReason',
-        'review_date' => 'setReviewDate',
-        'external_reviewer_id' => 'setExternalReviewerId'
+        'requiresMerchantAction' => 'setRequiresMerchantAction',
+        'validRejectionReasons' => 'setValidRejectionReasons',
+        'rejectionReason' => 'setRejectionReason',
+        'reviewDate' => 'setReviewDate',
+        'externalReviewerId' => 'setExternalReviewerId'
     ];
 
     /**
@@ -136,11 +136,11 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'status' => 'getStatus',
-        'requires_merchant_action' => 'getRequiresMerchantAction',
-        'valid_rejection_reasons' => 'getValidRejectionReasons',
-        'rejection_reason' => 'getRejectionReason',
-        'review_date' => 'getReviewDate',
-        'external_reviewer_id' => 'getExternalReviewerId'
+        'requiresMerchantAction' => 'getRequiresMerchantAction',
+        'validRejectionReasons' => 'getValidRejectionReasons',
+        'rejectionReason' => 'getRejectionReason',
+        'reviewDate' => 'getReviewDate',
+        'externalReviewerId' => 'getExternalReviewerId'
     ];
 
     /**
@@ -204,11 +204,11 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['requires_merchant_action'] = isset($data['requires_merchant_action']) ? $data['requires_merchant_action'] : null;
-        $this->container['valid_rejection_reasons'] = isset($data['valid_rejection_reasons']) ? $data['valid_rejection_reasons'] : null;
-        $this->container['rejection_reason'] = isset($data['rejection_reason']) ? $data['rejection_reason'] : null;
-        $this->container['review_date'] = isset($data['review_date']) ? $data['review_date'] : null;
-        $this->container['external_reviewer_id'] = isset($data['external_reviewer_id']) ? $data['external_reviewer_id'] : null;
+        $this->container['requiresMerchantAction'] = isset($data['requiresMerchantAction']) ? $data['requiresMerchantAction'] : null;
+        $this->container['validRejectionReasons'] = isset($data['validRejectionReasons']) ? $data['validRejectionReasons'] : null;
+        $this->container['rejectionReason'] = isset($data['rejectionReason']) ? $data['rejectionReason'] : null;
+        $this->container['reviewDate'] = isset($data['reviewDate']) ? $data['reviewDate'] : null;
+        $this->container['externalReviewerId'] = isset($data['externalReviewerId']) ? $data['externalReviewerId'] : null;
     }
 
     /**
@@ -223,11 +223,11 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
         if ($this->container['status'] === null) {
             $invalidProperties[] = "'status' can't be null";
         }
-        if ($this->container['requires_merchant_action'] === null) {
-            $invalidProperties[] = "'requires_merchant_action' can't be null";
+        if ($this->container['requiresMerchantAction'] === null) {
+            $invalidProperties[] = "'requiresMerchantAction' can't be null";
         }
-        if ($this->container['valid_rejection_reasons'] === null) {
-            $invalidProperties[] = "'valid_rejection_reasons' can't be null";
+        if ($this->container['validRejectionReasons'] === null) {
+            $invalidProperties[] = "'validRejectionReasons' can't be null";
         }
         return $invalidProperties;
     }
@@ -269,121 +269,121 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets requires_merchant_action
+     * Gets requiresMerchantAction
      *
      * @return bool
      */
     public function getRequiresMerchantAction()
     {
-        return $this->container['requires_merchant_action'];
+        return $this->container['requiresMerchantAction'];
     }
 
     /**
-     * Sets requires_merchant_action
+     * Sets requiresMerchantAction
      *
-     * @param bool $requires_merchant_action When true, the regulated information provided in the order requires a review by the merchant.
+     * @param bool $requiresMerchantAction When true, the regulated information provided in the order requires a review by the merchant.
      *
      * @return $this
      */
-    public function setRequiresMerchantAction($requires_merchant_action)
+    public function setRequiresMerchantAction($requiresMerchantAction)
     {
-        $this->container['requires_merchant_action'] = $requires_merchant_action;
+        $this->container['requiresMerchantAction'] = $requiresMerchantAction;
 
         return $this;
     }
 
     /**
-     * Gets valid_rejection_reasons
+     * Gets validRejectionReasons
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason[]
      */
     public function getValidRejectionReasons()
     {
-        return $this->container['valid_rejection_reasons'];
+        return $this->container['validRejectionReasons'];
     }
 
     /**
-     * Sets valid_rejection_reasons
+     * Sets validRejectionReasons
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason[] $valid_rejection_reasons A list of valid rejection reasons that may be used to reject the order's regulated information.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason[] $validRejectionReasons A list of valid rejection reasons that may be used to reject the order's regulated information.
      *
      * @return $this
      */
-    public function setValidRejectionReasons($valid_rejection_reasons)
+    public function setValidRejectionReasons($validRejectionReasons)
     {
-        $this->container['valid_rejection_reasons'] = $valid_rejection_reasons;
+        $this->container['validRejectionReasons'] = $validRejectionReasons;
 
         return $this;
     }
 
     /**
-     * Gets rejection_reason
+     * Gets rejectionReason
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason|null
      */
     public function getRejectionReason()
     {
-        return $this->container['rejection_reason'];
+        return $this->container['rejectionReason'];
     }
 
     /**
-     * Sets rejection_reason
+     * Sets rejectionReason
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason|null $rejection_reason rejection_reason
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason|null $rejectionReason rejectionReason
      *
      * @return $this
      */
-    public function setRejectionReason($rejection_reason)
+    public function setRejectionReason($rejectionReason)
     {
-        $this->container['rejection_reason'] = $rejection_reason;
+        $this->container['rejectionReason'] = $rejectionReason;
 
         return $this;
     }
 
     /**
-     * Gets review_date
+     * Gets reviewDate
      *
      * @return string|null
      */
     public function getReviewDate()
     {
-        return $this->container['review_date'];
+        return $this->container['reviewDate'];
     }
 
     /**
-     * Sets review_date
+     * Sets reviewDate
      *
-     * @param string|null $review_date The date the order was reviewed. In ISO 8601 date time format.
+     * @param string|null $reviewDate The date the order was reviewed. In ISO 8601 date time format.
      *
      * @return $this
      */
-    public function setReviewDate($review_date)
+    public function setReviewDate($reviewDate)
     {
-        $this->container['review_date'] = $review_date;
+        $this->container['reviewDate'] = $reviewDate;
 
         return $this;
     }
 
     /**
-     * Gets external_reviewer_id
+     * Gets externalReviewerId
      *
      * @return string|null
      */
     public function getExternalReviewerId()
     {
-        return $this->container['external_reviewer_id'];
+        return $this->container['externalReviewerId'];
     }
 
     /**
-     * Sets external_reviewer_id
+     * Sets externalReviewerId
      *
-     * @param string|null $external_reviewer_id The identifier for the order's regulated information reviewer.
+     * @param string|null $externalReviewerId The identifier for the order's regulated information reviewer.
      *
      * @return $this
      */
-    public function setExternalReviewerId($external_reviewer_id)
+    public function setExternalReviewerId($externalReviewerId)
     {
-        $this->container['external_reviewer_id'] = $external_reviewer_id;
+        $this->container['externalReviewerId'] = $externalReviewerId;
 
         return $this;
     }

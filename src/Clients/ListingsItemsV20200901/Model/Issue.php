@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Listings Items
  *
- * The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.
+ * The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.  For more information, see the [Listing Items API Use Case Guide](doc:listings-items-api-v2020-09-01-use-case-guide).
  *
  * OpenAPI spec version: 2020-09-01
  * 
@@ -61,7 +61,7 @@ class Issue implements ModelInterface, ArrayAccess
         'code' => 'string',
         'message' => 'string',
         'severity' => 'string',
-        'attribute_name' => 'string'
+        'attributeName' => 'string'
     ];
 
     /**
@@ -73,7 +73,7 @@ class Issue implements ModelInterface, ArrayAccess
         'code' => null,
         'message' => null,
         'severity' => null,
-        'attribute_name' => null
+        'attributeName' => null
     ];
 
     /**
@@ -106,7 +106,7 @@ class Issue implements ModelInterface, ArrayAccess
         'code' => 'code',
         'message' => 'message',
         'severity' => 'severity',
-        'attribute_name' => 'attributeName'
+        'attributeName' => 'attributeName'
     ];
 
     /**
@@ -118,7 +118,7 @@ class Issue implements ModelInterface, ArrayAccess
         'code' => 'setCode',
         'message' => 'setMessage',
         'severity' => 'setSeverity',
-        'attribute_name' => 'setAttributeName'
+        'attributeName' => 'setAttributeName'
     ];
 
     /**
@@ -130,7 +130,7 @@ class Issue implements ModelInterface, ArrayAccess
         'code' => 'getCode',
         'message' => 'getMessage',
         'severity' => 'getSeverity',
-        'attribute_name' => 'getAttributeName'
+        'attributeName' => 'getAttributeName'
     ];
 
     /**
@@ -213,7 +213,7 @@ class Issue implements ModelInterface, ArrayAccess
         $this->container['code'] = isset($data['code']) ? $data['code'] : null;
         $this->container['message'] = isset($data['message']) ? $data['message'] : null;
         $this->container['severity'] = isset($data['severity']) ? $data['severity'] : null;
-        $this->container['attribute_name'] = isset($data['attribute_name']) ? $data['attribute_name'] : null;
+        $this->container['attributeName'] = isset($data['attributeName']) ? $data['attributeName'] : null;
     }
 
     /**
@@ -339,25 +339,25 @@ class Issue implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets attribute_name
+     * Gets attributeName
      *
      * @return string|null
      */
     public function getAttributeName()
     {
-        return $this->container['attribute_name'];
+        return $this->container['attributeName'];
     }
 
     /**
-     * Sets attribute_name
+     * Sets attributeName
      *
-     * @param string|null $attribute_name Name of the attribute associated with the issue, if applicable.
+     * @param string|null $attributeName Name of the attribute associated with the issue, if applicable.
      *
      * @return $this
      */
-    public function setAttributeName($attribute_name)
+    public function setAttributeName($attributeName)
     {
-        $this->container['attribute_name'] = $attribute_name;
+        $this->container['attributeName'] = $attributeName;
 
         return $this;
     }

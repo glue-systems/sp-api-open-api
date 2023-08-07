@@ -12,7 +12,7 @@
 /**
  * Selling Partner API for Product Type Definitions
  *
- * The Selling Partner API for Product Type Definitions provides programmatic access to attribute and data requirements for product types in the Amazon catalog. Use this API to return the JSON Schema for a product type that you can then use with other Selling Partner APIs, such as the Selling Partner API for Listings Items, the Selling Partner API for Catalog Items, and the Selling Partner API for Feeds (for JSON-based listing feeds).
+ * The Selling Partner API for Product Type Definitions provides programmatic access to attribute and data requirements for product types in the Amazon catalog. Use this API to return the JSON Schema for a product type that you can then use with other Selling Partner APIs, such as the Selling Partner API for Listings Items, the Selling Partner API for Catalog Items, and the Selling Partner API for Feeds (for JSON-based listing feeds).  For more information, see the [Product Type Definitions API Use Case Guide](doc:product-type-api-use-case-guide).
  *
  * OpenAPI spec version: 2020-09-01
  * 
@@ -90,42 +90,42 @@ class DefinitionsApi
     /**
      * Operation getDefinitionsProductType
      *
-     * @param  string $product_type The Amazon product type name. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  string $seller_id A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
-     * @param  string $product_type_version The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
+     * @param  string $productType The Amazon product type name. (required)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. Note: This parameter is limited to one marketplaceId at this time. (required)
+     * @param  string $sellerId A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
+     * @param  string $productTypeVersion The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;,. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
      * @param  string $requirements The name of the requirements set to retrieve requirements for. (optional, default to 'LISTING')
-     * @param  string $requirements_enforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
+     * @param  string $requirementsEnforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
      * @param  string $locale Locale for retrieving display labels and other presentation details. Defaults to the default language of the first marketplace in the request. (optional, default to 'DEFAULT')
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList
      */
-    public function getDefinitionsProductType($product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT')
+    public function getDefinitionsProductType($productType, $marketplaceIds, $sellerId = null, $productTypeVersion = 'LATEST', $requirements = 'LISTING', $requirementsEnforced = 'ENFORCED', $locale = 'DEFAULT')
     {
-        list($response) = $this->getDefinitionsProductTypeWithHttpInfo($product_type, $marketplace_ids, $seller_id, $product_type_version, $requirements, $requirements_enforced, $locale);
+        list($response) = $this->getDefinitionsProductTypeWithHttpInfo($productType, $marketplaceIds, $sellerId, $productTypeVersion, $requirements, $requirementsEnforced, $locale);
         return $response;
     }
 
     /**
      * Operation getDefinitionsProductTypeWithHttpInfo
      *
-     * @param  string $product_type The Amazon product type name. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  string $seller_id A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
-     * @param  string $product_type_version The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
+     * @param  string $productType The Amazon product type name. (required)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. Note: This parameter is limited to one marketplaceId at this time. (required)
+     * @param  string $sellerId A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
+     * @param  string $productTypeVersion The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;,. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
      * @param  string $requirements The name of the requirements set to retrieve requirements for. (optional, default to 'LISTING')
-     * @param  string $requirements_enforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
+     * @param  string $requirementsEnforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
      * @param  string $locale Locale for retrieving display labels and other presentation details. Defaults to the default language of the first marketplace in the request. (optional, default to 'DEFAULT')
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getDefinitionsProductTypeWithHttpInfo($product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT')
+    public function getDefinitionsProductTypeWithHttpInfo($productType, $marketplaceIds, $sellerId = null, $productTypeVersion = 'LATEST', $requirements = 'LISTING', $requirementsEnforced = 'ENFORCED', $locale = 'DEFAULT')
     {
-        $request = $this->getDefinitionsProductTypeRequest($product_type, $marketplace_ids, $seller_id, $product_type_version, $requirements, $requirements_enforced, $locale);
+        $request = $this->getDefinitionsProductTypeRequest($productType, $marketplaceIds, $sellerId, $productTypeVersion, $requirements, $requirementsEnforced, $locale);
 
         try {
             $options = $this->createHttpClientOption();
@@ -365,20 +365,20 @@ class DefinitionsApi
      *
      * 
      *
-     * @param  string $product_type The Amazon product type name. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  string $seller_id A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
-     * @param  string $product_type_version The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
+     * @param  string $productType The Amazon product type name. (required)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. Note: This parameter is limited to one marketplaceId at this time. (required)
+     * @param  string $sellerId A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
+     * @param  string $productTypeVersion The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;,. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
      * @param  string $requirements The name of the requirements set to retrieve requirements for. (optional, default to 'LISTING')
-     * @param  string $requirements_enforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
+     * @param  string $requirementsEnforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
      * @param  string $locale Locale for retrieving display labels and other presentation details. Defaults to the default language of the first marketplace in the request. (optional, default to 'DEFAULT')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDefinitionsProductTypeAsync($product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT')
+    public function getDefinitionsProductTypeAsync($productType, $marketplaceIds, $sellerId = null, $productTypeVersion = 'LATEST', $requirements = 'LISTING', $requirementsEnforced = 'ENFORCED', $locale = 'DEFAULT')
     {
-        return $this->getDefinitionsProductTypeAsyncWithHttpInfo($product_type, $marketplace_ids, $seller_id, $product_type_version, $requirements, $requirements_enforced, $locale)
+        return $this->getDefinitionsProductTypeAsyncWithHttpInfo($productType, $marketplaceIds, $sellerId, $productTypeVersion, $requirements, $requirementsEnforced, $locale)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -391,21 +391,21 @@ class DefinitionsApi
      *
      * 
      *
-     * @param  string $product_type The Amazon product type name. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  string $seller_id A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
-     * @param  string $product_type_version The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
+     * @param  string $productType The Amazon product type name. (required)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. Note: This parameter is limited to one marketplaceId at this time. (required)
+     * @param  string $sellerId A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
+     * @param  string $productTypeVersion The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;,. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
      * @param  string $requirements The name of the requirements set to retrieve requirements for. (optional, default to 'LISTING')
-     * @param  string $requirements_enforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
+     * @param  string $requirementsEnforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
      * @param  string $locale Locale for retrieving display labels and other presentation details. Defaults to the default language of the first marketplace in the request. (optional, default to 'DEFAULT')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getDefinitionsProductTypeAsyncWithHttpInfo($product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT')
+    public function getDefinitionsProductTypeAsyncWithHttpInfo($productType, $marketplaceIds, $sellerId = null, $productTypeVersion = 'LATEST', $requirements = 'LISTING', $requirementsEnforced = 'ENFORCED', $locale = 'DEFAULT')
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition';
-        $request = $this->getDefinitionsProductTypeRequest($product_type, $marketplace_ids, $seller_id, $product_type_version, $requirements, $requirements_enforced, $locale);
+        $request = $this->getDefinitionsProductTypeRequest($productType, $marketplaceIds, $sellerId, $productTypeVersion, $requirements, $requirementsEnforced, $locale);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -444,29 +444,29 @@ class DefinitionsApi
     /**
      * Create request for operation 'getDefinitionsProductType'
      *
-     * @param  string $product_type The Amazon product type name. (required)
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
-     * @param  string $seller_id A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
-     * @param  string $product_type_version The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
+     * @param  string $productType The Amazon product type name. (required)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. Note: This parameter is limited to one marketplaceId at this time. (required)
+     * @param  string $sellerId A selling partner identifier. When provided, seller-specific requirements and values are populated within the product type definition schema, such as brand names associated with the selling partner. (optional)
+     * @param  string $productTypeVersion The version of the Amazon product type to retrieve. Defaults to \&quot;LATEST\&quot;,. Prerelease versions of product type definitions may be retrieved with \&quot;RELEASE_CANDIDATE\&quot;. If no prerelease version is currently available, the \&quot;LATEST\&quot; live version will be provided. (optional, default to 'LATEST')
      * @param  string $requirements The name of the requirements set to retrieve requirements for. (optional, default to 'LISTING')
-     * @param  string $requirements_enforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
+     * @param  string $requirementsEnforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all the required attributes being present (such as for partial updates). (optional, default to 'ENFORCED')
      * @param  string $locale Locale for retrieving display labels and other presentation details. Defaults to the default language of the first marketplace in the request. (optional, default to 'DEFAULT')
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getDefinitionsProductTypeRequest($product_type, $marketplace_ids, $seller_id = null, $product_type_version = 'LATEST', $requirements = 'LISTING', $requirements_enforced = 'ENFORCED', $locale = 'DEFAULT')
+    protected function getDefinitionsProductTypeRequest($productType, $marketplaceIds, $sellerId = null, $productTypeVersion = 'LATEST', $requirements = 'LISTING', $requirementsEnforced = 'ENFORCED', $locale = 'DEFAULT')
     {
-        // verify the required parameter 'product_type' is set
-        if ($product_type === null || (is_array($product_type) && count($product_type) === 0)) {
+        // verify the required parameter 'productType' is set
+        if ($productType === null || (is_array($productType) && count($productType) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $product_type when calling getDefinitionsProductType'
+                'Missing the required parameter $productType when calling getDefinitionsProductType'
             );
         }
-        // verify the required parameter 'marketplace_ids' is set
-        if ($marketplace_ids === null || (is_array($marketplace_ids) && count($marketplace_ids) === 0)) {
+        // verify the required parameter 'marketplaceIds' is set
+        if ($marketplaceIds === null || (is_array($marketplaceIds) && count($marketplaceIds) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $marketplace_ids when calling getDefinitionsProductType'
+                'Missing the required parameter $marketplaceIds when calling getDefinitionsProductType'
             );
         }
 
@@ -478,27 +478,27 @@ class DefinitionsApi
         $multipart = false;
 
         // query params
-        if ($seller_id !== null) {
-            $queryParams['sellerId'] = ObjectSerializer::toQueryValue($seller_id);
+        if ($sellerId !== null) {
+            $queryParams['sellerId'] = ObjectSerializer::toQueryValue($sellerId);
         }
         // query params
-        if (is_array($marketplace_ids)) {
-            $marketplace_ids = ObjectSerializer::serializeCollection($marketplace_ids, 'csv', true);
+        if (is_array($marketplaceIds)) {
+            $marketplaceIds = ObjectSerializer::serializeCollection($marketplaceIds, 'csv', true);
         }
-        if ($marketplace_ids !== null) {
-            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplace_ids);
+        if ($marketplaceIds !== null) {
+            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplaceIds);
         }
         // query params
-        if ($product_type_version !== null) {
-            $queryParams['productTypeVersion'] = ObjectSerializer::toQueryValue($product_type_version);
+        if ($productTypeVersion !== null) {
+            $queryParams['productTypeVersion'] = ObjectSerializer::toQueryValue($productTypeVersion);
         }
         // query params
         if ($requirements !== null) {
             $queryParams['requirements'] = ObjectSerializer::toQueryValue($requirements);
         }
         // query params
-        if ($requirements_enforced !== null) {
-            $queryParams['requirementsEnforced'] = ObjectSerializer::toQueryValue($requirements_enforced);
+        if ($requirementsEnforced !== null) {
+            $queryParams['requirementsEnforced'] = ObjectSerializer::toQueryValue($requirementsEnforced);
         }
         // query params
         if ($locale !== null) {
@@ -506,10 +506,10 @@ class DefinitionsApi
         }
 
         // path params
-        if ($product_type !== null) {
+        if ($productType !== null) {
             $resourcePath = str_replace(
                 '{' . 'productType' . '}',
-                ObjectSerializer::toPathValue($product_type),
+                ObjectSerializer::toPathValue($productType),
                 $resourcePath
             );
         }
@@ -581,32 +581,32 @@ class DefinitionsApi
     /**
      * Operation searchDefinitionsProductTypes
      *
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param  string[] $keywords A comma-delimited list of keywords to search product types by. (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList
      */
-    public function searchDefinitionsProductTypes($marketplace_ids, $keywords = null)
+    public function searchDefinitionsProductTypes($marketplaceIds, $keywords = null)
     {
-        list($response) = $this->searchDefinitionsProductTypesWithHttpInfo($marketplace_ids, $keywords);
+        list($response) = $this->searchDefinitionsProductTypesWithHttpInfo($marketplaceIds, $keywords);
         return $response;
     }
 
     /**
      * Operation searchDefinitionsProductTypesWithHttpInfo
      *
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param  string[] $keywords A comma-delimited list of keywords to search product types by. (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function searchDefinitionsProductTypesWithHttpInfo($marketplace_ids, $keywords = null)
+    public function searchDefinitionsProductTypesWithHttpInfo($marketplaceIds, $keywords = null)
     {
-        $request = $this->searchDefinitionsProductTypesRequest($marketplace_ids, $keywords);
+        $request = $this->searchDefinitionsProductTypesRequest($marketplaceIds, $keywords);
 
         try {
             $options = $this->createHttpClientOption();
@@ -846,15 +846,15 @@ class DefinitionsApi
      *
      * 
      *
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param  string[] $keywords A comma-delimited list of keywords to search product types by. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchDefinitionsProductTypesAsync($marketplace_ids, $keywords = null)
+    public function searchDefinitionsProductTypesAsync($marketplaceIds, $keywords = null)
     {
-        return $this->searchDefinitionsProductTypesAsyncWithHttpInfo($marketplace_ids, $keywords)
+        return $this->searchDefinitionsProductTypesAsyncWithHttpInfo($marketplaceIds, $keywords)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -867,16 +867,16 @@ class DefinitionsApi
      *
      * 
      *
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param  string[] $keywords A comma-delimited list of keywords to search product types by. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function searchDefinitionsProductTypesAsyncWithHttpInfo($marketplace_ids, $keywords = null)
+    public function searchDefinitionsProductTypesAsyncWithHttpInfo($marketplaceIds, $keywords = null)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeList';
-        $request = $this->searchDefinitionsProductTypesRequest($marketplace_ids, $keywords);
+        $request = $this->searchDefinitionsProductTypesRequest($marketplaceIds, $keywords);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -915,18 +915,18 @@ class DefinitionsApi
     /**
      * Create request for operation 'searchDefinitionsProductTypes'
      *
-     * @param  string[] $marketplace_ids A comma-delimited list of Amazon marketplace identifiers for the request. (required)
+     * @param  string[] $marketplaceIds A comma-delimited list of Amazon marketplace identifiers for the request. (required)
      * @param  string[] $keywords A comma-delimited list of keywords to search product types by. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function searchDefinitionsProductTypesRequest($marketplace_ids, $keywords = null)
+    protected function searchDefinitionsProductTypesRequest($marketplaceIds, $keywords = null)
     {
-        // verify the required parameter 'marketplace_ids' is set
-        if ($marketplace_ids === null || (is_array($marketplace_ids) && count($marketplace_ids) === 0)) {
+        // verify the required parameter 'marketplaceIds' is set
+        if ($marketplaceIds === null || (is_array($marketplaceIds) && count($marketplaceIds) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $marketplace_ids when calling searchDefinitionsProductTypes'
+                'Missing the required parameter $marketplaceIds when calling searchDefinitionsProductTypes'
             );
         }
 
@@ -945,11 +945,11 @@ class DefinitionsApi
             $queryParams['keywords'] = ObjectSerializer::toQueryValue($keywords);
         }
         // query params
-        if (is_array($marketplace_ids)) {
-            $marketplace_ids = ObjectSerializer::serializeCollection($marketplace_ids, 'csv', true);
+        if (is_array($marketplaceIds)) {
+            $marketplaceIds = ObjectSerializer::serializeCollection($marketplaceIds, 'csv', true);
         }
-        if ($marketplace_ids !== null) {
-            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplace_ids);
+        if ($marketplaceIds !== null) {
+            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplaceIds);
         }
 
 

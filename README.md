@@ -61,7 +61,7 @@ Example Bash scripts are provided below for each of the included SP-API domains.
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/DefinitionsProductTypesV20200901
-openapi-generator-cli generate -i models/definitionsProductTypes_2020-09-01.json -g php -o output/DefinitionsProductTypesV20200901 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901"
+openapi-generator-cli generate -i models/definitionsProductTypes_2020-09-01.json -g php -o output/DefinitionsProductTypesV20200901 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901" --additional-properties=variableNamingConvention=camelCase
 rm -rf src/Clients/DefinitionsProductTypesV20200901
 mv output/DefinitionsProductTypesV20200901/lib src/Clients/DefinitionsProductTypesV20200901
 ```
@@ -71,7 +71,7 @@ mv output/DefinitionsProductTypesV20200901/lib src/Clients/DefinitionsProductTyp
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/FeedsV20200904
-openapi-generator-cli generate -i models/feeds_2020-09-04.json -g php -o output/FeedsV20200904 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\FeedsV20200904"
+openapi-generator-cli generate -i models/feeds_2020-09-04.json -g php -o output/FeedsV20200904 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\FeedsV20200904" --additional-properties=variableNamingConvention=camelCase
 rm -rf src/Clients/FeedsV20200904
 mv output/FeedsV20200904/lib src/Clients/FeedsV20200904
 ```
@@ -81,7 +81,7 @@ mv output/FeedsV20200904/lib src/Clients/FeedsV20200904
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/FeedsV20210630
-openapi-generator-cli generate -i models/feeds_2021-06-30.json -g php -o output/FeedsV20210630 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\FeedsV20210630"
+openapi-generator-cli generate -i models/feeds_2021-06-30.json -g php -o output/FeedsV20210630 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\FeedsV20210630" --additional-properties=variableNamingConvention=camelCase
 rm -rf src/Clients/FeedsV20210630
 mv output/FeedsV20210630/lib src/Clients/FeedsV20210630
 ```
@@ -91,7 +91,7 @@ mv output/FeedsV20210630/lib src/Clients/FeedsV20210630
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/ListingsItemsV20200901
-openapi-generator-cli generate -i models/listingsItems_2020-09-01.json -g php -o output/ListingsItemsV20200901 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901"
+openapi-generator-cli generate -i models/listingsItems_2020-09-01.json -g php -o output/ListingsItemsV20200901 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901" --additional-properties=variableNamingConvention=camelCase
 rm -rf src/Clients/ListingsItemsV20200901
 mv output/ListingsItemsV20200901/lib src/Clients/ListingsItemsV20200901
 ```
@@ -101,7 +101,7 @@ mv output/ListingsItemsV20200901/lib src/Clients/ListingsItemsV20200901
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/OrdersV0
-openapi-generator-cli generate -i models/ordersV0.json -g php -o output/OrdersV0 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\OrdersV0"
+openapi-generator-cli generate -i models/ordersV0.json -g php -o output/OrdersV0 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\OrdersV0" --additional-properties=variableNamingConvention=camelCase
 rm -rf src/Clients/OrdersV0
 mv output/OrdersV0/lib src/Clients/OrdersV0
 ```
@@ -111,7 +111,7 @@ mv output/OrdersV0/lib src/Clients/OrdersV0
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/ReportsV20200904
-openapi-generator-cli generate -i models/reports_2020-09-04.json -g php -o output/ReportsV20200904 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ReportsV20200904"
+openapi-generator-cli generate -i models/reports_2020-09-04.json -g php -o output/ReportsV20200904 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ReportsV20200904" --additional-properties=variableNamingConvention=camelCase
 rm -rf src/Clients/ReportsV20200904
 mv output/ReportsV20200904/lib src/Clients/ReportsV20200904
 ```
@@ -121,7 +121,7 @@ mv output/ReportsV20200904/lib src/Clients/ReportsV20200904
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/ReportsV20210630
-openapi-generator-cli generate -i models/reports_2021-06-30.json -g php -o output/ReportsV20210630 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ReportsV20210630"
+openapi-generator-cli generate -i models/reports_2021-06-30.json -g php -o output/ReportsV20210630 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ReportsV20210630" --additional-properties=variableNamingConvention=camelCase
 rm -rf src/Clients/ReportsV20210630
 mv output/ReportsV20210630/lib src/Clients/ReportsV20210630
 ```
@@ -131,7 +131,7 @@ mv output/ReportsV20210630/lib src/Clients/ReportsV20210630
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/SupplySourcesV20200701
-openapi-generator-cli generate -i models/supplySources_2020-07-01.json -g php -o output/SupplySourcesV20200701 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701"
+openapi-generator-cli generate -i models/supplySources_2020-07-01.json -g php -o output/SupplySourcesV20200701 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701" --additional-properties=variableNamingConvention=camelCase
 rm -rf src/Clients/SupplySourcesV20200701
 mv output/SupplySourcesV20200701/lib src/Clients/SupplySourcesV20200701
 ```
@@ -141,7 +141,7 @@ mv output/SupplySourcesV20200701/lib src/Clients/SupplySourcesV20200701
 ```BASH
 cd path/to/your/sp-api-open-api
 rm -rf output/TokensV20210301
-openapi-generator-cli generate -i models/tokens_2021-03-01.json -g php -o output/TokensV20210301 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\TokensV20210301"
+openapi-generator-cli generate -i models/tokens_2021-03-01.json -g php -o output/TokensV20210301 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\TokensV20210301" --additional-properties=variableNamingConvention=camelCase
 rm -rf src/Clients/TokensV20210301
 mv output/TokensV20210301/lib src/Clients/TokensV20210301
 ```

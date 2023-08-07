@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Product Type Definitions
  *
- * The Selling Partner API for Product Type Definitions provides programmatic access to attribute and data requirements for product types in the Amazon catalog. Use this API to return the JSON Schema for a product type that you can then use with other Selling Partner APIs, such as the Selling Partner API for Listings Items, the Selling Partner API for Catalog Items, and the Selling Partner API for Feeds (for JSON-based listing feeds).
+ * The Selling Partner API for Product Type Definitions provides programmatic access to attribute and data requirements for product types in the Amazon catalog. Use this API to return the JSON Schema for a product type that you can then use with other Selling Partner APIs, such as the Selling Partner API for Listings Items, the Selling Partner API for Catalog Items, and the Selling Partner API for Feeds (for JSON-based listing feeds).  For more information, see the [Product Type Definitions API Use Case Guide](doc:product-type-api-use-case-guide).
  *
  * OpenAPI spec version: 2020-09-01
  * 
@@ -58,15 +58,15 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'meta_schema' => '\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\SchemaLink',
+        'metaSchema' => '\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\SchemaLink',
         'schema' => '\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\SchemaLink',
         'requirements' => 'string',
-        'requirements_enforced' => 'string',
-        'property_groups' => 'map[string,\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\PropertyGroup]',
+        'requirementsEnforced' => 'string',
+        'propertyGroups' => 'map[string,\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\PropertyGroup]',
         'locale' => 'string',
-        'marketplace_ids' => 'string[]',
-        'product_type' => 'string',
-        'product_type_version' => '\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeVersion'
+        'marketplaceIds' => 'string[]',
+        'productType' => 'string',
+        'productTypeVersion' => '\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeVersion'
     ];
 
     /**
@@ -75,15 +75,15 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'meta_schema' => null,
+        'metaSchema' => null,
         'schema' => null,
         'requirements' => null,
-        'requirements_enforced' => null,
-        'property_groups' => null,
+        'requirementsEnforced' => null,
+        'propertyGroups' => null,
         'locale' => null,
-        'marketplace_ids' => null,
-        'product_type' => null,
-        'product_type_version' => null
+        'marketplaceIds' => null,
+        'productType' => null,
+        'productTypeVersion' => null
     ];
 
     /**
@@ -113,15 +113,15 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'meta_schema' => 'metaSchema',
+        'metaSchema' => 'metaSchema',
         'schema' => 'schema',
         'requirements' => 'requirements',
-        'requirements_enforced' => 'requirementsEnforced',
-        'property_groups' => 'propertyGroups',
+        'requirementsEnforced' => 'requirementsEnforced',
+        'propertyGroups' => 'propertyGroups',
         'locale' => 'locale',
-        'marketplace_ids' => 'marketplaceIds',
-        'product_type' => 'productType',
-        'product_type_version' => 'productTypeVersion'
+        'marketplaceIds' => 'marketplaceIds',
+        'productType' => 'productType',
+        'productTypeVersion' => 'productTypeVersion'
     ];
 
     /**
@@ -130,15 +130,15 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'meta_schema' => 'setMetaSchema',
+        'metaSchema' => 'setMetaSchema',
         'schema' => 'setSchema',
         'requirements' => 'setRequirements',
-        'requirements_enforced' => 'setRequirementsEnforced',
-        'property_groups' => 'setPropertyGroups',
+        'requirementsEnforced' => 'setRequirementsEnforced',
+        'propertyGroups' => 'setPropertyGroups',
         'locale' => 'setLocale',
-        'marketplace_ids' => 'setMarketplaceIds',
-        'product_type' => 'setProductType',
-        'product_type_version' => 'setProductTypeVersion'
+        'marketplaceIds' => 'setMarketplaceIds',
+        'productType' => 'setProductType',
+        'productTypeVersion' => 'setProductTypeVersion'
     ];
 
     /**
@@ -147,15 +147,15 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'meta_schema' => 'getMetaSchema',
+        'metaSchema' => 'getMetaSchema',
         'schema' => 'getSchema',
         'requirements' => 'getRequirements',
-        'requirements_enforced' => 'getRequirementsEnforced',
-        'property_groups' => 'getPropertyGroups',
+        'requirementsEnforced' => 'getRequirementsEnforced',
+        'propertyGroups' => 'getPropertyGroups',
         'locale' => 'getLocale',
-        'marketplace_ids' => 'getMarketplaceIds',
-        'product_type' => 'getProductType',
-        'product_type_version' => 'getProductTypeVersion'
+        'marketplaceIds' => 'getMarketplaceIds',
+        'productType' => 'getProductType',
+        'productTypeVersion' => 'getProductTypeVersion'
     ];
 
     /**
@@ -250,15 +250,15 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['meta_schema'] = isset($data['meta_schema']) ? $data['meta_schema'] : null;
+        $this->container['metaSchema'] = isset($data['metaSchema']) ? $data['metaSchema'] : null;
         $this->container['schema'] = isset($data['schema']) ? $data['schema'] : null;
         $this->container['requirements'] = isset($data['requirements']) ? $data['requirements'] : null;
-        $this->container['requirements_enforced'] = isset($data['requirements_enforced']) ? $data['requirements_enforced'] : null;
-        $this->container['property_groups'] = isset($data['property_groups']) ? $data['property_groups'] : null;
+        $this->container['requirementsEnforced'] = isset($data['requirementsEnforced']) ? $data['requirementsEnforced'] : null;
+        $this->container['propertyGroups'] = isset($data['propertyGroups']) ? $data['propertyGroups'] : null;
         $this->container['locale'] = isset($data['locale']) ? $data['locale'] : null;
-        $this->container['marketplace_ids'] = isset($data['marketplace_ids']) ? $data['marketplace_ids'] : null;
-        $this->container['product_type'] = isset($data['product_type']) ? $data['product_type'] : null;
-        $this->container['product_type_version'] = isset($data['product_type_version']) ? $data['product_type_version'] : null;
+        $this->container['marketplaceIds'] = isset($data['marketplaceIds']) ? $data['marketplaceIds'] : null;
+        $this->container['productType'] = isset($data['productType']) ? $data['productType'] : null;
+        $this->container['productTypeVersion'] = isset($data['productTypeVersion']) ? $data['productTypeVersion'] : null;
     }
 
     /**
@@ -284,31 +284,31 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['requirements_enforced'] === null) {
-            $invalidProperties[] = "'requirements_enforced' can't be null";
+        if ($this->container['requirementsEnforced'] === null) {
+            $invalidProperties[] = "'requirementsEnforced' can't be null";
         }
         $allowedValues = $this->getRequirementsEnforcedAllowableValues();
-        if (!is_null($this->container['requirements_enforced']) && !in_array($this->container['requirements_enforced'], $allowedValues, true)) {
+        if (!is_null($this->container['requirementsEnforced']) && !in_array($this->container['requirementsEnforced'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'requirements_enforced', must be one of '%s'",
+                "invalid value for 'requirementsEnforced', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
 
-        if ($this->container['property_groups'] === null) {
-            $invalidProperties[] = "'property_groups' can't be null";
+        if ($this->container['propertyGroups'] === null) {
+            $invalidProperties[] = "'propertyGroups' can't be null";
         }
         if ($this->container['locale'] === null) {
             $invalidProperties[] = "'locale' can't be null";
         }
-        if ($this->container['marketplace_ids'] === null) {
-            $invalidProperties[] = "'marketplace_ids' can't be null";
+        if ($this->container['marketplaceIds'] === null) {
+            $invalidProperties[] = "'marketplaceIds' can't be null";
         }
-        if ($this->container['product_type'] === null) {
-            $invalidProperties[] = "'product_type' can't be null";
+        if ($this->container['productType'] === null) {
+            $invalidProperties[] = "'productType' can't be null";
         }
-        if ($this->container['product_type_version'] === null) {
-            $invalidProperties[] = "'product_type_version' can't be null";
+        if ($this->container['productTypeVersion'] === null) {
+            $invalidProperties[] = "'productTypeVersion' can't be null";
         }
         return $invalidProperties;
     }
@@ -326,25 +326,25 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets meta_schema
+     * Gets metaSchema
      *
      * @return \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\SchemaLink|null
      */
     public function getMetaSchema()
     {
-        return $this->container['meta_schema'];
+        return $this->container['metaSchema'];
     }
 
     /**
-     * Sets meta_schema
+     * Sets metaSchema
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\SchemaLink|null $meta_schema meta_schema
+     * @param \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\SchemaLink|null $metaSchema metaSchema
      *
      * @return $this
      */
-    public function setMetaSchema($meta_schema)
+    public function setMetaSchema($metaSchema)
     {
-        $this->container['meta_schema'] = $meta_schema;
+        $this->container['metaSchema'] = $metaSchema;
 
         return $this;
     }
@@ -407,58 +407,58 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets requirements_enforced
+     * Gets requirementsEnforced
      *
      * @return string
      */
     public function getRequirementsEnforced()
     {
-        return $this->container['requirements_enforced'];
+        return $this->container['requirementsEnforced'];
     }
 
     /**
-     * Sets requirements_enforced
+     * Sets requirementsEnforced
      *
-     * @param string $requirements_enforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all of the required attributes being present (such as for partial updates).
+     * @param string $requirementsEnforced Identifies if the required attributes for a requirements set are enforced by the product type definition schema. Non-enforced requirements enable structural validation of individual attributes without all of the required attributes being present (such as for partial updates).
      *
      * @return $this
      */
-    public function setRequirementsEnforced($requirements_enforced)
+    public function setRequirementsEnforced($requirementsEnforced)
     {
         $allowedValues = $this->getRequirementsEnforcedAllowableValues();
-        if (!in_array($requirements_enforced, $allowedValues, true)) {
+        if (!in_array($requirementsEnforced, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'requirements_enforced', must be one of '%s'",
+                    "Invalid value for 'requirementsEnforced', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['requirements_enforced'] = $requirements_enforced;
+        $this->container['requirementsEnforced'] = $requirementsEnforced;
 
         return $this;
     }
 
     /**
-     * Gets property_groups
+     * Gets propertyGroups
      *
      * @return map[string,\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\PropertyGroup]
      */
     public function getPropertyGroups()
     {
-        return $this->container['property_groups'];
+        return $this->container['propertyGroups'];
     }
 
     /**
-     * Sets property_groups
+     * Sets propertyGroups
      *
-     * @param map[string,\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\PropertyGroup] $property_groups Mapping of property group names to property groups. Property groups represent logical groupings of schema properties that can be used for display or informational purposes.
+     * @param map[string,\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\PropertyGroup] $propertyGroups Mapping of property group names to property groups. Property groups represent logical groupings of schema properties that can be used for display or informational purposes.
      *
      * @return $this
      */
-    public function setPropertyGroups($property_groups)
+    public function setPropertyGroups($propertyGroups)
     {
-        $this->container['property_groups'] = $property_groups;
+        $this->container['propertyGroups'] = $propertyGroups;
 
         return $this;
     }
@@ -488,73 +488,73 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets marketplace_ids
+     * Gets marketplaceIds
      *
      * @return string[]
      */
     public function getMarketplaceIds()
     {
-        return $this->container['marketplace_ids'];
+        return $this->container['marketplaceIds'];
     }
 
     /**
-     * Sets marketplace_ids
+     * Sets marketplaceIds
      *
-     * @param string[] $marketplace_ids Amazon marketplace identifiers for which the product type definition is applicable.
+     * @param string[] $marketplaceIds Amazon marketplace identifiers for which the product type definition is applicable.
      *
      * @return $this
      */
-    public function setMarketplaceIds($marketplace_ids)
+    public function setMarketplaceIds($marketplaceIds)
     {
-        $this->container['marketplace_ids'] = $marketplace_ids;
+        $this->container['marketplaceIds'] = $marketplaceIds;
 
         return $this;
     }
 
     /**
-     * Gets product_type
+     * Gets productType
      *
      * @return string
      */
     public function getProductType()
     {
-        return $this->container['product_type'];
+        return $this->container['productType'];
     }
 
     /**
-     * Sets product_type
+     * Sets productType
      *
-     * @param string $product_type The name of the Amazon product type that this product type definition applies to.
+     * @param string $productType The name of the Amazon product type that this product type definition applies to.
      *
      * @return $this
      */
-    public function setProductType($product_type)
+    public function setProductType($productType)
     {
-        $this->container['product_type'] = $product_type;
+        $this->container['productType'] = $productType;
 
         return $this;
     }
 
     /**
-     * Gets product_type_version
+     * Gets productTypeVersion
      *
      * @return \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeVersion
      */
     public function getProductTypeVersion()
     {
-        return $this->container['product_type_version'];
+        return $this->container['productTypeVersion'];
     }
 
     /**
-     * Sets product_type_version
+     * Sets productTypeVersion
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeVersion $product_type_version product_type_version
+     * @param \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeVersion $productTypeVersion productTypeVersion
      *
      * @return $this
      */
-    public function setProductTypeVersion($product_type_version)
+    public function setProductTypeVersion($productTypeVersion)
     {
-        $this->container['product_type_version'] = $product_type_version;
+        $this->container['productTypeVersion'] = $productTypeVersion;
 
         return $this;
     }

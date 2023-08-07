@@ -90,30 +90,30 @@ class FeedsApi
     /**
      * Operation cancelFeed
      *
-     * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
+     * @param  string $feedId The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse
      */
-    public function cancelFeed($feed_id)
+    public function cancelFeed($feedId)
     {
-        list($response) = $this->cancelFeedWithHttpInfo($feed_id);
+        list($response) = $this->cancelFeedWithHttpInfo($feedId);
         return $response;
     }
 
     /**
      * Operation cancelFeedWithHttpInfo
      *
-     * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
+     * @param  string $feedId The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function cancelFeedWithHttpInfo($feed_id)
+    public function cancelFeedWithHttpInfo($feedId)
     {
-        $request = $this->cancelFeedRequest($feed_id);
+        $request = $this->cancelFeedRequest($feedId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -353,14 +353,14 @@ class FeedsApi
      *
      * 
      *
-     * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
+     * @param  string $feedId The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelFeedAsync($feed_id)
+    public function cancelFeedAsync($feedId)
     {
-        return $this->cancelFeedAsyncWithHttpInfo($feed_id)
+        return $this->cancelFeedAsyncWithHttpInfo($feedId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -373,15 +373,15 @@ class FeedsApi
      *
      * 
      *
-     * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
+     * @param  string $feedId The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function cancelFeedAsyncWithHttpInfo($feed_id)
+    public function cancelFeedAsyncWithHttpInfo($feedId)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CancelFeedResponse';
-        $request = $this->cancelFeedRequest($feed_id);
+        $request = $this->cancelFeedRequest($feedId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -420,17 +420,17 @@ class FeedsApi
     /**
      * Create request for operation 'cancelFeed'
      *
-     * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
+     * @param  string $feedId The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function cancelFeedRequest($feed_id)
+    protected function cancelFeedRequest($feedId)
     {
-        // verify the required parameter 'feed_id' is set
-        if ($feed_id === null || (is_array($feed_id) && count($feed_id) === 0)) {
+        // verify the required parameter 'feedId' is set
+        if ($feedId === null || (is_array($feedId) && count($feedId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $feed_id when calling cancelFeed'
+                'Missing the required parameter $feedId when calling cancelFeed'
             );
         }
 
@@ -443,10 +443,10 @@ class FeedsApi
 
 
         // path params
-        if ($feed_id !== null) {
+        if ($feedId !== null) {
             $resourcePath = str_replace(
                 '{' . 'feedId' . '}',
-                ObjectSerializer::toPathValue($feed_id),
+                ObjectSerializer::toPathValue($feedId),
                 $resourcePath
             );
         }
@@ -518,30 +518,30 @@ class FeedsApi
     /**
      * Operation createFeed
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification create_feed_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $createFeedSpecification createFeedSpecification (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse
      */
-    public function createFeed($create_feed_specification)
+    public function createFeed($createFeedSpecification)
     {
-        list($response) = $this->createFeedWithHttpInfo($create_feed_specification);
+        list($response) = $this->createFeedWithHttpInfo($createFeedSpecification);
         return $response;
     }
 
     /**
      * Operation createFeedWithHttpInfo
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $createFeedSpecification (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createFeedWithHttpInfo($create_feed_specification)
+    public function createFeedWithHttpInfo($createFeedSpecification)
     {
-        $request = $this->createFeedRequest($create_feed_specification);
+        $request = $this->createFeedRequest($createFeedSpecification);
 
         try {
             $options = $this->createHttpClientOption();
@@ -781,14 +781,14 @@ class FeedsApi
      *
      * 
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $createFeedSpecification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFeedAsync($create_feed_specification)
+    public function createFeedAsync($createFeedSpecification)
     {
-        return $this->createFeedAsyncWithHttpInfo($create_feed_specification)
+        return $this->createFeedAsyncWithHttpInfo($createFeedSpecification)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -801,15 +801,15 @@ class FeedsApi
      *
      * 
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $createFeedSpecification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFeedAsyncWithHttpInfo($create_feed_specification)
+    public function createFeedAsyncWithHttpInfo($createFeedSpecification)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedResponse';
-        $request = $this->createFeedRequest($create_feed_specification);
+        $request = $this->createFeedRequest($createFeedSpecification);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -848,17 +848,17 @@ class FeedsApi
     /**
      * Create request for operation 'createFeed'
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $create_feed_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedSpecification $createFeedSpecification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createFeedRequest($create_feed_specification)
+    protected function createFeedRequest($createFeedSpecification)
     {
-        // verify the required parameter 'create_feed_specification' is set
-        if ($create_feed_specification === null || (is_array($create_feed_specification) && count($create_feed_specification) === 0)) {
+        // verify the required parameter 'createFeedSpecification' is set
+        if ($createFeedSpecification === null || (is_array($createFeedSpecification) && count($createFeedSpecification) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_feed_specification when calling createFeed'
+                'Missing the required parameter $createFeedSpecification when calling createFeed'
             );
         }
 
@@ -873,8 +873,8 @@ class FeedsApi
 
         // body params
         $_tempBody = null;
-        if (isset($create_feed_specification)) {
-            $_tempBody = $create_feed_specification;
+        if (isset($createFeedSpecification)) {
+            $_tempBody = $createFeedSpecification;
         }
 
         if ($multipart) {
@@ -941,30 +941,30 @@ class FeedsApi
     /**
      * Operation createFeedDocument
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification create_feed_document_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $createFeedDocumentSpecification createFeedDocumentSpecification (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse
      */
-    public function createFeedDocument($create_feed_document_specification)
+    public function createFeedDocument($createFeedDocumentSpecification)
     {
-        list($response) = $this->createFeedDocumentWithHttpInfo($create_feed_document_specification);
+        list($response) = $this->createFeedDocumentWithHttpInfo($createFeedDocumentSpecification);
         return $response;
     }
 
     /**
      * Operation createFeedDocumentWithHttpInfo
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $createFeedDocumentSpecification (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createFeedDocumentWithHttpInfo($create_feed_document_specification)
+    public function createFeedDocumentWithHttpInfo($createFeedDocumentSpecification)
     {
-        $request = $this->createFeedDocumentRequest($create_feed_document_specification);
+        $request = $this->createFeedDocumentRequest($createFeedDocumentSpecification);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1204,14 +1204,14 @@ class FeedsApi
      *
      * 
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $createFeedDocumentSpecification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFeedDocumentAsync($create_feed_document_specification)
+    public function createFeedDocumentAsync($createFeedDocumentSpecification)
     {
-        return $this->createFeedDocumentAsyncWithHttpInfo($create_feed_document_specification)
+        return $this->createFeedDocumentAsyncWithHttpInfo($createFeedDocumentSpecification)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1224,15 +1224,15 @@ class FeedsApi
      *
      * 
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $createFeedDocumentSpecification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createFeedDocumentAsyncWithHttpInfo($create_feed_document_specification)
+    public function createFeedDocumentAsyncWithHttpInfo($createFeedDocumentSpecification)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentResponse';
-        $request = $this->createFeedDocumentRequest($create_feed_document_specification);
+        $request = $this->createFeedDocumentRequest($createFeedDocumentSpecification);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1271,17 +1271,17 @@ class FeedsApi
     /**
      * Create request for operation 'createFeedDocument'
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $create_feed_document_specification (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\CreateFeedDocumentSpecification $createFeedDocumentSpecification (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createFeedDocumentRequest($create_feed_document_specification)
+    protected function createFeedDocumentRequest($createFeedDocumentSpecification)
     {
-        // verify the required parameter 'create_feed_document_specification' is set
-        if ($create_feed_document_specification === null || (is_array($create_feed_document_specification) && count($create_feed_document_specification) === 0)) {
+        // verify the required parameter 'createFeedDocumentSpecification' is set
+        if ($createFeedDocumentSpecification === null || (is_array($createFeedDocumentSpecification) && count($createFeedDocumentSpecification) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_feed_document_specification when calling createFeedDocument'
+                'Missing the required parameter $createFeedDocumentSpecification when calling createFeedDocument'
             );
         }
 
@@ -1296,8 +1296,8 @@ class FeedsApi
 
         // body params
         $_tempBody = null;
-        if (isset($create_feed_document_specification)) {
-            $_tempBody = $create_feed_document_specification;
+        if (isset($createFeedDocumentSpecification)) {
+            $_tempBody = $createFeedDocumentSpecification;
         }
 
         if ($multipart) {
@@ -1364,30 +1364,30 @@ class FeedsApi
     /**
      * Operation getFeed
      *
-     * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
+     * @param  string $feedId The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse
      */
-    public function getFeed($feed_id)
+    public function getFeed($feedId)
     {
-        list($response) = $this->getFeedWithHttpInfo($feed_id);
+        list($response) = $this->getFeedWithHttpInfo($feedId);
         return $response;
     }
 
     /**
      * Operation getFeedWithHttpInfo
      *
-     * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
+     * @param  string $feedId The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFeedWithHttpInfo($feed_id)
+    public function getFeedWithHttpInfo($feedId)
     {
-        $request = $this->getFeedRequest($feed_id);
+        $request = $this->getFeedRequest($feedId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -1627,14 +1627,14 @@ class FeedsApi
      *
      * 
      *
-     * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
+     * @param  string $feedId The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedAsync($feed_id)
+    public function getFeedAsync($feedId)
     {
-        return $this->getFeedAsyncWithHttpInfo($feed_id)
+        return $this->getFeedAsyncWithHttpInfo($feedId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -1647,15 +1647,15 @@ class FeedsApi
      *
      * 
      *
-     * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
+     * @param  string $feedId The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedAsyncWithHttpInfo($feed_id)
+    public function getFeedAsyncWithHttpInfo($feedId)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedResponse';
-        $request = $this->getFeedRequest($feed_id);
+        $request = $this->getFeedRequest($feedId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -1694,17 +1694,17 @@ class FeedsApi
     /**
      * Create request for operation 'getFeed'
      *
-     * @param  string $feed_id The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
+     * @param  string $feedId The identifier for the feed. This identifier is unique only in combination with a seller ID. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getFeedRequest($feed_id)
+    protected function getFeedRequest($feedId)
     {
-        // verify the required parameter 'feed_id' is set
-        if ($feed_id === null || (is_array($feed_id) && count($feed_id) === 0)) {
+        // verify the required parameter 'feedId' is set
+        if ($feedId === null || (is_array($feedId) && count($feedId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $feed_id when calling getFeed'
+                'Missing the required parameter $feedId when calling getFeed'
             );
         }
 
@@ -1717,10 +1717,10 @@ class FeedsApi
 
 
         // path params
-        if ($feed_id !== null) {
+        if ($feedId !== null) {
             $resourcePath = str_replace(
                 '{' . 'feedId' . '}',
-                ObjectSerializer::toPathValue($feed_id),
+                ObjectSerializer::toPathValue($feedId),
                 $resourcePath
             );
         }
@@ -1792,30 +1792,30 @@ class FeedsApi
     /**
      * Operation getFeedDocument
      *
-     * @param  string $feed_document_id The identifier of the feed document. (required)
+     * @param  string $feedDocumentId The identifier of the feed document. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse
      */
-    public function getFeedDocument($feed_document_id)
+    public function getFeedDocument($feedDocumentId)
     {
-        list($response) = $this->getFeedDocumentWithHttpInfo($feed_document_id);
+        list($response) = $this->getFeedDocumentWithHttpInfo($feedDocumentId);
         return $response;
     }
 
     /**
      * Operation getFeedDocumentWithHttpInfo
      *
-     * @param  string $feed_document_id The identifier of the feed document. (required)
+     * @param  string $feedDocumentId The identifier of the feed document. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFeedDocumentWithHttpInfo($feed_document_id)
+    public function getFeedDocumentWithHttpInfo($feedDocumentId)
     {
-        $request = $this->getFeedDocumentRequest($feed_document_id);
+        $request = $this->getFeedDocumentRequest($feedDocumentId);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2055,14 +2055,14 @@ class FeedsApi
      *
      * 
      *
-     * @param  string $feed_document_id The identifier of the feed document. (required)
+     * @param  string $feedDocumentId The identifier of the feed document. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedDocumentAsync($feed_document_id)
+    public function getFeedDocumentAsync($feedDocumentId)
     {
-        return $this->getFeedDocumentAsyncWithHttpInfo($feed_document_id)
+        return $this->getFeedDocumentAsyncWithHttpInfo($feedDocumentId)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2075,15 +2075,15 @@ class FeedsApi
      *
      * 
      *
-     * @param  string $feed_document_id The identifier of the feed document. (required)
+     * @param  string $feedDocumentId The identifier of the feed document. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedDocumentAsyncWithHttpInfo($feed_document_id)
+    public function getFeedDocumentAsyncWithHttpInfo($feedDocumentId)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedDocumentResponse';
-        $request = $this->getFeedDocumentRequest($feed_document_id);
+        $request = $this->getFeedDocumentRequest($feedDocumentId);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2122,17 +2122,17 @@ class FeedsApi
     /**
      * Create request for operation 'getFeedDocument'
      *
-     * @param  string $feed_document_id The identifier of the feed document. (required)
+     * @param  string $feedDocumentId The identifier of the feed document. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getFeedDocumentRequest($feed_document_id)
+    protected function getFeedDocumentRequest($feedDocumentId)
     {
-        // verify the required parameter 'feed_document_id' is set
-        if ($feed_document_id === null || (is_array($feed_document_id) && count($feed_document_id) === 0)) {
+        // verify the required parameter 'feedDocumentId' is set
+        if ($feedDocumentId === null || (is_array($feedDocumentId) && count($feedDocumentId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $feed_document_id when calling getFeedDocument'
+                'Missing the required parameter $feedDocumentId when calling getFeedDocument'
             );
         }
 
@@ -2145,10 +2145,10 @@ class FeedsApi
 
 
         // path params
-        if ($feed_document_id !== null) {
+        if ($feedDocumentId !== null) {
             $resourcePath = str_replace(
                 '{' . 'feedDocumentId' . '}',
-                ObjectSerializer::toPathValue($feed_document_id),
+                ObjectSerializer::toPathValue($feedDocumentId),
                 $resourcePath
             );
         }
@@ -2220,42 +2220,42 @@ class FeedsApi
     /**
      * Operation getFeeds
      *
-     * @param  string[] $feed_types A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
-     * @param  string[] $marketplace_ids A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
-     * @param  int $page_size The maximum number of feeds to return in a single call. (optional, default to 10)
-     * @param  string[] $processing_statuses A list of processing statuses used to filter feeds. (optional)
-     * @param  \DateTime $created_since The earliest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is 90 days ago. Feeds are retained for a maximum of 90 days. (optional)
-     * @param  \DateTime $created_until The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
-     * @param  string $next_token A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
+     * @param  string[] $feedTypes A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
+     * @param  string[] $marketplaceIds A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
+     * @param  int $pageSize The maximum number of feeds to return in a single call. (optional, default to 10)
+     * @param  string[] $processingStatuses A list of processing statuses used to filter feeds. (optional)
+     * @param  \DateTime $createdSince The earliest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is 90 days ago. Feeds are retained for a maximum of 90 days. (optional)
+     * @param  \DateTime $createdUntil The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
+     * @param  string $nextToken A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse
      */
-    public function getFeeds($feed_types = null, $marketplace_ids = null, $page_size = 10, $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null)
+    public function getFeeds($feedTypes = null, $marketplaceIds = null, $pageSize = 10, $processingStatuses = null, $createdSince = null, $createdUntil = null, $nextToken = null)
     {
-        list($response) = $this->getFeedsWithHttpInfo($feed_types, $marketplace_ids, $page_size, $processing_statuses, $created_since, $created_until, $next_token);
+        list($response) = $this->getFeedsWithHttpInfo($feedTypes, $marketplaceIds, $pageSize, $processingStatuses, $createdSince, $createdUntil, $nextToken);
         return $response;
     }
 
     /**
      * Operation getFeedsWithHttpInfo
      *
-     * @param  string[] $feed_types A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
-     * @param  string[] $marketplace_ids A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
-     * @param  int $page_size The maximum number of feeds to return in a single call. (optional, default to 10)
-     * @param  string[] $processing_statuses A list of processing statuses used to filter feeds. (optional)
-     * @param  \DateTime $created_since The earliest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is 90 days ago. Feeds are retained for a maximum of 90 days. (optional)
-     * @param  \DateTime $created_until The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
-     * @param  string $next_token A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
+     * @param  string[] $feedTypes A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
+     * @param  string[] $marketplaceIds A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
+     * @param  int $pageSize The maximum number of feeds to return in a single call. (optional, default to 10)
+     * @param  string[] $processingStatuses A list of processing statuses used to filter feeds. (optional)
+     * @param  \DateTime $createdSince The earliest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is 90 days ago. Feeds are retained for a maximum of 90 days. (optional)
+     * @param  \DateTime $createdUntil The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
+     * @param  string $nextToken A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse|\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse, HTTP status code, HTTP response headers (array of strings)
      */
-    public function getFeedsWithHttpInfo($feed_types = null, $marketplace_ids = null, $page_size = 10, $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null)
+    public function getFeedsWithHttpInfo($feedTypes = null, $marketplaceIds = null, $pageSize = 10, $processingStatuses = null, $createdSince = null, $createdUntil = null, $nextToken = null)
     {
-        $request = $this->getFeedsRequest($feed_types, $marketplace_ids, $page_size, $processing_statuses, $created_since, $created_until, $next_token);
+        $request = $this->getFeedsRequest($feedTypes, $marketplaceIds, $pageSize, $processingStatuses, $createdSince, $createdUntil, $nextToken);
 
         try {
             $options = $this->createHttpClientOption();
@@ -2495,20 +2495,20 @@ class FeedsApi
      *
      * 
      *
-     * @param  string[] $feed_types A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
-     * @param  string[] $marketplace_ids A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
-     * @param  int $page_size The maximum number of feeds to return in a single call. (optional, default to 10)
-     * @param  string[] $processing_statuses A list of processing statuses used to filter feeds. (optional)
-     * @param  \DateTime $created_since The earliest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is 90 days ago. Feeds are retained for a maximum of 90 days. (optional)
-     * @param  \DateTime $created_until The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
-     * @param  string $next_token A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
+     * @param  string[] $feedTypes A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
+     * @param  string[] $marketplaceIds A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
+     * @param  int $pageSize The maximum number of feeds to return in a single call. (optional, default to 10)
+     * @param  string[] $processingStatuses A list of processing statuses used to filter feeds. (optional)
+     * @param  \DateTime $createdSince The earliest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is 90 days ago. Feeds are retained for a maximum of 90 days. (optional)
+     * @param  \DateTime $createdUntil The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
+     * @param  string $nextToken A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedsAsync($feed_types = null, $marketplace_ids = null, $page_size = 10, $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null)
+    public function getFeedsAsync($feedTypes = null, $marketplaceIds = null, $pageSize = 10, $processingStatuses = null, $createdSince = null, $createdUntil = null, $nextToken = null)
     {
-        return $this->getFeedsAsyncWithHttpInfo($feed_types, $marketplace_ids, $page_size, $processing_statuses, $created_since, $created_until, $next_token)
+        return $this->getFeedsAsyncWithHttpInfo($feedTypes, $marketplaceIds, $pageSize, $processingStatuses, $createdSince, $createdUntil, $nextToken)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -2521,21 +2521,21 @@ class FeedsApi
      *
      * 
      *
-     * @param  string[] $feed_types A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
-     * @param  string[] $marketplace_ids A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
-     * @param  int $page_size The maximum number of feeds to return in a single call. (optional, default to 10)
-     * @param  string[] $processing_statuses A list of processing statuses used to filter feeds. (optional)
-     * @param  \DateTime $created_since The earliest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is 90 days ago. Feeds are retained for a maximum of 90 days. (optional)
-     * @param  \DateTime $created_until The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
-     * @param  string $next_token A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
+     * @param  string[] $feedTypes A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
+     * @param  string[] $marketplaceIds A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
+     * @param  int $pageSize The maximum number of feeds to return in a single call. (optional, default to 10)
+     * @param  string[] $processingStatuses A list of processing statuses used to filter feeds. (optional)
+     * @param  \DateTime $createdSince The earliest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is 90 days ago. Feeds are retained for a maximum of 90 days. (optional)
+     * @param  \DateTime $createdUntil The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
+     * @param  string $nextToken A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function getFeedsAsyncWithHttpInfo($feed_types = null, $marketplace_ids = null, $page_size = 10, $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null)
+    public function getFeedsAsyncWithHttpInfo($feedTypes = null, $marketplaceIds = null, $pageSize = 10, $processingStatuses = null, $createdSince = null, $createdUntil = null, $nextToken = null)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Model\GetFeedsResponse';
-        $request = $this->getFeedsRequest($feed_types, $marketplace_ids, $page_size, $processing_statuses, $created_since, $created_until, $next_token);
+        $request = $this->getFeedsRequest($feedTypes, $marketplaceIds, $pageSize, $processingStatuses, $createdSince, $createdUntil, $nextToken);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -2574,42 +2574,42 @@ class FeedsApi
     /**
      * Create request for operation 'getFeeds'
      *
-     * @param  string[] $feed_types A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
-     * @param  string[] $marketplace_ids A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
-     * @param  int $page_size The maximum number of feeds to return in a single call. (optional, default to 10)
-     * @param  string[] $processing_statuses A list of processing statuses used to filter feeds. (optional)
-     * @param  \DateTime $created_since The earliest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is 90 days ago. Feeds are retained for a maximum of 90 days. (optional)
-     * @param  \DateTime $created_until The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
-     * @param  string $next_token A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
+     * @param  string[] $feedTypes A list of feed types used to filter feeds. When feedTypes is provided, the other filter parameters (processingStatuses, marketplaceIds, createdSince, createdUntil) and pageSize may also be provided. Either feedTypes or nextToken is required. (optional)
+     * @param  string[] $marketplaceIds A list of marketplace identifiers used to filter feeds. The feeds returned will match at least one of the marketplaces that you specify. (optional)
+     * @param  int $pageSize The maximum number of feeds to return in a single call. (optional, default to 10)
+     * @param  string[] $processingStatuses A list of processing statuses used to filter feeds. (optional)
+     * @param  \DateTime $createdSince The earliest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is 90 days ago. Feeds are retained for a maximum of 90 days. (optional)
+     * @param  \DateTime $createdUntil The latest feed creation date and time for feeds included in the response, in ISO 8601 format. The default is now. (optional)
+     * @param  string $nextToken A string token returned in the response to your previous request. nextToken is returned when the number of results exceeds the specified pageSize value. To get the next page of results, call the getFeeds operation and include this token as the only parameter. Specifying nextToken with any other parameters will cause the request to fail. (optional)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function getFeedsRequest($feed_types = null, $marketplace_ids = null, $page_size = 10, $processing_statuses = null, $created_since = null, $created_until = null, $next_token = null)
+    protected function getFeedsRequest($feedTypes = null, $marketplaceIds = null, $pageSize = 10, $processingStatuses = null, $createdSince = null, $createdUntil = null, $nextToken = null)
     {
-        if ($feed_types !== null && count($feed_types) > 10) {
-            throw new \InvalidArgumentException('invalid value for "$feed_types" when calling FeedsApi.getFeeds, number of items must be less than or equal to 10.');
+        if ($feedTypes !== null && count($feedTypes) > 10) {
+            throw new \InvalidArgumentException('invalid value for "$feedTypes" when calling FeedsApi.getFeeds, number of items must be less than or equal to 10.');
         }
-        if ($feed_types !== null && count($feed_types) < 1) {
-            throw new \InvalidArgumentException('invalid value for "$feed_types" when calling FeedsApi.getFeeds, number of items must be greater than or equal to 1.');
-        }
-
-        if ($marketplace_ids !== null && count($marketplace_ids) > 10) {
-            throw new \InvalidArgumentException('invalid value for "$marketplace_ids" when calling FeedsApi.getFeeds, number of items must be less than or equal to 10.');
-        }
-        if ($marketplace_ids !== null && count($marketplace_ids) < 1) {
-            throw new \InvalidArgumentException('invalid value for "$marketplace_ids" when calling FeedsApi.getFeeds, number of items must be greater than or equal to 1.');
+        if ($feedTypes !== null && count($feedTypes) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$feedTypes" when calling FeedsApi.getFeeds, number of items must be greater than or equal to 1.');
         }
 
-        if ($page_size !== null && $page_size > 100) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FeedsApi.getFeeds, must be smaller than or equal to 100.');
+        if ($marketplaceIds !== null && count($marketplaceIds) > 10) {
+            throw new \InvalidArgumentException('invalid value for "$marketplaceIds" when calling FeedsApi.getFeeds, number of items must be less than or equal to 10.');
         }
-        if ($page_size !== null && $page_size < 1) {
-            throw new \InvalidArgumentException('invalid value for "$page_size" when calling FeedsApi.getFeeds, must be bigger than or equal to 1.');
+        if ($marketplaceIds !== null && count($marketplaceIds) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$marketplaceIds" when calling FeedsApi.getFeeds, number of items must be greater than or equal to 1.');
         }
 
-        if ($processing_statuses !== null && count($processing_statuses) < 1) {
-            throw new \InvalidArgumentException('invalid value for "$processing_statuses" when calling FeedsApi.getFeeds, number of items must be greater than or equal to 1.');
+        if ($pageSize !== null && $pageSize > 100) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling FeedsApi.getFeeds, must be smaller than or equal to 100.');
+        }
+        if ($pageSize !== null && $pageSize < 1) {
+            throw new \InvalidArgumentException('invalid value for "$pageSize" when calling FeedsApi.getFeeds, must be bigger than or equal to 1.');
+        }
+
+        if ($processingStatuses !== null && count($processingStatuses) < 1) {
+            throw new \InvalidArgumentException('invalid value for "$processingStatuses" when calling FeedsApi.getFeeds, number of items must be greater than or equal to 1.');
         }
 
 
@@ -2621,41 +2621,41 @@ class FeedsApi
         $multipart = false;
 
         // query params
-        if (is_array($feed_types)) {
-            $feed_types = ObjectSerializer::serializeCollection($feed_types, 'csv', true);
+        if (is_array($feedTypes)) {
+            $feedTypes = ObjectSerializer::serializeCollection($feedTypes, 'csv', true);
         }
-        if ($feed_types !== null) {
-            $queryParams['feedTypes'] = ObjectSerializer::toQueryValue($feed_types);
-        }
-        // query params
-        if (is_array($marketplace_ids)) {
-            $marketplace_ids = ObjectSerializer::serializeCollection($marketplace_ids, 'csv', true);
-        }
-        if ($marketplace_ids !== null) {
-            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplace_ids);
+        if ($feedTypes !== null) {
+            $queryParams['feedTypes'] = ObjectSerializer::toQueryValue($feedTypes);
         }
         // query params
-        if ($page_size !== null) {
-            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($page_size);
+        if (is_array($marketplaceIds)) {
+            $marketplaceIds = ObjectSerializer::serializeCollection($marketplaceIds, 'csv', true);
+        }
+        if ($marketplaceIds !== null) {
+            $queryParams['marketplaceIds'] = ObjectSerializer::toQueryValue($marketplaceIds);
         }
         // query params
-        if (is_array($processing_statuses)) {
-            $processing_statuses = ObjectSerializer::serializeCollection($processing_statuses, 'csv', true);
-        }
-        if ($processing_statuses !== null) {
-            $queryParams['processingStatuses'] = ObjectSerializer::toQueryValue($processing_statuses);
+        if ($pageSize !== null) {
+            $queryParams['pageSize'] = ObjectSerializer::toQueryValue($pageSize);
         }
         // query params
-        if ($created_since !== null) {
-            $queryParams['createdSince'] = ObjectSerializer::toQueryValue($created_since);
+        if (is_array($processingStatuses)) {
+            $processingStatuses = ObjectSerializer::serializeCollection($processingStatuses, 'csv', true);
+        }
+        if ($processingStatuses !== null) {
+            $queryParams['processingStatuses'] = ObjectSerializer::toQueryValue($processingStatuses);
         }
         // query params
-        if ($created_until !== null) {
-            $queryParams['createdUntil'] = ObjectSerializer::toQueryValue($created_until);
+        if ($createdSince !== null) {
+            $queryParams['createdSince'] = ObjectSerializer::toQueryValue($createdSince);
         }
         // query params
-        if ($next_token !== null) {
-            $queryParams['nextToken'] = ObjectSerializer::toQueryValue($next_token);
+        if ($createdUntil !== null) {
+            $queryParams['createdUntil'] = ObjectSerializer::toQueryValue($createdUntil);
+        }
+        // query params
+        if ($nextToken !== null) {
+            $queryParams['nextToken'] = ObjectSerializer::toQueryValue($nextToken);
         }
 
 

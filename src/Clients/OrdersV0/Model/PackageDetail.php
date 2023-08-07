@@ -58,14 +58,14 @@ class PackageDetail implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'package_reference_id' => 'string',
-        'carrier_code' => 'string',
-        'carrier_name' => 'string',
-        'shipping_method' => 'string',
-        'tracking_number' => 'string',
-        'ship_date' => '\DateTime',
-        'ship_from_supply_source_id' => 'string',
-        'order_items' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConfirmShipmentOrderItem[]'
+        'packageReferenceId' => 'string',
+        'carrierCode' => 'string',
+        'carrierName' => 'string',
+        'shippingMethod' => 'string',
+        'trackingNumber' => 'string',
+        'shipDate' => '\DateTime',
+        'shipFromSupplySourceId' => 'string',
+        'orderItems' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConfirmShipmentOrderItem[]'
     ];
 
     /**
@@ -74,14 +74,14 @@ class PackageDetail implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'package_reference_id' => null,
-        'carrier_code' => null,
-        'carrier_name' => null,
-        'shipping_method' => null,
-        'tracking_number' => null,
-        'ship_date' => 'date-time',
-        'ship_from_supply_source_id' => null,
-        'order_items' => null
+        'packageReferenceId' => null,
+        'carrierCode' => null,
+        'carrierName' => null,
+        'shippingMethod' => null,
+        'trackingNumber' => null,
+        'shipDate' => 'date-time',
+        'shipFromSupplySourceId' => null,
+        'orderItems' => null
     ];
 
     /**
@@ -111,14 +111,14 @@ class PackageDetail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'package_reference_id' => 'packageReferenceId',
-        'carrier_code' => 'carrierCode',
-        'carrier_name' => 'carrierName',
-        'shipping_method' => 'shippingMethod',
-        'tracking_number' => 'trackingNumber',
-        'ship_date' => 'shipDate',
-        'ship_from_supply_source_id' => 'shipFromSupplySourceId',
-        'order_items' => 'orderItems'
+        'packageReferenceId' => 'packageReferenceId',
+        'carrierCode' => 'carrierCode',
+        'carrierName' => 'carrierName',
+        'shippingMethod' => 'shippingMethod',
+        'trackingNumber' => 'trackingNumber',
+        'shipDate' => 'shipDate',
+        'shipFromSupplySourceId' => 'shipFromSupplySourceId',
+        'orderItems' => 'orderItems'
     ];
 
     /**
@@ -127,14 +127,14 @@ class PackageDetail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'package_reference_id' => 'setPackageReferenceId',
-        'carrier_code' => 'setCarrierCode',
-        'carrier_name' => 'setCarrierName',
-        'shipping_method' => 'setShippingMethod',
-        'tracking_number' => 'setTrackingNumber',
-        'ship_date' => 'setShipDate',
-        'ship_from_supply_source_id' => 'setShipFromSupplySourceId',
-        'order_items' => 'setOrderItems'
+        'packageReferenceId' => 'setPackageReferenceId',
+        'carrierCode' => 'setCarrierCode',
+        'carrierName' => 'setCarrierName',
+        'shippingMethod' => 'setShippingMethod',
+        'trackingNumber' => 'setTrackingNumber',
+        'shipDate' => 'setShipDate',
+        'shipFromSupplySourceId' => 'setShipFromSupplySourceId',
+        'orderItems' => 'setOrderItems'
     ];
 
     /**
@@ -143,14 +143,14 @@ class PackageDetail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'package_reference_id' => 'getPackageReferenceId',
-        'carrier_code' => 'getCarrierCode',
-        'carrier_name' => 'getCarrierName',
-        'shipping_method' => 'getShippingMethod',
-        'tracking_number' => 'getTrackingNumber',
-        'ship_date' => 'getShipDate',
-        'ship_from_supply_source_id' => 'getShipFromSupplySourceId',
-        'order_items' => 'getOrderItems'
+        'packageReferenceId' => 'getPackageReferenceId',
+        'carrierCode' => 'getCarrierCode',
+        'carrierName' => 'getCarrierName',
+        'shippingMethod' => 'getShippingMethod',
+        'trackingNumber' => 'getTrackingNumber',
+        'shipDate' => 'getShipDate',
+        'shipFromSupplySourceId' => 'getShipFromSupplySourceId',
+        'orderItems' => 'getOrderItems'
     ];
 
     /**
@@ -213,14 +213,14 @@ class PackageDetail implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['package_reference_id'] = isset($data['package_reference_id']) ? $data['package_reference_id'] : null;
-        $this->container['carrier_code'] = isset($data['carrier_code']) ? $data['carrier_code'] : null;
-        $this->container['carrier_name'] = isset($data['carrier_name']) ? $data['carrier_name'] : null;
-        $this->container['shipping_method'] = isset($data['shipping_method']) ? $data['shipping_method'] : null;
-        $this->container['tracking_number'] = isset($data['tracking_number']) ? $data['tracking_number'] : null;
-        $this->container['ship_date'] = isset($data['ship_date']) ? $data['ship_date'] : null;
-        $this->container['ship_from_supply_source_id'] = isset($data['ship_from_supply_source_id']) ? $data['ship_from_supply_source_id'] : null;
-        $this->container['order_items'] = isset($data['order_items']) ? $data['order_items'] : null;
+        $this->container['packageReferenceId'] = isset($data['packageReferenceId']) ? $data['packageReferenceId'] : null;
+        $this->container['carrierCode'] = isset($data['carrierCode']) ? $data['carrierCode'] : null;
+        $this->container['carrierName'] = isset($data['carrierName']) ? $data['carrierName'] : null;
+        $this->container['shippingMethod'] = isset($data['shippingMethod']) ? $data['shippingMethod'] : null;
+        $this->container['trackingNumber'] = isset($data['trackingNumber']) ? $data['trackingNumber'] : null;
+        $this->container['shipDate'] = isset($data['shipDate']) ? $data['shipDate'] : null;
+        $this->container['shipFromSupplySourceId'] = isset($data['shipFromSupplySourceId']) ? $data['shipFromSupplySourceId'] : null;
+        $this->container['orderItems'] = isset($data['orderItems']) ? $data['orderItems'] : null;
     }
 
     /**
@@ -232,20 +232,20 @@ class PackageDetail implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['package_reference_id'] === null) {
-            $invalidProperties[] = "'package_reference_id' can't be null";
+        if ($this->container['packageReferenceId'] === null) {
+            $invalidProperties[] = "'packageReferenceId' can't be null";
         }
-        if ($this->container['carrier_code'] === null) {
-            $invalidProperties[] = "'carrier_code' can't be null";
+        if ($this->container['carrierCode'] === null) {
+            $invalidProperties[] = "'carrierCode' can't be null";
         }
-        if ($this->container['tracking_number'] === null) {
-            $invalidProperties[] = "'tracking_number' can't be null";
+        if ($this->container['trackingNumber'] === null) {
+            $invalidProperties[] = "'trackingNumber' can't be null";
         }
-        if ($this->container['ship_date'] === null) {
-            $invalidProperties[] = "'ship_date' can't be null";
+        if ($this->container['shipDate'] === null) {
+            $invalidProperties[] = "'shipDate' can't be null";
         }
-        if ($this->container['order_items'] === null) {
-            $invalidProperties[] = "'order_items' can't be null";
+        if ($this->container['orderItems'] === null) {
+            $invalidProperties[] = "'orderItems' can't be null";
         }
         return $invalidProperties;
     }
@@ -263,193 +263,193 @@ class PackageDetail implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets package_reference_id
+     * Gets packageReferenceId
      *
      * @return string
      */
     public function getPackageReferenceId()
     {
-        return $this->container['package_reference_id'];
+        return $this->container['packageReferenceId'];
     }
 
     /**
-     * Sets package_reference_id
+     * Sets packageReferenceId
      *
-     * @param string $package_reference_id A seller-supplied identifier that uniquely identifies a package within the scope of an order. Only positive numeric values are supported.
+     * @param string $packageReferenceId A seller-supplied identifier that uniquely identifies a package within the scope of an order. Only positive numeric values are supported.
      *
      * @return $this
      */
-    public function setPackageReferenceId($package_reference_id)
+    public function setPackageReferenceId($packageReferenceId)
     {
-        $this->container['package_reference_id'] = $package_reference_id;
+        $this->container['packageReferenceId'] = $packageReferenceId;
 
         return $this;
     }
 
     /**
-     * Gets carrier_code
+     * Gets carrierCode
      *
      * @return string
      */
     public function getCarrierCode()
     {
-        return $this->container['carrier_code'];
+        return $this->container['carrierCode'];
     }
 
     /**
-     * Sets carrier_code
+     * Sets carrierCode
      *
-     * @param string $carrier_code Identifies the carrier that will deliver the package. This field is required for all marketplaces, see [reference](https://developer-docs.amazon.com/sp-api/changelog/carriercode-value-required-in-shipment-confirmations-for-br-mx-ca-sg-au-in-jp-marketplaces).
+     * @param string $carrierCode Identifies the carrier that will deliver the package. This field is required for all marketplaces, see [reference](https://developer-docs.amazon.com/sp-api/changelog/carriercode-value-required-in-shipment-confirmations-for-br-mx-ca-sg-au-in-jp-marketplaces).
      *
      * @return $this
      */
-    public function setCarrierCode($carrier_code)
+    public function setCarrierCode($carrierCode)
     {
-        $this->container['carrier_code'] = $carrier_code;
+        $this->container['carrierCode'] = $carrierCode;
 
         return $this;
     }
 
     /**
-     * Gets carrier_name
+     * Gets carrierName
      *
      * @return string|null
      */
     public function getCarrierName()
     {
-        return $this->container['carrier_name'];
+        return $this->container['carrierName'];
     }
 
     /**
-     * Sets carrier_name
+     * Sets carrierName
      *
-     * @param string|null $carrier_name Carrier Name that will deliver the package. Required when carrierCode is \"Others\"
+     * @param string|null $carrierName Carrier Name that will deliver the package. Required when carrierCode is \"Others\"
      *
      * @return $this
      */
-    public function setCarrierName($carrier_name)
+    public function setCarrierName($carrierName)
     {
-        $this->container['carrier_name'] = $carrier_name;
+        $this->container['carrierName'] = $carrierName;
 
         return $this;
     }
 
     /**
-     * Gets shipping_method
+     * Gets shippingMethod
      *
      * @return string|null
      */
     public function getShippingMethod()
     {
-        return $this->container['shipping_method'];
+        return $this->container['shippingMethod'];
     }
 
     /**
-     * Sets shipping_method
+     * Sets shippingMethod
      *
-     * @param string|null $shipping_method Ship method to be used for shipping the order.
+     * @param string|null $shippingMethod Ship method to be used for shipping the order.
      *
      * @return $this
      */
-    public function setShippingMethod($shipping_method)
+    public function setShippingMethod($shippingMethod)
     {
-        $this->container['shipping_method'] = $shipping_method;
+        $this->container['shippingMethod'] = $shippingMethod;
 
         return $this;
     }
 
     /**
-     * Gets tracking_number
+     * Gets trackingNumber
      *
      * @return string
      */
     public function getTrackingNumber()
     {
-        return $this->container['tracking_number'];
+        return $this->container['trackingNumber'];
     }
 
     /**
-     * Sets tracking_number
+     * Sets trackingNumber
      *
-     * @param string $tracking_number The tracking number used to obtain tracking and delivery information.
+     * @param string $trackingNumber The tracking number used to obtain tracking and delivery information.
      *
      * @return $this
      */
-    public function setTrackingNumber($tracking_number)
+    public function setTrackingNumber($trackingNumber)
     {
-        $this->container['tracking_number'] = $tracking_number;
+        $this->container['trackingNumber'] = $trackingNumber;
 
         return $this;
     }
 
     /**
-     * Gets ship_date
+     * Gets shipDate
      *
      * @return \DateTime
      */
     public function getShipDate()
     {
-        return $this->container['ship_date'];
+        return $this->container['shipDate'];
     }
 
     /**
-     * Sets ship_date
+     * Sets shipDate
      *
-     * @param \DateTime $ship_date The shipping date for the package. Must be in ISO-8601 date/time format.
+     * @param \DateTime $shipDate The shipping date for the package. Must be in ISO-8601 date/time format.
      *
      * @return $this
      */
-    public function setShipDate($ship_date)
+    public function setShipDate($shipDate)
     {
-        $this->container['ship_date'] = $ship_date;
+        $this->container['shipDate'] = $shipDate;
 
         return $this;
     }
 
     /**
-     * Gets ship_from_supply_source_id
+     * Gets shipFromSupplySourceId
      *
      * @return string|null
      */
     public function getShipFromSupplySourceId()
     {
-        return $this->container['ship_from_supply_source_id'];
+        return $this->container['shipFromSupplySourceId'];
     }
 
     /**
-     * Sets ship_from_supply_source_id
+     * Sets shipFromSupplySourceId
      *
-     * @param string|null $ship_from_supply_source_id The unique identifier of the supply source.
+     * @param string|null $shipFromSupplySourceId The unique identifier of the supply source.
      *
      * @return $this
      */
-    public function setShipFromSupplySourceId($ship_from_supply_source_id)
+    public function setShipFromSupplySourceId($shipFromSupplySourceId)
     {
-        $this->container['ship_from_supply_source_id'] = $ship_from_supply_source_id;
+        $this->container['shipFromSupplySourceId'] = $shipFromSupplySourceId;
 
         return $this;
     }
 
     /**
-     * Gets order_items
+     * Gets orderItems
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConfirmShipmentOrderItem[]
      */
     public function getOrderItems()
     {
-        return $this->container['order_items'];
+        return $this->container['orderItems'];
     }
 
     /**
-     * Sets order_items
+     * Sets orderItems
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConfirmShipmentOrderItem[] $order_items A list of order items.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConfirmShipmentOrderItem[] $orderItems A list of order items.
      *
      * @return $this
      */
-    public function setOrderItems($order_items)
+    public function setOrderItems($orderItems)
     {
-        $this->container['order_items'] = $order_items;
+        $this->container['orderItems'] = $orderItems;
 
         return $this;
     }

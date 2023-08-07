@@ -58,8 +58,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'target_application' => 'string',
-        'restricted_resources' => '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource[]'
+        'targetApplication' => 'string',
+        'restrictedResources' => '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource[]'
     ];
 
     /**
@@ -68,8 +68,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'target_application' => null,
-        'restricted_resources' => null
+        'targetApplication' => null,
+        'restrictedResources' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'target_application' => 'targetApplication',
-        'restricted_resources' => 'restrictedResources'
+        'targetApplication' => 'targetApplication',
+        'restrictedResources' => 'restrictedResources'
     ];
 
     /**
@@ -109,8 +109,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'target_application' => 'setTargetApplication',
-        'restricted_resources' => 'setRestrictedResources'
+        'targetApplication' => 'setTargetApplication',
+        'restrictedResources' => 'setRestrictedResources'
     ];
 
     /**
@@ -119,8 +119,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'target_application' => 'getTargetApplication',
-        'restricted_resources' => 'getRestrictedResources'
+        'targetApplication' => 'getTargetApplication',
+        'restrictedResources' => 'getRestrictedResources'
     ];
 
     /**
@@ -183,8 +183,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['target_application'] = isset($data['target_application']) ? $data['target_application'] : null;
-        $this->container['restricted_resources'] = isset($data['restricted_resources']) ? $data['restricted_resources'] : null;
+        $this->container['targetApplication'] = isset($data['targetApplication']) ? $data['targetApplication'] : null;
+        $this->container['restrictedResources'] = isset($data['restrictedResources']) ? $data['restrictedResources'] : null;
     }
 
     /**
@@ -196,8 +196,8 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['restricted_resources'] === null) {
-            $invalidProperties[] = "'restricted_resources' can't be null";
+        if ($this->container['restrictedResources'] === null) {
+            $invalidProperties[] = "'restrictedResources' can't be null";
         }
         return $invalidProperties;
     }
@@ -215,49 +215,49 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets target_application
+     * Gets targetApplication
      *
      * @return string|null
      */
     public function getTargetApplication()
     {
-        return $this->container['target_application'];
+        return $this->container['targetApplication'];
     }
 
     /**
-     * Sets target_application
+     * Sets targetApplication
      *
-     * @param string|null $target_application The application ID for the target application to which access is being delegated.
+     * @param string|null $targetApplication The application ID for the target application to which access is being delegated.
      *
      * @return $this
      */
-    public function setTargetApplication($target_application)
+    public function setTargetApplication($targetApplication)
     {
-        $this->container['target_application'] = $target_application;
+        $this->container['targetApplication'] = $targetApplication;
 
         return $this;
     }
 
     /**
-     * Gets restricted_resources
+     * Gets restrictedResources
      *
      * @return \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource[]
      */
     public function getRestrictedResources()
     {
-        return $this->container['restricted_resources'];
+        return $this->container['restrictedResources'];
     }
 
     /**
-     * Sets restricted_resources
+     * Sets restrictedResources
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource[] $restricted_resources A list of restricted resources. Maximum: 50
+     * @param \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource[] $restrictedResources A list of restricted resources. Maximum: 50
      *
      * @return $this
      */
-    public function setRestrictedResources($restricted_resources)
+    public function setRestrictedResources($restrictedResources)
     {
-        $this->container['restricted_resources'] = $restricted_resources;
+        $this->container['restrictedResources'] = $restrictedResources;
 
         return $this;
     }

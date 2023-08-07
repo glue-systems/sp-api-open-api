@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Product Type Definitions
  *
- * The Selling Partner API for Product Type Definitions provides programmatic access to attribute and data requirements for product types in the Amazon catalog. Use this API to return the JSON Schema for a product type that you can then use with other Selling Partner APIs, such as the Selling Partner API for Listings Items, the Selling Partner API for Catalog Items, and the Selling Partner API for Feeds (for JSON-based listing feeds).
+ * The Selling Partner API for Product Type Definitions provides programmatic access to attribute and data requirements for product types in the Amazon catalog. Use this API to return the JSON Schema for a product type that you can then use with other Selling Partner APIs, such as the Selling Partner API for Listings Items, the Selling Partner API for Catalog Items, and the Selling Partner API for Feeds (for JSON-based listing feeds).  For more information, see the [Product Type Definitions API Use Case Guide](doc:product-type-api-use-case-guide).
  *
  * OpenAPI spec version: 2020-09-01
  * 
@@ -59,7 +59,7 @@ class ProductType implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
-        'marketplace_ids' => 'string[]'
+        'marketplaceIds' => 'string[]'
     ];
 
     /**
@@ -69,7 +69,7 @@ class ProductType implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
-        'marketplace_ids' => null
+        'marketplaceIds' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class ProductType implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'name',
-        'marketplace_ids' => 'marketplaceIds'
+        'marketplaceIds' => 'marketplaceIds'
     ];
 
     /**
@@ -110,7 +110,7 @@ class ProductType implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
-        'marketplace_ids' => 'setMarketplaceIds'
+        'marketplaceIds' => 'setMarketplaceIds'
     ];
 
     /**
@@ -120,7 +120,7 @@ class ProductType implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
-        'marketplace_ids' => 'getMarketplaceIds'
+        'marketplaceIds' => 'getMarketplaceIds'
     ];
 
     /**
@@ -184,7 +184,7 @@ class ProductType implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
-        $this->container['marketplace_ids'] = isset($data['marketplace_ids']) ? $data['marketplace_ids'] : null;
+        $this->container['marketplaceIds'] = isset($data['marketplaceIds']) ? $data['marketplaceIds'] : null;
     }
 
     /**
@@ -199,8 +199,8 @@ class ProductType implements ModelInterface, ArrayAccess
         if ($this->container['name'] === null) {
             $invalidProperties[] = "'name' can't be null";
         }
-        if ($this->container['marketplace_ids'] === null) {
-            $invalidProperties[] = "'marketplace_ids' can't be null";
+        if ($this->container['marketplaceIds'] === null) {
+            $invalidProperties[] = "'marketplaceIds' can't be null";
         }
         return $invalidProperties;
     }
@@ -242,25 +242,25 @@ class ProductType implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets marketplace_ids
+     * Gets marketplaceIds
      *
      * @return string[]
      */
     public function getMarketplaceIds()
     {
-        return $this->container['marketplace_ids'];
+        return $this->container['marketplaceIds'];
     }
 
     /**
-     * Sets marketplace_ids
+     * Sets marketplaceIds
      *
-     * @param string[] $marketplace_ids The Amazon marketplace identifiers for which the product type definition is available.
+     * @param string[] $marketplaceIds The Amazon marketplace identifiers for which the product type definition is available.
      *
      * @return $this
      */
-    public function setMarketplaceIds($marketplace_ids)
+    public function setMarketplaceIds($marketplaceIds)
     {
-        $this->container['marketplace_ids'] = $marketplace_ids;
+        $this->container['marketplaceIds'] = $marketplaceIds;
 
         return $this;
     }

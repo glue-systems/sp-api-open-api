@@ -90,30 +90,30 @@ class TokensApi
     /**
      * Operation createRestrictedDataToken
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $createRestrictedDataTokenRequest The restricted data token request details. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\TokensV20210301\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList
      */
-    public function createRestrictedDataToken($create_restricted_data_token_request)
+    public function createRestrictedDataToken($createRestrictedDataTokenRequest)
     {
-        list($response) = $this->createRestrictedDataTokenWithHttpInfo($create_restricted_data_token_request);
+        list($response) = $this->createRestrictedDataTokenWithHttpInfo($createRestrictedDataTokenRequest);
         return $response;
     }
 
     /**
      * Operation createRestrictedDataTokenWithHttpInfo
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $createRestrictedDataTokenRequest The restricted data token request details. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\TokensV20210301\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList|\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\ErrorList, HTTP status code, HTTP response headers (array of strings)
      */
-    public function createRestrictedDataTokenWithHttpInfo($create_restricted_data_token_request)
+    public function createRestrictedDataTokenWithHttpInfo($createRestrictedDataTokenRequest)
     {
-        $request = $this->createRestrictedDataTokenRequest($create_restricted_data_token_request);
+        $request = $this->createRestrictedDataTokenRequest($createRestrictedDataTokenRequest);
 
         try {
             $options = $this->createHttpClientOption();
@@ -353,14 +353,14 @@ class TokensApi
      *
      * 
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $createRestrictedDataTokenRequest The restricted data token request details. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRestrictedDataTokenAsync($create_restricted_data_token_request)
+    public function createRestrictedDataTokenAsync($createRestrictedDataTokenRequest)
     {
-        return $this->createRestrictedDataTokenAsyncWithHttpInfo($create_restricted_data_token_request)
+        return $this->createRestrictedDataTokenAsyncWithHttpInfo($createRestrictedDataTokenRequest)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -373,15 +373,15 @@ class TokensApi
      *
      * 
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $createRestrictedDataTokenRequest The restricted data token request details. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function createRestrictedDataTokenAsyncWithHttpInfo($create_restricted_data_token_request)
+    public function createRestrictedDataTokenAsyncWithHttpInfo($createRestrictedDataTokenRequest)
     {
         $returnType = '\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse';
-        $request = $this->createRestrictedDataTokenRequest($create_restricted_data_token_request);
+        $request = $this->createRestrictedDataTokenRequest($createRestrictedDataTokenRequest);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -420,17 +420,17 @@ class TokensApi
     /**
      * Create request for operation 'createRestrictedDataToken'
      *
-     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $create_restricted_data_token_request The restricted data token request details. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest $createRestrictedDataTokenRequest The restricted data token request details. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function createRestrictedDataTokenRequest($create_restricted_data_token_request)
+    protected function createRestrictedDataTokenRequest($createRestrictedDataTokenRequest)
     {
-        // verify the required parameter 'create_restricted_data_token_request' is set
-        if ($create_restricted_data_token_request === null || (is_array($create_restricted_data_token_request) && count($create_restricted_data_token_request) === 0)) {
+        // verify the required parameter 'createRestrictedDataTokenRequest' is set
+        if ($createRestrictedDataTokenRequest === null || (is_array($createRestrictedDataTokenRequest) && count($createRestrictedDataTokenRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $create_restricted_data_token_request when calling createRestrictedDataToken'
+                'Missing the required parameter $createRestrictedDataTokenRequest when calling createRestrictedDataToken'
             );
         }
 
@@ -445,8 +445,8 @@ class TokensApi
 
         // body params
         $_tempBody = null;
-        if (isset($create_restricted_data_token_request)) {
-            $_tempBody = $create_restricted_data_token_request;
+        if (isset($createRestrictedDataTokenRequest)) {
+            $_tempBody = $createRestrictedDataTokenRequest;
         }
 
         if ($multipart) {

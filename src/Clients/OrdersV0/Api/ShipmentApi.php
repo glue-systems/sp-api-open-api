@@ -90,31 +90,31 @@ class ShipmentApi
     /**
      * Operation updateShipmentStatus
      *
-     * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
+     * @param  string $orderId An Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $updateShipmentStatusRequest The request body for the updateShipmentStatus operation. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return void
      */
-    public function updateShipmentStatus($order_id, $update_shipment_status_request)
+    public function updateShipmentStatus($orderId, $updateShipmentStatusRequest)
     {
-        $this->updateShipmentStatusWithHttpInfo($order_id, $update_shipment_status_request);
+        $this->updateShipmentStatusWithHttpInfo($orderId, $updateShipmentStatusRequest);
     }
 
     /**
      * Operation updateShipmentStatusWithHttpInfo
      *
-     * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
+     * @param  string $orderId An Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $updateShipmentStatusRequest The request body for the updateShipmentStatus operation. (required)
      *
      * @throws \Glue\SpApi\OpenAPI\Clients\OrdersV0\ApiException on non-2xx response
      * @throws \InvalidArgumentException
      * @return array of null, HTTP status code, HTTP response headers (array of strings)
      */
-    public function updateShipmentStatusWithHttpInfo($order_id, $update_shipment_status_request)
+    public function updateShipmentStatusWithHttpInfo($orderId, $updateShipmentStatusRequest)
     {
-        $request = $this->updateShipmentStatusRequest($order_id, $update_shipment_status_request);
+        $request = $this->updateShipmentStatusRequest($orderId, $updateShipmentStatusRequest);
 
         try {
             $options = $this->createHttpClientOption();
@@ -222,15 +222,15 @@ class ShipmentApi
      *
      * 
      *
-     * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
+     * @param  string $orderId An Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $updateShipmentStatusRequest The request body for the updateShipmentStatus operation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateShipmentStatusAsync($order_id, $update_shipment_status_request)
+    public function updateShipmentStatusAsync($orderId, $updateShipmentStatusRequest)
     {
-        return $this->updateShipmentStatusAsyncWithHttpInfo($order_id, $update_shipment_status_request)
+        return $this->updateShipmentStatusAsyncWithHttpInfo($orderId, $updateShipmentStatusRequest)
             ->then(
                 function ($response) {
                     return $response[0];
@@ -243,16 +243,16 @@ class ShipmentApi
      *
      * 
      *
-     * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
+     * @param  string $orderId An Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $updateShipmentStatusRequest The request body for the updateShipmentStatus operation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Promise\PromiseInterface
      */
-    public function updateShipmentStatusAsyncWithHttpInfo($order_id, $update_shipment_status_request)
+    public function updateShipmentStatusAsyncWithHttpInfo($orderId, $updateShipmentStatusRequest)
     {
         $returnType = '';
-        $request = $this->updateShipmentStatusRequest($order_id, $update_shipment_status_request);
+        $request = $this->updateShipmentStatusRequest($orderId, $updateShipmentStatusRequest);
 
         return $this->client
             ->sendAsync($request, $this->createHttpClientOption())
@@ -280,24 +280,24 @@ class ShipmentApi
     /**
      * Create request for operation 'updateShipmentStatus'
      *
-     * @param  string $order_id An Amazon-defined order identifier, in 3-7-7 format. (required)
-     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $update_shipment_status_request The request body for the updateShipmentStatus operation. (required)
+     * @param  string $orderId An Amazon-defined order identifier, in 3-7-7 format. (required)
+     * @param  \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateShipmentStatusRequest $updateShipmentStatusRequest The request body for the updateShipmentStatus operation. (required)
      *
      * @throws \InvalidArgumentException
      * @return \GuzzleHttp\Psr7\Request
      */
-    protected function updateShipmentStatusRequest($order_id, $update_shipment_status_request)
+    protected function updateShipmentStatusRequest($orderId, $updateShipmentStatusRequest)
     {
-        // verify the required parameter 'order_id' is set
-        if ($order_id === null || (is_array($order_id) && count($order_id) === 0)) {
+        // verify the required parameter 'orderId' is set
+        if ($orderId === null || (is_array($orderId) && count($orderId) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $order_id when calling updateShipmentStatus'
+                'Missing the required parameter $orderId when calling updateShipmentStatus'
             );
         }
-        // verify the required parameter 'update_shipment_status_request' is set
-        if ($update_shipment_status_request === null || (is_array($update_shipment_status_request) && count($update_shipment_status_request) === 0)) {
+        // verify the required parameter 'updateShipmentStatusRequest' is set
+        if ($updateShipmentStatusRequest === null || (is_array($updateShipmentStatusRequest) && count($updateShipmentStatusRequest) === 0)) {
             throw new \InvalidArgumentException(
-                'Missing the required parameter $update_shipment_status_request when calling updateShipmentStatus'
+                'Missing the required parameter $updateShipmentStatusRequest when calling updateShipmentStatus'
             );
         }
 
@@ -310,18 +310,18 @@ class ShipmentApi
 
 
         // path params
-        if ($order_id !== null) {
+        if ($orderId !== null) {
             $resourcePath = str_replace(
                 '{' . 'orderId' . '}',
-                ObjectSerializer::toPathValue($order_id),
+                ObjectSerializer::toPathValue($orderId),
                 $resourcePath
             );
         }
 
         // body params
         $_tempBody = null;
-        if (isset($update_shipment_status_request)) {
-            $_tempBody = $update_shipment_status_request;
+        if (isset($updateShipmentStatusRequest)) {
+            $_tempBody = $updateShipmentStatusRequest;
         }
 
         if ($multipart) {

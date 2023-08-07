@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Listings Items
  *
- * The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.
+ * The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.  For more information, see the [Listing Items API Use Case Guide](doc:listings-items-api-v2020-09-01-use-case-guide).
  *
  * OpenAPI spec version: 2020-09-01
  * 
@@ -60,7 +60,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'sku' => 'string',
         'status' => 'string',
-        'submission_id' => 'string',
+        'submissionId' => 'string',
         'issues' => '\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\Issue[]'
     ];
 
@@ -72,7 +72,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'sku' => null,
         'status' => null,
-        'submission_id' => null,
+        'submissionId' => null,
         'issues' => null
     ];
 
@@ -105,7 +105,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'sku' => 'sku',
         'status' => 'status',
-        'submission_id' => 'submissionId',
+        'submissionId' => 'submissionId',
         'issues' => 'issues'
     ];
 
@@ -117,7 +117,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
     protected static $setters = [
         'sku' => 'setSku',
         'status' => 'setStatus',
-        'submission_id' => 'setSubmissionId',
+        'submissionId' => 'setSubmissionId',
         'issues' => 'setIssues'
     ];
 
@@ -129,7 +129,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
     protected static $getters = [
         'sku' => 'getSku',
         'status' => 'getStatus',
-        'submission_id' => 'getSubmissionId',
+        'submissionId' => 'getSubmissionId',
         'issues' => 'getIssues'
     ];
 
@@ -210,7 +210,7 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
     {
         $this->container['sku'] = isset($data['sku']) ? $data['sku'] : null;
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
-        $this->container['submission_id'] = isset($data['submission_id']) ? $data['submission_id'] : null;
+        $this->container['submissionId'] = isset($data['submissionId']) ? $data['submissionId'] : null;
         $this->container['issues'] = isset($data['issues']) ? $data['issues'] : null;
     }
 
@@ -237,8 +237,8 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
             );
         }
 
-        if ($this->container['submission_id'] === null) {
-            $invalidProperties[] = "'submission_id' can't be null";
+        if ($this->container['submissionId'] === null) {
+            $invalidProperties[] = "'submissionId' can't be null";
         }
         return $invalidProperties;
     }
@@ -313,25 +313,25 @@ class ListingsItemSubmissionResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets submission_id
+     * Gets submissionId
      *
      * @return string
      */
     public function getSubmissionId()
     {
-        return $this->container['submission_id'];
+        return $this->container['submissionId'];
     }
 
     /**
-     * Sets submission_id
+     * Sets submissionId
      *
-     * @param string $submission_id The unique identifier of the listings item submission.
+     * @param string $submissionId The unique identifier of the listings item submission.
      *
      * @return $this
      */
-    public function setSubmissionId($submission_id)
+    public function setSubmissionId($submissionId)
     {
-        $this->container['submission_id'] = $submission_id;
+        $this->container['submissionId'] = $submissionId;
 
         return $this;
     }

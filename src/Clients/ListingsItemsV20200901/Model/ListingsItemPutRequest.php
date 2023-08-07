@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Listings Items
  *
- * The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.
+ * The Selling Partner API for Listings Items (Listings Items API) provides programmatic access to selling partner listings on Amazon. Use this API in collaboration with the Selling Partner API for Product Type Definitions, which you use to retrieve the information about Amazon product types needed to use the Listings Items API.  For more information, see the [Listing Items API Use Case Guide](doc:listings-items-api-v2020-09-01-use-case-guide).
  *
  * OpenAPI spec version: 2020-09-01
  * 
@@ -58,7 +58,7 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'product_type' => 'string',
+        'productType' => 'string',
         'requirements' => 'string',
         'attributes' => 'object'
     ];
@@ -69,7 +69,7 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'product_type' => null,
+        'productType' => null,
         'requirements' => null,
         'attributes' => null
     ];
@@ -101,7 +101,7 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'product_type' => 'productType',
+        'productType' => 'productType',
         'requirements' => 'requirements',
         'attributes' => 'attributes'
     ];
@@ -112,7 +112,7 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'product_type' => 'setProductType',
+        'productType' => 'setProductType',
         'requirements' => 'setRequirements',
         'attributes' => 'setAttributes'
     ];
@@ -123,7 +123,7 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'product_type' => 'getProductType',
+        'productType' => 'getProductType',
         'requirements' => 'getRequirements',
         'attributes' => 'getAttributes'
     ];
@@ -205,7 +205,7 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['product_type'] = isset($data['product_type']) ? $data['product_type'] : null;
+        $this->container['productType'] = isset($data['productType']) ? $data['productType'] : null;
         $this->container['requirements'] = isset($data['requirements']) ? $data['requirements'] : null;
         $this->container['attributes'] = isset($data['attributes']) ? $data['attributes'] : null;
     }
@@ -219,8 +219,8 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['product_type'] === null) {
-            $invalidProperties[] = "'product_type' can't be null";
+        if ($this->container['productType'] === null) {
+            $invalidProperties[] = "'productType' can't be null";
         }
         $allowedValues = $this->getRequirementsAllowableValues();
         if (!is_null($this->container['requirements']) && !in_array($this->container['requirements'], $allowedValues, true)) {
@@ -249,25 +249,25 @@ class ListingsItemPutRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets product_type
+     * Gets productType
      *
      * @return string
      */
     public function getProductType()
     {
-        return $this->container['product_type'];
+        return $this->container['productType'];
     }
 
     /**
-     * Sets product_type
+     * Sets productType
      *
-     * @param string $product_type The Amazon product type of the listings item.
+     * @param string $productType The Amazon product type of the listings item.
      *
      * @return $this
      */
-    public function setProductType($product_type)
+    public function setProductType($productType)
     {
-        $this->container['product_type'] = $product_type;
+        $this->container['productType'] = $productType;
 
         return $this;
     }

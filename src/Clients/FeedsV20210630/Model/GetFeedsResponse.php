@@ -59,7 +59,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'feeds' => '\Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Model\Feed[]',
-        'next_token' => 'string'
+        'nextToken' => 'string'
     ];
 
     /**
@@ -69,7 +69,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'feeds' => null,
-        'next_token' => null
+        'nextToken' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'feeds' => 'feeds',
-        'next_token' => 'nextToken'
+        'nextToken' => 'nextToken'
     ];
 
     /**
@@ -110,7 +110,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'feeds' => 'setFeeds',
-        'next_token' => 'setNextToken'
+        'nextToken' => 'setNextToken'
     ];
 
     /**
@@ -120,7 +120,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'feeds' => 'getFeeds',
-        'next_token' => 'getNextToken'
+        'nextToken' => 'getNextToken'
     ];
 
     /**
@@ -184,7 +184,7 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['feeds'] = isset($data['feeds']) ? $data['feeds'] : null;
-        $this->container['next_token'] = isset($data['next_token']) ? $data['next_token'] : null;
+        $this->container['nextToken'] = isset($data['nextToken']) ? $data['nextToken'] : null;
     }
 
     /**
@@ -239,25 +239,25 @@ class GetFeedsResponse implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets next_token
+     * Gets nextToken
      *
      * @return string|null
      */
     public function getNextToken()
     {
-        return $this->container['next_token'];
+        return $this->container['nextToken'];
     }
 
     /**
-     * Sets next_token
+     * Sets nextToken
      *
-     * @param string|null $next_token Returned when the number of results exceeds pageSize. To get the next page of results, call the getFeeds operation with this token as the only parameter.
+     * @param string|null $nextToken Returned when the number of results exceeds pageSize. To get the next page of results, call the getFeeds operation with this token as the only parameter.
      *
      * @return $this
      */
-    public function setNextToken($next_token)
+    public function setNextToken($nextToken)
     {
-        $this->container['next_token'] = $next_token;
+        $this->container['nextToken'] = $nextToken;
 
         return $this;
     }

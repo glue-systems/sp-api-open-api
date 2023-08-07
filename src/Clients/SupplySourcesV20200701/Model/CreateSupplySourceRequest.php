@@ -58,7 +58,7 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'supply_source_code' => 'string',
+        'supplySourceCode' => 'string',
         'alias' => 'string',
         'address' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\Address'
     ];
@@ -69,7 +69,7 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'supply_source_code' => null,
+        'supplySourceCode' => null,
         'alias' => null,
         'address' => null
     ];
@@ -101,7 +101,7 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'supply_source_code' => 'supplySourceCode',
+        'supplySourceCode' => 'supplySourceCode',
         'alias' => 'alias',
         'address' => 'address'
     ];
@@ -112,7 +112,7 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'supply_source_code' => 'setSupplySourceCode',
+        'supplySourceCode' => 'setSupplySourceCode',
         'alias' => 'setAlias',
         'address' => 'setAddress'
     ];
@@ -123,7 +123,7 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'supply_source_code' => 'getSupplySourceCode',
+        'supplySourceCode' => 'getSupplySourceCode',
         'alias' => 'getAlias',
         'address' => 'getAddress'
     ];
@@ -188,7 +188,7 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['supply_source_code'] = isset($data['supply_source_code']) ? $data['supply_source_code'] : null;
+        $this->container['supplySourceCode'] = isset($data['supplySourceCode']) ? $data['supplySourceCode'] : null;
         $this->container['alias'] = isset($data['alias']) ? $data['alias'] : null;
         $this->container['address'] = isset($data['address']) ? $data['address'] : null;
     }
@@ -202,8 +202,8 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['supply_source_code'] === null) {
-            $invalidProperties[] = "'supply_source_code' can't be null";
+        if ($this->container['supplySourceCode'] === null) {
+            $invalidProperties[] = "'supplySourceCode' can't be null";
         }
         if ($this->container['alias'] === null) {
             $invalidProperties[] = "'alias' can't be null";
@@ -227,25 +227,25 @@ class CreateSupplySourceRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets supply_source_code
+     * Gets supplySourceCode
      *
      * @return string
      */
     public function getSupplySourceCode()
     {
-        return $this->container['supply_source_code'];
+        return $this->container['supplySourceCode'];
     }
 
     /**
-     * Sets supply_source_code
+     * Sets supplySourceCode
      *
-     * @param string $supply_source_code Seller provided unique supply source code.
+     * @param string $supplySourceCode Seller provided unique supply source code.
      *
      * @return $this
      */
-    public function setSupplySourceCode($supply_source_code)
+    public function setSupplySourceCode($supplySourceCode)
     {
-        $this->container['supply_source_code'] = $supply_source_code;
+        $this->container['supplySourceCode'] = $supplySourceCode;
 
         return $this;
     }

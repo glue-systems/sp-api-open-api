@@ -58,8 +58,8 @@ class BusinessHours implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'day_of_week' => 'string',
-        'open_intervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
+        'dayOfWeek' => 'string',
+        'openIntervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
     ];
 
     /**
@@ -68,8 +68,8 @@ class BusinessHours implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'day_of_week' => null,
-        'open_intervals' => null
+        'dayOfWeek' => null,
+        'openIntervals' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class BusinessHours implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'day_of_week' => 'DayOfWeek',
-        'open_intervals' => 'OpenIntervals'
+        'dayOfWeek' => 'DayOfWeek',
+        'openIntervals' => 'OpenIntervals'
     ];
 
     /**
@@ -109,8 +109,8 @@ class BusinessHours implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'day_of_week' => 'setDayOfWeek',
-        'open_intervals' => 'setOpenIntervals'
+        'dayOfWeek' => 'setDayOfWeek',
+        'openIntervals' => 'setOpenIntervals'
     ];
 
     /**
@@ -119,8 +119,8 @@ class BusinessHours implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'day_of_week' => 'getDayOfWeek',
-        'open_intervals' => 'getOpenIntervals'
+        'dayOfWeek' => 'getDayOfWeek',
+        'openIntervals' => 'getOpenIntervals'
     ];
 
     /**
@@ -208,8 +208,8 @@ class BusinessHours implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['day_of_week'] = isset($data['day_of_week']) ? $data['day_of_week'] : null;
-        $this->container['open_intervals'] = isset($data['open_intervals']) ? $data['open_intervals'] : null;
+        $this->container['dayOfWeek'] = isset($data['dayOfWeek']) ? $data['dayOfWeek'] : null;
+        $this->container['openIntervals'] = isset($data['openIntervals']) ? $data['openIntervals'] : null;
     }
 
     /**
@@ -222,9 +222,9 @@ class BusinessHours implements ModelInterface, ArrayAccess
         $invalidProperties = [];
 
         $allowedValues = $this->getDayOfWeekAllowableValues();
-        if (!is_null($this->container['day_of_week']) && !in_array($this->container['day_of_week'], $allowedValues, true)) {
+        if (!is_null($this->container['dayOfWeek']) && !in_array($this->container['dayOfWeek'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'day_of_week', must be one of '%s'",
+                "invalid value for 'dayOfWeek', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -245,58 +245,58 @@ class BusinessHours implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets day_of_week
+     * Gets dayOfWeek
      *
      * @return string|null
      */
     public function getDayOfWeek()
     {
-        return $this->container['day_of_week'];
+        return $this->container['dayOfWeek'];
     }
 
     /**
-     * Sets day_of_week
+     * Sets dayOfWeek
      *
-     * @param string|null $day_of_week Day of the week.
+     * @param string|null $dayOfWeek Day of the week.
      *
      * @return $this
      */
-    public function setDayOfWeek($day_of_week)
+    public function setDayOfWeek($dayOfWeek)
     {
         $allowedValues = $this->getDayOfWeekAllowableValues();
-        if (!is_null($day_of_week) && !in_array($day_of_week, $allowedValues, true)) {
+        if (!is_null($dayOfWeek) && !in_array($dayOfWeek, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'day_of_week', must be one of '%s'",
+                    "Invalid value for 'dayOfWeek', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['day_of_week'] = $day_of_week;
+        $this->container['dayOfWeek'] = $dayOfWeek;
 
         return $this;
     }
 
     /**
-     * Gets open_intervals
+     * Gets openIntervals
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
      */
     public function getOpenIntervals()
     {
-        return $this->container['open_intervals'];
+        return $this->container['openIntervals'];
     }
 
     /**
-     * Sets open_intervals
+     * Sets openIntervals
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $open_intervals Time window during the day when the business is open.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $openIntervals Time window during the day when the business is open.
      *
      * @return $this
      */
-    public function setOpenIntervals($open_intervals)
+    public function setOpenIntervals($openIntervals)
     {
-        $this->container['open_intervals'] = $open_intervals;
+        $this->container['openIntervals'] = $openIntervals;
 
         return $this;
     }

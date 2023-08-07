@@ -58,8 +58,8 @@ class PointsGrantedDetail implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'points_number' => 'int',
-        'points_monetary_value' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money'
+        'pointsNumber' => 'int',
+        'pointsMonetaryValue' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money'
     ];
 
     /**
@@ -68,8 +68,8 @@ class PointsGrantedDetail implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'points_number' => null,
-        'points_monetary_value' => null
+        'pointsNumber' => null,
+        'pointsMonetaryValue' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class PointsGrantedDetail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'points_number' => 'PointsNumber',
-        'points_monetary_value' => 'PointsMonetaryValue'
+        'pointsNumber' => 'PointsNumber',
+        'pointsMonetaryValue' => 'PointsMonetaryValue'
     ];
 
     /**
@@ -109,8 +109,8 @@ class PointsGrantedDetail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'points_number' => 'setPointsNumber',
-        'points_monetary_value' => 'setPointsMonetaryValue'
+        'pointsNumber' => 'setPointsNumber',
+        'pointsMonetaryValue' => 'setPointsMonetaryValue'
     ];
 
     /**
@@ -119,8 +119,8 @@ class PointsGrantedDetail implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'points_number' => 'getPointsNumber',
-        'points_monetary_value' => 'getPointsMonetaryValue'
+        'pointsNumber' => 'getPointsNumber',
+        'pointsMonetaryValue' => 'getPointsMonetaryValue'
     ];
 
     /**
@@ -183,8 +183,8 @@ class PointsGrantedDetail implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['points_number'] = isset($data['points_number']) ? $data['points_number'] : null;
-        $this->container['points_monetary_value'] = isset($data['points_monetary_value']) ? $data['points_monetary_value'] : null;
+        $this->container['pointsNumber'] = isset($data['pointsNumber']) ? $data['pointsNumber'] : null;
+        $this->container['pointsMonetaryValue'] = isset($data['pointsMonetaryValue']) ? $data['pointsMonetaryValue'] : null;
     }
 
     /**
@@ -212,49 +212,49 @@ class PointsGrantedDetail implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets points_number
+     * Gets pointsNumber
      *
      * @return int|null
      */
     public function getPointsNumber()
     {
-        return $this->container['points_number'];
+        return $this->container['pointsNumber'];
     }
 
     /**
-     * Sets points_number
+     * Sets pointsNumber
      *
-     * @param int|null $points_number The number of Amazon Points granted with the purchase of an item.
+     * @param int|null $pointsNumber The number of Amazon Points granted with the purchase of an item.
      *
      * @return $this
      */
-    public function setPointsNumber($points_number)
+    public function setPointsNumber($pointsNumber)
     {
-        $this->container['points_number'] = $points_number;
+        $this->container['pointsNumber'] = $pointsNumber;
 
         return $this;
     }
 
     /**
-     * Gets points_monetary_value
+     * Gets pointsMonetaryValue
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null
      */
     public function getPointsMonetaryValue()
     {
-        return $this->container['points_monetary_value'];
+        return $this->container['pointsMonetaryValue'];
     }
 
     /**
-     * Sets points_monetary_value
+     * Sets pointsMonetaryValue
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $points_monetary_value points_monetary_value
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money|null $pointsMonetaryValue pointsMonetaryValue
      *
      * @return $this
      */
-    public function setPointsMonetaryValue($points_monetary_value)
+    public function setPointsMonetaryValue($pointsMonetaryValue)
     {
-        $this->container['points_monetary_value'] = $points_monetary_value;
+        $this->container['pointsMonetaryValue'] = $pointsMonetaryValue;
 
         return $this;
     }

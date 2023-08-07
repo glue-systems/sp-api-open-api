@@ -58,8 +58,8 @@ class ReturnLocation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'supply_source_id' => 'string',
-        'address_with_contact' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\AddressWithContact'
+        'supplySourceId' => 'string',
+        'addressWithContact' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\AddressWithContact'
     ];
 
     /**
@@ -68,8 +68,8 @@ class ReturnLocation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'supply_source_id' => null,
-        'address_with_contact' => null
+        'supplySourceId' => null,
+        'addressWithContact' => null
     ];
 
     /**
@@ -99,8 +99,8 @@ class ReturnLocation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'supply_source_id' => 'supplySourceId',
-        'address_with_contact' => 'addressWithContact'
+        'supplySourceId' => 'supplySourceId',
+        'addressWithContact' => 'addressWithContact'
     ];
 
     /**
@@ -109,8 +109,8 @@ class ReturnLocation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'supply_source_id' => 'setSupplySourceId',
-        'address_with_contact' => 'setAddressWithContact'
+        'supplySourceId' => 'setSupplySourceId',
+        'addressWithContact' => 'setAddressWithContact'
     ];
 
     /**
@@ -119,8 +119,8 @@ class ReturnLocation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'supply_source_id' => 'getSupplySourceId',
-        'address_with_contact' => 'getAddressWithContact'
+        'supplySourceId' => 'getSupplySourceId',
+        'addressWithContact' => 'getAddressWithContact'
     ];
 
     /**
@@ -183,8 +183,8 @@ class ReturnLocation implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['supply_source_id'] = isset($data['supply_source_id']) ? $data['supply_source_id'] : null;
-        $this->container['address_with_contact'] = isset($data['address_with_contact']) ? $data['address_with_contact'] : null;
+        $this->container['supplySourceId'] = isset($data['supplySourceId']) ? $data['supplySourceId'] : null;
+        $this->container['addressWithContact'] = isset($data['addressWithContact']) ? $data['addressWithContact'] : null;
     }
 
     /**
@@ -212,49 +212,49 @@ class ReturnLocation implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets supply_source_id
+     * Gets supplySourceId
      *
      * @return string|null
      */
     public function getSupplySourceId()
     {
-        return $this->container['supply_source_id'];
+        return $this->container['supplySourceId'];
     }
 
     /**
-     * Sets supply_source_id
+     * Sets supplySourceId
      *
-     * @param string|null $supply_source_id Amazon provided supply source Id where orders can be returned to.
+     * @param string|null $supplySourceId Amazon provided supply source Id where orders can be returned to.
      *
      * @return $this
      */
-    public function setSupplySourceId($supply_source_id)
+    public function setSupplySourceId($supplySourceId)
     {
-        $this->container['supply_source_id'] = $supply_source_id;
+        $this->container['supplySourceId'] = $supplySourceId;
 
         return $this;
     }
 
     /**
-     * Gets address_with_contact
+     * Gets addressWithContact
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\AddressWithContact|null
      */
     public function getAddressWithContact()
     {
-        return $this->container['address_with_contact'];
+        return $this->container['addressWithContact'];
     }
 
     /**
-     * Sets address_with_contact
+     * Sets addressWithContact
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\AddressWithContact|null $address_with_contact address_with_contact
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\AddressWithContact|null $addressWithContact addressWithContact
      *
      * @return $this
      */
-    public function setAddressWithContact($address_with_contact)
+    public function setAddressWithContact($addressWithContact)
     {
-        $this->container['address_with_contact'] = $address_with_contact;
+        $this->container['addressWithContact'] = $addressWithContact;
 
         return $this;
     }

@@ -59,7 +59,7 @@ class ThroughputCap implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'value' => 'int',
-        'time_unit' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\TimeUnit'
+        'timeUnit' => '\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\TimeUnit'
     ];
 
     /**
@@ -69,7 +69,7 @@ class ThroughputCap implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'value' => null,
-        'time_unit' => null
+        'timeUnit' => null
     ];
 
     /**
@@ -100,7 +100,7 @@ class ThroughputCap implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'value' => 'value',
-        'time_unit' => 'timeUnit'
+        'timeUnit' => 'timeUnit'
     ];
 
     /**
@@ -110,7 +110,7 @@ class ThroughputCap implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'value' => 'setValue',
-        'time_unit' => 'setTimeUnit'
+        'timeUnit' => 'setTimeUnit'
     ];
 
     /**
@@ -120,7 +120,7 @@ class ThroughputCap implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'value' => 'getValue',
-        'time_unit' => 'getTimeUnit'
+        'timeUnit' => 'getTimeUnit'
     ];
 
     /**
@@ -184,7 +184,7 @@ class ThroughputCap implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['value'] = isset($data['value']) ? $data['value'] : null;
-        $this->container['time_unit'] = isset($data['time_unit']) ? $data['time_unit'] : null;
+        $this->container['timeUnit'] = isset($data['timeUnit']) ? $data['timeUnit'] : null;
     }
 
     /**
@@ -245,25 +245,25 @@ class ThroughputCap implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets time_unit
+     * Gets timeUnit
      *
      * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\TimeUnit|null
      */
     public function getTimeUnit()
     {
-        return $this->container['time_unit'];
+        return $this->container['timeUnit'];
     }
 
     /**
-     * Sets time_unit
+     * Sets timeUnit
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\TimeUnit|null $time_unit time_unit
+     * @param \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\TimeUnit|null $timeUnit timeUnit
      *
      * @return $this
      */
-    public function setTimeUnit($time_unit)
+    public function setTimeUnit($timeUnit)
     {
-        $this->container['time_unit'] = $time_unit;
+        $this->container['timeUnit'] = $timeUnit;
 
         return $this;
     }

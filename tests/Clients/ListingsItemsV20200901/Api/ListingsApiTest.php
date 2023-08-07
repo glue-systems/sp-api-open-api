@@ -41,7 +41,7 @@ class ListingsApiTest extends TestCase
         $listingsApi = $this->spApi->listingsItemsV20200901();
 
         $request = new ListingsItemPatchRequest([
-            'product_type' => 'PRODUCT',
+            'productType'  => 'PRODUCT',
             'patches'      => [
                 new PatchOperation([
                     'op'    => 'replace',
@@ -71,7 +71,7 @@ class ListingsApiTest extends TestCase
         $listingsApi = $this->spApi->listingsItemsV20200901();
 
         $request = new ListingsItemPutRequest([
-            'product_type' => 'PRODUCT',
+            'productType'  => 'PRODUCT',
             'requirements' => 'foo',
             'attributes'   => [
                 'foo'  => 'bar',

@@ -58,10 +58,10 @@ class OrderAddress implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'amazon_order_id' => 'string',
-        'buyer_company_name' => 'string',
-        'shipping_address' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address',
-        'delivery_preferences' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences'
+        'amazonOrderId' => 'string',
+        'buyerCompanyName' => 'string',
+        'shippingAddress' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address',
+        'deliveryPreferences' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences'
     ];
 
     /**
@@ -70,10 +70,10 @@ class OrderAddress implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'amazon_order_id' => null,
-        'buyer_company_name' => null,
-        'shipping_address' => null,
-        'delivery_preferences' => null
+        'amazonOrderId' => null,
+        'buyerCompanyName' => null,
+        'shippingAddress' => null,
+        'deliveryPreferences' => null
     ];
 
     /**
@@ -103,10 +103,10 @@ class OrderAddress implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'amazon_order_id' => 'AmazonOrderId',
-        'buyer_company_name' => 'BuyerCompanyName',
-        'shipping_address' => 'ShippingAddress',
-        'delivery_preferences' => 'DeliveryPreferences'
+        'amazonOrderId' => 'AmazonOrderId',
+        'buyerCompanyName' => 'BuyerCompanyName',
+        'shippingAddress' => 'ShippingAddress',
+        'deliveryPreferences' => 'DeliveryPreferences'
     ];
 
     /**
@@ -115,10 +115,10 @@ class OrderAddress implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'amazon_order_id' => 'setAmazonOrderId',
-        'buyer_company_name' => 'setBuyerCompanyName',
-        'shipping_address' => 'setShippingAddress',
-        'delivery_preferences' => 'setDeliveryPreferences'
+        'amazonOrderId' => 'setAmazonOrderId',
+        'buyerCompanyName' => 'setBuyerCompanyName',
+        'shippingAddress' => 'setShippingAddress',
+        'deliveryPreferences' => 'setDeliveryPreferences'
     ];
 
     /**
@@ -127,10 +127,10 @@ class OrderAddress implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'amazon_order_id' => 'getAmazonOrderId',
-        'buyer_company_name' => 'getBuyerCompanyName',
-        'shipping_address' => 'getShippingAddress',
-        'delivery_preferences' => 'getDeliveryPreferences'
+        'amazonOrderId' => 'getAmazonOrderId',
+        'buyerCompanyName' => 'getBuyerCompanyName',
+        'shippingAddress' => 'getShippingAddress',
+        'deliveryPreferences' => 'getDeliveryPreferences'
     ];
 
     /**
@@ -193,10 +193,10 @@ class OrderAddress implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['amazon_order_id'] = isset($data['amazon_order_id']) ? $data['amazon_order_id'] : null;
-        $this->container['buyer_company_name'] = isset($data['buyer_company_name']) ? $data['buyer_company_name'] : null;
-        $this->container['shipping_address'] = isset($data['shipping_address']) ? $data['shipping_address'] : null;
-        $this->container['delivery_preferences'] = isset($data['delivery_preferences']) ? $data['delivery_preferences'] : null;
+        $this->container['amazonOrderId'] = isset($data['amazonOrderId']) ? $data['amazonOrderId'] : null;
+        $this->container['buyerCompanyName'] = isset($data['buyerCompanyName']) ? $data['buyerCompanyName'] : null;
+        $this->container['shippingAddress'] = isset($data['shippingAddress']) ? $data['shippingAddress'] : null;
+        $this->container['deliveryPreferences'] = isset($data['deliveryPreferences']) ? $data['deliveryPreferences'] : null;
     }
 
     /**
@@ -208,8 +208,8 @@ class OrderAddress implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['amazon_order_id'] === null) {
-            $invalidProperties[] = "'amazon_order_id' can't be null";
+        if ($this->container['amazonOrderId'] === null) {
+            $invalidProperties[] = "'amazonOrderId' can't be null";
         }
         return $invalidProperties;
     }
@@ -227,97 +227,97 @@ class OrderAddress implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets amazon_order_id
+     * Gets amazonOrderId
      *
      * @return string
      */
     public function getAmazonOrderId()
     {
-        return $this->container['amazon_order_id'];
+        return $this->container['amazonOrderId'];
     }
 
     /**
-     * Sets amazon_order_id
+     * Sets amazonOrderId
      *
-     * @param string $amazon_order_id An Amazon-defined order identifier, in 3-7-7 format.
+     * @param string $amazonOrderId An Amazon-defined order identifier, in 3-7-7 format.
      *
      * @return $this
      */
-    public function setAmazonOrderId($amazon_order_id)
+    public function setAmazonOrderId($amazonOrderId)
     {
-        $this->container['amazon_order_id'] = $amazon_order_id;
+        $this->container['amazonOrderId'] = $amazonOrderId;
 
         return $this;
     }
 
     /**
-     * Gets buyer_company_name
+     * Gets buyerCompanyName
      *
      * @return string|null
      */
     public function getBuyerCompanyName()
     {
-        return $this->container['buyer_company_name'];
+        return $this->container['buyerCompanyName'];
     }
 
     /**
-     * Sets buyer_company_name
+     * Sets buyerCompanyName
      *
-     * @param string|null $buyer_company_name Company name of the destination address.
+     * @param string|null $buyerCompanyName Company name of the destination address.
      *
      * @return $this
      */
-    public function setBuyerCompanyName($buyer_company_name)
+    public function setBuyerCompanyName($buyerCompanyName)
     {
-        $this->container['buyer_company_name'] = $buyer_company_name;
+        $this->container['buyerCompanyName'] = $buyerCompanyName;
 
         return $this;
     }
 
     /**
-     * Gets shipping_address
+     * Gets shippingAddress
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address|null
      */
     public function getShippingAddress()
     {
-        return $this->container['shipping_address'];
+        return $this->container['shippingAddress'];
     }
 
     /**
-     * Sets shipping_address
+     * Sets shippingAddress
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address|null $shipping_address shipping_address
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Address|null $shippingAddress shippingAddress
      *
      * @return $this
      */
-    public function setShippingAddress($shipping_address)
+    public function setShippingAddress($shippingAddress)
     {
-        $this->container['shipping_address'] = $shipping_address;
+        $this->container['shippingAddress'] = $shippingAddress;
 
         return $this;
     }
 
     /**
-     * Gets delivery_preferences
+     * Gets deliveryPreferences
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences|null
      */
     public function getDeliveryPreferences()
     {
-        return $this->container['delivery_preferences'];
+        return $this->container['deliveryPreferences'];
     }
 
     /**
-     * Sets delivery_preferences
+     * Sets deliveryPreferences
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences|null $delivery_preferences delivery_preferences
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\DeliveryPreferences|null $deliveryPreferences deliveryPreferences
      *
      * @return $this
      */
-    public function setDeliveryPreferences($delivery_preferences)
+    public function setDeliveryPreferences($deliveryPreferences)
     {
-        $this->container['delivery_preferences'] = $delivery_preferences;
+        $this->container['deliveryPreferences'] = $deliveryPreferences;
 
         return $this;
     }

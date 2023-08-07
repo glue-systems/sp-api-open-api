@@ -58,9 +58,9 @@ class FeedDocument implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'feed_document_id' => 'string',
+        'feedDocumentId' => 'string',
         'url' => 'string',
-        'compression_algorithm' => 'string'
+        'compressionAlgorithm' => 'string'
     ];
 
     /**
@@ -69,9 +69,9 @@ class FeedDocument implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'feed_document_id' => null,
+        'feedDocumentId' => null,
         'url' => null,
-        'compression_algorithm' => null
+        'compressionAlgorithm' => null
     ];
 
     /**
@@ -101,9 +101,9 @@ class FeedDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'feed_document_id' => 'feedDocumentId',
+        'feedDocumentId' => 'feedDocumentId',
         'url' => 'url',
-        'compression_algorithm' => 'compressionAlgorithm'
+        'compressionAlgorithm' => 'compressionAlgorithm'
     ];
 
     /**
@@ -112,9 +112,9 @@ class FeedDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'feed_document_id' => 'setFeedDocumentId',
+        'feedDocumentId' => 'setFeedDocumentId',
         'url' => 'setUrl',
-        'compression_algorithm' => 'setCompressionAlgorithm'
+        'compressionAlgorithm' => 'setCompressionAlgorithm'
     ];
 
     /**
@@ -123,9 +123,9 @@ class FeedDocument implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'feed_document_id' => 'getFeedDocumentId',
+        'feedDocumentId' => 'getFeedDocumentId',
         'url' => 'getUrl',
-        'compression_algorithm' => 'getCompressionAlgorithm'
+        'compressionAlgorithm' => 'getCompressionAlgorithm'
     ];
 
     /**
@@ -201,9 +201,9 @@ class FeedDocument implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['feed_document_id'] = isset($data['feed_document_id']) ? $data['feed_document_id'] : null;
+        $this->container['feedDocumentId'] = isset($data['feedDocumentId']) ? $data['feedDocumentId'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;
-        $this->container['compression_algorithm'] = isset($data['compression_algorithm']) ? $data['compression_algorithm'] : null;
+        $this->container['compressionAlgorithm'] = isset($data['compressionAlgorithm']) ? $data['compressionAlgorithm'] : null;
     }
 
     /**
@@ -215,16 +215,16 @@ class FeedDocument implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['feed_document_id'] === null) {
-            $invalidProperties[] = "'feed_document_id' can't be null";
+        if ($this->container['feedDocumentId'] === null) {
+            $invalidProperties[] = "'feedDocumentId' can't be null";
         }
         if ($this->container['url'] === null) {
             $invalidProperties[] = "'url' can't be null";
         }
         $allowedValues = $this->getCompressionAlgorithmAllowableValues();
-        if (!is_null($this->container['compression_algorithm']) && !in_array($this->container['compression_algorithm'], $allowedValues, true)) {
+        if (!is_null($this->container['compressionAlgorithm']) && !in_array($this->container['compressionAlgorithm'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'compression_algorithm', must be one of '%s'",
+                "invalid value for 'compressionAlgorithm', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -245,25 +245,25 @@ class FeedDocument implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets feed_document_id
+     * Gets feedDocumentId
      *
      * @return string
      */
     public function getFeedDocumentId()
     {
-        return $this->container['feed_document_id'];
+        return $this->container['feedDocumentId'];
     }
 
     /**
-     * Sets feed_document_id
+     * Sets feedDocumentId
      *
-     * @param string $feed_document_id The identifier for the feed document. This identifier is unique only in combination with a seller ID.
+     * @param string $feedDocumentId The identifier for the feed document. This identifier is unique only in combination with a seller ID.
      *
      * @return $this
      */
-    public function setFeedDocumentId($feed_document_id)
+    public function setFeedDocumentId($feedDocumentId)
     {
-        $this->container['feed_document_id'] = $feed_document_id;
+        $this->container['feedDocumentId'] = $feedDocumentId;
 
         return $this;
     }
@@ -293,34 +293,34 @@ class FeedDocument implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets compression_algorithm
+     * Gets compressionAlgorithm
      *
      * @return string|null
      */
     public function getCompressionAlgorithm()
     {
-        return $this->container['compression_algorithm'];
+        return $this->container['compressionAlgorithm'];
     }
 
     /**
-     * Sets compression_algorithm
+     * Sets compressionAlgorithm
      *
-     * @param string|null $compression_algorithm If the feed document contents have been compressed, the compression algorithm used is returned in this property and you must decompress the feed when you download. Otherwise, you can download the feed directly. Refer to [Step 7. Download the feed processing report](doc:feeds-api-v2021-06-30-use-case-guide#step-7-download-the-feed-processing-report) in the use case guide, where sample code is provided.
+     * @param string|null $compressionAlgorithm If the feed document contents have been compressed, the compression algorithm used is returned in this property and you must decompress the feed when you download. Otherwise, you can download the feed directly. Refer to [Step 7. Download the feed processing report](doc:feeds-api-v2021-06-30-use-case-guide#step-7-download-the-feed-processing-report) in the use case guide, where sample code is provided.
      *
      * @return $this
      */
-    public function setCompressionAlgorithm($compression_algorithm)
+    public function setCompressionAlgorithm($compressionAlgorithm)
     {
         $allowedValues = $this->getCompressionAlgorithmAllowableValues();
-        if (!is_null($compression_algorithm) && !in_array($compression_algorithm, $allowedValues, true)) {
+        if (!is_null($compressionAlgorithm) && !in_array($compressionAlgorithm, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'compression_algorithm', must be one of '%s'",
+                    "Invalid value for 'compressionAlgorithm', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['compression_algorithm'] = $compression_algorithm;
+        $this->container['compressionAlgorithm'] = $compressionAlgorithm;
 
         return $this;
     }

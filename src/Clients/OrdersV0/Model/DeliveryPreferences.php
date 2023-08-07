@@ -58,10 +58,10 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'drop_off_location' => 'string',
-        'preferred_delivery_time' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PreferredDeliveryTime',
-        'other_attributes' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OtherDeliveryAttributes[]',
-        'address_instructions' => 'string'
+        'dropOffLocation' => 'string',
+        'preferredDeliveryTime' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PreferredDeliveryTime',
+        'otherAttributes' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OtherDeliveryAttributes[]',
+        'addressInstructions' => 'string'
     ];
 
     /**
@@ -70,10 +70,10 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'drop_off_location' => null,
-        'preferred_delivery_time' => null,
-        'other_attributes' => null,
-        'address_instructions' => null
+        'dropOffLocation' => null,
+        'preferredDeliveryTime' => null,
+        'otherAttributes' => null,
+        'addressInstructions' => null
     ];
 
     /**
@@ -103,10 +103,10 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'drop_off_location' => 'DropOffLocation',
-        'preferred_delivery_time' => 'PreferredDeliveryTime',
-        'other_attributes' => 'OtherAttributes',
-        'address_instructions' => 'AddressInstructions'
+        'dropOffLocation' => 'DropOffLocation',
+        'preferredDeliveryTime' => 'PreferredDeliveryTime',
+        'otherAttributes' => 'OtherAttributes',
+        'addressInstructions' => 'AddressInstructions'
     ];
 
     /**
@@ -115,10 +115,10 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'drop_off_location' => 'setDropOffLocation',
-        'preferred_delivery_time' => 'setPreferredDeliveryTime',
-        'other_attributes' => 'setOtherAttributes',
-        'address_instructions' => 'setAddressInstructions'
+        'dropOffLocation' => 'setDropOffLocation',
+        'preferredDeliveryTime' => 'setPreferredDeliveryTime',
+        'otherAttributes' => 'setOtherAttributes',
+        'addressInstructions' => 'setAddressInstructions'
     ];
 
     /**
@@ -127,10 +127,10 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'drop_off_location' => 'getDropOffLocation',
-        'preferred_delivery_time' => 'getPreferredDeliveryTime',
-        'other_attributes' => 'getOtherAttributes',
-        'address_instructions' => 'getAddressInstructions'
+        'dropOffLocation' => 'getDropOffLocation',
+        'preferredDeliveryTime' => 'getPreferredDeliveryTime',
+        'otherAttributes' => 'getOtherAttributes',
+        'addressInstructions' => 'getAddressInstructions'
     ];
 
     /**
@@ -193,10 +193,10 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['drop_off_location'] = isset($data['drop_off_location']) ? $data['drop_off_location'] : null;
-        $this->container['preferred_delivery_time'] = isset($data['preferred_delivery_time']) ? $data['preferred_delivery_time'] : null;
-        $this->container['other_attributes'] = isset($data['other_attributes']) ? $data['other_attributes'] : null;
-        $this->container['address_instructions'] = isset($data['address_instructions']) ? $data['address_instructions'] : null;
+        $this->container['dropOffLocation'] = isset($data['dropOffLocation']) ? $data['dropOffLocation'] : null;
+        $this->container['preferredDeliveryTime'] = isset($data['preferredDeliveryTime']) ? $data['preferredDeliveryTime'] : null;
+        $this->container['otherAttributes'] = isset($data['otherAttributes']) ? $data['otherAttributes'] : null;
+        $this->container['addressInstructions'] = isset($data['addressInstructions']) ? $data['addressInstructions'] : null;
     }
 
     /**
@@ -224,97 +224,97 @@ class DeliveryPreferences implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets drop_off_location
+     * Gets dropOffLocation
      *
      * @return string|null
      */
     public function getDropOffLocation()
     {
-        return $this->container['drop_off_location'];
+        return $this->container['dropOffLocation'];
     }
 
     /**
-     * Sets drop_off_location
+     * Sets dropOffLocation
      *
-     * @param string|null $drop_off_location Drop-off location selected by the customer.
+     * @param string|null $dropOffLocation Drop-off location selected by the customer.
      *
      * @return $this
      */
-    public function setDropOffLocation($drop_off_location)
+    public function setDropOffLocation($dropOffLocation)
     {
-        $this->container['drop_off_location'] = $drop_off_location;
+        $this->container['dropOffLocation'] = $dropOffLocation;
 
         return $this;
     }
 
     /**
-     * Gets preferred_delivery_time
+     * Gets preferredDeliveryTime
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PreferredDeliveryTime|null
      */
     public function getPreferredDeliveryTime()
     {
-        return $this->container['preferred_delivery_time'];
+        return $this->container['preferredDeliveryTime'];
     }
 
     /**
-     * Sets preferred_delivery_time
+     * Sets preferredDeliveryTime
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PreferredDeliveryTime|null $preferred_delivery_time preferred_delivery_time
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PreferredDeliveryTime|null $preferredDeliveryTime preferredDeliveryTime
      *
      * @return $this
      */
-    public function setPreferredDeliveryTime($preferred_delivery_time)
+    public function setPreferredDeliveryTime($preferredDeliveryTime)
     {
-        $this->container['preferred_delivery_time'] = $preferred_delivery_time;
+        $this->container['preferredDeliveryTime'] = $preferredDeliveryTime;
 
         return $this;
     }
 
     /**
-     * Gets other_attributes
+     * Gets otherAttributes
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OtherDeliveryAttributes[]|null
      */
     public function getOtherAttributes()
     {
-        return $this->container['other_attributes'];
+        return $this->container['otherAttributes'];
     }
 
     /**
-     * Sets other_attributes
+     * Sets otherAttributes
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OtherDeliveryAttributes[]|null $other_attributes Enumerated list of miscellaneous delivery attributes associated with the shipping address.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OtherDeliveryAttributes[]|null $otherAttributes Enumerated list of miscellaneous delivery attributes associated with the shipping address.
      *
      * @return $this
      */
-    public function setOtherAttributes($other_attributes)
+    public function setOtherAttributes($otherAttributes)
     {
-        $this->container['other_attributes'] = $other_attributes;
+        $this->container['otherAttributes'] = $otherAttributes;
 
         return $this;
     }
 
     /**
-     * Gets address_instructions
+     * Gets addressInstructions
      *
      * @return string|null
      */
     public function getAddressInstructions()
     {
-        return $this->container['address_instructions'];
+        return $this->container['addressInstructions'];
     }
 
     /**
-     * Sets address_instructions
+     * Sets addressInstructions
      *
-     * @param string|null $address_instructions Building instructions, nearby landmark or navigation instructions.
+     * @param string|null $addressInstructions Building instructions, nearby landmark or navigation instructions.
      *
      * @return $this
      */
-    public function setAddressInstructions($address_instructions)
+    public function setAddressInstructions($addressInstructions)
     {
-        $this->container['address_instructions'] = $address_instructions;
+        $this->container['addressInstructions'] = $addressInstructions;
 
         return $this;
     }

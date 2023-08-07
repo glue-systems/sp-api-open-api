@@ -57,17 +57,17 @@ class Report implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'marketplace_ids' => 'string[]',
-        'report_id' => 'string',
-        'report_type' => 'string',
-        'data_start_time' => '\DateTime',
-        'data_end_time' => '\DateTime',
-        'report_schedule_id' => 'string',
-        'created_time' => '\DateTime',
-        'processing_status' => 'string',
-        'processing_start_time' => '\DateTime',
-        'processing_end_time' => '\DateTime',
-        'report_document_id' => 'string'
+        'marketplaceIds' => 'string[]',
+        'reportId' => 'string',
+        'reportType' => 'string',
+        'dataStartTime' => '\DateTime',
+        'dataEndTime' => '\DateTime',
+        'reportScheduleId' => 'string',
+        'createdTime' => '\DateTime',
+        'processingStatus' => 'string',
+        'processingStartTime' => '\DateTime',
+        'processingEndTime' => '\DateTime',
+        'reportDocumentId' => 'string'
     ];
 
     /**
@@ -76,17 +76,17 @@ class Report implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'marketplace_ids' => null,
-        'report_id' => null,
-        'report_type' => null,
-        'data_start_time' => 'date-time',
-        'data_end_time' => 'date-time',
-        'report_schedule_id' => null,
-        'created_time' => 'date-time',
-        'processing_status' => null,
-        'processing_start_time' => 'date-time',
-        'processing_end_time' => 'date-time',
-        'report_document_id' => null
+        'marketplaceIds' => null,
+        'reportId' => null,
+        'reportType' => null,
+        'dataStartTime' => 'date-time',
+        'dataEndTime' => 'date-time',
+        'reportScheduleId' => null,
+        'createdTime' => 'date-time',
+        'processingStatus' => null,
+        'processingStartTime' => 'date-time',
+        'processingEndTime' => 'date-time',
+        'reportDocumentId' => null
     ];
 
     /**
@@ -116,17 +116,17 @@ class Report implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'marketplace_ids' => 'marketplaceIds',
-        'report_id' => 'reportId',
-        'report_type' => 'reportType',
-        'data_start_time' => 'dataStartTime',
-        'data_end_time' => 'dataEndTime',
-        'report_schedule_id' => 'reportScheduleId',
-        'created_time' => 'createdTime',
-        'processing_status' => 'processingStatus',
-        'processing_start_time' => 'processingStartTime',
-        'processing_end_time' => 'processingEndTime',
-        'report_document_id' => 'reportDocumentId'
+        'marketplaceIds' => 'marketplaceIds',
+        'reportId' => 'reportId',
+        'reportType' => 'reportType',
+        'dataStartTime' => 'dataStartTime',
+        'dataEndTime' => 'dataEndTime',
+        'reportScheduleId' => 'reportScheduleId',
+        'createdTime' => 'createdTime',
+        'processingStatus' => 'processingStatus',
+        'processingStartTime' => 'processingStartTime',
+        'processingEndTime' => 'processingEndTime',
+        'reportDocumentId' => 'reportDocumentId'
     ];
 
     /**
@@ -135,17 +135,17 @@ class Report implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'marketplace_ids' => 'setMarketplaceIds',
-        'report_id' => 'setReportId',
-        'report_type' => 'setReportType',
-        'data_start_time' => 'setDataStartTime',
-        'data_end_time' => 'setDataEndTime',
-        'report_schedule_id' => 'setReportScheduleId',
-        'created_time' => 'setCreatedTime',
-        'processing_status' => 'setProcessingStatus',
-        'processing_start_time' => 'setProcessingStartTime',
-        'processing_end_time' => 'setProcessingEndTime',
-        'report_document_id' => 'setReportDocumentId'
+        'marketplaceIds' => 'setMarketplaceIds',
+        'reportId' => 'setReportId',
+        'reportType' => 'setReportType',
+        'dataStartTime' => 'setDataStartTime',
+        'dataEndTime' => 'setDataEndTime',
+        'reportScheduleId' => 'setReportScheduleId',
+        'createdTime' => 'setCreatedTime',
+        'processingStatus' => 'setProcessingStatus',
+        'processingStartTime' => 'setProcessingStartTime',
+        'processingEndTime' => 'setProcessingEndTime',
+        'reportDocumentId' => 'setReportDocumentId'
     ];
 
     /**
@@ -154,17 +154,17 @@ class Report implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'marketplace_ids' => 'getMarketplaceIds',
-        'report_id' => 'getReportId',
-        'report_type' => 'getReportType',
-        'data_start_time' => 'getDataStartTime',
-        'data_end_time' => 'getDataEndTime',
-        'report_schedule_id' => 'getReportScheduleId',
-        'created_time' => 'getCreatedTime',
-        'processing_status' => 'getProcessingStatus',
-        'processing_start_time' => 'getProcessingStartTime',
-        'processing_end_time' => 'getProcessingEndTime',
-        'report_document_id' => 'getReportDocumentId'
+        'marketplaceIds' => 'getMarketplaceIds',
+        'reportId' => 'getReportId',
+        'reportType' => 'getReportType',
+        'dataStartTime' => 'getDataStartTime',
+        'dataEndTime' => 'getDataEndTime',
+        'reportScheduleId' => 'getReportScheduleId',
+        'createdTime' => 'getCreatedTime',
+        'processingStatus' => 'getProcessingStatus',
+        'processingStartTime' => 'getProcessingStartTime',
+        'processingEndTime' => 'getProcessingEndTime',
+        'reportDocumentId' => 'getReportDocumentId'
     ];
 
     /**
@@ -248,17 +248,17 @@ class Report implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['marketplace_ids'] = isset($data['marketplace_ids']) ? $data['marketplace_ids'] : null;
-        $this->container['report_id'] = isset($data['report_id']) ? $data['report_id'] : null;
-        $this->container['report_type'] = isset($data['report_type']) ? $data['report_type'] : null;
-        $this->container['data_start_time'] = isset($data['data_start_time']) ? $data['data_start_time'] : null;
-        $this->container['data_end_time'] = isset($data['data_end_time']) ? $data['data_end_time'] : null;
-        $this->container['report_schedule_id'] = isset($data['report_schedule_id']) ? $data['report_schedule_id'] : null;
-        $this->container['created_time'] = isset($data['created_time']) ? $data['created_time'] : null;
-        $this->container['processing_status'] = isset($data['processing_status']) ? $data['processing_status'] : null;
-        $this->container['processing_start_time'] = isset($data['processing_start_time']) ? $data['processing_start_time'] : null;
-        $this->container['processing_end_time'] = isset($data['processing_end_time']) ? $data['processing_end_time'] : null;
-        $this->container['report_document_id'] = isset($data['report_document_id']) ? $data['report_document_id'] : null;
+        $this->container['marketplaceIds'] = isset($data['marketplaceIds']) ? $data['marketplaceIds'] : null;
+        $this->container['reportId'] = isset($data['reportId']) ? $data['reportId'] : null;
+        $this->container['reportType'] = isset($data['reportType']) ? $data['reportType'] : null;
+        $this->container['dataStartTime'] = isset($data['dataStartTime']) ? $data['dataStartTime'] : null;
+        $this->container['dataEndTime'] = isset($data['dataEndTime']) ? $data['dataEndTime'] : null;
+        $this->container['reportScheduleId'] = isset($data['reportScheduleId']) ? $data['reportScheduleId'] : null;
+        $this->container['createdTime'] = isset($data['createdTime']) ? $data['createdTime'] : null;
+        $this->container['processingStatus'] = isset($data['processingStatus']) ? $data['processingStatus'] : null;
+        $this->container['processingStartTime'] = isset($data['processingStartTime']) ? $data['processingStartTime'] : null;
+        $this->container['processingEndTime'] = isset($data['processingEndTime']) ? $data['processingEndTime'] : null;
+        $this->container['reportDocumentId'] = isset($data['reportDocumentId']) ? $data['reportDocumentId'] : null;
     }
 
     /**
@@ -270,22 +270,22 @@ class Report implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['report_id'] === null) {
-            $invalidProperties[] = "'report_id' can't be null";
+        if ($this->container['reportId'] === null) {
+            $invalidProperties[] = "'reportId' can't be null";
         }
-        if ($this->container['report_type'] === null) {
-            $invalidProperties[] = "'report_type' can't be null";
+        if ($this->container['reportType'] === null) {
+            $invalidProperties[] = "'reportType' can't be null";
         }
-        if ($this->container['created_time'] === null) {
-            $invalidProperties[] = "'created_time' can't be null";
+        if ($this->container['createdTime'] === null) {
+            $invalidProperties[] = "'createdTime' can't be null";
         }
-        if ($this->container['processing_status'] === null) {
-            $invalidProperties[] = "'processing_status' can't be null";
+        if ($this->container['processingStatus'] === null) {
+            $invalidProperties[] = "'processingStatus' can't be null";
         }
         $allowedValues = $this->getProcessingStatusAllowableValues();
-        if (!is_null($this->container['processing_status']) && !in_array($this->container['processing_status'], $allowedValues, true)) {
+        if (!is_null($this->container['processingStatus']) && !in_array($this->container['processingStatus'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
-                "invalid value for 'processing_status', must be one of '%s'",
+                "invalid value for 'processingStatus', must be one of '%s'",
                 implode("', '", $allowedValues)
             );
         }
@@ -306,274 +306,274 @@ class Report implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets marketplace_ids
+     * Gets marketplaceIds
      *
      * @return string[]|null
      */
     public function getMarketplaceIds()
     {
-        return $this->container['marketplace_ids'];
+        return $this->container['marketplaceIds'];
     }
 
     /**
-     * Sets marketplace_ids
+     * Sets marketplaceIds
      *
-     * @param string[]|null $marketplace_ids A list of marketplace identifiers for the report.
+     * @param string[]|null $marketplaceIds A list of marketplace identifiers for the report.
      *
      * @return $this
      */
-    public function setMarketplaceIds($marketplace_ids)
+    public function setMarketplaceIds($marketplaceIds)
     {
-        $this->container['marketplace_ids'] = $marketplace_ids;
+        $this->container['marketplaceIds'] = $marketplaceIds;
 
         return $this;
     }
 
     /**
-     * Gets report_id
+     * Gets reportId
      *
      * @return string
      */
     public function getReportId()
     {
-        return $this->container['report_id'];
+        return $this->container['reportId'];
     }
 
     /**
-     * Sets report_id
+     * Sets reportId
      *
-     * @param string $report_id The identifier for the report. This identifier is unique only in combination with a seller ID.
+     * @param string $reportId The identifier for the report. This identifier is unique only in combination with a seller ID.
      *
      * @return $this
      */
-    public function setReportId($report_id)
+    public function setReportId($reportId)
     {
-        $this->container['report_id'] = $report_id;
+        $this->container['reportId'] = $reportId;
 
         return $this;
     }
 
     /**
-     * Gets report_type
+     * Gets reportType
      *
      * @return string
      */
     public function getReportType()
     {
-        return $this->container['report_type'];
+        return $this->container['reportType'];
     }
 
     /**
-     * Sets report_type
+     * Sets reportType
      *
-     * @param string $report_type The report type.
+     * @param string $reportType The report type.
      *
      * @return $this
      */
-    public function setReportType($report_type)
+    public function setReportType($reportType)
     {
-        $this->container['report_type'] = $report_type;
+        $this->container['reportType'] = $reportType;
 
         return $this;
     }
 
     /**
-     * Gets data_start_time
+     * Gets dataStartTime
      *
      * @return \DateTime|null
      */
     public function getDataStartTime()
     {
-        return $this->container['data_start_time'];
+        return $this->container['dataStartTime'];
     }
 
     /**
-     * Sets data_start_time
+     * Sets dataStartTime
      *
-     * @param \DateTime|null $data_start_time The start of a date and time range used for selecting the data to report.
+     * @param \DateTime|null $dataStartTime The start of a date and time range used for selecting the data to report.
      *
      * @return $this
      */
-    public function setDataStartTime($data_start_time)
+    public function setDataStartTime($dataStartTime)
     {
-        $this->container['data_start_time'] = $data_start_time;
+        $this->container['dataStartTime'] = $dataStartTime;
 
         return $this;
     }
 
     /**
-     * Gets data_end_time
+     * Gets dataEndTime
      *
      * @return \DateTime|null
      */
     public function getDataEndTime()
     {
-        return $this->container['data_end_time'];
+        return $this->container['dataEndTime'];
     }
 
     /**
-     * Sets data_end_time
+     * Sets dataEndTime
      *
-     * @param \DateTime|null $data_end_time The end of a date and time range used for selecting the data to report.
+     * @param \DateTime|null $dataEndTime The end of a date and time range used for selecting the data to report.
      *
      * @return $this
      */
-    public function setDataEndTime($data_end_time)
+    public function setDataEndTime($dataEndTime)
     {
-        $this->container['data_end_time'] = $data_end_time;
+        $this->container['dataEndTime'] = $dataEndTime;
 
         return $this;
     }
 
     /**
-     * Gets report_schedule_id
+     * Gets reportScheduleId
      *
      * @return string|null
      */
     public function getReportScheduleId()
     {
-        return $this->container['report_schedule_id'];
+        return $this->container['reportScheduleId'];
     }
 
     /**
-     * Sets report_schedule_id
+     * Sets reportScheduleId
      *
-     * @param string|null $report_schedule_id The identifier of the report schedule that created this report (if any). This identifier is unique only in combination with a seller ID.
+     * @param string|null $reportScheduleId The identifier of the report schedule that created this report (if any). This identifier is unique only in combination with a seller ID.
      *
      * @return $this
      */
-    public function setReportScheduleId($report_schedule_id)
+    public function setReportScheduleId($reportScheduleId)
     {
-        $this->container['report_schedule_id'] = $report_schedule_id;
+        $this->container['reportScheduleId'] = $reportScheduleId;
 
         return $this;
     }
 
     /**
-     * Gets created_time
+     * Gets createdTime
      *
      * @return \DateTime
      */
     public function getCreatedTime()
     {
-        return $this->container['created_time'];
+        return $this->container['createdTime'];
     }
 
     /**
-     * Sets created_time
+     * Sets createdTime
      *
-     * @param \DateTime $created_time The date and time when the report was created.
+     * @param \DateTime $createdTime The date and time when the report was created.
      *
      * @return $this
      */
-    public function setCreatedTime($created_time)
+    public function setCreatedTime($createdTime)
     {
-        $this->container['created_time'] = $created_time;
+        $this->container['createdTime'] = $createdTime;
 
         return $this;
     }
 
     /**
-     * Gets processing_status
+     * Gets processingStatus
      *
      * @return string
      */
     public function getProcessingStatus()
     {
-        return $this->container['processing_status'];
+        return $this->container['processingStatus'];
     }
 
     /**
-     * Sets processing_status
+     * Sets processingStatus
      *
-     * @param string $processing_status The processing status of the report.
+     * @param string $processingStatus The processing status of the report.
      *
      * @return $this
      */
-    public function setProcessingStatus($processing_status)
+    public function setProcessingStatus($processingStatus)
     {
         $allowedValues = $this->getProcessingStatusAllowableValues();
-        if (!in_array($processing_status, $allowedValues, true)) {
+        if (!in_array($processingStatus, $allowedValues, true)) {
             throw new \InvalidArgumentException(
                 sprintf(
-                    "Invalid value for 'processing_status', must be one of '%s'",
+                    "Invalid value for 'processingStatus', must be one of '%s'",
                     implode("', '", $allowedValues)
                 )
             );
         }
-        $this->container['processing_status'] = $processing_status;
+        $this->container['processingStatus'] = $processingStatus;
 
         return $this;
     }
 
     /**
-     * Gets processing_start_time
+     * Gets processingStartTime
      *
      * @return \DateTime|null
      */
     public function getProcessingStartTime()
     {
-        return $this->container['processing_start_time'];
+        return $this->container['processingStartTime'];
     }
 
     /**
-     * Sets processing_start_time
+     * Sets processingStartTime
      *
-     * @param \DateTime|null $processing_start_time The date and time when the report processing started, in ISO 8601 date time format.
+     * @param \DateTime|null $processingStartTime The date and time when the report processing started, in ISO 8601 date time format.
      *
      * @return $this
      */
-    public function setProcessingStartTime($processing_start_time)
+    public function setProcessingStartTime($processingStartTime)
     {
-        $this->container['processing_start_time'] = $processing_start_time;
+        $this->container['processingStartTime'] = $processingStartTime;
 
         return $this;
     }
 
     /**
-     * Gets processing_end_time
+     * Gets processingEndTime
      *
      * @return \DateTime|null
      */
     public function getProcessingEndTime()
     {
-        return $this->container['processing_end_time'];
+        return $this->container['processingEndTime'];
     }
 
     /**
-     * Sets processing_end_time
+     * Sets processingEndTime
      *
-     * @param \DateTime|null $processing_end_time The date and time when the report processing completed, in ISO 8601 date time format.
+     * @param \DateTime|null $processingEndTime The date and time when the report processing completed, in ISO 8601 date time format.
      *
      * @return $this
      */
-    public function setProcessingEndTime($processing_end_time)
+    public function setProcessingEndTime($processingEndTime)
     {
-        $this->container['processing_end_time'] = $processing_end_time;
+        $this->container['processingEndTime'] = $processingEndTime;
 
         return $this;
     }
 
     /**
-     * Gets report_document_id
+     * Gets reportDocumentId
      *
      * @return string|null
      */
     public function getReportDocumentId()
     {
-        return $this->container['report_document_id'];
+        return $this->container['reportDocumentId'];
     }
 
     /**
-     * Sets report_document_id
+     * Sets reportDocumentId
      *
-     * @param string|null $report_document_id The identifier for the report document. Pass this into the getReportDocument operation to get the information you will need to retrieve and decrypt the report document's contents.
+     * @param string|null $reportDocumentId The identifier for the report document. Pass this into the getReportDocument operation to get the information you will need to retrieve and decrypt the report document's contents.
      *
      * @return $this
      */
-    public function setReportDocumentId($report_document_id)
+    public function setReportDocumentId($reportDocumentId)
     {
-        $this->container['report_document_id'] = $report_document_id;
+        $this->container['reportDocumentId'] = $reportDocumentId;
 
         return $this;
     }

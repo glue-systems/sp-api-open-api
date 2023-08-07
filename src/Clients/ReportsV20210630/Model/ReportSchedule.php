@@ -58,12 +58,12 @@ class ReportSchedule implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'report_schedule_id' => 'string',
-        'report_type' => 'string',
-        'marketplace_ids' => 'string[]',
-        'report_options' => 'map[string,string]',
+        'reportScheduleId' => 'string',
+        'reportType' => 'string',
+        'marketplaceIds' => 'string[]',
+        'reportOptions' => 'map[string,string]',
         'period' => 'string',
-        'next_report_creation_time' => '\DateTime'
+        'nextReportCreationTime' => '\DateTime'
     ];
 
     /**
@@ -72,12 +72,12 @@ class ReportSchedule implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'report_schedule_id' => null,
-        'report_type' => null,
-        'marketplace_ids' => null,
-        'report_options' => null,
+        'reportScheduleId' => null,
+        'reportType' => null,
+        'marketplaceIds' => null,
+        'reportOptions' => null,
         'period' => null,
-        'next_report_creation_time' => 'date-time'
+        'nextReportCreationTime' => 'date-time'
     ];
 
     /**
@@ -107,12 +107,12 @@ class ReportSchedule implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'report_schedule_id' => 'reportScheduleId',
-        'report_type' => 'reportType',
-        'marketplace_ids' => 'marketplaceIds',
-        'report_options' => 'reportOptions',
+        'reportScheduleId' => 'reportScheduleId',
+        'reportType' => 'reportType',
+        'marketplaceIds' => 'marketplaceIds',
+        'reportOptions' => 'reportOptions',
         'period' => 'period',
-        'next_report_creation_time' => 'nextReportCreationTime'
+        'nextReportCreationTime' => 'nextReportCreationTime'
     ];
 
     /**
@@ -121,12 +121,12 @@ class ReportSchedule implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'report_schedule_id' => 'setReportScheduleId',
-        'report_type' => 'setReportType',
-        'marketplace_ids' => 'setMarketplaceIds',
-        'report_options' => 'setReportOptions',
+        'reportScheduleId' => 'setReportScheduleId',
+        'reportType' => 'setReportType',
+        'marketplaceIds' => 'setMarketplaceIds',
+        'reportOptions' => 'setReportOptions',
         'period' => 'setPeriod',
-        'next_report_creation_time' => 'setNextReportCreationTime'
+        'nextReportCreationTime' => 'setNextReportCreationTime'
     ];
 
     /**
@@ -135,12 +135,12 @@ class ReportSchedule implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'report_schedule_id' => 'getReportScheduleId',
-        'report_type' => 'getReportType',
-        'marketplace_ids' => 'getMarketplaceIds',
-        'report_options' => 'getReportOptions',
+        'reportScheduleId' => 'getReportScheduleId',
+        'reportType' => 'getReportType',
+        'marketplaceIds' => 'getMarketplaceIds',
+        'reportOptions' => 'getReportOptions',
         'period' => 'getPeriod',
-        'next_report_creation_time' => 'getNextReportCreationTime'
+        'nextReportCreationTime' => 'getNextReportCreationTime'
     ];
 
     /**
@@ -203,12 +203,12 @@ class ReportSchedule implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['report_schedule_id'] = isset($data['report_schedule_id']) ? $data['report_schedule_id'] : null;
-        $this->container['report_type'] = isset($data['report_type']) ? $data['report_type'] : null;
-        $this->container['marketplace_ids'] = isset($data['marketplace_ids']) ? $data['marketplace_ids'] : null;
-        $this->container['report_options'] = isset($data['report_options']) ? $data['report_options'] : null;
+        $this->container['reportScheduleId'] = isset($data['reportScheduleId']) ? $data['reportScheduleId'] : null;
+        $this->container['reportType'] = isset($data['reportType']) ? $data['reportType'] : null;
+        $this->container['marketplaceIds'] = isset($data['marketplaceIds']) ? $data['marketplaceIds'] : null;
+        $this->container['reportOptions'] = isset($data['reportOptions']) ? $data['reportOptions'] : null;
         $this->container['period'] = isset($data['period']) ? $data['period'] : null;
-        $this->container['next_report_creation_time'] = isset($data['next_report_creation_time']) ? $data['next_report_creation_time'] : null;
+        $this->container['nextReportCreationTime'] = isset($data['nextReportCreationTime']) ? $data['nextReportCreationTime'] : null;
     }
 
     /**
@@ -220,11 +220,11 @@ class ReportSchedule implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['report_schedule_id'] === null) {
-            $invalidProperties[] = "'report_schedule_id' can't be null";
+        if ($this->container['reportScheduleId'] === null) {
+            $invalidProperties[] = "'reportScheduleId' can't be null";
         }
-        if ($this->container['report_type'] === null) {
-            $invalidProperties[] = "'report_type' can't be null";
+        if ($this->container['reportType'] === null) {
+            $invalidProperties[] = "'reportType' can't be null";
         }
         if ($this->container['period'] === null) {
             $invalidProperties[] = "'period' can't be null";
@@ -245,97 +245,97 @@ class ReportSchedule implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets report_schedule_id
+     * Gets reportScheduleId
      *
      * @return string
      */
     public function getReportScheduleId()
     {
-        return $this->container['report_schedule_id'];
+        return $this->container['reportScheduleId'];
     }
 
     /**
-     * Sets report_schedule_id
+     * Sets reportScheduleId
      *
-     * @param string $report_schedule_id The identifier for the report schedule. This identifier is unique only in combination with a seller ID.
+     * @param string $reportScheduleId The identifier for the report schedule. This identifier is unique only in combination with a seller ID.
      *
      * @return $this
      */
-    public function setReportScheduleId($report_schedule_id)
+    public function setReportScheduleId($reportScheduleId)
     {
-        $this->container['report_schedule_id'] = $report_schedule_id;
+        $this->container['reportScheduleId'] = $reportScheduleId;
 
         return $this;
     }
 
     /**
-     * Gets report_type
+     * Gets reportType
      *
      * @return string
      */
     public function getReportType()
     {
-        return $this->container['report_type'];
+        return $this->container['reportType'];
     }
 
     /**
-     * Sets report_type
+     * Sets reportType
      *
-     * @param string $report_type The report type. Refer to [Report Type Values](https://developer-docs.amazon.com/sp-api/docs/report-type-values) for more information.
+     * @param string $reportType The report type. Refer to [Report Type Values](https://developer-docs.amazon.com/sp-api/docs/report-type-values) for more information.
      *
      * @return $this
      */
-    public function setReportType($report_type)
+    public function setReportType($reportType)
     {
-        $this->container['report_type'] = $report_type;
+        $this->container['reportType'] = $reportType;
 
         return $this;
     }
 
     /**
-     * Gets marketplace_ids
+     * Gets marketplaceIds
      *
      * @return string[]|null
      */
     public function getMarketplaceIds()
     {
-        return $this->container['marketplace_ids'];
+        return $this->container['marketplaceIds'];
     }
 
     /**
-     * Sets marketplace_ids
+     * Sets marketplaceIds
      *
-     * @param string[]|null $marketplace_ids A list of marketplace identifiers. The report document's contents will contain data for all of the specified marketplaces, unless the report type indicates otherwise.
+     * @param string[]|null $marketplaceIds A list of marketplace identifiers. The report document's contents will contain data for all of the specified marketplaces, unless the report type indicates otherwise.
      *
      * @return $this
      */
-    public function setMarketplaceIds($marketplace_ids)
+    public function setMarketplaceIds($marketplaceIds)
     {
-        $this->container['marketplace_ids'] = $marketplace_ids;
+        $this->container['marketplaceIds'] = $marketplaceIds;
 
         return $this;
     }
 
     /**
-     * Gets report_options
+     * Gets reportOptions
      *
      * @return map[string,string]|null
      */
     public function getReportOptions()
     {
-        return $this->container['report_options'];
+        return $this->container['reportOptions'];
     }
 
     /**
-     * Sets report_options
+     * Sets reportOptions
      *
-     * @param map[string,string]|null $report_options Additional information passed to reports. This varies by report type.
+     * @param map[string,string]|null $reportOptions Additional information passed to reports. This varies by report type.
      *
      * @return $this
      */
-    public function setReportOptions($report_options)
+    public function setReportOptions($reportOptions)
     {
-        $this->container['report_options'] = $report_options;
+        $this->container['reportOptions'] = $reportOptions;
 
         return $this;
     }
@@ -365,25 +365,25 @@ class ReportSchedule implements ModelInterface, ArrayAccess
     }
 
     /**
-     * Gets next_report_creation_time
+     * Gets nextReportCreationTime
      *
      * @return \DateTime|null
      */
     public function getNextReportCreationTime()
     {
-        return $this->container['next_report_creation_time'];
+        return $this->container['nextReportCreationTime'];
     }
 
     /**
-     * Sets next_report_creation_time
+     * Sets nextReportCreationTime
      *
-     * @param \DateTime|null $next_report_creation_time The date and time when the schedule will create its next report, in ISO 8601 date time format.
+     * @param \DateTime|null $nextReportCreationTime The date and time when the schedule will create its next report, in ISO 8601 date time format.
      *
      * @return $this
      */
-    public function setNextReportCreationTime($next_report_creation_time)
+    public function setNextReportCreationTime($nextReportCreationTime)
     {
-        $this->container['next_report_creation_time'] = $next_report_creation_time;
+        $this->container['nextReportCreationTime'] = $nextReportCreationTime;
 
         return $this;
     }

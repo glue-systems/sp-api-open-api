@@ -58,10 +58,10 @@ class BuyerTaxInformation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'buyer_legal_company_name' => 'string',
-        'buyer_business_address' => 'string',
-        'buyer_tax_registration_id' => 'string',
-        'buyer_tax_office' => 'string'
+        'buyerLegalCompanyName' => 'string',
+        'buyerBusinessAddress' => 'string',
+        'buyerTaxRegistrationId' => 'string',
+        'buyerTaxOffice' => 'string'
     ];
 
     /**
@@ -70,10 +70,10 @@ class BuyerTaxInformation implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'buyer_legal_company_name' => null,
-        'buyer_business_address' => null,
-        'buyer_tax_registration_id' => null,
-        'buyer_tax_office' => null
+        'buyerLegalCompanyName' => null,
+        'buyerBusinessAddress' => null,
+        'buyerTaxRegistrationId' => null,
+        'buyerTaxOffice' => null
     ];
 
     /**
@@ -103,10 +103,10 @@ class BuyerTaxInformation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'buyer_legal_company_name' => 'BuyerLegalCompanyName',
-        'buyer_business_address' => 'BuyerBusinessAddress',
-        'buyer_tax_registration_id' => 'BuyerTaxRegistrationId',
-        'buyer_tax_office' => 'BuyerTaxOffice'
+        'buyerLegalCompanyName' => 'BuyerLegalCompanyName',
+        'buyerBusinessAddress' => 'BuyerBusinessAddress',
+        'buyerTaxRegistrationId' => 'BuyerTaxRegistrationId',
+        'buyerTaxOffice' => 'BuyerTaxOffice'
     ];
 
     /**
@@ -115,10 +115,10 @@ class BuyerTaxInformation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'buyer_legal_company_name' => 'setBuyerLegalCompanyName',
-        'buyer_business_address' => 'setBuyerBusinessAddress',
-        'buyer_tax_registration_id' => 'setBuyerTaxRegistrationId',
-        'buyer_tax_office' => 'setBuyerTaxOffice'
+        'buyerLegalCompanyName' => 'setBuyerLegalCompanyName',
+        'buyerBusinessAddress' => 'setBuyerBusinessAddress',
+        'buyerTaxRegistrationId' => 'setBuyerTaxRegistrationId',
+        'buyerTaxOffice' => 'setBuyerTaxOffice'
     ];
 
     /**
@@ -127,10 +127,10 @@ class BuyerTaxInformation implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'buyer_legal_company_name' => 'getBuyerLegalCompanyName',
-        'buyer_business_address' => 'getBuyerBusinessAddress',
-        'buyer_tax_registration_id' => 'getBuyerTaxRegistrationId',
-        'buyer_tax_office' => 'getBuyerTaxOffice'
+        'buyerLegalCompanyName' => 'getBuyerLegalCompanyName',
+        'buyerBusinessAddress' => 'getBuyerBusinessAddress',
+        'buyerTaxRegistrationId' => 'getBuyerTaxRegistrationId',
+        'buyerTaxOffice' => 'getBuyerTaxOffice'
     ];
 
     /**
@@ -193,10 +193,10 @@ class BuyerTaxInformation implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['buyer_legal_company_name'] = isset($data['buyer_legal_company_name']) ? $data['buyer_legal_company_name'] : null;
-        $this->container['buyer_business_address'] = isset($data['buyer_business_address']) ? $data['buyer_business_address'] : null;
-        $this->container['buyer_tax_registration_id'] = isset($data['buyer_tax_registration_id']) ? $data['buyer_tax_registration_id'] : null;
-        $this->container['buyer_tax_office'] = isset($data['buyer_tax_office']) ? $data['buyer_tax_office'] : null;
+        $this->container['buyerLegalCompanyName'] = isset($data['buyerLegalCompanyName']) ? $data['buyerLegalCompanyName'] : null;
+        $this->container['buyerBusinessAddress'] = isset($data['buyerBusinessAddress']) ? $data['buyerBusinessAddress'] : null;
+        $this->container['buyerTaxRegistrationId'] = isset($data['buyerTaxRegistrationId']) ? $data['buyerTaxRegistrationId'] : null;
+        $this->container['buyerTaxOffice'] = isset($data['buyerTaxOffice']) ? $data['buyerTaxOffice'] : null;
     }
 
     /**
@@ -224,97 +224,97 @@ class BuyerTaxInformation implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets buyer_legal_company_name
+     * Gets buyerLegalCompanyName
      *
      * @return string|null
      */
     public function getBuyerLegalCompanyName()
     {
-        return $this->container['buyer_legal_company_name'];
+        return $this->container['buyerLegalCompanyName'];
     }
 
     /**
-     * Sets buyer_legal_company_name
+     * Sets buyerLegalCompanyName
      *
-     * @param string|null $buyer_legal_company_name Business buyer's company legal name.
+     * @param string|null $buyerLegalCompanyName Business buyer's company legal name.
      *
      * @return $this
      */
-    public function setBuyerLegalCompanyName($buyer_legal_company_name)
+    public function setBuyerLegalCompanyName($buyerLegalCompanyName)
     {
-        $this->container['buyer_legal_company_name'] = $buyer_legal_company_name;
+        $this->container['buyerLegalCompanyName'] = $buyerLegalCompanyName;
 
         return $this;
     }
 
     /**
-     * Gets buyer_business_address
+     * Gets buyerBusinessAddress
      *
      * @return string|null
      */
     public function getBuyerBusinessAddress()
     {
-        return $this->container['buyer_business_address'];
+        return $this->container['buyerBusinessAddress'];
     }
 
     /**
-     * Sets buyer_business_address
+     * Sets buyerBusinessAddress
      *
-     * @param string|null $buyer_business_address Business buyer's address.
+     * @param string|null $buyerBusinessAddress Business buyer's address.
      *
      * @return $this
      */
-    public function setBuyerBusinessAddress($buyer_business_address)
+    public function setBuyerBusinessAddress($buyerBusinessAddress)
     {
-        $this->container['buyer_business_address'] = $buyer_business_address;
+        $this->container['buyerBusinessAddress'] = $buyerBusinessAddress;
 
         return $this;
     }
 
     /**
-     * Gets buyer_tax_registration_id
+     * Gets buyerTaxRegistrationId
      *
      * @return string|null
      */
     public function getBuyerTaxRegistrationId()
     {
-        return $this->container['buyer_tax_registration_id'];
+        return $this->container['buyerTaxRegistrationId'];
     }
 
     /**
-     * Sets buyer_tax_registration_id
+     * Sets buyerTaxRegistrationId
      *
-     * @param string|null $buyer_tax_registration_id Business buyer's tax registration ID.
+     * @param string|null $buyerTaxRegistrationId Business buyer's tax registration ID.
      *
      * @return $this
      */
-    public function setBuyerTaxRegistrationId($buyer_tax_registration_id)
+    public function setBuyerTaxRegistrationId($buyerTaxRegistrationId)
     {
-        $this->container['buyer_tax_registration_id'] = $buyer_tax_registration_id;
+        $this->container['buyerTaxRegistrationId'] = $buyerTaxRegistrationId;
 
         return $this;
     }
 
     /**
-     * Gets buyer_tax_office
+     * Gets buyerTaxOffice
      *
      * @return string|null
      */
     public function getBuyerTaxOffice()
     {
-        return $this->container['buyer_tax_office'];
+        return $this->container['buyerTaxOffice'];
     }
 
     /**
-     * Sets buyer_tax_office
+     * Sets buyerTaxOffice
      *
-     * @param string|null $buyer_tax_office Business buyer's tax office.
+     * @param string|null $buyerTaxOffice Business buyer's tax office.
      *
      * @return $this
      */
-    public function setBuyerTaxOffice($buyer_tax_office)
+    public function setBuyerTaxOffice($buyerTaxOffice)
     {
-        $this->container['buyer_tax_office'] = $buyer_tax_office;
+        $this->container['buyerTaxOffice'] = $buyerTaxOffice;
 
         return $this;
     }

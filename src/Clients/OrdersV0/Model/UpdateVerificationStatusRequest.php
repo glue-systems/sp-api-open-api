@@ -58,7 +58,7 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'regulated_order_verification_status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateVerificationStatusRequestBody'
+        'regulatedOrderVerificationStatus' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateVerificationStatusRequestBody'
     ];
 
     /**
@@ -67,7 +67,7 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'regulated_order_verification_status' => null
+        'regulatedOrderVerificationStatus' => null
     ];
 
     /**
@@ -97,7 +97,7 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'regulated_order_verification_status' => 'regulatedOrderVerificationStatus'
+        'regulatedOrderVerificationStatus' => 'regulatedOrderVerificationStatus'
     ];
 
     /**
@@ -106,7 +106,7 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'regulated_order_verification_status' => 'setRegulatedOrderVerificationStatus'
+        'regulatedOrderVerificationStatus' => 'setRegulatedOrderVerificationStatus'
     ];
 
     /**
@@ -115,7 +115,7 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'regulated_order_verification_status' => 'getRegulatedOrderVerificationStatus'
+        'regulatedOrderVerificationStatus' => 'getRegulatedOrderVerificationStatus'
     ];
 
     /**
@@ -178,7 +178,7 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['regulated_order_verification_status'] = isset($data['regulated_order_verification_status']) ? $data['regulated_order_verification_status'] : null;
+        $this->container['regulatedOrderVerificationStatus'] = isset($data['regulatedOrderVerificationStatus']) ? $data['regulatedOrderVerificationStatus'] : null;
     }
 
     /**
@@ -190,8 +190,8 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['regulated_order_verification_status'] === null) {
-            $invalidProperties[] = "'regulated_order_verification_status' can't be null";
+        if ($this->container['regulatedOrderVerificationStatus'] === null) {
+            $invalidProperties[] = "'regulatedOrderVerificationStatus' can't be null";
         }
         return $invalidProperties;
     }
@@ -209,25 +209,25 @@ class UpdateVerificationStatusRequest implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets regulated_order_verification_status
+     * Gets regulatedOrderVerificationStatus
      *
      * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateVerificationStatusRequestBody
      */
     public function getRegulatedOrderVerificationStatus()
     {
-        return $this->container['regulated_order_verification_status'];
+        return $this->container['regulatedOrderVerificationStatus'];
     }
 
     /**
-     * Sets regulated_order_verification_status
+     * Sets regulatedOrderVerificationStatus
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateVerificationStatusRequestBody $regulated_order_verification_status regulated_order_verification_status
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\UpdateVerificationStatusRequestBody $regulatedOrderVerificationStatus regulatedOrderVerificationStatus
      *
      * @return $this
      */
-    public function setRegulatedOrderVerificationStatus($regulated_order_verification_status)
+    public function setRegulatedOrderVerificationStatus($regulatedOrderVerificationStatus)
     {
-        $this->container['regulated_order_verification_status'] = $regulated_order_verification_status;
+        $this->container['regulatedOrderVerificationStatus'] = $regulatedOrderVerificationStatus;
 
         return $this;
     }
