@@ -250,6 +250,26 @@ rm -rf src/Clients/TokensV20210301
 mv output/TokensV20210301/lib src/Clients/TokensV20210301
 ```
 
+#### Vendor Direct Fulfillment Orders API v1
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/VendorDirectFulfillmentOrdersV1
+openapi-generator-cli generate -i models/vendorDirectFulfillmentOrdersV1.json -g php -o output/VendorDirectFulfillmentOrdersV1 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/VendorDirectFulfillmentOrdersV1
+mv output/VendorDirectFulfillmentOrdersV1/lib src/Clients/VendorDirectFulfillmentOrdersV1
+```
+
+#### Vendor Direct Fulfillment Orders API v2021-12-28
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/VendorDirectFulfillmentOrdersV20211228
+openapi-generator-cli generate -i models/vendorDirectFulfillmentOrders_2021-12-28.json -g php -o output/VendorDirectFulfillmentOrdersV20211228 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/VendorDirectFulfillmentOrdersV20211228
+mv output/VendorDirectFulfillmentOrdersV20211228/lib src/Clients/VendorDirectFulfillmentOrdersV20211228
+```
+
 #### Vendor Direct Fulfillment Payments API v1
 
 ```BASH
