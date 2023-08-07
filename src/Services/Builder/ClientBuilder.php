@@ -159,6 +159,30 @@ class ClientBuilder implements ClientBuilderContract
     }
 
     /**
+     * @return string
+     */
+    public function getApiClassFqn()
+    {
+        return $this->apiClassFqn;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getDomainConfig()
+    {
+        return $this->domainConfig;
+    }
+
+    /**
+     * @return callable|null
+     */
+    public function getRdtProvider()
+    {
+        return $this->rdtProvider;
+    }
+
+    /**
      * @param  ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config  $clientConfig
      * @return ListingsItemsV20200901Config|OrdersV0Config|SupplySourcesV20200701Config|DefinitionsProductTypesV20200901Config|TokensV20210301Config|FeedsV20200904Config|FeedsV20210630Config|ReportsV20200904Config|ReportsV20210630Config
      */

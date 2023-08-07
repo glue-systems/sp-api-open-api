@@ -54,4 +54,19 @@ interface ClientBuilderContract
      * @return SupplySourcesV20200701Api|ListingsItemsV20200901Api|OrdersV0Api|OrdersV0ShipmentApi|DefinitionsProductTypesV20200901Api|TokensV20210301Api|FeedsV20200904Api|FeedsV20210630Api|ReportsV20200904Api|ReportsV20210630Api
      */
     public function createClient();
+
+    /**
+     * @return string
+     */
+    public function getApiClassFqn();
+
+    /**
+     * @return mixed
+     */
+    public function getDomainConfig();
+
+    /**
+     * @return callable|null
+     */
+    public function getRdtProvider();
 }
