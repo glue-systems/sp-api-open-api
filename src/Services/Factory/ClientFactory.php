@@ -22,7 +22,7 @@ use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySou
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
 use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilderContract;
-use Glue\SpApi\OpenAPI\Services\SpApiConfig;
+use Glue\SpApi\OpenAPI\SpApiConfig;
 
 class ClientFactory implements ClientFactoryContract
 {

@@ -4,7 +4,7 @@ namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
 use Aws\Signature\SignatureV4;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceContract;
-use Glue\SpApi\OpenAPI\Services\SpApiConfig;
+use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Handler\CurlHandler;

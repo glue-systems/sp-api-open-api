@@ -4,7 +4,7 @@ namespace Tests\Services;
 
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenRequestException;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
-use Glue\SpApi\OpenAPI\Services\SpApiConfig;
+use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\RequestOptions;

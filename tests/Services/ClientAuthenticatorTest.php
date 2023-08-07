@@ -5,7 +5,7 @@ namespace Tests\Services;
 use Aws\Credentials\CredentialsInterface;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceContract;
-use Glue\SpApi\OpenAPI\Services\SpApiConfig;
+use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Client;
 use Mockery\MockInterface;
 use Psr\SimpleCache\CacheInterface;

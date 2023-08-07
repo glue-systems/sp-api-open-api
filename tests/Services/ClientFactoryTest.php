@@ -4,7 +4,7 @@ namespace Tests\Services;
 
 use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilderContract;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
-use Glue\SpApi\OpenAPI\Services\SpApiConfig;
+use Glue\SpApi\OpenAPI\SpApiConfig;
 use Mockery\MockInterface;
 use Tests\TestCase;
 

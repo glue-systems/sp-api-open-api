@@ -3,7 +3,7 @@
 namespace Glue\SpApi\OpenAPI\Services\Lwa;
 
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenRequestException;
-use Glue\SpApi\OpenAPI\Services\SpApiConfig;
+use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\RequestOptions;
