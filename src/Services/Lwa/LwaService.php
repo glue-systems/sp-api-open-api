@@ -22,7 +22,7 @@ class LwaService implements LwaServiceInterface
     }
 
     /**
-     * Request a new LWA access token.
+     * Request a new Login with Amazon (LWA) access token.
      *
      * @return array
      * @throws LwaAccessTokenRequestException
@@ -39,7 +39,7 @@ class LwaService implements LwaServiceInterface
                 ],
             ]);
         } catch (GuzzleException $ex) {
-            $msg = "Failed to retrieve Login With Amazon (LWA) Access Token: '{$ex->getMessage()}'";
+            $msg = "Failed to retrieve Login with Amazon (LWA) Access Token: '{$ex->getMessage()}'";
             throw new LwaAccessTokenRequestException($msg, 0, $ex);
         }
 

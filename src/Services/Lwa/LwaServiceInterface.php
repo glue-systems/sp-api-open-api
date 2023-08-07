@@ -8,7 +8,7 @@ use GuzzleHttp\ClientInterface;
 interface LwaServiceInterface
 {
     /**
-     * Request a new LWA access token.
+     * Request a new Login with Amazon (LWA) access token.
      *
      * @return array
      * @throws LwaAccessTokenRequestException

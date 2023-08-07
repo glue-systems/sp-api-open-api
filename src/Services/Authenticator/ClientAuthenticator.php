@@ -72,7 +72,7 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
     }
 
     /**
-     * Get the cached LWA access token if it exists, or request a new one
+     * Get the cached Login with Amazon (LWA) access token if it exists, or request a new one
      * and save it in the cache.
      *
      * @return string
