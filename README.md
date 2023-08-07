@@ -230,6 +230,26 @@ rm -rf src/Clients/ReportsV20210630
 mv output/ReportsV20210630/lib src/Clients/ReportsV20210630
 ```
 
+#### Sellers API v1
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/SellersV1
+openapi-generator-cli generate -i models/sellersV1.json -g php -o output/SellersV1 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\SellersV1" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/SellersV1
+mv output/SellersV1/lib src/Clients/SellersV1
+```
+
+#### Services API v1
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/ServicesV1
+openapi-generator-cli generate -i models/servicesV1.json -g php -o output/ServicesV1 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ServicesV1" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/ServicesV1
+mv output/ServicesV1/lib src/Clients/ServicesV1
+```
+
 #### Shipment Invoicing API v0
 
 ```BASH
