@@ -210,6 +210,16 @@ rm -rf src/Clients/OrdersV0
 mv output/OrdersV0/lib src/Clients/OrdersV0
 ```
 
+#### Replenishment API v2022-11-07
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/ReplenishmentV20221107
+openapi-generator-cli generate -i models/replenishment-2022-11-07.json -g php -o output/ReplenishmentV20221107 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/ReplenishmentV20221107
+mv output/ReplenishmentV20221107/lib src/Clients/ReplenishmentV20221107
+```
+
 #### Reports API v2020-09-04
 
 ```BASH
