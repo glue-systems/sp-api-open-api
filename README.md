@@ -250,6 +250,10 @@ rm -rf src/Clients/TokensV20210301
 mv output/TokensV20210301/lib src/Clients/TokensV20210301
 ```
 
+#### Vendor Retail Procurement Orders API v1
+
+_(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
+
 #### Vendor Retail Procurement Shipments API v1
 
 _(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
