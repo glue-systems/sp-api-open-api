@@ -190,6 +190,16 @@ rm -rf src/Clients/FulfillmentInboundV0
 mv output/FulfillmentInboundV0/lib src/Clients/FulfillmentInboundV0
 ```
 
+#### Fulfillment Outbound API v2020-07-01
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/FulfillmentOutboundV20200701
+openapi-generator-cli generate -i models/fulfillmentOutbound_2020-07-01.json -g php -o output/FulfillmentOutboundV20200701 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/FulfillmentOutboundV20200701
+mv output/FulfillmentOutboundV20200701/lib src/Clients/FulfillmentOutboundV20200701
+```
+
 #### Listings Items API v2020-09-01
 
 ```BASH
