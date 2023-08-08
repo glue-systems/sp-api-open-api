@@ -200,6 +200,16 @@ rm -rf src/Clients/ListingsItemsV20200901
 mv output/ListingsItemsV20200901/lib src/Clients/ListingsItemsV20200901
 ```
 
+#### Listings Items API v2021-08-01
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/ListingsItemsV20210801
+openapi-generator-cli generate -i models/listingsItems_2021-08-01.json -g php -o output/ListingsItemsV20210801 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/ListingsItemsV20210801
+mv output/ListingsItemsV20210801/lib src/Clients/ListingsItemsV20210801
+```
+
 #### Listing Restrictions API v2021-08-01
 
 ```BASH
