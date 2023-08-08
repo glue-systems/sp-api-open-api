@@ -324,11 +324,13 @@ class ClientFactory implements ClientFactoryInterface
      * @return MerchantFulfillmentV0Api
      */
     public function createMerchantFulfillmentV0ApiClient(
-        MerchantFulfillmentV0Config $domainConfig = null
+        MerchantFulfillmentV0Config $domainConfig = null,
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(MerchantFulfillmentV0Api::class)
             ->withConfig($domainConfig)
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 
@@ -486,11 +488,13 @@ class ClientFactory implements ClientFactoryInterface
      * @return ShipmentInvoicingV0Api
      */
     public function createShipmentInvoicingV0ApiClient(
-        ShipmentInvoicingV0Config $domainConfig = null
+        ShipmentInvoicingV0Config $domainConfig = null,
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(ShipmentInvoicingV0Api::class)
             ->withConfig($domainConfig)
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 
@@ -546,11 +550,13 @@ class ClientFactory implements ClientFactoryInterface
      * @return VendorDirectFulfillmentOrdersV1Api
      */
     public function createVendorDirectFulfillmentOrdersV1ApiClient(
-        VendorDirectFulfillmentOrdersV1Config $domainConfig = null
+        VendorDirectFulfillmentOrdersV1Config $domainConfig = null,
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(VendorDirectFulfillmentOrdersV1Api::class)
             ->withConfig($domainConfig)
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 
@@ -558,11 +564,13 @@ class ClientFactory implements ClientFactoryInterface
      * @return VendorDirectFulfillmentOrdersV20211228Api
      */
     public function createVendorDirectFulfillmentOrdersV20211228ApiClient(
-        VendorDirectFulfillmentOrdersV20211228Config $domainConfig = null
+        VendorDirectFulfillmentOrdersV20211228Config $domainConfig = null,
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(VendorDirectFulfillmentOrdersV20211228Api::class)
             ->withConfig($domainConfig)
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 
@@ -606,11 +614,13 @@ class ClientFactory implements ClientFactoryInterface
      * @return VendorDirectFulfillmentShippingV1CustomerInvoicesApi
      */
     public function createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient(
-        VendorDirectFulfillmentShippingV1Config $domainConfig = null
+        VendorDirectFulfillmentShippingV1Config $domainConfig = null,
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(VendorDirectFulfillmentShippingV1CustomerInvoicesApi::class)
             ->withConfig($domainConfig)
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 
@@ -618,11 +628,13 @@ class ClientFactory implements ClientFactoryInterface
      * @return VendorDirectFulfillmentShippingV1Api
      */
     public function createVendorDirectFulfillmentShippingV1ApiClient(
-        VendorDirectFulfillmentShippingV1Config $domainConfig = null
+        VendorDirectFulfillmentShippingV1Config $domainConfig = null,
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(VendorDirectFulfillmentShippingV1Api::class)
             ->withConfig($domainConfig)
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 
@@ -630,11 +642,13 @@ class ClientFactory implements ClientFactoryInterface
      * @return VendorDirectFulfillmentShippingV1LabelsApi
      */
     public function createVendorDirectFulfillmentShippingV1LabelsApiClient(
-        VendorDirectFulfillmentShippingV1Config $domainConfig = null
+        VendorDirectFulfillmentShippingV1Config $domainConfig = null,
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(VendorDirectFulfillmentShippingV1LabelsApi::class)
             ->withConfig($domainConfig)
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 
@@ -642,11 +656,13 @@ class ClientFactory implements ClientFactoryInterface
      * @return VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi
      */
     public function createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient(
-        VendorDirectFulfillmentShippingV20211228Config $domainConfig = null
+        VendorDirectFulfillmentShippingV20211228Config $domainConfig = null,
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi::class)
             ->withConfig($domainConfig)
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 
@@ -654,11 +670,13 @@ class ClientFactory implements ClientFactoryInterface
      * @return VendorDirectFulfillmentShippingV20211228Api
      */
     public function createVendorDirectFulfillmentShippingV20211228ApiClient(
-        VendorDirectFulfillmentShippingV20211228Config $domainConfig = null
+        VendorDirectFulfillmentShippingV20211228Config $domainConfig = null,
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(VendorDirectFulfillmentShippingV20211228Api::class)
             ->withConfig($domainConfig)
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 
@@ -666,11 +684,13 @@ class ClientFactory implements ClientFactoryInterface
      * @return VendorDirectFulfillmentShippingV20211228LabelsApi
      */
     public function createVendorDirectFulfillmentShippingV20211228LabelsApiClient(
-        VendorDirectFulfillmentShippingV20211228Config $domainConfig = null
+        VendorDirectFulfillmentShippingV20211228Config $domainConfig = null,
+        callable $rdtProvider = null
     ) {
         return $this->builder
             ->forApi(VendorDirectFulfillmentShippingV20211228LabelsApi::class)
             ->withConfig($domainConfig)
+            ->withRdtProvider($rdtProvider)
             ->createClient();
     }
 
