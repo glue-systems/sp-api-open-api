@@ -7,7 +7,7 @@ use Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Model\ItemEligibilityPrev
 use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
-class FbaInboundApi extends TestCase
+class FbaInboundApiTest extends TestCase
 {
     /**
      * @var SpApi

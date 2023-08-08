@@ -10,7 +10,7 @@ use Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Model\Weight;
 use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
-class EasyShipApi extends TestCase
+class EasyShipApiTest extends TestCase
 {
     /**
      * @var SpApi
