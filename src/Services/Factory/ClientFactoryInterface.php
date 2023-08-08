@@ -43,10 +43,25 @@ use Glue\SpApi\OpenAPI\Clients\NotificationsV1\Configuration as NotificationsV1C
 use Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
 use Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi as OrdersV0ShipmentApi;
 use Glue\SpApi\OpenAPI\Clients\OrdersV0\Configuration as OrdersV0Config;
+use Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi as ProductFeesV0Api;
+use Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Configuration as ProductFeesV0Config;
+use Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Api\ProductPricingApi as ProductPricingV0Api;
+use Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Configuration as ProductPricingV0Config;
+use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi as ReplenishmentV20221107OffersApi;
+use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi as ReplenishmentV20221107SellingpartnersApi;
+use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Configuration as ReplenishmentV20221107Config;
 use Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsV20200904Api;
 use Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Configuration as ReportsV20200904Config;
 use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsV20210630Api;
 use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Configuration as ReportsV20210630Config;
+use Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi as SalesV1Api;
+use Glue\SpApi\OpenAPI\Clients\SalesV1\Configuration as SalesV1Config;
+use Glue\SpApi\OpenAPI\Clients\SellersV1\Api\SellersApi as SellersV1Api;
+use Glue\SpApi\OpenAPI\Clients\SellersV1\Configuration as SellersV1Config;
+use Glue\SpApi\OpenAPI\Clients\ServicesV1\Api\ServiceApi as ServicesV1Api;
+use Glue\SpApi\OpenAPI\Clients\ServicesV1\Configuration as ServicesV1Config;
+use Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi as ShipmentInvoicingV0Api;
+use Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Configuration as ShipmentInvoicingV0Config;
 use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as SupplySourcesV20200701Api;
 use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
@@ -203,6 +218,34 @@ interface ClientFactoryInterface
     );
 
     /**
+     * @return ProductFeesV0Api
+     */
+    public function createProductFeesV0ApiClient(
+        ProductFeesV0Config $domainConfig = null
+    );
+
+    /**
+     * @return ProductPricingV0Api
+     */
+    public function createProductPricingV0ApiClient(
+        ProductPricingV0Config $domainConfig = null
+    );
+
+    /**
+     * @return ReplenishmentV20221107OffersApi
+     */
+    public function createReplenishmentV20221107OffersApiClient(
+        ReplenishmentV20221107Config $domainConfig = null
+    );
+
+    /**
+     * @return ReplenishmentV20221107SellingpartnersApi
+     */
+    public function createReplenishmentV20221107SellingpartnersApiClient(
+        ReplenishmentV20221107Config $domainConfig = null
+    );
+
+    /**
      * @return ReportsV20200904Api
      */
     public function createReportsV20200904ApiClient(
@@ -216,6 +259,34 @@ interface ClientFactoryInterface
     public function createReportsV20210630ApiClient(
         ReportsV20210630Config $domainConfig = null,
         callable $rdtProvider = null
+    );
+
+    /**
+     * @return SalesV1Api
+     */
+    public function createSalesV1ApiClient(
+        SalesV1Config $domainConfig = null
+    );
+
+    /**
+     * @return SellersV1Api
+     */
+    public function createSellersV1ApiClient(
+        SellersV1Config $domainConfig = null
+    );
+
+    /**
+     * @return ServicesV1Api
+     */
+    public function createServicesV1ApiClient(
+        ServicesV1Config $domainConfig = null
+    );
+
+    /**
+     * @return ShipmentInvoicingV0Api
+     */
+    public function createShipmentInvoicingV0ApiClient(
+        ShipmentInvoicingV0Config $domainConfig = null
     );
 
     /**
