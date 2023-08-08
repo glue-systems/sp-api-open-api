@@ -32,9 +32,12 @@ class AplusContentApiTest extends TestCase
                 $this->spApi->getSpApiConfig()->marketplaceId
             );
         } catch (ApiException $ex) {
-            $response = $ex->getResponseBody();
-            if ($response instanceof Stream) {
-                $contents = $response->getContents();
+            $body = $ex->getResponseBody();
+            if ($body instanceof Stream) {
+                $contents = $body->getContents();
+            }
+            if ($ex->getCode() !== 400) {
+                throw $ex;
             }
             $this->markTestSkipped('Sandbox not yet available for A+ Content Management API.');
         }
