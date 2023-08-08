@@ -100,7 +100,7 @@ mv output/CatalogItemsV20201201/lib src/Clients/CatalogItemsV20201201
 
 _(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
 
-#### Definitions Product Types API v2020-09-01 (AKA Product Type Definitions API v2020-09-01)
+#### Product Type Definitions API v2020-09-01
 
 ```BASH
 cd path/to/your/sp-api-open-api
@@ -198,6 +198,16 @@ rm -rf output/ListingsItemsV20200901
 openapi-generator-cli generate -i models/listingsItems_2020-09-01.json -g php -o output/ListingsItemsV20200901 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901" --additional-properties=variableNamingConvention=camelCase
 rm -rf src/Clients/ListingsItemsV20200901
 mv output/ListingsItemsV20200901/lib src/Clients/ListingsItemsV20200901
+```
+
+#### Listing Restrictions API v2021-08-01
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/ListingsRestrictionsV20210801
+openapi-generator-cli generate -i models/listingsRestrictions_2021-08-01.json -g php -o output/ListingsRestrictionsV20210801 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/ListingsRestrictionsV20210801
+mv output/ListingsRestrictionsV20210801/lib src/Clients/ListingsRestrictionsV20210801
 ```
 
 #### Merchant Fulfillment API v0
