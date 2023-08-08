@@ -66,6 +66,33 @@ use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as Su
 use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Configuration as SupplySourcesV20200701Config;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Configuration as TokensV20210301Config;
+use Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Api\UploadsApi as UploadsV20201101Api;
+use Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Configuration as UploadsV20201101Config;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi as VendorDirectFulfillmentInventoryV1Api;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Configuration as VendorDirectFulfillmentInventoryV1Config;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Api\VendorOrdersApi as VendorDirectFulfillmentOrdersV1Api;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Configuration as VendorDirectFulfillmentOrdersV1Config;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi as VendorDirectFulfillmentOrdersV20211228Api;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Configuration as VendorDirectFulfillmentOrdersV20211228Config;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Api\VendorInvoiceApi as VendorDirectFulfillmentPaymentsV1Api;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Configuration as VendorDirectFulfillmentPaymentsV1Config;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxApi as VendorDirectFulfillmentSandboxDataV20211228Api;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi as VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Configuration as VendorDirectFulfillmentSandboxDataV20211228Config;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi as VendorDirectFulfillmentShippingV1CustomerInvoicesApi;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi as VendorDirectFulfillmentShippingV1Api;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi as VendorDirectFulfillmentShippingV1LabelsApi;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Configuration as VendorDirectFulfillmentShippingV1Config;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi as VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi as VendorDirectFulfillmentShippingV20211228Api;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi as VendorDirectFulfillmentShippingV20211228LabelsApi;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Configuration as VendorDirectFulfillmentShippingV20211228Config;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi as VendorDirectFulfillmentTransactionsV1Api;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Configuration as VendorDirectFulfillmentTransactionsV1Config;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi as VendorDirectFulfillmentTransactionsV20211228Api;
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Configuration as VendorDirectFulfillmentTransactionsV20211228Config;
+use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi as VendorTransactionStatusV1Api;
+use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Configuration as VendorTransactionStatusV1Config;
 use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilderInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 
@@ -487,6 +514,198 @@ class ClientFactory implements ClientFactoryInterface
     ) {
         return $this->builder
             ->forApi(TokensV20210301Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return UploadsV20201101Api
+     */
+    public function createUploadsV20201101ApiClient(
+        UploadsV20201101Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(UploadsV20201101Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentInventoryV1Api
+     */
+    public function createVendorDirectFulfillmentInventoryV1ApiClient(
+        VendorDirectFulfillmentInventoryV1Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentInventoryV1Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentOrdersV1Api
+     */
+    public function createVendorDirectFulfillmentOrdersV1ApiClient(
+        VendorDirectFulfillmentOrdersV1Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentOrdersV1Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentOrdersV20211228Api
+     */
+    public function createVendorDirectFulfillmentOrdersV20211228ApiClient(
+        VendorDirectFulfillmentOrdersV20211228Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentOrdersV20211228Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentPaymentsV1Api
+     */
+    public function createVendorDirectFulfillmentPaymentsV1ApiClient(
+        VendorDirectFulfillmentPaymentsV1Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentPaymentsV1Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentSandboxDataV20211228Api
+     */
+    public function createVendorDirectFulfillmentSandboxDataV20211228ApiClient(
+        VendorDirectFulfillmentSandboxDataV20211228Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentSandboxDataV20211228Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi
+     */
+    public function createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient(
+        VendorDirectFulfillmentSandboxDataV20211228Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentShippingV1CustomerInvoicesApi
+     */
+    public function createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient(
+        VendorDirectFulfillmentShippingV1Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentShippingV1CustomerInvoicesApi::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentShippingV1Api
+     */
+    public function createVendorDirectFulfillmentShippingV1ApiClient(
+        VendorDirectFulfillmentShippingV1Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentShippingV1Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentShippingV1LabelsApi
+     */
+    public function createVendorDirectFulfillmentShippingV1LabelsApiClient(
+        VendorDirectFulfillmentShippingV1Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentShippingV1LabelsApi::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi
+     */
+    public function createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient(
+        VendorDirectFulfillmentShippingV20211228Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentShippingV20211228Api
+     */
+    public function createVendorDirectFulfillmentShippingV20211228ApiClient(
+        VendorDirectFulfillmentShippingV20211228Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentShippingV20211228Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentShippingV20211228LabelsApi
+     */
+    public function createVendorDirectFulfillmentShippingV20211228LabelsApiClient(
+        VendorDirectFulfillmentShippingV20211228Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentShippingV20211228LabelsApi::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentTransactionsV1Api
+     */
+    public function createVendorDirectFulfillmentTransactionsV1ApiClient(
+        VendorDirectFulfillmentTransactionsV1Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentTransactionsV1Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorDirectFulfillmentTransactionsV20211228Api
+     */
+    public function createVendorDirectFulfillmentTransactionsV20211228ApiClient(
+        VendorDirectFulfillmentTransactionsV20211228Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorDirectFulfillmentTransactionsV20211228Api::class)
+            ->withConfig($domainConfig)
+            ->createClient();
+    }
+
+    /**
+     * @return VendorTransactionStatusV1Api
+     */
+    public function createVendorTransactionStatusV1ApiClient(
+        VendorTransactionStatusV1Config $domainConfig = null
+    ) {
+        return $this->builder
+            ->forApi(VendorTransactionStatusV1Api::class)
             ->withConfig($domainConfig)
             ->createClient();
     }
