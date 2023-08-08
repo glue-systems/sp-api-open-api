@@ -25,7 +25,7 @@ class AplusContentApiTest extends TestCase
 
     public function test_searchContentDocuments()
     {
-        $aplusContentApi  = $this->spApi->aplusContentV20201101();
+        $aplusContentApi = $this->spApi->aplusContentV20201101();
 
         try {
             $result = $aplusContentApi->searchContentDocumentsWithHttpInfo(
@@ -39,7 +39,7 @@ class AplusContentApiTest extends TestCase
             if ($ex->getCode() !== 400) {
                 throw $ex;
             }
-            $this->markTestSkipped('Sandbox not yet available for A+ Content Management API.');
+            $this->markTestSkipped('Sandbox not yet available for A+ Content Management API v2020-11-01.');
         }
 
         /**
