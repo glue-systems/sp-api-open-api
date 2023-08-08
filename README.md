@@ -200,6 +200,20 @@ rm -rf src/Clients/ListingsItemsV20200901
 mv output/ListingsItemsV20200901/lib src/Clients/ListingsItemsV20200901
 ```
 
+#### Messaging API v1
+
+_(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
+
+#### Notifications API v1
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/NotificationsV1
+openapi-generator-cli generate -i models/notificationsV1.json -g php -o output/NotificationsV1 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\NotificationsV1" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/NotificationsV1
+mv output/NotificationsV1/lib src/Clients/NotificationsV1
+```
+
 #### Orders API v0
 
 ```BASH
