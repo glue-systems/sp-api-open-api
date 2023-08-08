@@ -200,6 +200,16 @@ rm -rf src/Clients/ListingsItemsV20200901
 mv output/ListingsItemsV20200901/lib src/Clients/ListingsItemsV20200901
 ```
 
+#### Merchant Fulfillment API v0
+
+```BASH
+cd path/to/your/sp-api-open-api
+rm -rf output/MerchantFulfillmentV0
+openapi-generator-cli generate -i models/merchantFulfillmentV0.json -g php -o output/MerchantFulfillmentV0 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\MerchantFulfillmentV0" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/MerchantFulfillmentV0
+mv output/MerchantFulfillmentV0/lib src/Clients/MerchantFulfillmentV0
+```
+
 #### Messaging API v1
 
 _(Not included; latest JSON schema incompatible with this version of OpenAPI Generator CLI)_
