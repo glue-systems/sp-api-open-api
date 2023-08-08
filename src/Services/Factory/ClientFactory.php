@@ -135,7 +135,7 @@ class ClientFactory implements ClientFactoryInterface
         AuthorizationV1Config $domainConfig = null
     ) {
         return $this->builder
-            ->forApi(AplusContentV20201101Api::class)
+            ->forApi(AuthorizationV1Api::class)
             ->withConfig($domainConfig)
             ->createClient();
     }
