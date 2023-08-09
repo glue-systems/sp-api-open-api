@@ -32,7 +32,7 @@ class FeesApiTest extends TestCase
     {
         $feesApi = $this->spApi->productFeesV0();
 
-        $result = $feesApi->getMyFeesEstimateForASINWithHttpInfo(
+        $result = $feesApi->getMyFeesEstimateForSKUWithHttpInfo(
             'FAKE-SKU-123',
             new GetMyFeesEstimateRequest([
                 'feesEstimateRequest' => new FeesEstimateRequest([
