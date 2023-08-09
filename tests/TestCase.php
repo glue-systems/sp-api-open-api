@@ -17,6 +17,8 @@ use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
 use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProvider;
 use Glue\SpApi\OpenAPI\SpApiConfig;
+use GuzzleHttp\Psr7\Stream;
+use PHPUnit_Framework_SkippedTestError;
 // TODO: Switch to this after upgrading.
 // use PHPUnit\Framework\TestCase as BaseTestCase;
 use \PHPUnit_Framework_TestCase as BaseTestCase;
@@ -117,5 +119,31 @@ class TestCase extends BaseTestCase
             'debugDomainApiCall'    => env('DEBUG_DOMAIN_API_CALL', false),
             'debugOAuthApiCall'     => env('DEBUG_O_AUTH_API_CALL', false),
         ]);
+    }
+
+    /**
+     * @param string $apiExceptionType
+     * @param callable $callback
+     * @return mixed
+     * @throws PHPUnit_Framework_SkippedTestError
+     */
+    public function tryButSkipIfUnauthorized($apiExceptionType, callable $callback)
+    {
+        try {
+            return $callback();
+        } catch (\Exception $ex) {
+            if (!$ex instanceof $apiExceptionType) {
+                throw $ex;
+            }
+            $body = $ex->getResponseBody();
+            if ($body instanceof Stream) {
+                // For ease in inspecting contents while debugging.
+                $contents = $body->getContents();
+            }
+            if ($ex->getCode() === 403) {
+                $this->markTestSkipped('[403] Unauthorized, possibly due to Developer Account settings on Seller Central.');
+            }
+            throw $ex;
+        }
     }
 }

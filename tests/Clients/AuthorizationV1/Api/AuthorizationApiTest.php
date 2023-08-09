@@ -5,7 +5,6 @@ namespace Tests\Clients\AuthorizationV1\Api;
 use Glue\SpApi\OpenAPI\Clients\AuthorizationV1\ApiException;
 use Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Model\GetAuthorizationCodeResponse;
 use Glue\SpApi\OpenAPI\Container\SpApi;
-use GuzzleHttp\Psr7\Stream;
 use Tests\TestCase;
 
 class AuthorizationApiTest extends TestCase
@@ -24,24 +23,14 @@ class AuthorizationApiTest extends TestCase
 
     public function test_cancelServiceJobByServiceJobId()
     {
-        $serviceApi = $this->spApi->authorizationV1();
-
-        try {
-            $result = $serviceApi->getAuthorizationCodeWithHttpInfo(
+        $result = $this->tryButSkipIfUnauthorized(ApiException::class, function () {
+            $serviceApi = $this->spApi->authorizationV1();
+            return $serviceApi->getAuthorizationCodeWithHttpInfo(
                 'foo',
                 'foo',
                 'foo'
             );
-        } catch (ApiException $ex) {
-            $body = $ex->getResponseBody();
-            if ($body instanceof Stream) {
-                $contents = $body->getContents();
-            }
-            if ($ex->getCode() === 403) {
-                $this->markTestSkipped('Unauthorized, possibly due to Developer Account settings on Seller Central.');
-            }
-            throw $ex;
-        }
+        });
 
         /**
          * @var GetAuthorizationCodeResponse $response
