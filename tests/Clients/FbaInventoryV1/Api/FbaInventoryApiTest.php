@@ -22,7 +22,7 @@ class FbaInventoryApiTest extends TestCase
         $this->spApi = $this->buildSpApiContainer();
     }
 
-    public function test_searchContentDocuments()
+    public function test_getInventorySummaries()
     {
         $fbaInventoryApi = $this->spApi->fbaInventoryV1();
 

@@ -22,7 +22,7 @@ class FinancesApiTest extends TestCase
         $this->spApi = $this->buildSpApiContainer();
     }
 
-    public function test_searchContentDocuments()
+    public function test_listFinancialEventGroups()
     {
         $financesApi = $this->spApi->financesV0();
 

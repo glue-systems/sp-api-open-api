@@ -21,7 +21,7 @@ class SmallAndLightApiTest extends TestCase
         $this->spApi = $this->buildSpApiContainer();
     }
 
-    public function test_searchContentDocuments()
+    public function test_getSmallAndLightEnrollmentBySellerSKU()
     {
         $smallAndLightApi = $this->spApi->fbaSmallAndLightV1();
 

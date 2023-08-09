@@ -24,7 +24,7 @@ class EasyShipApiTest extends TestCase
         $this->spApi = $this->buildSpApiContainer();
     }
 
-    public function test_searchContentDocuments()
+    public function test_listHandoverSlots()
     {
         $easyShipApi = $this->spApi->easyShipV20220323();
 

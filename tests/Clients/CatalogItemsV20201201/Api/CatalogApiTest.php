@@ -21,7 +21,7 @@ class CatalogApiTest extends TestCase
         $this->spApi = $this->buildSpApiContainer();
     }
 
-    public function test_searchContentDocuments()
+    public function test_searchCatalogItems()
     {
         $catalogApi = $this->spApi->catalogItemsV20201201();
 

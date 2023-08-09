@@ -22,7 +22,7 @@ class FbaInboundApiTest extends TestCase
         $this->spApi = $this->buildSpApiContainer();
     }
 
-    public function test_searchContentDocuments()
+    public function test_getInboundGuidance()
     {
         $fbaInboundApi = $this->spApi->fulfillmentInboundV0();
 
