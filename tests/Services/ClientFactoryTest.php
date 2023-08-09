@@ -28,14 +28,38 @@ class ClientFactoryTest extends TestCase
         $this->spApiConfig = \Mockery::mock(SpApiConfig::class);
     }
 
-    public function test_createSupplySourcesV20200701ApiClient()
+    public function test_createDefinitionsProductTypesV20200901ApiClient()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi();
+        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Configuration();
+        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi();
         $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
 
         $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createSupplySourcesV20200701ApiClient($domainConfig);
+        $actualApiClient = $sut->createDefinitionsProductTypesV20200901ApiClient($domainConfig);
+
+        $this->assertEquals($expectedApiClient, $actualApiClient);
+    }
+
+    public function test_createFeedsV20200904ApiClient()
+    {
+        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Configuration();
+        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi();
+        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
+
+        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $actualApiClient = $sut->createFeedsV20200904ApiClient($domainConfig);
+
+        $this->assertEquals($expectedApiClient, $actualApiClient);
+    }
+
+    public function test_createFeedsV20210630ApiClient()
+    {
+        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Configuration();
+        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi();
+        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
+
+        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $actualApiClient = $sut->createFeedsV20210630ApiClient($domainConfig);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
     }
@@ -80,54 +104,6 @@ class ClientFactoryTest extends TestCase
         $this->assertEquals($expectedApiClient, $actualApiClient);
     }
 
-    public function test_createDefinitionsProductTypesV20200901ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createDefinitionsProductTypesV20200901ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createTokensV20210301ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Configuration;
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createTokensV20210301ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createFeedsV20200904ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createFeedsV20200904ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createFeedsV20210630ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createFeedsV20210630ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
     public function test_createReportsV20200904ApiClient()
     {
         $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Configuration();
@@ -156,6 +132,30 @@ class ClientFactoryTest extends TestCase
 
         $sut             = new ClientFactory($this->builder, $this->spApiConfig);
         $actualApiClient = $sut->createReportsV20210630ApiClient($domainConfig, $rdtProvider);
+
+        $this->assertEquals($expectedApiClient, $actualApiClient);
+    }
+
+    public function test_createSupplySourcesV20200701ApiClient()
+    {
+        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Configuration();
+        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi();
+        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
+
+        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $actualApiClient = $sut->createSupplySourcesV20200701ApiClient($domainConfig);
+
+        $this->assertEquals($expectedApiClient, $actualApiClient);
+    }
+
+    public function test_createTokensV20210301ApiClient()
+    {
+        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Configuration;
+        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi();
+        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
+
+        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
+        $actualApiClient = $sut->createTokensV20210301ApiClient($domainConfig);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
     }
