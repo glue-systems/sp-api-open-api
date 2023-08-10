@@ -2,7 +2,7 @@
 
 namespace Tests\Services;
 
-use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenRequestException;
+use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\ClientInterface;
@@ -80,7 +80,7 @@ class LwaServiceTest extends TestCase
         $this->assertEquals($actualParsedResponse, $expectedParsedResponse);
     }
 
-    public function test_requestNewLwaAccessToken_throws_LwaAccessTokenRequestException()
+    public function test_requestNewLwaAccessToken_throws_LwaAccessTokenException()
     {
         $expectedExceptionMessage = 'fake exception';
 
@@ -91,7 +91,7 @@ class LwaServiceTest extends TestCase
 
         $sut = new LwaService($this->spApiConfig);
 
-        $this->expectException(LwaAccessTokenRequestException::class);
+        $this->expectException(LwaAccessTokenException::class);
         $this->expectExceptionMessage($expectedExceptionMessage);
         $sut->requestNewLwaAccessToken($this->guzzleClient);
     }

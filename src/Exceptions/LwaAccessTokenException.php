@@ -2,7 +2,7 @@
 
 namespace Glue\SpApi\OpenAPI\Exceptions;
 
-class ClientBuilderException extends \Exception
+class LwaAccessTokenException extends \Exception
 {
     /**
      * @param string $message

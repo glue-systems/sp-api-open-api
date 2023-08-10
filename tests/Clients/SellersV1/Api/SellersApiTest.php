@@ -27,18 +27,7 @@ class SellersApiTest extends TestCase
     {
         $sellersApi = $this->spApi->sellersV1();
 
-        try {
-            $result = $sellersApi->getMarketplaceParticipationsWithHttpInfo();
-        } catch (ApiException $ex) {
-            $body = $ex->getResponseBody();
-            if ($body instanceof Stream) {
-                $contents = $body->getContents();
-            }
-            if ($ex->getCode() !== 400) {
-                throw $ex;
-            }
-            $this->markTestSkipped('Sandbox not yet available for A+ Content Management API v2020-11-01.');
-        }
+        $result = $sellersApi->getMarketplaceParticipationsWithHttpInfo();
 
         /**
          * @var GetMarketplaceParticipationsResponse $response

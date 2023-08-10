@@ -23,9 +23,9 @@ class AuthorizationApiTest extends TestCase
 
     public function test_cancelServiceJobByServiceJobId()
     {
-        $result = $this->tryButSkipIfUnauthorized(ApiException::class, function () {
-            $serviceApi = $this->spApi->authorizationV1();
-            return $serviceApi->getAuthorizationCodeWithHttpInfo(
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            $authorizationApi = $this->spApi->authorizationV1();
+            return $authorizationApi->getAuthorizationCodeWithHttpInfo(
                 'foo',
                 'foo',
                 'foo'

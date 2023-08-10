@@ -23,7 +23,7 @@ class ServiceApiTest extends TestCase
 
     public function test_cancelServiceJobByServiceJobId()
     {
-        $result = $this->tryButSkipIfUnauthorized(ApiException::class, function () {
+        $result = $this->tryButSkipIfUnauthorized(function () {
             $serviceApi = $this->spApi->servicesV1();
             return $serviceApi->cancelServiceJobByServiceJobIdWithHttpInfo(
                 'validJobId-48b6d5a3-b708-dbe9-038d-dd95e8d74iut',

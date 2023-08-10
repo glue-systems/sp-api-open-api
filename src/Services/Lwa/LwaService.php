@@ -2,7 +2,7 @@
 
 namespace Glue\SpApi\OpenAPI\Services\Lwa;
 
-use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenRequestException;
+use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
@@ -25,7 +25,7 @@ class LwaService implements LwaServiceInterface
      * Request a new Login with Amazon (LWA) access token.
      *
      * @return array
-     * @throws LwaAccessTokenRequestException
+     * @throws LwaAccessTokenException
      */
     public function requestNewLwaAccessToken(ClientInterface $guzzleClient)
     {
@@ -40,7 +40,7 @@ class LwaService implements LwaServiceInterface
             ]);
         } catch (GuzzleException $ex) {
             $msg = "Failed to retrieve Login with Amazon (LWA) Access Token: '{$ex->getMessage()}'";
-            throw new LwaAccessTokenRequestException($msg, 0, $ex);
+            throw new LwaAccessTokenException($msg, 0, $ex);
         }
 
         return json_decode($response->getBody()->getContents(), true);

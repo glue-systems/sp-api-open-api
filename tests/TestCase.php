@@ -11,6 +11,8 @@ use Dotenv\Environment\Adapter\ServerConstAdapter;
 use Dotenv\Environment\DotenvFactory;
 use Dotenv\Exception\InvalidFileException;
 use Glue\SpApi\OpenAPI\Container\SpApi;
+use Glue\SpApi\OpenAPI\Container\SpApiRoster;
+use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
 use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
@@ -122,26 +124,19 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * @param string $apiExceptionType
      * @param callable $callback
      * @return mixed
      * @throws PHPUnit_Framework_SkippedTestError
      */
-    public function tryButSkipIfUnauthorized($apiExceptionType, callable $callback)
+    public function tryButSkipIfUnauthorized(callable $callback)
     {
         try {
             return $callback();
         } catch (\Exception $ex) {
-            if (!$ex instanceof $apiExceptionType) {
-                throw $ex;
-            }
-            $body = $ex->getResponseBody();
-            if ($body instanceof Stream) {
-                // For ease in inspecting contents while debugging.
-                $contents = $body->getContents();
-            }
-            if ($ex->getCode() === 403) {
-                $this->markTestSkipped('[403] Unauthorized, possibly due to Developer Account settings on Seller Central.');
+            if ($ex instanceof DomainApiException || SpApiRoster::isApiException($ex)) {
+                if ($ex->getCode() === 403) {
+                    $this->markTestSkipped('[403] Unauthorized, possibly due to Developer Account settings on Seller Central.');
+                }
             }
             throw $ex;
         }

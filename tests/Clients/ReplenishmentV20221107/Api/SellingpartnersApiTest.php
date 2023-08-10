@@ -33,34 +33,23 @@ class SellingpartnersApiTest extends TestCase
     {
         $sellingpartnersApi = $this->spApi->replenishmentV20221107Sellingpartners();
 
-        try {
-            $result = $sellingpartnersApi->getSellingPartnerMetricsWithHttpInfo(
-                new GetSellingPartnerMetricsRequest([
-                    'aggregationFrequency' => AggregationFrequency::YEAR,
-                    'timeInterval'         => new TimeInterval([
-                        'startDate' => '2022-01-01T00:00:00Z',
-                        'endDate'   => '2022-12-31T00:00:00Z',
-                    ]),
-                    'metrics'          => [
-                        Metric::TOTAL_SUBSCRIPTIONS_REVENUE,
-                    ],
-                    'timePeriodType' => TimePeriodType::PERFORMANCE,
-                    'marketplaceId' => 'ATVPDKIKX0DER',
-                    'programTypes'  => [
-                        ProgramType::SUBSCRIBE_AND_SAVE,
-                    ],
-                ])
-            );
-        } catch (ApiException $ex) {
-            $body = $ex->getResponseBody();
-            if ($body instanceof Stream) {
-                $contents = $body->getContents();
-            }
-            if ($ex->getCode() !== 400) {
-                throw $ex;
-            }
-            $this->markTestSkipped('Sandbox not yet available for A+ Content Management API v2020-11-01.');
-        }
+        $result = $sellingpartnersApi->getSellingPartnerMetricsWithHttpInfo(
+            new GetSellingPartnerMetricsRequest([
+                'aggregationFrequency' => AggregationFrequency::YEAR,
+                'timeInterval'         => new TimeInterval([
+                    'startDate' => '2022-01-01T00:00:00Z',
+                    'endDate'   => '2022-12-31T00:00:00Z',
+                ]),
+                'metrics'          => [
+                    Metric::TOTAL_SUBSCRIPTIONS_REVENUE,
+                ],
+                'timePeriodType' => TimePeriodType::PERFORMANCE,
+                'marketplaceId' => 'ATVPDKIKX0DER',
+                'programTypes'  => [
+                    ProgramType::SUBSCRIBE_AND_SAVE,
+                ],
+            ])
+        );
 
         /**
          * @var GetSellingPartnerMetricsResponse $response

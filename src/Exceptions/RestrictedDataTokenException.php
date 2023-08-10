@@ -2,7 +2,7 @@
 
 namespace Glue\SpApi\OpenAPI\Exceptions;
 
-class ClientBuilderException extends \Exception
+class RestrictedDataTokenException extends \Exception
 {
     /**
      * @param string $message

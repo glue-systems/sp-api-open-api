@@ -93,64 +93,13 @@ use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Configuration as VendorDirectFulfillmentTransactionsV20211228Config;
 use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi as VendorTransactionStatusV1Api;
 use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Configuration as VendorTransactionStatusV1Config;
+use Glue\SpApi\OpenAPI\Container\SpApiRoster;
 use Glue\SpApi\OpenAPI\Exceptions\ClientBuilderException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 
 class ClientBuilder implements ClientBuilderInterface
 {
-    const API_TO_CONFIG_FQN_MAPS = [
-        AplusContentV20201101Api::class                                         => AplusContentV20201101Config::class,
-        AuthorizationV1Api::class                                               => AuthorizationV1Config::class,
-        CatalogItemsV0Api::class                                                => CatalogItemsV0Config::class,
-        CatalogItemsV20201201Api::class                                         => CatalogItemsV20201201Config::class,
-        DefinitionsProductTypesV20200901Api::class                              => DefinitionsProductTypesV20200901Config::class,
-        EasyShipV20220323Api::class                                             => EasyShipV20220323Config::class,
-        FbaInboundEligibilityV1Api::class                                       => FbaInboundEligibilityV1Config::class,
-        FbaInventoryV1Api::class                                                => FbaInventoryV1Config::class,
-        FbaSmallAndLightV1Api::class                                            => FbaSmallAndLightV1Config::class,
-        FeedsV20200904Api::class                                                => FeedsV20200904Config::class,
-        FeedsV20210630Api::class                                                => FeedsV20210630Config::class,
-        FinancesV0Api::class                                                    => FinancesV0Config::class,
-        FulfillmentInboundV0Api::class                                          => FulfillmentInboundV0Config::class,
-        FulfillmentOutboundV20200701Api::class                                  => FulfillmentOutboundV20200701Config::class,
-        ListingsItemsV20200901Api::class                                        => ListingsItemsV20200901Config::class,
-        ListingsItemsV20210801Api::class                                        => ListingsItemsV20210801Config::class,
-        ListingsRestrictionsV20210801Api::class                                 => ListingsRestrictionsV20210801Config::class,
-        MerchantFulfillmentV0Api::class                                         => MerchantFulfillmentV0Config::class,
-        NotificationsV1Api::class                                               => NotificationsV1Config::class,
-        OrdersV0Api::class                                                      => OrdersV0Config::class,
-        OrdersV0ShipmentApi::class                                              => OrdersV0Config::class,
-        ProductFeesV0Api::class                                                 => ProductFeesV0Config::class,
-        ProductPricingV0Api::class                                              => ProductPricingV0Config::class,
-        ReplenishmentV20221107OffersApi::class                                  => ReplenishmentV20221107Config::class,
-        ReplenishmentV20221107SellingpartnersApi::class                         => ReplenishmentV20221107Config::class,
-        ReportsV20200904Api::class                                              => ReportsV20200904Config::class,
-        ReportsV20210630Api::class                                              => ReportsV20210630Config::class,
-        SalesV1Api::class                                                       => SalesV1Config::class,
-        SellersV1Api::class                                                     => SellersV1Config::class,
-        ServicesV1Api::class                                                    => ServicesV1Config::class,
-        ShipmentInvoicingV0Api::class                                           => ShipmentInvoicingV0Config::class,
-        SupplySourcesV20200701Api::class                                        => SupplySourcesV20200701Config::class,
-        TokensV20210301Api::class                                               => TokensV20210301Config::class,
-        UploadsV20201101Api::class                                              => UploadsV20201101Config::class,
-        VendorDirectFulfillmentInventoryV1Api::class                            => VendorDirectFulfillmentInventoryV1Config::class,
-        VendorDirectFulfillmentOrdersV1Api::class                               => VendorDirectFulfillmentOrdersV1Config::class,
-        VendorDirectFulfillmentOrdersV20211228Api::class                        => VendorDirectFulfillmentOrdersV20211228Config::class,
-        VendorDirectFulfillmentPaymentsV1Api::class                             => VendorDirectFulfillmentPaymentsV1Config::class,
-        VendorDirectFulfillmentSandboxDataV20211228Api::class                   => VendorDirectFulfillmentSandboxDataV20211228Config::class,
-        VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi::class  => VendorDirectFulfillmentSandboxDataV20211228Config::class,
-        VendorDirectFulfillmentShippingV1CustomerInvoicesApi::class             => VendorDirectFulfillmentShippingV1Config::class,
-        VendorDirectFulfillmentShippingV1Api::class                             => VendorDirectFulfillmentShippingV1Config::class,
-        VendorDirectFulfillmentShippingV1LabelsApi::class                       => VendorDirectFulfillmentShippingV1Config::class,
-        VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi::class      => VendorDirectFulfillmentShippingV20211228Config::class,
-        VendorDirectFulfillmentShippingV20211228Api::class                      => VendorDirectFulfillmentShippingV20211228Config::class,
-        VendorDirectFulfillmentShippingV20211228LabelsApi::class                => VendorDirectFulfillmentShippingV20211228Config::class,
-        VendorDirectFulfillmentTransactionsV1Api::class                         => VendorDirectFulfillmentTransactionsV1Config::class,
-        VendorDirectFulfillmentTransactionsV20211228Api::class                  => VendorDirectFulfillmentTransactionsV20211228Config::class,
-        VendorTransactionStatusV1Api::class                                     => VendorTransactionStatusV1Config::class,
-    ];
-
     /**
      * @var ClientAuthenticatorInterface
      */
@@ -195,11 +144,11 @@ class ClientBuilder implements ClientBuilderInterface
      */
     public function forApi($apiClassFqn)
     {
-        if (!array_key_exists($apiClassFqn, self::API_TO_CONFIG_FQN_MAPS)) {
+        if (!SpApiRoster::isValidApiClassFqn($apiClassFqn)) {
             throw new ClientBuilderException("Invalid API class FQN [{$apiClassFqn}]: Must be"
-                . " one of: " . implode(', ', array_keys(self::API_TO_CONFIG_FQN_MAPS)) . ".");
+                . " one of: " . implode(', ', SpApiRoster::allApiClassFqns()) . ".");
         }
-        $domainConfigClassFqn = self::API_TO_CONFIG_FQN_MAPS[$apiClassFqn];
+        $domainConfigClassFqn = SpApiRoster::getDomainConfigFromApiClassFqn($apiClassFqn);
 
         $this->apiClassFqn  = $apiClassFqn;
         $this->domainConfig = new $domainConfigClassFqn();
@@ -224,10 +173,10 @@ class ClientBuilder implements ClientBuilderInterface
             return $this;
         }
 
-        $expectedConfigClass = self::API_TO_CONFIG_FQN_MAPS[$this->apiClassFqn];
-        if (!$domainConfig instanceof $expectedConfigClass) {
+        $expectedConfigClassFqn = SpApiRoster::getDomainConfigFromApiClassFqn($this->apiClassFqn);
+        if (!$domainConfig instanceof $expectedConfigClassFqn) {
             throw new ClientBuilderException("Invalid configuartion class [" . get_class($domainConfig) . "]"
-                . " for API [{$this->apiClassFqn}]: Expected instance of [{$expectedConfigClass}].");
+                . " for API [{$this->apiClassFqn}]: Expected instance of [{$expectedConfigClassFqn}].");
         }
 
         $this->domainConfig = $domainConfig;
@@ -250,20 +199,10 @@ class ClientBuilder implements ClientBuilderInterface
      * Create the API client according to the values set up in this builder instance.
      *
      * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
-     * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
-     * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
-     * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
-     * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
-     * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
-     * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
-     * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
-     * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
-     * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
-     * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
      */
     public function createClient()
     {
-        $this->_validateReadyToCreate();
+        $this->_throwIfNotReadyToCreate();
 
         if ($this->rdtProvider) {
             $restrictedDataToken = call_user_func($this->rdtProvider);
@@ -316,7 +255,7 @@ class ClientBuilder implements ClientBuilderInterface
         return $domainConfig;
     }
 
-    protected function _validateReadyToCreate()
+    protected function _throwIfNotReadyToCreate()
     {
         if (!isset($this->apiClassFqn)) {
             throw new ClientBuilderException("Builder not ready to create: Target API has not yet been set.");

@@ -2,7 +2,7 @@
 
 namespace Glue\SpApi\OpenAPI\Exceptions;
 
-class ClientBuilderException extends \Exception
+class DomainApiException extends \Exception
 {
     /**
      * @param string $message
