@@ -2,7 +2,6 @@
 
 namespace Tests\Clients\ReplenishmentV20221107\Api;
 
-use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\ApiException;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\AggregationFrequency;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\GetSellingPartnerMetricsRequest;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\GetSellingPartnerMetricsResponse;
@@ -12,7 +11,6 @@ use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\ProgramType;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\TimeInterval;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\TimePeriodType;
 use Glue\SpApi\OpenAPI\Container\SpApi;
-use GuzzleHttp\Psr7\Stream;
 use Tests\TestCase;
 
 class SellingpartnersApiTest extends TestCase

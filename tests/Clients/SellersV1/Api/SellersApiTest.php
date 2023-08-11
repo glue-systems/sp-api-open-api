@@ -2,11 +2,9 @@
 
 namespace Tests\Clients\SellersV1\Api;
 
-use Glue\SpApi\OpenAPI\Clients\SellersV1\ApiException;
 use Glue\SpApi\OpenAPI\Clients\SellersV1\Model\GetMarketplaceParticipationsResponse;
 use Glue\SpApi\OpenAPI\Clients\SellersV1\Model\MarketplaceParticipation;
 use Glue\SpApi\OpenAPI\Container\SpApi;
-use GuzzleHttp\Psr7\Stream;
 use Tests\TestCase;
 
 class SellersApiTest extends TestCase

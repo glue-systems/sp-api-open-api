@@ -2,11 +2,9 @@
 
 namespace Tests\Clients\NotificationsV1\Api;
 
-use Glue\SpApi\OpenAPI\Clients\NotificationsV1\ApiException;
 use Glue\SpApi\OpenAPI\Clients\NotificationsV1\Model\GetSubscriptionResponse;
 use Glue\SpApi\OpenAPI\Clients\NotificationsV1\Model\Subscription;
 use Glue\SpApi\OpenAPI\Container\SpApi;
-use GuzzleHttp\Psr7\Stream;
 use Tests\TestCase;
 
 class NotificationsApiTest extends TestCase

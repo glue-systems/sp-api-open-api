@@ -2,7 +2,6 @@
 
 namespace Tests\Clients\ShipmentInvoicingV0\Api;
 
-use Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\ApiException;
 use Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Model\GetShipmentDetailsResponse;
 use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;

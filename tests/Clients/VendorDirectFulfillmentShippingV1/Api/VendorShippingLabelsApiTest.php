@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Clients\VendorDirectFulfillmentOrdersV1\Api;
+namespace Tests\Clients\VendorDirectFulfillmentShippingV1\Api;
 
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Model\GetShippingLabelListResponse;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Model\ShippingLabelList;

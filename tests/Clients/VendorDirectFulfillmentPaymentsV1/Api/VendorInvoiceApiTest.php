@@ -1,10 +1,7 @@
 <?php
 
-namespace Tests\Clients\VendorDirectFulfillmentOrdersV1\Api;
+namespace Tests\Clients\VendorDirectFulfillmentPaymentsV1\Api;
 
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Model\GetOrdersResponse;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Model\Order;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Model\OrderList;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Model\Address;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Model\InvoiceDetail;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Model\InvoiceItem;
