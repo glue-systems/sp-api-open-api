@@ -95,6 +95,8 @@ use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionAp
 use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\ApiException as VendorTransactionStatusV1ApiException;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
+use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
+use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProviderInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
@@ -158,6 +160,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return AplusContentV20201101Api
+     * @throws LwaAccessTokenException
      */
     public function aplusContentV20201101()
     {
@@ -166,6 +169,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return AuthorizationV1Api
+     * @throws LwaAccessTokenException
      */
     public function authorizationV1()
     {
@@ -174,6 +178,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return CatalogItemsV0Api
+     * @throws LwaAccessTokenException
      */
     public function catalogItemsV0()
     {
@@ -182,6 +187,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return CatalogItemsV20201201Api
+     * @throws LwaAccessTokenException
      */
     public function catalogItemsV20201201()
     {
@@ -190,6 +196,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return DefinitionsProductTypesV20200901Api
+     * @throws LwaAccessTokenException
      */
     public function definitionsProductTypesV20200901()
     {
@@ -198,6 +205,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return EasyShipV20220323Api
+     * @throws LwaAccessTokenException
      */
     public function easyShipV20220323()
     {
@@ -206,6 +214,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return FbaInboundEligibilityV1Api
+     * @throws LwaAccessTokenException
      */
     public function fbaInboundEligibilityV1()
     {
@@ -214,6 +223,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return FbaInventoryV1Api
+     * @throws LwaAccessTokenException
      */
     public function fbaInventoryV1()
     {
@@ -222,6 +232,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return FbaSmallAndLightV1Api
+     * @throws LwaAccessTokenException
      */
     public function fbaSmallAndLightV1()
     {
@@ -230,6 +241,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return FeedsV20200904Api
+     * @throws LwaAccessTokenException
      */
     public function feedsV20200904()
     {
@@ -238,6 +250,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return FeedsV20210630Api
+     * @throws LwaAccessTokenException
      */
     public function feedsV20210630()
     {
@@ -246,6 +259,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return FinancesV0Api
+     * @throws LwaAccessTokenException
      */
     public function financesV0()
     {
@@ -254,6 +268,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return FulfillmentInboundV0Api
+     * @throws LwaAccessTokenException
      */
     public function fulfillmentInboundV0()
     {
@@ -262,6 +277,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return FulfillmentOutboundV20200701Api
+     * @throws LwaAccessTokenException
      */
     public function fulfillmentOutboundV20200701()
     {
@@ -270,6 +286,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return ListingsItemsV20200901Api
+     * @throws LwaAccessTokenException
      */
     public function listingsItemsV20200901()
     {
@@ -278,6 +295,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return ListingsItemsV20210801Api
+     * @throws LwaAccessTokenException
      */
     public function listingsItemsV20210801()
     {
@@ -286,6 +304,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return ListingsRestrictionsV20210801Api
+     * @throws LwaAccessTokenException
      */
     public function listingsRestrictionsV20210801()
     {
@@ -294,6 +313,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return MerchantFulfillmentV0Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function merchantFulfillmentV0(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -306,6 +326,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return NotificationsV1Api
+     * @throws LwaAccessTokenException
      */
     public function notificationsV1()
     {
@@ -314,6 +335,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return OrdersV0Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function ordersV0(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -326,6 +348,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return OrdersV0ShipmentApi
+     * @throws LwaAccessTokenException
      */
     public function ordersV0Shipment()
     {
@@ -334,6 +357,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return ProductFeesV0Api
+     * @throws LwaAccessTokenException
      */
     public function productFeesV0()
     {
@@ -342,6 +366,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return ProductPricingV0Api
+     * @throws LwaAccessTokenException
      */
     public function productPricingV0()
     {
@@ -350,6 +375,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return ReplenishmentV20221107OffersApi
+     * @throws LwaAccessTokenException
      */
     public function replenishmentV20221107Offers()
     {
@@ -358,6 +384,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return ReplenishmentV20221107SellingpartnersApi
+     * @throws LwaAccessTokenException
      */
     public function replenishmentV20221107Sellingpartners()
     {
@@ -366,6 +393,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return ReportsV20200904Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function reportsV20200904(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -378,6 +406,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return ReportsV20210630Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function reportsV20210630(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -390,6 +419,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return SalesV1Api
+     * @throws LwaAccessTokenException
      */
     public function salesV1()
     {
@@ -398,6 +428,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return SellersV1Api
+     * @throws LwaAccessTokenException
      */
     public function sellersV1()
     {
@@ -406,6 +437,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return ServicesV1Api
+     * @throws LwaAccessTokenException
      */
     public function servicesV1()
     {
@@ -414,6 +446,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return ShipmentInvoicingV0Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function shipmentInvoicingV0(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -426,6 +459,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return SupplySourcesV20200701Api
+     * @throws LwaAccessTokenException
      */
     public function supplySourcesV20200701()
     {
@@ -434,6 +468,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return TokensV20210301Api
+     * @throws LwaAccessTokenException
      */
     public function tokensV20210301()
     {
@@ -442,6 +477,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return UploadsV20201101Api
+     * @throws LwaAccessTokenException
      */
     public function uploadsV20201101()
     {
@@ -450,6 +486,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentInventoryV1Api
+     * @throws LwaAccessTokenException
      */
     public function vendorDirectFulfillmentInventoryV1()
     {
@@ -458,6 +495,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentOrdersV1Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentOrdersV1(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -470,6 +508,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentOrdersV20211228Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentOrdersV20211228(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -482,6 +521,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentPaymentsV1Api
+     * @throws LwaAccessTokenException
      */
     public function vendorDirectFulfillmentPaymentsV1()
     {
@@ -490,6 +530,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentSandboxDataV20211228Api
+     * @throws LwaAccessTokenException
      */
     public function vendorDirectFulfillmentSandboxDataV20211228()
     {
@@ -498,6 +539,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi
+     * @throws LwaAccessTokenException
      */
     public function vendorDirectFulfillmentSandboxDataV20211228transactionstatus()
     {
@@ -506,6 +548,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV1CustomerInvoicesApi
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentShippingV1CustomerInvoices(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -518,6 +561,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV1Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentShippingV1(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -530,6 +574,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV1LabelsApi
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentShippingV1Labels(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -542,6 +587,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentShippingV20211228CustomerInvoices(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -554,6 +600,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV20211228Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentShippingV20211228(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -566,6 +613,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV20211228LabelsApi
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentShippingV20211228Labels(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -578,6 +626,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentTransactionsV1Api
+     * @throws LwaAccessTokenException
      */
     public function vendorDirectFulfillmentTransactionsV1()
     {
@@ -586,6 +635,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentTransactionsV20211228Api
+     * @throws LwaAccessTokenException
      */
     public function vendorDirectFulfillmentTransactionsV20211228()
     {
@@ -594,6 +644,7 @@ class SpApi implements SpApiInterface
 
     /**
      * @return VendorTransactionStatusV1Api
+     * @throws LwaAccessTokenException
      */
     public function vendorTransactionStatusV1()
     {

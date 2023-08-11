@@ -93,6 +93,8 @@ use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Configuration as VendorDirectFulfillmentTransactionsV20211228Config;
 use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi as VendorTransactionStatusV1Api;
 use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Configuration as VendorTransactionStatusV1Config;
+use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
+use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilderInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 
@@ -118,6 +120,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return AplusContentV20201101Api
+     * @throws LwaAccessTokenException
      */
     public function createAplusContentV20201101ApiClient(
         AplusContentV20201101Config $domainConfig = null
@@ -130,6 +133,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return AuthorizationV1Api
+     * @throws LwaAccessTokenException
      */
     public function createAuthorizationV1ApiClient(
         AuthorizationV1Config $domainConfig = null
@@ -142,6 +146,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return CatalogItemsV0Api
+     * @throws LwaAccessTokenException
      */
     public function createCatalogItemsV0ApiClient(
         CatalogItemsV0Config $domainConfig = null
@@ -154,6 +159,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return CatalogItemsV20201201Api
+     * @throws LwaAccessTokenException
      */
     public function createCatalogItemsV20201201ApiClient(
         CatalogItemsV20201201Config $domainConfig = null
@@ -166,6 +172,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return DefinitionsProductTypesV20200901Api
+     * @throws LwaAccessTokenException
      */
     public function createDefinitionsProductTypesV20200901ApiClient(
         DefinitionsProductTypesV20200901Config $domainConfig = null
@@ -178,6 +185,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return EasyShipV20220323Api
+     * @throws LwaAccessTokenException
      */
     public function createEasyShipV20220323ApiClient(
         EasyShipV20220323Config $domainConfig = null
@@ -190,6 +198,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return FbaInboundEligibilityV1Api
+     * @throws LwaAccessTokenException
      */
     public function createFbaInboundEligibilityV1ApiClient(
         FbaInboundEligibilityV1Config $domainConfig = null
@@ -202,6 +211,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return FbaInventoryV1Api
+     * @throws LwaAccessTokenException
      */
     public function createFbaInventoryV1ApiClient(
         FbaInventoryV1Config $domainConfig = null
@@ -214,6 +224,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return FbaSmallAndLightV1Api
+     * @throws LwaAccessTokenException
      */
     public function createFbaSmallAndLightV1ApiClient(
         FbaSmallAndLightV1Config $domainConfig = null
@@ -226,6 +237,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return FeedsV20200904Api
+     * @throws LwaAccessTokenException
      */
     public function createFeedsV20200904ApiClient(
         FeedsV20200904Config $domainConfig = null
@@ -238,6 +250,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return FeedsV20210630Api
+     * @throws LwaAccessTokenException
      */
     public function createFeedsV20210630ApiClient(
         FeedsV20210630Config $domainConfig = null
@@ -250,6 +263,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return FinancesV0Api
+     * @throws LwaAccessTokenException
      */
     public function createFinancesV0ApiClient(
         FinancesV0Config $domainConfig = null
@@ -262,6 +276,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return FulfillmentInboundV0Api
+     * @throws LwaAccessTokenException
      */
     public function createFulfillmentInboundV0ApiClient(
         FulfillmentInboundV0Config $domainConfig = null
@@ -274,6 +289,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return FulfillmentOutboundV20200701Api
+     * @throws LwaAccessTokenException
      */
     public function createFulfillmentOutboundV20200701ApiClient(
         FulfillmentOutboundV20200701Config $domainConfig = null
@@ -286,6 +302,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return ListingsItemsV20200901Api
+     * @throws LwaAccessTokenException
      */
     public function createListingsItemsV20200901ApiClient(
         ListingsItemsV20200901Config $domainConfig = null
@@ -298,6 +315,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return ListingsItemsV20210801Api
+     * @throws LwaAccessTokenException
      */
     public function createListingsItemsV20210801ApiClient(
         ListingsItemsV20210801Config $domainConfig = null
@@ -310,6 +328,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return ListingsRestrictionsV20210801Api
+     * @throws LwaAccessTokenException
      */
     public function createListingsRestrictionsV20210801ApiClient(
         ListingsRestrictionsV20210801Config $domainConfig = null
@@ -322,6 +341,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return MerchantFulfillmentV0Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createMerchantFulfillmentV0ApiClient(
         MerchantFulfillmentV0Config $domainConfig = null,
@@ -336,6 +356,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return NotificationsV1Api
+     * @throws LwaAccessTokenException
      */
     public function createNotificationsV1ApiClient(
         NotificationsV1Config $domainConfig = null
@@ -348,6 +369,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return OrdersV0Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createOrdersV0ApiClient(
         OrdersV0Config $domainConfig = null,
@@ -362,6 +384,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return OrdersV0ShipmentApi
+     * @throws LwaAccessTokenException
      */
     public function createOrdersV0ShipmentApiClient(
         OrdersV0Config $domainConfig = null
@@ -374,6 +397,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return ProductFeesV0Api
+     * @throws LwaAccessTokenException
      */
     public function createProductFeesV0ApiClient(
         ProductFeesV0Config $domainConfig = null
@@ -386,6 +410,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return ProductPricingV0Api
+     * @throws LwaAccessTokenException
      */
     public function createProductPricingV0ApiClient(
         ProductPricingV0Config $domainConfig = null
@@ -398,6 +423,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return ReplenishmentV20221107OffersApi
+     * @throws LwaAccessTokenException
      */
     public function createReplenishmentV20221107OffersApiClient(
         ReplenishmentV20221107Config $domainConfig = null
@@ -410,6 +436,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return ReplenishmentV20221107SellingpartnersApi
+     * @throws LwaAccessTokenException
      */
     public function createReplenishmentV20221107SellingpartnersApiClient(
         ReplenishmentV20221107Config $domainConfig = null
@@ -422,6 +449,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return ReportsV20200904Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createReportsV20200904ApiClient(
         ReportsV20200904Config $domainConfig = null,
@@ -436,6 +464,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return ReportsV20210630Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createReportsV20210630ApiClient(
         ReportsV20210630Config $domainConfig = null,
@@ -450,6 +479,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return SalesV1Api
+     * @throws LwaAccessTokenException
      */
     public function createSalesV1ApiClient(
         SalesV1Config $domainConfig = null
@@ -462,6 +492,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return SellersV1Api
+     * @throws LwaAccessTokenException
      */
     public function createSellersV1ApiClient(
         SellersV1Config $domainConfig = null
@@ -474,6 +505,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return ServicesV1Api
+     * @throws LwaAccessTokenException
      */
     public function createServicesV1ApiClient(
         ServicesV1Config $domainConfig = null
@@ -486,6 +518,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return ShipmentInvoicingV0Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createShipmentInvoicingV0ApiClient(
         ShipmentInvoicingV0Config $domainConfig = null,
@@ -500,6 +533,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return SupplySourcesV20200701Api
+     * @throws LwaAccessTokenException
      */
     public function createSupplySourcesV20200701ApiClient(
         SupplySourcesV20200701Config $domainConfig = null
@@ -512,6 +546,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return TokensV20210301Api
+     * @throws LwaAccessTokenException
      */
     public function createTokensV20210301ApiClient(
         TokensV20210301Config $domainConfig = null
@@ -524,6 +559,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return UploadsV20201101Api
+     * @throws LwaAccessTokenException
      */
     public function createUploadsV20201101ApiClient(
         UploadsV20201101Config $domainConfig = null
@@ -536,6 +572,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentInventoryV1Api
+     * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentInventoryV1ApiClient(
         VendorDirectFulfillmentInventoryV1Config $domainConfig = null
@@ -548,6 +585,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentOrdersV1Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentOrdersV1ApiClient(
         VendorDirectFulfillmentOrdersV1Config $domainConfig = null,
@@ -562,6 +600,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentOrdersV20211228Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentOrdersV20211228ApiClient(
         VendorDirectFulfillmentOrdersV20211228Config $domainConfig = null,
@@ -576,6 +615,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentPaymentsV1Api
+     * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentPaymentsV1ApiClient(
         VendorDirectFulfillmentPaymentsV1Config $domainConfig = null
@@ -588,6 +628,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentSandboxDataV20211228Api
+     * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentSandboxDataV20211228ApiClient(
         VendorDirectFulfillmentSandboxDataV20211228Config $domainConfig = null
@@ -600,6 +641,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi
+     * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient(
         VendorDirectFulfillmentSandboxDataV20211228Config $domainConfig = null
@@ -612,6 +654,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV1CustomerInvoicesApi
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient(
         VendorDirectFulfillmentShippingV1Config $domainConfig = null,
@@ -626,6 +669,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV1Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1ApiClient(
         VendorDirectFulfillmentShippingV1Config $domainConfig = null,
@@ -640,6 +684,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV1LabelsApi
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1LabelsApiClient(
         VendorDirectFulfillmentShippingV1Config $domainConfig = null,
@@ -654,6 +699,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient(
         VendorDirectFulfillmentShippingV20211228Config $domainConfig = null,
@@ -668,6 +714,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV20211228Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228ApiClient(
         VendorDirectFulfillmentShippingV20211228Config $domainConfig = null,
@@ -682,6 +729,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV20211228LabelsApi
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228LabelsApiClient(
         VendorDirectFulfillmentShippingV20211228Config $domainConfig = null,
@@ -696,6 +744,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentTransactionsV1Api
+     * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentTransactionsV1ApiClient(
         VendorDirectFulfillmentTransactionsV1Config $domainConfig = null
@@ -708,6 +757,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorDirectFulfillmentTransactionsV20211228Api
+     * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentTransactionsV20211228ApiClient(
         VendorDirectFulfillmentTransactionsV20211228Config $domainConfig = null
@@ -720,6 +770,7 @@ class ClientFactory implements ClientFactoryInterface
 
     /**
      * @return VendorTransactionStatusV1Api
+     * @throws LwaAccessTokenException
      */
     public function createVendorTransactionStatusV1ApiClient(
         VendorTransactionStatusV1Config $domainConfig = null

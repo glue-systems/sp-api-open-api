@@ -52,6 +52,8 @@ use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorT
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi as VendorDirectFulfillmentTransactionsV20211228Api;
 use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi as VendorTransactionStatusV1Api;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
+use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
+use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 
 interface SpApiInterface
@@ -74,91 +76,109 @@ interface SpApiInterface
 
     /**
      * @return AplusContentV20201101Api
+     * @throws LwaAccessTokenException
      */
     public function aplusContentV20201101();
 
     /**
      * @return AuthorizationV1Api
+     * @throws LwaAccessTokenException
      */
     public function authorizationV1();
 
     /**
      * @return CatalogItemsV0Api
+     * @throws LwaAccessTokenException
      */
     public function catalogItemsV0();
 
     /**
      * @return CatalogItemsV20201201Api
+     * @throws LwaAccessTokenException
      */
     public function catalogItemsV20201201();
 
     /**
      * @return DefinitionsProductTypesV20200901Api
+     * @throws LwaAccessTokenException
      */
     public function definitionsProductTypesV20200901();
 
     /**
      * @return EasyShipV20220323Api
+     * @throws LwaAccessTokenException
      */
     public function easyShipV20220323();
 
     /**
      * @return FbaInboundEligibilityV1Api
+     * @throws LwaAccessTokenException
      */
     public function fbaInboundEligibilityV1();
 
     /**
      * @return FbaInventoryV1Api
+     * @throws LwaAccessTokenException
      */
     public function fbaInventoryV1();
 
     /**
      * @return FbaSmallAndLightV1Api
+     * @throws LwaAccessTokenException
      */
     public function fbaSmallAndLightV1();
 
     /**
      * @return FeedsV20200904Api
+     * @throws LwaAccessTokenException
      */
     public function feedsV20200904();
 
     /**
      * @return FeedsV20210630Api
+     * @throws LwaAccessTokenException
      */
     public function feedsV20210630();
 
     /**
      * @return FinancesV0Api
+     * @throws LwaAccessTokenException
      */
     public function financesV0();
 
     /**
      * @return FulfillmentInboundV0Api
+     * @throws LwaAccessTokenException
      */
     public function fulfillmentInboundV0();
 
     /**
      * @return FulfillmentOutboundV20200701Api
+     * @throws LwaAccessTokenException
      */
     public function fulfillmentOutboundV20200701();
 
     /**
      * @return ListingsItemsV20200901Api
+     * @throws LwaAccessTokenException
      */
     public function listingsItemsV20200901();
 
     /**
      * @return ListingsItemsV20210801Api
+     * @throws LwaAccessTokenException
      */
     public function listingsItemsV20210801();
 
     /**
      * @return ListingsRestrictionsV20210801Api
+     * @throws LwaAccessTokenException
      */
     public function listingsRestrictionsV20210801();
 
     /**
      * @return MerchantFulfillmentV0Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function merchantFulfillmentV0(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -166,11 +186,13 @@ interface SpApiInterface
 
     /**
      * @return NotificationsV1Api
+     * @throws LwaAccessTokenException
      */
     public function notificationsV1();
 
     /**
      * @return OrdersV0Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function ordersV0(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -178,31 +200,37 @@ interface SpApiInterface
 
     /**
      * @return OrdersV0ShipmentApi
+     * @throws LwaAccessTokenException
      */
     public function ordersV0Shipment();
 
     /**
      * @return ProductFeesV0Api
+     * @throws LwaAccessTokenException
      */
     public function productFeesV0();
 
     /**
      * @return ProductPricingV0Api
+     * @throws LwaAccessTokenException
      */
     public function productPricingV0();
 
     /**
      * @return ReplenishmentV20221107OffersApi
+     * @throws LwaAccessTokenException
      */
     public function replenishmentV20221107Offers();
 
     /**
      * @return ReplenishmentV20221107SellingpartnersApi
+     * @throws LwaAccessTokenException
      */
     public function replenishmentV20221107Sellingpartners();
 
     /**
      * @return ReportsV20200904Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function reportsV20200904(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -210,6 +238,7 @@ interface SpApiInterface
 
     /**
      * @return ReportsV20210630Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function reportsV20210630(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -217,21 +246,25 @@ interface SpApiInterface
 
     /**
      * @return SalesV1Api
+     * @throws LwaAccessTokenException
      */
     public function salesV1();
 
     /**
      * @return SellersV1Api
+     * @throws LwaAccessTokenException
      */
     public function sellersV1();
 
     /**
      * @return ServicesV1Api
+     * @throws LwaAccessTokenException
      */
     public function servicesV1();
 
     /**
      * @return ShipmentInvoicingV0Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function shipmentInvoicingV0(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -239,26 +272,31 @@ interface SpApiInterface
 
     /**
      * @return SupplySourcesV20200701Api
+     * @throws LwaAccessTokenException
      */
     public function supplySourcesV20200701();
 
     /**
      * @return TokensV20210301Api
+     * @throws LwaAccessTokenException
      */
     public function tokensV20210301();
 
     /**
      * @return UploadsV20201101Api
+     * @throws LwaAccessTokenException
      */
     public function uploadsV20201101();
 
     /**
      * @return VendorDirectFulfillmentInventoryV1Api
+     * @throws LwaAccessTokenException
      */
     public function vendorDirectFulfillmentInventoryV1();
 
     /**
      * @return VendorDirectFulfillmentOrdersV1Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentOrdersV1(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -266,6 +304,7 @@ interface SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentOrdersV20211228Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentOrdersV20211228(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -273,21 +312,25 @@ interface SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentPaymentsV1Api
+     * @throws LwaAccessTokenException
      */
     public function vendorDirectFulfillmentPaymentsV1();
 
     /**
      * @return VendorDirectFulfillmentSandboxDataV20211228Api
+     * @throws LwaAccessTokenException
      */
     public function vendorDirectFulfillmentSandboxDataV20211228();
 
     /**
      * @return VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi
+     * @throws LwaAccessTokenException
      */
     public function vendorDirectFulfillmentSandboxDataV20211228transactionstatus();
 
     /**
      * @return VendorDirectFulfillmentShippingV1CustomerInvoicesApi
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentShippingV1CustomerInvoices(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -295,6 +338,7 @@ interface SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV1Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentShippingV1(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -302,6 +346,7 @@ interface SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV1LabelsApi
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentShippingV1Labels(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -309,6 +354,7 @@ interface SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentShippingV20211228CustomerInvoices(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -316,6 +362,7 @@ interface SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV20211228Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentShippingV20211228(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -323,6 +370,7 @@ interface SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentShippingV20211228LabelsApi
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function vendorDirectFulfillmentShippingV20211228Labels(
         CreateRestrictedDataTokenRequest $rdtRequest = null
@@ -330,16 +378,19 @@ interface SpApiInterface
 
     /**
      * @return VendorDirectFulfillmentTransactionsV1Api
+     * @throws LwaAccessTokenException
      */
     public function vendorDirectFulfillmentTransactionsV1();
 
     /**
      * @return VendorDirectFulfillmentTransactionsV20211228Api
+     * @throws LwaAccessTokenException
      */
     public function vendorDirectFulfillmentTransactionsV20211228();
 
     /**
      * @return VendorTransactionStatusV1Api
+     * @throws LwaAccessTokenException
      */
     public function vendorTransactionStatusV1();
 }

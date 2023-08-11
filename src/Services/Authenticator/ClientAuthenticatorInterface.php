@@ -2,6 +2,7 @@
 
 namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
+use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use GuzzleHttp\ClientInterface;
 
 interface ClientAuthenticatorInterface
@@ -12,6 +13,7 @@ interface ClientAuthenticatorInterface
      *
      * @param string|null $restrictedDataToken
      * @return ClientInterface
+     * @throws LwaAccessTokenException
      */
     public function createAuthenticatedGuzzleClient($restrictedDataToken = null);
 
@@ -20,6 +22,7 @@ interface ClientAuthenticatorInterface
      * and save it in the cache.
      *
      * @return string
+     * @throws LwaAccessTokenException
      */
     public function rememberLwaAccessToken();
 }

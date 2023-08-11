@@ -29,6 +29,12 @@ class RestrictedDataTokenProvider implements RestrictedDataTokenProviderInterfac
      */
     public function fromRdtRequest(CreateRestrictedDataTokenRequest $rdtRequest)
     {
+        /**
+         * Provider callback for retrieving a Restricted Data Token (RDT).
+         *
+         * @return string
+         * @throws RestrictedDataTokenException
+         */
         return function () use ($rdtRequest) {
             try {
                 $tokensApi   = $this->clientFactory->createTokensV20210301ApiClient();
