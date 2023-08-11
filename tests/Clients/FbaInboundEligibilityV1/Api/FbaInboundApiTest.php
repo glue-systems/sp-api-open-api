@@ -23,12 +23,10 @@ class FbaInboundApiTest extends TestCase
 
     public function test_getItemEligibilityPreview()
     {
-        $fbaInboundApi = $this->spApi->fbaInboundEligibilityV1();
-
-        $result = $fbaInboundApi->getItemEligibilityPreviewWithHttpInfo(
-            'TEST_CASE_200',
-            'INBOUND'
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->fbaInboundEligibilityV1()
+                ->getItemEligibilityPreviewWithHttpInfo('TEST_CASE_200', 'INBOUND');
+        });
 
         /**
          * @var GetItemEligibilityPreviewResponse $response

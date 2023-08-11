@@ -24,13 +24,13 @@ class FinancesApiTest extends TestCase
 
     public function test_listFinancialEventGroups()
     {
-        $financesApi = $this->spApi->financesV0();
-
-        $result = $financesApi->listFinancialEventGroupsWithHttpInfo(
-            1,
-            '2019-10-31',
-            '2019-10-13'
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->financesV0()->listFinancialEventGroupsWithHttpInfo(
+                1,
+                '2019-10-31',
+                '2019-10-13'
+            );
+        });
 
         /**
          * @var ListFinancialEventGroupsResponse $response

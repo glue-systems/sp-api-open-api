@@ -64,6 +64,15 @@ interface SpApiInterface
     public function getSpApiConfig();
 
     /**
+     * Wrapper for executing an SP-API operation, which will render any  ApiException's thrown
+     * as DomainApiException with unpacked response body
+     *
+     * @param callable $callback
+     * @return mixed
+     */
+    public function execute(callable $callback);
+
+    /**
      * @return AplusContentV20201101Api
      */
     public function aplusContentV20201101();

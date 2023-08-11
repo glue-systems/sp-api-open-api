@@ -24,12 +24,12 @@ class FbaInboundApiTest extends TestCase
 
     public function test_getInboundGuidance()
     {
-        $fbaInboundApi = $this->spApi->fulfillmentInboundV0();
-
-        $result = $fbaInboundApi->getInboundGuidanceWithHttpInfo(
-            'MarketplaceId',
-            ['sku1', 'sku2']
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->fulfillmentInboundV0()->getInboundGuidanceWithHttpInfo(
+                'MarketplaceId',
+                ['sku1', 'sku2']
+            );
+        });
 
         /**
          * @var GetInboundGuidanceResponse $response

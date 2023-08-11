@@ -23,14 +23,10 @@ class CatalogApiTest extends TestCase
 
     public function test_listCatalogItems()
     {
-        $catalogApi = $this->spApi->catalogItemsV0();
-
-        $result = $catalogApi->listCatalogItemsWithHttpInfo(
-            'TEST_CASE_200',
-            null,
-            null,
-            'SKU_200'
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->catalogItemsV0()
+                ->listCatalogItemsWithHttpInfo('TEST_CASE_200', null, null, 'SKU_200');
+        });
 
         /**
          * @var ListCatalogItemsResponse $response

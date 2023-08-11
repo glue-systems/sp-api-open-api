@@ -24,14 +24,14 @@ class FbaInventoryApiTest extends TestCase
 
     public function test_getInventorySummaries()
     {
-        $fbaInventoryApi = $this->spApi->fbaInventoryV1();
-
-        $result = $fbaInventoryApi->getInventorySummariesWithHttpInfo(
-            'Marketplace',
-            'ATVPDKIKX0DER',
-            ['ATVPDKIKX0DER'],
-            'true'
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->fbaInventoryV1()->getInventorySummariesWithHttpInfo(
+                'Marketplace',
+                'ATVPDKIKX0DER',
+                ['ATVPDKIKX0DER'],
+                'true'
+            );
+        });
 
         /**
          * @var GetInventorySummariesResponse $response

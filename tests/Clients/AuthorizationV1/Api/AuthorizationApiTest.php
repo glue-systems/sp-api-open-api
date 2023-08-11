@@ -2,7 +2,6 @@
 
 namespace Tests\Clients\AuthorizationV1\Api;
 
-use Glue\SpApi\OpenAPI\Clients\AuthorizationV1\ApiException;
 use Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Model\GetAuthorizationCodeResponse;
 use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
@@ -21,15 +20,13 @@ class AuthorizationApiTest extends TestCase
         $this->spApi = $this->buildSpApiContainer();
     }
 
-    public function test_cancelServiceJobByServiceJobId()
+    public function test_getAuthorizationCode()
     {
         $result = $this->tryButSkipIfUnauthorized(function () {
-            $authorizationApi = $this->spApi->authorizationV1();
-            return $authorizationApi->getAuthorizationCodeWithHttpInfo(
-                'foo',
-                'foo',
-                'foo'
-            );
+            return $this->spApi->execute(function () {
+                return $this->spApi->authorizationV1()
+                    ->getAuthorizationCodeWithHttpInfo('foo', 'foo', 'foo');
+            });
         });
 
         /**

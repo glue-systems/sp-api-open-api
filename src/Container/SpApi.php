@@ -137,6 +137,13 @@ class SpApi implements SpApiInterface
         return clone $this->spApiConfig;
     }
 
+    /**
+     * Wrapper for executing an SP-API operation, which will render any  ApiException's thrown
+     * as DomainApiException with unpacked response body
+     *
+     * @param callable $callback
+     * @return mixed
+     */
     public function execute(callable $callback)
     {
         try {

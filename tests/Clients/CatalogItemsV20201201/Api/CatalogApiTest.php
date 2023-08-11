@@ -23,13 +23,13 @@ class CatalogApiTest extends TestCase
 
     public function test_searchCatalogItems()
     {
-        $catalogApi = $this->spApi->catalogItemsV20201201();
-
-        $result = $catalogApi->searchCatalogItemsWithHttpInfo(
-            ['red', 'polo', 'shirt'],
-            ['ATVPDKIKX0DER'],
-            'summaries'
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->catalogItemsV20201201()->searchCatalogItemsWithHttpInfo(
+                ['red', 'polo', 'shirt'],
+                ['ATVPDKIKX0DER'],
+                'summaries'
+            );
+        });
 
         /**
          * @var ItemSearchResults $response

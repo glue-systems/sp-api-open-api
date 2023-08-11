@@ -30,34 +30,35 @@ class FbaOutboundApiTest extends TestCase
     {
         $this->markTestIncomplete('Should revisit after regenerating clients via openapi-generator-cli option --additional-properties=enumUnknownDefaultCase=true');
 
-        $fbaOutboundApi = $this->spApi->fulfillmentOutboundV20200701();
-
-        $result = $fbaOutboundApi->getFulfillmentPreviewWithHttpInfo(
-            new GetFulfillmentPreviewRequest([
-                'marketplaceId' => $this->spApi->getSpApiConfig()->marketplaceId,
-                'address'       => new Address([
-                    'name'          => 'Walts TV and Appliance',
-                    'addressLine1'  => '1746 W Ruby Dr',
-                    'addressLine2'  => 'STE 110',
-                    'city'          => 'Tempe',
-                    'stateOrRegion' => 'AZ',
-                    'postalCode'    => '85284',
-                    'countryCode'   => 'US',
-                    'phone'         => '5555555555',
-                ]),
-                'items'         => [
-                    new GetFulfillmentPreviewItem([
-                        'sellerSku'                    => 'FAKE-SKU-123',
-                        'quantity'                     => 1,
-                        'sellerFulfillmentOrderItemId' => 'FAKE-ORDER-ITEM-ID',
-                        'perUnitDeclaredValue'         => new Money([
-                            'currencyCode' => 'USD',
-                            'value'        => '12.34'
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->fulfillmentOutboundV20200701()
+                ->getFulfillmentPreviewWithHttpInfo(
+                    new GetFulfillmentPreviewRequest([
+                        'marketplaceId' => $this->spApi->getSpApiConfig()->marketplaceId,
+                        'address'       => new Address([
+                            'name'          => 'Walts TV and Appliance',
+                            'addressLine1'  => '1746 W Ruby Dr',
+                            'addressLine2'  => 'STE 110',
+                            'city'          => 'Tempe',
+                            'stateOrRegion' => 'AZ',
+                            'postalCode'    => '85284',
+                            'countryCode'   => 'US',
+                            'phone'         => '5555555555',
                         ]),
-                    ]),
-                ],
-            ])
-        );
+                        'items'         => [
+                            new GetFulfillmentPreviewItem([
+                                'sellerSku'                    => 'FAKE-SKU-123',
+                                'quantity'                     => 1,
+                                'sellerFulfillmentOrderItemId' => 'FAKE-ORDER-ITEM-ID',
+                                'perUnitDeclaredValue'         => new Money([
+                                    'currencyCode' => 'USD',
+                                    'value'        => '12.34'
+                                ]),
+                            ]),
+                        ],
+                    ])
+                );
+        });
 
         /**
          * @var GetFulfillmentPreviewResponse $response

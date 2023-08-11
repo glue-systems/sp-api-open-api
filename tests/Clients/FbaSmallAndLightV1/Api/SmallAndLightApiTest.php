@@ -23,12 +23,13 @@ class SmallAndLightApiTest extends TestCase
 
     public function test_getSmallAndLightEnrollmentBySellerSKU()
     {
-        $smallAndLightApi = $this->spApi->fbaSmallAndLightV1();
-
-        $result = $smallAndLightApi->getSmallAndLightEnrollmentBySellerSKUWithHttpInfo(
-            'SKU_ENROLLED_IN_SMALL_AND_LIGHT',
-            ['ATVPDKIKX0DER']
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->fbaSmallAndLightV1()
+                ->getSmallAndLightEnrollmentBySellerSKUWithHttpInfo(
+                    'SKU_ENROLLED_IN_SMALL_AND_LIGHT',
+                    ['ATVPDKIKX0DER']
+                );
+        });
 
         /**
          * @var SmallAndLightEnrollment $response

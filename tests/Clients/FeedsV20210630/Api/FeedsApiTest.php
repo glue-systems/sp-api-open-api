@@ -23,15 +23,15 @@ class FeedsApiTest extends TestCase
 
     public function test_getFeeds()
     {
-        $feedsApi  = $this->spApi->feedsV20210630();
-
-        $result = $feedsApi->getFeedsWithHttpInfo(
-            // Specific values come from the sandbox spec in models/feeds_2021-06-30.json
-            ['POST_PRODUCT_DATA'],
-            [$this->spApi->getSpApiConfig()->marketplaceId],
-            10,
-            ['CANCELLED', 'DONE']
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->feedsV20210630()->getFeedsWithHttpInfo(
+                // Specific values come from the sandbox spec in models/feeds_2021-06-30.json
+                ['POST_PRODUCT_DATA'],
+                [$this->spApi->getSpApiConfig()->marketplaceId],
+                10,
+                ['CANCELLED', 'DONE']
+            );
+        });
 
         /**
          * @var GetFeedsResponse $response
