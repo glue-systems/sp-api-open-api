@@ -4,7 +4,7 @@ namespace Glue\SpApi\OpenAPI\Services\Rdt;
 
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\ApiException;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
-use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenRequestException;
+use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 
 class RestrictedDataTokenProvider implements RestrictedDataTokenProviderInterface
@@ -29,6 +29,12 @@ class RestrictedDataTokenProvider implements RestrictedDataTokenProviderInterfac
      */
     public function fromRdtRequest(CreateRestrictedDataTokenRequest $rdtRequest)
     {
+        /**
+         * Provider callback for retrieving a Restricted Data Token (RDT).
+         *
+         * @return string
+         * @throws RestrictedDataTokenException
+         */
         return function () use ($rdtRequest) {
             try {
                 $tokensApi   = $this->clientFactory->createTokensV20210301ApiClient();
@@ -36,7 +42,7 @@ class RestrictedDataTokenProvider implements RestrictedDataTokenProviderInterfac
                 return $rdtResponse->getRestrictedDataToken();
             } catch (ApiException $ex) {
                 $msg = "Failed to retrieve Restricted Data Token (RDT): '{$ex->getMessage()}'";
-                throw new RestrictedDataTokenRequestException($msg, 0, $ex);
+                throw new RestrictedDataTokenException($msg, 0, $ex);
             }
         };
     }

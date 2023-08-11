@@ -3,6 +3,7 @@
 namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
 use Aws\Signature\SignatureV4;
+use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Client;
@@ -59,6 +60,7 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
      *
      * @param string|null $restrictedDataToken
      * @return ClientInterface
+     * @throws LwaAccessTokenException
      */
     public function createAuthenticatedGuzzleClient($restrictedDataToken = null)
     {
@@ -76,6 +78,7 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
      * and save it in the cache.
      *
      * @return string
+     * @throws LwaAccessTokenException
      */
     public function rememberLwaAccessToken()
     {

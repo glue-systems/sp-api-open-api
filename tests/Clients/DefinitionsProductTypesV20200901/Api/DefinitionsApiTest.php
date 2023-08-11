@@ -22,12 +22,13 @@ class DefinitionsApiTest extends TestCase
 
     public function test_getDefinitionsProductType()
     {
-        $definitionsApi  = $this->spApi->definitionsProductTypesV20200901();
-
-        $result = $definitionsApi->getDefinitionsProductTypeWithHttpInfo(
-            'testProductType123',
-            [$this->spApi->getSpApiConfig()->marketplaceId]
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->definitionsProductTypesV20200901()
+                ->getDefinitionsProductTypeWithHttpInfo(
+                    'testProductType123',
+                    [$this->spApi->getSpApiConfig()->marketplaceId]
+                );
+        });
 
         /**
          * @var ProductTypeDefinition $response

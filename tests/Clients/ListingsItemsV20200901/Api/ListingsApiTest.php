@@ -25,66 +25,64 @@ class ListingsApiTest extends TestCase
 
     public function test_deleteListingsItem()
     {
-        $listingsApi = $this->spApi->listingsItemsV20200901();
-
-        $result = $listingsApi->deleteListingsItemWithHttpInfo(
-            $this->spApi->getSpApiConfig()->sellerId,
-            'TESTSKU123',
-            [$this->spApi->getSpApiConfig()->marketplaceId]
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->listingsItemsV20200901()->deleteListingsItemWithHttpInfo(
+                $this->spApi->getSpApiConfig()->sellerId,
+                'TESTSKU123',
+                [$this->spApi->getSpApiConfig()->marketplaceId]
+            );
+        });
 
         $this->_assertSubmissionResponseMatchesStandardExpectations($result);
     }
 
     public function test_patchListingsItem()
     {
-        $listingsApi = $this->spApi->listingsItemsV20200901();
-
-        $request = new ListingsItemPatchRequest([
-            'productType'  => 'PRODUCT',
-            'patches'      => [
-                new PatchOperation([
-                    'op'    => 'replace',
-                    'path'  => '/attributes/fulfillment_availability',
-                    'value' => [
-                        [
-                            'fulfillment_channel_code' => 'supply_source_xyz',
-                            'quantity'                 => 5,
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->listingsItemsV20200901()
+                ->patchListingsItemWithHttpInfo(
+                    $this->spApi->getSpApiConfig()->sellerId,
+                    'TESTSKU123',
+                    [$this->spApi->getSpApiConfig()->marketplaceId],
+                    new ListingsItemPatchRequest([
+                        'productType'  => 'PRODUCT',
+                        'patches'      => [
+                            new PatchOperation([
+                                'op'    => 'replace',
+                                'path'  => '/attributes/fulfillment_availability',
+                                'value' => [
+                                    [
+                                        'fulfillment_channel_code' => 'supply_source_xyz',
+                                        'quantity'                 => 5,
+                                    ],
+                                ],
+                            ]),
                         ],
-                    ],
-                ]),
-            ],
-        ]);
-
-        $result = $listingsApi->patchListingsItemWithHttpInfo(
-            $this->spApi->getSpApiConfig()->sellerId,
-            'TESTSKU123',
-            [$this->spApi->getSpApiConfig()->marketplaceId],
-            $request
-        );
+                    ])
+                );
+        });
 
         $this->_assertSubmissionResponseMatchesStandardExpectations($result);
     }
 
     public function test_putListingsItem()
     {
-        $listingsApi = $this->spApi->listingsItemsV20200901();
-
-        $request = new ListingsItemPutRequest([
-            'productType'  => 'PRODUCT',
-            'requirements' => 'foo',
-            'attributes'   => [
-                'foo'  => 'bar',
-                'fizz' => 'buzz',
-            ],
-        ]);
-
-        $result = $listingsApi->putListingsItemWithHttpInfo(
-            $this->spApi->getSpApiConfig()->sellerId,
-            'TESTSKU123',
-            [$this->spApi->getSpApiConfig()->marketplaceId],
-            $request
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->listingsItemsV20200901()
+                ->putListingsItemWithHttpInfo(
+                    $this->spApi->getSpApiConfig()->sellerId,
+                    'TESTSKU123',
+                    [$this->spApi->getSpApiConfig()->marketplaceId],
+                    new ListingsItemPutRequest([
+                        'productType'  => 'PRODUCT',
+                        'requirements' => 'foo',
+                        'attributes'   => [
+                            'foo'  => 'bar',
+                            'fizz' => 'buzz',
+                        ],
+                    ])
+                );
+        });
 
         $this->_assertSubmissionResponseMatchesStandardExpectations($result);
     }

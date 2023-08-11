@@ -6,7 +6,7 @@ use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\ApiException;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse;
-use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenRequestException;
+use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProvider;
 use Mockery\MockInterface;
@@ -56,7 +56,7 @@ class RestrictedDataTokenProviderTest extends TestCase
         $this->assertEquals($expectedRestrictedDataToken, $actualRestrictedDataToken);
     }
 
-    public function test_fromRdtRequest_throws_RestrictedDataTokenRequestException()
+    public function test_fromRdtRequest_throws_RestrictedDataTokenException()
     {
         $expectedExceptionMessage = 'fake exception';
 
@@ -72,7 +72,7 @@ class RestrictedDataTokenProviderTest extends TestCase
         $sut         = new RestrictedDataTokenProvider($this->clientFactory);
         $rdtProvider = $sut->fromRdtRequest(new CreateRestrictedDataTokenRequest());
 
-        $this->expectException(RestrictedDataTokenRequestException::class);
+        $this->expectException(RestrictedDataTokenException::class);
         $this->expectExceptionMessage($expectedExceptionMessage);
         $rdtProvider();
     }
