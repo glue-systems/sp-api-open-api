@@ -33,36 +33,36 @@ class OffersApiTest extends TestCase
 
     public function test_listOfferMetrics()
     {
-        $offersApi = $this->spApi->replenishmentV20221107Offers();
-
-        $result = $offersApi->listOfferMetricsWithHttpInfo(
-            new ListOfferMetricsRequest([
-                'filters'   => new ListOfferMetricsRequestFilters([
-                    'aggregationFrequency' => AggregationFrequency::YEAR,
-                    'timeInterval'         => new TimeInterval([
-                        'startDate' => '2022-01-01T00:00:00Z',
-                        'endDate'   => '2022-12-31T00:00:00Z',
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->replenishmentV20221107Offers()->listOfferMetricsWithHttpInfo(
+                new ListOfferMetricsRequest([
+                    'filters'   => new ListOfferMetricsRequestFilters([
+                        'aggregationFrequency' => AggregationFrequency::YEAR,
+                        'timeInterval'         => new TimeInterval([
+                            'startDate' => '2022-01-01T00:00:00Z',
+                            'endDate'   => '2022-12-31T00:00:00Z',
+                        ]),
+                        'marketplaceId' => 'ATVPDKIKX0DER',
+                        'programTypes'  => [
+                            ProgramType::SUBSCRIBE_AND_SAVE,
+                        ],
+                        'timePeriodType' => TimePeriodType::PERFORMANCE,
+                        'asins'          => [
+                            'B07CYBR5GZ',
+                            'B07CYJJW8H',
+                        ],
                     ]),
-                    'marketplaceId' => 'ATVPDKIKX0DER',
-                    'programTypes'  => [
-                        ProgramType::SUBSCRIBE_AND_SAVE,
-                    ],
-                    'timePeriodType' => TimePeriodType::PERFORMANCE,
-                    'asins'          => [
-                        'B07CYBR5GZ',
-                        'B07CYJJW8H',
-                    ],
-                ]),
-                'pagination' => new ListOfferMetricsRequestPagination([
-                    'limit'  => 2,
-                    'offset' => 0,
-                ]),
-                'sort'      => new ListOfferMetricsRequestSort([
-                    'order' => SortOrder::ASC,
-                    'key'   => ListOfferMetricsSortKey::TOTAL_SUBSCRIPTIONS_REVENUE,
-                ]),
-            ])
-        );
+                    'pagination' => new ListOfferMetricsRequestPagination([
+                        'limit'  => 2,
+                        'offset' => 0,
+                    ]),
+                    'sort'      => new ListOfferMetricsRequestSort([
+                        'order' => SortOrder::ASC,
+                        'key'   => ListOfferMetricsSortKey::TOTAL_SUBSCRIPTIONS_REVENUE,
+                    ]),
+                ])
+            );
+        });
 
         /**
          * @var ListOfferMetricsResponse $response

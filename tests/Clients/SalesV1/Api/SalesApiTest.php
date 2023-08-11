@@ -23,13 +23,13 @@ class SalesApiTest extends TestCase
 
     public function test_getOrderMetrics()
     {
-        $salesApi = $this->spApi->salesV1();
-
-        $result = $salesApi->getOrderMetricsWithHttpInfo(
-            [$this->spApi->getSpApiConfig()->marketplaceId],
-            '2018-09-01T00:00:00-07:00--2018-09-04T00:00:00-07:00',
-            'Total'
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->salesV1()->getOrderMetricsWithHttpInfo(
+                [$this->spApi->getSpApiConfig()->marketplaceId],
+                '2018-09-01T00:00:00-07:00--2018-09-04T00:00:00-07:00',
+                'Total'
+            );
+        });
 
         /**
          * @var GetOrderMetricsResponse $response

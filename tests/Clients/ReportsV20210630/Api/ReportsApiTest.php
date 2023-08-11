@@ -23,15 +23,15 @@ class ReportsApiTest extends TestCase
 
     public function test_getReports()
     {
-        $reportsApi  = $this->spApi->reportsV20210630();
-
-        $result = $reportsApi->getReportsWithHttpInfo(
-            // Specific values come from the sandbox spec in models/reports_2021-06-30.json
-            ['FEE_DISCOUNTS_REPORT', 'GET_AFN_INVENTORY_DATA'],
-            ['IN_QUEUE', 'IN_PROGRESS'],
-            [$this->spApi->getSpApiConfig()->marketplaceId],
-            10
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->reportsV20210630()->getReportsWithHttpInfo(
+                // Specific values come from the sandbox spec in models/reports_2021-06-30.json
+                ['FEE_DISCOUNTS_REPORT', 'GET_AFN_INVENTORY_DATA'],
+                ['IN_QUEUE', 'IN_PROGRESS'],
+                [$this->spApi->getSpApiConfig()->marketplaceId],
+                10
+            );
+        });
 
         /**
          * @var GetReportsResponse $response

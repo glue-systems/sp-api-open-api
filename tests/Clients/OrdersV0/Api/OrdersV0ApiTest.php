@@ -25,14 +25,13 @@ class OrdersV0ApiTest extends TestCase
 
     public function test_getOrders()
     {
-        $ordersV0Api  = $this->spApi->ordersV0();
-        // Using this specific string value as a quirky requirement of the sandbox API (see models/ordersV0.json)
-        $createdAfter = 'TEST_CASE_200';
-
-        $result = $ordersV0Api->getOrdersWithHttpInfo(
-            [$this->spApi->getSpApiConfig()->marketplaceId],
-            $createdAfter
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->ordersV0()->getOrdersWithHttpInfo(
+                [$this->spApi->getSpApiConfig()->marketplaceId],
+                // Using this specific string value as a quirky requirement of the sandbox API (see models/ordersV0.json)
+                'TEST_CASE_200'
+            );
+        });
 
         /**
          * @var GetOrdersResponse $response
@@ -48,13 +47,12 @@ class OrdersV0ApiTest extends TestCase
 
     public function test_getOrder()
     {
-        $ordersV0Api  = $this->spApi->ordersV0();
-        // Using this specific string value as a quirky requirement of the sandbox API (see models/ordersV0.json)
-        $orderId = 'TEST_CASE_200';
-
-        $result = $ordersV0Api->getOrderWithHttpInfo(
-            $orderId
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->ordersV0()->getOrderWithHttpInfo(
+                // Using this specific string value as a quirky requirement of the sandbox API (see models/ordersV0.json)
+                'TEST_CASE_200'
+            );
+        });
 
         /**
          * @var GetOrderResponse $response

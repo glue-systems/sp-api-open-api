@@ -27,30 +27,31 @@ class UpdateInventoryApiTest extends TestCase
 
     public function test_submitInventoryUpdate()
     {
-        $updateInventoryApi = $this->spApi->vendorDirectFulfillmentInventoryV1();
-
-        $result = $updateInventoryApi->submitInventoryUpdateWithHttpInfo(
-            'FAKE-WAREHOUSE-123',
-            new SubmitInventoryUpdateRequest([
-                'inventory' => new InventoryUpdate([
-                    'sellingParty' => new PartyIdentification([
-                        'partyId' => 'VENDORID',
-                    ]),
-                    'isFullUpdate' => false,
-                    'items'        => [
-                        new ItemDetails([
-                            'buyerProductIdentifier'  => 'ABCD4562',
-                            'vendorProductIdentifier' => '7Q89K11',
-                            'availableQuantity'       => new ItemQuantity([
-                                'amount'        => 10,
-                                'unitOfMeasure' => 'Each',
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->vendorDirectFulfillmentInventoryV1()
+                ->submitInventoryUpdateWithHttpInfo(
+                    'FAKE-WAREHOUSE-123',
+                    new SubmitInventoryUpdateRequest([
+                        'inventory' => new InventoryUpdate([
+                            'sellingParty' => new PartyIdentification([
+                                'partyId' => 'VENDORID',
                             ]),
-                            'isObsolete'              => false,
+                            'isFullUpdate' => false,
+                            'items'        => [
+                                new ItemDetails([
+                                    'buyerProductIdentifier'  => 'ABCD4562',
+                                    'vendorProductIdentifier' => '7Q89K11',
+                                    'availableQuantity'       => new ItemQuantity([
+                                        'amount'        => 10,
+                                        'unitOfMeasure' => 'Each',
+                                    ]),
+                                    'isObsolete'              => false,
+                                ]),
+                            ],
                         ]),
-                    ],
-                ]),
-            ])
-        );
+                    ])
+                );
+        });
 
         /**
          * @var SubmitInventoryUpdateResponse $response

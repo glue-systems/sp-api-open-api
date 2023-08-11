@@ -25,13 +25,14 @@ class ListingsApiTest extends TestCase
 
     public function test_getListingsRestrictions()
     {
-        $listingsApi = $this->spApi->listingsRestrictionsV20210801();
-
-        $result = $listingsApi->getListingsRestrictionsWithHttpInfo(
-            'foo',
-            'foo',
-            [$this->spApi->getSpApiConfig()->marketplaceId]
-        );
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->listingsRestrictionsV20210801()
+                ->getListingsRestrictionsWithHttpInfo(
+                    'foo',
+                    'foo',
+                    [$this->spApi->getSpApiConfig()->marketplaceId]
+                );
+        });
 
         /**
          * @var RestrictionList $response

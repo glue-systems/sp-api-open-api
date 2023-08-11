@@ -25,9 +25,9 @@ class SellersApiTest extends TestCase
 
     public function test_getMarketplaceParticipations()
     {
-        $sellersApi = $this->spApi->sellersV1();
-
-        $result = $sellersApi->getMarketplaceParticipationsWithHttpInfo();
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->sellersV1()->getMarketplaceParticipationsWithHttpInfo();
+        });
 
         /**
          * @var GetMarketplaceParticipationsResponse $response

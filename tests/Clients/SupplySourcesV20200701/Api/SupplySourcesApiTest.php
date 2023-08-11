@@ -22,9 +22,10 @@ class SupplySourcesApiTest extends TestCase
 
     public function test_getSupplySources()
     {
-        $supplySourcesApi  = $this->spApi->supplySourcesV20200701();
-
-        $result = $supplySourcesApi->getSupplySourcesWithHttpInfo();
+        $result = $this->spApi->execute(function () {
+            return $this->spApi->supplySourcesV20200701()
+                ->getSupplySourcesWithHttpInfo();
+        });
 
         /**
          * @var GetSupplySourcesResponse $response
