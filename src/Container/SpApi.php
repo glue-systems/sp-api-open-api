@@ -145,6 +145,7 @@ class SpApi implements SpApiInterface
      *
      * @param callable $callback
      * @return mixed
+     * @throws DomainApiException
      */
     public function execute(callable $callback)
     {
