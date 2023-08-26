@@ -97,6 +97,7 @@ use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRe
 use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
+use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use Glue\SpApi\OpenAPI\Services\Rdt\RdtServiceInterface;
@@ -158,11 +159,11 @@ class SpApi implements SpApiInterface
     public function execute(callable $callback)
     {
         try {
-            return $this->_tryCatchApiException($callback);
+            return $this->_invokeExecuteCallback($callback);
         } catch (DomainApiException $ex) {
             if ($ex->getCode() === 403) {
                 $this->lwaService->forgetCachedLwaAccessToken();
-                return $this->_tryCatchApiException($callback);
+                return $this->_invokeExecuteCallback($callback);
             }
             throw $ex;
         }
@@ -329,8 +330,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createMerchantFulfillmentV0ApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -351,8 +353,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createOrdersV0ApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -409,8 +412,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createReportsV20200904ApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -422,8 +426,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createReportsV20210630ApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -462,8 +467,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createShipmentInvoicingV0ApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -511,8 +517,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createVendorDirectFulfillmentOrdersV1ApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -524,8 +531,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createVendorDirectFulfillmentOrdersV20211228ApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -564,8 +572,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -577,8 +586,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createVendorDirectFulfillmentShippingV1ApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -590,8 +600,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createVendorDirectFulfillmentShippingV1LabelsApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -603,8 +614,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -616,8 +628,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createVendorDirectFulfillmentShippingV20211228ApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -629,8 +642,9 @@ class SpApi implements SpApiInterface
         CreateRestrictedDataTokenRequest $rdtRequest = null
     ) {
         return $this->clientFactory->createVendorDirectFulfillmentShippingV20211228LabelsApiClient(
-            null,
-            $this->_resolveRdtProvider($rdtRequest)
+            function (ClientBuilder $builder) use ($rdtRequest) {
+                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
+            }
         );
     }
 
@@ -661,6 +675,18 @@ class SpApi implements SpApiInterface
         return $this->clientFactory->createVendorTransactionStatusV1ApiClient();
     }
 
+    protected function _invokeExecuteCallback($callback)
+    {
+        try {
+            return $callback();
+        } catch (\Exception $ex) {
+            if ($this->_shouldThrowDomainApiException($ex)) {
+                $this->_throwDomainApiException($ex);
+            }
+            throw $ex;
+        }
+    }
+
     /**
      * @param CreateRestrictedDataTokenRequest|null $rdtRequest
      * @return callable|null
@@ -671,19 +697,8 @@ class SpApi implements SpApiInterface
         if (is_null($rdtRequest)) {
             return null;
         }
-        return $this->rdtProvider->makeRdtProviderFromRequest($rdtRequest);
-    }
 
-    protected function _tryCatchApiException($callback)
-    {
-        try {
-            return $callback();
-        } catch (\Exception $ex) {
-            if ($this->_shouldThrowDomainApiException($ex)) {
-                $this->_throwDomainApiException($ex);
-            }
-            throw $ex;
-        }
+        return $this->rdtProvider->makeRdtProviderFromRequest($rdtRequest);
     }
 
     /**
