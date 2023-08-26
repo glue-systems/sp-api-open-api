@@ -1,6 +1,6 @@
 <?php
 
-namespace Tests\Helpers;
+namespace Tests;
 
 use Psr\SimpleCache\CacheInterface;
 

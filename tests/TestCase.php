@@ -23,7 +23,6 @@ use PHPUnit_Framework_SkippedTestError;
 // TODO: Switch to this after upgrading.
 // use PHPUnit\Framework\TestCase as BaseTestCase;
 use \PHPUnit_Framework_TestCase as BaseTestCase;
-use Tests\Helpers\ArrayCache;
 
 class TestCase extends BaseTestCase
 {
@@ -41,7 +40,7 @@ class TestCase extends BaseTestCase
 
         $this->loadEnv();
 
-        require_once(__DIR__ . '/Helpers/functions.php');
+        require_once(__DIR__ . '/functions.php');
     }
 
     public function loadEnv()
