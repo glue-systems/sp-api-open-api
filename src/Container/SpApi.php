@@ -98,6 +98,7 @@ use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProviderInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Psr7\Stream;
@@ -115,6 +116,11 @@ class SpApi implements SpApiInterface
     protected $rdtProvider;
 
     /**
+     * @var LwaServiceInterface
+     */
+    protected $lwaService;
+
+    /**
      * @var SpApiConfig
      */
     protected $spApiConfig;
@@ -122,10 +128,12 @@ class SpApi implements SpApiInterface
     public function __construct(
         ClientFactoryInterface $clientFactory,
         RestrictedDataTokenProviderInterface $rdtProvider,
+        LwaServiceInterface $lwaService,
         SpApiConfig $spApiConfig
     ) {
         $this->clientFactory = $clientFactory;
         $this->rdtProvider   = $rdtProvider;
+        $this->lwaService    = $lwaService;
         $this->spApiConfig   = $spApiConfig;
     }
 
@@ -153,8 +161,10 @@ class SpApi implements SpApiInterface
             return $this->_tryCatchApiException($callback);
         } catch (DomainApiException $ex) {
             if ($ex->getCode() === 403) {
+                $this->lwaService->forgetCachedLwaAccessToken();
                 return $this->_tryCatchApiException($callback);
             }
+            throw $ex;
         }
     }
 

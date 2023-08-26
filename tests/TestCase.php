@@ -60,14 +60,30 @@ class TestCase extends BaseTestCase
     }
 
     /**
+     * @return LwaService
+     */
+    public function buildLwaService()
+    {
+        $spApiConfig = $this->buildSpApiConfig();
+        $lwaClient   = new LwaClient($spApiConfig);
+        return new LwaService($lwaClient, self::$arrayCache, $spApiConfig);
+    }
+
+    /**
      * @return SpAPi
      */
     public function buildSpApiContainer()
     {
         $spApiConfig   = $this->buildSpApiConfig();
         $clientFacotry = $this->buildClientFactory();
+        $lwaService    = $this->buildLwaService();
         $rdtProvider   = new RestrictedDataTokenProvider($clientFacotry);
-        return new SpApi($clientFacotry, $rdtProvider, $spApiConfig);
+        return new SpApi(
+            $clientFacotry,
+            $rdtProvider,
+            $lwaService,
+            $spApiConfig
+        );
     }
 
     /**
@@ -80,8 +96,7 @@ class TestCase extends BaseTestCase
         }
         $credentialProvider  = $this->buildDotEnvCredentialProvider();
         $spApiConfig         = $this->buildSpApiConfig();
-        $lwaClient           = new LwaClient($spApiConfig);
-        $lwaService          = new LwaService($lwaClient, self::$arrayCache, $spApiConfig);
+        $lwaService          = $this->buildLwaService();
         $clientAuthenticator = new ClientAuthenticator($lwaService, $credentialProvider, $spApiConfig);
         $clientBuilder       = new ClientBuilder($clientAuthenticator, $spApiConfig);
         $clientFactory       = new ClientFactory($clientBuilder, $spApiConfig);

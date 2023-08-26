@@ -94,7 +94,7 @@ class LwaServiceTest extends TestCase
         $this->assertEquals($expectedToken, $actualToken);
     }
 
-    public function test_forgetLwaAccessToken_can_forget_cached_token()
+    public function test_forgetCachedLwaAccessToken_can_forget_cached_token()
     {
         $this->cache->shouldReceive('delete')
             ->once()
@@ -107,7 +107,7 @@ class LwaServiceTest extends TestCase
             $this->spApiConfig
         );
 
-        $result = $sut->forgetLwaAccessToken();
+        $result = $sut->forgetCachedLwaAccessToken();
 
         $this->assertTrue($result);
     }

@@ -20,5 +20,5 @@ interface LwaServiceInterface
      *
      * @return bool
      */
-    public function forgetLwaAccessToken();
+    public function forgetCachedLwaAccessToken();
 }

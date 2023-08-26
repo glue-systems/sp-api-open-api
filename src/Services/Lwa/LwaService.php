@@ -67,7 +67,7 @@ class LwaService implements LwaServiceInterface
      *
      * @return bool
      */
-    public function forgetLwaAccessToken()
+    public function forgetCachedLwaAccessToken()
     {
         return $this->cache->delete(self::LWA_ACCESS_TOKEN_CACHE_KEY);
     }
