@@ -2,7 +2,6 @@
 
 namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
-use Aws\Signature\SignatureV4;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Middleware\AwsSignatureV4Middleware;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
@@ -11,8 +10,6 @@ use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Middleware;
-use Psr\Http\Message\RequestInterface;
 use Psr\SimpleCache\CacheInterface;
 
 class ClientAuthenticator implements ClientAuthenticatorInterface
