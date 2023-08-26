@@ -16,10 +16,10 @@ use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
 use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaClient;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
 use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProvider;
 use Glue\SpApi\OpenAPI\SpApiConfig;
-use GuzzleHttp\Psr7\Stream;
 use PHPUnit_Framework_SkippedTestError;
 // TODO: Switch to this after upgrading.
 // use PHPUnit\Framework\TestCase as BaseTestCase;
@@ -80,8 +80,9 @@ class TestCase extends BaseTestCase
         }
         $credentialProvider  = $this->buildDotEnvCredentialProvider();
         $spApiConfig         = $this->buildSpApiConfig();
-        $lwaService          = new LwaService($spApiConfig);
-        $clientAuthenticator = new ClientAuthenticator(self::$arrayCache, $lwaService, $credentialProvider, $spApiConfig);
+        $lwaClient           = new LwaClient($spApiConfig);
+        $lwaService          = new LwaService($lwaClient, self::$arrayCache, $spApiConfig);
+        $clientAuthenticator = new ClientAuthenticator($lwaService, $credentialProvider, $spApiConfig);
         $clientBuilder       = new ClientBuilder($clientAuthenticator, $spApiConfig);
         $clientFactory       = new ClientFactory($clientBuilder, $spApiConfig);
 

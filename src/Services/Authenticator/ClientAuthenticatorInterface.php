@@ -15,14 +15,7 @@ interface ClientAuthenticatorInterface
      * @return ClientInterface
      * @throws LwaAccessTokenException
      */
-    public function createAuthenticatedGuzzleClient($restrictedDataToken = null);
-
-    /**
-     * Get the cached Login with Amazon (LWA) access token if it exists, or request a new one
-     * and save it in the cache.
-     *
-     * @return string
-     * @throws LwaAccessTokenException
-     */
-    public function rememberLwaAccessToken();
+    public function createAuthenticatedGuzzleClient(
+        $restrictedDataToken = null
+    );
 }

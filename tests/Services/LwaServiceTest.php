@@ -2,97 +2,113 @@
 
 namespace Tests\Services;
 
-use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaClientInterface;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
 use Glue\SpApi\OpenAPI\SpApiConfig;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\RequestException;
-use GuzzleHttp\RequestOptions;
+use GuzzleHttp\Client;
 use Mockery\MockInterface;
-use Psr\Http\Message\RequestInterface;
-use Psr\Http\Message\ResponseInterface;
-use Psr\Http\Message\StreamInterface;
+use Psr\SimpleCache\CacheInterface;
 use Tests\TestCase;
 
 class LwaServiceTest extends TestCase
 {
     /**
+     * @var CacheInterface|MockInterface
+     */
+    public $cache;
+
+    /**
+     * @var LwaClientInterface|MockInterface
+     */
+    public $lwaClient;
+
+    /**
      * @var SpApiConfig
      */
     public $spApiConfig;
-
-    /**
-     * @var ClientInterface|MockInterface
-     */
-    public $guzzleClient;
-
-    /**
-     * @var RequestInterface|MockInterface
-     */
-    public $request;
-
-    /**
-     * @var ResponseInterface|MockInterface
-     */
-    public $response;
-
-    /**
-     * @var StreamInterface|MockInterface
-     */
-    public $stream;
 
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->spApiConfig  = $this->buildSpApiConfig();
-        $this->guzzleClient = \Mockery::mock(ClientInterface::class);
-        $this->request      = \Mockery::mock(RequestInterface::class);
-        $this->response     = \Mockery::mock(ResponseInterface::class);
-        $this->stream       = \Mockery::mock(StreamInterface::class);
+        $this->cache       = \Mockery::mock(CacheInterface::class);
+        $this->lwaClient   = \Mockery::mock(LwaClientInterface::class);
+        $this->spApiConfig = $this->buildSpApiConfig();
     }
 
-    public function test_requestNewLwaAccessToken_happy_case()
+    public function test_rememberLwaAccessToken_can_get_cached_token()
     {
-        $expectedParsedResponse = ['foo' => 'bar'];
+        $expectedToken = 'fake-lwa-token123';
 
-        $this->guzzleClient->shouldReceive('request')
+        $this->cache->shouldReceive('get')
             ->once()
-            ->with('POST', '/auth/o2/token', [
-                RequestOptions::JSON => [
-                    'grant_type'    => 'refresh_token',
-                    'refresh_token' => $this->spApiConfig->lwaRefreshToken,
-                    'client_id'     => $this->spApiConfig->lwaClientId,
-                    'client_secret' => $this->spApiConfig->lwaClientSecret,
-                ],
-            ])
-            ->andReturn($this->response);
-        $this->response->shouldReceive('getBody')
-            ->once()
-            ->andReturn($this->stream);
-        $this->stream->shouldReceive('getContents')
-            ->once()
-            ->andReturn(json_encode($expectedParsedResponse));
+            ->with(LwaService::LWA_ACCESS_TOKEN_CACHE_KEY)
+            ->andReturn($expectedToken);
 
-        $sut                  = new LwaService($this->spApiConfig);
-        $actualParsedResponse = $sut->requestNewLwaAccessToken($this->guzzleClient);
+        $sut = new LwaService(
+            $this->lwaClient,
+            $this->cache,
+            $this->spApiConfig
+        );
 
-        $this->assertEquals($actualParsedResponse, $expectedParsedResponse);
+        $actualToken = $sut->rememberLwaAccessToken();
+
+        $this->assertEquals($expectedToken, $actualToken);
     }
 
-    public function test_requestNewLwaAccessToken_throws_LwaAccessTokenException()
+    public function test_rememberLwaAccessToken_can_request_new_token_and_put_in_cache()
     {
-        $expectedExceptionMessage = 'fake exception';
+        $expectedToken        = 'fake-lwa-token123';
+        $expiresIn          = 3600;
 
-        $this->guzzleClient->shouldReceive('request')
+        $this->cache->shouldReceive('get')
             ->once()
-            ->withAnyArgs()
-            ->andThrow(new RequestException($expectedExceptionMessage, $this->request));
+            ->with(LwaService::LWA_ACCESS_TOKEN_CACHE_KEY)
+            ->andReturnNull();
+        $this->lwaClient->shouldReceive('requestNewLwaAccessToken')
+            ->once()
+            ->withArgs(function ($arg1) {
+                return $arg1 instanceof Client;
+            })
+            ->andReturn([
+                'access_token' => $expectedToken,
+                'expires_in'   => $expiresIn,
+            ]);
+        $this->cache->shouldReceive('set')
+            ->once()
+            ->with(
+                LwaService::LWA_ACCESS_TOKEN_CACHE_KEY,
+                $expectedToken,
+                $expiresIn - LwaService::CACHE_LIFE_BUFFER_IN_SECONDS
+            )
+            ->andReturn(true);
 
-        $sut = new LwaService($this->spApiConfig);
+        $sut = new LwaService(
+            $this->lwaClient,
+            $this->cache,
+            $this->spApiConfig
+        );
 
-        $this->expectException(LwaAccessTokenException::class);
-        $this->expectExceptionMessage($expectedExceptionMessage);
-        $sut->requestNewLwaAccessToken($this->guzzleClient);
+        $actualToken = $sut->rememberLwaAccessToken();
+
+        $this->assertEquals($expectedToken, $actualToken);
+    }
+
+    public function test_forgetLwaAccessToken_can_forget_cached_token()
+    {
+        $this->cache->shouldReceive('delete')
+            ->once()
+            ->with(LwaService::LWA_ACCESS_TOKEN_CACHE_KEY)
+            ->andReturnTrue();
+
+        $sut = new LwaService(
+            $this->lwaClient,
+            $this->cache,
+            $this->spApiConfig
+        );
+
+        $result = $sut->forgetLwaAccessToken();
+
+        $this->assertTrue($result);
     }
 }

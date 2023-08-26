@@ -19,11 +19,13 @@ class ArrayCache implements CacheInterface
     public function set($key, $value, $ttl = null)
     {
         $this->storage[$key] = $value;
+        return true;
     }
 
     public function delete($key)
     {
         unset($this->storage[$key]);
+        return true;
     }
 
     public function clear()
