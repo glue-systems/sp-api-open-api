@@ -1,6 +1,6 @@
 <?php
 
-namespace Glue\SpApi\OpenAPI\Container;
+namespace Glue\SpApi\OpenAPI\Utilities;
 
 use Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi as AplusContentV20201101Api;
 use Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\ApiException as AplusContentV20201101ApiException;
