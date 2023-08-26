@@ -94,11 +94,11 @@ class TestCase extends BaseTestCase
         if (env('TESTING_ALWAYS_RESET_ARRAY_CACHE', false)) {
             self::$arrayCache = new ArrayCache();
         }
-        $credentialProvider  = $this->buildDotEnvCredentialProvider();
-        $spApiConfig         = $this->buildSpApiConfig();
-        $lwaService          = $this->buildLwaService();
-        $clientAuthenticator = new ClientAuthenticator($lwaService, $credentialProvider, $spApiConfig);
-        $clientFactory       = new ClientFactory($clientAuthenticator, $spApiConfig);
+        $awsCredentialProvider  = $this->buildDotEnvCredentialProvider();
+        $spApiConfig            = $this->buildSpApiConfig();
+        $lwaService             = $this->buildLwaService();
+        $clientAuthenticator    = new ClientAuthenticator($lwaService, $awsCredentialProvider, $spApiConfig);
+        $clientFactory          = new ClientFactory($clientAuthenticator, $spApiConfig);
 
         return $clientFactory;
     }

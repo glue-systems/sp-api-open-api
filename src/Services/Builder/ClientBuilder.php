@@ -212,6 +212,9 @@ class ClientBuilder
      */
     public function getRdtProvider()
     {
+        if (is_null($this->rdtProvider)) {
+            return null;
+        }
         return clone $this->rdtProvider;
     }
 
@@ -226,16 +229,10 @@ class ClientBuilder
     ) {
         $this->_throwIfNotReadyToCreate();
 
-        if ($this->rdtProvider) {
-            $restrictedDataToken = call_user_func($this->rdtProvider);
-        } else {
-            $restrictedDataToken = null;
-        }
-
         $apiClassFqn = $this->apiClassFqn;
 
         return new $apiClassFqn(
-            $authenticator->createAuthenticatedGuzzleClient($restrictedDataToken),
+            $authenticator->createAuthenticatedGuzzleClient($this->rdtProvider),
             $this->domainConfig
         );
     }

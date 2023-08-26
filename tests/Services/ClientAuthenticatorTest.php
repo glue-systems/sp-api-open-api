@@ -17,6 +17,11 @@ class ClientAuthenticatorTest extends TestCase
     public $lwaService;
 
     /**
+     * @var callable
+     */
+    public $awsCredentialProvider;
+
+    /**
      * @var SpApiConfig
      */
     public $spApiConfig;
@@ -25,25 +30,24 @@ class ClientAuthenticatorTest extends TestCase
     public function setUp()
     {
         parent::setup();
-        $this->lwaService  = \Mockery::mock(LwaServiceInterface::class);
-        $this->spApiConfig = $this->buildSpApiConfig();
-    }
-
-    public function test_createAuthenticatedGuzzleClient_with_no_RDT()
-    {
-        $expectedToken      = 'fake-lwa-token123';
-        $credentialProvider = function () {
+        $this->lwaService            = \Mockery::mock(LwaServiceInterface::class);
+        $this->awsCredentialProvider = function () {
             return \Mockery::mock(CredentialsInterface::class);
         };
+        $this->spApiConfig           = $this->buildSpApiConfig();
+    }
 
+    public function test_createAuthenticatedGuzzleClient_with_no_rdtProvider_uses_lwa_as_access_token()
+    {
+        $lwaToken = 'fake-lwa-token123';
         $this->lwaService->shouldReceive('rememberLwaAccessToken')
             ->once()
             ->withNoArgs()
-            ->andReturn($expectedToken);
+            ->andReturn($lwaToken);
 
         $sut = new ClientAuthenticator(
             $this->lwaService,
-            $credentialProvider,
+            $this->awsCredentialProvider,
             $this->spApiConfig
         );
 
@@ -51,28 +55,28 @@ class ClientAuthenticatorTest extends TestCase
         $guzzleConfig = $guzzleClient->getConfig();
 
         $this->assertFalse(empty($guzzleConfig['headers']['x-amz-access-token']));
-        $this->assertEquals($expectedToken, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
+        $this->assertEquals($lwaToken, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
         $this->assertEquals($this->spApiConfig->spApiBaseUrl, $guzzleClient->getConfig()['base_uri']);
     }
 
-    public function test_createAuthenticatedGuzzleClient_with_RDT()
+    public function test_createAuthenticatedGuzzleClient_with_rdtProvider_uses_rdt_as_access_token()
     {
-        $expectedRdt        = 'fake-rdt123';
-        $credentialProvider = function () {
-            return \Mockery::mock(CredentialsInterface::class);
+        $restrictedDataToken = 'fake-rdt123';
+        $expectedRdtProvider = function () use ($restrictedDataToken) {
+            return $restrictedDataToken;
         };
 
         $sut = new ClientAuthenticator(
             $this->lwaService,
-            $credentialProvider,
+            $this->awsCredentialProvider,
             $this->spApiConfig
         );
 
-        $guzzleClient = $sut->createAuthenticatedGuzzleClient($expectedRdt);
+        $guzzleClient = $sut->createAuthenticatedGuzzleClient($expectedRdtProvider);
         $guzzleConfig = $guzzleClient->getConfig();
 
         $this->assertFalse(empty($guzzleConfig['headers']['x-amz-access-token']));
-        $this->assertEquals($expectedRdt, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
+        $this->assertEquals($restrictedDataToken, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
         $this->assertEquals($this->spApiConfig->spApiBaseUrl, $guzzleClient->getConfig()['base_uri']);
     }
 }

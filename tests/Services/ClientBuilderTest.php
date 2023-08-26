@@ -128,7 +128,7 @@ class ClientBuilderTest extends TestCase
 
         $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
             ->once()
-            ->with(call_user_func($expectedRdtProvider))
+            ->with($expectedRdtProvider)
             ->andReturn($expectedGuzzleClient);
 
         $actualDomainClient = $sut->createClient($this->authenticator);

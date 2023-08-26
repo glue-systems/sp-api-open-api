@@ -3,6 +3,7 @@
 namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
+use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Middleware\AwsSignatureV4Middleware;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
@@ -21,7 +22,7 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
     /**
      * @var callable
      */
-    protected $credentialProvider;
+    protected $awsCredentialProvider;
 
     /**
      * @var SpApiConfig
@@ -30,12 +31,12 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
 
     public function __construct(
         LwaServiceInterface $lwaService,
-        callable $credentialProvider,
+        callable $awsCredentialProvider,
         SpApiConfig $spApiConfig
     ) {
-        $this->lwaService         = $lwaService;
-        $this->credentialProvider = $credentialProvider;
-        $this->spApiConfig        = $spApiConfig;
+        $this->lwaService            = $lwaService;
+        $this->awsCredentialProvider = $awsCredentialProvider;
+        $this->spApiConfig           = $spApiConfig;
 
         $this->spApiConfig->validateConfig();
     }
@@ -44,15 +45,15 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
      * Create an authenticated Guzzle client, ready to be passed into
      * the constructor of an SP-API client class.
      *
-     * @param string|null $restrictedDataToken
+     * @param callable|null $rdtProvider Callable restricted data token provider that returns an RDT, if needed for the SP-API operation.
      * @return ClientInterface
-     * @throws LwaAccessTokenException
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createAuthenticatedGuzzleClient(
-        $restrictedDataToken = null
+        callable $rdtProvider = null
     ) {
-        if ($restrictedDataToken) {
-            $accessToken = $restrictedDataToken;
+        if ($rdtProvider) {
+            $accessToken = call_user_func($rdtProvider);
         } else {
             $accessToken = $this->lwaService->rememberLwaAccessToken();
         }
@@ -76,7 +77,7 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
         $stack->setHandler(new CurlHandler());
 
         $stack->push(new AwsSignatureV4Middleware(
-            $this->credentialProvider,
+            $this->awsCredentialProvider,
             // TODO: Configify defaults & parameterize overrides for these values.
             'execute-api',
             'us-east-1'
