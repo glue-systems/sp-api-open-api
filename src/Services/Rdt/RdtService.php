@@ -7,7 +7,7 @@ use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRe
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 
-class RestrictedDataTokenProvider implements RestrictedDataTokenProviderInterface
+class RdtService implements RdtServiceInterface
 {
     /**
      * @var ClientFactoryInterface
@@ -27,8 +27,9 @@ class RestrictedDataTokenProvider implements RestrictedDataTokenProviderInterfac
      * @param CreateRestrictedDataTokenRequest $rdtRequest
      * @return callable
      */
-    public function fromRdtRequest(CreateRestrictedDataTokenRequest $rdtRequest)
-    {
+    public function makeRdtProviderFromRequest(
+        CreateRestrictedDataTokenRequest $rdtRequest
+    ) {
         /**
          * Provider callback for retrieving a Restricted Data Token (RDT).
          *

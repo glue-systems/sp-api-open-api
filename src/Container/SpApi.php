@@ -99,7 +99,7 @@ use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
-use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProviderInterface;
+use Glue\SpApi\OpenAPI\Services\Rdt\RdtServiceInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Psr7\Stream;
 
@@ -111,7 +111,7 @@ class SpApi implements SpApiInterface
     protected $clientFactory;
 
     /**
-     * @var RestrictedDataTokenProviderInterface
+     * @var RdtServiceInterface
      */
     protected $rdtProvider;
 
@@ -127,7 +127,7 @@ class SpApi implements SpApiInterface
 
     public function __construct(
         ClientFactoryInterface $clientFactory,
-        RestrictedDataTokenProviderInterface $rdtProvider,
+        RdtServiceInterface $rdtProvider,
         LwaServiceInterface $lwaService,
         SpApiConfig $spApiConfig
     ) {
@@ -671,7 +671,7 @@ class SpApi implements SpApiInterface
         if (is_null($rdtRequest)) {
             return null;
         }
-        return $this->rdtProvider->fromRdtRequest($rdtRequest);
+        return $this->rdtProvider->makeRdtProviderFromRequest($rdtRequest);
     }
 
     protected function _tryCatchApiException($callback)

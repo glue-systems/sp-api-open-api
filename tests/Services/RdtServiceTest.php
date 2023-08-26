@@ -8,11 +8,11 @@ use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRe
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
-use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProvider;
+use Glue\SpApi\OpenAPI\Services\Rdt\RdtService;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
-class RestrictedDataTokenProviderTest extends TestCase
+class RdtServiceTest extends TestCase
 {
     /**
      * @var ClientFactoryInterface|MockInterface
@@ -32,7 +32,7 @@ class RestrictedDataTokenProviderTest extends TestCase
         $this->tokensApi     = \Mockery::mock(TokensApi::class);
     }
 
-    public function test_fromRdtRequest_happy_case()
+    public function test_makeRdtProviderFromRequest_happy_case()
     {
         $expectedRestrictedDataToken = 'fake-rdt-123';
         $rdtRequest                  = new CreateRestrictedDataTokenRequest();
@@ -49,14 +49,14 @@ class RestrictedDataTokenProviderTest extends TestCase
             ->with($rdtRequest)
             ->andReturn($rdtResponse);
 
-        $sut         = new RestrictedDataTokenProvider($this->clientFactory);
-        $rdtProvider = $sut->fromRdtRequest($rdtRequest);
+        $sut         = new RdtService($this->clientFactory);
+        $rdtProvider = $sut->makeRdtProviderFromRequest($rdtRequest);
         $actualRestrictedDataToken = $rdtProvider();
 
         $this->assertEquals($expectedRestrictedDataToken, $actualRestrictedDataToken);
     }
 
-    public function test_fromRdtRequest_throws_RestrictedDataTokenException()
+    public function test_makeRdtProviderFromRequest_throws_RestrictedDataTokenException()
     {
         $expectedExceptionMessage = 'fake exception';
 
@@ -69,8 +69,8 @@ class RestrictedDataTokenProviderTest extends TestCase
             ->withAnyArgs()
             ->andThrow(ApiException::class, $expectedExceptionMessage);
 
-        $sut         = new RestrictedDataTokenProvider($this->clientFactory);
-        $rdtProvider = $sut->fromRdtRequest(new CreateRestrictedDataTokenRequest());
+        $sut         = new RdtService($this->clientFactory);
+        $rdtProvider = $sut->makeRdtProviderFromRequest(new CreateRestrictedDataTokenRequest());
 
         $this->expectException(RestrictedDataTokenException::class);
         $this->expectExceptionMessage($expectedExceptionMessage);

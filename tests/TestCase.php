@@ -18,7 +18,7 @@ use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaClient;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
-use Glue\SpApi\OpenAPI\Services\Rdt\RestrictedDataTokenProvider;
+use Glue\SpApi\OpenAPI\Services\Rdt\RdtService;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 use PHPUnit_Framework_SkippedTestError;
 // TODO: Switch to this after upgrading.
@@ -77,7 +77,7 @@ class TestCase extends BaseTestCase
         $spApiConfig   = $this->buildSpApiConfig();
         $clientFacotry = $this->buildClientFactory();
         $lwaService    = $this->buildLwaService();
-        $rdtProvider   = new RestrictedDataTokenProvider($clientFacotry);
+        $rdtProvider   = new RdtService($clientFacotry);
         return new SpApi(
             $clientFacotry,
             $rdtProvider,
