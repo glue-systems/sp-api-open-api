@@ -150,12 +150,11 @@ class SpApi implements SpApiInterface
     public function execute(callable $callback)
     {
         try {
-            return $callback();
-        } catch (\Exception $ex) {
-            if ($this->_shouldThrowDomainApiException($ex)) {
-                $this->_throwDomainApiException($ex);
+            return $this->_tryCatchApiException($callback);
+        } catch (DomainApiException $ex) {
+            if ($ex->getCode() === 403) {
+                return $this->_tryCatchApiException($callback);
             }
-            throw $ex;
         }
     }
 
@@ -663,6 +662,18 @@ class SpApi implements SpApiInterface
             return null;
         }
         return $this->rdtProvider->fromRdtRequest($rdtRequest);
+    }
+
+    protected function _tryCatchApiException($callback)
+    {
+        try {
+            return $callback();
+        } catch (\Exception $ex) {
+            if ($this->_shouldThrowDomainApiException($ex)) {
+                $this->_throwDomainApiException($ex);
+            }
+            throw $ex;
+        }
     }
 
     /**

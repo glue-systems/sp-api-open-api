@@ -4,6 +4,7 @@ namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
 use Aws\Signature\SignatureV4;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
+use Glue\SpApi\OpenAPI\Middleware\AwsSignatureV4Middleware;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Client;
@@ -70,7 +71,16 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
             $accessToken = $this->rememberLwaAccessToken();
         }
 
-        return $this->_makeGuzzleClient($accessToken);
+        $stack = $this->_buildHandlerStack();
+
+        return new Client([
+            'base_uri' => $this->spApiConfig->spApiBaseUrl,
+            'debug'    => $this->spApiConfig->debugDomainApiCall,
+            'headers'  => [
+                'x-amz-access-token' => $accessToken,
+            ],
+            'handler'  => $stack,
+        ]);
     }
 
     /**
@@ -100,38 +110,18 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
         return $newToken['access_token'];
     }
 
-    /**
-     * @param string $accessToken
-     * @return ClientInterface
-     */
-    protected function _makeGuzzleClient($accessToken)
+    protected function _buildHandlerStack()
     {
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
 
-        $stack->push(Middleware::mapRequest(
-            function (RequestInterface $request) {
-                // Example from official docs: https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/service_cloudsearch-custom-requests.html
-                $credentials = call_user_func($this->credentialProvider)->wait();
-
-                // TODO: Config-ify these values?
-                $signer  = new SignatureV4('execute-api', 'us-east-1');
-                $request = $signer->signRequest($request, $credentials);
-                return $request;
-            }
+        $stack->push(new AwsSignatureV4Middleware(
+            $this->credentialProvider,
+            // TODO: Config-ify these values?
+            'execute-api',
+            'us-east-1'
         ));
 
-        return new Client([
-            'base_uri' => $this->spApiConfig->spApiBaseUrl,
-            'debug'    => $this->spApiConfig->debugDomainApiCall,
-            'headers'  => [
-                'x-amz-access-token' => $accessToken,
-                // TODO: Verify x-amz-date header is safe to remove as it's overwritten in AWS's SignatureV4?
-                // 'x-amz-date'         => $formattedTimestamp,
-                // (User-Agent and Host are set downstream in the internals of the OpenAPI
-                // clients, using data captured in each client's config object.)
-            ],
-            'handler'  => $stack,
-        ]);
+        return $stack;
     }
 }
