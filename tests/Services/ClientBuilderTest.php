@@ -36,7 +36,7 @@ class ClientBuilderTest extends TestCase
     {
         $expectedApiClassFqn = OrdersV0Api::class;
 
-        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig);
         $sut->forApi($expectedApiClassFqn);
 
         $this->assertEquals($expectedApiClassFqn, $sut->getApiClassFqn());
@@ -45,7 +45,7 @@ class ClientBuilderTest extends TestCase
 
     public function test_forApi_throws_ClientBuilderException()
     {
-        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig);
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage('Invalid API class FQN');
@@ -57,7 +57,7 @@ class ClientBuilderTest extends TestCase
         $expectedDomainConfig = (new Configuration())
             ->setUsername('username-for-testing-only');
 
-        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig);
         $sut->forApi(OrdersV0Api::class);
         $sut->withConfig($expectedDomainConfig);
 
@@ -66,16 +66,20 @@ class ClientBuilderTest extends TestCase
 
     public function test_withConfig_happy_case_with_null_argument()
     {
-        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $expectedDomainConfig = (new Configuration())
+            ->setUserAgent($this->spApiConfig->userAgent())
+            ->setHost($this->spApiConfig->spApiBaseUrl);
+
+        $sut = new ClientBuilder($this->spApiConfig);
         $sut->forApi(OrdersV0Api::class);
         $sut->withConfig(null);
 
-        $this->assertEquals(new Configuration(), $sut->getDomainConfig());
+        $this->assertEquals($expectedDomainConfig, $sut->getDomainConfig());
     }
 
     public function test_withConfig_called_before_forApi_throws_ClientBuilderException()
     {
-        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig);
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage("Method 'withConfig' cannot be called before");
@@ -84,7 +88,7 @@ class ClientBuilderTest extends TestCase
 
     public function test_withConfig_of_incorrect_type_throws_ClientBuilderException()
     {
-        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig);
         $sut->forApi(OrdersV0Api::class);
 
         $this->expectException(ClientBuilderException::class);
@@ -98,7 +102,7 @@ class ClientBuilderTest extends TestCase
             return 'foo';
         };
 
-        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig);
         $sut->withRdtProvider($expectedRdtProvider);
 
         $this->assertEquals($expectedRdtProvider, $sut->getRdtProvider());
@@ -118,9 +122,8 @@ class ClientBuilderTest extends TestCase
             $expectedDomainConfig
         );
 
-        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig);
         $sut->forApi(OrdersV0Api::class);
-        $sut->withConfig(new Configuration());
         $sut->withRdtProvider($expectedRdtProvider);
 
         $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
@@ -128,7 +131,7 @@ class ClientBuilderTest extends TestCase
             ->with(call_user_func($expectedRdtProvider))
             ->andReturn($expectedGuzzleClient);
 
-        $actualDomainClient = $sut->createClient();
+        $actualDomainClient = $sut->createClient($this->authenticator);
 
         $this->assertEquals($expectedDomainClient, $actualDomainClient);
     }
@@ -144,9 +147,8 @@ class ClientBuilderTest extends TestCase
             $expectedDomainConfig
         );
 
-        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig);
         $sut->forApi(OrdersV0Api::class);
-        $sut->withConfig(new Configuration());
         $sut->withRdtProvider(null);
 
         $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
@@ -154,17 +156,17 @@ class ClientBuilderTest extends TestCase
             ->with(null)
             ->andReturn($expectedGuzzleClient);
 
-        $actualDomainClient = $sut->createClient();
+        $actualDomainClient = $sut->createClient($this->authenticator);
 
         $this->assertEquals($expectedDomainClient, $actualDomainClient);
     }
 
     public function test_createClient_with_null_apiClassFqn_throws_ClientBuilderException()
     {
-        $sut = new ClientBuilder($this->authenticator, $this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig);
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage('Builder not ready to create');
-        $sut->createClient();
+        $sut->createClient($this->authenticator);
     }
 }

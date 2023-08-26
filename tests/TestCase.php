@@ -98,8 +98,7 @@ class TestCase extends BaseTestCase
         $spApiConfig         = $this->buildSpApiConfig();
         $lwaService          = $this->buildLwaService();
         $clientAuthenticator = new ClientAuthenticator($lwaService, $credentialProvider, $spApiConfig);
-        $clientBuilder       = new ClientBuilder($clientAuthenticator, $spApiConfig);
-        $clientFactory       = new ClientFactory($clientBuilder, $spApiConfig);
+        $clientFactory       = new ClientFactory($clientAuthenticator, $spApiConfig);
 
         return $clientFactory;
     }

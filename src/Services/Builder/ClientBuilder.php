@@ -100,13 +100,8 @@ use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
 use Glue\SpApi\OpenAPI\SpApiConfig;
 
-class ClientBuilder implements ClientBuilderInterface
+class ClientBuilder
 {
-    /**
-     * @var ClientAuthenticatorInterface
-     */
-    protected $authenticator;
-
     /**
      * @var SpApiConfig
      */
@@ -130,12 +125,9 @@ class ClientBuilder implements ClientBuilderInterface
      */
     protected $rdtProvider = null;
 
-    public function __construct(
-        ClientAuthenticatorInterface $authenticator,
-        SpApiConfig $spApiConfig
-    ) {
-        $this->authenticator = $authenticator;
-        $this->spApiConfig   = $spApiConfig;
+    public function __construct(SpApiConfig $spApiConfig)
+    {
+        $this->spApiConfig = $spApiConfig;
     }
 
     /**
@@ -153,7 +145,9 @@ class ClientBuilder implements ClientBuilderInterface
         $domainConfigClassFqn = SpApiRoster::getDomainConfigFromApiClassFqn($apiClassFqn);
 
         $this->apiClassFqn  = $apiClassFqn;
-        $this->domainConfig = new $domainConfigClassFqn();
+        $this->domainConfig = $this->_configureDomainConfigDefaults(
+            new $domainConfigClassFqn()
+        );
 
         return $this;
     }
@@ -198,30 +192,6 @@ class ClientBuilder implements ClientBuilderInterface
     }
 
     /**
-     * Create the API client according to the values set up in this builder instance.
-     *
-     * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
-     */
-    public function createClient()
-    {
-        $this->_throwIfNotReadyToCreate();
-
-        if ($this->rdtProvider) {
-            $restrictedDataToken = call_user_func($this->rdtProvider);
-        } else {
-            $restrictedDataToken = null;
-        }
-
-        $apiClassFqn = $this->apiClassFqn;
-
-        return new $apiClassFqn(
-            $this->authenticator->createAuthenticatedGuzzleClient($restrictedDataToken),
-            $this->_configureDefaults($this->domainConfig)
-        );
-    }
-
-    /**
      * @return string
      */
     public function getApiClassFqn()
@@ -246,10 +216,35 @@ class ClientBuilder implements ClientBuilderInterface
     }
 
     /**
+     * Create the API client according to the values set up in this builder instance.
+     *
+     * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     */
+    public function createClient(
+        ClientAuthenticatorInterface $authenticator
+    ) {
+        $this->_throwIfNotReadyToCreate();
+
+        if ($this->rdtProvider) {
+            $restrictedDataToken = call_user_func($this->rdtProvider);
+        } else {
+            $restrictedDataToken = null;
+        }
+
+        $apiClassFqn = $this->apiClassFqn;
+
+        return new $apiClassFqn(
+            $authenticator->createAuthenticatedGuzzleClient($restrictedDataToken),
+            $this->domainConfig
+        );
+    }
+
+    /**
      * @param AplusContentV20201101Config|AuthorizationV1Config|CatalogItemsV0Config|CatalogItemsV20201201Config|DefinitionsProductTypesV20200901Config|EasyShipV20220323Config|FbaInboundEligibilityV1Config|FbaInventoryV1Config|FbaSmallAndLightV1Config|FeedsV20200904Config|FeedsV20210630Config|FinancesV0Config|FulfillmentInboundV0Config|FulfillmentOutboundV20200701Config|ListingsItemsV20200901Config|ListingsItemsV20210801Config|ListingsRestrictionsV20210801Config|MerchantFulfillmentV0Config|NotificationsV1Config|OrdersV0Config|ProductFeesV0Config|ProductPricingV0Config|ReplenishmentV20221107Config|ReportsV20200904Config|ReportsV20210630Config|SalesV1Config|SellersV1Config|ServicesV1Config|ShipmentInvoicingV0Config|SupplySourcesV20200701Config|TokensV20210301Config|UploadsV20201101Config|VendorDirectFulfillmentInventoryV1Config|VendorDirectFulfillmentOrdersV1Config|VendorDirectFulfillmentOrdersV20211228Config|VendorDirectFulfillmentPaymentsV1Config|VendorDirectFulfillmentSandboxDataV20211228Config|VendorDirectFulfillmentShippingV1Config|VendorDirectFulfillmentShippingV20211228Config|VendorDirectFulfillmentTransactionsV1Config|VendorDirectFulfillmentTransactionsV20211228Config|VendorTransactionStatusV1Config $domainConfig
      * @return AplusContentV20201101Config|AuthorizationV1Config|CatalogItemsV0Config|CatalogItemsV20201201Config|DefinitionsProductTypesV20200901Config|EasyShipV20220323Config|FbaInboundEligibilityV1Config|FbaInventoryV1Config|FbaSmallAndLightV1Config|FeedsV20200904Config|FeedsV20210630Config|FinancesV0Config|FulfillmentInboundV0Config|FulfillmentOutboundV20200701Config|ListingsItemsV20200901Config|ListingsItemsV20210801Config|ListingsRestrictionsV20210801Config|MerchantFulfillmentV0Config|NotificationsV1Config|OrdersV0Config|ProductFeesV0Config|ProductPricingV0Config|ReplenishmentV20221107Config|ReportsV20200904Config|ReportsV20210630Config|SalesV1Config|SellersV1Config|ServicesV1Config|ShipmentInvoicingV0Config|SupplySourcesV20200701Config|TokensV20210301Config|UploadsV20201101Config|VendorDirectFulfillmentInventoryV1Config|VendorDirectFulfillmentOrdersV1Config|VendorDirectFulfillmentOrdersV20211228Config|VendorDirectFulfillmentPaymentsV1Config|VendorDirectFulfillmentSandboxDataV20211228Config|VendorDirectFulfillmentShippingV1Config|VendorDirectFulfillmentShippingV20211228Config|VendorDirectFulfillmentTransactionsV1Config|VendorDirectFulfillmentTransactionsV20211228Config|VendorTransactionStatusV1Config
      */
-    protected function _configureDefaults($domainConfig)
+    protected function _configureDomainConfigDefaults($domainConfig)
     {
         $domainConfig->setUserAgent($this->spApiConfig->userAgent());
 
