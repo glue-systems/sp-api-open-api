@@ -90,20 +90,20 @@ class TestCase extends BaseTestCase
     public function buildSpApiConfig()
     {
         return SpApiConfig::make([
-            'defaultBaseUrl'                          => env('DEFAULT_BASE_URL', 'https://sandbox.sellingpartnerapi-na.amazon.com'),
-            'defaultMarketplaceId'                    => env('DEFAULT_MARKETPLACE_ID'),
-            'sellerId'                                => env('SELLER_ID'),
-            'lwaOAuthBaseUrl'                         => env('LWA_O_AUTH_BASE_URL', 'https://api.amazon.com'),
-            'lwaRefreshToken'                         => env('LWA_REFRESH_TOKEN'),
-            'lwaClientId'                             => env('LWA_CLIENT_ID'),
-            'lwaClientSecret'                         => env('LWA_CLIENT_SECRET'),
-            'appNameAndVersion'                       => env('APP_NAME_AND_VERSION', 'GLUE_TEST/0.0.1'),
-            'appLanguageAndVersion'                   => env('APP_LANGUAGE_AND_VERSION', 'PHP/7.2'),
+            'defaultBaseUrl'                       => env('DEFAULT_BASE_URL', 'https://sandbox.sellingpartnerapi-na.amazon.com'),
+            'defaultMarketplaceId'                 => env('DEFAULT_MARKETPLACE_ID'),
+            'sellerId'                             => env('SELLER_ID'),
+            'lwaOAuthBaseUrl'                      => env('LWA_O_AUTH_BASE_URL', 'https://api.amazon.com'),
+            'lwaRefreshToken'                      => env('LWA_REFRESH_TOKEN'),
+            'lwaClientId'                          => env('LWA_CLIENT_ID'),
+            'lwaClientSecret'                      => env('LWA_CLIENT_SECRET'),
+            'appNameAndVersion'                    => env('APP_NAME_AND_VERSION', 'GLUE_TEST/0.0.1'),
+            'appLanguageAndVersion'                => env('APP_LANGUAGE_AND_VERSION', 'PHP/7.2'),
             // SANDBOX env is also set to true in phpunit.xml.
-            'sandbox'                                 => true,
-            'domainApiCallDebug'                      => env('DOMAIN_API_CALL_DEBUG', false),
-            'oAuthApiCallDebug'                       => env('O_AUTH_API_CALL_DEBUG', false),
-            'alwaysStringifyApiExceptionResponseBody' => env('ALWAYS_STRINGIFY_API_EXCEPTION_RESPONSE_BODY', true),
+            'sandbox'                              => true,
+            'domainApiCallDebug'                   => env('DOMAIN_API_CALL_DEBUG', false),
+            'oAuthApiCallDebug'                    => env('O_AUTH_API_CALL_DEBUG', false),
+            'alwaysUnpackApiExceptionResponseBody' => env('ALWAYS_UNPACK_API_EXCEPTION_RESPONSE_BODY', true),
         ]);
     }
 

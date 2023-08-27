@@ -641,7 +641,7 @@ class SpApi implements SpApiInterface
             if (SpApiRoster::isApiException($ex)) {
                 throw new DomainApiException(
                     $ex,
-                    $this->spApiConfig->alwaysStringifyApiExceptionResponseBody
+                    $this->spApiConfig->alwaysUnpackApiExceptionResponseBody
                 );
             }
             throw $ex;

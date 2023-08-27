@@ -80,7 +80,7 @@ class SpApiConfig
      *
      * @var bool
      */
-    public $alwaysStringifyApiExceptionResponseBody = false;
+    public $alwaysUnpackApiExceptionResponseBody = false;
 
     /**
      * Create a new config object from an associative array.
