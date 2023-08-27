@@ -4,6 +4,7 @@ namespace Glue\SpApi\OpenAPI\Services\Rdt;
 
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\ApiException;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
+use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 
@@ -42,9 +43,12 @@ class RdtService implements RdtServiceInterface
                 $rdtResponse = $tokensApi->createRestrictedDataToken($rdtRequest);
                 return $rdtResponse->getRestrictedDataToken();
             } catch (ApiException $ex) {
-                // TODO: Unpack ApiException response body into exception message.
-                $msg = "Failed to retrieve Restricted Data Token (RDT): '{$ex->getMessage()}'";
-                throw new RestrictedDataTokenException($msg, 0, $ex);
+                $apiExceptionMessage = $ex->getMessage();
+                $rdtExceptionMessage = "Failed to retrieve Restricted Data Token (RDT): '{$apiExceptionMessage}'";
+                if ($responseBody = DomainApiException::unpackApiExceptionResponseBody($ex)) {
+                    $rdtExceptionMessage .= " - RESPONSE BODY: {$responseBody}";
+                }
+                throw new RestrictedDataTokenException($rdtExceptionMessage, $ex->getCode(), $ex);
             }
         };
     }

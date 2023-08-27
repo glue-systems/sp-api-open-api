@@ -45,7 +45,7 @@ use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\ApiExceptio
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\ApiException as VendorDirectFulfillmentTransactionsV20211228ApiException;
 use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\ApiException as VendorTransactionStatusV1ApiException;
 use Glue\SpApi\OpenAPI\Utilities\SpApiRoster;
-use GuzzleHttp\Psr7\Stream;
+use Psr\Http\Message\StreamInterface;
 
 class DomainApiException extends \Exception
 {
@@ -73,11 +73,11 @@ class DomainApiException extends \Exception
      * @param AplusContentV20201101ApiException|AuthorizationV1ApiException|CatalogItemsV0ApiException|CatalogItemsV20201201ApiException|DefinitionsProductTypesV20200901ApiException|EasyShipV20220323ApiException|FbaInboundEligibilityV1ApiException|FbaInventoryV1ApiException|FbaSmallAndLightV1ApiException|FeedsV20200904ApiException|FeedsV20210630ApiException|FinancesV0ApiException|FulfillmentInboundV0ApiException|FulfillmentOutboundV20200701ApiException|ListingsItemsV20200901ApiException|ListingsItemsV20210801ApiException|ListingsRestrictionsV20210801ApiException|MerchantFulfillmentV0ApiException|NotificationsV1ApiException|OrdersV0ApiException|ProductFeesV0ApiException|ProductPricingV0ApiException|ReplenishmentV20221107ApiException|ReportsV20200904ApiException|ReportsV20210630ApiException|SalesV1ApiException|SellersV1ApiException|ServicesV1ApiException|ShipmentInvoicingV0ApiException|SupplySourcesV20200701ApiException|TokensV20210301ApiException|UploadsV20201101ApiException|VendorDirectFulfillmentInventoryV1ApiException|VendorDirectFulfillmentOrdersV1ApiException|VendorDirectFulfillmentOrdersV20211228ApiException|VendorDirectFulfillmentPaymentsV1ApiException|VendorDirectFulfillmentSandboxDataV20211228ApiException|VendorDirectFulfillmentShippingV1ApiException|VendorDirectFulfillmentShippingV20211228ApiException|VendorDirectFulfillmentTransactionsV1ApiException|VendorDirectFulfillmentTransactionsV20211228ApiException|VendorTransactionStatusV1ApiException $ex
      * @return string
      */
-    public static function unpackApiExceptionResponseBody($ex)
+    public static function unpackApiExceptionResponseBody(\Exception $ex)
     {
         $body = $ex->getResponseBody();
 
-        if ($body instanceof Stream) {
+        if ($body instanceof StreamInterface) {
             $contents = $body->getContents();
         } elseif (!empty($body) && is_string($body)) {
             $contents = $body;
