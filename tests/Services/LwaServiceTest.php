@@ -42,7 +42,7 @@ class LwaServiceTest extends TestCase
 
         $this->cache->shouldReceive('get')
             ->once()
-            ->with(LwaService::LWA_ACCESS_TOKEN_CACHE_KEY)
+            ->with($this->spApiConfig->lwaAccessTokenCacheKey)
             ->andReturn($expectedToken);
 
         $sut = new LwaService(
@@ -58,12 +58,12 @@ class LwaServiceTest extends TestCase
 
     public function test_rememberLwaAccessToken_can_request_new_token_and_put_in_cache()
     {
-        $expectedToken        = 'fake-lwa-token123';
-        $expiresIn          = 3600;
+        $expectedToken = 'fake-lwa-token123';
+        $expiresIn     = 3600;
 
         $this->cache->shouldReceive('get')
             ->once()
-            ->with(LwaService::LWA_ACCESS_TOKEN_CACHE_KEY)
+            ->with($this->spApiConfig->lwaAccessTokenCacheKey)
             ->andReturnNull();
         $this->lwaClient->shouldReceive('requestNewLwaAccessToken')
             ->once()
@@ -77,7 +77,7 @@ class LwaServiceTest extends TestCase
         $this->cache->shouldReceive('set')
             ->once()
             ->with(
-                LwaService::LWA_ACCESS_TOKEN_CACHE_KEY,
+                $this->spApiConfig->lwaAccessTokenCacheKey,
                 $expectedToken,
                 $expiresIn - LwaService::CACHE_LIFE_BUFFER_IN_SECONDS
             )
@@ -98,7 +98,7 @@ class LwaServiceTest extends TestCase
     {
         $this->cache->shouldReceive('delete')
             ->once()
-            ->with(LwaService::LWA_ACCESS_TOKEN_CACHE_KEY)
+            ->with($this->spApiConfig->lwaAccessTokenCacheKey)
             ->andReturnTrue();
 
         $sut = new LwaService(

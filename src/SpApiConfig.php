@@ -44,6 +44,11 @@ class SpApiConfig
     /**
      * @var string
      */
+    public $lwaAccessTokenCacheKey = 'lwa_access_token';
+
+    /**
+     * @var string
+     */
     public $appNameAndVersion;
 
     /**

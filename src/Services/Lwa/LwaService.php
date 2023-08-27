@@ -9,8 +9,6 @@ use Psr\SimpleCache\CacheInterface;
 
 class LwaService implements LwaServiceInterface
 {
-    const LWA_ACCESS_TOKEN_CACHE_KEY = 'lwa_access_token';
-
     const CACHE_LIFE_BUFFER_IN_SECONDS = 60;
 
     /**
@@ -47,14 +45,14 @@ class LwaService implements LwaServiceInterface
      */
     public function rememberLwaAccessToken()
     {
-        if ($cachedToken = $this->cache->get(self::LWA_ACCESS_TOKEN_CACHE_KEY)) {
+        if ($cachedToken = $this->cache->get($this->spApiConfig->lwaAccessTokenCacheKey)) {
             return $cachedToken;
         }
 
         $newToken = $this->lwaClient->requestNewLwaAccessToken(new Client());
 
         $this->cache->set(
-            self::LWA_ACCESS_TOKEN_CACHE_KEY,
+            $this->spApiConfig->lwaAccessTokenCacheKey,
             $newToken['access_token'],
             $newToken['expires_in'] - self::CACHE_LIFE_BUFFER_IN_SECONDS
         );
@@ -69,6 +67,6 @@ class LwaService implements LwaServiceInterface
      */
     public function forgetCachedLwaAccessToken()
     {
-        return $this->cache->delete(self::LWA_ACCESS_TOKEN_CACHE_KEY);
+        return $this->cache->delete($this->spApiConfig->lwaAccessTokenCacheKey);
     }
 }
