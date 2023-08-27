@@ -14,7 +14,7 @@ class SpApiConfig
     /**
      * @var string
      */
-    public $marketplaceId;
+    public $defaultMarketplaceId;
 
     /**
      * @var string
@@ -110,7 +110,6 @@ class SpApiConfig
     {
         $requiredStringFields = [
             'spApiBaseUrl',
-            'marketplaceId',
             'sellerId',
             'lwaOAuthBaseUrl',
             'lwaRefreshToken',

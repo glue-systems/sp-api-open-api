@@ -27,7 +27,7 @@ class FeedsApiTest extends TestCase
             return $this->spApi->feedsV20200904()->getFeedsWithHttpInfo(
                 // Specific values come from the sandbox spec in models/feeds_2020-09-04.json
                 ['POST_PRODUCT_DATA'],
-                [$this->spApi->getSpApiConfig()->marketplaceId],
+                [$this->spApi->getSpApiConfig()->defaultMarketplaceId],
                 10,
                 ['CANCELLED', 'DONE']
             );

@@ -26,7 +26,7 @@ class DefinitionsApiTest extends TestCase
             return $this->spApi->definitionsProductTypesV20200901()
                 ->getDefinitionsProductTypeWithHttpInfo(
                     'testProductType123',
-                    [$this->spApi->getSpApiConfig()->marketplaceId]
+                    [$this->spApi->getSpApiConfig()->defaultMarketplaceId]
                 );
         });
 

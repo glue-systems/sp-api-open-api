@@ -29,7 +29,7 @@ class ListingsApiTest extends TestCase
             return $this->spApi->listingsItemsV20200901()->deleteListingsItemWithHttpInfo(
                 $this->spApi->getSpApiConfig()->sellerId,
                 'TESTSKU123',
-                [$this->spApi->getSpApiConfig()->marketplaceId]
+                [$this->spApi->getSpApiConfig()->defaultMarketplaceId]
             );
         });
 
@@ -43,7 +43,7 @@ class ListingsApiTest extends TestCase
                 ->patchListingsItemWithHttpInfo(
                     $this->spApi->getSpApiConfig()->sellerId,
                     'TESTSKU123',
-                    [$this->spApi->getSpApiConfig()->marketplaceId],
+                    [$this->spApi->getSpApiConfig()->defaultMarketplaceId],
                     new ListingsItemPatchRequest([
                         'productType'  => 'PRODUCT',
                         'patches'      => [
@@ -72,7 +72,7 @@ class ListingsApiTest extends TestCase
                 ->putListingsItemWithHttpInfo(
                     $this->spApi->getSpApiConfig()->sellerId,
                     'TESTSKU123',
-                    [$this->spApi->getSpApiConfig()->marketplaceId],
+                    [$this->spApi->getSpApiConfig()->defaultMarketplaceId],
                     new ListingsItemPutRequest([
                         'productType'  => 'PRODUCT',
                         'requirements' => 'foo',

@@ -30,7 +30,7 @@ class ListingsApiTest extends TestCase
                 ->getListingsRestrictionsWithHttpInfo(
                     'foo',
                     'foo',
-                    [$this->spApi->getSpApiConfig()->marketplaceId]
+                    [$this->spApi->getSpApiConfig()->defaultMarketplaceId]
                 );
         });
 

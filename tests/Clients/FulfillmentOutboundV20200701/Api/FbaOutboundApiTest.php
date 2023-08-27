@@ -34,7 +34,7 @@ class FbaOutboundApiTest extends TestCase
             return $this->spApi->fulfillmentOutboundV20200701()
                 ->getFulfillmentPreviewWithHttpInfo(
                     new GetFulfillmentPreviewRequest([
-                        'marketplaceId' => $this->spApi->getSpApiConfig()->marketplaceId,
+                        'marketplaceId' => $this->spApi->getSpApiConfig()->defaultMarketplaceId,
                         'address'       => new Address([
                             'name'          => 'Walts TV and Appliance',
                             'addressLine1'  => '1746 W Ruby Dr',

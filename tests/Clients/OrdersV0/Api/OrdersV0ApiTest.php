@@ -27,7 +27,7 @@ class OrdersV0ApiTest extends TestCase
     {
         $result = $this->spApi->execute(function () {
             return $this->spApi->ordersV0()->getOrdersWithHttpInfo(
-                [$this->spApi->getSpApiConfig()->marketplaceId],
+                [$this->spApi->getSpApiConfig()->defaultMarketplaceId],
                 // Using this specific string value as a quirky requirement of the sandbox API (see models/ordersV0.json)
                 'TEST_CASE_200'
             );

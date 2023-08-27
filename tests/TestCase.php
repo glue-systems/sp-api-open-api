@@ -91,7 +91,7 @@ class TestCase extends BaseTestCase
     {
         return SpApiConfig::make([
             'spApiBaseUrl'          => env('SP_API_BASE_URL', 'https://sandbox.sellingpartnerapi-na.amazon.com'),
-            'marketplaceId'         => env('MARKETPLACE_ID'),
+            'defaultMarketplaceId'  => env('MARKETPLACE_ID'),
             'sellerId'              => env('SELLER_ID'),
             'lwaOAuthBaseUrl'       => env('LWA_O_AUTH_BASE_URL', 'https://api.amazon.com'),
             'lwaRefreshToken'       => env('LWA_REFRESH_TOKEN'),
