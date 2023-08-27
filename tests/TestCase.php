@@ -31,16 +31,19 @@ class TestCase extends BaseTestCase
      */
     public static $arrayCache;
 
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
+    // TODO: This will need to be changed to `public function setUp(): void` after upgrading phpunit.
     public function setUp()
     {
-        if (!self::$arrayCache instanceof ArrayCache) {
-            self::$arrayCache = new ArrayCache();
-        }
-
         $this->loadEnv();
 
         require_once(__DIR__ . '/functions.php');
+
+        // Allows for persistence of array cache to improve test performance,
+        // e.g. by caching the LWA token to minimize OAuth requests. If this
+        // is not desireable, see implementation of tearDown method below.
+        if (!self::$arrayCache instanceof ArrayCache) {
+            self::$arrayCache = new ArrayCache();
+        }
     }
 
     public function loadEnv()
@@ -57,61 +60,28 @@ class TestCase extends BaseTestCase
         }
     }
 
-    /**
-     * @return LwaService
-     */
-    public function buildLwaService()
-    {
-        $spApiConfig = $this->buildSpApiConfig();
-        $lwaClient   = new LwaClient($spApiConfig);
-        return new LwaService($lwaClient, self::$arrayCache, $spApiConfig);
-    }
-
-    /**
-     * @return SpAPi
-     */
     public function buildSpApiContainer()
     {
-        $spApiConfig   = $this->buildSpApiConfig();
-        $clientFacotry = $this->buildClientFactory();
-        $lwaService    = $this->buildLwaService();
-        $rdtProvider   = new RdtService($clientFacotry);
-        return new SpApi(
-            $clientFacotry,
-            $rdtProvider,
-            $lwaService,
-            $spApiConfig
-        );
-    }
-
-    /**
-     * @return ClientFactory
-     */
-    public function buildClientFactory()
-    {
-        if (env('TESTING_ALWAYS_RESET_ARRAY_CACHE', false)) {
-            self::$arrayCache = new ArrayCache();
-        }
-        $awsCredentialProvider  = $this->buildDotEnvCredentialProvider();
-        $spApiConfig            = $this->buildSpApiConfig();
-        $lwaService             = $this->buildLwaService();
-        $clientAuthenticator    = new ClientAuthenticator($lwaService, $awsCredentialProvider, $spApiConfig);
-        $clientFactory          = new ClientFactory($clientAuthenticator, $spApiConfig);
-
-        return $clientFactory;
-    }
-
-    /**
-     * @return callable
-     */
-    public function buildDotEnvCredentialProvider()
-    {
-        $credentials = new Credentials(
+        $spApiConfig = $this->buildSpApiConfig();
+        $awsCredentials = new Credentials(
             env('AWS_ACCESS_KEY_ID'),
             env('AWS_SECRET_ACCESS_KEY')
         );
 
-        return CredentialProvider::fromCredentials($credentials);
+        // All of these should be safe to bind as singletons to an IoC container.
+        $awsCredentialProvider  = CredentialProvider::fromCredentials($awsCredentials);
+        $lwaClient              = new LwaClient($spApiConfig);
+        $lwaService             = new LwaService($lwaClient, self::$arrayCache, $spApiConfig);
+        $clientAuthenticator    = new ClientAuthenticator($lwaService, $awsCredentialProvider, $spApiConfig);
+        $clientFactory          = new ClientFactory($clientAuthenticator, $spApiConfig);
+        $rdtProvider            = new RdtService($clientFactory);
+
+        return new SpApi(
+            $clientFactory,
+            $rdtProvider,
+            $lwaService,
+            $spApiConfig
+        );
     }
 
     /**
@@ -153,5 +123,13 @@ class TestCase extends BaseTestCase
             }
             throw $ex;
         }
+    }
+
+    public function tearDown()
+    {
+        if (env('TESTING_ALWAYS_RESET_ARRAY_CACHE', false)) {
+            self::$arrayCache = null;
+        }
+        parent::tearDown();
     }
 }

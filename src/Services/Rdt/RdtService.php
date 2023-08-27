@@ -42,6 +42,7 @@ class RdtService implements RdtServiceInterface
                 $rdtResponse = $tokensApi->createRestrictedDataToken($rdtRequest);
                 return $rdtResponse->getRestrictedDataToken();
             } catch (ApiException $ex) {
+                // TODO: Unpack ApiException response body into exception message.
                 $msg = "Failed to retrieve Restricted Data Token (RDT): '{$ex->getMessage()}'";
                 throw new RestrictedDataTokenException($msg, 0, $ex);
             }
