@@ -12,7 +12,7 @@ class RecognizesStringablesTest extends TestCase
 
     public function test_isStringable_returns_true_for_expected_value_types()
     {
-        $dataset      = $this->_getAssertTrueDataset();
+        $dataset      = $this->_getExpectedStringablesDataset();
         $sut          = $this;
         $failedValues = [];
 
@@ -30,9 +30,9 @@ class RecognizesStringablesTest extends TestCase
         }
     }
 
-    public function test_isStringable_returns_false_for_objects_and_arrays()
+    public function test_isStringable_returns_false_for_non_stringable_objects_and_arrays()
     {
-        $dataset      = $this->_getObjectsAndArraysDataset();
+        $dataset      = $this->_getNonStringableObjectsAndArraysDataset();
         $sut          = $this;
         $failedValues = [];
 
@@ -63,6 +63,7 @@ class RecognizesStringablesTest extends TestCase
                 . " open resource types.");
         }
 
+        // Return value of gettype() is different for closed streams, so testing separately.
         fclose($stream);
         if ($sut->isStringable($stream) === false) {
             $this->assertFalse(false);
@@ -72,7 +73,7 @@ class RecognizesStringablesTest extends TestCase
         }
     }
 
-    protected function _getAssertTrueDataset()
+    protected function _getExpectedStringablesDataset()
     {
         return [
             'non-empty string'               => 'a',
@@ -86,7 +87,7 @@ class RecognizesStringablesTest extends TestCase
         ];
     }
 
-    protected function _getObjectsAndArraysDataset()
+    protected function _getNonStringableObjectsAndArraysDataset()
     {
         return [
             'non-empty array'        => ['a' => 'b'],

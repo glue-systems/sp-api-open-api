@@ -8,7 +8,7 @@ trait RecognizesStringables
 {
     public static function isStringable($value)
     {
-        // Some ideas came from: https://stackoverflow.com/a/5496674/7797476
+        // Expanding on ideas from: https://stackoverflow.com/a/5496674/7797476
         $type = gettype($value);
         if (
             in_array($type, ['array', 'resource', 'resource (closed)', 'unknown type'])
