@@ -61,7 +61,7 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
         $stack = $this->_buildHandlerStack();
 
         return new Client([
-            'base_uri' => $this->spApiConfig->spApiBaseUrl,
+            'base_uri' => $this->spApiConfig->defaultBaseUrl,
             'debug'    => $this->spApiConfig->debugDomainApiCall,
             'headers'  => [
                 'x-amz-access-token' => $accessToken,

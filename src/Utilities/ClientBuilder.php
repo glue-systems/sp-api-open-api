@@ -244,7 +244,7 @@ class ClientBuilder
     {
         $domainConfig->setUserAgent($this->spApiConfig->userAgent());
 
-        $domainConfig->setHost($this->spApiConfig->spApiBaseUrl);
+        $domainConfig->setHost($this->spApiConfig->defaultBaseUrl);
 
         return $domainConfig;
     }

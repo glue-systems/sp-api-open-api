@@ -68,7 +68,7 @@ class ClientBuilderTest extends TestCase
     {
         $expectedDomainConfig = (new Configuration())
             ->setUserAgent($this->spApiConfig->userAgent())
-            ->setHost($this->spApiConfig->spApiBaseUrl);
+            ->setHost($this->spApiConfig->defaultBaseUrl);
 
         $sut = new ClientBuilder($this->spApiConfig);
         $sut->forApi(OrdersV0Api::class);
@@ -116,7 +116,7 @@ class ClientBuilderTest extends TestCase
         $expectedGuzzleClient = new Client(['base_uri' => 'https://example.com']);
         $expectedDomainConfig = (new Configuration())
             ->setUserAgent($this->spApiConfig->userAgent())
-            ->setHost($this->spApiConfig->spApiBaseUrl);
+            ->setHost($this->spApiConfig->defaultBaseUrl);
         $expectedDomainClient = new OrdersV0Api(
             $expectedGuzzleClient,
             $expectedDomainConfig
@@ -141,7 +141,7 @@ class ClientBuilderTest extends TestCase
         $expectedGuzzleClient = new Client(['base_uri' => 'https://example.com']);
         $expectedDomainConfig = (new Configuration())
             ->setUserAgent($this->spApiConfig->userAgent())
-            ->setHost($this->spApiConfig->spApiBaseUrl);
+            ->setHost($this->spApiConfig->defaultBaseUrl);
         $expectedDomainClient = new OrdersV0Api(
             $expectedGuzzleClient,
             $expectedDomainConfig
