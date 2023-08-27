@@ -2,12 +2,18 @@
 
 namespace Glue\SpApi\OpenAPI\Traits;
 
+use __PHP_Incomplete_Class;
+
 trait RecognizesStringables
 {
     public static function isStringable($value)
     {
-        // Idea from: https://stackoverflow.com/a/5496674/7797476
-        if (is_array($value)) {
+        // Some ideas came from: https://stackoverflow.com/a/5496674/7797476
+        $type = gettype($value);
+        if (
+            in_array($type, ['array', 'resource', 'resource (closed)', 'unknown type'])
+            || $value instanceof __PHP_Incomplete_Class
+        ) {
             return false;
         }
 

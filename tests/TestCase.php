@@ -108,6 +108,14 @@ class TestCase extends BaseTestCase
     }
 
     /**
+     * @return string
+     */
+    public function getOutputDirectoryPath()
+    {
+        return __DIR__ . '/../output';
+    }
+
+    /**
      * @param callable $callback
      * @return mixed
      * @throws PHPUnit_Framework_SkippedTestError

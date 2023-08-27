@@ -2,6 +2,7 @@
 
 namespace Tests\Traits;
 
+use __PHP_Incomplete_Class;
 use Glue\SpApi\OpenAPI\Traits\RecognizesStringables;
 use Tests\TestCase;
 
@@ -9,7 +10,7 @@ class RecognizesStringablesTest extends TestCase
 {
     use RecognizesStringables;
 
-    public function test_isStringable_can_return_true()
+    public function test_isStringable_returns_true_for_expected_value_types()
     {
         $dataset      = $this->_getAssertTrueDataset();
         $sut          = $this;
@@ -25,13 +26,13 @@ class RecognizesStringablesTest extends TestCase
 
         if (count($failedValues)) {
             $this->fail("Failed to assert that isStringable returns true for the"
-                . " following values: [" . implode(', ', $failedValues) . '].');
+                . " following values: [" . implode(', ', $failedValues) . "].");
         }
     }
 
-    public function test_isStringable_can_return_false()
+    public function test_isStringable_returns_false_for_objects_and_arrays()
     {
-        $dataset      = $this->_getAssertFalseDataset();
+        $dataset      = $this->_getObjectsAndArraysDataset();
         $sut          = $this;
         $failedValues = [];
 
@@ -45,7 +46,29 @@ class RecognizesStringablesTest extends TestCase
 
         if (count($failedValues)) {
             $this->fail("Failed to assert that isStringable returns false for the"
-                . " following values: [" . implode(', ', $failedValues) . '].');
+                . " following values: [" . implode(', ', $failedValues) . "].");
+        }
+    }
+
+    public function test_isStringable_returns_false_for_resource_types()
+    {
+        $sut                 = $this;
+        $outputDirectoryPath = $this->getOutputDirectoryPath();
+
+        $stream = fopen("{$outputDirectoryPath}/temp.txt", "w");
+        if ($sut->isStringable($stream) === false) {
+            $this->assertFalse(false);
+        } else {
+            $this->fail("Failed to assert that isStringable returns false for"
+                . " open resource types.");
+        }
+
+        fclose($stream);
+        if ($sut->isStringable($stream) === false) {
+            $this->assertFalse(false);
+        } else {
+            $this->fail("Failed to assert that isStringable returns false for"
+                . " closed resource types.");
         }
     }
 
@@ -63,13 +86,14 @@ class RecognizesStringablesTest extends TestCase
         ];
     }
 
-    protected function _getAssertFalseDataset()
+    protected function _getObjectsAndArraysDataset()
     {
         return [
-            'non-empty array' => ['a' => 'b'],
-            'empty array'     => [],
-            'new \stdClass()' => new \stdClass(),
-            '(object)[]'      => (object)[],
+            'non-empty array'        => ['a' => 'b'],
+            'empty array'            => [],
+            'new \stdClass()'        => new \stdClass(),
+            '(object)[]'             => (object)[],
+            '__PHP_Incomplete_Class' => new __PHP_Incomplete_Class(),
         ];
     }
 }
