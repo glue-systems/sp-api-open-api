@@ -153,29 +153,21 @@ class ClientBuilder
     }
 
     /**
-     * Set the Configuration object specific to the target API.
+     * Modify the Configuration object specific to the target API by passing in
+     * a callback argument and making changes to its first parameter.
      *
-     * @param null|AplusContentV20201101Config|AuthorizationV1Config|CatalogItemsV0Config|CatalogItemsV20201201Config|DefinitionsProductTypesV20200901Config|EasyShipV20220323Config|FbaInboundEligibilityV1Config|FbaInventoryV1Config|FbaSmallAndLightV1Config|FeedsV20200904Config|FeedsV20210630Config|FinancesV0Config|FulfillmentInboundV0Config|FulfillmentOutboundV20200701Config|ListingsItemsV20200901Config|ListingsItemsV20210801Config|ListingsRestrictionsV20210801Config|MerchantFulfillmentV0Config|NotificationsV1Config|OrdersV0Config|ProductFeesV0Config|ProductPricingV0Config|ReplenishmentV20221107Config|ReportsV20200904Config|ReportsV20210630Config|SalesV1Config|SellersV1Config|ServicesV1Config|ShipmentInvoicingV0Config|SupplySourcesV20200701Config|TokensV20210301Config|UploadsV20201101Config|VendorDirectFulfillmentInventoryV1Config|VendorDirectFulfillmentOrdersV1Config|VendorDirectFulfillmentOrdersV20211228Config|VendorDirectFulfillmentPaymentsV1Config|VendorDirectFulfillmentSandboxDataV20211228Config|VendorDirectFulfillmentShippingV1Config|VendorDirectFulfillmentShippingV20211228Config|VendorDirectFulfillmentTransactionsV1Config|VendorDirectFulfillmentTransactionsV20211228Config|VendorTransactionStatusV1Config $domainConfig
+     * @param callable $callback
      * @return static
      */
-    public function withConfig($domainConfig = null)
+    public function withConfig(callable $callback)
     {
         if (!isset($this->apiClassFqn)) {
             throw new ClientBuilderException("Method 'withConfig' cannot be called"
                 . " before the target API has been set via the 'forApi' method.");
         }
 
-        if (is_null($domainConfig)) {
-            return $this;
-        }
+        $callback($this->domainConfig);
 
-        $expectedConfigClassFqn = SpApiRoster::getDomainConfigFromApiClassFqn($this->apiClassFqn);
-        if (!$domainConfig instanceof $expectedConfigClassFqn) {
-            throw new ClientBuilderException("Invalid configuartion class [" . get_class($domainConfig) . "]"
-                . " for API [{$this->apiClassFqn}]: Expected instance of [{$expectedConfigClassFqn}].");
-        }
-
-        $this->domainConfig = $domainConfig;
         return $this;
     }
 

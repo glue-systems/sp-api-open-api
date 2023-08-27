@@ -35,7 +35,7 @@ class ClientBuilderTest extends TestCase
     public function test_forApi_happy_case()
     {
         $expectedApiClassFqn  = OrdersV0Api::class;
-        $expectedDomainConfig = $this->_buildExpectedOrdersV0Config($this->spApiConfig);
+        $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
 
         $sut = new ClientBuilder($this->spApiConfig);
         $sut->forApi($expectedApiClassFqn);
@@ -53,26 +53,49 @@ class ClientBuilderTest extends TestCase
         $sut->forApi('\Invalid\Api\Class');
     }
 
-    public function test_withConfig_happy_case_with_non_null_argument()
+    public function test_withConfig_happy_case_with_changes_made_via_callback()
     {
-        $expectedDomainConfig = (new Configuration())
-            ->setUsername('username-for-testing-only');
+        $newDebugValue        = !$this->spApiConfig->domainApiCallDebug;
+        $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig)
+            ->setDebug($newDebugValue);
 
         $sut = new ClientBuilder($this->spApiConfig);
         $sut->forApi(OrdersV0Api::class);
-        $sut->withConfig($expectedDomainConfig);
+        $sut->withConfig(function (Configuration $ordersV0Config) use ($newDebugValue) {
+            $ordersV0Config->setDebug($newDebugValue);
+        });
 
+        $this->assertEquals($newDebugValue, $sut->getDomainConfig()->getDebug());
         $this->assertEquals($expectedDomainConfig, $sut->getDomainConfig());
     }
 
-    public function test_withConfig_happy_case_with_null_argument()
+    public function test_withConfig_happy_case_ignores_return_value_in_callback()
     {
-        $expectedDomainConfig = $this->_buildExpectedOrdersV0Config($this->spApiConfig);
+        $expectedDomainConfig  = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
+        $differentDomainConfig = (new Configuration())->setHost('https://example.com');
 
         $sut = new ClientBuilder($this->spApiConfig);
         $sut->forApi(OrdersV0Api::class);
-        $sut->withConfig(null);
+        $sut->withConfig(function (Configuration $ordersV0Config) use ($differentDomainConfig) {
+            return $differentDomainConfig;
+        });
 
+        $this->assertNotEquals($differentDomainConfig, $sut->getDomainConfig());
+        $this->assertEquals($expectedDomainConfig, $sut->getDomainConfig());
+    }
+
+    public function test_withConfig_ignores_reassignment_in_callback()
+    {
+        $expectedDomainConfig  = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
+        $differentDomainConfig = (new Configuration())->setHost('https://example.com');
+
+        $sut = new ClientBuilder($this->spApiConfig);
+        $sut->forApi(OrdersV0Api::class);
+        $sut->withConfig(function (Configuration $ordersV0Config) use ($differentDomainConfig) {
+            $ordersV0Config = $differentDomainConfig;
+        });
+
+        $this->assertNotEquals($differentDomainConfig, $sut->getDomainConfig());
         $this->assertEquals($expectedDomainConfig, $sut->getDomainConfig());
     }
 
@@ -82,17 +105,9 @@ class ClientBuilderTest extends TestCase
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage("Method 'withConfig' cannot be called before");
-        $sut->withConfig(new Configuration());
-    }
-
-    public function test_withConfig_of_incorrect_type_throws_ClientBuilderException()
-    {
-        $sut = new ClientBuilder($this->spApiConfig);
-        $sut->forApi(OrdersV0Api::class);
-
-        $this->expectException(ClientBuilderException::class);
-        $this->expectExceptionMessage('Invalid configuartion class');
-        $sut->withConfig(new \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Configuration());
+        $sut->withConfig(function (Configuration $ordersV0Config) {
+            //
+        });
     }
 
     public function test_withRdtProvider()
@@ -112,8 +127,8 @@ class ClientBuilderTest extends TestCase
         $expectedRdtProvider  = function () {
             return 'foo';
         };
-        $expectedGuzzleClient = new Client(['base_uri' => 'https://example.com']);
-        $expectedDomainConfig = $this->_buildExpectedOrdersV0Config($this->spApiConfig);
+        $expectedGuzzleClient = new Client(['headers' => ['foo' => 'bar']]);
+        $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
         $expectedDomainClient = new OrdersV0Api(
             $expectedGuzzleClient,
             $expectedDomainConfig
@@ -135,8 +150,8 @@ class ClientBuilderTest extends TestCase
 
     public function test_createClient_happy_case_with_null_rdtProvider()
     {
-        $expectedGuzzleClient = new Client(['base_uri' => 'https://example.com']);
-        $expectedDomainConfig = $this->_buildExpectedOrdersV0Config($this->spApiConfig);
+        $expectedGuzzleClient = new Client(['headers' => ['foo' => 'bar']]);
+        $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
         $expectedDomainClient = new OrdersV0Api(
             $expectedGuzzleClient,
             $expectedDomainConfig
@@ -168,7 +183,7 @@ class ClientBuilderTest extends TestCase
     /**
      * @return Configuration
      */
-    protected function _buildExpectedOrdersV0Config(SpApiConfig $spApiConfig)
+    protected function _buildExpectedStandardOrdersV0Config(SpApiConfig $spApiConfig)
     {
         return (new Configuration())
             ->setUserAgent($spApiConfig->userAgent())
