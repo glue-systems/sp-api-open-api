@@ -72,6 +72,17 @@ class SpApiConfig
     public $oAuthApiCallDebug = false;
 
     /**
+     * Note that, if set to true and the ApiException's response body is a stream,
+     * it is possible that it can only be unpacked once for that object before the
+     * internal stream handle becomes detached. If you have no need to automate
+     * the parsing and handling of ApiExceptions in any domain, then set this
+     * value to true.
+     *
+     * @var bool
+     */
+    public $alwaysStringifyApiExceptionResponseBody = false;
+
+    /**
      * Create a new config object from an associative array.
      *
      * @param array $data

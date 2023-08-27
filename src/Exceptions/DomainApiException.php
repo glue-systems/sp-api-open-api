@@ -44,16 +44,22 @@ use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\ApiExcep
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\ApiException as VendorDirectFulfillmentTransactionsV1ApiException;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\ApiException as VendorDirectFulfillmentTransactionsV20211228ApiException;
 use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\ApiException as VendorTransactionStatusV1ApiException;
+use Glue\SpApi\OpenAPI\Traits\RecognizesStringables;
 use Glue\SpApi\OpenAPI\Utilities\SpApiRoster;
 use Psr\Http\Message\StreamInterface;
 
 class DomainApiException extends \Exception
 {
+    use RecognizesStringables;
+
     /**
      * @param AplusContentV20201101ApiException|AuthorizationV1ApiException|CatalogItemsV0ApiException|CatalogItemsV20201201ApiException|DefinitionsProductTypesV20200901ApiException|EasyShipV20220323ApiException|FbaInboundEligibilityV1ApiException|FbaInventoryV1ApiException|FbaSmallAndLightV1ApiException|FeedsV20200904ApiException|FeedsV20210630ApiException|FinancesV0ApiException|FulfillmentInboundV0ApiException|FulfillmentOutboundV20200701ApiException|ListingsItemsV20200901ApiException|ListingsItemsV20210801ApiException|ListingsRestrictionsV20210801ApiException|MerchantFulfillmentV0ApiException|NotificationsV1ApiException|OrdersV0ApiException|ProductFeesV0ApiException|ProductPricingV0ApiException|ReplenishmentV20221107ApiException|ReportsV20200904ApiException|ReportsV20210630ApiException|SalesV1ApiException|SellersV1ApiException|ServicesV1ApiException|ShipmentInvoicingV0ApiException|SupplySourcesV20200701ApiException|TokensV20210301ApiException|UploadsV20201101ApiException|VendorDirectFulfillmentInventoryV1ApiException|VendorDirectFulfillmentOrdersV1ApiException|VendorDirectFulfillmentOrdersV20211228ApiException|VendorDirectFulfillmentPaymentsV1ApiException|VendorDirectFulfillmentSandboxDataV20211228ApiException|VendorDirectFulfillmentShippingV1ApiException|VendorDirectFulfillmentShippingV20211228ApiException|VendorDirectFulfillmentTransactionsV1ApiException|VendorDirectFulfillmentTransactionsV20211228ApiException|VendorTransactionStatusV1ApiException $apiException
+     * @param bool $shouldStringifyResponseBodyIntoMessage Note that, if set to true and the ApiException's response body is a stream, it is possible that it can only be unpacked once for that object before the internal stream handle becomes detached.
      */
-    public function __construct(\Exception $apiException)
-    {
+    public function __construct(
+        \Exception $apiException,
+        $shouldStringifyResponseBodyIntoMessage = false
+    ) {
         if (!SpApiRoster::isApiException($apiException)) {
             $invalidExceptionType = get_class($apiException);
             throw new \InvalidArgumentException("Invalid exception type [{$invalidExceptionType}]"
@@ -62,29 +68,81 @@ class DomainApiException extends \Exception
         }
 
         $message = $apiException->getMessage();
-        if ($unpackedResponseBody = self::unpackApiExceptionResponseBody($apiException)) {
-            $message .= " RESPONSE BODY: $unpackedResponseBody";
+        if ($shouldStringifyResponseBodyIntoMessage) {
+            $unpackedResponseBody = self::unpackApiExceptionResponseBodyAsString($apiException);
+            $message              .= " RESPONSE BODY: $unpackedResponseBody";
         }
 
         parent::__construct($message, $apiException->getCode(), $apiException);
     }
 
     /**
-     * @param AplusContentV20201101ApiException|AuthorizationV1ApiException|CatalogItemsV0ApiException|CatalogItemsV20201201ApiException|DefinitionsProductTypesV20200901ApiException|EasyShipV20220323ApiException|FbaInboundEligibilityV1ApiException|FbaInventoryV1ApiException|FbaSmallAndLightV1ApiException|FeedsV20200904ApiException|FeedsV20210630ApiException|FinancesV0ApiException|FulfillmentInboundV0ApiException|FulfillmentOutboundV20200701ApiException|ListingsItemsV20200901ApiException|ListingsItemsV20210801ApiException|ListingsRestrictionsV20210801ApiException|MerchantFulfillmentV0ApiException|NotificationsV1ApiException|OrdersV0ApiException|ProductFeesV0ApiException|ProductPricingV0ApiException|ReplenishmentV20221107ApiException|ReportsV20200904ApiException|ReportsV20210630ApiException|SalesV1ApiException|SellersV1ApiException|ServicesV1ApiException|ShipmentInvoicingV0ApiException|SupplySourcesV20200701ApiException|TokensV20210301ApiException|UploadsV20201101ApiException|VendorDirectFulfillmentInventoryV1ApiException|VendorDirectFulfillmentOrdersV1ApiException|VendorDirectFulfillmentOrdersV20211228ApiException|VendorDirectFulfillmentPaymentsV1ApiException|VendorDirectFulfillmentSandboxDataV20211228ApiException|VendorDirectFulfillmentShippingV1ApiException|VendorDirectFulfillmentShippingV20211228ApiException|VendorDirectFulfillmentTransactionsV1ApiException|VendorDirectFulfillmentTransactionsV20211228ApiException|VendorTransactionStatusV1ApiException $ex
+     * Unpack the ApiException argument's response body into a string value.
+     * Note that, if the response body is a stream, it is possible that it
+     * can only be unpacked once for that object before the internal stream
+     * handle becomes detached.
+     *
+     * @param AplusContentV20201101ApiException|AuthorizationV1ApiException|CatalogItemsV0ApiException|CatalogItemsV20201201ApiException|DefinitionsProductTypesV20200901ApiException|EasyShipV20220323ApiException|FbaInboundEligibilityV1ApiException|FbaInventoryV1ApiException|FbaSmallAndLightV1ApiException|FeedsV20200904ApiException|FeedsV20210630ApiException|FinancesV0ApiException|FulfillmentInboundV0ApiException|FulfillmentOutboundV20200701ApiException|ListingsItemsV20200901ApiException|ListingsItemsV20210801ApiException|ListingsRestrictionsV20210801ApiException|MerchantFulfillmentV0ApiException|NotificationsV1ApiException|OrdersV0ApiException|ProductFeesV0ApiException|ProductPricingV0ApiException|ReplenishmentV20221107ApiException|ReportsV20200904ApiException|ReportsV20210630ApiException|SalesV1ApiException|SellersV1ApiException|ServicesV1ApiException|ShipmentInvoicingV0ApiException|SupplySourcesV20200701ApiException|TokensV20210301ApiException|UploadsV20201101ApiException|VendorDirectFulfillmentInventoryV1ApiException|VendorDirectFulfillmentOrdersV1ApiException|VendorDirectFulfillmentOrdersV20211228ApiException|VendorDirectFulfillmentPaymentsV1ApiException|VendorDirectFulfillmentSandboxDataV20211228ApiException|VendorDirectFulfillmentShippingV1ApiException|VendorDirectFulfillmentShippingV20211228ApiException|VendorDirectFulfillmentTransactionsV1ApiException|VendorDirectFulfillmentTransactionsV20211228ApiException|VendorTransactionStatusV1ApiException $apiException
      * @return string
      */
-    public static function unpackApiExceptionResponseBody(\Exception $ex)
-    {
-        $body = $ex->getResponseBody();
+    public static function unpackApiExceptionResponseBodyAsString(
+        \Exception $apiException
+    ) {
+        $body = $apiException->getResponseBody();
 
         if ($body instanceof StreamInterface) {
             $contents = $body->getContents();
-        } elseif (!empty($body) && is_string($body)) {
-            $contents = $body;
+        } elseif (self::isStringable($body)) {
+            $contents = (string) $body;
+        } elseif ($json = json_encode($body)) {
+            $contents = $json;
         } else {
             $contents = '';
         }
 
         return $contents;
+    }
+
+    /**
+     * Get the original HTTP response body of the server response, which could
+     * be a string, Stream or \stdClass according to OpenAPI-generated PHPDocs.
+     *
+     * @return mixed
+     */
+    public function getOriginalResponseBody()
+    {
+        return $this->getPrevious()->getResponseBody();
+    }
+
+    /**
+     * @return string
+     */
+    public function getUnpackedResponseBodyAsString()
+    {
+        return self::unpackApiExceptionResponseBodyAsString($this->getPrevious());
+    }
+
+    /**
+     * Get the HTTP response header.
+     *
+     * @return string[]|null HTTP response header
+     */
+    public function getResponseHeaders()
+    {
+        return $this->getPrevious()->getResponseHeaders();
+    }
+
+    /**
+     * Get the Amazon RequestId from the header if set.
+     *
+     * @return string|null
+     */
+    public function getRequestId()
+    {
+        $responseHeaders = $this->getResponseHeaders();
+
+        return isset($responseHeaders['x-amzn-RequestId'][0])
+            ? $responseHeaders['x-amzn-RequestId'][0]
+            : null;
     }
 }

@@ -639,7 +639,10 @@ class SpApi implements SpApiInterface
             return $callback();
         } catch (\Exception $ex) {
             if (SpApiRoster::isApiException($ex)) {
-                throw new DomainApiException($ex);
+                throw new DomainApiException(
+                    $ex,
+                    $this->spApiConfig->alwaysStringifyApiExceptionResponseBody
+                );
             }
             throw $ex;
         }
