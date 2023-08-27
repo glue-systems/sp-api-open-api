@@ -37,8 +37,6 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
         $this->lwaService            = $lwaService;
         $this->awsCredentialProvider = $awsCredentialProvider;
         $this->spApiConfig           = $spApiConfig;
-
-        $this->spApiConfig->validateConfig();
     }
 
     /**
@@ -52,27 +50,40 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
     public function createAuthenticatedGuzzleClient(
         callable $rdtProvider = null
     ) {
+        // Note that several key Guzzle request fields / options such as 'base_uri',
+        // 'debug' etc. are overwritten downstream when the domain Api class (e.g.
+        // Clients/OrdersV0/Api/OrdersV0Api) is invoked in the internals of the
+        // OpenAPI-generated client. The source of truth for such fields are the
+        // Configuration objects that are associated with the domain API being used
+        // (e.g. Clients/OrdersV0/Configuration). See ClientBuilder method
+        // `_configureDomainConfigDefaults` for how these values are set.
+        return new Client([
+            'headers'  => [
+                'x-amz-access-token' => $this->_resolveAccessToken($rdtProvider),
+            ],
+            'handler'  => $this->_buildHandlerStack(),
+        ]);
+    }
+
+    /**
+     * @return string
+     */
+    protected function _resolveAccessToken(callable $rdtProvider = null)
+    {
         if ($rdtProvider) {
             $accessToken = call_user_func($rdtProvider);
         } else {
             $accessToken = $this->lwaService->rememberLwaAccessToken();
         }
-
-        $stack = $this->_buildHandlerStack();
-
-        return new Client([
-            'base_uri' => $this->spApiConfig->defaultBaseUrl,
-            'debug'    => $this->spApiConfig->debugDomainApiCall,
-            'headers'  => [
-                'x-amz-access-token' => $accessToken,
-            ],
-            'handler'  => $stack,
-        ]);
+        return $accessToken;
     }
 
+    /**
+     * @return HandlerStack
+     */
     protected function _buildHandlerStack()
     {
-        // TODO: Parameterize a HandlerStack to give developers more flexibility.
+        // TODO: Parameterize a HandlerStack to give developers more flexibility?
         $stack = new HandlerStack();
         $stack->setHandler(new CurlHandler());
 

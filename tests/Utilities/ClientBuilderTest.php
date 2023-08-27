@@ -34,13 +34,14 @@ class ClientBuilderTest extends TestCase
 
     public function test_forApi_happy_case()
     {
-        $expectedApiClassFqn = OrdersV0Api::class;
+        $expectedApiClassFqn  = OrdersV0Api::class;
+        $expectedDomainConfig = $this->_buildExpectedOrdersV0Config($this->spApiConfig);
 
         $sut = new ClientBuilder($this->spApiConfig);
         $sut->forApi($expectedApiClassFqn);
 
         $this->assertEquals($expectedApiClassFqn, $sut->getApiClassFqn());
-        $this->assertInstanceOf(Configuration::class, $sut->getDomainConfig());
+        $this->assertEquals($expectedDomainConfig, $sut->getDomainConfig());
     }
 
     public function test_forApi_throws_ClientBuilderException()
@@ -66,9 +67,7 @@ class ClientBuilderTest extends TestCase
 
     public function test_withConfig_happy_case_with_null_argument()
     {
-        $expectedDomainConfig = (new Configuration())
-            ->setUserAgent($this->spApiConfig->userAgent())
-            ->setHost($this->spApiConfig->defaultBaseUrl);
+        $expectedDomainConfig = $this->_buildExpectedOrdersV0Config($this->spApiConfig);
 
         $sut = new ClientBuilder($this->spApiConfig);
         $sut->forApi(OrdersV0Api::class);
@@ -114,9 +113,7 @@ class ClientBuilderTest extends TestCase
             return 'foo';
         };
         $expectedGuzzleClient = new Client(['base_uri' => 'https://example.com']);
-        $expectedDomainConfig = (new Configuration())
-            ->setUserAgent($this->spApiConfig->userAgent())
-            ->setHost($this->spApiConfig->defaultBaseUrl);
+        $expectedDomainConfig = $this->_buildExpectedOrdersV0Config($this->spApiConfig);
         $expectedDomainClient = new OrdersV0Api(
             $expectedGuzzleClient,
             $expectedDomainConfig
@@ -139,9 +136,7 @@ class ClientBuilderTest extends TestCase
     public function test_createClient_happy_case_with_null_rdtProvider()
     {
         $expectedGuzzleClient = new Client(['base_uri' => 'https://example.com']);
-        $expectedDomainConfig = (new Configuration())
-            ->setUserAgent($this->spApiConfig->userAgent())
-            ->setHost($this->spApiConfig->defaultBaseUrl);
+        $expectedDomainConfig = $this->_buildExpectedOrdersV0Config($this->spApiConfig);
         $expectedDomainClient = new OrdersV0Api(
             $expectedGuzzleClient,
             $expectedDomainConfig
@@ -168,5 +163,16 @@ class ClientBuilderTest extends TestCase
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage('Builder not ready to create');
         $sut->createClient($this->authenticator);
+    }
+
+    /**
+     * @return Configuration
+     */
+    protected function _buildExpectedOrdersV0Config(SpApiConfig $spApiConfig)
+    {
+        return (new Configuration())
+            ->setUserAgent($spApiConfig->userAgent())
+            ->setHost($spApiConfig->defaultBaseUrl)
+            ->setDebug($spApiConfig->domainApiCallDebug);
     }
 }

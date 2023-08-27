@@ -126,6 +126,7 @@ class ClientBuilder
 
     public function __construct(SpApiConfig $spApiConfig)
     {
+        $spApiConfig->validateConfig();
         $this->spApiConfig = $spApiConfig;
     }
 
@@ -243,8 +244,8 @@ class ClientBuilder
     protected function _configureDomainConfigDefaults($domainConfig)
     {
         $domainConfig->setUserAgent($this->spApiConfig->userAgent());
-
         $domainConfig->setHost($this->spApiConfig->defaultBaseUrl);
+        $domainConfig->setDebug($this->spApiConfig->domainApiCallDebug);
 
         return $domainConfig;
     }

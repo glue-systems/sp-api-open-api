@@ -59,12 +59,12 @@ class SpApiConfig
     /**
      * @var bool
      */
-    public $debugDomainApiCall = false;
+    public $domainApiCallDebug = false;
 
     /**
      * @var bool
      */
-    public $debugOAuthApiCall = false;
+    public $oAuthApiCallDebug = false;
 
     /**
      * Create a new config object from an associative array.

@@ -56,7 +56,6 @@ class ClientAuthenticatorTest extends TestCase
 
         $this->assertFalse(empty($guzzleConfig['headers']['x-amz-access-token']));
         $this->assertEquals($lwaToken, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
-        $this->assertEquals($this->spApiConfig->defaultBaseUrl, $guzzleClient->getConfig()['base_uri']);
     }
 
     public function test_createAuthenticatedGuzzleClient_with_rdtProvider_uses_rdt_as_access_token()
@@ -77,6 +76,5 @@ class ClientAuthenticatorTest extends TestCase
 
         $this->assertFalse(empty($guzzleConfig['headers']['x-amz-access-token']));
         $this->assertEquals($restrictedDataToken, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
-        $this->assertEquals($this->spApiConfig->defaultBaseUrl, $guzzleClient->getConfig()['base_uri']);
     }
 }

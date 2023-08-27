@@ -101,8 +101,8 @@ class TestCase extends BaseTestCase
             'appLanguageAndVersion' => env('APP_LANGUAGE_AND_VERSION', 'PHP/7.2'),
             // SANDBOX env is also set to true in phpunit.xml.
             'sandbox'               => true,
-            'debugDomainApiCall'    => env('DEBUG_DOMAIN_API_CALL', false),
-            'debugOAuthApiCall'     => env('DEBUG_O_AUTH_API_CALL', false),
+            'domainApiCallDebug'    => env('DOMAIN_API_CALL_DEBUG', false),
+            'oAuthApiCallDebug'     => env('O_AUTH_API_CALL_DEBUG', false),
         ]);
     }
 

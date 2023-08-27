@@ -30,9 +30,9 @@ class LwaClient implements LwaClientInterface
     {
         try {
             $response = $guzzleClient->request('POST', '/auth/o2/token', [
-                'base_uri' => $this->spApiConfig->lwaOAuthBaseUrl,
-                'debug'    => $this->spApiConfig->debugOAuthApiCall,
-                RequestOptions::JSON => [
+                'base_uri'            => $this->spApiConfig->lwaOAuthBaseUrl,
+                RequestOptions::DEBUG => $this->spApiConfig->oAuthApiCallDebug,
+                RequestOptions::JSON  => [
                     'grant_type'    => 'refresh_token',
                     'refresh_token' => $this->spApiConfig->lwaRefreshToken,
                     'client_id'     => $this->spApiConfig->lwaClientId,
