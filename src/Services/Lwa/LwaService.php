@@ -54,7 +54,7 @@ class LwaService implements LwaServiceInterface
         $this->cache->set(
             $this->spApiConfig->lwaAccessTokenCacheKey,
             $newToken['access_token'],
-            $newToken['expires_in'] - self::CACHE_LIFE_BUFFER_IN_SECONDS
+            $newToken['expires_in'] - static::CACHE_LIFE_BUFFER_IN_SECONDS
         );
 
         return $newToken['access_token'];

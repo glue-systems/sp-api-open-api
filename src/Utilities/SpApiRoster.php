@@ -247,7 +247,7 @@ class SpApiRoster
      */
     public static function allApiClassFqns()
     {
-        return array_keys(self::API_TO_CONFIG_FQN_MAPS);
+        return array_keys(static::API_TO_CONFIG_FQN_MAPS);
     }
 
     /**
@@ -255,7 +255,7 @@ class SpApiRoster
      */
     public static function allDomainConfigClassFqns()
     {
-        return array_unique(array_values(self::API_TO_CONFIG_FQN_MAPS));
+        return array_unique(array_values(static::API_TO_CONFIG_FQN_MAPS));
     }
 
     /**
@@ -263,7 +263,7 @@ class SpApiRoster
      */
     public static function allApiExceptionClassFqns()
     {
-        return array_unique(array_values(self::API_TO_EXCEPTION_FQN_MAPS));
+        return array_unique(array_values(static::API_TO_EXCEPTION_FQN_MAPS));
     }
 
     /**
@@ -272,7 +272,7 @@ class SpApiRoster
      */
     public static function isValidApiClassFqn($apiClassFqn)
     {
-        return array_key_exists($apiClassFqn, self::API_TO_CONFIG_FQN_MAPS);
+        return array_key_exists($apiClassFqn, static::API_TO_CONFIG_FQN_MAPS);
     }
 
     /**
@@ -281,7 +281,7 @@ class SpApiRoster
      */
     public static function isApiException($exception)
     {
-        foreach (self::allApiExceptionClassFqns() as $apiExceptionClassFqn) {
+        foreach (static::allApiExceptionClassFqns() as $apiExceptionClassFqn) {
             if ($exception instanceof $apiExceptionClassFqn) {
                 return true;
             }
@@ -295,6 +295,6 @@ class SpApiRoster
      */
     public static function getDomainConfigFromApiClassFqn($apiClassFqn)
     {
-        return self::API_TO_CONFIG_FQN_MAPS[$apiClassFqn];
+        return static::API_TO_CONFIG_FQN_MAPS[$apiClassFqn];
     }
 }

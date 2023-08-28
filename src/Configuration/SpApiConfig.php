@@ -102,7 +102,7 @@ class SpApiConfig
 
     public function __construct(array $data)
     {
-        $allowedFields = get_class_vars(self::class);
+        $allowedFields = get_class_vars(static::class);
 
         foreach ($data as $field => $value) {
             static::validateFieldConstructable($field, $allowedFields);
@@ -132,7 +132,7 @@ class SpApiConfig
     {
         if (!array_key_exists($field, $allowedFields)) {
             $exceptionMessage = "Failed to construct config object from array:"
-                . " property '{$field}' does not exist in class '" . self::class . "'.";
+                . " property '{$field}' does not exist in class '" . static::class . "'.";
             if (is_numeric($field)) {
                 $exceptionMessage .= " Please ensure you are passing in a strictly"
                     . " associative array as the data argument instead of a sequential one.";
@@ -147,7 +147,7 @@ class SpApiConfig
         foreach ($this->getRequiredFields() as $field) {
             if (!isset($this->{$field}) || $this->{$field} === '') {
                 throw new SpApiConfigurationException("Missing required field '{$field}'"
-                    . " in [" . self::class . ']. Please verify that this object'
+                    . " in [" . static::class . ']. Please verify that this object'
                     . " is being instantiated properly -- e.g. by checking your"
                     . " environment variables.");
             }
@@ -159,7 +159,7 @@ class SpApiConfig
         foreach ($this->getStringFields() as $field) {
             if (isset($this->{$field}) && !is_string($this->{$field})) {
                 throw new SpApiConfigurationException("Field '{$field}' must be a string"
-                    . " in [" . self::class . "]. Please verify that this object"
+                    . " in [" . static::class . "]. Please verify that this object"
                     . " is being instantiated properly -- e.g. by checking your"
                     . " environment variables.");
             }
@@ -171,7 +171,7 @@ class SpApiConfig
         foreach ($this->getBooleanFields() as $field) {
             if (isset($this->{$field}) && !is_bool($this->{$field})) {
                 throw new SpApiConfigurationException("Field '{$field}' must be a boolean"
-                    . " in [" . self::class . "]. Please verify that this object"
+                    . " in [" . static::class . "]. Please verify that this object"
                     . " is being instantiated properly -- e.g. by checking your"
                     . " environment variables.");
             }

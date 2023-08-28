@@ -41,8 +41,8 @@ class TestCase extends BaseTestCase
         // Allows for persistence of array cache to improve test performance,
         // e.g. by caching the LWA token to minimize OAuth requests. If this
         // is not desireable, see implementation of tearDown method below.
-        if (!self::$arrayCache instanceof ArrayCache) {
-            self::$arrayCache = new ArrayCache();
+        if (!static::$arrayCache instanceof ArrayCache) {
+            static::$arrayCache = new ArrayCache();
         }
     }
 
@@ -71,7 +71,7 @@ class TestCase extends BaseTestCase
         // All of these should be safe to bind as singletons to an IoC container.
         $awsCredentialProvider  = CredentialProvider::fromCredentials($awsCredentials);
         $lwaClient              = new LwaClient($spApiConfig);
-        $lwaService             = new LwaService($lwaClient, self::$arrayCache, $spApiConfig);
+        $lwaService             = new LwaService($lwaClient, static::$arrayCache, $spApiConfig);
         $clientAuthenticator    = new ClientAuthenticator($lwaService, $awsCredentialProvider, $spApiConfig);
         $clientFactory          = new ClientFactory($clientAuthenticator, $spApiConfig);
         $rdtService             = new RdtService($clientFactory);
@@ -140,7 +140,7 @@ class TestCase extends BaseTestCase
     public function tearDown()
     {
         if (env('TESTING_ALWAYS_RESET_ARRAY_CACHE', false)) {
-            self::$arrayCache = null;
+            static::$arrayCache = null;
         }
         parent::tearDown();
     }

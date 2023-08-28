@@ -69,7 +69,7 @@ class DomainApiException extends \Exception
 
         $message = $apiException->getMessage();
         if ($shouldUnpackResponseBodyIntoMessage) {
-            $unpackedResponseBody = self::unpackApiExceptionResponseBodyAsString($apiException);
+            $unpackedResponseBody = static::unpackApiExceptionResponseBodyAsString($apiException);
             $message              .= " RESPONSE BODY: $unpackedResponseBody";
         }
 
@@ -92,7 +92,7 @@ class DomainApiException extends \Exception
 
         if ($body instanceof StreamInterface) {
             $contents = $body->getContents();
-        } elseif (self::isStringable($body)) {
+        } elseif (static::isStringable($body)) {
             $contents = (string) $body;
         } elseif ($json = json_encode($body)) {
             $contents = $json;
@@ -119,7 +119,7 @@ class DomainApiException extends \Exception
      */
     public function getUnpackedResponseBodyAsString()
     {
-        return self::unpackApiExceptionResponseBodyAsString($this->getPrevious());
+        return static::unpackApiExceptionResponseBodyAsString($this->getPrevious());
     }
 
     /**
