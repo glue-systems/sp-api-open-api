@@ -18,12 +18,6 @@ use Tests\TestCase;
 
 class OffersApiTest extends TestCase
 {
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-    }
-
     public function test_listOfferMetrics()
     {
         $result = $this->sp_api()->execute(function () {

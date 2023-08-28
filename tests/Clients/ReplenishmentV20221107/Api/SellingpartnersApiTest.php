@@ -14,12 +14,6 @@ use Tests\TestCase;
 
 class SellingpartnersApiTest extends TestCase
 {
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-    }
-
     public function test_getSellingPartnerMetrics()
     {
         $result = $this->sp_api()->execute(function () {

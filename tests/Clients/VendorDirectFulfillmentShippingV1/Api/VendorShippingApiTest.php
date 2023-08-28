@@ -8,12 +8,6 @@ use Tests\TestCase;
 
 class VendorShippingApiTest extends TestCase
 {
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-    }
-
     public function test_getPackingSlips()
     {
         $result = $this->sp_api()->execute(function () {

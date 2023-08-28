@@ -8,12 +8,6 @@ use Tests\TestCase;
 
 class NotificationsApiTest extends TestCase
 {
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-    }
-
     public function test_getSubscription()
     {
         $result = $this->sp_api()->execute(function () {

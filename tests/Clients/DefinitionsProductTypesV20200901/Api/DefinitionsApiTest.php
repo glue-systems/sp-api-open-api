@@ -7,12 +7,6 @@ use Tests\TestCase;
 
 class DefinitionsApiTest extends TestCase
 {
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-    }
-
     public function test_getDefinitionsProductType()
     {
         $result = $this->sp_api()->execute(function () {

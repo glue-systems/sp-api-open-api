@@ -8,12 +8,6 @@ use Tests\TestCase;
 
 class ReportsApiTest extends TestCase
 {
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-    }
-
     public function test_getReports()
     {
         $result = $this->sp_api()->execute(function () {

@@ -7,12 +7,6 @@ use Tests\TestCase;
 
 class CustomerInvoicesApiTest extends TestCase
 {
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-    }
-
     public function test_getCustomerInvoices()
     {
         $result = $this->tryButSkipIfUnauthorized(function () {

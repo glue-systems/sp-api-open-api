@@ -7,12 +7,6 @@ use Tests\TestCase;
 
 class AuthorizationApiTest extends TestCase
 {
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-    }
-
     public function test_getAuthorizationCode()
     {
         $result = $this->tryButSkipIfUnauthorized(function () {
