@@ -2,9 +2,9 @@
 
 namespace Tests\Services;
 
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
-use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\ClientInterface;
 use Mockery\MockInterface;
 use Tests\TestCase;

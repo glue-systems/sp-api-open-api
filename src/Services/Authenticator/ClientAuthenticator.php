@@ -2,11 +2,11 @@
 
 namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Middleware\AwsSignatureV4Middleware;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
-use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Handler\CurlHandler;

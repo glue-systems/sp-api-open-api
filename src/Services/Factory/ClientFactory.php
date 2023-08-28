@@ -51,10 +51,10 @@ use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\Vend
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi as VendorDirectFulfillmentTransactionsV1Api;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi as VendorDirectFulfillmentTransactionsV20211228Api;
 use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi as VendorTransactionStatusV1Api;
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
-use Glue\SpApi\OpenAPI\SpApiConfig;
 use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
 
 class ClientFactory implements ClientFactoryInterface

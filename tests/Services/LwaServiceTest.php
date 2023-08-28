@@ -2,9 +2,9 @@
 
 namespace Tests\Services;
 
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaClientInterface;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
-use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Client;
 use Mockery\MockInterface;
 use Psr\SimpleCache\CacheInterface;

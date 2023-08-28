@@ -2,9 +2,9 @@
 
 namespace Tests\Services;
 
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaClient;
-use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\RequestException;
 use GuzzleHttp\RequestOptions;

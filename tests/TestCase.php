@@ -10,6 +10,7 @@ use Dotenv\Environment\Adapter\PutenvAdapter;
 use Dotenv\Environment\Adapter\ServerConstAdapter;
 use Dotenv\Environment\DotenvFactory;
 use Dotenv\Exception\InvalidFileException;
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Container\SpApi;
 use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
@@ -17,7 +18,6 @@ use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaClient;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
 use Glue\SpApi\OpenAPI\Services\Rdt\RdtService;
-use Glue\SpApi\OpenAPI\SpApiConfig;
 use Glue\SpApi\OpenAPI\Utilities\SpApiRoster;
 use PHPUnit_Framework_SkippedTestError;
 // TODO: Switch to this after upgrading.

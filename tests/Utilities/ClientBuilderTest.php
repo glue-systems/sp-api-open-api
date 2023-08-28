@@ -4,9 +4,9 @@ namespace Tests\Utilities;
 
 use Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
 use Glue\SpApi\OpenAPI\Clients\OrdersV0\Configuration;
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\ClientBuilderException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
-use Glue\SpApi\OpenAPI\SpApiConfig;
 use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
 use GuzzleHttp\Client;
 use Mockery\MockInterface;

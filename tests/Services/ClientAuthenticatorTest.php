@@ -3,9 +3,9 @@
 namespace Tests\Services;
 
 use Aws\Credentials\CredentialsInterface;
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
-use Glue\SpApi\OpenAPI\SpApiConfig;
 use Mockery\MockInterface;
 use Tests\TestCase;
 

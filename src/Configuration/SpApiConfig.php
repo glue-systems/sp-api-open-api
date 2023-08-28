@@ -1,6 +1,6 @@
 <?php
 
-namespace Glue\SpApi\OpenAPI;
+namespace Glue\SpApi\OpenAPI\Configuration;
 
 use Glue\SpApi\OpenAPI\Exceptions\SpApiConfigurationException;
 
