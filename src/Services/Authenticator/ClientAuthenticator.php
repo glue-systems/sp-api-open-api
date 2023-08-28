@@ -83,17 +83,17 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
      */
     protected function _buildHandlerStack()
     {
-        // TODO: Parameterize a HandlerStack to give developers more flexibility?
-        $stack = new HandlerStack();
-        $stack->setHandler(new CurlHandler());
+        // TODO: Parameterize handlerStack, awsCredentialScopeServiceOverride
+        // and awsCredentialScopeRegionOverride to give developers more flexibility?
+        $handlerStack = new HandlerStack();
+        $handlerStack->setHandler(new CurlHandler());
 
-        $stack->push(new AwsSignatureV4Middleware(
+        $handlerStack->push(new AwsSignatureV4Middleware(
             $this->awsCredentialProvider,
-            // TODO: Configify defaults & parameterize overrides for these values.
-            'execute-api',
-            'us-east-1'
+            $this->spApiConfig->defaultAwsCredentialScopeService,
+            $this->spApiConfig->defaultAwsCredentialScopeRegion
         ));
 
-        return $stack;
+        return $handlerStack;
     }
 }

@@ -92,11 +92,14 @@ class TestCase extends BaseTestCase
         return SpApiConfig::make([
             'defaultBaseUrl'                       => env('DEFAULT_BASE_URL', 'https://sandbox.sellingpartnerapi-na.amazon.com'),
             'defaultMarketplaceId'                 => env('DEFAULT_MARKETPLACE_ID'),
-            'sellerId'                             => env('SELLER_ID'),
+            'defaultSellerId'                      => env('DEFAULT_SELLER_ID'),
+            'defaultAwsCredentialScopeRegion'      => env('DEFAULT_AWS_CREDENTIAL_SCOPE_REGION', 'us-east-1'),
+            'defaultAwsCredentialScopeService'     => env('DEFAULT_AWS_CREDENTIAL_SCOPE_SERVICE', 'execute-api'),
             'lwaOAuthBaseUrl'                      => env('LWA_O_AUTH_BASE_URL', 'https://api.amazon.com'),
             'lwaRefreshToken'                      => env('LWA_REFRESH_TOKEN'),
             'lwaClientId'                          => env('LWA_CLIENT_ID'),
             'lwaClientSecret'                      => env('LWA_CLIENT_SECRET'),
+            'lwaAccessTokenCacheKey'               => env('LWA_CLIENT_SECRET', 'lwa_access_token'),
             'appNameAndVersion'                    => env('APP_NAME_AND_VERSION', 'GLUE_TEST/0.0.1'),
             'appLanguageAndVersion'                => env('APP_LANGUAGE_AND_VERSION', 'PHP/7.2'),
             // SANDBOX env is also set to true in phpunit.xml.

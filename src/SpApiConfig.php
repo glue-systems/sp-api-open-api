@@ -19,7 +19,25 @@ class SpApiConfig
     /**
      * @var string
      */
-    public $sellerId;
+    public $defaultSellerId;
+
+    /**
+     * AWS 'region' component of the credential scope used in Signature V4 request authentication.
+     * See SP-API documentation for more info:
+     * https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api#credential-scope
+     *
+     * @var string
+     */
+    public $defaultAwsCredentialScopeRegion;
+
+    /**
+     * AWS 'service' component of the credential scope used in Signature V4 request authentication.
+     * See SP-API documentation for more info:
+     * https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api#credential-scope
+     *
+     * @var string
+     */
+    public $defaultAwsCredentialScopeService = 'execute-api';
 
     /**
      * @var string
@@ -82,6 +100,18 @@ class SpApiConfig
      */
     public $alwaysUnpackApiExceptionResponseBody = false;
 
+    public function __construct(array $data)
+    {
+        $allowedFields = get_class_vars(self::class);
+
+        foreach ($data as $field => $value) {
+            static::validateFieldConstructable($field, $allowedFields);
+            $this->{$field} = $value;
+        }
+
+        $this->validateConfig();
+    }
+
     /**
      * Create a new config object from an associative array.
      *
@@ -90,17 +120,7 @@ class SpApiConfig
      */
     public static function make(array $data)
     {
-        $config        = new SpApiConfig();
-        $allowedFields = get_class_vars(self::class);
-
-        foreach ($data as $field => $value) {
-            // Validate the array argument matches the prescribed shape of the target config object,
-            // to prevent potential introduction of bugs during development.
-            static::validateFieldConstructable($field, $allowedFields);
-            $config->{$field} = $value;
-        }
-
-        return $config;
+        return new SpApiConfig($data);
     }
 
     /**
@@ -114,51 +134,67 @@ class SpApiConfig
             $exceptionMessage = "Failed to construct config object from array:"
                 . " property '{$field}' does not exist in class '" . self::class . "'.";
             if (is_numeric($field)) {
-                $exceptionMessage .= " Please ensure you are passing in"
-                    . " a strictly associative array instead of a sequential one.";
+                $exceptionMessage .= " Please ensure you are passing in a strictly"
+                    . " associative array as the data argument instead of a sequential one.";
             }
             $exceptionMessage .= " Allowed fields: [" . implode(', ', $allowedFields) . "].";
             throw new SpApiConfigurationException($exceptionMessage);
         }
     }
 
+    public function validateRequiredFieldsArePresent()
+    {
+        foreach ($this->getRequiredFields() as $field) {
+            if (!isset($this->{$field}) || $this->{$field} === '') {
+                throw new SpApiConfigurationException("Missing required field '{$field}'"
+                    . " in [" . self::class . ']. Please verify that this object'
+                    . " is being instantiated properly -- e.g. by checking your"
+                    . " environment variables.");
+            }
+        }
+    }
+
+    public function validateStringFieldsAreStrings()
+    {
+        foreach ($this->getStringFields() as $field) {
+            if (isset($this->{$field}) && !is_string($this->{$field})) {
+                throw new SpApiConfigurationException("Field '{$field}' must be a string"
+                    . " in [" . self::class . "]. Please verify that this object"
+                    . " is being instantiated properly -- e.g. by checking your"
+                    . " environment variables.");
+            }
+        }
+    }
+
+    public function validateBooleanFieldsAreBooleans()
+    {
+        foreach ($this->getBooleanFields() as $field) {
+            if (isset($this->{$field}) && !is_bool($this->{$field})) {
+                throw new SpApiConfigurationException("Field '{$field}' must be a boolean"
+                    . " in [" . self::class . "]. Please verify that this object"
+                    . " is being instantiated properly -- e.g. by checking your"
+                    . " environment variables.");
+            }
+        }
+    }
+
+    /**
+     * @return void
+     * @throws SpApiConfigurationException
+     */
     public function validateConfig()
     {
-        $requiredStringFields = [
-            'defaultBaseUrl',
-            'sellerId',
-            'lwaOAuthBaseUrl',
-            'lwaRefreshToken',
-            'lwaClientId',
-            'lwaClientSecret',
-            'appNameAndVersion',
-            'appLanguageAndVersion',
-        ];
+        $this->validateRequiredFieldsArePresent();
 
-        foreach ($requiredStringFields as $field) {
-            if (empty($this->{$field})) {
-                throw new SpApiConfigurationException("Missing required string field '{$field}' in [" . self::class . '].'
-                    . ' Please verify the config object is being instantiated properly'
-                    . ' -- e.g. by checking your environment variables.');
-            }
-        }
+        $this->validateStringFieldsAreStrings();
 
-        $requiredBoolFields = [
-            'sandbox',
-        ];
-
-        foreach ($requiredBoolFields as $field) {
-            if (!isset($this->{$field})) {
-                throw new SpApiConfigurationException("Missing required bool field '{$field}' in [" . self::class . '].'
-                    . ' Please verify the config object is being instantiated properly'
-                    . ' -- e.g. by checking your environment variables.');
-            }
-        }
+        $this->validateBooleanFieldsAreBooleans();
 
         if ($this->sandbox && strpos(strtolower($this->defaultBaseUrl), 'sandbox') === false) {
-            throw new SpApiConfigurationException("Production URL detected! Invalid defaultBaseUrl '{$this->defaultBaseUrl}'"
-                . " when sandbox = true. Please use the sandbox URL and associated credentials instead."
-                . " For more info, see the Amazon docs: https://developer-docs.amazon.com/amazon-shipping/docs/the-selling-partner-api-sandbox.");
+            throw new SpApiConfigurationException("Production URL detected! Invalid defaultBaseUrl"
+                . " value '{$this->defaultBaseUrl}' when sandbox = true. Please use the sandbox URL"
+                . " and associated credentials instead. For more info, see the SP-API docs:"
+                . " https://developer-docs.amazon.com/amazon-shipping/docs/the-selling-partner-api-sandbox");
         }
     }
 
@@ -168,5 +204,62 @@ class SpApiConfig
     public function userAgent()
     {
         return "{$this->appNameAndVersion} (Language={$this->appLanguageAndVersion})";
+    }
+
+    /**
+     * @return array
+     */
+    public static function getRequiredFields()
+    {
+        return [
+            'defaultBaseUrl',
+            'defaultAwsCredentialScopeRegion',
+            'defaultAwsCredentialScopeService',
+            'lwaOAuthBaseUrl',
+            'lwaRefreshToken',
+            'lwaClientId',
+            'lwaClientSecret',
+            'lwaAccessTokenCacheKey',
+            'appNameAndVersion',
+            'appLanguageAndVersion',
+            'sandbox',
+            'domainApiCallDebug',
+            'oAuthApiCallDebug',
+            'alwaysUnpackApiExceptionResponseBody',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getStringFields()
+    {
+        return [
+            'defaultBaseUrl',
+            'defaultMarketplaceId',
+            'defaultSellerId',
+            'defaultAwsCredentialScopeRegion',
+            'defaultAwsCredentialScopeService',
+            'lwaOAuthBaseUrl',
+            'lwaRefreshToken',
+            'lwaClientId',
+            'lwaClientSecret',
+            'lwaAccessTokenCacheKey',
+            'appNameAndVersion',
+            'appLanguageAndVersion',
+        ];
+    }
+
+    /**
+     * @return array
+     */
+    public static function getBooleanFields()
+    {
+        return [
+            'sandbox',
+            'domainApiCallDebug',
+            'oAuthApiCallDebug',
+            'alwaysUnpackApiExceptionResponseBody',
+        ];
     }
 }
