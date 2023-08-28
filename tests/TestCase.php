@@ -74,11 +74,11 @@ class TestCase extends BaseTestCase
         $lwaService             = new LwaService($lwaClient, self::$arrayCache, $spApiConfig);
         $clientAuthenticator    = new ClientAuthenticator($lwaService, $awsCredentialProvider, $spApiConfig);
         $clientFactory          = new ClientFactory($clientAuthenticator, $spApiConfig);
-        $rdtProvider            = new RdtService($clientFactory);
+        $rdtService             = new RdtService($clientFactory);
 
         return new SpApi(
             $clientFactory,
-            $rdtProvider,
+            $rdtService,
             $lwaService,
             $spApiConfig
         );

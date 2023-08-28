@@ -72,7 +72,7 @@ class SpApi implements SpApiInterface
     /**
      * @var RdtServiceInterface
      */
-    protected $rdtProvider;
+    protected $rdtService;
 
     /**
      * @var LwaServiceInterface
@@ -86,12 +86,12 @@ class SpApi implements SpApiInterface
 
     public function __construct(
         ClientFactoryInterface $clientFactory,
-        RdtServiceInterface $rdtProvider,
+        RdtServiceInterface $rdtService,
         LwaServiceInterface $lwaService,
         SpApiConfig $spApiConfig
     ) {
         $this->clientFactory = $clientFactory;
-        $this->rdtProvider   = $rdtProvider;
+        $this->rdtService    = $rdtService;
         $this->lwaService    = $lwaService;
         $this->spApiConfig   = $spApiConfig;
     }
@@ -659,6 +659,6 @@ class SpApi implements SpApiInterface
             return null;
         }
 
-        return $this->rdtProvider->makeRdtProviderFromRequest($rdtRequest);
+        return $this->rdtService->makeRdtProviderFromRequest($rdtRequest);
     }
 }
