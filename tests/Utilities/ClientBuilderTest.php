@@ -44,13 +44,23 @@ class ClientBuilderTest extends TestCase
         $this->assertEquals($expectedDomainConfig, $sut->getDomainConfig());
     }
 
-    public function test_forApi_throws_ClientBuilderException()
+    public function test_forApi_throws_ClientBuilderException_on_invalid_fqn()
     {
         $sut = new ClientBuilder($this->spApiConfig);
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage('Invalid API class FQN');
         $sut->forApi('\Invalid\Api\Class');
+    }
+
+    public function test_forApi_throws_ClientBuilderException_on_2nd_call()
+    {
+        $sut = new ClientBuilder($this->spApiConfig);
+        $sut->forApi(OrdersV0Api::class);
+
+        $this->expectException(ClientBuilderException::class);
+        $this->expectExceptionMessage('cannot be called more than once');
+        $sut->forApi(OrdersV0Api::class);
     }
 
     public function test_withConfig_happy_case_with_changes_made_via_callback()

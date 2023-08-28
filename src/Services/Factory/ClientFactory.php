@@ -725,14 +725,13 @@ class ClientFactory implements ClientFactoryInterface
         $apiClassFqn,
         callable $transformBuilder = null
     ) {
-        $builder = new ClientBuilder($this->spApiConfig);
+        $builder = (new ClientBuilder($this->spApiConfig))
+            ->forApi($apiClassFqn);
 
         if ($transformBuilder) {
             $transformBuilder($builder);
         }
 
-        return $builder
-            ->forApi($apiClassFqn)
-            ->createClient($this->authenticator);
+        return $builder->createClient($this->authenticator);
     }
 }

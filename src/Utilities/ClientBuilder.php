@@ -138,6 +138,11 @@ class ClientBuilder
      */
     public function forApi($apiClassFqn)
     {
+        if (isset($this->apiClassFqn)) {
+            throw new ClientBuilderException("ClientBuilder method 'forApi'"
+                . " cannot be called more than once.");
+        }
+
         if (!SpApiRoster::isValidApiClassFqn($apiClassFqn)) {
             throw new ClientBuilderException("Invalid API class FQN [{$apiClassFqn}]: Must be"
                 . " one of: " . implode(', ', SpApiRoster::allApiClassFqns()) . ".");
