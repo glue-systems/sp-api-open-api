@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\VendorDirectFulfillmentTransactionsV1\Api;
 
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Model\GetTransactionResponse;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Model\TransactionStatus;
 use Tests\TestCase;
@@ -12,10 +13,13 @@ class VendorTransactionApiTest extends TestCase
     {
         $this->markTestIncomplete('Sandbox getTransactionStatus not working according to the test cases described in [models/vendorDirectFulfillmentTransactionsV1.json].');
 
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->vendorDirectFulfillmentTransactionsV1()
-                ->getTransactionStatusWithHttpInfo('20190904190535-eef8cad8-418e-4ed3-ac72-789e2ee6214a');
-        });
+        $result = $this->sp_api()->vendorDirectFulfillmentTransactionsV1(
+            function (VendorTransactionApi $vendorTransactionApi) {
+                return $vendorTransactionApi->getTransactionStatusWithHttpInfo(
+                    '20190904190535-eef8cad8-418e-4ed3-ac72-789e2ee6214a'
+                );
+            }
+        );
 
         /**
          * @var GetTransactionResponse $response

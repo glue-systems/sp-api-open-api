@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\SalesV1\Api;
 
+use Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi;
 use Glue\SpApi\OpenAPI\Clients\SalesV1\Model\GetOrderMetricsResponse;
 use Glue\SpApi\OpenAPI\Clients\SalesV1\Model\OrderMetricsInterval;
 use Tests\TestCase;
@@ -10,8 +11,8 @@ class SalesApiTest extends TestCase
 {
     public function test_getOrderMetrics()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->salesV1()->getOrderMetricsWithHttpInfo(
+        $result = $this->sp_api()->salesV1(function (SalesApi $salesApi) {
+            return $salesApi->getOrderMetricsWithHttpInfo(
                 [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
                 '2018-09-01T00:00:00-07:00--2018-09-04T00:00:00-07:00',
                 'Total'

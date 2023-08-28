@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\AuthorizationV1\Api;
 
+use Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Api\AuthorizationApi;
 use Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Model\GetAuthorizationCodeResponse;
 use Tests\TestCase;
 
@@ -10,9 +11,8 @@ class AuthorizationApiTest extends TestCase
     public function test_getAuthorizationCode()
     {
         $result = $this->tryButSkipIfUnauthorized(function () {
-            return $this->sp_api()->execute(function () {
-                return $this->sp_api()->authorizationV1()
-                    ->getAuthorizationCodeWithHttpInfo('foo', 'foo', 'foo');
+            return $this->sp_api()->authorizationV1(function (AuthorizationApi $authorizationApi) {
+                return $authorizationApi->getAuthorizationCodeWithHttpInfo('foo', 'foo', 'foo');
             });
         });
 

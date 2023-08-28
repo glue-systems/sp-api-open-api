@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\VendorDirectFulfillmentOrdersV20211228\Api;
 
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Model\Order;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Model\OrderList;
 use Tests\TestCase;
@@ -11,18 +12,19 @@ class VendorOrdersApiTest extends TestCase
     public function test_getOrders()
     {
         $result = $this->tryButSkipIfUnauthorized(function () {
-            return $this->sp_api()->execute(function () {
-                return $this->sp_api()->vendorDirectFulfillmentOrdersV20211228()->getOrdersWithHttpInfo(
-                    '2020-02-15T14:00:00-08:00',
-                    '2020-02-20T00:00:00-08:00',
-                    null,
-                    null,
-                    2,
-                    'DESC',
-                    null,
-                    'true'
-                );
-            });
+            return $this->sp_api()
+                ->vendorDirectFulfillmentOrdersV20211228(function (VendorOrdersApi $vendorOrdersApi) {
+                    return $vendorOrdersApi->getOrdersWithHttpInfo(
+                        '2020-02-15T14:00:00-08:00',
+                        '2020-02-20T00:00:00-08:00',
+                        null,
+                        null,
+                        2,
+                        'DESC',
+                        null,
+                        'true'
+                    );
+                });
         });
 
         /**

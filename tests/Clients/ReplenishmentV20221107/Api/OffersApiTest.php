@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\ReplenishmentV20221107\Api;
 
+use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\AggregationFrequency;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\ListOfferMetricsRequest;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\ListOfferMetricsRequestFilters;
@@ -20,8 +21,8 @@ class OffersApiTest extends TestCase
 {
     public function test_listOfferMetrics()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->replenishmentV20221107Offers()->listOfferMetricsWithHttpInfo(
+        $result = $this->sp_api()->replenishmentV20221107Offers(function (OffersApi $offersApi) {
+            return $offersApi->listOfferMetricsWithHttpInfo(
                 new ListOfferMetricsRequest([
                     'filters'   => new ListOfferMetricsRequestFilters([
                         'aggregationFrequency' => AggregationFrequency::YEAR,

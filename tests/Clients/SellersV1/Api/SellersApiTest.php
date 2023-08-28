@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\SellersV1\Api;
 
+use Glue\SpApi\OpenAPI\Clients\SellersV1\Api\SellersApi;
 use Glue\SpApi\OpenAPI\Clients\SellersV1\Model\GetMarketplaceParticipationsResponse;
 use Glue\SpApi\OpenAPI\Clients\SellersV1\Model\MarketplaceParticipation;
 use Tests\TestCase;
@@ -10,8 +11,8 @@ class SellersApiTest extends TestCase
 {
     public function test_getMarketplaceParticipations()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->sellersV1()->getMarketplaceParticipationsWithHttpInfo();
+        $result = $this->sp_api()->sellersV1(function (SellersApi $sellersApi) {
+            return $sellersApi->getMarketplaceParticipationsWithHttpInfo();
         });
 
         /**

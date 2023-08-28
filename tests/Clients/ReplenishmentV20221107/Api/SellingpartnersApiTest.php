@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\ReplenishmentV20221107\Api;
 
+use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\AggregationFrequency;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\GetSellingPartnerMetricsRequest;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\GetSellingPartnerMetricsResponse;
@@ -16,9 +17,9 @@ class SellingpartnersApiTest extends TestCase
 {
     public function test_getSellingPartnerMetrics()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->replenishmentV20221107Sellingpartners()
-                ->getSellingPartnerMetricsWithHttpInfo(
+        $result = $this->sp_api()
+            ->replenishmentV20221107Sellingpartners(function (SellingpartnersApi $sellingpartnersApi) {
+                return $sellingpartnersApi->getSellingPartnerMetricsWithHttpInfo(
                     new GetSellingPartnerMetricsRequest([
                         'aggregationFrequency' => AggregationFrequency::YEAR,
                         'timeInterval'         => new TimeInterval([
@@ -35,7 +36,7 @@ class SellingpartnersApiTest extends TestCase
                         ],
                     ])
                 );
-        });
+            });
 
         /**
          * @var GetSellingPartnerMetricsResponse $response

@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\FinancesV0\Api;
 
+use Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi;
 use Glue\SpApi\OpenAPI\Clients\FinancesV0\Model\FinancialEventGroup;
 use Glue\SpApi\OpenAPI\Clients\FinancesV0\Model\ListFinancialEventGroupsPayload;
 use Glue\SpApi\OpenAPI\Clients\FinancesV0\Model\ListFinancialEventGroupsResponse;
@@ -11,8 +12,8 @@ class FinancesApiTest extends TestCase
 {
     public function test_listFinancialEventGroups()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->financesV0()->listFinancialEventGroupsWithHttpInfo(
+        $result = $this->sp_api()->financesV0(function (DefaultApi $financesApi) {
+            return $financesApi->listFinancialEventGroupsWithHttpInfo(
                 1,
                 '2019-10-31',
                 '2019-10-13'

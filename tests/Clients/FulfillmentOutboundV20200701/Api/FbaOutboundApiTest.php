@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\FulfillmentOutboundV20200701\Api;
 
+use Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Api\FbaOutboundApi;
 use Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Model\Address;
 use Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Model\FulfillmentPreview;
 use Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Model\GetFulfillmentPreviewItem;
@@ -17,34 +18,33 @@ class FbaOutboundApiTest extends TestCase
     {
         $this->markTestIncomplete('Should revisit after regenerating clients via openapi-generator-cli option --additional-properties=enumUnknownDefaultCase=true');
 
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->fulfillmentOutboundV20200701()
-                ->getFulfillmentPreviewWithHttpInfo(
-                    new GetFulfillmentPreviewRequest([
-                        'marketplaceId' => $this->sp_api()->getSpApiConfig()->defaultMarketplaceId,
-                        'address'       => new Address([
-                            'name'          => 'Walts TV and Appliance',
-                            'addressLine1'  => '1746 W Ruby Dr',
-                            'addressLine2'  => 'STE 110',
-                            'city'          => 'Tempe',
-                            'stateOrRegion' => 'AZ',
-                            'postalCode'    => '85284',
-                            'countryCode'   => 'US',
-                            'phone'         => '5555555555',
-                        ]),
-                        'items'         => [
-                            new GetFulfillmentPreviewItem([
-                                'sellerSku'                    => 'FAKE-SKU-123',
-                                'quantity'                     => 1,
-                                'sellerFulfillmentOrderItemId' => 'FAKE-ORDER-ITEM-ID',
-                                'perUnitDeclaredValue'         => new Money([
-                                    'currencyCode' => 'USD',
-                                    'value'        => '12.34'
-                                ]),
+        $result = $this->sp_api()->fulfillmentOutboundV20200701(function (FbaOutboundApi $fbaOutboundApi) {
+            return $fbaOutboundApi->getFulfillmentPreviewWithHttpInfo(
+                new GetFulfillmentPreviewRequest([
+                    'marketplaceId' => $this->sp_api()->getSpApiConfig()->defaultMarketplaceId,
+                    'address'       => new Address([
+                        'name'          => 'Walts TV and Appliance',
+                        'addressLine1'  => '1746 W Ruby Dr',
+                        'addressLine2'  => 'STE 110',
+                        'city'          => 'Tempe',
+                        'stateOrRegion' => 'AZ',
+                        'postalCode'    => '85284',
+                        'countryCode'   => 'US',
+                        'phone'         => '5555555555',
+                    ]),
+                    'items'         => [
+                        new GetFulfillmentPreviewItem([
+                            'sellerSku'                    => 'FAKE-SKU-123',
+                            'quantity'                     => 1,
+                            'sellerFulfillmentOrderItemId' => 'FAKE-ORDER-ITEM-ID',
+                            'perUnitDeclaredValue'         => new Money([
+                                'currencyCode' => 'USD',
+                                'value'        => '12.34'
                             ]),
-                        ],
-                    ])
-                );
+                        ]),
+                    ],
+                ])
+            );
         });
 
         /**

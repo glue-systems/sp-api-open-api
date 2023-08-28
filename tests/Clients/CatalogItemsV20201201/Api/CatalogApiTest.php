@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\CatalogItemsV20201201\Api;
 
+use Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Api\CatalogApi;
 use Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Model\Item;
 use Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Model\ItemSearchResults;
 use Tests\TestCase;
@@ -10,8 +11,8 @@ class CatalogApiTest extends TestCase
 {
     public function test_searchCatalogItems()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->catalogItemsV20201201()->searchCatalogItemsWithHttpInfo(
+        $result = $this->sp_api()->catalogItemsV20201201(function (CatalogApi $catalogApi) {
+            return $catalogApi->searchCatalogItemsWithHttpInfo(
                 ['red', 'polo', 'shirt'],
                 ['ATVPDKIKX0DER'],
                 'summaries'

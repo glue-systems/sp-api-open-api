@@ -62,6 +62,10 @@ use Glue\SpApi\OpenAPI\Services\Rdt\RdtServiceInterface;
 use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
 use Glue\SpApi\OpenAPI\Utilities\SpApiRoster;
 
+/**
+ * SP-API execution class, which should be instantiated once per SP-API call
+ * without persistence as a singleton.
+ */
 class SpApi
 {
     /**
@@ -83,6 +87,16 @@ class SpApi
      * @var SpApiConfig
      */
     protected $spApiConfig;
+
+    /**
+     * @var CreateRestrictedDataTokenRequest|null
+     */
+    protected $rdtRequest = null;
+
+    /**
+     * @var callable|null
+     */
+    protected $builderCallback = null;
 
     public function __construct(
         ClientFactoryInterface $clientFactory,
@@ -107,190 +121,241 @@ class SpApi
     }
 
     /**
-     * Wrapper for executing an SP-API operation, which will render any  ApiException's thrown
-     * as DomainApiException with unpacked response body
+     * Set a Restricted Data Token (RDT) request to be used for this SP-API execution.
      *
-     * @param callable $callback
-     * @return mixed
-     * @throws DomainApiException
+     * @return static
      */
-    public function execute(callable $callback)
+    public function withRdtRequest(CreateRestrictedDataTokenRequest $rdtRequest)
     {
-        try {
-            return $this->_invokeExecuteCallback($callback);
-        } catch (DomainApiException $ex) {
-            if ($ex->getCode() === 403) {
-                $this->lwaService->forgetCachedLwaAccessToken();
-                return $this->_invokeExecuteCallback($callback);
-            }
-            throw $ex;
-        }
+        $this->rdtRequest = $rdtRequest;
+        return $this;
+    }
+
+    /**
+     * Set a builder callback for modifying the ClientBuilder instance that
+     * is used to construct the SP-API client.
+     *
+     * @return static
+     */
+    public function buildUsing(callable $builderCallback)
+    {
+        $this->builderCallback = $builderCallback;
+        return $this;
     }
 
     /**
      * @return AplusContentV20201101Api
      * @throws LwaAccessTokenException
      */
-    public function aplusContentV20201101()
+    public function aplusContentV20201101(callable $execute)
     {
-        return $this->clientFactory->createAplusContentV20201101ApiClient();
+        return $this->_execute(
+            'createAplusContentV20201101ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return AuthorizationV1Api
      * @throws LwaAccessTokenException
      */
-    public function authorizationV1()
+    public function authorizationV1(callable $execute)
     {
-        return $this->clientFactory->createAuthorizationV1ApiClient();
+        return $this->_execute(
+            'createAuthorizationV1ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return CatalogItemsV0Api
      * @throws LwaAccessTokenException
      */
-    public function catalogItemsV0()
+    public function catalogItemsV0(callable $execute)
     {
-        return $this->clientFactory->createCatalogItemsV0ApiClient();
+        return $this->_execute(
+            'createCatalogItemsV0ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return CatalogItemsV20201201Api
      * @throws LwaAccessTokenException
      */
-    public function catalogItemsV20201201()
+    public function catalogItemsV20201201(callable $execute)
     {
-        return $this->clientFactory->createCatalogItemsV20201201ApiClient();
+        return $this->_execute(
+            'createCatalogItemsV20201201ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return DefinitionsProductTypesV20200901Api
      * @throws LwaAccessTokenException
      */
-    public function definitionsProductTypesV20200901()
+    public function definitionsProductTypesV20200901(callable $execute)
     {
-        return $this->clientFactory->createDefinitionsProductTypesV20200901ApiClient();
+        return $this->_execute(
+            'createDefinitionsProductTypesV20200901ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return EasyShipV20220323Api
      * @throws LwaAccessTokenException
      */
-    public function easyShipV20220323()
+    public function easyShipV20220323(callable $execute)
     {
-        return $this->clientFactory->createEasyShipV20220323ApiClient();
+        return $this->_execute(
+            'createEasyShipV20220323ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return FbaInboundEligibilityV1Api
      * @throws LwaAccessTokenException
      */
-    public function fbaInboundEligibilityV1()
+    public function fbaInboundEligibilityV1(callable $execute)
     {
-        return $this->clientFactory->createFbaInboundEligibilityV1ApiClient();
+        return $this->_execute(
+            'createFbaInboundEligibilityV1ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return FbaInventoryV1Api
      * @throws LwaAccessTokenException
      */
-    public function fbaInventoryV1()
+    public function fbaInventoryV1(callable $execute)
     {
-        return $this->clientFactory->createFbaInventoryV1ApiClient();
+        return $this->_execute(
+            'createFbaInventoryV1ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return FbaSmallAndLightV1Api
      * @throws LwaAccessTokenException
      */
-    public function fbaSmallAndLightV1()
+    public function fbaSmallAndLightV1(callable $execute)
     {
-        return $this->clientFactory->createFbaSmallAndLightV1ApiClient();
+        return $this->_execute(
+            'createFbaSmallAndLightV1ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return FeedsV20200904Api
      * @throws LwaAccessTokenException
      */
-    public function feedsV20200904()
+    public function feedsV20200904(callable $execute)
     {
-        return $this->clientFactory->createFeedsV20200904ApiClient();
+        return $this->_execute(
+            'createFeedsV20200904ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return FeedsV20210630Api
      * @throws LwaAccessTokenException
      */
-    public function feedsV20210630()
+    public function feedsV20210630(callable $execute)
     {
-        return $this->clientFactory->createFeedsV20210630ApiClient();
+        return $this->_execute(
+            'createFeedsV20210630ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return FinancesV0Api
      * @throws LwaAccessTokenException
      */
-    public function financesV0()
+    public function financesV0(callable $execute)
     {
-        return $this->clientFactory->createFinancesV0ApiClient();
+        return $this->_execute(
+            'createFinancesV0ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return FulfillmentInboundV0Api
      * @throws LwaAccessTokenException
      */
-    public function fulfillmentInboundV0()
+    public function fulfillmentInboundV0(callable $execute)
     {
-        return $this->clientFactory->createFulfillmentInboundV0ApiClient();
+        return $this->_execute(
+            'createFulfillmentInboundV0ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return FulfillmentOutboundV20200701Api
      * @throws LwaAccessTokenException
      */
-    public function fulfillmentOutboundV20200701()
+    public function fulfillmentOutboundV20200701(callable $execute)
     {
-        return $this->clientFactory->createFulfillmentOutboundV20200701ApiClient();
+        return $this->_execute(
+            'createFulfillmentOutboundV20200701ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return ListingsItemsV20200901Api
      * @throws LwaAccessTokenException
      */
-    public function listingsItemsV20200901()
+    public function listingsItemsV20200901(callable $execute)
     {
-        return $this->clientFactory->createListingsItemsV20200901ApiClient();
+        return $this->_execute(
+            'createListingsItemsV20200901ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return ListingsItemsV20210801Api
      * @throws LwaAccessTokenException
      */
-    public function listingsItemsV20210801()
+    public function listingsItemsV20210801(callable $execute)
     {
-        return $this->clientFactory->createListingsItemsV20210801ApiClient();
+        return $this->_execute(
+            'createListingsItemsV20210801ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return ListingsRestrictionsV20210801Api
      * @throws LwaAccessTokenException
      */
-    public function listingsRestrictionsV20210801()
+    public function listingsRestrictionsV20210801(callable $execute)
     {
-        return $this->clientFactory->createListingsRestrictionsV20210801ApiClient();
+        return $this->_execute(
+            'createListingsRestrictionsV20210801ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return MerchantFulfillmentV0Api
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function merchantFulfillmentV0(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createMerchantFulfillmentV0ApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function merchantFulfillmentV0(callable $execute)
+    {
+        return $this->_execute(
+            'createMerchantFulfillmentV0ApiClient',
+            $execute
         );
     }
 
@@ -298,22 +363,23 @@ class SpApi
      * @return NotificationsV1Api
      * @throws LwaAccessTokenException
      */
-    public function notificationsV1()
+    public function notificationsV1(callable $execute)
     {
-        return $this->clientFactory->createNotificationsV1ApiClient();
+        return $this->_execute(
+            'createNotificationsV1ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return OrdersV0Api
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function ordersV0(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createOrdersV0ApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function ordersV0(callable $execute)
+    {
+        return $this->_execute(
+            'createOrdersV0ApiClient',
+            $execute
         );
     }
 
@@ -321,58 +387,71 @@ class SpApi
      * @return OrdersV0ShipmentApi
      * @throws LwaAccessTokenException
      */
-    public function ordersV0Shipment()
+    public function ordersV0Shipment(callable $execute)
     {
-        return $this->clientFactory->createOrdersV0ShipmentApiClient();
+        return $this->_execute(
+            'createOrdersV0ShipmentApiClient',
+            $execute
+        );
     }
 
     /**
      * @return ProductFeesV0Api
      * @throws LwaAccessTokenException
      */
-    public function productFeesV0()
+    public function productFeesV0(callable $execute)
     {
-        return $this->clientFactory->createProductFeesV0ApiClient();
+        return $this->_execute(
+            'createProductFeesV0ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return ProductPricingV0Api
      * @throws LwaAccessTokenException
      */
-    public function productPricingV0()
+    public function productPricingV0(callable $execute)
     {
-        return $this->clientFactory->createProductPricingV0ApiClient();
+        return $this->_execute(
+            'createProductPricingV0ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return ReplenishmentV20221107OffersApi
      * @throws LwaAccessTokenException
      */
-    public function replenishmentV20221107Offers()
+    public function replenishmentV20221107Offers(callable $execute)
     {
-        return $this->clientFactory->createReplenishmentV20221107OffersApiClient();
+        return $this->_execute(
+            'createReplenishmentV20221107OffersApiClient',
+            $execute
+        );
     }
 
     /**
      * @return ReplenishmentV20221107SellingpartnersApi
      * @throws LwaAccessTokenException
      */
-    public function replenishmentV20221107Sellingpartners()
+    public function replenishmentV20221107Sellingpartners(callable $execute)
     {
-        return $this->clientFactory->createReplenishmentV20221107SellingpartnersApiClient();
+        return $this->_execute(
+            'createReplenishmentV20221107SellingpartnersApiClient',
+            $execute
+        );
     }
 
     /**
      * @return ReportsV20200904Api
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function reportsV20200904(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createReportsV20200904ApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function reportsV20200904(callable $execute)
+    {
+        return $this->_execute(
+            'createReportsV20200904ApiClient',
+            $execute
         );
     }
 
@@ -380,13 +459,11 @@ class SpApi
      * @return ReportsV20210630Api
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function reportsV20210630(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createReportsV20210630ApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function reportsV20210630(callable $execute)
+    {
+        return $this->_execute(
+            'createReportsV20210630ApiClient',
+            $execute
         );
     }
 
@@ -394,40 +471,47 @@ class SpApi
      * @return SalesV1Api
      * @throws LwaAccessTokenException
      */
-    public function salesV1()
+    public function salesV1(callable $execute)
     {
-        return $this->clientFactory->createSalesV1ApiClient();
+        return $this->_execute(
+            'createSalesV1ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return SellersV1Api
      * @throws LwaAccessTokenException
      */
-    public function sellersV1()
+    public function sellersV1(callable $execute)
     {
-        return $this->clientFactory->createSellersV1ApiClient();
+        return $this->_execute(
+            'createSellersV1ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return ServicesV1Api
      * @throws LwaAccessTokenException
      */
-    public function servicesV1()
+    public function servicesV1(callable $execute)
     {
-        return $this->clientFactory->createServicesV1ApiClient();
+        return $this->_execute(
+            'createServicesV1ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return ShipmentInvoicingV0Api
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function shipmentInvoicingV0(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createShipmentInvoicingV0ApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function shipmentInvoicingV0(callable $execute)
+    {
+        return $this->_execute(
+            'createShipmentInvoicingV0ApiClient',
+            $execute
         );
     }
 
@@ -435,49 +519,59 @@ class SpApi
      * @return SupplySourcesV20200701Api
      * @throws LwaAccessTokenException
      */
-    public function supplySourcesV20200701()
+    public function supplySourcesV20200701(callable $execute)
     {
-        return $this->clientFactory->createSupplySourcesV20200701ApiClient();
+        return $this->_execute(
+            'createSupplySourcesV20200701ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return TokensV20210301Api
      * @throws LwaAccessTokenException
      */
-    public function tokensV20210301()
+    public function tokensV20210301(callable $execute)
     {
-        return $this->clientFactory->createTokensV20210301ApiClient();
+        return $this->_execute(
+            'createTokensV20210301ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return UploadsV20201101Api
      * @throws LwaAccessTokenException
      */
-    public function uploadsV20201101()
+    public function uploadsV20201101(callable $execute)
     {
-        return $this->clientFactory->createUploadsV20201101ApiClient();
+        return $this->_execute(
+            'createUploadsV20201101ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return VendorDirectFulfillmentInventoryV1Api
      * @throws LwaAccessTokenException
      */
-    public function vendorDirectFulfillmentInventoryV1()
+    public function vendorDirectFulfillmentInventoryV1(callable $execute)
     {
-        return $this->clientFactory->createVendorDirectFulfillmentInventoryV1ApiClient();
+        return $this->_execute(
+            'createVendorDirectFulfillmentInventoryV1ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return VendorDirectFulfillmentOrdersV1Api
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function vendorDirectFulfillmentOrdersV1(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createVendorDirectFulfillmentOrdersV1ApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function vendorDirectFulfillmentOrdersV1(callable $execute)
+    {
+        return $this->_execute(
+            'createVendorDirectFulfillmentOrdersV1ApiClient',
+            $execute
         );
     }
 
@@ -485,13 +579,11 @@ class SpApi
      * @return VendorDirectFulfillmentOrdersV20211228Api
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function vendorDirectFulfillmentOrdersV20211228(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createVendorDirectFulfillmentOrdersV20211228ApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function vendorDirectFulfillmentOrdersV20211228(callable $execute)
+    {
+        return $this->_execute(
+            'createVendorDirectFulfillmentOrdersV20211228ApiClient',
+            $execute
         );
     }
 
@@ -499,40 +591,47 @@ class SpApi
      * @return VendorDirectFulfillmentPaymentsV1Api
      * @throws LwaAccessTokenException
      */
-    public function vendorDirectFulfillmentPaymentsV1()
+    public function vendorDirectFulfillmentPaymentsV1(callable $execute)
     {
-        return $this->clientFactory->createVendorDirectFulfillmentPaymentsV1ApiClient();
+        return $this->_execute(
+            'createVendorDirectFulfillmentPaymentsV1ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return VendorDirectFulfillmentSandboxDataV20211228Api
      * @throws LwaAccessTokenException
      */
-    public function vendorDirectFulfillmentSandboxDataV20211228()
+    public function vendorDirectFulfillmentSandboxDataV20211228(callable $execute)
     {
-        return $this->clientFactory->createVendorDirectFulfillmentSandboxDataV20211228ApiClient();
+        return $this->_execute(
+            'createVendorDirectFulfillmentSandboxDataV20211228ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi
      * @throws LwaAccessTokenException
      */
-    public function vendorDirectFulfillmentSandboxDataV20211228transactionstatus()
+    public function vendorDirectFulfillmentSandboxDataV20211228transactionstatus(callable $execute)
     {
-        return $this->clientFactory->createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient();
+        return $this->_execute(
+            'createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient',
+            $execute
+        );
     }
 
     /**
      * @return VendorDirectFulfillmentShippingV1CustomerInvoicesApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function vendorDirectFulfillmentShippingV1CustomerInvoices(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function vendorDirectFulfillmentShippingV1CustomerInvoices(callable $execute)
+    {
+        return $this->_execute(
+            'createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient',
+            $execute
         );
     }
 
@@ -540,13 +639,11 @@ class SpApi
      * @return VendorDirectFulfillmentShippingV1Api
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function vendorDirectFulfillmentShippingV1(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createVendorDirectFulfillmentShippingV1ApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function vendorDirectFulfillmentShippingV1(callable $execute)
+    {
+        return $this->_execute(
+            'createVendorDirectFulfillmentShippingV1ApiClient',
+            $execute
         );
     }
 
@@ -554,13 +651,11 @@ class SpApi
      * @return VendorDirectFulfillmentShippingV1LabelsApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function vendorDirectFulfillmentShippingV1Labels(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createVendorDirectFulfillmentShippingV1LabelsApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function vendorDirectFulfillmentShippingV1Labels(callable $execute)
+    {
+        return $this->_execute(
+            'createVendorDirectFulfillmentShippingV1LabelsApiClient',
+            $execute
         );
     }
 
@@ -568,13 +663,11 @@ class SpApi
      * @return VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function vendorDirectFulfillmentShippingV20211228CustomerInvoices(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function vendorDirectFulfillmentShippingV20211228CustomerInvoices(callable $execute)
+    {
+        return $this->_execute(
+            'createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient',
+            $execute
         );
     }
 
@@ -582,13 +675,11 @@ class SpApi
      * @return VendorDirectFulfillmentShippingV20211228Api
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function vendorDirectFulfillmentShippingV20211228(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createVendorDirectFulfillmentShippingV20211228ApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function vendorDirectFulfillmentShippingV20211228(callable $execute)
+    {
+        return $this->_execute(
+            'createVendorDirectFulfillmentShippingV20211228ApiClient',
+            $execute
         );
     }
 
@@ -596,13 +687,11 @@ class SpApi
      * @return VendorDirectFulfillmentShippingV20211228LabelsApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function vendorDirectFulfillmentShippingV20211228Labels(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        return $this->clientFactory->createVendorDirectFulfillmentShippingV20211228LabelsApiClient(
-            function (ClientBuilder $builder) use ($rdtRequest) {
-                $builder->withRdtProvider($this->_resolveRdtProvider($rdtRequest));
-            }
+    public function vendorDirectFulfillmentShippingV20211228Labels(callable $execute)
+    {
+        return $this->_execute(
+            'createVendorDirectFulfillmentShippingV20211228LabelsApiClient',
+            $execute
         );
     }
 
@@ -610,33 +699,72 @@ class SpApi
      * @return VendorDirectFulfillmentTransactionsV1Api
      * @throws LwaAccessTokenException
      */
-    public function vendorDirectFulfillmentTransactionsV1()
+    public function vendorDirectFulfillmentTransactionsV1(callable $execute)
     {
-        return $this->clientFactory->createVendorDirectFulfillmentTransactionsV1ApiClient();
+        return $this->_execute(
+            'createVendorDirectFulfillmentTransactionsV1ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return VendorDirectFulfillmentTransactionsV20211228Api
      * @throws LwaAccessTokenException
      */
-    public function vendorDirectFulfillmentTransactionsV20211228()
+    public function vendorDirectFulfillmentTransactionsV20211228(callable $execute)
     {
-        return $this->clientFactory->createVendorDirectFulfillmentTransactionsV20211228ApiClient();
+        return $this->_execute(
+            'createVendorDirectFulfillmentTransactionsV20211228ApiClient',
+            $execute
+        );
     }
 
     /**
      * @return VendorTransactionStatusV1Api
      * @throws LwaAccessTokenException
      */
-    public function vendorTransactionStatusV1()
+    public function vendorTransactionStatusV1(callable $execute)
     {
-        return $this->clientFactory->createVendorTransactionStatusV1ApiClient();
+        return $this->_execute(
+            'createVendorTransactionStatusV1ApiClient',
+            $execute
+        );
     }
 
-    protected function _invokeExecuteCallback($callback)
-    {
+    /**
+     * @param string $clientFactoryMethod
+     * @param callable $execute
+     * @return mixed
+     * @throws DomainApiException
+     */
+    protected function _execute(
+        $clientFactoryMethod,
+        callable $execute
+    ) {
         try {
-            return $callback();
+            return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
+        } catch (DomainApiException $ex) {
+            if ($ex->getCode() === 403) {
+                $this->lwaService->forgetCachedLwaAccessToken();
+                return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
+            }
+            throw $ex;
+        }
+    }
+
+    /**
+     * @param string $clientFactoryMethod
+     * @param callable $execute
+     * @return mixed
+     * @throws DomainApiException
+     */
+    protected function _invokeExecuteCallback(
+        $clientFactoryMethod,
+        callable $execute
+    ) {
+        try {
+            $apiClient = $this->_createApiClient($clientFactoryMethod);
+            return $execute($apiClient);
         } catch (\Exception $ex) {
             if (SpApiRoster::isApiException($ex)) {
                 throw new DomainApiException(
@@ -649,16 +777,42 @@ class SpApi
     }
 
     /**
-     * @param CreateRestrictedDataTokenRequest|null $rdtRequest
-     * @return callable|null
+     * @param string $clientFactoryMethod
+     * @return callable
      */
-    protected function _resolveRdtProvider(
-        CreateRestrictedDataTokenRequest $rdtRequest = null
-    ) {
-        if (is_null($rdtRequest)) {
-            return null;
+    protected function _createApiClient($clientFactoryMethod)
+    {
+        if ($this->rdtRequest) {
+            $builderCallback = $this->_enhanceBuilderCallbackWithRdtProvider(
+                $this->rdtRequest,
+                $this->builderCallback
+            );
+        } else {
+            $builderCallback = $this->builderCallback;
         }
 
-        return $this->rdtService->makeRdtProviderFromRequest($rdtRequest);
+        return $this->clientFactory->{$clientFactoryMethod}($builderCallback);
+    }
+
+    /**
+     * @param CreateRestrictedDataTokenRequest $rdtRequest
+     * @param callable|null $build
+     * @return callable
+     */
+    protected function _enhanceBuilderCallbackWithRdtProvider(
+        CreateRestrictedDataTokenRequest $rdtRequest,
+        callable $builderCallback = null
+    ) {
+        // TODO: In a future version, may be useful to implement some sort of
+        // "BuilderMiddleware" pattern, which could be provided globally and/or
+        // on each SP-API execution. This would play nicely in the Laravel package,
+        // where BuilderMiddleware can be registered via SpApiServiceProvider.
+        return function (ClientBuilder $clientBuilder) use ($builderCallback, $rdtRequest) {
+            $rdtProvider = $this->rdtService->makeRdtProviderFromRequest($rdtRequest);
+            $clientBuilder->withRdtProvider($rdtProvider);
+            if ($builderCallback) {
+                call_user_func($builderCallback, $clientBuilder);
+            }
+        };
     }
 }

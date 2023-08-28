@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\ProductFeesV0\Api;
 
+use Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi;
 use Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Model\FeesEstimate;
 use Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Model\FeesEstimateRequest;
 use Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Model\FeesEstimateResult;
@@ -17,8 +18,8 @@ class FeesApiTest extends TestCase
 {
     public function test_getMyFeesEstimateForSKU()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->productFeesV0()->getMyFeesEstimateForSKUWithHttpInfo(
+        $result = $this->sp_api()->productFeesV0(function (FeesApi $feesApi) {
+            return $feesApi->getMyFeesEstimateForSKUWithHttpInfo(
                 'FAKE-SKU-123',
                 new GetMyFeesEstimateRequest([
                     'feesEstimateRequest' => new FeesEstimateRequest([

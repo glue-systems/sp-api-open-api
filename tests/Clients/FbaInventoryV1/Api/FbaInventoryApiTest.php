@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\FbaInventoryV1\Api;
 
+use Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Api\FbaInventoryApi;
 use Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Model\GetInventorySummariesResponse;
 use Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Model\GetInventorySummariesResult;
 use Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Model\InventorySummary;
@@ -11,8 +12,8 @@ class FbaInventoryApiTest extends TestCase
 {
     public function test_getInventorySummaries()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->fbaInventoryV1()->getInventorySummariesWithHttpInfo(
+        $result = $this->sp_api()->fbaInventoryV1(function (FbaInventoryApi $fbaInventoryApi) {
+            return $fbaInventoryApi->getInventorySummariesWithHttpInfo(
                 'Marketplace',
                 'ATVPDKIKX0DER',
                 ['ATVPDKIKX0DER'],

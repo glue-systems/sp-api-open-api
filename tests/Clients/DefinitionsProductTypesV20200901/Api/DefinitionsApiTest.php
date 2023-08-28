@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\DefinitionsProductTypesV20200901\Api;
 
+use Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi;
 use Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Model\ProductTypeDefinition;
 use Tests\TestCase;
 
@@ -9,13 +10,13 @@ class DefinitionsApiTest extends TestCase
 {
     public function test_getDefinitionsProductType()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->definitionsProductTypesV20200901()
-                ->getDefinitionsProductTypeWithHttpInfo(
+        $result = $this->sp_api()
+            ->definitionsProductTypesV20200901(function (DefinitionsApi $definitionsApi) {
+                return $definitionsApi->getDefinitionsProductTypeWithHttpInfo(
                     'testProductType123',
                     [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId]
                 );
-        });
+            });
 
         /**
          * @var ProductTypeDefinition $response

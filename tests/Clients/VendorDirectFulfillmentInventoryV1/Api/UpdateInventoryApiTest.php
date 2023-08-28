@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\VendorDirectFulfillmentInventoryV1\Api;
 
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Model\InventoryUpdate;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Model\ItemDetails;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Model\ItemQuantity;
@@ -14,9 +15,9 @@ class UpdateInventoryApiTest extends TestCase
 {
     public function test_submitInventoryUpdate()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->vendorDirectFulfillmentInventoryV1()
-                ->submitInventoryUpdateWithHttpInfo(
+        $result = $this->sp_api()
+            ->vendorDirectFulfillmentInventoryV1(function (UpdateInventoryApi $updateInventoryApi) {
+                return $updateInventoryApi->submitInventoryUpdateWithHttpInfo(
                     'FAKE-WAREHOUSE-123',
                     new SubmitInventoryUpdateRequest([
                         'inventory' => new InventoryUpdate([
@@ -38,7 +39,7 @@ class UpdateInventoryApiTest extends TestCase
                         ]),
                     ])
                 );
-        });
+            });
 
         /**
          * @var SubmitInventoryUpdateResponse $response

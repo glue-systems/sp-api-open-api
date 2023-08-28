@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\ListingsRestrictionsV20210801\Api;
 
+use Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Api\ListingsApi;
 use Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Model\Link;
 use Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Model\Reason;
 use Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Model\Restriction;
@@ -12,14 +13,14 @@ class ListingsApiTest extends TestCase
 {
     public function test_getListingsRestrictions()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->listingsRestrictionsV20210801()
-                ->getListingsRestrictionsWithHttpInfo(
+        $result = $this->sp_api()
+            ->listingsRestrictionsV20210801(function (ListingsApi $listingsApi) {
+                return $listingsApi->getListingsRestrictionsWithHttpInfo(
                     'foo',
                     'foo',
                     [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId]
                 );
-        });
+            });
 
         /**
          * @var RestrictionList $response

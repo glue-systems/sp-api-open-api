@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\ProductPricingV0\Api;
 
+use Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Api\ProductPricingApi;
 use Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Model\GetPricingResponse;
 use Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Model\OfferType;
 use Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Model\Price;
@@ -12,8 +13,8 @@ class ProductPricingApiTest extends TestCase
 {
     public function test_getPricing()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->productPricingV0()->getPricingWithHttpInfo(
+        $result = $this->sp_api()->productPricingV0(function (ProductPricingApi $productPricingApi) {
+            return $productPricingApi->getPricingWithHttpInfo(
                 'ATVPDKIKX0DER',
                 'Asin'
             );

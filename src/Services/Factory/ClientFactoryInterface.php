@@ -61,7 +61,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createAplusContentV20201101ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -69,7 +69,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createAuthorizationV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -77,7 +77,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createCatalogItemsV0ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -85,7 +85,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createCatalogItemsV20201201ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -93,7 +93,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createDefinitionsProductTypesV20200901ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -101,7 +101,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createEasyShipV20220323ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -109,7 +109,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFbaInboundEligibilityV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -117,7 +117,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFbaInventoryV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -125,7 +125,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFbaSmallAndLightV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -133,7 +133,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFeedsV20200904ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -141,7 +141,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFeedsV20210630ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -149,7 +149,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFinancesV0ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -157,7 +157,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFulfillmentInboundV0ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -165,7 +165,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFulfillmentOutboundV20200701ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -173,7 +173,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createListingsItemsV20200901ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -181,7 +181,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createListingsItemsV20210801ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -189,7 +189,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createListingsRestrictionsV20210801ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -197,7 +197,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createMerchantFulfillmentV0ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -205,7 +205,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createNotificationsV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -213,7 +213,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createOrdersV0ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -221,7 +221,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createOrdersV0ShipmentApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -229,7 +229,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createProductFeesV0ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -237,7 +237,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createProductPricingV0ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -245,7 +245,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createReplenishmentV20221107OffersApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -253,7 +253,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createReplenishmentV20221107SellingpartnersApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -261,7 +261,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createReportsV20200904ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -269,7 +269,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createReportsV20210630ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -277,7 +277,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createSalesV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -285,7 +285,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createSellersV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -293,7 +293,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createServicesV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -301,7 +301,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createShipmentInvoicingV0ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -309,7 +309,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createSupplySourcesV20200701ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -317,7 +317,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createTokensV20210301ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -325,7 +325,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createUploadsV20201101ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -333,7 +333,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentInventoryV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -341,7 +341,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentOrdersV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -349,7 +349,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentOrdersV20211228ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -357,7 +357,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentPaymentsV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -365,7 +365,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentSandboxDataV20211228ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -373,7 +373,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -381,7 +381,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -389,7 +389,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -397,7 +397,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1LabelsApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -405,7 +405,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -413,7 +413,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -421,7 +421,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228LabelsApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -429,7 +429,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentTransactionsV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -437,7 +437,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentTransactionsV20211228ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 
     /**
@@ -445,6 +445,6 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorTransactionStatusV1ApiClient(
-        callable $transformBuilder = null
+        callable $build = null
     );
 }

@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\FbaSmallAndLightV1\Api;
 
+use Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Api\SmallAndLightApi;
 use Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Model\SmallAndLightEnrollment;
 use Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Model\SmallAndLightEnrollmentStatus;
 use Tests\TestCase;
@@ -10,12 +11,11 @@ class SmallAndLightApiTest extends TestCase
 {
     public function test_getSmallAndLightEnrollmentBySellerSKU()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->fbaSmallAndLightV1()
-                ->getSmallAndLightEnrollmentBySellerSKUWithHttpInfo(
-                    'SKU_ENROLLED_IN_SMALL_AND_LIGHT',
-                    ['ATVPDKIKX0DER']
-                );
+        $result = $this->sp_api()->fbaSmallAndLightV1(function (SmallAndLightApi $smallAndLightApi) {
+            return $smallAndLightApi->getSmallAndLightEnrollmentBySellerSKUWithHttpInfo(
+                'SKU_ENROLLED_IN_SMALL_AND_LIGHT',
+                ['ATVPDKIKX0DER']
+            );
         });
 
         /**

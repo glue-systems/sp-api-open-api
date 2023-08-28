@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\FulfillmentInboundV0\Api;
 
+use Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Api\FbaInboundApi;
 use Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Model\ASINInboundGuidance;
 use Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Model\GetInboundGuidanceResponse;
 use Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Model\GetInboundGuidanceResult;
@@ -11,8 +12,8 @@ class FbaInboundApiTest extends TestCase
 {
     public function test_getInboundGuidance()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->fulfillmentInboundV0()->getInboundGuidanceWithHttpInfo(
+        $result = $this->sp_api()->fulfillmentInboundV0(function (FbaInboundApi $fbaInboundApi) {
+            return $fbaInboundApi->getInboundGuidanceWithHttpInfo(
                 'MarketplaceId',
                 ['sku1', 'sku2']
             );

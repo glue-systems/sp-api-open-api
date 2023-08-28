@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\ReportsV20210630\Api;
 
+use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi;
 use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\Report;
 use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Model\GetReportsResponse;
 use Tests\TestCase;
@@ -10,8 +11,8 @@ class ReportsApiTest extends TestCase
 {
     public function test_getReports()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->reportsV20210630()->getReportsWithHttpInfo(
+        $result = $this->sp_api()->reportsV20210630(function (ReportsApi $reportsApi) {
+            return $reportsApi->getReportsWithHttpInfo(
                 // Specific values come from the sandbox spec in models/reports_2021-06-30.json
                 ['FEE_DISCOUNTS_REPORT', 'GET_AFN_INVENTORY_DATA'],
                 ['IN_QUEUE', 'IN_PROGRESS'],

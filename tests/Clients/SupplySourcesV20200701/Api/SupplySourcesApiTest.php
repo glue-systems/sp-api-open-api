@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\SupplySourcesV20200701\Api;
 
+use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi;
 use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\GetSupplySourcesResponse;
 use Tests\TestCase;
 
@@ -9,10 +10,10 @@ class SupplySourcesApiTest extends TestCase
 {
     public function test_getSupplySources()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->supplySourcesV20200701()
-                ->getSupplySourcesWithHttpInfo();
-        });
+        $result = $this->sp_api()
+            ->supplySourcesV20200701(function (SupplySourcesApi $supplySourcesApi) {
+                return $supplySourcesApi->getSupplySourcesWithHttpInfo();
+            });
 
         /**
          * @var GetSupplySourcesResponse $response

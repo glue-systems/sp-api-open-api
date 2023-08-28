@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\VendorDirectFulfillmentShippingV1\Api;
 
+use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Model\CustomerInvoiceList;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Model\GetCustomerInvoicesResponse;
 use Tests\TestCase;
@@ -10,16 +11,17 @@ class CustomerInvoicesApiTest extends TestCase
 {
     public function test_getCustomerInvoices()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->vendorDirectFulfillmentShippingV1CustomerInvoices()
-                ->getCustomerInvoicesWithHttpInfo(
+        $result = $this->sp_api()->vendorDirectFulfillmentShippingV1CustomerInvoices(
+            function (CustomerInvoicesApi $customerInvoicesApi) {
+                return $customerInvoicesApi->getCustomerInvoicesWithHttpInfo(
                     '2020-02-15T14:00:00-08:00',
                     '2020-02-20T00:00:00-08:00',
                     null,
                     2,
                     'DESC'
                 );
-        });
+            }
+        );
 
         /**
          * @var GetCustomerInvoicesResponse $response

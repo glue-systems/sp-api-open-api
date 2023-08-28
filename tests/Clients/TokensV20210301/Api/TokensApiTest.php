@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\TokensV20210301\Api;
 
+use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenResponse;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\RestrictedResource;
@@ -11,8 +12,8 @@ class TokensApiTest extends TestCase
 {
     public function test_createRestrictedDataToken()
     {
-        $result = $this->sp_api()->execute(function () {
-            return $this->sp_api()->tokensV20210301()->createRestrictedDataTokenWithHttpInfo(
+        $result = $this->sp_api()->tokensV20210301(function (TokensApi $tokensApi) {
+            return $tokensApi->createRestrictedDataTokenWithHttpInfo(
                 new CreateRestrictedDataTokenRequest([
                     // Using these specific strings as a quirky requirement of the sandbox API (see models/tokens_2021-03-01.json)
                     'targetApplication'   => 'amzn1.sellerapps.app.target-application',
