@@ -60,22 +60,31 @@ class TestCase extends BaseTestCase
         }
     }
 
+    /**
+     * Create a new SpApi execution instance.
+     *
+     * @return SpApi
+     */
     public function sp_api()
     {
-        $spApiConfig = $this->buildSpApiConfig();
         $awsCredentials = new Credentials(
             env('AWS_ACCESS_KEY_ID'),
             env('AWS_SECRET_ACCESS_KEY')
         );
 
-        // All of these should be safe to bind as singletons to an IoC container.
+        // All of the below should be safe to bind as singletons to an IoC container.
+        $spApiConfig            = $this->buildSpApiConfig();
         $awsCredentialProvider  = CredentialProvider::fromCredentials($awsCredentials);
         $lwaClient              = new LwaClient($spApiConfig);
         $lwaService             = new LwaService($lwaClient, static::$arrayCache, $spApiConfig);
         $clientAuthenticator    = new ClientAuthenticator($lwaService, $awsCredentialProvider, $spApiConfig);
         $clientFactory          = new ClientFactory($clientAuthenticator, $spApiConfig);
         $rdtService             = new RdtService($clientFactory);
+        // ^^^^^^^^^^^^^^^^ END of singleton-safe dependencies ^^^^^^^^^^^^^^^^
 
+        // This should always be new'ed up on every use -- i.e. should never be used as a singleton.
+        // This is because this wrapper class has state (e.g. rdtRequest) that is intended to be
+        // short-lived for the purpose of a single SP-API call.
         return new SpApi(
             $clientFactory,
             $rdtService,
