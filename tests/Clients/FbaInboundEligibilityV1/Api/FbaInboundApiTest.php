@@ -4,27 +4,20 @@ namespace Tests\Clients\FbaInboundEligibilityV1\Api;
 
 use Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Model\GetItemEligibilityPreviewResponse;
 use Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Model\ItemEligibilityPreview;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class FbaInboundApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_getItemEligibilityPreview()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->fbaInboundEligibilityV1()
+        $result = $this->sp_api()->execute(function () {
+            return $this->sp_api()->fbaInboundEligibilityV1()
                 ->getItemEligibilityPreviewWithHttpInfo('TEST_CASE_200', 'INBOUND');
         });
 

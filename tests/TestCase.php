@@ -11,7 +11,7 @@ use Dotenv\Environment\Adapter\ServerConstAdapter;
 use Dotenv\Environment\DotenvFactory;
 use Dotenv\Exception\InvalidFileException;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
-use Glue\SpApi\OpenAPI\Container\SpApi;
+use Glue\SpApi\OpenAPI\SpApi;
 use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
@@ -60,7 +60,7 @@ class TestCase extends BaseTestCase
         }
     }
 
-    public function buildSpApiContainer()
+    public function sp_api()
     {
         $spApiConfig = $this->buildSpApiConfig();
         $awsCredentials = new Credentials(

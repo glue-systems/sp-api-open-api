@@ -6,27 +6,20 @@ use Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Model\GetPricingResponse;
 use Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Model\OfferType;
 use Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Model\Price;
 use Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Model\Product;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class ProductPricingApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_getPricing()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->productPricingV0()->getPricingWithHttpInfo(
+        $result = $this->sp_api()->execute(function () {
+            return $this->sp_api()->productPricingV0()->getPricingWithHttpInfo(
                 'ATVPDKIKX0DER',
                 'Asin'
             );

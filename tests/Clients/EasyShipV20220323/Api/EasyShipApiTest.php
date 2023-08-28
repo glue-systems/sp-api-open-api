@@ -7,26 +7,19 @@ use Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Model\ListHandoverSlotsRequest;
 use Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Model\ListHandoverSlotsResponse;
 use Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Model\TimeSlot;
 use Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Model\Weight;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class EasyShipApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_listHandoverSlots()
     {
-        $easyShipApi = $this->spApi->easyShipV20220323();
+        $easyShipApi = $this->sp_api()->easyShipV20220323();
 
         $result = $easyShipApi->listHandoverSlotsWithHttpInfo(
             new ListHandoverSlotsRequest([

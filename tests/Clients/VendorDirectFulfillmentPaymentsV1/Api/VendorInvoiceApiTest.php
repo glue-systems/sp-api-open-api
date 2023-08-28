@@ -13,27 +13,20 @@ use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Model\SubmitInv
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Model\TaxDetail;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Model\TaxRegistrationDetail;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Model\TransactionReference;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class VendorInvoiceApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_submitInvoice()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->vendorDirectFulfillmentPaymentsV1()->submitInvoiceWithHttpInfo(
+        $result = $this->sp_api()->execute(function () {
+            return $this->sp_api()->vendorDirectFulfillmentPaymentsV1()->submitInvoiceWithHttpInfo(
                 new SubmitInvoiceRequest([
                     'invoices' => [
                         new InvoiceDetail([

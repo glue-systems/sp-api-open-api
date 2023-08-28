@@ -8,27 +8,20 @@ use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Model\ItemQuan
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Model\PartyIdentification;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Model\SubmitInventoryUpdateRequest;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Model\SubmitInventoryUpdateResponse;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class UpdateInventoryApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_submitInventoryUpdate()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->vendorDirectFulfillmentInventoryV1()
+        $result = $this->sp_api()->execute(function () {
+            return $this->sp_api()->vendorDirectFulfillmentInventoryV1()
                 ->submitInventoryUpdateWithHttpInfo(
                     'FAKE-WAREHOUSE-123',
                     new SubmitInventoryUpdateRequest([

@@ -11,27 +11,20 @@ use Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Model\GetMyFeesEstimateResult;
 use Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Model\MoneyType;
 use Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Model\Points;
 use Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Model\PriceToEstimateFees;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class FeesApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_getMyFeesEstimateForSKU()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->productFeesV0()->getMyFeesEstimateForSKUWithHttpInfo(
+        $result = $this->sp_api()->execute(function () {
+            return $this->sp_api()->productFeesV0()->getMyFeesEstimateForSKUWithHttpInfo(
                 'FAKE-SKU-123',
                 new GetMyFeesEstimateRequest([
                     'feesEstimateRequest' => new FeesEstimateRequest([

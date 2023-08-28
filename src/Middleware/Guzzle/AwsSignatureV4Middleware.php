@@ -1,6 +1,6 @@
 <?php
 
-namespace Glue\SpApi\OpenAPI\Middleware;
+namespace Glue\SpApi\OpenAPI\Middleware\Guzzle;
 
 use Aws\Signature\SignatureV4;
 use Psr\Http\Message\RequestInterface;

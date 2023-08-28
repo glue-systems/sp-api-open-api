@@ -14,27 +14,20 @@ use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\ProgramType;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\SortOrder;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\TimeInterval;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\TimePeriodType;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class OffersApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_listOfferMetrics()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->replenishmentV20221107Offers()->listOfferMetricsWithHttpInfo(
+        $result = $this->sp_api()->execute(function () {
+            return $this->sp_api()->replenishmentV20221107Offers()->listOfferMetricsWithHttpInfo(
                 new ListOfferMetricsRequest([
                     'filters'   => new ListOfferMetricsRequestFilters([
                         'aggregationFrequency' => AggregationFrequency::YEAR,

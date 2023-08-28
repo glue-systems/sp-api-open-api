@@ -6,30 +6,23 @@ use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPatchReq
 use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemPutRequest;
 use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\ListingsItemSubmissionResponse;
 use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Model\PatchOperation;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class ListingsApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
     }
 
     public function test_deleteListingsItem()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->listingsItemsV20200901()->deleteListingsItemWithHttpInfo(
-                $this->spApi->getSpApiConfig()->defaultSellerId,
+        $result = $this->sp_api()->execute(function () {
+            return $this->sp_api()->listingsItemsV20200901()->deleteListingsItemWithHttpInfo(
+                $this->sp_api()->getSpApiConfig()->defaultSellerId,
                 'TESTSKU123',
-                [$this->spApi->getSpApiConfig()->defaultMarketplaceId]
+                [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId]
             );
         });
 
@@ -38,12 +31,12 @@ class ListingsApiTest extends TestCase
 
     public function test_patchListingsItem()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->listingsItemsV20200901()
+        $result = $this->sp_api()->execute(function () {
+            return $this->sp_api()->listingsItemsV20200901()
                 ->patchListingsItemWithHttpInfo(
-                    $this->spApi->getSpApiConfig()->defaultSellerId,
+                    $this->sp_api()->getSpApiConfig()->defaultSellerId,
                     'TESTSKU123',
-                    [$this->spApi->getSpApiConfig()->defaultMarketplaceId],
+                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
                     new ListingsItemPatchRequest([
                         'productType'  => 'PRODUCT',
                         'patches'      => [
@@ -67,12 +60,12 @@ class ListingsApiTest extends TestCase
 
     public function test_putListingsItem()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->listingsItemsV20200901()
+        $result = $this->sp_api()->execute(function () {
+            return $this->sp_api()->listingsItemsV20200901()
                 ->putListingsItemWithHttpInfo(
-                    $this->spApi->getSpApiConfig()->defaultSellerId,
+                    $this->sp_api()->getSpApiConfig()->defaultSellerId,
                     'TESTSKU123',
-                    [$this->spApi->getSpApiConfig()->defaultMarketplaceId],
+                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
                     new ListingsItemPutRequest([
                         'productType'  => 'PRODUCT',
                         'requirements' => 'foo',
