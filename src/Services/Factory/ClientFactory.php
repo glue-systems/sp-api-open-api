@@ -70,12 +70,27 @@ class ClientFactory implements ClientFactoryInterface
      */
     protected $spApiConfig;
 
+    /**
+     * @var callable
+     */
+    protected $makeNewGuzzleHandlerStack;
+
+    /**
+     * @param ClientAuthenticatorInterface $authenticator
+     * @param SpApiConfig $spApiConfig
+     * @param callable|null $makeNewGuzzleHandlerStack Optional callback for defining how a new `HandlerStack` is instantiated for use in the `ClientBuilder`, in case the Guzzle-recommended default insantiation via `HandlerStack::create` is not desirable for a developer's use-case.
+     */
     public function __construct(
         ClientAuthenticatorInterface $authenticator,
-        SpApiConfig $spApiConfig
+        SpApiConfig $spApiConfig,
+        callable $makeNewGuzzleHandlerStack = null
     ) {
-        $this->authenticator = $authenticator;
-        $this->spApiConfig   = $spApiConfig;
+        $this->authenticator                  = $authenticator;
+        $this->spApiConfig                    = $spApiConfig;
+        $this->makeNewGuzzleHandlerStack = $makeNewGuzzleHandlerStack
+            ?: function () {
+                return null;
+            };
     }
 
     /**
@@ -726,8 +741,10 @@ class ClientFactory implements ClientFactoryInterface
         $apiClassFqn,
         BuilderMiddlewarePipeline $pipeline = null
     ) {
-        $builder = (new ClientBuilder($this->spApiConfig))
-            ->forApi($apiClassFqn);
+        $builder = (new ClientBuilder(
+            $this->spApiConfig,
+            call_user_func($this->makeNewGuzzleHandlerStack)
+        ))->forApi($apiClassFqn);
 
         if ($pipeline) {
             $builder = $pipeline->send($builder);
