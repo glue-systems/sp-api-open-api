@@ -19,6 +19,7 @@ use Glue\SpApi\OpenAPI\Services\Lwa\LwaClient;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
 use Glue\SpApi\OpenAPI\Services\Rdt\RdtService;
 use Glue\SpApi\OpenAPI\Utilities\SpApiRoster;
+use Mockery;
 use PHPUnit_Framework_SkippedTestError;
 // TODO: Switch to this after upgrading.
 // use PHPUnit\Framework\TestCase as BaseTestCase;
@@ -151,6 +152,11 @@ class TestCase extends BaseTestCase
         if (env('TESTING_ALWAYS_RESET_ARRAY_CACHE', false)) {
             static::$arrayCache = null;
         }
+
+        if (class_exists('Mockery')) {
+            Mockery::close();
+        }
+
         parent::tearDown();
     }
 }
