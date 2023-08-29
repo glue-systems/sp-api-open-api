@@ -2,37 +2,26 @@
 
 namespace Tests\Clients\ListingsRestrictionsV20210801\Api;
 
+use Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Api\ListingsApi;
 use Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Model\Link;
 use Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Model\Reason;
 use Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Model\Restriction;
 use Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Model\RestrictionList;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class ListingsApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
-    }
-
     public function test_getListingsRestrictions()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->listingsRestrictionsV20210801()
-                ->getListingsRestrictionsWithHttpInfo(
+        $result = $this->sp_api()
+            ->listingsRestrictionsV20210801()
+            ->execute(function (ListingsApi $listingsApi) {
+                return $listingsApi->getListingsRestrictionsWithHttpInfo(
                     'foo',
                     'foo',
-                    [$this->spApi->getSpApiConfig()->marketplaceId]
+                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId]
                 );
-        });
+            });
 
         /**
          * @var RestrictionList $response

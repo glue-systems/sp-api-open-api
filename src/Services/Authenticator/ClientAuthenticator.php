@@ -3,28 +3,17 @@
 namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
 use Aws\Signature\SignatureV4;
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
+use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
+use Glue\SpApi\OpenAPI\Middleware\Guzzle\AwsSignatureV4Middleware;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
-use Glue\SpApi\OpenAPI\SpApiConfig;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
-use GuzzleHttp\Middleware;
-use Psr\Http\Message\RequestInterface;
-use Psr\SimpleCache\CacheInterface;
 
 class ClientAuthenticator implements ClientAuthenticatorInterface
 {
-    const LWA_ACCESS_TOKEN_CACHE_KEY = 'lwa_access_token';
-
-    const CACHE_LIFE_BUFFER_IN_SECONDS = 60;
-
-    /**
-     * @var CacheInterface
-     */
-    protected $cache;
-
     /**
      * @var LwaServiceInterface
      */
@@ -33,7 +22,7 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
     /**
      * @var callable
      */
-    protected $credentialProvider;
+    protected $awsCredentialProvider;
 
     /**
      * @var SpApiConfig
@@ -41,97 +30,85 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
     protected $spApiConfig;
 
     public function __construct(
-        CacheInterface $cache,
         LwaServiceInterface $lwaService,
-        callable $credentialProvider,
+        callable $awsCredentialProvider,
         SpApiConfig $spApiConfig
     ) {
-        $this->cache              = $cache;
-        $this->lwaService         = $lwaService;
-        $this->credentialProvider = $credentialProvider;
-        $this->spApiConfig        = $spApiConfig;
-
-        $this->spApiConfig->validateConfig();
+        $this->lwaService            = $lwaService;
+        $this->awsCredentialProvider = $awsCredentialProvider;
+        $this->spApiConfig           = $spApiConfig;
     }
 
     /**
      * Create an authenticated Guzzle client, ready to be passed into
      * the constructor of an SP-API client class.
      *
-     * @param string|null $restrictedDataToken
+     * @param HandlerStack $handlerStack
+     * @param callable|null $rdtProvider Callable restricted data token provider that returns an RDT, if needed for the SP-API operation.
+     * @param string|null $awsCredentialScopeServiceOverride
+     * @param string|null $awsCredentialScopeRegionOverride
      * @return ClientInterface
-     * @throws LwaAccessTokenException
+     * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function createAuthenticatedGuzzleClient($restrictedDataToken = null)
-    {
-        if ($restrictedDataToken) {
-            $accessToken = $restrictedDataToken;
-        } else {
-            $accessToken = $this->rememberLwaAccessToken();
-        }
-
-        return $this->_makeGuzzleClient($accessToken);
+    public function createAuthenticatedGuzzleClient(
+        HandlerStack $handlerStack,
+        callable $rdtProvider = null,
+        $awsCredentialScopeServiceOverride = null,
+        $awsCredentialScopeRegionOverride = null
+    ) {
+        // Note that several key Guzzle request fields / options such as 'base_uri',
+        // 'debug' etc. are overwritten downstream when the domain Api class (e.g.
+        // Clients/OrdersV0/Api/OrdersV0Api) is invoked in the internals of the
+        // OpenAPI-generated client. The source of truth for such fields are the
+        // Configuration objects that are associated with the domain API being used
+        // (e.g. Clients/OrdersV0/Configuration). See ClientBuilder method
+        // `_configureDomainConfigDefaults` for how these values are set.
+        return new Client([
+            'headers'  => [
+                'x-amz-access-token' => $this->_resolveAccessToken($rdtProvider),
+            ],
+            'handler'  => $this->_pushAwsSignatureV4Middleware(
+                $handlerStack,
+                $awsCredentialScopeServiceOverride,
+                $awsCredentialScopeRegionOverride
+            ),
+        ]);
     }
 
     /**
-     * Get the cached Login with Amazon (LWA) access token if it exists, or request a new one
-     * and save it in the cache.
-     *
      * @return string
-     * @throws LwaAccessTokenException
      */
-    public function rememberLwaAccessToken()
+    protected function _resolveAccessToken(callable $rdtProvider = null)
     {
-        if ($cachedToken = $this->cache->get(self::LWA_ACCESS_TOKEN_CACHE_KEY)) {
-            return $cachedToken;
+        if ($rdtProvider) {
+            $accessToken = call_user_func($rdtProvider);
+        } else {
+            $accessToken = $this->lwaService->rememberLwaAccessToken();
         }
+        return $accessToken;
+    }
 
-        $newToken = $this->lwaService->requestNewLwaAccessToken(new Client([
-            'base_uri' => $this->spApiConfig->lwaOAuthBaseUrl,
-            'debug'    => $this->spApiConfig->debugOAuthApiCall,
-        ]));
+    /**
+     * @return HandlerStack
+     */
+    protected function _pushAwsSignatureV4Middleware(
+        HandlerStack $handlerStack,
+        $awsCredentialScopeServiceOverride = null,
+        $awsCredentialScopeRegionOverride = null
+    ) {
+        $service = $awsCredentialScopeServiceOverride
+            ?: $this->spApiConfig->defaultAwsCredentialScopeService;
+        $region  = $awsCredentialScopeRegionOverride
+            ?: $this->spApiConfig->defaultAwsCredentialScopeRegion;
 
-        $this->cache->set(
-            self::LWA_ACCESS_TOKEN_CACHE_KEY,
-            $newToken['access_token'],
-            $newToken['expires_in'] - self::CACHE_LIFE_BUFFER_IN_SECONDS
+        $handlerStack->push(
+            new AwsSignatureV4Middleware(
+                $this->awsCredentialProvider,
+                new SignatureV4($service, $region)
+            ),
+            AwsSignatureV4Middleware::MIDDLEWARE_NAME
         );
 
-        return $newToken['access_token'];
-    }
-
-    /**
-     * @param string $accessToken
-     * @return ClientInterface
-     */
-    protected function _makeGuzzleClient($accessToken)
-    {
-        $stack = new HandlerStack();
-        $stack->setHandler(new CurlHandler());
-
-        $stack->push(Middleware::mapRequest(
-            function (RequestInterface $request) {
-                // Example from official docs: https://docs.aws.amazon.com/sdk-for-php/v3/developer-guide/service_cloudsearch-custom-requests.html
-                $credentials = call_user_func($this->credentialProvider)->wait();
-
-                // TODO: Config-ify these values?
-                $signer  = new SignatureV4('execute-api', 'us-east-1');
-                $request = $signer->signRequest($request, $credentials);
-                return $request;
-            }
-        ));
-
-        return new Client([
-            'base_uri' => $this->spApiConfig->spApiBaseUrl,
-            'debug'    => $this->spApiConfig->debugDomainApiCall,
-            'headers'  => [
-                'x-amz-access-token' => $accessToken,
-                // TODO: Verify x-amz-date header is safe to remove as it's overwritten in AWS's SignatureV4?
-                // 'x-amz-date'         => $formattedTimestamp,
-                // (User-Agent and Host are set downstream in the internals of the OpenAPI
-                // clients, using data captured in each client's config object.)
-            ],
-            'handler'  => $stack,
-        ]);
+        return $handlerStack;
     }
 }

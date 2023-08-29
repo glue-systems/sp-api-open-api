@@ -2,47 +2,71 @@
 
 namespace Glue\SpApi\OpenAPI\Services\Lwa;
 
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
-use Glue\SpApi\OpenAPI\SpApiConfig;
-use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Exception\GuzzleException;
-use GuzzleHttp\RequestOptions;
+use GuzzleHttp\Client;
+use Psr\SimpleCache\CacheInterface;
 
 class LwaService implements LwaServiceInterface
 {
+    const CACHE_LIFE_BUFFER_IN_SECONDS = 60;
+
+    /**
+     * @var LwaClientInterface
+     */
+    protected $lwaClient;
+
+    /**
+     * @var CacheInterface
+     */
+    protected $cache;
+
     /**
      * @var SpApiConfig
      */
     protected $spApiConfig;
 
     public function __construct(
+        LwaClientInterface $lwaClient,
+        CacheInterface $cache,
         SpApiConfig $spApiConfig
     ) {
+        $this->lwaClient   = $lwaClient;
+        $this->cache       = $cache;
         $this->spApiConfig = $spApiConfig;
     }
 
     /**
-     * Request a new Login with Amazon (LWA) access token.
+     * Get the cached Login with Amazon (LWA) access token if it exists, or request a new one
+     * and save it in the cache.
      *
-     * @return array
+     * @return string
      * @throws LwaAccessTokenException
      */
-    public function requestNewLwaAccessToken(ClientInterface $guzzleClient)
+    public function rememberLwaAccessToken()
     {
-        try {
-            $response = $guzzleClient->request('POST', '/auth/o2/token', [
-                RequestOptions::JSON => [
-                    'grant_type'    => 'refresh_token',
-                    'refresh_token' => $this->spApiConfig->lwaRefreshToken,
-                    'client_id'     => $this->spApiConfig->lwaClientId,
-                    'client_secret' => $this->spApiConfig->lwaClientSecret,
-                ],
-            ]);
-        } catch (GuzzleException $ex) {
-            $msg = "Failed to retrieve Login with Amazon (LWA) Access Token: '{$ex->getMessage()}'";
-            throw new LwaAccessTokenException($msg, 0, $ex);
+        if ($cachedToken = $this->cache->get($this->spApiConfig->lwaAccessTokenCacheKey)) {
+            return $cachedToken;
         }
 
-        return json_decode($response->getBody()->getContents(), true);
+        $newToken = $this->lwaClient->requestNewLwaAccessToken(new Client());
+
+        $this->cache->set(
+            $this->spApiConfig->lwaAccessTokenCacheKey,
+            $newToken['access_token'],
+            $newToken['expires_in'] - static::CACHE_LIFE_BUFFER_IN_SECONDS
+        );
+
+        return $newToken['access_token'];
+    }
+
+    /**
+     * Forget the cached Login with Amazon (LWA) access token.
+     *
+     * @return bool
+     */
+    public function forgetCachedLwaAccessToken()
+    {
+        return $this->cache->delete($this->spApiConfig->lwaAccessTokenCacheKey);
     }
 }

@@ -2,6 +2,7 @@
 
 namespace Tests\Clients\ReplenishmentV20221107\Api;
 
+use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\AggregationFrequency;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\GetSellingPartnerMetricsRequest;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\GetSellingPartnerMetricsResponse;
@@ -10,28 +11,16 @@ use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\Metric;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\ProgramType;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\TimeInterval;
 use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Model\TimePeriodType;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class SellingpartnersApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
-    }
-
     public function test_getSellingPartnerMetrics()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->replenishmentV20221107Sellingpartners()
-                ->getSellingPartnerMetricsWithHttpInfo(
+        $result = $this->sp_api()
+            ->replenishmentV20221107Sellingpartners()
+            ->execute(function (SellingpartnersApi $sellingpartnersApi) {
+                return $sellingpartnersApi->getSellingPartnerMetricsWithHttpInfo(
                     new GetSellingPartnerMetricsRequest([
                         'aggregationFrequency' => AggregationFrequency::YEAR,
                         'timeInterval'         => new TimeInterval([
@@ -48,7 +37,7 @@ class SellingpartnersApiTest extends TestCase
                         ],
                     ])
                 );
-        });
+            });
 
         /**
          * @var GetSellingPartnerMetricsResponse $response

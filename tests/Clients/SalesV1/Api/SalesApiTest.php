@@ -2,34 +2,24 @@
 
 namespace Tests\Clients\SalesV1\Api;
 
+use Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi;
 use Glue\SpApi\OpenAPI\Clients\SalesV1\Model\GetOrderMetricsResponse;
 use Glue\SpApi\OpenAPI\Clients\SalesV1\Model\OrderMetricsInterval;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class SalesApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
-    }
-
     public function test_getOrderMetrics()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->salesV1()->getOrderMetricsWithHttpInfo(
-                [$this->spApi->getSpApiConfig()->marketplaceId],
-                '2018-09-01T00:00:00-07:00--2018-09-04T00:00:00-07:00',
-                'Total'
-            );
-        });
+        $result = $this->sp_api()
+            ->salesV1()
+            ->execute(function (SalesApi $salesApi) {
+                return $salesApi->getOrderMetricsWithHttpInfo(
+                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
+                    '2018-09-01T00:00:00-07:00--2018-09-04T00:00:00-07:00',
+                    'Total'
+                );
+            });
 
         /**
          * @var GetOrderMetricsResponse $response

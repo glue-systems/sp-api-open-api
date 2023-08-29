@@ -2,36 +2,26 @@
 
 namespace Tests\Clients\FbaInventoryV1\Api;
 
+use Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Api\FbaInventoryApi;
 use Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Model\GetInventorySummariesResponse;
 use Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Model\GetInventorySummariesResult;
 use Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Model\InventorySummary;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class FbaInventoryApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
-    }
-
     public function test_getInventorySummaries()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->fbaInventoryV1()->getInventorySummariesWithHttpInfo(
-                'Marketplace',
-                'ATVPDKIKX0DER',
-                ['ATVPDKIKX0DER'],
-                'true'
-            );
-        });
+        $result = $this->sp_api()
+            ->fbaInventoryV1()
+            ->execute(function (FbaInventoryApi $fbaInventoryApi) {
+                return $fbaInventoryApi->getInventorySummariesWithHttpInfo(
+                    'Marketplace',
+                    'ATVPDKIKX0DER',
+                    ['ATVPDKIKX0DER'],
+                    'true'
+                );
+            });
 
         /**
          * @var GetInventorySummariesResponse $response

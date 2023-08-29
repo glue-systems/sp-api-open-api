@@ -2,34 +2,23 @@
 
 namespace Tests\Clients\FbaSmallAndLightV1\Api;
 
+use Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Api\SmallAndLightApi;
 use Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Model\SmallAndLightEnrollment;
 use Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Model\SmallAndLightEnrollmentStatus;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class SmallAndLightApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
-    }
-
     public function test_getSmallAndLightEnrollmentBySellerSKU()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->fbaSmallAndLightV1()
-                ->getSmallAndLightEnrollmentBySellerSKUWithHttpInfo(
+        $result = $this->sp_api()
+            ->fbaSmallAndLightV1()
+            ->execute(function (SmallAndLightApi $smallAndLightApi) {
+                return $smallAndLightApi->getSmallAndLightEnrollmentBySellerSKUWithHttpInfo(
                     'SKU_ENROLLED_IN_SMALL_AND_LIGHT',
                     ['ATVPDKIKX0DER']
                 );
-        });
+            });
 
         /**
          * @var SmallAndLightEnrollment $response

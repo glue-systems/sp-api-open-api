@@ -2,34 +2,24 @@
 
 namespace Tests\Clients\CatalogItemsV20201201\Api;
 
+use Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Api\CatalogApi;
 use Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Model\Item;
 use Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Model\ItemSearchResults;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class CatalogApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
-    }
-
     public function test_searchCatalogItems()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->catalogItemsV20201201()->searchCatalogItemsWithHttpInfo(
-                ['red', 'polo', 'shirt'],
-                ['ATVPDKIKX0DER'],
-                'summaries'
-            );
-        });
+        $result = $this->sp_api()
+            ->catalogItemsV20201201()
+            ->execute(function (CatalogApi $catalogApi) {
+                return $catalogApi->searchCatalogItemsWithHttpInfo(
+                    ['red', 'polo', 'shirt'],
+                    ['ATVPDKIKX0DER'],
+                    'summaries'
+                );
+            });
 
         /**
          * @var ItemSearchResults $response

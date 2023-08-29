@@ -3,15 +3,22 @@
 namespace Glue\SpApi\OpenAPI\Services\Lwa;
 
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
-use GuzzleHttp\ClientInterface;
 
 interface LwaServiceInterface
 {
     /**
-     * Request a new Login with Amazon (LWA) access token.
+     * Get the cached Login with Amazon (LWA) access token if it exists, or request a new one
+     * and save it in the cache.
      *
-     * @return array
+     * @return string
      * @throws LwaAccessTokenException
      */
-    public function requestNewLwaAccessToken(ClientInterface $guzzleClient);
+    public function rememberLwaAccessToken();
+
+    /**
+     * Forget the cached Login with Amazon (LWA) access token.
+     *
+     * @return bool
+     */
+    public function forgetCachedLwaAccessToken();
 }

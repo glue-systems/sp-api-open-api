@@ -2,30 +2,19 @@
 
 namespace Tests\Clients\SupplySourcesV20200701\Api;
 
+use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi;
 use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Model\GetSupplySourcesResponse;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class SupplySourcesApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
-    }
-
     public function test_getSupplySources()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->supplySourcesV20200701()
-                ->getSupplySourcesWithHttpInfo();
-        });
+        $result = $this->sp_api()
+            ->supplySourcesV20200701()
+            ->execute(function (SupplySourcesApi $supplySourcesApi) {
+                return $supplySourcesApi->getSupplySourcesWithHttpInfo();
+            });
 
         /**
          * @var GetSupplySourcesResponse $response

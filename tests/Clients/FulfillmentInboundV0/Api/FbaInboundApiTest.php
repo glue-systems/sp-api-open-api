@@ -2,34 +2,24 @@
 
 namespace Tests\Clients\FulfillmentInboundV0\Api;
 
+use Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Api\FbaInboundApi;
 use Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Model\ASINInboundGuidance;
 use Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Model\GetInboundGuidanceResponse;
 use Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Model\GetInboundGuidanceResult;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class FbaInboundApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
-    }
-
     public function test_getInboundGuidance()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->fulfillmentInboundV0()->getInboundGuidanceWithHttpInfo(
-                'MarketplaceId',
-                ['sku1', 'sku2']
-            );
-        });
+        $result = $this->sp_api()
+            ->fulfillmentInboundV0()
+            ->execute(function (FbaInboundApi $fbaInboundApi) {
+                return $fbaInboundApi->getInboundGuidanceWithHttpInfo(
+                    'MarketplaceId',
+                    ['sku1', 'sku2']
+                );
+            });
 
         /**
          * @var GetInboundGuidanceResponse $response

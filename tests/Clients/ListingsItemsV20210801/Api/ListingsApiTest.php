@@ -2,48 +2,39 @@
 
 namespace Tests\Clients\ListingsItemsV20210801\Api;
 
+use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Api\ListingsApi;
 use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Model\ListingsItemPatchRequest;
 use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Model\ListingsItemPutRequest;
 use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Model\ListingsItemSubmissionResponse;
 use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Model\PatchOperation;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class ListingsApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
-    }
-
     public function test_deleteListingsItem()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->listingsItemsV20210801()->deleteListingsItemWithHttpInfo(
-                $this->spApi->getSpApiConfig()->sellerId,
-                'TESTSKU123',
-                [$this->spApi->getSpApiConfig()->marketplaceId]
-            );
-        });
+        $result = $this->sp_api()
+            ->listingsItemsV20210801()
+            ->execute(function (ListingsApi $listingsApi) {
+                return $listingsApi->deleteListingsItemWithHttpInfo(
+                    $this->sp_api()->getSpApiConfig()->defaultSellerId,
+                    'TESTSKU123',
+                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId]
+                );
+            });
 
         $this->_assertSubmissionResponseMatchesStandardExpectations($result);
     }
 
     public function test_patchListingsItem()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->listingsItemsV20210801()
-                ->patchListingsItemWithHttpInfo(
-                    $this->spApi->getSpApiConfig()->sellerId,
+        $result = $this->sp_api()
+            ->listingsItemsV20210801()
+            ->execute(function (ListingsApi $listingsApi) {
+                return $listingsApi->patchListingsItemWithHttpInfo(
+                    $this->sp_api()->getSpApiConfig()->defaultSellerId,
                     'TESTSKU123',
-                    [$this->spApi->getSpApiConfig()->marketplaceId],
+                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
                     new ListingsItemPatchRequest([
                         'productType'  => 'PRODUCT',
                         'patches'      => [
@@ -60,19 +51,20 @@ class ListingsApiTest extends TestCase
                         ],
                     ])
                 );
-        });
+            });
 
         $this->_assertSubmissionResponseMatchesStandardExpectations($result);
     }
 
     public function test_putListingsItem()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->listingsItemsV20210801()
-                ->putListingsItemWithHttpInfo(
-                    $this->spApi->getSpApiConfig()->sellerId,
+        $result = $this->sp_api()
+            ->listingsItemsV20210801()
+            ->execute(function (ListingsApi $listingsApi) {
+                return $listingsApi->putListingsItemWithHttpInfo(
+                    $this->sp_api()->getSpApiConfig()->defaultSellerId,
                     'TESTSKU123',
-                    [$this->spApi->getSpApiConfig()->marketplaceId],
+                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
                     new ListingsItemPutRequest([
                         'productType'  => 'PRODUCT',
                         'requirements' => 'foo',
@@ -82,7 +74,7 @@ class ListingsApiTest extends TestCase
                         ],
                     ])
                 );
-        });
+            });
 
         $this->_assertSubmissionResponseMatchesStandardExpectations($result);
     }

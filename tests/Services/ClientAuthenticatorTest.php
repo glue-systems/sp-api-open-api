@@ -3,25 +3,31 @@
 namespace Tests\Services;
 
 use Aws\Credentials\CredentialsInterface;
+use Aws\Signature\SignatureV4;
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
+use Glue\SpApi\OpenAPI\Middleware\Guzzle\AwsSignatureV4Middleware;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
-use Glue\SpApi\OpenAPI\SpApiConfig;
-use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
 use Mockery\MockInterface;
-use Psr\SimpleCache\CacheInterface;
 use Tests\TestCase;
 
 class ClientAuthenticatorTest extends TestCase
 {
     /**
-     * @var CacheInterface|MockInterface
-     */
-    public $cache;
-
-    /**
      * @var LwaServiceInterface|MockInterface
      */
     public $lwaService;
+
+    /**
+     * @var HandlerStack|MockInterface
+     */
+    public $handlerStack;
+
+    /**
+     * @var callable
+     */
+    public $awsCredentialProvider;
 
     /**
      * @var SpApiConfig
@@ -32,103 +38,111 @@ class ClientAuthenticatorTest extends TestCase
     public function setUp()
     {
         parent::setup();
-        $this->cache       = \Mockery::mock(CacheInterface::class);
-        $this->lwaService  = \Mockery::mock(LwaServiceInterface::class);
-        $this->spApiConfig = $this->buildSpApiConfig();
-    }
-
-    public function test_createAuthenticatedGuzzleClient_with_cached_LWA_token()
-    {
-        $cachedLwaToken     = 'fake-lwa-token123';
-        $credentialProvider = function () {
+        $this->lwaService            = \Mockery::mock(LwaServiceInterface::class);
+        $this->handlerStack          = \Mockery::mock(HandlerStack::class);
+        $this->awsCredentialProvider = function () {
             return \Mockery::mock(CredentialsInterface::class);
         };
+        $this->spApiConfig           = $this->buildSpApiConfig();
+    }
 
-        $this->cache->shouldReceive('get')
+    public function test_createAuthenticatedGuzzleClient_with_no_rdtProvider_uses_lwa_as_access_token()
+    {
+        $lwaToken = 'fake-lwa-token123';
+        $this->lwaService->shouldReceive('rememberLwaAccessToken')
             ->once()
-            ->with(ClientAuthenticator::LWA_ACCESS_TOKEN_CACHE_KEY)
-            ->andReturn($cachedLwaToken);
+            ->withNoArgs()
+            ->andReturn($lwaToken);
+        $this->_arrangeHappyCaseForHandlerStack(
+            $this->spApiConfig->defaultAwsCredentialScopeService,
+            $this->spApiConfig->defaultAwsCredentialScopeRegion
+        );
 
         $sut = new ClientAuthenticator(
-            $this->cache,
             $this->lwaService,
-            $credentialProvider,
+            $this->awsCredentialProvider,
             $this->spApiConfig
         );
 
-        $guzzleClient = $sut->createAuthenticatedGuzzleClient();
+        $guzzleClient = $sut->createAuthenticatedGuzzleClient($this->handlerStack);
         $guzzleConfig = $guzzleClient->getConfig();
 
         $this->assertFalse(empty($guzzleConfig['headers']['x-amz-access-token']));
-        $this->assertEquals($cachedLwaToken, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
-        $this->assertEquals($this->spApiConfig->spApiBaseUrl, $guzzleClient->getConfig()['base_uri']);
+        $this->assertEquals($lwaToken, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
     }
 
-    public function test_createAuthenticatedGuzzleClient_with_newly_requested_LWA_token()
+    public function test_createAuthenticatedGuzzleClient_with_rdtProvider_uses_rdt_as_access_token()
     {
-        $newLwaToken        = 'fake-lwa-token123';
-        $expiresIn          = 3600;
-        $credentialProvider = function () {
-            return \Mockery::mock(CredentialsInterface::class);
+        $restrictedDataToken = 'fake-rdt';
+        $expectedRdtProvider = function () use ($restrictedDataToken) {
+            return $restrictedDataToken;
         };
-
-        $this->cache->shouldReceive('get')
-            ->once()
-            ->with(ClientAuthenticator::LWA_ACCESS_TOKEN_CACHE_KEY)
-            ->andReturn(null);
-        $this->lwaService->shouldReceive('requestNewLwaAccessToken')
-            ->once()
-            ->withArgs(function ($arg1) {
-                return $arg1 instanceof Client
-                    && $arg1->getConfig('base_uri') == $this->spApiConfig->lwaOAuthBaseUrl;
-            })
-            ->andReturn([
-                'access_token' => $newLwaToken,
-                'expires_in'   => $expiresIn,
-            ]);
-        $this->cache->shouldReceive('set')
-            ->once()
-            ->with(
-                ClientAuthenticator::LWA_ACCESS_TOKEN_CACHE_KEY,
-                $newLwaToken,
-                $expiresIn - ClientAuthenticator::CACHE_LIFE_BUFFER_IN_SECONDS
-            )
-            ->andReturn(true);
+        $this->_arrangeHappyCaseForHandlerStack(
+            $this->spApiConfig->defaultAwsCredentialScopeService,
+            $this->spApiConfig->defaultAwsCredentialScopeRegion
+        );
 
         $sut = new ClientAuthenticator(
-            $this->cache,
             $this->lwaService,
-            $credentialProvider,
+            $this->awsCredentialProvider,
             $this->spApiConfig
         );
 
-        $guzzleClient = $sut->createAuthenticatedGuzzleClient();
+        $guzzleClient = $sut->createAuthenticatedGuzzleClient(
+            $this->handlerStack,
+            $expectedRdtProvider
+        );
         $guzzleConfig = $guzzleClient->getConfig();
 
         $this->assertFalse(empty($guzzleConfig['headers']['x-amz-access-token']));
-        $this->assertEquals($newLwaToken, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
-        $this->assertEquals($this->spApiConfig->spApiBaseUrl, $guzzleClient->getConfig()['base_uri']);
+        $this->assertEquals($restrictedDataToken, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
     }
 
-    public function test_createAuthenticatedGuzzleClient_with_RDT()
+    public function test_createAuthenticatedGuzzleClient_can_use_aws_credential_scope_overrides()
     {
-        $rdt                = 'fake-rdt123';
-        $credentialProvider = function () {
-            return \Mockery::mock(CredentialsInterface::class);
+        $awsCredentialScopeServiceOverride = 'fake-service';
+        $awsCredentialScopeRegionOverride  = 'fake-region';
+        $restrictedDataToken               = 'fake-rdt';
+        $expectedRdtProvider               = function () use ($restrictedDataToken) {
+            return $restrictedDataToken;
         };
+        $this->_arrangeHappyCaseForHandlerStack(
+            $awsCredentialScopeServiceOverride,
+            $awsCredentialScopeRegionOverride
+        );
 
         $sut = new ClientAuthenticator(
-            $this->cache,
             $this->lwaService,
-            $credentialProvider,
+            $this->awsCredentialProvider,
             $this->spApiConfig
         );
 
-        $guzzleClient = $sut->createAuthenticatedGuzzleClient($rdt);
+        $guzzleClient = $sut->createAuthenticatedGuzzleClient(
+            $this->handlerStack,
+            $expectedRdtProvider,
+            $awsCredentialScopeServiceOverride,
+            $awsCredentialScopeRegionOverride
+        );
         $guzzleConfig = $guzzleClient->getConfig();
 
         $this->assertFalse(empty($guzzleConfig['headers']['x-amz-access-token']));
-        $this->assertEquals($rdt, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
-        $this->assertEquals($this->spApiConfig->spApiBaseUrl, $guzzleClient->getConfig()['base_uri']);
+        $this->assertEquals($restrictedDataToken, $guzzleClient->getConfig()['headers']['x-amz-access-token']);
+    }
+
+    protected function _arrangeHappyCaseForHandlerStack(
+        $expectedService,
+        $expectedRegion
+    ) {
+        $expectedAwsSignatureV4Middleware = new AwsSignatureV4Middleware(
+            $this->awsCredentialProvider,
+            new SignatureV4($expectedService, $expectedRegion)
+        );
+
+        $this->handlerStack->shouldReceive('push')
+            ->once()
+            ->withArgs(function (...$args) use ($expectedAwsSignatureV4Middleware) {
+                return $args[0] == $expectedAwsSignatureV4Middleware
+                    && $args[1] === AwsSignatureV4Middleware::MIDDLEWARE_NAME;
+            });
     }
 }

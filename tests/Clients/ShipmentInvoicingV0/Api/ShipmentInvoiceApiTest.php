@@ -2,31 +2,20 @@
 
 namespace Tests\Clients\ShipmentInvoicingV0\Api;
 
+use Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi;
 use Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Model\GetShipmentDetailsResponse;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class ShipmentInvoiceApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
-    }
-
     public function test_getShipmentDetails()
     {
         $result = $this->tryButSkipIfUnauthorized(function () {
-            return $this->spApi->execute(function () {
-                return $this->spApi->shipmentInvoicingV0()
-                    ->getShipmentDetailsWithHttpInfo('shipmentId1');
-            });
+            return $this->sp_api()
+                ->shipmentInvoicingV0()
+                ->execute(function (ShipmentInvoiceApi $shipmentInvoiceApi) {
+                    return $shipmentInvoiceApi->getShipmentDetailsWithHttpInfo('shipmentId1');
+                });
         });
 
         /**

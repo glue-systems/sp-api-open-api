@@ -2,695 +2,902 @@
 
 namespace Tests\Services;
 
-use Glue\SpApi\OpenAPI\Services\Builder\ClientBuilderInterface;
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
+use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
-use Glue\SpApi\OpenAPI\SpApiConfig;
+use Glue\SpApi\OpenAPI\Utilities\BuilderMiddlewarePipeline;
+use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
+use GuzzleHttp\ClientInterface;
+use GuzzleHttp\HandlerStack;
+use Mockery;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
 class ClientFactoryTest extends TestCase
 {
     /**
-     * @var ClientBuilderInterface|MockInterface
+     * @var ClientAuthenticatorInterface|MockInterface
      */
-    public $builder;
+    public $authenticator;
 
     /**
-     * @var SpApiConfig|MockInterface
+     * @var BuilderMiddlewarePipeline|MockInterface
+     */
+    public $pipeline;
+
+    /**
+     * @var SpApiConfig
      */
     public $spApiConfig;
+
+    /**
+     * @var HandlerStack
+     */
+    public $emptyGuzzleHandlerStack;
+
+    /**
+     * @var callable
+     */
+    public $instantiateGuzzleHandlerStack;
 
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->builder     = \Mockery::mock(ClientBuilderInterface::class);
-        $this->spApiConfig = \Mockery::mock(SpApiConfig::class);
-    }
-
-    public function test_createAplusContentV20201101ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createAplusContentV20201101ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createAuthorizationV1ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Api\AuthorizationApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createAuthorizationV1ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createCatalogItemsV0ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Api\CatalogApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createCatalogItemsV0ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createCatalogItemsV20201201ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Api\CatalogApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createCatalogItemsV20201201ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createDefinitionsProductTypesV20200901ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createDefinitionsProductTypesV20200901ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createEasyShipV20220323ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Api\EasyShipApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createEasyShipV20220323ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createFbaInboundEligibilityV1ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Api\FbaInboundApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createFbaInboundEligibilityV1ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createFbaInventoryV1ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Api\FbaInventoryApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createFbaInventoryV1ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createFbaSmallAndLightV1ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Api\SmallAndLightApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createFbaSmallAndLightV1ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createFeedsV20200904ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createFeedsV20200904ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createFeedsV20210630ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createFeedsV20210630ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createFinancesV0ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\FinancesV0\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createFinancesV0ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createFulfillmentInboundV0ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Api\FbaInboundApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createFulfillmentInboundV0ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createFulfillmentOutboundV20200701ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Api\FbaOutboundApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createFulfillmentOutboundV20200701ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createListingsItemsV20200901ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createListingsItemsV20200901ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createListingsItemsV20210801ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Api\ListingsApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createListingsItemsV20210801ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createListingsRestrictionsV20210801ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Api\ListingsApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createListingsRestrictionsV20210801ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    public function test_createMerchantFulfillmentV0ApiClient()
-    {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\MerchantFulfillmentV0\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\MerchantFulfillmentV0\Api\MerchantFulfillmentApi();
-        $rdtProvider       = function () {
-            return 'foo';
+        $this->authenticator                 = Mockery::mock(ClientAuthenticatorInterface::class);
+        $this->pipeline                      = Mockery::mock(BuilderMiddlewarePipeline::class);
+        $this->spApiConfig                   = $this->buildSpApiConfig();
+        $this->emptyGuzzleHandlerStack       = new HandlerStack();
+        $this->instantiateGuzzleHandlerStack = function () {
+            return $this->emptyGuzzleHandlerStack;
         };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createMerchantFulfillmentV0ApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
     }
 
-    public function test_createNotificationsV1ApiClient()
+    public function test_createAplusContentV20201101ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\NotificationsV1\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\NotificationsV1\Api\NotificationsApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createNotificationsV1ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi::class,
+            'createAplusContentV20201101ApiClient'
+        );
     }
 
-    public function test_createOrdersV0ApiClient()
+    public function test_createAplusContentV20201101ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\OrdersV0\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api();
-        $rdtProvider       = function () {
-            return 'foo';
-        };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createOrdersV0ApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi::class,
+            'createAplusContentV20201101ApiClient'
+        );
     }
 
-    public function test_createOrdersV0ShipmentApiClient()
+    public function test_createAuthorizationV1ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\OrdersV0\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createOrdersV0ShipmentApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Api\AuthorizationApi::class,
+            'createAuthorizationV1ApiClient'
+        );
     }
 
-    public function test_createProductFeesV0ApiClient()
+    public function test_createAuthorizationV1ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createProductFeesV0ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Api\AuthorizationApi::class,
+            'createAuthorizationV1ApiClient'
+        );
     }
 
-    public function test_createProductPricingV0ApiClient()
+    public function test_createCatalogItemsV0ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Api\ProductPricingApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createProductPricingV0ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Api\CatalogApi::class,
+            'createCatalogItemsV0ApiClient'
+        );
     }
 
-    public function test_createReplenishmentV20221107OffersApiClient()
+    public function test_createCatalogItemsV0ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createReplenishmentV20221107OffersApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Api\CatalogApi::class,
+            'createCatalogItemsV0ApiClient'
+        );
     }
 
-    public function test_createReplenishmentV20221107SellingpartnersApiClient()
+    public function test_createCatalogItemsV20201201ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createReplenishmentV20221107SellingpartnersApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Api\CatalogApi::class,
+            'createCatalogItemsV20201201ApiClient'
+        );
     }
 
-    public function test_createReportsV20200904ApiClient()
+    public function test_createCatalogItemsV20201201ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi();
-        $rdtProvider       = function () {
-            return 'foo';
-        };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createReportsV20200904ApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Api\CatalogApi::class,
+            'createCatalogItemsV20201201ApiClient'
+        );
     }
 
-    public function test_createReportsV20210630ApiClient()
+    public function test_createDefinitionsProductTypesV20200901ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi();
-        $rdtProvider       = function () {
-            return 'foo';
-        };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createReportsV20210630ApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi::class,
+            'createDefinitionsProductTypesV20200901ApiClient'
+        );
     }
 
-    public function test_createSalesV1ApiClient()
+    public function test_createDefinitionsProductTypesV20200901ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\SalesV1\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createSalesV1ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi::class,
+            'createDefinitionsProductTypesV20200901ApiClient'
+        );
     }
 
-    public function test_createSellersV1ApiClient()
+    public function test_createEasyShipV20220323ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\SellersV1\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\SellersV1\Api\SellersApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createSellersV1ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Api\EasyShipApi::class,
+            'createEasyShipV20220323ApiClient'
+        );
     }
 
-    public function test_createServicesV1ApiClient()
+    public function test_createEasyShipV20220323ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\ServicesV1\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\ServicesV1\Api\ServiceApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createServicesV1ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Api\EasyShipApi::class,
+            'createEasyShipV20220323ApiClient'
+        );
     }
 
-    public function test_createShipmentInvoicingV0ApiClient()
+    public function test_createFbaInboundEligibilityV1ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi();
-        $rdtProvider       = function () {
-            return 'foo';
-        };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createShipmentInvoicingV0ApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Api\FbaInboundApi::class,
+            'createFbaInboundEligibilityV1ApiClient'
+        );
     }
 
-    public function test_createSupplySourcesV20200701ApiClient()
+    public function test_createFbaInboundEligibilityV1ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createSupplySourcesV20200701ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Api\FbaInboundApi::class,
+            'createFbaInboundEligibilityV1ApiClient'
+        );
     }
 
-    public function test_createTokensV20210301ApiClient()
+    public function test_createFbaInventoryV1ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Configuration;
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createTokensV20210301ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Api\FbaInventoryApi::class,
+            'createFbaInventoryV1ApiClient'
+        );
     }
 
-    public function test_createUploadsV20201101ApiClient()
+    public function test_createFbaInventoryV1ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Configuration;
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Api\UploadsApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createUploadsV20201101ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Api\FbaInventoryApi::class,
+            'createFbaInventoryV1ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentInventoryV1ApiClient()
+    public function test_createFbaSmallAndLightV1ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Configuration;
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentInventoryV1ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Api\SmallAndLightApi::class,
+            'createFbaSmallAndLightV1ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentOrdersV1ApiClient()
+    public function test_createFbaSmallAndLightV1ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Configuration;
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Api\VendorOrdersApi();
-        $rdtProvider       = function () {
-            return 'foo';
-        };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentOrdersV1ApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Api\SmallAndLightApi::class,
+            'createFbaSmallAndLightV1ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentOrdersV20211228ApiClient()
+    public function test_createFeedsV20200904ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Configuration;
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi();
-        $rdtProvider       = function () {
-            return 'foo';
-        };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentOrdersV20211228ApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi::class,
+            'createFeedsV20200904ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentPaymentsV1ApiClient()
+    public function test_createFeedsV20200904ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Configuration;
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Api\VendorInvoiceApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentPaymentsV1ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi::class,
+            'createFeedsV20200904ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentSandboxDataV20211228ApiClient()
+    public function test_createFeedsV20210630ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Configuration;
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentSandboxDataV20211228ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi::class,
+            'createFeedsV20210630ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient()
+    public function test_createFeedsV20210630ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Configuration;
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi::class,
+            'createFeedsV20210630ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient()
+    public function test_createFinancesV0ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi();
-        $rdtProvider       = function () {
-            return 'foo';
-        };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi::class,
+            'createFinancesV0ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentShippingV1ApiClient()
+    public function test_createFinancesV0ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi();
-        $rdtProvider       = function () {
-            return 'foo';
-        };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentShippingV1ApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi::class,
+            'createFinancesV0ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentShippingV1LabelsApiClient()
+    public function test_createFulfillmentInboundV0ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi();
-        $rdtProvider       = function () {
-            return 'foo';
-        };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentShippingV1LabelsApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Api\FbaInboundApi::class,
+            'createFulfillmentInboundV0ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient()
+    public function test_createFulfillmentInboundV0ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi();
-        $rdtProvider       = function () {
-            return 'foo';
-        };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Api\FbaInboundApi::class,
+            'createFulfillmentInboundV0ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentShippingV20211228ApiClient()
+    public function test_createFulfillmentOutboundV20200701ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi();
-        $rdtProvider       = function () {
-            return 'foo';
-        };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentShippingV20211228ApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Api\FbaOutboundApi::class,
+            'createFulfillmentOutboundV20200701ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentShippingV20211228LabelsApiClient()
+    public function test_createFulfillmentOutboundV20200701ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Configuration();
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi();
-        $rdtProvider       = function () {
-            return 'foo';
-        };
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-        $this->_setUpRdtProviderExpectationsForBuilder($rdtProvider);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentShippingV20211228LabelsApiClient($domainConfig, $rdtProvider);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Api\FbaOutboundApi::class,
+            'createFulfillmentOutboundV20200701ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentTransactionsV1ApiClient()
+    public function test_createListingsItemsV20200901ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Configuration;
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentTransactionsV1ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi::class,
+            'createListingsItemsV20200901ApiClient'
+        );
     }
 
-    public function test_createVendorDirectFulfillmentTransactionsV20211228ApiClient()
+    public function test_createListingsItemsV20200901ApiClient_with_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Configuration;
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorDirectFulfillmentTransactionsV20211228ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi::class,
+            'createListingsItemsV20200901ApiClient'
+        );
     }
 
-    public function test_createVendorTransactionStatusV1ApiClient()
+    public function test_createListingsItemsV20210801ApiClient_without_pipeline()
     {
-        $domainConfig      = new \Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Configuration;
-        $expectedApiClient = new \Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi();
-        $this->_setUpStandardExpectationsForBuilder($expectedApiClient, $domainConfig);
-
-        $sut             = new ClientFactory($this->builder, $this->spApiConfig);
-        $actualApiClient = $sut->createVendorTransactionStatusV1ApiClient($domainConfig);
-
-        $this->assertEquals($expectedApiClient, $actualApiClient);
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Api\ListingsApi::class,
+            'createListingsItemsV20210801ApiClient'
+        );
     }
 
-    protected function _setUpStandardExpectationsForBuilder(
-        $expectedApiClient,
-        $domainConfig
+    public function test_createListingsItemsV20210801ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Api\ListingsApi::class,
+            'createListingsItemsV20210801ApiClient'
+        );
+    }
+
+    public function test_createListingsRestrictionsV20210801ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Api\ListingsApi::class,
+            'createListingsRestrictionsV20210801ApiClient'
+        );
+    }
+
+    public function test_createListingsRestrictionsV20210801ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Api\ListingsApi::class,
+            'createListingsRestrictionsV20210801ApiClient'
+        );
+    }
+
+    public function test_createMerchantFulfillmentV0ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\MerchantFulfillmentV0\Api\MerchantFulfillmentApi::class,
+            'createMerchantFulfillmentV0ApiClient'
+        );
+    }
+
+    public function test_createMerchantFulfillmentV0ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\MerchantFulfillmentV0\Api\MerchantFulfillmentApi::class,
+            'createMerchantFulfillmentV0ApiClient'
+        );
+    }
+
+    public function test_createNotificationsV1ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\NotificationsV1\Api\NotificationsApi::class,
+            'createNotificationsV1ApiClient'
+        );
+    }
+
+    public function test_createNotificationsV1ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\NotificationsV1\Api\NotificationsApi::class,
+            'createNotificationsV1ApiClient'
+        );
+    }
+
+    public function test_createOrdersV0ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api::class,
+            'createOrdersV0ApiClient'
+        );
+    }
+
+    public function test_createOrdersV0ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api::class,
+            'createOrdersV0ApiClient'
+        );
+    }
+
+    public function test_createOrdersV0ShipmentApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi::class,
+            'createOrdersV0ShipmentApiClient'
+        );
+    }
+
+    public function test_createOrdersV0ShipmentApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi::class,
+            'createOrdersV0ShipmentApiClient'
+        );
+    }
+
+    public function test_createProductFeesV0ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi::class,
+            'createProductFeesV0ApiClient'
+        );
+    }
+
+    public function test_createProductFeesV0ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi::class,
+            'createProductFeesV0ApiClient'
+        );
+    }
+
+    public function test_createProductPricingV0ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Api\ProductPricingApi::class,
+            'createProductPricingV0ApiClient'
+        );
+    }
+
+    public function test_createProductPricingV0ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Api\ProductPricingApi::class,
+            'createProductPricingV0ApiClient'
+        );
+    }
+
+    public function test_createReplenishmentV20221107OffersApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi::class,
+            'createReplenishmentV20221107OffersApiClient'
+        );
+    }
+
+    public function test_createReplenishmentV20221107OffersApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi::class,
+            'createReplenishmentV20221107OffersApiClient'
+        );
+    }
+
+    public function test_createReplenishmentV20221107SellingpartnersApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi::class,
+            'createReplenishmentV20221107SellingpartnersApiClient'
+        );
+    }
+
+    public function test_createReplenishmentV20221107SellingpartnersApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi::class,
+            'createReplenishmentV20221107SellingpartnersApiClient'
+        );
+    }
+
+    public function test_createReportsV20200904ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi::class,
+            'createReportsV20200904ApiClient'
+        );
+    }
+
+    public function test_createReportsV20200904ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi::class,
+            'createReportsV20200904ApiClient'
+        );
+    }
+
+    public function test_createReportsV20210630ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi::class,
+            'createReportsV20210630ApiClient'
+        );
+    }
+
+    public function test_createReportsV20210630ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi::class,
+            'createReportsV20210630ApiClient'
+        );
+    }
+
+    public function test_createSalesV1ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi::class,
+            'createSalesV1ApiClient'
+        );
+    }
+
+    public function test_createSalesV1ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi::class,
+            'createSalesV1ApiClient'
+        );
+    }
+
+    public function test_createSellersV1ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\SellersV1\Api\SellersApi::class,
+            'createSellersV1ApiClient'
+        );
+    }
+
+    public function test_createSellersV1ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\SellersV1\Api\SellersApi::class,
+            'createSellersV1ApiClient'
+        );
+    }
+
+    public function test_createServicesV1ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ServicesV1\Api\ServiceApi::class,
+            'createServicesV1ApiClient'
+        );
+    }
+
+    public function test_createServicesV1ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ServicesV1\Api\ServiceApi::class,
+            'createServicesV1ApiClient'
+        );
+    }
+
+    public function test_createShipmentInvoicingV0ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi::class,
+            'createShipmentInvoicingV0ApiClient'
+        );
+    }
+
+    public function test_createShipmentInvoicingV0ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi::class,
+            'createShipmentInvoicingV0ApiClient'
+        );
+    }
+
+    public function test_createSupplySourcesV20200701ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi::class,
+            'createSupplySourcesV20200701ApiClient'
+        );
+    }
+
+    public function test_createSupplySourcesV20200701ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi::class,
+            'createSupplySourcesV20200701ApiClient'
+        );
+    }
+
+    public function test_createTokensV20210301ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi::class,
+            'createTokensV20210301ApiClient'
+        );
+    }
+
+    public function test_createTokensV20210301ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi::class,
+            'createTokensV20210301ApiClient'
+        );
+    }
+
+    public function test_createUploadsV20201101ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Api\UploadsApi::class,
+            'createUploadsV20201101ApiClient'
+        );
+    }
+
+    public function test_createUploadsV20201101ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Api\UploadsApi::class,
+            'createUploadsV20201101ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentInventoryV1ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi::class,
+            'createVendorDirectFulfillmentInventoryV1ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentInventoryV1ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi::class,
+            'createVendorDirectFulfillmentInventoryV1ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentOrdersV1ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Api\VendorOrdersApi::class,
+            'createVendorDirectFulfillmentOrdersV1ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentOrdersV1ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Api\VendorOrdersApi::class,
+            'createVendorDirectFulfillmentOrdersV1ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentOrdersV20211228ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi::class,
+            'createVendorDirectFulfillmentOrdersV20211228ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentOrdersV20211228ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi::class,
+            'createVendorDirectFulfillmentOrdersV20211228ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentPaymentsV1ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Api\VendorInvoiceApi::class,
+            'createVendorDirectFulfillmentPaymentsV1ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentPaymentsV1ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Api\VendorInvoiceApi::class,
+            'createVendorDirectFulfillmentPaymentsV1ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentSandboxDataV20211228ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxApi::class,
+            'createVendorDirectFulfillmentSandboxDataV20211228ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentSandboxDataV20211228ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxApi::class,
+            'createVendorDirectFulfillmentSandboxDataV20211228ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi::class,
+            'createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi::class,
+            'createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi::class,
+            'createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi::class,
+            'createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentShippingV1ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi::class,
+            'createVendorDirectFulfillmentShippingV1ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentShippingV1ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi::class,
+            'createVendorDirectFulfillmentShippingV1ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentShippingV1LabelsApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi::class,
+            'createVendorDirectFulfillmentShippingV1LabelsApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentShippingV1LabelsApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi::class,
+            'createVendorDirectFulfillmentShippingV1LabelsApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi::class,
+            'createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi::class,
+            'createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentShippingV20211228ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi::class,
+            'createVendorDirectFulfillmentShippingV20211228ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentShippingV20211228ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi::class,
+            'createVendorDirectFulfillmentShippingV20211228ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentShippingV20211228LabelsApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi::class,
+            'createVendorDirectFulfillmentShippingV20211228LabelsApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentShippingV20211228LabelsApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi::class,
+            'createVendorDirectFulfillmentShippingV20211228LabelsApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentTransactionsV1ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi::class,
+            'createVendorDirectFulfillmentTransactionsV1ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentTransactionsV1ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi::class,
+            'createVendorDirectFulfillmentTransactionsV1ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentTransactionsV20211228ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi::class,
+            'createVendorDirectFulfillmentTransactionsV20211228ApiClient'
+        );
+    }
+
+    public function test_createVendorDirectFulfillmentTransactionsV20211228ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi::class,
+            'createVendorDirectFulfillmentTransactionsV20211228ApiClient'
+        );
+    }
+
+    public function test_createVendorTransactionStatusV1ApiClient_without_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi::class,
+            'createVendorTransactionStatusV1ApiClient'
+        );
+    }
+
+    public function test_createVendorTransactionStatusV1ApiClient_with_pipeline()
+    {
+        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
+            \Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi::class,
+            'createVendorTransactionStatusV1ApiClient'
+        );
+    }
+
+    /**
+     * @param string $expectedApiClass
+     * @param string $methodUnderTest
+     * @return void
+     */
+    protected function _arrange_and_assert_it_can_create_expected_client_without_pipeline(
+        $expectedApiClass,
+        $methodUnderTest
     ) {
-        $this->builder->shouldReceive('forApi')
+        $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
             ->once()
-            ->with(get_class($expectedApiClient))
-            ->andReturn($this->builder);
-        $this->builder->shouldReceive('withConfig')
+            ->andReturn(Mockery::mock(ClientInterface::class));
+
+        $sut = new ClientFactory(
+            $this->authenticator,
+            $this->spApiConfig,
+            $this->instantiateGuzzleHandlerStack
+        );
+        $actualApiClient = $sut->{$methodUnderTest}();
+
+        $this->assertInstanceOf($expectedApiClass, $actualApiClient);
+    }
+
+    /**
+     * @param string $expectedApiClass
+     * @param string $methodUnderTest
+     * @param BuilderMiddlewarePipeline $pipeline
+     * @return void
+     */
+    protected function _arrange_and_assert_it_can_create_expected_client_with_pipeline(
+        $expectedApiClass,
+        $methodUnderTest
+    ) {
+        /**
+         * @var ClientBuilder|MockInterface $builderToInject
+         */
+        $builderToInject            = Mockery::mock(ClientBuilder::class);
+        $expectedApiClient          = new $expectedApiClass();
+
+        $this->pipeline->shouldReceive('send')
             ->once()
-            ->with($domainConfig)
-            ->andReturn($this->builder);
-        $this->builder->shouldReceive('createClient')
+            ->withArgs(function ($arg0) use ($expectedApiClass) {
+                return $arg0 == (new ClientBuilder(
+                    $this->spApiConfig,
+                    $this->emptyGuzzleHandlerStack
+                ))->forApi($expectedApiClass);
+            })
+            ->andReturn($builderToInject);
+
+        $builderToInject->shouldReceive('createClient')
             ->once()
+            ->with($this->authenticator)
             ->andReturn($expectedApiClient);
-    }
 
-    protected function _setUpRdtProviderExpectationsForBuilder(
-        callable $rdtProvider = null
-    ) {
-        $this->builder->shouldReceive('withRdtProvider')
-            ->once()
-            ->with($rdtProvider)
-            ->andReturn($this->builder);
+        $sut = new ClientFactory(
+            $this->authenticator,
+            $this->spApiConfig,
+            $this->instantiateGuzzleHandlerStack
+        );
+        $actualApiClient = $sut->{$methodUnderTest}($this->pipeline);
+
+        $this->assertEquals($expectedApiClient, $actualApiClient);
     }
 }

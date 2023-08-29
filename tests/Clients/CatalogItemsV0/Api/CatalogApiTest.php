@@ -2,31 +2,25 @@
 
 namespace Tests\Clients\CatalogItemsV0\Api;
 
+use Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Api\CatalogApi;
 use Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Model\ListCatalogItemsResponse;
 use Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Model\ListMatchingItemsResponse;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class CatalogApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
-    }
-
     public function test_listCatalogItems()
     {
-        $result = $this->spApi->execute(function () {
-            return $this->spApi->catalogItemsV0()
-                ->listCatalogItemsWithHttpInfo('TEST_CASE_200', null, null, 'SKU_200');
-        });
+        $result = $this->sp_api()
+            ->catalogItemsV0()
+            ->execute(function (CatalogApi $catalogApi) {
+                return $catalogApi->listCatalogItemsWithHttpInfo(
+                    'TEST_CASE_200',
+                    null,
+                    null,
+                    'SKU_200'
+                );
+            });
 
         /**
          * @var ListCatalogItemsResponse $response

@@ -2,31 +2,20 @@
 
 namespace Tests\Clients\AuthorizationV1\Api;
 
+use Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Api\AuthorizationApi;
 use Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Model\GetAuthorizationCodeResponse;
-use Glue\SpApi\OpenAPI\Container\SpApi;
 use Tests\TestCase;
 
 class AuthorizationApiTest extends TestCase
 {
-    /**
-     * @var SpApi
-     */
-    public $spApi;
-
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
-    {
-        parent::setup();
-        $this->spApi = $this->buildSpApiContainer();
-    }
-
     public function test_getAuthorizationCode()
     {
         $result = $this->tryButSkipIfUnauthorized(function () {
-            return $this->spApi->execute(function () {
-                return $this->spApi->authorizationV1()
-                    ->getAuthorizationCodeWithHttpInfo('foo', 'foo', 'foo');
-            });
+            return $this->sp_api()
+                ->authorizationV1()
+                ->execute(function (AuthorizationApi $authorizationApi) {
+                    return $authorizationApi->getAuthorizationCodeWithHttpInfo('foo', 'foo', 'foo');
+                });
         });
 
         /**
