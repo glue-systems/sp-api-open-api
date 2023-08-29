@@ -2,6 +2,7 @@
 
 namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
+use Aws\Signature\SignatureV4;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
@@ -9,7 +10,6 @@ use Glue\SpApi\OpenAPI\Middleware\Guzzle\AwsSignatureV4Middleware;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
-use GuzzleHttp\Handler\CurlHandler;
 use GuzzleHttp\HandlerStack;
 
 class ClientAuthenticator implements ClientAuthenticatorInterface
@@ -43,12 +43,18 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
      * Create an authenticated Guzzle client, ready to be passed into
      * the constructor of an SP-API client class.
      *
+     * @param HandlerStack $handlerStack
      * @param callable|null $rdtProvider Callable restricted data token provider that returns an RDT, if needed for the SP-API operation.
+     * @param string|null $awsCredentialScopeServiceOverride
+     * @param string|null $awsCredentialScopeRegionOverride
      * @return ClientInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createAuthenticatedGuzzleClient(
-        callable $rdtProvider = null
+        HandlerStack $handlerStack,
+        callable $rdtProvider = null,
+        $awsCredentialScopeServiceOverride = null,
+        $awsCredentialScopeRegionOverride = null
     ) {
         // Note that several key Guzzle request fields / options such as 'base_uri',
         // 'debug' etc. are overwritten downstream when the domain Api class (e.g.
@@ -61,7 +67,11 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
             'headers'  => [
                 'x-amz-access-token' => $this->_resolveAccessToken($rdtProvider),
             ],
-            'handler'  => $this->_buildHandlerStack(),
+            'handler'  => $this->_pushAwsSignatureV4Middleware(
+                $handlerStack,
+                $awsCredentialScopeServiceOverride,
+                $awsCredentialScopeRegionOverride
+            ),
         ]);
     }
 
@@ -81,18 +91,23 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
     /**
      * @return HandlerStack
      */
-    protected function _buildHandlerStack()
-    {
-        // TODO: Parameterize handlerStack, awsCredentialScopeServiceOverride
-        // and awsCredentialScopeRegionOverride to give developers more flexibility?
-        $handlerStack = new HandlerStack();
-        $handlerStack->setHandler(new CurlHandler());
+    protected function _pushAwsSignatureV4Middleware(
+        HandlerStack $handlerStack,
+        $awsCredentialScopeServiceOverride = null,
+        $awsCredentialScopeRegionOverride = null
+    ) {
+        $service = $awsCredentialScopeServiceOverride
+            ?: $this->spApiConfig->defaultAwsCredentialScopeService;
+        $region  = $awsCredentialScopeRegionOverride
+            ?: $this->spApiConfig->defaultAwsCredentialScopeRegion;
 
-        $handlerStack->push(new AwsSignatureV4Middleware(
-            $this->awsCredentialProvider,
-            $this->spApiConfig->defaultAwsCredentialScopeService,
-            $this->spApiConfig->defaultAwsCredentialScopeRegion
-        ));
+        $handlerStack->push(
+            new AwsSignatureV4Middleware(
+                $this->awsCredentialProvider,
+                new SignatureV4($service, $region)
+            ),
+            AwsSignatureV4Middleware::MIDDLEWARE_NAME
+        );
 
         return $handlerStack;
     }

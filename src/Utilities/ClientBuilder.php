@@ -98,6 +98,7 @@ use Glue\SpApi\OpenAPI\Exceptions\ClientBuilderException;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
+use GuzzleHttp\HandlerStack;
 
 class ClientBuilder
 {
@@ -105,6 +106,11 @@ class ClientBuilder
      * @var SpApiConfig
      */
     protected $spApiConfig;
+
+    /**
+     * @var HandlerStack
+     */
+    protected $guzzleHandlerStack;
 
     /**
      * @var string
@@ -117,6 +123,16 @@ class ClientBuilder
     protected $domainConfig;
 
     /**
+     * @var string|null
+     */
+    protected $awsCredentialScopeServiceOverride = null;
+
+    /**
+     * @var string|null
+     */
+    protected $awsCredentialScopeRegionOverride = null;
+
+    /**
      * Provider callback for retrieving a Restricted Data Token (RDT),
      * if applicable to the target API.
      *
@@ -124,10 +140,14 @@ class ClientBuilder
      */
     protected $rdtProvider = null;
 
-    public function __construct(SpApiConfig $spApiConfig)
-    {
+    public function __construct(
+        SpApiConfig $spApiConfig,
+        HandlerStack $guzzleHandlerStack = null
+    ) {
         $spApiConfig->validateConfig();
-        $this->spApiConfig = $spApiConfig;
+
+        $this->spApiConfig        = $spApiConfig;
+        $this->guzzleHandlerStack = $guzzleHandlerStack ?: HandlerStack::create();
     }
 
     /**
@@ -189,6 +209,47 @@ class ClientBuilder
     }
 
     /**
+     * Push a middleware to the top of the Guzzle HandlerStack.
+     *
+     * @param callable $middleware
+     * @param string|null $name
+     * @return static
+     */
+    public function pushGuzzleMiddleware(
+        callable $middleware,
+        $name = null
+    ) {
+        $this->guzzleHandlerStack->push($middleware, $name);
+        return $this;
+    }
+
+    /**
+     * Override the default service set in the SpApiConfig to be used as the
+     * credential scope during the AWS request signature.
+     *
+     * @param string $awsCredentialScopeServiceOverride
+     * @return static
+     */
+    public function overrideAwsCredentialScopeService($awsCredentialScopeServiceOverride)
+    {
+        $this->awsCredentialScopeServiceOverride = $awsCredentialScopeServiceOverride;
+        return $this;
+    }
+
+    /**
+     * Override the default region set in the SpApiConfig to be used as the
+     * credential scope during the AWS request signature.
+     *
+     * @param string $awsCredentialScopeServiceOverride
+     * @return static
+     */
+    public function overrideAwsCredentialScopeRegion($awsCredentialScopeRegionOverride)
+    {
+        $this->awsCredentialScopeRegionOverride = $awsCredentialScopeRegionOverride;
+        return $this;
+    }
+
+    /**
      * @return string
      */
     public function getApiClassFqn()
@@ -216,6 +277,30 @@ class ClientBuilder
     }
 
     /**
+     * @return HandlerStack
+     */
+    public function getGuzzleHandlerStack()
+    {
+        return clone $this->guzzleHandlerStack;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAwsCredentialScopeServiceOverride()
+    {
+        return $this->awsCredentialScopeServiceOverride;
+    }
+
+    /**
+     * @return string|null
+     */
+    public function getAwsCredentialScopeRegionOverride()
+    {
+        return $this->awsCredentialScopeRegionOverride;
+    }
+
+    /**
      * Create the API client according to the values set up in this builder instance.
      *
      * @return AplusContentV20201101Api|AuthorizationV1Api|CatalogItemsV0Api|CatalogItemsV20201201Api|DefinitionsProductTypesV20200901Api|EasyShipV20220323Api|FbaInboundEligibilityV1Api|FbaInventoryV1Api|FbaSmallAndLightV1Api|FeedsV20200904Api|FeedsV20210630Api|FinancesV0Api|FulfillmentInboundV0Api|FulfillmentOutboundV20200701Api|ListingsItemsV20200901Api|ListingsItemsV20210801Api|ListingsRestrictionsV20210801Api|MerchantFulfillmentV0Api|NotificationsV1Api|OrdersV0Api|OrdersV0ShipmentApi|ProductFeesV0Api|ProductPricingV0Api|ReplenishmentV20221107OffersApi|ReplenishmentV20221107SellingpartnersApi|ReportsV20200904Api|ReportsV20210630Api|SalesV1Api|SellersV1Api|ServicesV1Api|ShipmentInvoicingV0Api|SupplySourcesV20200701Api|TokensV20210301Api|UploadsV20201101Api|VendorDirectFulfillmentInventoryV1Api|VendorDirectFulfillmentOrdersV1Api|VendorDirectFulfillmentOrdersV20211228Api|VendorDirectFulfillmentPaymentsV1Api|VendorDirectFulfillmentSandboxDataV20211228Api|VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi|VendorDirectFulfillmentShippingV1CustomerInvoicesApi|VendorDirectFulfillmentShippingV1Api|VendorDirectFulfillmentShippingV1LabelsApi|VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi|VendorDirectFulfillmentShippingV20211228Api|VendorDirectFulfillmentShippingV20211228LabelsApi|VendorDirectFulfillmentTransactionsV1Api|VendorDirectFulfillmentTransactionsV20211228Api|VendorTransactionStatusV1Api
@@ -228,8 +313,15 @@ class ClientBuilder
 
         $apiClassFqn = $this->apiClassFqn;
 
+        $guzzleClient = $authenticator->createAuthenticatedGuzzleClient(
+            $this->guzzleHandlerStack,
+            $this->rdtProvider,
+            $this->awsCredentialScopeServiceOverride,
+            $this->awsCredentialScopeRegionOverride
+        );
+
         return new $apiClassFqn(
-            $authenticator->createAuthenticatedGuzzleClient($this->rdtProvider),
+            $guzzleClient,
             $this->domainConfig
         );
     }

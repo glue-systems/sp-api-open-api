@@ -9,6 +9,7 @@ use Glue\SpApi\OpenAPI\Exceptions\ClientBuilderException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
 use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
 use GuzzleHttp\Client;
+use GuzzleHttp\HandlerStack;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
@@ -20,6 +21,11 @@ class ClientBuilderTest extends TestCase
     public $authenticator;
 
     /**
+     * @var HandlerStack
+     */
+    public $guzzleHandlerStack;
+
+    /**
      * @var SpApiConfig
      */
     public $spApiConfig;
@@ -28,8 +34,9 @@ class ClientBuilderTest extends TestCase
     public function setUp()
     {
         parent::setup();
-        $this->authenticator = \Mockery::mock(ClientAuthenticatorInterface::class);
-        $this->spApiConfig   = $this->buildSpApiConfig();
+        $this->authenticator      = \Mockery::mock(ClientAuthenticatorInterface::class);
+        $this->guzzleHandlerStack = HandlerStack::create();
+        $this->spApiConfig        = $this->buildSpApiConfig();
     }
 
     public function test_forApi_happy_case()
@@ -37,7 +44,7 @@ class ClientBuilderTest extends TestCase
         $expectedApiClassFqn  = OrdersV0Api::class;
         $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
 
-        $sut = new ClientBuilder($this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
         $sut->forApi($expectedApiClassFqn);
 
         $this->assertEquals($expectedApiClassFqn, $sut->getApiClassFqn());
@@ -46,7 +53,7 @@ class ClientBuilderTest extends TestCase
 
     public function test_forApi_throws_ClientBuilderException_on_invalid_fqn()
     {
-        $sut = new ClientBuilder($this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage('Invalid API class FQN');
@@ -55,7 +62,7 @@ class ClientBuilderTest extends TestCase
 
     public function test_forApi_throws_ClientBuilderException_on_2nd_call()
     {
-        $sut = new ClientBuilder($this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
         $sut->forApi(OrdersV0Api::class);
 
         $this->expectException(ClientBuilderException::class);
@@ -69,7 +76,7 @@ class ClientBuilderTest extends TestCase
         $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig)
             ->setDebug($newDebugValue);
 
-        $sut = new ClientBuilder($this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
         $sut->forApi(OrdersV0Api::class);
         $sut->withConfig(function (Configuration $ordersV0Config) use ($newDebugValue) {
             $ordersV0Config->setDebug($newDebugValue);
@@ -84,7 +91,7 @@ class ClientBuilderTest extends TestCase
         $expectedDomainConfig  = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
         $differentDomainConfig = (new Configuration())->setHost('https://example.com');
 
-        $sut = new ClientBuilder($this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
         $sut->forApi(OrdersV0Api::class);
         $sut->withConfig(function (Configuration $ordersV0Config) use ($differentDomainConfig) {
             return $differentDomainConfig;
@@ -99,7 +106,7 @@ class ClientBuilderTest extends TestCase
         $expectedDomainConfig  = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
         $differentDomainConfig = (new Configuration())->setHost('https://example.com');
 
-        $sut = new ClientBuilder($this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
         $sut->forApi(OrdersV0Api::class);
         $sut->withConfig(function (Configuration $ordersV0Config) use ($differentDomainConfig) {
             $ordersV0Config = $differentDomainConfig;
@@ -111,7 +118,7 @@ class ClientBuilderTest extends TestCase
 
     public function test_withConfig_called_before_forApi_throws_ClientBuilderException()
     {
-        $sut = new ClientBuilder($this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage("Method 'withConfig' cannot be called before");
@@ -126,31 +133,35 @@ class ClientBuilderTest extends TestCase
             return 'foo';
         };
 
-        $sut = new ClientBuilder($this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
         $sut->withRdtProvider($expectedRdtProvider);
 
         $this->assertEquals($expectedRdtProvider, $sut->getRdtProvider());
     }
 
-    public function test_createClient_happy_case_with_non_null_rdtProvider()
+    public function test_createClient_happy_case_with_non_empty_guzzleHandlerStack()
     {
-        $expectedRdtProvider  = function () {
-            return 'foo';
+        list($expectedGuzzleClient, $expectedDomainClient) = $this->_buildHappyCaseClients();
+        $middlewareName = 'fake_middleware_name';
+        $middleware     = function () {
+            return 'fake middleware';
         };
-        $expectedGuzzleClient = new Client(['headers' => ['foo' => 'bar']]);
-        $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
-        $expectedDomainClient = new OrdersV0Api(
-            $expectedGuzzleClient,
-            $expectedDomainConfig
-        );
 
-        $sut = new ClientBuilder($this->spApiConfig);
+        $expectedHandlerStack = clone $this->guzzleHandlerStack;
+        $expectedHandlerStack->push($middleware, $middlewareName);
+
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
         $sut->forApi(OrdersV0Api::class);
-        $sut->withRdtProvider($expectedRdtProvider);
+        $sut->pushGuzzleMiddleware($middleware, $middlewareName);
 
         $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
             ->once()
-            ->with($expectedRdtProvider)
+            ->withArgs(function (...$args) use ($expectedHandlerStack) {
+                return $args[0] == $expectedHandlerStack
+                    && is_null($args[1])
+                    && is_null($args[2])
+                    && is_null($args[3]);
+            })
             ->andReturn($expectedGuzzleClient);
 
         $actualDomainClient = $sut->createClient($this->authenticator);
@@ -158,22 +169,73 @@ class ClientBuilderTest extends TestCase
         $this->assertEquals($expectedDomainClient, $actualDomainClient);
     }
 
-    public function test_createClient_happy_case_with_null_rdtProvider()
+    public function test_createClient_happy_case_with_non_null_rdtProvider()
     {
-        $expectedGuzzleClient = new Client(['headers' => ['foo' => 'bar']]);
-        $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
-        $expectedDomainClient = new OrdersV0Api(
-            $expectedGuzzleClient,
-            $expectedDomainConfig
-        );
+        $expectedRdtProvider  = function () {
+            return 'foo';
+        };
+        list($expectedGuzzleClient, $expectedDomainClient) = $this->_buildHappyCaseClients();
 
-        $sut = new ClientBuilder($this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
         $sut->forApi(OrdersV0Api::class);
-        $sut->withRdtProvider(null);
+        $sut->withRdtProvider($expectedRdtProvider);
 
         $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
             ->once()
-            ->with(null)
+            ->with(
+                $this->guzzleHandlerStack,
+                $expectedRdtProvider,
+                null,
+                null
+            )
+            ->andReturn($expectedGuzzleClient);
+
+        $actualDomainClient = $sut->createClient($this->authenticator);
+
+        $this->assertEquals($expectedDomainClient, $actualDomainClient);
+    }
+
+    public function test_createClient_happy_case_with_non_null_awsCredentialScopeServiceOverride()
+    {
+        list($expectedGuzzleClient, $expectedDomainClient) = $this->_buildHappyCaseClients();
+        $awsCredentialScopeServiceOverride = 'fake-service';
+
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut->forApi(OrdersV0Api::class);
+        $sut->overrideAwsCredentialScopeService($awsCredentialScopeServiceOverride);
+
+        $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
+            ->once()
+            ->with(
+                $this->guzzleHandlerStack,
+                null,
+                $awsCredentialScopeServiceOverride,
+                null
+            )
+            ->andReturn($expectedGuzzleClient);
+
+        $actualDomainClient = $sut->createClient($this->authenticator);
+
+        $this->assertEquals($expectedDomainClient, $actualDomainClient);
+    }
+
+    public function test_createClient_happy_case_with_non_null_awsCredentialScopeRegionOverride()
+    {
+        list($expectedGuzzleClient, $expectedDomainClient) = $this->_buildHappyCaseClients();
+        $awsCredentialScopeRegionOverride = 'fake-region';
+
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut->forApi(OrdersV0Api::class);
+        $sut->overrideAwsCredentialScopeRegion($awsCredentialScopeRegionOverride);
+
+        $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
+            ->once()
+            ->with(
+                $this->guzzleHandlerStack,
+                null,
+                null,
+                $awsCredentialScopeRegionOverride
+            )
             ->andReturn($expectedGuzzleClient);
 
         $actualDomainClient = $sut->createClient($this->authenticator);
@@ -183,11 +245,25 @@ class ClientBuilderTest extends TestCase
 
     public function test_createClient_with_null_apiClassFqn_throws_ClientBuilderException()
     {
-        $sut = new ClientBuilder($this->spApiConfig);
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage('Builder not ready to create');
         $sut->createClient($this->authenticator);
+    }
+
+    /**
+     * @return array
+     */
+    protected function _buildHappyCaseClients()
+    {
+        $expectedGuzzleClient = new Client(['headers' => ['foo' => 'bar']]);
+        $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
+        $expectedDomainClient = new OrdersV0Api(
+            $expectedGuzzleClient,
+            $expectedDomainConfig
+        );
+        return [$expectedGuzzleClient, $expectedDomainClient];
     }
 
     /**

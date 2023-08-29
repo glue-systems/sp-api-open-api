@@ -67,8 +67,8 @@ class LwaServiceTest extends TestCase
             ->andReturnNull();
         $this->lwaClient->shouldReceive('requestNewLwaAccessToken')
             ->once()
-            ->withArgs(function ($arg1) {
-                return $arg1 instanceof Client;
+            ->withArgs(function ($arg0) {
+                return $arg0 instanceof Client;
             })
             ->andReturn([
                 'access_token' => $expectedToken,
