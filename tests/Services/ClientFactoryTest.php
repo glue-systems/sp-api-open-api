@@ -38,7 +38,7 @@ class ClientFactoryTest extends TestCase
     /**
      * @var callable
      */
-    public $makeNewGuzzleHandlerStack;
+    public $instantiateGuzzleHandlerStack;
 
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
@@ -48,7 +48,7 @@ class ClientFactoryTest extends TestCase
         $this->pipeline                  = Mockery::mock(BuilderMiddlewarePipeline::class);
         $this->spApiConfig               = $this->buildSpApiConfig();
         $this->emptyGuzzleHandlerStack   = new HandlerStack();
-        $this->makeNewGuzzleHandlerStack = function () {
+        $this->instantiateGuzzleHandlerStack = function () {
             return $this->emptyGuzzleHandlerStack;
         };
     }
@@ -853,7 +853,7 @@ class ClientFactoryTest extends TestCase
         $sut = new ClientFactory(
             $this->authenticator,
             $this->spApiConfig,
-            $this->makeNewGuzzleHandlerStack
+            $this->instantiateGuzzleHandlerStack
         );
         $actualApiClient = $sut->{$methodUnderTest}();
 
@@ -894,7 +894,7 @@ class ClientFactoryTest extends TestCase
         $sut = new ClientFactory(
             $this->authenticator,
             $this->spApiConfig,
-            $this->makeNewGuzzleHandlerStack
+            $this->instantiateGuzzleHandlerStack
         );
         $actualApiClient = $sut->{$methodUnderTest}($this->pipeline);
 
