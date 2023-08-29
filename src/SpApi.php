@@ -609,15 +609,20 @@ class SpApi
 
         // TODO: Update the use of `getClass()` to `getType()`, as the former is deprecated
         // and highly discouraged as of PHP 8, whereas the latter is only available from PHP 7.
-        $typeHintedParameterClass = $parameters[0]->getClass()->name;
+        $typeHintedParameterClass = $parameters[0]->getClass();
+        if (empty($typeHintedParameterClass->name)) {
+            throw new SpApiResolutionException("Unable to resolve API client class"
+                . " in the callback of SpApi::execute; please type-hint a valid API class name,"
+                . " or call a setter method explicitly (e.g. ordersV0(), reportsV20210630() etc).");
+        }
 
-        if (!SpApiRoster::isValidApiClassFqn($typeHintedParameterClass)) {
+        if (!SpApiRoster::isValidApiClassFqn($typeHintedParameterClass->name)) {
             throw new SpApiResolutionException("Invalid type-hinted class name"
-                . " [$typeHintedParameterClass] in the callback of SpApi::execute;"
+                . " [{$typeHintedParameterClass->name}] in the callback of SpApi::execute;"
                 . " must be one of: [" . implode(', ', SpApiRoster::allApiClassFqns()) . "]");
         }
 
-        return SpApiRoster::getFactoryMethodFromApiClassFqn($typeHintedParameterClass);
+        return SpApiRoster::getFactoryMethodFromApiClassFqn($typeHintedParameterClass->name);
     }
 
     /**
