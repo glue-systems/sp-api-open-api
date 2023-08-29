@@ -11,13 +11,13 @@ class VendorTransactionApiTest extends TestCase
     public function test_getTransactionStatus()
     {
         $result = $this->tryButSkipIfUnauthorized(function () {
-            return $this->sp_api()->vendorDirectFulfillmentTransactionsV20211228(
-                function (VendorTransactionApi $vendorTransactionApi) {
+            return $this->sp_api()
+                ->vendorDirectFulfillmentTransactionsV20211228()
+                ->execute(function (VendorTransactionApi $vendorTransactionApi) {
                     return $vendorTransactionApi->getTransactionStatusWithHttpInfo(
                         '20190904190535-eef8cad8-418e-4ed3-ac72-789e2ee6214a'
                     );
-                }
-            );
+                });
         });
 
         /**

@@ -11,9 +11,11 @@ class NotificationsApiTest extends TestCase
 {
     public function test_getSubscription()
     {
-        $result = $this->sp_api()->notificationsV1(function (NotificationsApi $notificationsApi) {
-            return $notificationsApi->getSubscriptionWithHttpInfo('LISTINGS_ITEM_ISSUES_CHANGE');
-        });
+        $result = $this->sp_api()
+            ->notificationsV1()
+            ->execute(function (NotificationsApi $notificationsApi) {
+                return $notificationsApi->getSubscriptionWithHttpInfo('LISTINGS_ITEM_ISSUES_CHANGE');
+            });
 
         /**
          * @var GetSubscriptionResponse $response

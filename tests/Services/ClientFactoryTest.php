@@ -44,10 +44,10 @@ class ClientFactoryTest extends TestCase
     public function setUp()
     {
         parent::setup();
-        $this->authenticator             = Mockery::mock(ClientAuthenticatorInterface::class);
-        $this->pipeline                  = Mockery::mock(BuilderMiddlewarePipeline::class);
-        $this->spApiConfig               = $this->buildSpApiConfig();
-        $this->emptyGuzzleHandlerStack   = new HandlerStack();
+        $this->authenticator                 = Mockery::mock(ClientAuthenticatorInterface::class);
+        $this->pipeline                      = Mockery::mock(BuilderMiddlewarePipeline::class);
+        $this->spApiConfig                   = $this->buildSpApiConfig();
+        $this->emptyGuzzleHandlerStack       = new HandlerStack();
         $this->instantiateGuzzleHandlerStack = function () {
             return $this->emptyGuzzleHandlerStack;
         };

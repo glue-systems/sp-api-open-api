@@ -85,8 +85,8 @@ class ClientFactory implements ClientFactoryInterface
         SpApiConfig $spApiConfig,
         callable $instantiateGuzzleHandlerStack = null
     ) {
-        $this->authenticator                  = $authenticator;
-        $this->spApiConfig                    = $spApiConfig;
+        $this->authenticator                 = $authenticator;
+        $this->spApiConfig                   = $spApiConfig;
         $this->instantiateGuzzleHandlerStack = $instantiateGuzzleHandlerStack
             ?: function () {
                 return null;

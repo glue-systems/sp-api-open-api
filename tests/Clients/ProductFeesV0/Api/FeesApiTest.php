@@ -18,35 +18,37 @@ class FeesApiTest extends TestCase
 {
     public function test_getMyFeesEstimateForSKU()
     {
-        $result = $this->sp_api()->productFeesV0(function (FeesApi $feesApi) {
-            return $feesApi->getMyFeesEstimateForSKUWithHttpInfo(
-                'FAKE-SKU-123',
-                new GetMyFeesEstimateRequest([
-                    'feesEstimateRequest' => new FeesEstimateRequest([
-                        'marketplaceId'        => 'ATVPDKIKX0DER',
-                        'isAmazonFulfilled'    => false,
-                        'priceToEstimateFees'  => new PriceToEstimateFees([
-                            'listingPrice' => new MoneyType([
-                                'currencyCode' => 'USD',
-                                'amount'       => 10,
-                            ]),
-                            'shipping'     => new MoneyType([
-                                'currencyCode' => 'USD',
-                                'amount'       => 10,
-                            ]),
-                            'points'       => new Points([
-                                'pointsNumber'        => 0,
-                                'pointsMonetaryValue' => new MoneyType([
+        $result = $this->sp_api()
+            ->productFeesV0()
+            ->execute(function (FeesApi $feesApi) {
+                return $feesApi->getMyFeesEstimateForSKUWithHttpInfo(
+                    'FAKE-SKU-123',
+                    new GetMyFeesEstimateRequest([
+                        'feesEstimateRequest' => new FeesEstimateRequest([
+                            'marketplaceId'        => 'ATVPDKIKX0DER',
+                            'isAmazonFulfilled'    => false,
+                            'priceToEstimateFees'  => new PriceToEstimateFees([
+                                'listingPrice' => new MoneyType([
                                     'currencyCode' => 'USD',
-                                    'amount'       => 0,
+                                    'amount'       => 10,
+                                ]),
+                                'shipping'     => new MoneyType([
+                                    'currencyCode' => 'USD',
+                                    'amount'       => 10,
+                                ]),
+                                'points'       => new Points([
+                                    'pointsNumber'        => 0,
+                                    'pointsMonetaryValue' => new MoneyType([
+                                        'currencyCode' => 'USD',
+                                        'amount'       => 0,
+                                    ]),
                                 ]),
                             ]),
+                            'identifier'           => 'UmaS1',
                         ]),
-                        'identifier'           => 'UmaS1',
-                    ]),
-                ])
-            );
-        });
+                    ])
+                );
+            });
 
         /**
          * @var GetMyFeesEstimateResponse $response

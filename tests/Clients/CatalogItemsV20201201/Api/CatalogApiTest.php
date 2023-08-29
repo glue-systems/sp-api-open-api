@@ -11,13 +11,15 @@ class CatalogApiTest extends TestCase
 {
     public function test_searchCatalogItems()
     {
-        $result = $this->sp_api()->catalogItemsV20201201(function (CatalogApi $catalogApi) {
-            return $catalogApi->searchCatalogItemsWithHttpInfo(
-                ['red', 'polo', 'shirt'],
-                ['ATVPDKIKX0DER'],
-                'summaries'
-            );
-        });
+        $result = $this->sp_api()
+            ->catalogItemsV20201201()
+            ->execute(function (CatalogApi $catalogApi) {
+                return $catalogApi->searchCatalogItemsWithHttpInfo(
+                    ['red', 'polo', 'shirt'],
+                    ['ATVPDKIKX0DER'],
+                    'summaries'
+                );
+            });
 
         /**
          * @var ItemSearchResults $response

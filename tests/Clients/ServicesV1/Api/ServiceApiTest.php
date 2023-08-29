@@ -11,12 +11,14 @@ class ServiceApiTest extends TestCase
     public function test_cancelServiceJobByServiceJobId()
     {
         $result = $this->tryButSkipIfUnauthorized(function () {
-            return $this->sp_api()->servicesV1(function (ServiceApi $serviceApi) {
-                return $serviceApi->cancelServiceJobByServiceJobIdWithHttpInfo(
-                    'validJobId-48b6d5a3-b708-dbe9-038d-dd95e8d74iut',
-                    'V1'
-                );
-            });
+            return $this->sp_api()
+                ->servicesV1()
+                ->execute(function (ServiceApi $serviceApi) {
+                    return $serviceApi->cancelServiceJobByServiceJobIdWithHttpInfo(
+                        'validJobId-48b6d5a3-b708-dbe9-038d-dd95e8d74iut',
+                        'V1'
+                    );
+                });
         });
 
         /**

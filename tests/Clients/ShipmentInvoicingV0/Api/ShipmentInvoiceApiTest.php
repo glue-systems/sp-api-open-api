@@ -11,9 +11,11 @@ class ShipmentInvoiceApiTest extends TestCase
     public function test_getShipmentDetails()
     {
         $result = $this->tryButSkipIfUnauthorized(function () {
-            return $this->sp_api()->shipmentInvoicingV0(function (ShipmentInvoiceApi $shipmentInvoiceApi) {
-                return $shipmentInvoiceApi->getShipmentDetailsWithHttpInfo('shipmentId1');
-            });
+            return $this->sp_api()
+                ->shipmentInvoicingV0()
+                ->execute(function (ShipmentInvoiceApi $shipmentInvoiceApi) {
+                    return $shipmentInvoiceApi->getShipmentDetailsWithHttpInfo('shipmentId1');
+                });
         });
 
         /**

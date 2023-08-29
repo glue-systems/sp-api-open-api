@@ -12,14 +12,16 @@ class FbaInventoryApiTest extends TestCase
 {
     public function test_getInventorySummaries()
     {
-        $result = $this->sp_api()->fbaInventoryV1(function (FbaInventoryApi $fbaInventoryApi) {
-            return $fbaInventoryApi->getInventorySummariesWithHttpInfo(
-                'Marketplace',
-                'ATVPDKIKX0DER',
-                ['ATVPDKIKX0DER'],
-                'true'
-            );
-        });
+        $result = $this->sp_api()
+            ->fbaInventoryV1()
+            ->execute(function (FbaInventoryApi $fbaInventoryApi) {
+                return $fbaInventoryApi->getInventorySummariesWithHttpInfo(
+                    'Marketplace',
+                    'ATVPDKIKX0DER',
+                    ['ATVPDKIKX0DER'],
+                    'true'
+                );
+            });
 
         /**
          * @var GetInventorySummariesResponse $response

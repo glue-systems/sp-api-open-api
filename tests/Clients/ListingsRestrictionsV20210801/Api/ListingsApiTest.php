@@ -14,7 +14,8 @@ class ListingsApiTest extends TestCase
     public function test_getListingsRestrictions()
     {
         $result = $this->sp_api()
-            ->listingsRestrictionsV20210801(function (ListingsApi $listingsApi) {
+            ->listingsRestrictionsV20210801()
+            ->execute(function (ListingsApi $listingsApi) {
                 return $listingsApi->getListingsRestrictionsWithHttpInfo(
                     'foo',
                     'foo',

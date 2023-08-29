@@ -18,7 +18,8 @@ class SellingpartnersApiTest extends TestCase
     public function test_getSellingPartnerMetrics()
     {
         $result = $this->sp_api()
-            ->replenishmentV20221107Sellingpartners(function (SellingpartnersApi $sellingpartnersApi) {
+            ->replenishmentV20221107Sellingpartners()
+            ->execute(function (SellingpartnersApi $sellingpartnersApi) {
                 return $sellingpartnersApi->getSellingPartnerMetricsWithHttpInfo(
                     new GetSellingPartnerMetricsRequest([
                         'aggregationFrequency' => AggregationFrequency::YEAR,

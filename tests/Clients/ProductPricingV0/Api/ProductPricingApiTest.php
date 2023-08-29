@@ -13,12 +13,14 @@ class ProductPricingApiTest extends TestCase
 {
     public function test_getPricing()
     {
-        $result = $this->sp_api()->productPricingV0(function (ProductPricingApi $productPricingApi) {
-            return $productPricingApi->getPricingWithHttpInfo(
-                'ATVPDKIKX0DER',
-                'Asin'
-            );
-        });
+        $result = $this->sp_api()
+            ->productPricingV0()
+            ->execute(function (ProductPricingApi $productPricingApi) {
+                return $productPricingApi->getPricingWithHttpInfo(
+                    'ATVPDKIKX0DER',
+                    'Asin'
+                );
+            });
 
         /**
          * @var GetPricingResponse $response

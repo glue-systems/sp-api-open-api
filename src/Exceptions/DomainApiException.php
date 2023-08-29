@@ -2,6 +2,7 @@
 
 namespace Glue\SpApi\OpenAPI\Exceptions;
 
+use Exception;
 use Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\ApiException as AplusContentV20201101ApiException;
 use Glue\SpApi\OpenAPI\Clients\AuthorizationV1\ApiException as AuthorizationV1ApiException;
 use Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\ApiException as CatalogItemsV0ApiException;
@@ -48,7 +49,7 @@ use Glue\SpApi\OpenAPI\Traits\RecognizesStringables;
 use Glue\SpApi\OpenAPI\Utilities\SpApiRoster;
 use Psr\Http\Message\StreamInterface;
 
-class DomainApiException extends \Exception
+class DomainApiException extends Exception
 {
     use RecognizesStringables;
 
@@ -57,7 +58,7 @@ class DomainApiException extends \Exception
      * @param bool $shouldUnpackResponseBodyIntoMessage Note that, if set to true and the ApiException's response body is a stream, it is possible that it can only be unpacked once for that object before the internal stream handle becomes detached.
      */
     public function __construct(
-        \Exception $apiException,
+        Exception $apiException,
         $shouldUnpackResponseBodyIntoMessage = false
     ) {
         if (!SpApiRoster::isApiException($apiException)) {
@@ -86,7 +87,7 @@ class DomainApiException extends \Exception
      * @return string
      */
     public static function unpackApiExceptionResponseBodyAsString(
-        \Exception $apiException
+        Exception $apiException
     ) {
         $body = $apiException->getResponseBody();
 

@@ -12,20 +12,22 @@ class TokensApiTest extends TestCase
 {
     public function test_createRestrictedDataToken()
     {
-        $result = $this->sp_api()->tokensV20210301(function (TokensApi $tokensApi) {
-            return $tokensApi->createRestrictedDataTokenWithHttpInfo(
-                new CreateRestrictedDataTokenRequest([
-                    // Using these specific strings as a quirky requirement of the sandbox API (see models/tokens_2021-03-01.json)
-                    'targetApplication'   => 'amzn1.sellerapps.app.target-application',
-                    'restrictedResources' => [
-                        new RestrictedResource([
-                            'method' => 'GET',
-                            'path'   => '/orders/v0/orders/{orderId}/address',
-                        ]),
-                    ],
-                ])
-            );
-        });
+        $result = $this->sp_api()
+            ->tokensV20210301()
+            ->execute(function (TokensApi $tokensApi) {
+                return $tokensApi->createRestrictedDataTokenWithHttpInfo(
+                    new CreateRestrictedDataTokenRequest([
+                        // Using these specific strings as a quirky requirement of the sandbox API (see models/tokens_2021-03-01.json)
+                        'targetApplication'   => 'amzn1.sellerapps.app.target-application',
+                        'restrictedResources' => [
+                            new RestrictedResource([
+                                'method' => 'GET',
+                                'path'   => '/orders/v0/orders/{orderId}/address',
+                            ]),
+                        ],
+                    ])
+                );
+            });
 
         /**
          * @var CreateRestrictedDataTokenResponse $response

@@ -4,7 +4,7 @@ namespace Glue\SpApi\OpenAPI\Exceptions;
 
 use Exception;
 
-class RestrictedDataTokenException extends Exception
+class SpApiResolutionException extends Exception
 {
     /**
      * @param string $message

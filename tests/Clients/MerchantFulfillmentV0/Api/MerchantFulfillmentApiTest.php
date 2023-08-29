@@ -12,7 +12,8 @@ class MerchantFulfillmentApiTest extends TestCase
     public function test_getShipment()
     {
         $result = $this->sp_api()
-            ->merchantFulfillmentV0(function (MerchantFulfillmentApi $merchantFulfillmentApi) {
+            ->merchantFulfillmentV0()
+            ->execute(function (MerchantFulfillmentApi $merchantFulfillmentApi) {
                 return $merchantFulfillmentApi->getShipmentWithHttpInfo(
                     'abcddcba-00c3-4f6f-a63a-639f76ee9253'
                 );

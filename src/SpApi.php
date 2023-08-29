@@ -2,11 +2,13 @@
 
 namespace Glue\SpApi\OpenAPI;
 
+use Exception;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
+use Glue\SpApi\OpenAPI\Exceptions\SpApiResolutionException;
 use Glue\SpApi\OpenAPI\Middleware\Builder\RequestRdtMiddleware;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
@@ -14,6 +16,7 @@ use Glue\SpApi\OpenAPI\Services\Rdt\RdtServiceInterface;
 use Glue\SpApi\OpenAPI\Utilities\BuilderMiddlewarePipeline;
 use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
 use Glue\SpApi\OpenAPI\Utilities\SpApiRoster;
+use ReflectionFunction;
 
 /**
  * SP-API execution class, which should be instantiated once per SP-API call
@@ -40,6 +43,11 @@ class SpApi
      * @var SpApiConfig
      */
     protected $spApiConfig;
+
+    /**
+     * @var string|null
+     */
+    protected $apiClassToExecute = null;
 
     /**
      * @var BuilderMiddlewarePipeline
@@ -69,6 +77,25 @@ class SpApi
     public function getSpApiConfig()
     {
         return clone $this->spApiConfig;
+    }
+
+    /**
+     * @param callable $execute
+     * @return mixed
+     * @throws DomainApiException|LwaAccessTokenException|RestrictedDataTokenException
+     */
+    public function execute(callable $execute)
+    {
+        $clientFactoryMethod = $this->_resolveClientFactoryMethod($execute);
+        try {
+            return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
+        } catch (DomainApiException $ex) {
+            if ($ex->getCode() === 403) {
+                $this->lwaService->forgetCachedLwaAccessToken();
+                return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
+            }
+            throw $ex;
+        }
     }
 
     /**
@@ -121,661 +148,476 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `AplusContentApi` (FQN `\Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function aplusContentV20201101(callable $execute)
+    public function aplusContentV20201101()
     {
-        return $this->_execute(
-            'createAplusContentV20201101ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\AplusContentV20201101\Api\AplusContentApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `AuthorizationApi` (FQN `\Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Api\AuthorizationApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function authorizationV1(callable $execute)
+    public function authorizationV1()
     {
-        return $this->_execute(
-            'createAuthorizationV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\AuthorizationV1\Api\AuthorizationApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `CatalogApi` (FQN `\Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Api\CatalogApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function catalogItemsV0(callable $execute)
+    public function catalogItemsV0()
     {
-        return $this->_execute(
-            'createCatalogItemsV0ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\CatalogItemsV0\Api\CatalogApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `CatalogApi` (FQN `\Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Api\CatalogApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function catalogItemsV20201201(callable $execute)
+    public function catalogItemsV20201201()
     {
-        return $this->_execute(
-            'createCatalogItemsV20201201ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\CatalogItemsV20201201\Api\CatalogApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `DefinitionsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function definitionsProductTypesV20200901(callable $execute)
+    public function definitionsProductTypesV20200901()
     {
-        return $this->_execute(
-            'createDefinitionsProductTypesV20200901ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `EasyShipApi` (FQN `\Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Api\EasyShipApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function easyShipV20220323(callable $execute)
+    public function easyShipV20220323()
     {
-        return $this->_execute(
-            'createEasyShipV20220323ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\EasyShipV20220323\Api\EasyShipApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `FbaInboundApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Api\FbaInboundApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function fbaInboundEligibilityV1(callable $execute)
+    public function fbaInboundEligibilityV1()
     {
-        return $this->_execute(
-            'createFbaInboundEligibilityV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\FbaInboundEligibilityV1\Api\FbaInboundApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `FbaInventoryApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Api\FbaInventoryApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function fbaInventoryV1(callable $execute)
+    public function fbaInventoryV1()
     {
-        return $this->_execute(
-            'createFbaInventoryV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\FbaInventoryV1\Api\FbaInventoryApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `SmallAndLightApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Api\SmallAndLightApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function fbaSmallAndLightV1(callable $execute)
+    public function fbaSmallAndLightV1()
     {
-        return $this->_execute(
-            'createFbaSmallAndLightV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\FbaSmallAndLightV1\Api\SmallAndLightApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `FeedsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function feedsV20200904(callable $execute)
+    public function feedsV20200904()
     {
-        return $this->_execute(
-            'createFeedsV20200904ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\FeedsV20200904\Api\FeedsApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `FeedsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function feedsV20210630(callable $execute)
+    public function feedsV20210630()
     {
-        return $this->_execute(
-            'createFeedsV20210630ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\FeedsV20210630\Api\FeedsApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `DefaultApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function financesV0(callable $execute)
+    public function financesV0()
     {
-        return $this->_execute(
-            'createFinancesV0ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\FinancesV0\Api\DefaultApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `FbaInboundApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Api\FbaInboundApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function fulfillmentInboundV0(callable $execute)
+    public function fulfillmentInboundV0()
     {
-        return $this->_execute(
-            'createFulfillmentInboundV0ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\FulfillmentInboundV0\Api\FbaInboundApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `FbaOutboundApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Api\FbaOutboundApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function fulfillmentOutboundV20200701(callable $execute)
+    public function fulfillmentOutboundV20200701()
     {
-        return $this->_execute(
-            'createFulfillmentOutboundV20200701ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\FulfillmentOutboundV20200701\Api\FbaOutboundApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `ListingsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function listingsItemsV20200901(callable $execute)
+    public function listingsItemsV20200901()
     {
-        return $this->_execute(
-            'createListingsItemsV20200901ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\ListingsItemsV20200901\Api\ListingsApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `ListingsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Api\ListingsApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function listingsItemsV20210801(callable $execute)
+    public function listingsItemsV20210801()
     {
-        return $this->_execute(
-            'createListingsItemsV20210801ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\ListingsItemsV20210801\Api\ListingsApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `ListingsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Api\ListingsApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function listingsRestrictionsV20210801(callable $execute)
+    public function listingsRestrictionsV20210801()
     {
-        return $this->_execute(
-            'createListingsRestrictionsV20210801ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\ListingsRestrictionsV20210801\Api\ListingsApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `MerchantFulfillmentApi` (FQN `\Glue\SpApi\OpenAPI\Clients\MerchantFulfillmentV0\Api\MerchantFulfillmentApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function merchantFulfillmentV0(callable $execute)
+    public function merchantFulfillmentV0()
     {
-        return $this->_execute(
-            'createMerchantFulfillmentV0ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\MerchantFulfillmentV0\Api\MerchantFulfillmentApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `NotificationsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\NotificationsV1\Api\NotificationsApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function notificationsV1(callable $execute)
+    public function notificationsV1()
     {
-        return $this->_execute(
-            'createNotificationsV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\NotificationsV1\Api\NotificationsApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `OrdersV0Api` (FQN `\Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function ordersV0(callable $execute)
+    public function ordersV0()
     {
-        return $this->_execute(
-            'createOrdersV0ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\OrdersV0\Api\OrdersV0Api::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `ShipmentApi` (FQN `\Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function ordersV0Shipment(callable $execute)
+    public function ordersV0Shipment()
     {
-        return $this->_execute(
-            'createOrdersV0ShipmentApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\OrdersV0\Api\ShipmentApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `FeesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function productFeesV0(callable $execute)
+    public function productFeesV0()
     {
-        return $this->_execute(
-            'createProductFeesV0ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\ProductFeesV0\Api\FeesApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `ProductPricingApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Api\ProductPricingApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function productPricingV0(callable $execute)
+    public function productPricingV0()
     {
-        return $this->_execute(
-            'createProductPricingV0ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\ProductPricingV0\Api\ProductPricingApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `OffersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function replenishmentV20221107Offers(callable $execute)
+    public function replenishmentV20221107Offers()
     {
-        return $this->_execute(
-            'createReplenishmentV20221107OffersApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\ReplenishmentV20221107\Api\OffersApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `SellingpartnersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function replenishmentV20221107Sellingpartners(callable $execute)
+    public function replenishmentV20221107Sellingpartners()
     {
-        return $this->_execute(
-            'createReplenishmentV20221107SellingpartnersApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\ReplenishmentV20221107\Api\SellingpartnersApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `ReportsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function reportsV20200904(callable $execute)
+    public function reportsV20200904()
     {
-        return $this->_execute(
-            'createReportsV20200904ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\ReportsV20200904\Api\ReportsApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `ReportsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function reportsV20210630(callable $execute)
+    public function reportsV20210630()
     {
-        return $this->_execute(
-            'createReportsV20210630ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\ReportsV20210630\Api\ReportsApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `SalesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function salesV1(callable $execute)
+    public function salesV1()
     {
-        return $this->_execute(
-            'createSalesV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\SalesV1\Api\SalesApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `SellersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\SellersV1\Api\SellersApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function sellersV1(callable $execute)
+    public function sellersV1()
     {
-        return $this->_execute(
-            'createSellersV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\SellersV1\Api\SellersApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `ServiceApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ServicesV1\Api\ServiceApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function servicesV1(callable $execute)
+    public function servicesV1()
     {
-        return $this->_execute(
-            'createServicesV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\ServicesV1\Api\ServiceApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `ShipmentInvoiceApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function shipmentInvoicingV0(callable $execute)
+    public function shipmentInvoicingV0()
     {
-        return $this->_execute(
-            'createShipmentInvoicingV0ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `SupplySourcesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function supplySourcesV20200701(callable $execute)
+    public function supplySourcesV20200701()
     {
-        return $this->_execute(
-            'createSupplySourcesV20200701ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\SupplySourcesV20200701\Api\SupplySourcesApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `TokensApi` (FQN `\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function tokensV20210301(callable $execute)
+    public function tokensV20210301()
     {
-        return $this->_execute(
-            'createTokensV20210301ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\TokensV20210301\Api\TokensApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `UploadsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Api\UploadsApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function uploadsV20201101(callable $execute)
+    public function uploadsV20201101()
     {
-        return $this->_execute(
-            'createUploadsV20201101ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\UploadsV20201101\Api\UploadsApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `UpdateInventoryApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentInventoryV1(callable $execute)
+    public function vendorDirectFulfillmentInventoryV1()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentInventoryV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `VendorOrdersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Api\VendorOrdersApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentOrdersV1(callable $execute)
+    public function vendorDirectFulfillmentOrdersV1()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentOrdersV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentOrdersV1\Api\VendorOrdersApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `VendorOrdersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentOrdersV20211228(callable $execute)
+    public function vendorDirectFulfillmentOrdersV20211228()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentOrdersV20211228ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `VendorInvoiceApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Api\VendorInvoiceApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentPaymentsV1(callable $execute)
+    public function vendorDirectFulfillmentPaymentsV1()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentPaymentsV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentPaymentsV1\Api\VendorInvoiceApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `VendorDFSandboxApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentSandboxDataV20211228(callable $execute)
+    public function vendorDirectFulfillmentSandboxDataV20211228()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentSandboxDataV20211228ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `VendorDFSandboxtransactionstatusApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentSandboxDataV20211228transactionstatus(callable $execute)
+    public function vendorDirectFulfillmentSandboxDataV20211228transactionstatus()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `CustomerInvoicesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentShippingV1CustomerInvoices(callable $execute)
+    public function vendorDirectFulfillmentShippingV1CustomerInvoices()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `VendorShippingApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentShippingV1(callable $execute)
+    public function vendorDirectFulfillmentShippingV1()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentShippingV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `VendorShippingLabelsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentShippingV1Labels(callable $execute)
+    public function vendorDirectFulfillmentShippingV1Labels()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentShippingV1LabelsApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `CustomerInvoicesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentShippingV20211228CustomerInvoices(callable $execute)
+    public function vendorDirectFulfillmentShippingV20211228CustomerInvoices()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `VendorShippingApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentShippingV20211228(callable $execute)
+    public function vendorDirectFulfillmentShippingV20211228()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentShippingV20211228ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `VendorShippingLabelsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentShippingV20211228Labels(callable $execute)
+    public function vendorDirectFulfillmentShippingV20211228Labels()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentShippingV20211228LabelsApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `VendorTransactionApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentTransactionsV1(callable $execute)
+    public function vendorDirectFulfillmentTransactionsV1()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentTransactionsV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `VendorTransactionApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function vendorDirectFulfillmentTransactionsV20211228(callable $execute)
+    public function vendorDirectFulfillmentTransactionsV20211228()
     {
-        return $this->_execute(
-            'createVendorDirectFulfillmentTransactionsV20211228ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi::class;
+        return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st parameter is instance of `VendorTransactionApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi`)
-     * @return mixed
-     * @throws LwaAccessTokenException
+     * @return static
      */
-    public function vendorTransactionStatusV1(callable $execute)
+    public function vendorTransactionStatusV1()
     {
-        return $this->_execute(
-            'createVendorTransactionStatusV1ApiClient',
-            $execute
-        );
+        $this->apiClassToExecute = Clients\VendorTransactionStatusV1\Api\VendorTransactionApi::class;
+        return $this;
     }
 
-    /**
-     * @param string $clientFactoryMethod
-     * @param callable $execute
-     * @return mixed
-     * @throws DomainApiException
-     */
-    protected function _execute(
-        $clientFactoryMethod,
-        callable $execute
-    ) {
-        try {
-            return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
-        } catch (DomainApiException $ex) {
-            if ($ex->getCode() === 403) {
-                $this->lwaService->forgetCachedLwaAccessToken();
-                return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
-            }
-            throw $ex;
+    protected function _resolveClientFactoryMethod(callable $execute)
+    {
+        if (isset($this->apiClassToExecute)) {
+            return SpApiRoster::getFactoryMethodFromApiClassFqn($this->apiClassToExecute);
         }
+
+        return $this->_resolveClientFactoryMethodViaReflection($execute);
+    }
+
+    protected function _resolveClientFactoryMethodViaReflection(callable $execute)
+    {
+        $reflector = new ReflectionFunction($execute);
+
+        if (empty($parameters = $reflector->getParameters())) {
+            throw new SpApiResolutionException("The callback passed to SpApi::execute"
+                . " has no parameters; the first argument must be one of: ["
+                . implode(', ', SpApiRoster::allApiClassFqns()) . "]");
+        }
+
+        // TODO: Update the use of `getClass()` to `getType()`, as the former is deprecated
+        // and highly discouraged as of PHP 8, whereas the latter is only available from PHP 7.
+        $typeHintedParameterClass = $parameters[0]->getClass()->name;
+
+        if (!SpApiRoster::isValidApiClassFqn($typeHintedParameterClass)) {
+            throw new SpApiResolutionException("Invalid type-hinted class name"
+                . " [$typeHintedParameterClass] in the callback of SpApi::execute;"
+                . " must be one of: [" . implode(', ', SpApiRoster::allApiClassFqns()) . "]");
+        }
+
+        return SpApiRoster::getFactoryMethodFromApiClassFqn($typeHintedParameterClass);
     }
 
     /**
@@ -793,7 +635,7 @@ class SpApi
                 $this->builderMiddlewarePipeline
             );
             return $execute($apiClient);
-        } catch (\Exception $ex) {
+        } catch (Exception $ex) {
             if (SpApiRoster::isApiException($ex)) {
                 throw new DomainApiException(
                     $ex,

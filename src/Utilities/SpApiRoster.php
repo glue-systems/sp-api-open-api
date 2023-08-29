@@ -242,6 +242,58 @@ class SpApiRoster
         VendorTransactionStatusV1Api::class                                     => VendorTransactionStatusV1ApiException::class,
     ];
 
+    const API_FQN_TO_FACTORY_METHOD_MAPS = [
+        AplusContentV20201101Api::class                                         => 'createAplusContentV20201101ApiClient',
+        AuthorizationV1Api::class                                               => 'createAuthorizationV1ApiClient',
+        CatalogItemsV0Api::class                                                => 'createCatalogItemsV0ApiClient',
+        CatalogItemsV20201201Api::class                                         => 'createCatalogItemsV20201201ApiClient',
+        DefinitionsProductTypesV20200901Api::class                              => 'createDefinitionsProductTypesV20200901ApiClient',
+        EasyShipV20220323Api::class                                             => 'createEasyShipV20220323ApiClient',
+        FbaInboundEligibilityV1Api::class                                       => 'createFbaInboundEligibilityV1ApiClient',
+        FbaInventoryV1Api::class                                                => 'createFbaInventoryV1ApiClient',
+        FbaSmallAndLightV1Api::class                                            => 'createFbaSmallAndLightV1ApiClient',
+        FeedsV20200904Api::class                                                => 'createFeedsV20200904ApiClient',
+        FeedsV20210630Api::class                                                => 'createFeedsV20210630ApiClient',
+        FinancesV0Api::class                                                    => 'createFinancesV0ApiClient',
+        FulfillmentInboundV0Api::class                                          => 'createFulfillmentInboundV0ApiClient',
+        FulfillmentOutboundV20200701Api::class                                  => 'createFulfillmentOutboundV20200701ApiClient',
+        ListingsItemsV20200901Api::class                                        => 'createListingsItemsV20200901ApiClient',
+        ListingsItemsV20210801Api::class                                        => 'createListingsItemsV20210801ApiClient',
+        ListingsRestrictionsV20210801Api::class                                 => 'createListingsRestrictionsV20210801ApiClient',
+        MerchantFulfillmentV0Api::class                                         => 'createMerchantFulfillmentV0ApiClient',
+        NotificationsV1Api::class                                               => 'createNotificationsV1ApiClient',
+        OrdersV0Api::class                                                      => 'createOrdersV0ApiClient',
+        OrdersV0ShipmentApi::class                                              => 'createOrdersV0ShipmentApiClient',
+        ProductFeesV0Api::class                                                 => 'createProductFeesV0ApiClient',
+        ProductPricingV0Api::class                                              => 'createProductPricingV0ApiClient',
+        ReplenishmentV20221107OffersApi::class                                  => 'createReplenishmentV20221107OffersApiClient',
+        ReplenishmentV20221107SellingpartnersApi::class                         => 'createReplenishmentV20221107SellingpartnersApiClient',
+        ReportsV20200904Api::class                                              => 'createReportsV20200904ApiClient',
+        ReportsV20210630Api::class                                              => 'createReportsV20210630ApiClient',
+        SalesV1Api::class                                                       => 'createSalesV1ApiClient',
+        SellersV1Api::class                                                     => 'createSellersV1ApiClient',
+        ServicesV1Api::class                                                    => 'createServicesV1ApiClient',
+        ShipmentInvoicingV0Api::class                                           => 'createShipmentInvoicingV0ApiClient',
+        SupplySourcesV20200701Api::class                                        => 'createSupplySourcesV20200701ApiClient',
+        TokensV20210301Api::class                                               => 'createTokensV20210301ApiClient',
+        UploadsV20201101Api::class                                              => 'createUploadsV20201101ApiClient',
+        VendorDirectFulfillmentInventoryV1Api::class                            => 'createVendorDirectFulfillmentInventoryV1ApiClient',
+        VendorDirectFulfillmentOrdersV1Api::class                               => 'createVendorDirectFulfillmentOrdersV1ApiClient',
+        VendorDirectFulfillmentOrdersV20211228Api::class                        => 'createVendorDirectFulfillmentOrdersV20211228ApiClient',
+        VendorDirectFulfillmentPaymentsV1Api::class                             => 'createVendorDirectFulfillmentPaymentsV1ApiClient',
+        VendorDirectFulfillmentSandboxDataV20211228Api::class                   => 'createVendorDirectFulfillmentSandboxDataV20211228ApiClient',
+        VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi::class  => 'createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient',
+        VendorDirectFulfillmentShippingV1CustomerInvoicesApi::class             => 'createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient',
+        VendorDirectFulfillmentShippingV1Api::class                             => 'createVendorDirectFulfillmentShippingV1ApiClient',
+        VendorDirectFulfillmentShippingV1LabelsApi::class                       => 'createVendorDirectFulfillmentShippingV1LabelsApiClient',
+        VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi::class      => 'createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient',
+        VendorDirectFulfillmentShippingV20211228Api::class                      => 'createVendorDirectFulfillmentShippingV20211228ApiClient',
+        VendorDirectFulfillmentShippingV20211228LabelsApi::class                => 'createVendorDirectFulfillmentShippingV20211228LabelsApiClient',
+        VendorDirectFulfillmentTransactionsV1Api::class                         => 'createVendorDirectFulfillmentTransactionsV1ApiClient',
+        VendorDirectFulfillmentTransactionsV20211228Api::class                  => 'createVendorDirectFulfillmentTransactionsV20211228ApiClient',
+        VendorTransactionStatusV1Api::class                                     => 'createVendorTransactionStatusV1ApiClient',
+    ];
+
     /**
      * @return array
      */
@@ -296,5 +348,14 @@ class SpApiRoster
     public static function getDomainConfigFromApiClassFqn($apiClassFqn)
     {
         return static::API_TO_CONFIG_FQN_MAPS[$apiClassFqn];
+    }
+
+    /**
+     * @param string $apiClassFqn
+     * @return string `ClientFactory` method corresponding to the provided API class FQN
+     */
+    public static function getFactoryMethodFromApiClassFqn($apiClassFqn)
+    {
+        return static::API_FQN_TO_FACTORY_METHOD_MAPS[$apiClassFqn];
     }
 }

@@ -11,7 +11,8 @@ class DefinitionsApiTest extends TestCase
     public function test_getDefinitionsProductType()
     {
         $result = $this->sp_api()
-            ->definitionsProductTypesV20200901(function (DefinitionsApi $definitionsApi) {
+            ->definitionsProductTypesV20200901()
+            ->execute(function (DefinitionsApi $definitionsApi) {
                 return $definitionsApi->getDefinitionsProductTypeWithHttpInfo(
                     'testProductType123',
                     [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId]
