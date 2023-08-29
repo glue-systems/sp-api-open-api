@@ -139,6 +139,49 @@ class ClientBuilderTest extends TestCase
         $this->assertEquals($expectedRdtProvider, $sut->getRdtProvider());
     }
 
+    public function test_pushGuzzleMiddleware()
+    {
+        $middlewareName = 'fake_middleware_name';
+        $middleware     = function () {
+            return 'fake middleware';
+        };
+        $expectedHandlerStack = clone $this->guzzleHandlerStack;
+        $expectedHandlerStack->push($middleware, $middlewareName);
+
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut->pushGuzzleMiddleware($middleware, $middlewareName);
+
+        $this->assertEquals($expectedHandlerStack, $sut->getGuzzleHandlerStack());
+    }
+
+    public function test_overrideAwsCredentialScopeService()
+    {
+        $awsCredentialScopeServiceOverride = 'fake-service';
+
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+
+        $sut->overrideAwsCredentialScopeService($awsCredentialScopeServiceOverride);
+
+        $this->assertEquals(
+            $awsCredentialScopeServiceOverride,
+            $sut->getAwsCredentialScopeServiceOverride()
+        );
+    }
+
+    public function test_overrideAwsCredentialScopeRegion()
+    {
+        $awsCredentialScopeRegionOverride = 'fake-region';
+
+        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+
+        $sut->overrideAwsCredentialScopeRegion($awsCredentialScopeRegionOverride);
+
+        $this->assertEquals(
+            $awsCredentialScopeRegionOverride,
+            $sut->getAwsCredentialScopeRegionOverride()
+        );
+    }
+
     public function test_createClient_happy_case_with_non_empty_guzzleHandlerStack()
     {
         list($expectedGuzzleClient, $expectedDomainClient) = $this->_buildHappyCaseClients();
