@@ -7,9 +7,11 @@ use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
+use Glue\SpApi\OpenAPI\Middleware\Builder\RequestRdtMiddleware;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use Glue\SpApi\OpenAPI\Services\Rdt\RdtServiceInterface;
+use Glue\SpApi\OpenAPI\Utilities\BuilderMiddlewarePipeline;
 use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
 use Glue\SpApi\OpenAPI\Utilities\SpApiRoster;
 
@@ -40,25 +42,23 @@ class SpApi
     protected $spApiConfig;
 
     /**
-     * @var CreateRestrictedDataTokenRequest|null
+     * @var BuilderMiddlewarePipeline
      */
-    protected $rdtRequest = null;
-
-    /**
-     * @var callable|null
-     */
-    protected $builderCallback = null;
+    protected $builderMiddlewarePipeline;
 
     public function __construct(
         ClientFactoryInterface $clientFactory,
         RdtServiceInterface $rdtService,
         LwaServiceInterface $lwaService,
-        SpApiConfig $spApiConfig
+        SpApiConfig $spApiConfig,
+        BuilderMiddlewarePipeline $builderMiddlewarePipeline = null
     ) {
-        $this->clientFactory = $clientFactory;
-        $this->rdtService    = $rdtService;
-        $this->lwaService    = $lwaService;
-        $this->spApiConfig   = $spApiConfig;
+        $this->clientFactory             = $clientFactory;
+        $this->rdtService                = $rdtService;
+        $this->lwaService                = $lwaService;
+        $this->spApiConfig               = $spApiConfig;
+        $this->builderMiddlewarePipeline = $builderMiddlewarePipeline
+            ?: new BuilderMiddlewarePipeline();
     }
 
     /**
@@ -78,24 +78,50 @@ class SpApi
      */
     public function withRdtRequest(CreateRestrictedDataTokenRequest $rdtRequest)
     {
-        $this->rdtRequest = $rdtRequest;
+        $this->pushBuilderMiddleware(
+            new RequestRdtMiddleware($this->rdtService, $rdtRequest),
+            RequestRdtMiddleware::MIDDLEWARE_NAME
+        );
         return $this;
     }
 
     /**
-     * Set a builder callback for modifying the ClientBuilder instance that
+     * Push a middleware that will be applied to the ClientBuilder instance that
      * is used to construct the SP-API client.
      *
+     * @param callable $middleware
+     * @param string|null $name
      * @return static
      */
-    public function buildUsing(callable $builderCallback)
-    {
-        $this->builderCallback = $builderCallback;
+    public function pushBuilderMiddleware(
+        callable $middleware,
+        $name = null
+    ) {
+        $this->builderMiddlewarePipeline->push($middleware, $name);
         return $this;
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `AplusContentApi` (FQN `\Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi`)
+     * Add a callback to modify the ClientBuilder instance that is used to construct
+     * the SP-API client. This is simply a quicker way to push a new builder
+     * middleware onto the pipeline without needing to manage the `next` callback.
+     *
+     * @param callable $builderCallback Callback 1st parameter is instance of `ClientBuilder`
+     * @param string|null $name
+     * @return static
+     */
+    public function buildUsing(
+        callable $builderCallback,
+        $name = null
+    ) {
+        $middleware = $this->_wrapBuilderCallbackInMiddleware($builderCallback);
+
+        $this->pushBuilderMiddleware($middleware, $name);
+        return $this;
+    }
+
+    /**
+     * @param callable $execute Callback 1st parameter is instance of `AplusContentApi` (FQN `\Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -108,7 +134,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `AuthorizationApi` (FQN `\Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Api\AuthorizationApi`)
+     * @param callable $execute Callback 1st parameter is instance of `AuthorizationApi` (FQN `\Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Api\AuthorizationApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -121,7 +147,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `CatalogApi` (FQN `\Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Api\CatalogApi`)
+     * @param callable $execute Callback 1st parameter is instance of `CatalogApi` (FQN `\Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Api\CatalogApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -134,7 +160,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `CatalogApi` (FQN `\Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Api\CatalogApi`)
+     * @param callable $execute Callback 1st parameter is instance of `CatalogApi` (FQN `\Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Api\CatalogApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -147,7 +173,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `DefinitionsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi`)
+     * @param callable $execute Callback 1st parameter is instance of `DefinitionsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -160,7 +186,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `EasyShipApi` (FQN `\Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Api\EasyShipApi`)
+     * @param callable $execute Callback 1st parameter is instance of `EasyShipApi` (FQN `\Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Api\EasyShipApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -173,7 +199,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `FbaInboundApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Api\FbaInboundApi`)
+     * @param callable $execute Callback 1st parameter is instance of `FbaInboundApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Api\FbaInboundApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -186,7 +212,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `FbaInventoryApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Api\FbaInventoryApi`)
+     * @param callable $execute Callback 1st parameter is instance of `FbaInventoryApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Api\FbaInventoryApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -199,7 +225,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `SmallAndLightApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Api\SmallAndLightApi`)
+     * @param callable $execute Callback 1st parameter is instance of `SmallAndLightApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Api\SmallAndLightApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -212,7 +238,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `FeedsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi`)
+     * @param callable $execute Callback 1st parameter is instance of `FeedsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -225,7 +251,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `FeedsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi`)
+     * @param callable $execute Callback 1st parameter is instance of `FeedsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -238,7 +264,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `DefaultApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi`)
+     * @param callable $execute Callback 1st parameter is instance of `DefaultApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -251,7 +277,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `FbaInboundApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Api\FbaInboundApi`)
+     * @param callable $execute Callback 1st parameter is instance of `FbaInboundApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Api\FbaInboundApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -264,7 +290,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `FbaOutboundApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Api\FbaOutboundApi`)
+     * @param callable $execute Callback 1st parameter is instance of `FbaOutboundApi` (FQN `\Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Api\FbaOutboundApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -277,7 +303,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `ListingsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi`)
+     * @param callable $execute Callback 1st parameter is instance of `ListingsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -290,7 +316,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `ListingsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Api\ListingsApi`)
+     * @param callable $execute Callback 1st parameter is instance of `ListingsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Api\ListingsApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -303,7 +329,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `ListingsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Api\ListingsApi`)
+     * @param callable $execute Callback 1st parameter is instance of `ListingsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Api\ListingsApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -316,7 +342,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `MerchantFulfillmentApi` (FQN `\Glue\SpApi\OpenAPI\Clients\MerchantFulfillmentV0\Api\MerchantFulfillmentApi`)
+     * @param callable $execute Callback 1st parameter is instance of `MerchantFulfillmentApi` (FQN `\Glue\SpApi\OpenAPI\Clients\MerchantFulfillmentV0\Api\MerchantFulfillmentApi`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -329,7 +355,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `NotificationsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\NotificationsV1\Api\NotificationsApi`)
+     * @param callable $execute Callback 1st parameter is instance of `NotificationsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\NotificationsV1\Api\NotificationsApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -342,7 +368,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `OrdersV0Api` (FQN `\Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api`)
+     * @param callable $execute Callback 1st parameter is instance of `OrdersV0Api` (FQN `\Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -355,7 +381,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `ShipmentApi` (FQN `\Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi`)
+     * @param callable $execute Callback 1st parameter is instance of `ShipmentApi` (FQN `\Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -368,7 +394,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `FeesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi`)
+     * @param callable $execute Callback 1st parameter is instance of `FeesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -381,7 +407,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `ProductPricingApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Api\ProductPricingApi`)
+     * @param callable $execute Callback 1st parameter is instance of `ProductPricingApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Api\ProductPricingApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -394,7 +420,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `OffersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi`)
+     * @param callable $execute Callback 1st parameter is instance of `OffersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -407,7 +433,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `SellingpartnersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi`)
+     * @param callable $execute Callback 1st parameter is instance of `SellingpartnersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -420,7 +446,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `ReportsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi`)
+     * @param callable $execute Callback 1st parameter is instance of `ReportsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -433,7 +459,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `ReportsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi`)
+     * @param callable $execute Callback 1st parameter is instance of `ReportsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -446,7 +472,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `SalesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi`)
+     * @param callable $execute Callback 1st parameter is instance of `SalesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -459,7 +485,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `SellersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\SellersV1\Api\SellersApi`)
+     * @param callable $execute Callback 1st parameter is instance of `SellersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\SellersV1\Api\SellersApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -472,7 +498,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `ServiceApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ServicesV1\Api\ServiceApi`)
+     * @param callable $execute Callback 1st parameter is instance of `ServiceApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ServicesV1\Api\ServiceApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -485,7 +511,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `ShipmentInvoiceApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi`)
+     * @param callable $execute Callback 1st parameter is instance of `ShipmentInvoiceApi` (FQN `\Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -498,7 +524,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `SupplySourcesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi`)
+     * @param callable $execute Callback 1st parameter is instance of `SupplySourcesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -511,7 +537,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `TokensApi` (FQN `\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi`)
+     * @param callable $execute Callback 1st parameter is instance of `TokensApi` (FQN `\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -524,7 +550,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `UploadsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Api\UploadsApi`)
+     * @param callable $execute Callback 1st parameter is instance of `UploadsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Api\UploadsApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -537,7 +563,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `UpdateInventoryApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi`)
+     * @param callable $execute Callback 1st parameter is instance of `UpdateInventoryApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -550,7 +576,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `VendorOrdersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Api\VendorOrdersApi`)
+     * @param callable $execute Callback 1st parameter is instance of `VendorOrdersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Api\VendorOrdersApi`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -563,7 +589,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `VendorOrdersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi`)
+     * @param callable $execute Callback 1st parameter is instance of `VendorOrdersApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -576,7 +602,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `VendorInvoiceApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Api\VendorInvoiceApi`)
+     * @param callable $execute Callback 1st parameter is instance of `VendorInvoiceApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Api\VendorInvoiceApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -589,7 +615,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `VendorDFSandboxApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxApi`)
+     * @param callable $execute Callback 1st parameter is instance of `VendorDFSandboxApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -602,7 +628,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `VendorDFSandboxtransactionstatusApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi`)
+     * @param callable $execute Callback 1st parameter is instance of `VendorDFSandboxtransactionstatusApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -615,7 +641,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `CustomerInvoicesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi`)
+     * @param callable $execute Callback 1st parameter is instance of `CustomerInvoicesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -628,7 +654,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `VendorShippingApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi`)
+     * @param callable $execute Callback 1st parameter is instance of `VendorShippingApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -641,7 +667,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `VendorShippingLabelsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi`)
+     * @param callable $execute Callback 1st parameter is instance of `VendorShippingLabelsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -654,7 +680,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `CustomerInvoicesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi`)
+     * @param callable $execute Callback 1st parameter is instance of `CustomerInvoicesApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -667,7 +693,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `VendorShippingApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi`)
+     * @param callable $execute Callback 1st parameter is instance of `VendorShippingApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -680,7 +706,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `VendorShippingLabelsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi`)
+     * @param callable $execute Callback 1st parameter is instance of `VendorShippingLabelsApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi`)
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -693,7 +719,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `VendorTransactionApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi`)
+     * @param callable $execute Callback 1st parameter is instance of `VendorTransactionApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -706,7 +732,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `VendorTransactionApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi`)
+     * @param callable $execute Callback 1st parameter is instance of `VendorTransactionApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -719,7 +745,7 @@ class SpApi
     }
 
     /**
-     * @param callable $execute Callback 1st paramter is instance of `VendorTransactionApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi`)
+     * @param callable $execute Callback 1st parameter is instance of `VendorTransactionApi` (FQN `\Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi`)
      * @return mixed
      * @throws LwaAccessTokenException
      */
@@ -763,7 +789,9 @@ class SpApi
         callable $execute
     ) {
         try {
-            $apiClient = $this->_createApiClient($clientFactoryMethod);
+            $apiClient = $this->clientFactory->{$clientFactoryMethod}(
+                $this->builderMiddlewarePipeline
+            );
             return $execute($apiClient);
         } catch (\Exception $ex) {
             if (SpApiRoster::isApiException($ex)) {
@@ -776,43 +804,14 @@ class SpApi
         }
     }
 
-    /**
-     * @param string $clientFactoryMethod
-     * @return callable
-     */
-    protected function _createApiClient($clientFactoryMethod)
-    {
-        if ($this->rdtRequest) {
-            $builderCallback = $this->_enhanceBuilderCallbackWithRdtProvider(
-                $this->rdtRequest,
-                $this->builderCallback
-            );
-        } else {
-            $builderCallback = $this->builderCallback;
-        }
-
-        return $this->clientFactory->{$clientFactoryMethod}($builderCallback);
-    }
-
-    /**
-     * @param CreateRestrictedDataTokenRequest $rdtRequest
-     * @param callable|null $build
-     * @return callable
-     */
-    protected function _enhanceBuilderCallbackWithRdtProvider(
-        CreateRestrictedDataTokenRequest $rdtRequest,
-        callable $builderCallback = null
+    protected function _wrapBuilderCallbackInMiddleware(
+        callable $builderCallback
     ) {
-        // TODO: In a future version, may be useful to implement some sort of
-        // "BuilderMiddleware" pattern, which could be provided globally and/or
-        // on each SP-API execution. This would play nicely in the Laravel package,
-        // where BuilderMiddleware can be registered via SpApiServiceProvider.
-        return function (ClientBuilder $clientBuilder) use ($builderCallback, $rdtRequest) {
-            $rdtProvider = $this->rdtService->makeRdtProviderFromRequest($rdtRequest);
-            $clientBuilder->withRdtProvider($rdtProvider);
-            if ($builderCallback) {
-                call_user_func($builderCallback, $clientBuilder);
-            }
+        return function (callable $next) use ($builderCallback) {
+            return function (ClientBuilder $builder) use ($builderCallback, $next) {
+                $builderCallback($builder);
+                return $next($builder);
+            };
         };
     }
 }

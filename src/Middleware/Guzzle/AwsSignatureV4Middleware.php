@@ -19,9 +19,6 @@ class AwsSignatureV4Middleware
      */
     protected $signer;
 
-    /**
-     * @param callable $credentialProvider
-     */
     public function __construct(
         callable $credentialProvider,
         SignatureV4 $signer
