@@ -146,6 +146,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi`
+     *
      * @return static
      */
     public function aplusContentV20201101()
@@ -155,6 +157,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Api\AuthorizationApi`
+     *
      * @return static
      */
     public function authorizationV1()
@@ -164,6 +168,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Api\CatalogApi`
+     *
      * @return static
      */
     public function catalogItemsV0()
@@ -173,6 +179,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Api\CatalogApi`
+     *
      * @return static
      */
     public function catalogItemsV20201201()
@@ -182,6 +190,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi`
+     *
      * @return static
      */
     public function definitionsProductTypesV20200901()
@@ -191,6 +201,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Api\EasyShipApi`
+     *
      * @return static
      */
     public function easyShipV20220323()
@@ -200,6 +212,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Api\FbaInboundApi`
+     *
      * @return static
      */
     public function fbaInboundEligibilityV1()
@@ -209,6 +223,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Api\FbaInventoryApi`
+     *
      * @return static
      */
     public function fbaInventoryV1()
@@ -218,6 +234,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Api\SmallAndLightApi`
+     *
      * @return static
      */
     public function fbaSmallAndLightV1()
@@ -227,6 +245,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi`
+     *
      * @return static
      */
     public function feedsV20200904()
@@ -236,6 +256,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi`
+     *
      * @return static
      */
     public function feedsV20210630()
@@ -245,6 +267,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi`
+     *
      * @return static
      */
     public function financesV0()
@@ -254,6 +278,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Api\FbaInboundApi`
+     *
      * @return static
      */
     public function fulfillmentInboundV0()
@@ -263,6 +289,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Api\FbaOutboundApi`
+     *
      * @return static
      */
     public function fulfillmentOutboundV20200701()
@@ -272,6 +300,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi`
+     *
      * @return static
      */
     public function listingsItemsV20200901()
@@ -281,6 +311,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Api\ListingsApi`
+     *
      * @return static
      */
     public function listingsItemsV20210801()
@@ -290,6 +322,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Api\ListingsApi`
+     *
      * @return static
      */
     public function listingsRestrictionsV20210801()
@@ -299,6 +333,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\MerchantFulfillmentV0\Api\MerchantFulfillmentApi`
+     *
      * @return static
      */
     public function merchantFulfillmentV0()
@@ -308,6 +344,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\NotificationsV1\Api\NotificationsApi`
+     *
      * @return static
      */
     public function notificationsV1()
@@ -317,6 +355,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api`
+     *
      * @return static
      */
     public function ordersV0()
@@ -326,6 +366,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi`
+     *
      * @return static
      */
     public function ordersV0Shipment()
@@ -335,6 +377,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi`
+     *
      * @return static
      */
     public function productFeesV0()
@@ -344,6 +388,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Api\ProductPricingApi`
+     *
      * @return static
      */
     public function productPricingV0()
@@ -353,6 +399,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi`
+     *
      * @return static
      */
     public function replenishmentV20221107Offers()
@@ -362,6 +410,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi`
+     *
      * @return static
      */
     public function replenishmentV20221107Sellingpartners()
@@ -371,6 +421,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi`
+     *
      * @return static
      */
     public function reportsV20200904()
@@ -380,6 +432,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi`
+     *
      * @return static
      */
     public function reportsV20210630()
@@ -389,6 +443,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi`
+     *
      * @return static
      */
     public function salesV1()
@@ -398,6 +454,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\SellersV1\Api\SellersApi`
+     *
      * @return static
      */
     public function sellersV1()
@@ -407,6 +465,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ServicesV1\Api\ServiceApi`
+     *
      * @return static
      */
     public function servicesV1()
@@ -416,6 +476,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi`
+     *
      * @return static
      */
     public function shipmentInvoicingV0()
@@ -425,6 +487,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi`
+     *
      * @return static
      */
     public function supplySourcesV20200701()
@@ -434,6 +498,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi`
+     *
      * @return static
      */
     public function tokensV20210301()
@@ -443,6 +509,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Api\UploadsApi`
+     *
      * @return static
      */
     public function uploadsV20201101()
@@ -452,6 +520,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentInventoryV1()
@@ -461,6 +531,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Api\VendorOrdersApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentOrdersV1()
@@ -470,6 +542,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentOrdersV20211228()
@@ -479,6 +553,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Api\VendorInvoiceApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentPaymentsV1()
@@ -488,6 +564,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentSandboxDataV20211228()
@@ -497,6 +575,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentSandboxDataV20211228transactionstatus()
@@ -506,6 +586,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentShippingV1CustomerInvoices()
@@ -515,6 +597,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentShippingV1()
@@ -524,6 +608,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentShippingV1Labels()
@@ -533,6 +619,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentShippingV20211228CustomerInvoices()
@@ -542,6 +630,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentShippingV20211228()
@@ -551,6 +641,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentShippingV20211228Labels()
@@ -560,6 +652,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentTransactionsV1()
@@ -569,6 +663,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi`
+     *
      * @return static
      */
     public function vendorDirectFulfillmentTransactionsV20211228()
@@ -578,6 +674,8 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi`
+     *
      * @return static
      */
     public function vendorTransactionStatusV1()
