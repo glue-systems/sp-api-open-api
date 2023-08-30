@@ -22,15 +22,6 @@ class SpApiConfig
     public $defaultSellerId;
 
     /**
-     * AWS 'region' component of the credential scope used in Signature V4 request authentication.
-     * See SP-API documentation for more info:
-     * https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api#credential-scope
-     *
-     * @var string
-     */
-    public $defaultAwsCredentialScopeRegion;
-
-    /**
      * AWS 'service' component of the credential scope used in Signature V4 request authentication.
      * See SP-API documentation for more info:
      * https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api#credential-scope
@@ -38,6 +29,15 @@ class SpApiConfig
      * @var string
      */
     public $defaultAwsCredentialScopeService = 'execute-api';
+
+    /**
+     * AWS 'region' component of the credential scope used in Signature V4 request authentication.
+     * See SP-API documentation for more info:
+     * https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api#credential-scope
+     *
+     * @var string
+     */
+    public $defaultAwsCredentialScopeRegion;
 
     /**
      * @var string
@@ -80,16 +80,6 @@ class SpApiConfig
     public $sandbox;
 
     /**
-     * @var bool
-     */
-    public $domainApiCallDebug = false;
-
-    /**
-     * @var bool
-     */
-    public $oAuthApiCallDebug = false;
-
-    /**
      * Note that, if set to true and the ApiException's response body is a stream,
      * it is possible that it can only be unpacked once for that object before the
      * internal stream handle becomes detached. If you have no need to automate
@@ -99,6 +89,16 @@ class SpApiConfig
      * @var bool
      */
     public $alwaysUnpackApiExceptionResponseBody = false;
+
+    /**
+     * @var bool
+     */
+    public $domainApiCallDebug = false;
+
+    /**
+     * @var bool
+     */
+    public $oAuthApiCallDebug = false;
 
     public function __construct(array $data)
     {
