@@ -22,15 +22,6 @@ class SpApiConfig
     public $defaultSellerId;
 
     /**
-     * AWS 'region' component of the credential scope used in Signature V4 request authentication.
-     * See SP-API documentation for more info:
-     * https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api#credential-scope
-     *
-     * @var string
-     */
-    public $defaultAwsCredentialScopeRegion;
-
-    /**
      * AWS 'service' component of the credential scope used in Signature V4 request authentication.
      * See SP-API documentation for more info:
      * https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api#credential-scope
@@ -38,6 +29,15 @@ class SpApiConfig
      * @var string
      */
     public $defaultAwsCredentialScopeService = 'execute-api';
+
+    /**
+     * AWS 'region' component of the credential scope used in Signature V4 request authentication.
+     * See SP-API documentation for more info:
+     * https://developer-docs.amazon.com/sp-api/docs/connecting-to-the-selling-partner-api#credential-scope
+     *
+     * @var string
+     */
+    public $defaultAwsCredentialScopeRegion;
 
     /**
      * @var string

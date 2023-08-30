@@ -103,20 +103,20 @@ class TestCase extends BaseTestCase
             'defaultBaseUrl'                       => env('DEFAULT_BASE_URL', 'https://sandbox.sellingpartnerapi-na.amazon.com'),
             'defaultMarketplaceId'                 => env('DEFAULT_MARKETPLACE_ID'),
             'defaultSellerId'                      => env('DEFAULT_SELLER_ID'),
-            'defaultAwsCredentialScopeRegion'      => env('DEFAULT_AWS_CREDENTIAL_SCOPE_REGION', 'us-east-1'),
             'defaultAwsCredentialScopeService'     => env('DEFAULT_AWS_CREDENTIAL_SCOPE_SERVICE', 'execute-api'),
+            'defaultAwsCredentialScopeRegion'      => env('DEFAULT_AWS_CREDENTIAL_SCOPE_REGION', 'us-east-1'),
             'lwaOAuthBaseUrl'                      => env('LWA_O_AUTH_BASE_URL', 'https://api.amazon.com'),
             'lwaRefreshToken'                      => env('LWA_REFRESH_TOKEN'),
             'lwaClientId'                          => env('LWA_CLIENT_ID'),
             'lwaClientSecret'                      => env('LWA_CLIENT_SECRET'),
-            'lwaAccessTokenCacheKey'               => env('LWA_CLIENT_SECRET', 'lwa_access_token'),
+            'lwaAccessTokenCacheKey'               => env('LWA_ACCESS_TOKEN_CACHE_KEY', 'lwa_access_token'),
             'appNameAndVersion'                    => env('APP_NAME_AND_VERSION', 'GLUE_TEST/0.0.1'),
             'appLanguageAndVersion'                => env('APP_LANGUAGE_AND_VERSION', 'PHP/7.2'),
             // SANDBOX env is also set to true in phpunit.xml.
             'sandbox'                              => true,
+            'alwaysUnpackApiExceptionResponseBody' => env('ALWAYS_UNPACK_API_EXCEPTION_RESPONSE_BODY', true),
             'domainApiCallDebug'                   => env('DOMAIN_API_CALL_DEBUG', false),
             'oAuthApiCallDebug'                    => env('O_AUTH_API_CALL_DEBUG', false),
-            'alwaysUnpackApiExceptionResponseBody' => env('ALWAYS_UNPACK_API_EXCEPTION_RESPONSE_BODY', true),
         ]);
     }
 
