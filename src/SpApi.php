@@ -90,11 +90,9 @@ class SpApi
         try {
             return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
         } catch (DomainApiException $ex) {
-            if ($ex->getCode() === 403) {
-                $this->lwaService->forgetCachedLwaAccessToken();
-                return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
-            }
-            throw $ex;
+            return $this->_tryAgainIf403OrThrow($ex, $clientFactoryMethod, $execute);
+        } catch (RestrictedDataTokenException $ex) {
+            return $this->_tryAgainIf403OrThrow($ex, $clientFactoryMethod, $execute);
         }
     }
 
@@ -148,6 +146,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (AplusContentApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function aplusContentV20201101()
@@ -157,6 +160,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Api\AuthorizationApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (AuthorizationApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function authorizationV1()
@@ -166,6 +174,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Api\CatalogApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (CatalogApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function catalogItemsV0()
@@ -175,6 +188,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Api\CatalogApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (CatalogApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function catalogItemsV20201201()
@@ -184,6 +202,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (DefinitionsApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function definitionsProductTypesV20200901()
@@ -193,6 +216,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Api\EasyShipApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (EasyShipApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function easyShipV20220323()
@@ -202,6 +230,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Api\FbaInboundApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (FbaInboundApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function fbaInboundEligibilityV1()
@@ -211,6 +244,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Api\FbaInventoryApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (FbaInventoryApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function fbaInventoryV1()
@@ -220,6 +258,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Api\SmallAndLightApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (SmallAndLightApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function fbaSmallAndLightV1()
@@ -229,6 +272,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (FeedsApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function feedsV20200904()
@@ -238,6 +286,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (FeedsApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function feedsV20210630()
@@ -247,6 +300,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (DefaultApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function financesV0()
@@ -256,6 +314,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Api\FbaInboundApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (FbaInboundApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function fulfillmentInboundV0()
@@ -265,6 +328,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Api\FbaOutboundApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (FbaOutboundApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function fulfillmentOutboundV20200701()
@@ -274,6 +342,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (ListingsApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function listingsItemsV20200901()
@@ -283,6 +356,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Api\ListingsApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (ListingsApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function listingsItemsV20210801()
@@ -292,6 +370,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Api\ListingsApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (ListingsApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function listingsRestrictionsV20210801()
@@ -301,6 +384,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\MerchantFulfillmentV0\Api\MerchantFulfillmentApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (MerchantFulfillmentApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function merchantFulfillmentV0()
@@ -310,6 +398,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\NotificationsV1\Api\NotificationsApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (NotificationsApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function notificationsV1()
@@ -319,6 +412,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (OrdersV0Api $apiClient) { ... })`)
+     *
      * @return static
      */
     public function ordersV0()
@@ -328,6 +426,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (ShipmentApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function ordersV0Shipment()
@@ -337,6 +440,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (FeesApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function productFeesV0()
@@ -346,6 +454,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Api\ProductPricingApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (ProductPricingApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function productPricingV0()
@@ -355,6 +468,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (OffersApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function replenishmentV20221107Offers()
@@ -364,6 +482,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (SellingpartnersApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function replenishmentV20221107Sellingpartners()
@@ -373,6 +496,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (ReportsApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function reportsV20200904()
@@ -382,6 +510,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (ReportsApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function reportsV20210630()
@@ -391,6 +524,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (SalesApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function salesV1()
@@ -400,6 +538,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\SellersV1\Api\SellersApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (SellersApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function sellersV1()
@@ -409,6 +552,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ServicesV1\Api\ServiceApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (ServiceApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function servicesV1()
@@ -418,6 +566,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (ShipmentInvoiceApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function shipmentInvoicingV0()
@@ -427,6 +580,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (SupplySourcesApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function supplySourcesV20200701()
@@ -436,6 +594,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (TokensApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function tokensV20210301()
@@ -445,6 +608,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Api\UploadsApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (UploadsApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function uploadsV20201101()
@@ -454,6 +622,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (UpdateInventoryApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentInventoryV1()
@@ -463,6 +636,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Api\VendorOrdersApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (VendorOrdersApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentOrdersV1()
@@ -472,6 +650,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (VendorOrdersApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentOrdersV20211228()
@@ -481,6 +664,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Api\VendorInvoiceApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (VendorInvoiceApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentPaymentsV1()
@@ -490,6 +678,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (VendorDFSandboxApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentSandboxDataV20211228()
@@ -499,6 +692,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (VendorDFSandboxtransactionstatusApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentSandboxDataV20211228transactionstatus()
@@ -508,6 +706,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (CustomerInvoicesApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentShippingV1CustomerInvoices()
@@ -517,6 +720,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (VendorShippingApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentShippingV1()
@@ -526,6 +734,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (VendorShippingLabelsApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentShippingV1Labels()
@@ -535,6 +748,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (CustomerInvoicesApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentShippingV20211228CustomerInvoices()
@@ -544,6 +762,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (VendorShippingApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentShippingV20211228()
@@ -553,6 +776,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (VendorShippingLabelsApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentShippingV20211228Labels()
@@ -562,6 +790,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (VendorTransactionApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentTransactionsV1()
@@ -571,6 +804,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (VendorTransactionApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorDirectFulfillmentTransactionsV20211228()
@@ -580,6 +818,11 @@ class SpApi
     }
 
     /**
+     * Set target API to `\Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi`.
+     * For a simpler syntax, you can also remove this setter, type-hint this class
+     * in the `execute` callback, and let the authenticated Api client object be injected
+     * for you. (E.g. `sp_api()->execute(function (VendorTransactionApi $apiClient) { ... })`)
+     *
      * @return static
      */
     public function vendorTransactionStatusV1()
@@ -660,5 +903,24 @@ class SpApi
                 return $next($builder);
             };
         };
+    }
+
+    /**
+     * @param DomainApiException|RestrictedDataTokenException $ex
+     * @param string $clientFactoryMethod
+     * @param callable $execute
+     * @return mixed
+     * @throws DomainApiException|LwaAccessTokenException|RestrictedDataTokenException
+     */
+    protected function _tryAgainIf403OrThrow(
+        $ex,
+        $clientFactoryMethod,
+        callable $execute
+    ) {
+        if ($ex->getCode() === 403) {
+            $this->lwaService->forgetCachedLwaAccessToken();
+            return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
+        }
+        throw $ex;
     }
 }
