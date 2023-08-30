@@ -80,16 +80,6 @@ class SpApiConfig
     public $sandbox;
 
     /**
-     * @var bool
-     */
-    public $domainApiCallDebug = false;
-
-    /**
-     * @var bool
-     */
-    public $oAuthApiCallDebug = false;
-
-    /**
      * Note that, if set to true and the ApiException's response body is a stream,
      * it is possible that it can only be unpacked once for that object before the
      * internal stream handle becomes detached. If you have no need to automate
@@ -99,6 +89,16 @@ class SpApiConfig
      * @var bool
      */
     public $alwaysUnpackApiExceptionResponseBody = false;
+
+    /**
+     * @var bool
+     */
+    public $domainApiCallDebug = false;
+
+    /**
+     * @var bool
+     */
+    public $oAuthApiCallDebug = false;
 
     public function __construct(array $data)
     {
