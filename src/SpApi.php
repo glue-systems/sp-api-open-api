@@ -90,11 +90,9 @@ class SpApi
         try {
             return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
         } catch (DomainApiException $ex) {
-            if ($ex->getCode() === 403) {
-                $this->lwaService->forgetCachedLwaAccessToken();
-                return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
-            }
-            throw $ex;
+            return $this->_tryAgainIf403OrThrow($ex, $clientFactoryMethod, $execute);
+        } catch (RestrictedDataTokenException $ex) {
+            return $this->_tryAgainIf403OrThrow($ex, $clientFactoryMethod, $execute);
         }
     }
 
@@ -660,5 +658,24 @@ class SpApi
                 return $next($builder);
             };
         };
+    }
+
+    /**
+     * @param DomainApiException|RestrictedDataTokenException $ex
+     * @param string $clientFactoryMethod
+     * @param callable $execute
+     * @return mixed
+     * @throws DomainApiException|LwaAccessTokenException|RestrictedDataTokenException
+     */
+    protected function _tryAgainIf403OrThrow(
+        $ex,
+        $clientFactoryMethod,
+        callable $execute
+    ) {
+        if ($ex->getCode() === 403) {
+            $this->lwaService->forgetCachedLwaAccessToken();
+            return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
+        }
+        throw $ex;
     }
 }
