@@ -507,3 +507,11 @@ openapi-generator-cli generate -i models/vendorTransactionStatusV1.json -g php -
 rm -rf src/Clients/VendorTransactionStatusV1
 mv output/VendorTransactionStatusV1/lib src/Clients/VendorTransactionStatusV1
 ```
+
+## Changelog of Customizations to OpenAPI-Generated Code
+Some SP-API operations return values that do not conform to their OpenAPI JSON schema. One example of this is the string `"false"` being returned for certain fields that the spec says should of type `bool`.
+
+In order to account for such API idiosyncrasies, custom modifications have been made to the OpenAPI-generated code. Below is a changelog list to help us keep track of these changes and ensure they persist as newer versions of SP-API models and OpenAPI Generator CLI are released.
+
+- Adding coersion of string 'true' 'false' etc to into true booleans via filter_var function in OrdersV0 ObjectSerializer by @jpsilkjr86 in #15
+  - Full Changelog: v2.1.1...v2.1.2
