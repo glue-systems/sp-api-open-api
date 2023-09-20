@@ -19,6 +19,8 @@ trait UnpacksHttpResponseAsString
         if ($body instanceof ResponseInterface) {
             $contents = $body->getBody()->getContents();
         } elseif (static::isStringable($body)) {
+            // This branch handles StreamInterface values as well,
+            // which according to Psr7 must implement __toString().
             $contents = (string) $body;
         } elseif ($json = json_encode($body)) {
             $contents = $json;
