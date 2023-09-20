@@ -2,22 +2,22 @@
 
 namespace Glue\SpApi\OpenAPI\Traits;
 
-use Psr\Http\Message\StreamInterface;
+use Psr\Http\Message\ResponseInterface;
 
-trait UnpacksResponseBodyAsString
+trait UnpacksHttpResponseAsString
 {
     use RecognizesStringables;
 
     /**
-     * Unpack an HTTP response body as a string, or empty if not unpackable.
+     * Unpack an HTTP response as a string, or empty if not stringable.
      *
      * @param mixed $body
      * @return string
      */
-    public static function unpackResponseBodyAsString($body)
+    public static function unpackHttpResponseAsString($body)
     {
-        if ($body instanceof StreamInterface) {
-            $contents = $body->getContents();
+        if ($body instanceof ResponseInterface) {
+            $contents = $body->getBody()->getContents();
         } elseif (static::isStringable($body)) {
             $contents = (string) $body;
         } elseif ($json = json_encode($body)) {
