@@ -63,7 +63,7 @@ class RdtServiceTest extends TestCase
         $this->assertEquals($expectedRestrictedDataToken, $actualRestrictedDataToken);
     }
 
-    public function test_makeRdtProviderFromRequest_throws_RestrictedDataTokenException_having_no_response_body()
+    public function test_makeRdtProviderFromRequest_throws_RestrictedDataTokenException_without_unpacking_response_body()
     {
         $expectedExceptionMessage = 'fake exception';
 
@@ -84,33 +84,11 @@ class RdtServiceTest extends TestCase
         $rdtProvider();
     }
 
-    public function test_makeRdtProviderFromRequest_throws_RestrictedDataTokenException_having_string_response_body()
+    public function test_makeRdtProviderFromRequest_throws_RestrictedDataTokenException_with_unpacked_response_body()
     {
         $expectedExceptionMessage = 'fake exception';
-        $expectedResponseBody     = 'fake response body';
-
-        $this->clientFactory->shouldReceive('createTokensV20210301ApiClient')
-            ->once()
-            ->withNoArgs()
-            ->andReturn($this->tokensApi);
-        $this->tokensApi->shouldReceive('createRestrictedDataToken')
-            ->once()
-            ->withAnyArgs()
-            ->andThrow(new ApiException($expectedExceptionMessage, 400, [], $expectedResponseBody));
-
-        $sut         = new RdtService($this->clientFactory);
-        $rdtProvider = $sut->makeRdtProviderFromRequest(new CreateRestrictedDataTokenRequest());
-
-        $this->expectException(RestrictedDataTokenException::class);
-        $this->expectExceptionMessage("RESPONSE BODY: $expectedResponseBody");
-        $rdtProvider();
-    }
-
-    public function test_makeRdtProviderFromRequest_throws_RestrictedDataTokenException_unpacking_stream_response_body()
-    {
-        $expectedExceptionMessage = 'fake exception';
-        $expectedResponseBody     = '{ "fake": "stream response body" }';
-        $this->stream->shouldReceive('getContents')
+        $expectedResponseBody     = '{ "fake": "unpacked response body" }';
+        $this->stream->shouldReceive('__toString')
             ->once()
             ->andReturn($expectedResponseBody);
 
@@ -127,6 +105,7 @@ class RdtServiceTest extends TestCase
         $rdtProvider = $sut->makeRdtProviderFromRequest(new CreateRestrictedDataTokenRequest());
 
         $this->expectException(RestrictedDataTokenException::class);
+        $this->expectExceptionMessage($expectedExceptionMessage);
         $this->expectExceptionMessage("RESPONSE BODY: $expectedResponseBody");
         $rdtProvider();
     }
