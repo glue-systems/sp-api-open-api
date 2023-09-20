@@ -36,27 +36,27 @@ class UnpacksHttpResponseAsStringTest extends TestCase
     {
         $sut = $this;
 
-        $actual = $sut->unpackHttpResponseAsString(null);
+        $actualUnpacked = $sut->unpackHttpResponseAsString(null);
 
-        $this->assertEquals('', $actual);
+        $this->assertEquals('', $actualUnpacked);
     }
 
     public function test_unpackHttpResponseAsString_can_handle_empty_string_response()
     {
         $sut = $this;
 
-        $actual = $sut->unpackHttpResponseAsString('');
+        $actualUnpacked = $sut->unpackHttpResponseAsString('');
 
-        $this->assertEquals('', $actual);
+        $this->assertEquals('', $actualUnpacked);
     }
 
     public function test_unpackHttpResponseAsString_can_handle_string_response()
     {
         $sut = $this;
 
-        $actual = $sut->unpackHttpResponseAsString('fake response arg');
+        $actualUnpacked = $sut->unpackHttpResponseAsString('fake response arg');
 
-        $this->assertEquals('fake response arg', $actual);
+        $this->assertEquals('fake response arg', $actualUnpacked);
     }
 
     public function test_unpackHttpResponseAsString_can_handle_stream_response()
