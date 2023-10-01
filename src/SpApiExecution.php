@@ -22,7 +22,7 @@ use ReflectionFunction;
  * SP-API execution class, which should be instantiated once per SP-API call
  * without persistence as a singleton.
  */
-class SpApi
+class SpApiExecution
 {
     /**
      * @var ClientFactoryInterface
