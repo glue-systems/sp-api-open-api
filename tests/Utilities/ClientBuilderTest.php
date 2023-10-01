@@ -39,35 +39,35 @@ class ClientBuilderTest extends TestCase
         $this->spApiConfig        = $this->buildSpApiConfig();
     }
 
-    public function test_forApi_happy_case()
+    public function test_forClient_happy_case()
     {
-        $expectedApiClassFqn  = OrdersV0Api::class;
-        $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
+        $expectedClientClassFqn = OrdersV0Api::class;
+        $expectedDomainConfig   = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
 
         $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
-        $sut->forApi($expectedApiClassFqn);
+        $sut->forClient($expectedClientClassFqn);
 
-        $this->assertEquals($expectedApiClassFqn, $sut->getApiClassFqn());
+        $this->assertEquals($expectedClientClassFqn, $sut->getClientClassFqn());
         $this->assertEquals($expectedDomainConfig, $sut->getDomainConfig());
     }
 
-    public function test_forApi_throws_ClientBuilderException_on_invalid_fqn()
+    public function test_forClient_throws_ClientBuilderException_on_invalid_fqn()
     {
         $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage('Invalid API class FQN');
-        $sut->forApi('\Invalid\Api\Class');
+        $sut->forClient('\Invalid\Api\Class');
     }
 
-    public function test_forApi_throws_ClientBuilderException_on_2nd_call()
+    public function test_forClient_throws_ClientBuilderException_on_2nd_call()
     {
         $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
-        $sut->forApi(OrdersV0Api::class);
+        $sut->forClient(OrdersV0Api::class);
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage('cannot be called more than once');
-        $sut->forApi(OrdersV0Api::class);
+        $sut->forClient(OrdersV0Api::class);
     }
 
     public function test_withConfig_happy_case_with_changes_made_via_callback()
@@ -77,7 +77,7 @@ class ClientBuilderTest extends TestCase
             ->setDebug($newDebugValue);
 
         $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
-        $sut->forApi(OrdersV0Api::class);
+        $sut->forClient(OrdersV0Api::class);
         $sut->withConfig(function (Configuration $ordersV0Config) use ($newDebugValue) {
             $ordersV0Config->setDebug($newDebugValue);
         });
@@ -92,7 +92,7 @@ class ClientBuilderTest extends TestCase
         $differentDomainConfig = (new Configuration())->setHost('https://example.com');
 
         $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
-        $sut->forApi(OrdersV0Api::class);
+        $sut->forClient(OrdersV0Api::class);
         $sut->withConfig(function (Configuration $ordersV0Config) use ($differentDomainConfig) {
             return $differentDomainConfig;
         });
@@ -107,7 +107,7 @@ class ClientBuilderTest extends TestCase
         $differentDomainConfig = (new Configuration())->setHost('https://example.com');
 
         $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
-        $sut->forApi(OrdersV0Api::class);
+        $sut->forClient(OrdersV0Api::class);
         $sut->withConfig(function (Configuration $ordersV0Config) use ($differentDomainConfig) {
             $ordersV0Config = $differentDomainConfig;
         });
@@ -116,7 +116,7 @@ class ClientBuilderTest extends TestCase
         $this->assertEquals($expectedDomainConfig, $sut->getDomainConfig());
     }
 
-    public function test_withConfig_called_before_forApi_throws_ClientBuilderException()
+    public function test_withConfig_called_before_forClient_throws_ClientBuilderException()
     {
         $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
 
@@ -194,7 +194,7 @@ class ClientBuilderTest extends TestCase
         $expectedHandlerStack->push($middleware, $middlewareName);
 
         $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
-        $sut->forApi(OrdersV0Api::class);
+        $sut->forClient(OrdersV0Api::class);
         $sut->pushGuzzleMiddleware($middleware, $middlewareName);
 
         $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
@@ -220,7 +220,7 @@ class ClientBuilderTest extends TestCase
         list($expectedGuzzleClient, $expectedDomainClient) = $this->_buildHappyCaseClients();
 
         $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
-        $sut->forApi(OrdersV0Api::class);
+        $sut->forClient(OrdersV0Api::class);
         $sut->withRdtProvider($expectedRdtProvider);
 
         $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
@@ -244,7 +244,7 @@ class ClientBuilderTest extends TestCase
         $awsCredentialScopeServiceOverride = 'fake-service';
 
         $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
-        $sut->forApi(OrdersV0Api::class);
+        $sut->forClient(OrdersV0Api::class);
         $sut->overrideAwsCredentialScopeService($awsCredentialScopeServiceOverride);
 
         $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
@@ -268,7 +268,7 @@ class ClientBuilderTest extends TestCase
         $awsCredentialScopeRegionOverride = 'fake-region';
 
         $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
-        $sut->forApi(OrdersV0Api::class);
+        $sut->forClient(OrdersV0Api::class);
         $sut->overrideAwsCredentialScopeRegion($awsCredentialScopeRegionOverride);
 
         $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
@@ -286,7 +286,7 @@ class ClientBuilderTest extends TestCase
         $this->assertEquals($expectedDomainClient, $actualDomainClient);
     }
 
-    public function test_createClient_with_null_apiClassFqn_throws_ClientBuilderException()
+    public function test_createClient_with_null_clientClassFqn_throws_ClientBuilderException()
     {
         $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
 

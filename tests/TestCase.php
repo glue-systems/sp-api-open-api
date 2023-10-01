@@ -18,7 +18,7 @@ use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaClient;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
 use Glue\SpApi\OpenAPI\Services\Rdt\RdtService;
-use Glue\SpApi\OpenAPI\Utilities\SpApiRoster;
+use Glue\SpApi\OpenAPI\SpApiRoster;
 use Mockery;
 use PHPUnit_Framework_SkippedTestError;
 // TODO: Switch to this after upgrading.

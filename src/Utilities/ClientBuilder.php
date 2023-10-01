@@ -98,6 +98,7 @@ use Glue\SpApi\OpenAPI\Exceptions\ClientBuilderException;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
+use Glue\SpApi\OpenAPI\SpApiRoster;
 use GuzzleHttp\HandlerStack;
 
 class ClientBuilder
@@ -115,7 +116,7 @@ class ClientBuilder
     /**
      * @var string
      */
-    protected $apiClassFqn;
+    protected $clientClassFqn;
 
     /**
      * @var AplusContentV20201101Config|AuthorizationV1Config|CatalogItemsV0Config|CatalogItemsV20201201Config|DefinitionsProductTypesV20200901Config|EasyShipV20220323Config|FbaInboundEligibilityV1Config|FbaInventoryV1Config|FbaSmallAndLightV1Config|FeedsV20200904Config|FeedsV20210630Config|FinancesV0Config|FulfillmentInboundV0Config|FulfillmentOutboundV20200701Config|ListingsItemsV20200901Config|ListingsItemsV20210801Config|ListingsRestrictionsV20210801Config|MerchantFulfillmentV0Config|NotificationsV1Config|OrdersV0Config|ProductFeesV0Config|ProductPricingV0Config|ReplenishmentV20221107Config|ReportsV20200904Config|ReportsV20210630Config|SalesV1Config|SellersV1Config|ServicesV1Config|ShipmentInvoicingV0Config|SupplySourcesV20200701Config|TokensV20210301Config|UploadsV20201101Config|VendorDirectFulfillmentInventoryV1Config|VendorDirectFulfillmentOrdersV1Config|VendorDirectFulfillmentOrdersV20211228Config|VendorDirectFulfillmentPaymentsV1Config|VendorDirectFulfillmentSandboxDataV20211228Config|VendorDirectFulfillmentShippingV1Config|VendorDirectFulfillmentShippingV20211228Config|VendorDirectFulfillmentTransactionsV1Config|VendorDirectFulfillmentTransactionsV20211228Config|VendorTransactionStatusV1Config
@@ -151,25 +152,25 @@ class ClientBuilder
     }
 
     /**
-     * Set the target API by fully-qualified class name.
+     * Set the target client by fully-qualified class name.
      *
-     * @param string $apiClassFqn Fully qualified class name of the target API
+     * @param string $clientClassFqn Fully qualified class name of the target API
      * @return static
      */
-    public function forApi($apiClassFqn)
+    public function forClient($clientClassFqn)
     {
-        if (isset($this->apiClassFqn)) {
-            throw new ClientBuilderException("ClientBuilder method 'forApi'"
+        if (isset($this->clientClassFqn)) {
+            throw new ClientBuilderException("ClientBuilder method 'forClient'"
                 . " cannot be called more than once.");
         }
 
-        if (!SpApiRoster::isValidApiClassFqn($apiClassFqn)) {
-            throw new ClientBuilderException("Invalid API class FQN [{$apiClassFqn}]: Must be"
-                . " one of: " . implode(', ', SpApiRoster::allApiClassFqns()) . ".");
+        if (!SpApiRoster::isValidClientClassFqn($clientClassFqn)) {
+            throw new ClientBuilderException("Invalid API class FQN [{$clientClassFqn}]: Must be"
+                . " one of: " . implode(', ', SpApiRoster::allClientClassFqns()) . ".");
         }
-        $domainConfigClassFqn = SpApiRoster::getDomainConfigFromApiClassFqn($apiClassFqn);
+        $domainConfigClassFqn = SpApiRoster::getClientConfigFqnFromClientClass($clientClassFqn);
 
-        $this->apiClassFqn  = $apiClassFqn;
+        $this->clientClassFqn  = $clientClassFqn;
         $this->domainConfig = $this->_configureDomainConfigDefaults(
             new $domainConfigClassFqn()
         );
@@ -186,9 +187,9 @@ class ClientBuilder
      */
     public function withConfig(callable $callback)
     {
-        if (!isset($this->apiClassFqn)) {
+        if (!isset($this->clientClassFqn)) {
             throw new ClientBuilderException("Method 'withConfig' cannot be called"
-                . " before the target API has been set via the 'forApi' method.");
+                . " before the target API has been set via the 'forClient' method.");
         }
 
         $callback($this->domainConfig);
@@ -252,9 +253,9 @@ class ClientBuilder
     /**
      * @return string
      */
-    public function getApiClassFqn()
+    public function getClientClassFqn()
     {
-        return $this->apiClassFqn;
+        return $this->clientClassFqn;
     }
 
     /**
@@ -311,7 +312,7 @@ class ClientBuilder
     ) {
         $this->_throwIfNotReadyToCreate();
 
-        $apiClassFqn = $this->apiClassFqn;
+        $clientClassFqn = $this->clientClassFqn;
 
         $guzzleClient = $authenticator->createAuthenticatedGuzzleClient(
             $this->guzzleHandlerStack,
@@ -320,7 +321,7 @@ class ClientBuilder
             $this->awsCredentialScopeRegionOverride
         );
 
-        return new $apiClassFqn(
+        return new $clientClassFqn(
             $guzzleClient,
             $this->domainConfig
         );
@@ -341,7 +342,7 @@ class ClientBuilder
 
     protected function _throwIfNotReadyToCreate()
     {
-        if (!isset($this->apiClassFqn)) {
+        if (!isset($this->clientClassFqn)) {
             throw new ClientBuilderException("Builder not ready to create: Target API has not yet been set.");
         }
         if (!isset($this->domainConfig)) {

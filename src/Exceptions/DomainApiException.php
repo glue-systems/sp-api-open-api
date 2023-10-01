@@ -45,8 +45,8 @@ use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\ApiExcep
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\ApiException as VendorDirectFulfillmentTransactionsV1ApiException;
 use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\ApiException as VendorDirectFulfillmentTransactionsV20211228ApiException;
 use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\ApiException as VendorTransactionStatusV1ApiException;
+use Glue\SpApi\OpenAPI\SpApiRoster;
 use Glue\SpApi\OpenAPI\Traits\UnpacksHttpResponseAsString;
-use Glue\SpApi\OpenAPI\Utilities\SpApiRoster;
 
 class DomainApiException extends Exception
 {
