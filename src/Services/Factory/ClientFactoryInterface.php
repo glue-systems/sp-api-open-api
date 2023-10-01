@@ -2,55 +2,6 @@
 
 namespace Glue\SpApi\OpenAPI\Services\Factory;
 
-use Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi as AplusContentV20201101Api;
-use Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Api\AuthorizationApi as AuthorizationV1Api;
-use Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Api\CatalogApi as CatalogItemsV0Api;
-use Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Api\CatalogApi as CatalogItemsV20201201Api;
-use Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi as DefinitionsProductTypesV20200901Api;
-use Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Api\EasyShipApi as EasyShipV20220323Api;
-use Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Api\FbaInboundApi as FbaInboundEligibilityV1Api;
-use Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Api\FbaInventoryApi as FbaInventoryV1Api;
-use Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Api\SmallAndLightApi as FbaSmallAndLightV1Api;
-use Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi as FeedsV20200904Api;
-use Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi as FeedsV20210630Api;
-use Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi as FinancesV0Api;
-use Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Api\FbaInboundApi as FulfillmentInboundV0Api;
-use Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Api\FbaOutboundApi as FulfillmentOutboundV20200701Api;
-use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi as ListingsItemsV20200901Api;
-use Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Api\ListingsApi as ListingsItemsV20210801Api;
-use Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Api\ListingsApi as ListingsRestrictionsV20210801Api;
-use Glue\SpApi\OpenAPI\Clients\MerchantFulfillmentV0\Api\MerchantFulfillmentApi as MerchantFulfillmentV0Api;
-use Glue\SpApi\OpenAPI\Clients\NotificationsV1\Api\NotificationsApi as NotificationsV1Api;
-use Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
-use Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi as OrdersV0ShipmentApi;
-use Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi as ProductFeesV0Api;
-use Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Api\ProductPricingApi as ProductPricingV0Api;
-use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi as ReplenishmentV20221107OffersApi;
-use Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi as ReplenishmentV20221107SellingpartnersApi;
-use Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi as ReportsV20200904Api;
-use Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi as ReportsV20210630Api;
-use Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi as SalesV1Api;
-use Glue\SpApi\OpenAPI\Clients\SellersV1\Api\SellersApi as SellersV1Api;
-use Glue\SpApi\OpenAPI\Clients\ServicesV1\Api\ServiceApi as ServicesV1Api;
-use Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi as ShipmentInvoicingV0Api;
-use Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi as SupplySourcesV20200701Api;
-use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi as TokensV20210301Api;
-use Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Api\UploadsApi as UploadsV20201101Api;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi as VendorDirectFulfillmentInventoryV1Api;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Api\VendorOrdersApi as VendorDirectFulfillmentOrdersV1Api;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi as VendorDirectFulfillmentOrdersV20211228Api;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Api\VendorInvoiceApi as VendorDirectFulfillmentPaymentsV1Api;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxApi as VendorDirectFulfillmentSandboxDataV20211228Api;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi as VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi as VendorDirectFulfillmentShippingV1CustomerInvoicesApi;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi as VendorDirectFulfillmentShippingV1Api;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi as VendorDirectFulfillmentShippingV1LabelsApi;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi as VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi as VendorDirectFulfillmentShippingV20211228Api;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi as VendorDirectFulfillmentShippingV20211228LabelsApi;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi as VendorDirectFulfillmentTransactionsV1Api;
-use Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi as VendorDirectFulfillmentTransactionsV20211228Api;
-use Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi as VendorTransactionStatusV1Api;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Utilities\BuilderMiddlewarePipeline;
@@ -58,7 +9,7 @@ use Glue\SpApi\OpenAPI\Utilities\BuilderMiddlewarePipeline;
 interface ClientFactoryInterface
 {
     /**
-     * @return AplusContentV20201101Api
+     * @return \Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi
      * @throws LwaAccessTokenException
      */
     public function createAplusContentV20201101ApiClient(
@@ -66,7 +17,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return AuthorizationV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Api\AuthorizationApi
      * @throws LwaAccessTokenException
      */
     public function createAuthorizationV1ApiClient(
@@ -74,7 +25,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return CatalogItemsV0Api
+     * @return \Glue\SpApi\OpenAPI\Clients\CatalogItemsV0\Api\CatalogApi
      * @throws LwaAccessTokenException
      */
     public function createCatalogItemsV0ApiClient(
@@ -82,7 +33,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return CatalogItemsV20201201Api
+     * @return \Glue\SpApi\OpenAPI\Clients\CatalogItemsV20201201\Api\CatalogApi
      * @throws LwaAccessTokenException
      */
     public function createCatalogItemsV20201201ApiClient(
@@ -90,7 +41,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return DefinitionsProductTypesV20200901Api
+     * @return \Glue\SpApi\OpenAPI\Clients\DefinitionsProductTypesV20200901\Api\DefinitionsApi
      * @throws LwaAccessTokenException
      */
     public function createDefinitionsProductTypesV20200901ApiClient(
@@ -98,7 +49,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return EasyShipV20220323Api
+     * @return \Glue\SpApi\OpenAPI\Clients\EasyShipV20220323\Api\EasyShipApi
      * @throws LwaAccessTokenException
      */
     public function createEasyShipV20220323ApiClient(
@@ -106,7 +57,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return FbaInboundEligibilityV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\FbaInboundEligibilityV1\Api\FbaInboundApi
      * @throws LwaAccessTokenException
      */
     public function createFbaInboundEligibilityV1ApiClient(
@@ -114,7 +65,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return FbaInventoryV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\FbaInventoryV1\Api\FbaInventoryApi
      * @throws LwaAccessTokenException
      */
     public function createFbaInventoryV1ApiClient(
@@ -122,7 +73,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return FbaSmallAndLightV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\FbaSmallAndLightV1\Api\SmallAndLightApi
      * @throws LwaAccessTokenException
      */
     public function createFbaSmallAndLightV1ApiClient(
@@ -130,7 +81,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return FeedsV20200904Api
+     * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20200904\Api\FeedsApi
      * @throws LwaAccessTokenException
      */
     public function createFeedsV20200904ApiClient(
@@ -138,7 +89,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return FeedsV20210630Api
+     * @return \Glue\SpApi\OpenAPI\Clients\FeedsV20210630\Api\FeedsApi
      * @throws LwaAccessTokenException
      */
     public function createFeedsV20210630ApiClient(
@@ -146,7 +97,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return FinancesV0Api
+     * @return \Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi
      * @throws LwaAccessTokenException
      */
     public function createFinancesV0ApiClient(
@@ -154,7 +105,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return FulfillmentInboundV0Api
+     * @return \Glue\SpApi\OpenAPI\Clients\FulfillmentInboundV0\Api\FbaInboundApi
      * @throws LwaAccessTokenException
      */
     public function createFulfillmentInboundV0ApiClient(
@@ -162,7 +113,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return FulfillmentOutboundV20200701Api
+     * @return \Glue\SpApi\OpenAPI\Clients\FulfillmentOutboundV20200701\Api\FbaOutboundApi
      * @throws LwaAccessTokenException
      */
     public function createFulfillmentOutboundV20200701ApiClient(
@@ -170,7 +121,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return ListingsItemsV20200901Api
+     * @return \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20200901\Api\ListingsApi
      * @throws LwaAccessTokenException
      */
     public function createListingsItemsV20200901ApiClient(
@@ -178,7 +129,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return ListingsItemsV20210801Api
+     * @return \Glue\SpApi\OpenAPI\Clients\ListingsItemsV20210801\Api\ListingsApi
      * @throws LwaAccessTokenException
      */
     public function createListingsItemsV20210801ApiClient(
@@ -186,7 +137,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return ListingsRestrictionsV20210801Api
+     * @return \Glue\SpApi\OpenAPI\Clients\ListingsRestrictionsV20210801\Api\ListingsApi
      * @throws LwaAccessTokenException
      */
     public function createListingsRestrictionsV20210801ApiClient(
@@ -194,7 +145,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return MerchantFulfillmentV0Api
+     * @return \Glue\SpApi\OpenAPI\Clients\MerchantFulfillmentV0\Api\MerchantFulfillmentApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createMerchantFulfillmentV0ApiClient(
@@ -202,7 +153,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return NotificationsV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\NotificationsV1\Api\NotificationsApi
      * @throws LwaAccessTokenException
      */
     public function createNotificationsV1ApiClient(
@@ -210,7 +161,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return OrdersV0Api
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createOrdersV0ApiClient(
@@ -218,7 +169,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return OrdersV0ShipmentApi
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi
      * @throws LwaAccessTokenException
      */
     public function createOrdersV0ShipmentApiClient(
@@ -226,7 +177,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return ProductFeesV0Api
+     * @return \Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi
      * @throws LwaAccessTokenException
      */
     public function createProductFeesV0ApiClient(
@@ -234,7 +185,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return ProductPricingV0Api
+     * @return \Glue\SpApi\OpenAPI\Clients\ProductPricingV0\Api\ProductPricingApi
      * @throws LwaAccessTokenException
      */
     public function createProductPricingV0ApiClient(
@@ -242,7 +193,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return ReplenishmentV20221107OffersApi
+     * @return \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi
      * @throws LwaAccessTokenException
      */
     public function createReplenishmentV20221107OffersApiClient(
@@ -250,7 +201,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return ReplenishmentV20221107SellingpartnersApi
+     * @return \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi
      * @throws LwaAccessTokenException
      */
     public function createReplenishmentV20221107SellingpartnersApiClient(
@@ -258,7 +209,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return ReportsV20200904Api
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20200904\Api\ReportsApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createReportsV20200904ApiClient(
@@ -266,7 +217,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return ReportsV20210630Api
+     * @return \Glue\SpApi\OpenAPI\Clients\ReportsV20210630\Api\ReportsApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createReportsV20210630ApiClient(
@@ -274,7 +225,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return SalesV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\SalesV1\Api\SalesApi
      * @throws LwaAccessTokenException
      */
     public function createSalesV1ApiClient(
@@ -282,7 +233,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return SellersV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\SellersV1\Api\SellersApi
      * @throws LwaAccessTokenException
      */
     public function createSellersV1ApiClient(
@@ -290,7 +241,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return ServicesV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\ServicesV1\Api\ServiceApi
      * @throws LwaAccessTokenException
      */
     public function createServicesV1ApiClient(
@@ -298,7 +249,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return ShipmentInvoicingV0Api
+     * @return \Glue\SpApi\OpenAPI\Clients\ShipmentInvoicingV0\Api\ShipmentInvoiceApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createShipmentInvoicingV0ApiClient(
@@ -306,7 +257,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return SupplySourcesV20200701Api
+     * @return \Glue\SpApi\OpenAPI\Clients\SupplySourcesV20200701\Api\SupplySourcesApi
      * @throws LwaAccessTokenException
      */
     public function createSupplySourcesV20200701ApiClient(
@@ -314,7 +265,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return TokensV20210301Api
+     * @return \Glue\SpApi\OpenAPI\Clients\TokensV20210301\Api\TokensApi
      * @throws LwaAccessTokenException
      */
     public function createTokensV20210301ApiClient(
@@ -322,7 +273,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return UploadsV20201101Api
+     * @return \Glue\SpApi\OpenAPI\Clients\UploadsV20201101\Api\UploadsApi
      * @throws LwaAccessTokenException
      */
     public function createUploadsV20201101ApiClient(
@@ -330,7 +281,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentInventoryV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentInventoryV1\Api\UpdateInventoryApi
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentInventoryV1ApiClient(
@@ -338,7 +289,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentOrdersV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV1\Api\VendorOrdersApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentOrdersV1ApiClient(
@@ -346,7 +297,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentOrdersV20211228Api
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentOrdersV20211228\Api\VendorOrdersApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentOrdersV20211228ApiClient(
@@ -354,7 +305,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentPaymentsV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentPaymentsV1\Api\VendorInvoiceApi
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentPaymentsV1ApiClient(
@@ -362,7 +313,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentSandboxDataV20211228Api
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxApi
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentSandboxDataV20211228ApiClient(
@@ -370,7 +321,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient(
@@ -378,7 +329,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentShippingV1CustomerInvoicesApi
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient(
@@ -386,7 +337,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentShippingV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1ApiClient(
@@ -394,7 +345,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentShippingV1LabelsApi
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1LabelsApiClient(
@@ -402,7 +353,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient(
@@ -410,7 +361,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentShippingV20211228Api
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228ApiClient(
@@ -418,7 +369,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentShippingV20211228LabelsApi
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228LabelsApiClient(
@@ -426,7 +377,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentTransactionsV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV1\Api\VendorTransactionApi
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentTransactionsV1ApiClient(
@@ -434,7 +385,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorDirectFulfillmentTransactionsV20211228Api
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentTransactionsV20211228\Api\VendorTransactionApi
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentTransactionsV20211228ApiClient(
@@ -442,7 +393,7 @@ interface ClientFactoryInterface
     );
 
     /**
-     * @return VendorTransactionStatusV1Api
+     * @return \Glue\SpApi\OpenAPI\Clients\VendorTransactionStatusV1\Api\VendorTransactionApi
      * @throws LwaAccessTokenException
      */
     public function createVendorTransactionStatusV1ApiClient(
