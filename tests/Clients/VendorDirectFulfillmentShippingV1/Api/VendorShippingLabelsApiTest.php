@@ -11,15 +11,17 @@ class VendorShippingLabelsApiTest extends TestCase
 {
     public function test_getShippingLabels()
     {
-        $result = $this->sp_api()
-            ->execute(function (VendorShippingLabelsApi $vendorShippingLabelsApi) {
-                return $vendorShippingLabelsApi->getShippingLabelsWithHttpInfo(
-                    '2020-02-15T14:00:00-08:00',
-                    '2020-02-20T00:00:00-08:00',
-                    null,
-                    2
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (VendorShippingLabelsApi $vendorShippingLabelsApi) {
+                    return $vendorShippingLabelsApi->getShippingLabelsWithHttpInfo(
+                        '2020-02-15T14:00:00-08:00',
+                        '2020-02-20T00:00:00-08:00',
+                        null,
+                        2
+                    );
+                });
+        });
 
         /**
          * @var GetShippingLabelListResponse $response

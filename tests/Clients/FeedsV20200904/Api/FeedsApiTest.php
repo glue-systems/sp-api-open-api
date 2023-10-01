@@ -11,16 +11,18 @@ class FeedsApiTest extends TestCase
 {
     public function test_getFeeds()
     {
-        $result = $this->sp_api()
-            ->execute(function (FeedsApi $feedsApi) {
-                return $feedsApi->getFeedsWithHttpInfo(
-                    // Specific values come from the sandbox spec in models/feeds_2020-09-04.json
-                    ['POST_PRODUCT_DATA'],
-                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
-                    10,
-                    ['CANCELLED', 'DONE']
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (FeedsApi $feedsApi) {
+                    return $feedsApi->getFeedsWithHttpInfo(
+                        // Specific values come from the sandbox spec in models/feeds_2020-09-04.json
+                        ['POST_PRODUCT_DATA'],
+                        [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
+                        10,
+                        ['CANCELLED', 'DONE']
+                    );
+                });
+        });
 
         /**
          * @var GetFeedsResponse $response

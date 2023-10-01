@@ -13,14 +13,16 @@ class OrdersV0ApiTest extends TestCase
 {
     public function test_getOrders()
     {
-        $result = $this->sp_api()
-            ->execute(function (OrdersV0Api $ordersV0Api) {
-                return $ordersV0Api->getOrdersWithHttpInfo(
-                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
-                    // Using this specific string value as a quirky requirement of the sandbox API (see models/ordersV0.json)
-                    'TEST_CASE_200'
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (OrdersV0Api $ordersV0Api) {
+                    return $ordersV0Api->getOrdersWithHttpInfo(
+                        [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
+                        // Using this specific string value as a quirky requirement of the sandbox API (see models/ordersV0.json)
+                        'TEST_CASE_200'
+                    );
+                });
+        });
 
         /**
          * @var GetOrdersResponse $response
@@ -36,13 +38,15 @@ class OrdersV0ApiTest extends TestCase
 
     public function test_getOrder()
     {
-        $result = $this->sp_api()
-            ->execute(function (OrdersV0Api $ordersV0Api) {
-                return $ordersV0Api->getOrderWithHttpInfo(
-                    // Using this specific string value as a quirky requirement of the sandbox API (see models/ordersV0.json)
-                    'TEST_CASE_200'
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (OrdersV0Api $ordersV0Api) {
+                    return $ordersV0Api->getOrderWithHttpInfo(
+                        // Using this specific string value as a quirky requirement of the sandbox API (see models/ordersV0.json)
+                        'TEST_CASE_200'
+                    );
+                });
+        });
 
         /**
          * @var GetOrderResponse $response

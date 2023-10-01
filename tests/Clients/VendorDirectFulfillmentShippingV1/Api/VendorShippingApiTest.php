@@ -11,16 +11,18 @@ class VendorShippingApiTest extends TestCase
 {
     public function test_getPackingSlips()
     {
-        $result = $this->sp_api()
-            ->execute(function (VendorShippingApi $vendorShippingApi) {
-                return $vendorShippingApi->getPackingSlipsWithHttpInfo(
-                    '2020-02-15T14:00:00-08:00',
-                    '2020-02-20T00:00:00-08:00',
-                    null,
-                    2,
-                    'DESC'
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (VendorShippingApi $vendorShippingApi) {
+                    return $vendorShippingApi->getPackingSlipsWithHttpInfo(
+                        '2020-02-15T14:00:00-08:00',
+                        '2020-02-20T00:00:00-08:00',
+                        null,
+                        2,
+                        'DESC'
+                    );
+                });
+        });
 
         /**
          * @var GetPackingSlipListResponse $response

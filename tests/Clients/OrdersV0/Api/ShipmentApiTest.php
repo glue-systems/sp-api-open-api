@@ -11,16 +11,18 @@ class ShipmentApiTest extends TestCase
 {
     public function test_updateShipmentStatus()
     {
-        $result = $this->sp_api()
-            ->execute(function (ShipmentApi $shipmentApi) {
-                return $shipmentApi->updateShipmentStatusWithHttpInfo(
-                    'testOrder123',
-                    new UpdateShipmentStatusRequest([
-                        'marketplaceId'  => $this->sp_api()->getSpApiConfig()->defaultMarketplaceId,
-                        'shipmentStatus' => ShipmentStatus::READY_FOR_PICKUP,
-                    ])
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (ShipmentApi $shipmentApi) {
+                    return $shipmentApi->updateShipmentStatusWithHttpInfo(
+                        'testOrder123',
+                        new UpdateShipmentStatusRequest([
+                            'marketplaceId'  => $this->sp_api()->getSpApiConfig()->defaultMarketplaceId,
+                            'shipmentStatus' => ShipmentStatus::READY_FOR_PICKUP,
+                        ])
+                    );
+                });
+        });
 
         list($response, $statusCode, $headers) = $result;
 

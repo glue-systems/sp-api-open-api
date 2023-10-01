@@ -11,10 +11,12 @@ class NotificationsApiTest extends TestCase
 {
     public function test_getSubscription()
     {
-        $result = $this->sp_api()
-            ->execute(function (NotificationsApi $notificationsApi) {
-                return $notificationsApi->getSubscriptionWithHttpInfo('LISTINGS_ITEM_ISSUES_CHANGE');
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (NotificationsApi $notificationsApi) {
+                    return $notificationsApi->getSubscriptionWithHttpInfo('LISTINGS_ITEM_ISSUES_CHANGE');
+                });
+        });
 
         /**
          * @var GetSubscriptionResponse $response
