@@ -22,7 +22,6 @@ class OffersApiTest extends TestCase
     public function test_listOfferMetrics()
     {
         $result = $this->sp_api()
-            ->replenishmentV20221107Offers()
             ->execute(function (OffersApi $offersApi) {
                 return $offersApi->listOfferMetricsWithHttpInfo(
                     new ListOfferMetricsRequest([

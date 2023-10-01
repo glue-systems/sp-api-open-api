@@ -12,7 +12,6 @@ class AuthorizationApiTest extends TestCase
     {
         $result = $this->tryButSkipIfUnauthorized(function () {
             return $this->sp_api()
-                ->authorizationV1()
                 ->execute(function (AuthorizationApi $authorizationApi) {
                     return $authorizationApi->getAuthorizationCodeWithHttpInfo('foo', 'foo', 'foo');
                 });

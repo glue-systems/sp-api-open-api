@@ -13,7 +13,6 @@ class TokensApiTest extends TestCase
     public function test_createRestrictedDataToken()
     {
         $result = $this->sp_api()
-            ->tokensV20210301()
             ->execute(function (TokensApi $tokensApi) {
                 return $tokensApi->createRestrictedDataTokenWithHttpInfo(
                     new CreateRestrictedDataTokenRequest([

@@ -13,7 +13,6 @@ class FinancesApiTest extends TestCase
     public function test_listFinancialEventGroups()
     {
         $result = $this->sp_api()
-            ->financesV0()
             ->execute(function (DefaultApi $financesApi) {
                 return $financesApi->listFinancialEventGroupsWithHttpInfo(
                     1,

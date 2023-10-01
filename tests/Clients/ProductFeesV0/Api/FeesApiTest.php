@@ -19,7 +19,6 @@ class FeesApiTest extends TestCase
     public function test_getMyFeesEstimateForSKU()
     {
         $result = $this->sp_api()
-            ->productFeesV0()
             ->execute(function (FeesApi $feesApi) {
                 return $feesApi->getMyFeesEstimateForSKUWithHttpInfo(
                     'FAKE-SKU-123',

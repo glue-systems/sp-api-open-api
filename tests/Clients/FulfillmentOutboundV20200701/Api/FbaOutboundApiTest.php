@@ -19,7 +19,6 @@ class FbaOutboundApiTest extends TestCase
         $this->markTestIncomplete('Should revisit after regenerating clients via openapi-generator-cli option --additional-properties=enumUnknownDefaultCase=true');
 
         $result = $this->sp_api()
-            ->fulfillmentOutboundV20200701()
             ->execute(function (FbaOutboundApi $fbaOutboundApi) {
                 return $fbaOutboundApi->getFulfillmentPreviewWithHttpInfo(
                     new GetFulfillmentPreviewRequest([

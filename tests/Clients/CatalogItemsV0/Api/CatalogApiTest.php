@@ -12,7 +12,6 @@ class CatalogApiTest extends TestCase
     public function test_listCatalogItems()
     {
         $result = $this->sp_api()
-            ->catalogItemsV0()
             ->execute(function (CatalogApi $catalogApi) {
                 return $catalogApi->listCatalogItemsWithHttpInfo(
                     'TEST_CASE_200',

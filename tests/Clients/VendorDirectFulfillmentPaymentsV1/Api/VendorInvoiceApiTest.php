@@ -21,7 +21,6 @@ class VendorInvoiceApiTest extends TestCase
     public function test_submitInvoice()
     {
         $result = $this->sp_api()
-            ->vendorDirectFulfillmentPaymentsV1()
             ->execute(function (VendorInvoiceApi $vendorInvoiceApi) {
                 return $vendorInvoiceApi->submitInvoiceWithHttpInfo(
                     new SubmitInvoiceRequest([

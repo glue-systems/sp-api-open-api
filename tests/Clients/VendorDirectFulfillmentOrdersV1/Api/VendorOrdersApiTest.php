@@ -15,7 +15,6 @@ class VendorOrdersApiTest extends TestCase
         $this->markTestIncomplete('Should revisit after regenerating clients via openapi-generator-cli option --additional-properties=enumUnknownDefaultCase=true');
 
         $result = $this->sp_api()
-            ->vendorDirectFulfillmentOrdersV1()
             ->execute(function (VendorOrdersApi $vendorOrdersApi) {
                 return $vendorOrdersApi->getOrdersWithHttpInfo(
                     '2020-02-15T14:00:00-08:00',

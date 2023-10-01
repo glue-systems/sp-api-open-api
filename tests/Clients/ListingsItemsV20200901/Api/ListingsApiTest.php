@@ -14,7 +14,6 @@ class ListingsApiTest extends TestCase
     public function test_deleteListingsItem()
     {
         $result = $this->sp_api()
-            ->listingsItemsV20200901()
             ->execute(function (ListingsApi $listingsApi) {
                 return $listingsApi->deleteListingsItemWithHttpInfo(
                     $this->sp_api()->getSpApiConfig()->defaultSellerId,
@@ -29,7 +28,6 @@ class ListingsApiTest extends TestCase
     public function test_patchListingsItem()
     {
         $result = $this->sp_api()
-            ->listingsItemsV20200901()
             ->execute(function (ListingsApi $listingsApi) {
                 return $listingsApi->patchListingsItemWithHttpInfo(
                     $this->sp_api()->getSpApiConfig()->defaultSellerId,
@@ -59,7 +57,6 @@ class ListingsApiTest extends TestCase
     public function test_putListingsItem()
     {
         $result = $this->sp_api()
-            ->listingsItemsV20200901()
             ->execute(function (ListingsApi $listingsApi) {
                 return $listingsApi->putListingsItemWithHttpInfo(
                     $this->sp_api()->getSpApiConfig()->defaultSellerId,
