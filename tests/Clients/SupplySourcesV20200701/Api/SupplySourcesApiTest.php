@@ -10,10 +10,12 @@ class SupplySourcesApiTest extends TestCase
 {
     public function test_getSupplySources()
     {
-        $result = $this->sp_api()
-            ->execute(function (SupplySourcesApi $supplySourcesApi) {
-                return $supplySourcesApi->getSupplySourcesWithHttpInfo();
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (SupplySourcesApi $supplySourcesApi) {
+                    return $supplySourcesApi->getSupplySourcesWithHttpInfo();
+                });
+        });
 
         /**
          * @var GetSupplySourcesResponse $response

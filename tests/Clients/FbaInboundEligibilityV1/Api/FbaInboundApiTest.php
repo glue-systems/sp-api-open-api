@@ -11,13 +11,15 @@ class FbaInboundApiTest extends TestCase
 {
     public function test_getItemEligibilityPreview()
     {
-        $result = $this->sp_api()
-            ->execute(function (FbaInboundApi $fbaInboundApi) {
-                return $fbaInboundApi->getItemEligibilityPreviewWithHttpInfo(
-                    'TEST_CASE_200',
-                    'INBOUND'
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (FbaInboundApi $fbaInboundApi) {
+                    return $fbaInboundApi->getItemEligibilityPreviewWithHttpInfo(
+                        'TEST_CASE_200',
+                        'INBOUND'
+                    );
+                });
+        });
 
         /**
          * @var GetItemEligibilityPreviewResponse $response

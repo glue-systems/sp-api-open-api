@@ -12,14 +12,16 @@ class FinancesApiTest extends TestCase
 {
     public function test_listFinancialEventGroups()
     {
-        $result = $this->sp_api()
-            ->execute(function (DefaultApi $financesApi) {
-                return $financesApi->listFinancialEventGroupsWithHttpInfo(
-                    1,
-                    '2019-10-31',
-                    '2019-10-13'
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (DefaultApi $financesApi) {
+                    return $financesApi->listFinancialEventGroupsWithHttpInfo(
+                        1,
+                        '2019-10-31',
+                        '2019-10-13'
+                    );
+                });
+        });
 
         /**
          * @var ListFinancialEventGroupsResponse $response

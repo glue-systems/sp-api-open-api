@@ -11,12 +11,14 @@ class VendorTransactionApiTest extends TestCase
 {
     public function test_getTransaction()
     {
-        $result = $this->sp_api()
-            ->execute(function (VendorTransactionApi $vendorTransactionApi) {
-                return $vendorTransactionApi->getTransactionWithHttpInfo(
-                    '20190904190535-eef8cad8-418e-4ed3-ac72-789e2ee6214a'
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (VendorTransactionApi $vendorTransactionApi) {
+                    return $vendorTransactionApi->getTransactionWithHttpInfo(
+                        '20190904190535-eef8cad8-418e-4ed3-ac72-789e2ee6214a'
+                    );
+                });
+        });
 
         /**
          * @var GetTransactionResponse $response

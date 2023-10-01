@@ -11,12 +11,14 @@ class MerchantFulfillmentApiTest extends TestCase
 {
     public function test_getShipment()
     {
-        $result = $this->sp_api()
-            ->execute(function (MerchantFulfillmentApi $merchantFulfillmentApi) {
-                return $merchantFulfillmentApi->getShipmentWithHttpInfo(
-                    'abcddcba-00c3-4f6f-a63a-639f76ee9253'
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (MerchantFulfillmentApi $merchantFulfillmentApi) {
+                    return $merchantFulfillmentApi->getShipmentWithHttpInfo(
+                        'abcddcba-00c3-4f6f-a63a-639f76ee9253'
+                    );
+                });
+        });
 
         /**
          * @var GetShipmentResponse $response

@@ -11,15 +11,17 @@ class CatalogApiTest extends TestCase
 {
     public function test_listCatalogItems()
     {
-        $result = $this->sp_api()
-            ->execute(function (CatalogApi $catalogApi) {
-                return $catalogApi->listCatalogItemsWithHttpInfo(
-                    'TEST_CASE_200',
-                    null,
-                    null,
-                    'SKU_200'
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (CatalogApi $catalogApi) {
+                    return $catalogApi->listCatalogItemsWithHttpInfo(
+                        'TEST_CASE_200',
+                        null,
+                        null,
+                        'SKU_200'
+                    );
+                });
+        });
 
         /**
          * @var ListCatalogItemsResponse $response

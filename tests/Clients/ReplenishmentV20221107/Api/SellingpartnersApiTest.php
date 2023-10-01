@@ -17,26 +17,28 @@ class SellingpartnersApiTest extends TestCase
 {
     public function test_getSellingPartnerMetrics()
     {
-        $result = $this->sp_api()
-            ->execute(function (SellingpartnersApi $sellingpartnersApi) {
-                return $sellingpartnersApi->getSellingPartnerMetricsWithHttpInfo(
-                    new GetSellingPartnerMetricsRequest([
-                        'aggregationFrequency' => AggregationFrequency::YEAR,
-                        'timeInterval'         => new TimeInterval([
-                            'startDate' => '2022-01-01T00:00:00Z',
-                            'endDate'   => '2022-12-31T00:00:00Z',
-                        ]),
-                        'metrics'          => [
-                            Metric::TOTAL_SUBSCRIPTIONS_REVENUE,
-                        ],
-                        'timePeriodType' => TimePeriodType::PERFORMANCE,
-                        'marketplaceId' => 'ATVPDKIKX0DER',
-                        'programTypes'  => [
-                            ProgramType::SUBSCRIBE_AND_SAVE,
-                        ],
-                    ])
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (SellingpartnersApi $sellingpartnersApi) {
+                    return $sellingpartnersApi->getSellingPartnerMetricsWithHttpInfo(
+                        new GetSellingPartnerMetricsRequest([
+                            'aggregationFrequency' => AggregationFrequency::YEAR,
+                            'timeInterval'         => new TimeInterval([
+                                'startDate' => '2022-01-01T00:00:00Z',
+                                'endDate'   => '2022-12-31T00:00:00Z',
+                            ]),
+                            'metrics'          => [
+                                Metric::TOTAL_SUBSCRIPTIONS_REVENUE,
+                            ],
+                            'timePeriodType' => TimePeriodType::PERFORMANCE,
+                            'marketplaceId' => 'ATVPDKIKX0DER',
+                            'programTypes'  => [
+                                ProgramType::SUBSCRIBE_AND_SAVE,
+                            ],
+                        ])
+                    );
+                });
+        });
 
         /**
          * @var GetSellingPartnerMetricsResponse $response

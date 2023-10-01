@@ -140,7 +140,8 @@ class TestCase extends BaseTestCase
         } catch (\Exception $ex) {
             if ($ex instanceof DomainApiException || SpApiRoster::isApiException($ex)) {
                 if ($ex->getCode() === 403) {
-                    $this->markTestSkipped('[403] Unauthorized, possibly due to Developer Account settings on Seller Central.');
+                    $this->markTestSkipped('[403] Unauthorized, possibly due to'
+                        . ' Developer Account settings or permissions on Seller Central.');
                 }
             }
             throw $ex;

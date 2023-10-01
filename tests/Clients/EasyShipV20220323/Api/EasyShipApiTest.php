@@ -14,26 +14,28 @@ class EasyShipApiTest extends TestCase
 {
     public function test_listHandoverSlots()
     {
-        $result = $this->sp_api()
-            ->execute(function (EasyShipApi $easyShipApi) {
-                return $easyShipApi->listHandoverSlotsWithHttpInfo(
-                    new ListHandoverSlotsRequest([
-                        'marketplaceId' => 'A21TJRUUN4KGV',
-                        'amazonOrderId' => '931-2308757-7991048',
-                        'packageDimensions' => new Dimensions([
-                            'length'     => 15.0,
-                            'width'      => 10.0,
-                            'height'     => 12.0,
-                            'unit'       => 'Cm',
-                            'identifier' => 'test',
-                        ]),
-                        'packageWeight' => new Weight([
-                            'value' => 50.0,
-                            'unit'  => 'G',
-                        ]),
-                    ])
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (EasyShipApi $easyShipApi) {
+                    return $easyShipApi->listHandoverSlotsWithHttpInfo(
+                        new ListHandoverSlotsRequest([
+                            'marketplaceId' => 'A21TJRUUN4KGV',
+                            'amazonOrderId' => '931-2308757-7991048',
+                            'packageDimensions' => new Dimensions([
+                                'length'     => 15.0,
+                                'width'      => 10.0,
+                                'height'     => 12.0,
+                                'unit'       => 'Cm',
+                                'identifier' => 'test',
+                            ]),
+                            'packageWeight' => new Weight([
+                                'value' => 50.0,
+                                'unit'  => 'G',
+                            ]),
+                        ])
+                    );
+                });
+        });
 
         /**
          * @var ListHandoverSlotsResponse $response

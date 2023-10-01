@@ -10,13 +10,15 @@ class DefinitionsApiTest extends TestCase
 {
     public function test_getDefinitionsProductType()
     {
-        $result = $this->sp_api()
-            ->execute(function (DefinitionsApi $definitionsApi) {
-                return $definitionsApi->getDefinitionsProductTypeWithHttpInfo(
-                    'testProductType123',
-                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId]
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (DefinitionsApi $definitionsApi) {
+                    return $definitionsApi->getDefinitionsProductTypeWithHttpInfo(
+                        'testProductType123',
+                        [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId]
+                    );
+                });
+        });
 
         /**
          * @var ProductTypeDefinition $response

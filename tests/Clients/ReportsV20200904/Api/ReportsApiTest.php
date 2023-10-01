@@ -11,16 +11,18 @@ class ReportsApiTest extends TestCase
 {
     public function test_getReports()
     {
-        $result = $this->sp_api()
-            ->execute(function (ReportsApi $reportsApi) {
-                return $reportsApi->getReportsWithHttpInfo(
-                    // Specific values come from the sandbox spec in models/reports_2020-09-04.json
-                    ['FEE_DISCOUNTS_REPORT', 'GET_AFN_INVENTORY_DATA'],
-                    ['IN_QUEUE', 'IN_PROGRESS'],
-                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
-                    10
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (ReportsApi $reportsApi) {
+                    return $reportsApi->getReportsWithHttpInfo(
+                        // Specific values come from the sandbox spec in models/reports_2020-09-04.json
+                        ['FEE_DISCOUNTS_REPORT', 'GET_AFN_INVENTORY_DATA'],
+                        ['IN_QUEUE', 'IN_PROGRESS'],
+                        [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
+                        10
+                    );
+                });
+        });
 
         /**
          * @var GetReportsResponse $response

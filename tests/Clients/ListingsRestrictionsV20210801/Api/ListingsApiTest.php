@@ -13,14 +13,16 @@ class ListingsApiTest extends TestCase
 {
     public function test_getListingsRestrictions()
     {
-        $result = $this->sp_api()
-            ->execute(function (ListingsApi $listingsApi) {
-                return $listingsApi->getListingsRestrictionsWithHttpInfo(
-                    'foo',
-                    'foo',
-                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId]
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (ListingsApi $listingsApi) {
+                    return $listingsApi->getListingsRestrictionsWithHttpInfo(
+                        'foo',
+                        'foo',
+                        [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId]
+                    );
+                });
+        });
 
         /**
          * @var RestrictionList $response

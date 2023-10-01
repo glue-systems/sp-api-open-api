@@ -13,12 +13,14 @@ class VendorTransactionApiTest extends TestCase
     {
         $this->markTestIncomplete('Sandbox getTransactionStatus not working according to the test cases described in [models/vendorDirectFulfillmentTransactionsV1.json].');
 
-        $result = $this->sp_api()
-            ->execute(function (VendorTransactionApi $vendorTransactionApi) {
-                return $vendorTransactionApi->getTransactionStatusWithHttpInfo(
-                    '20190904190535-eef8cad8-418e-4ed3-ac72-789e2ee6214a'
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (VendorTransactionApi $vendorTransactionApi) {
+                    return $vendorTransactionApi->getTransactionStatusWithHttpInfo(
+                        '20190904190535-eef8cad8-418e-4ed3-ac72-789e2ee6214a'
+                    );
+                });
+        });
 
         /**
          * @var GetTransactionResponse $response

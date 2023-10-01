@@ -11,14 +11,16 @@ class SalesApiTest extends TestCase
 {
     public function test_getOrderMetrics()
     {
-        $result = $this->sp_api()
-            ->execute(function (SalesApi $salesApi) {
-                return $salesApi->getOrderMetricsWithHttpInfo(
-                    [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
-                    '2018-09-01T00:00:00-07:00--2018-09-04T00:00:00-07:00',
-                    'Total'
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->execute(function (SalesApi $salesApi) {
+                    return $salesApi->getOrderMetricsWithHttpInfo(
+                        [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],
+                        '2018-09-01T00:00:00-07:00--2018-09-04T00:00:00-07:00',
+                        'Total'
+                    );
+                });
+        });
 
         /**
          * @var GetOrderMetricsResponse $response
