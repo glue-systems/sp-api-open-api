@@ -11,7 +11,7 @@ use Dotenv\Environment\Adapter\ServerConstAdapter;
 use Dotenv\Environment\DotenvFactory;
 use Dotenv\Exception\InvalidFileException;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
-use Glue\SpApi\OpenAPI\SpApi;
+use Glue\SpApi\OpenAPI\SpApiExecution;
 use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
@@ -62,7 +62,7 @@ class TestCase extends BaseTestCase
     }
 
     /**
-     * Create a new SpApi execution instance.
+     * Create a new SP-API execution instance.
      *
      * @return SpApi
      */
@@ -86,7 +86,7 @@ class TestCase extends BaseTestCase
         // This should always be new'ed up on every use -- i.e. should never be used as a singleton.
         // This is because this wrapper class has state (e.g. rdtRequest) that is intended to be
         // short-lived for the purpose of a single SP-API call.
-        return new SpApi(
+        return new SpApiExecution(
             $clientFactory,
             $rdtService,
             $lwaService,
