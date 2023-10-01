@@ -12,7 +12,6 @@ class ReportsApiTest extends TestCase
     public function test_getReports()
     {
         $result = $this->sp_api()
-            ->reportsV20210630()
             ->execute(function (ReportsApi $reportsApi) {
                 return $reportsApi->getReportsWithHttpInfo(
                     // Specific values come from the sandbox spec in models/reports_2021-06-30.json

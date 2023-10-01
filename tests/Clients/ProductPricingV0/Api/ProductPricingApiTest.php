@@ -14,7 +14,6 @@ class ProductPricingApiTest extends TestCase
     public function test_getPricing()
     {
         $result = $this->sp_api()
-            ->productPricingV0()
             ->execute(function (ProductPricingApi $productPricingApi) {
                 return $productPricingApi->getPricingWithHttpInfo(
                     'ATVPDKIKX0DER',

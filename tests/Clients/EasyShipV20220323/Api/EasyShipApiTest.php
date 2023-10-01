@@ -15,7 +15,6 @@ class EasyShipApiTest extends TestCase
     public function test_listHandoverSlots()
     {
         $result = $this->sp_api()
-            ->easyShipV20220323()
             ->execute(function (EasyShipApi $easyShipApi) {
                 return $easyShipApi->listHandoverSlotsWithHttpInfo(
                     new ListHandoverSlotsRequest([

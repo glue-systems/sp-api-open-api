@@ -16,7 +16,6 @@ class UpdateInventoryApiTest extends TestCase
     public function test_submitInventoryUpdate()
     {
         $result = $this->sp_api()
-            ->vendorDirectFulfillmentInventoryV1()
             ->execute(function (UpdateInventoryApi $updateInventoryApi) {
                 return $updateInventoryApi->submitInventoryUpdateWithHttpInfo(
                     'FAKE-WAREHOUSE-123',

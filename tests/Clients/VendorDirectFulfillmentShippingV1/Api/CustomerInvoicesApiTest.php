@@ -12,7 +12,6 @@ class CustomerInvoicesApiTest extends TestCase
     public function test_getCustomerInvoices()
     {
         $result = $this->sp_api()
-            ->vendorDirectFulfillmentShippingV1CustomerInvoices()
             ->execute(function (CustomerInvoicesApi $customerInvoicesApi) {
                 return $customerInvoicesApi->getCustomerInvoicesWithHttpInfo(
                     '2020-02-15T14:00:00-08:00',

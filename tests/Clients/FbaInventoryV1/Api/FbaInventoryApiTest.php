@@ -13,7 +13,6 @@ class FbaInventoryApiTest extends TestCase
     public function test_getInventorySummaries()
     {
         $result = $this->sp_api()
-            ->fbaInventoryV1()
             ->execute(function (FbaInventoryApi $fbaInventoryApi) {
                 return $fbaInventoryApi->getInventorySummariesWithHttpInfo(
                     'Marketplace',

@@ -12,7 +12,6 @@ class VendorShippingApiTest extends TestCase
     public function test_getPackingSlips()
     {
         $result = $this->sp_api()
-            ->vendorDirectFulfillmentShippingV1()
             ->execute(function (VendorShippingApi $vendorShippingApi) {
                 return $vendorShippingApi->getPackingSlipsWithHttpInfo(
                     '2020-02-15T14:00:00-08:00',

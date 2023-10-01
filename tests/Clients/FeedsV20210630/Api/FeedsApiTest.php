@@ -12,7 +12,6 @@ class FeedsApiTest extends TestCase
     public function test_getFeeds()
     {
         $result = $this->sp_api()
-            ->feedsV20210630()
             ->execute(function (FeedsApi $feedsApi) {
                 return $feedsApi->getFeedsWithHttpInfo(
                     // Specific values come from the sandbox spec in models/feeds_2021-06-30.json

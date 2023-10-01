@@ -12,7 +12,6 @@ class VendorShippingApiTest extends TestCase
     {
         $result = $this->tryButSkipIfUnauthorized(function () {
             return $this->sp_api()
-                ->vendorDirectFulfillmentShippingV20211228()
                 ->execute(function (VendorShippingApi $vendorShippingApi) {
                     return $vendorShippingApi->getPackingSlipsWithHttpInfo(
                         '2020-02-15T14:00:00-08:00',

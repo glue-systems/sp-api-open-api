@@ -12,7 +12,6 @@ class SalesApiTest extends TestCase
     public function test_getOrderMetrics()
     {
         $result = $this->sp_api()
-            ->salesV1()
             ->execute(function (SalesApi $salesApi) {
                 return $salesApi->getOrderMetricsWithHttpInfo(
                     [$this->sp_api()->getSpApiConfig()->defaultMarketplaceId],

@@ -12,7 +12,6 @@ class ShipmentApiTest extends TestCase
     public function test_updateShipmentStatus()
     {
         $result = $this->sp_api()
-            ->ordersV0Shipment()
             ->execute(function (ShipmentApi $shipmentApi) {
                 return $shipmentApi->updateShipmentStatusWithHttpInfo(
                     'testOrder123',
