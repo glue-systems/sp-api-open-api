@@ -731,20 +731,20 @@ class ClientFactory implements ClientFactoryInterface
     }
 
     /**
-     * @param string $apiClassFqn
+     * @param string $clientClassFqn
      * @param callable|null $build
      *
      * @return AuthorizationV1Api
      * @throws LwaAccessTokenException
      */
     protected function _createClientViaBuilder(
-        $apiClassFqn,
+        $clientClassFqn,
         BuilderMiddlewarePipeline $pipeline = null
     ) {
         $builder = (new ClientBuilder(
             $this->spApiConfig,
             call_user_func($this->instantiateGuzzleHandlerStack)
-        ))->forApi($apiClassFqn);
+        ))->forClient($clientClassFqn);
 
         if ($pipeline) {
             $builder = $pipeline->send($builder);

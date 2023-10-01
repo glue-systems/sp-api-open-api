@@ -13,9 +13,9 @@ use Glue\SpApi\OpenAPI\Middleware\Builder\RequestRdtMiddleware;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use Glue\SpApi\OpenAPI\Services\Rdt\RdtServiceInterface;
+use Glue\SpApi\OpenAPI\SpApiRoster;
 use Glue\SpApi\OpenAPI\Utilities\BuilderMiddlewarePipeline;
 use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
-use Glue\SpApi\OpenAPI\Utilities\SpApiRoster;
 use ReflectionFunction;
 
 /**
@@ -47,7 +47,7 @@ class SpApi
     /**
      * @var string|null
      */
-    protected $apiClassToExecute = null;
+    protected $clientClass = null;
 
     /**
      * @var BuilderMiddlewarePipeline
@@ -149,8 +149,8 @@ class SpApi
 
     protected function _resolveClientFactoryMethod(callable $execute)
     {
-        if (isset($this->apiClassToExecute)) {
-            return SpApiRoster::getFactoryMethodFromApiClassFqn($this->apiClassToExecute);
+        if (isset($this->clientClass)) {
+            return SpApiRoster::getFactoryMethodFromClientClassFqn($this->clientClass);
         }
 
         return $this->_resolveClientFactoryMethodViaReflection($execute);
@@ -163,7 +163,7 @@ class SpApi
         if (empty($parameters = $reflector->getParameters())) {
             throw new SpApiResolutionException("The callback passed to SpApi::execute"
                 . " has no parameters; the first argument must be one of: ["
-                . implode(', ', SpApiRoster::allApiClassFqns()) . "]");
+                . implode(', ', SpApiRoster::allClientClassFqns()) . "]");
         }
 
         // TODO: Update the use of `getClass()` to `getType()`, as the former is deprecated
@@ -175,13 +175,13 @@ class SpApi
                 . " or call a setter method explicitly (e.g. ordersV0(), reportsV20210630() etc).");
         }
 
-        if (!SpApiRoster::isValidApiClassFqn($typeHintedParameterClass->name)) {
+        if (!SpApiRoster::isValidClientClassFqn($typeHintedParameterClass->name)) {
             throw new SpApiResolutionException("Invalid type-hinted class name"
                 . " [{$typeHintedParameterClass->name}] in the callback of SpApi::execute;"
-                . " must be one of: [" . implode(', ', SpApiRoster::allApiClassFqns()) . "]");
+                . " must be one of: [" . implode(', ', SpApiRoster::allClientClassFqns()) . "]");
         }
 
-        return SpApiRoster::getFactoryMethodFromApiClassFqn($typeHintedParameterClass->name);
+        return SpApiRoster::getFactoryMethodFromClientClassFqn($typeHintedParameterClass->name);
     }
 
     /**

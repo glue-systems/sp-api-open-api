@@ -838,12 +838,12 @@ class ClientFactoryTest extends TestCase
     }
 
     /**
-     * @param string $expectedApiClass
+     * @param string $expectedClientClass
      * @param string $methodUnderTest
      * @return void
      */
     protected function _arrange_and_assert_it_can_create_expected_client_without_pipeline(
-        $expectedApiClass,
+        $expectedClientClass,
         $methodUnderTest
     ) {
         $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
@@ -857,32 +857,32 @@ class ClientFactoryTest extends TestCase
         );
         $actualApiClient = $sut->{$methodUnderTest}();
 
-        $this->assertInstanceOf($expectedApiClass, $actualApiClient);
+        $this->assertInstanceOf($expectedClientClass, $actualApiClient);
     }
 
     /**
-     * @param string $expectedApiClass
+     * @param string $expectedClientClass
      * @param string $methodUnderTest
      * @param BuilderMiddlewarePipeline $pipeline
      * @return void
      */
     protected function _arrange_and_assert_it_can_create_expected_client_with_pipeline(
-        $expectedApiClass,
+        $expectedClientClass,
         $methodUnderTest
     ) {
         /**
          * @var ClientBuilder|MockInterface $builderToInject
          */
         $builderToInject            = Mockery::mock(ClientBuilder::class);
-        $expectedApiClient          = new $expectedApiClass();
+        $expectedApiClient          = new $expectedClientClass();
 
         $this->pipeline->shouldReceive('send')
             ->once()
-            ->withArgs(function ($arg0) use ($expectedApiClass) {
+            ->withArgs(function ($arg0) use ($expectedClientClass) {
                 return $arg0 == (new ClientBuilder(
                     $this->spApiConfig,
                     $this->emptyGuzzleHandlerStack
-                ))->forApi($expectedApiClass);
+                ))->forClient($expectedClientClass);
             })
             ->andReturn($builderToInject);
 
