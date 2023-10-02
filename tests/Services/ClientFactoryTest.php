@@ -2,11 +2,11 @@
 
 namespace Tests\Services;
 
+use Glue\SpApi\OpenAPI\Builder\BuilderMiddlewarePipeline;
+use Glue\SpApi\OpenAPI\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
-use Glue\SpApi\OpenAPI\Utilities\BuilderMiddlewarePipeline;
-use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\HandlerStack;
 use Mockery;

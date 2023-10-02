@@ -2,10 +2,10 @@
 
 namespace Tests\Middleware\Builder;
 
+use Glue\SpApi\OpenAPI\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SpApi\OpenAPI\Middleware\Builder\RequestRdtMiddleware;
 use Glue\SpApi\OpenAPI\Services\Rdt\RdtServiceInterface;
-use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
 use Mockery;
 use Mockery\MockInterface;
 use Tests\TestCase;

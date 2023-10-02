@@ -3,6 +3,8 @@
 namespace Glue\SpApi\OpenAPI;
 
 use Exception;
+use Glue\SpApi\OpenAPI\Builder\BuilderMiddlewarePipeline;
+use Glue\SpApi\OpenAPI\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
@@ -14,13 +16,11 @@ use Glue\SpApi\OpenAPI\Services\Factory\ClientFactoryInterface;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use Glue\SpApi\OpenAPI\Services\Rdt\RdtServiceInterface;
 use Glue\SpApi\OpenAPI\SpApiRoster;
-use Glue\SpApi\OpenAPI\Utilities\BuilderMiddlewarePipeline;
-use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
 use ReflectionFunction;
 
 /**
- * SP-API execution class, which should be instantiated once per SP-API call
- * without persistence as a singleton.
+ * Base SP-API execution class, which should be instantiated
+ * once per SP-API call, without persistence as a singleton.
  */
 class SpApiExecution
 {

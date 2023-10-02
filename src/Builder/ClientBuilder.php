@@ -1,6 +1,6 @@
 <?php
 
-namespace Glue\SpApi\OpenAPI\Utilities;
+namespace Glue\SpApi\OpenAPI\Builder;
 
 use Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Configuration as AplusContentV20201101Config;
 use Glue\SpApi\OpenAPI\Clients\AuthorizationV1\Configuration as AuthorizationV1Config;

@@ -2,9 +2,9 @@
 
 namespace Glue\SpApi\OpenAPI\Middleware\Builder;
 
+use Glue\SpApi\OpenAPI\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SpApi\OpenAPI\Services\Rdt\RdtServiceInterface;
-use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
 
 class RequestRdtMiddleware
 {
