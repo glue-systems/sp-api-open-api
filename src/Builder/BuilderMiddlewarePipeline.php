@@ -1,6 +1,6 @@
 <?php
 
-namespace Glue\SpApi\OpenAPI\Utilities;
+namespace Glue\SpApi\OpenAPI\Builder;
 
 class BuilderMiddlewarePipeline
 {

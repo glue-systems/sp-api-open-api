@@ -2,12 +2,12 @@
 
 namespace Glue\SpApi\OpenAPI\Services\Factory;
 
+use Glue\SpApi\OpenAPI\Builder\BuilderMiddlewarePipeline;
+use Glue\SpApi\OpenAPI\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
-use Glue\SpApi\OpenAPI\Utilities\BuilderMiddlewarePipeline;
-use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
 
 class ClientFactory implements ClientFactoryInterface
 {
