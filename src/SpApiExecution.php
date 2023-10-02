@@ -19,10 +19,10 @@ use Glue\SpApi\OpenAPI\SpApiRoster;
 use ReflectionFunction;
 
 /**
- * Base SP-API execution class, which should be instantiated
- * once per SP-API call, without persistence as a singleton.
+ * Base SP-API execution class, the sub-classes of which should be instantiated
+ * once per SP-API call, without persistence as singletons.
  */
-class SpApiExecution
+abstract class SpApiExecution
 {
     /**
      * @var ClientFactoryInterface
@@ -47,7 +47,7 @@ class SpApiExecution
     /**
      * @var string|null
      */
-    protected $clientClass = null;
+    protected $clientClassFqn = null;
 
     /**
      * @var BuilderMiddlewarePipeline
@@ -70,14 +70,12 @@ class SpApiExecution
     }
 
     /**
-     * Get the global SP-API config object.
+     * Get an associative array mapping the name of the SP-API operation
+     * to the client class name containing the operation.
      *
-     * @return SpApiConfig
+     * @return array
      */
-    public function getSpApiConfig()
-    {
-        return clone $this->spApiConfig;
-    }
+    abstract public function getOperationToClientDictionary();
 
     /**
      * @param callable $execute
@@ -86,7 +84,12 @@ class SpApiExecution
      */
     public function execute(callable $execute)
     {
-        $clientFactoryMethod = $this->_resolveClientFactoryMethod($execute);
+        if (isset($this->clientClassFqn)) {
+            $clientFactoryMethod = SpApiRoster::getFactoryMethodFromClientClassFqn($this->clientClassFqn);
+        } else {
+            $clientFactoryMethod = $this->_resolveClientFactoryMethodViaReflection($execute);
+        }
+
         try {
             return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
         } catch (DomainApiException $ex) {
@@ -147,13 +150,39 @@ class SpApiExecution
         return $this;
     }
 
-    protected function _resolveClientFactoryMethod(callable $execute)
+    /**
+     * Get the global SP-API config object.
+     *
+     * @return SpApiConfig
+     */
+    public function getSpApiConfig()
     {
-        if (isset($this->clientClass)) {
-            return SpApiRoster::getFactoryMethodFromClientClassFqn($this->clientClass);
+        return clone $this->spApiConfig;
+    }
+
+    /**
+     * @param string $operationName
+     * @param callable $execute
+     * @return mixed
+     * @throws DomainApiException|LwaAccessTokenException|RestrictedDataTokenException
+     */
+    protected function _executeOperation($operationName, ...$operationArgs)
+    {
+        $dictionary = $this->getOperationToClientDictionary();
+
+        if (!isset($dictionary[$operationName])) {
+            $apiExecutionClassFqn = static::class;
+            $supportedOperations  = implode(', ', array_keys($dictionary));
+            throw new SpApiResolutionException("Unable to resolve SP-API client:"
+                . " The operation '$operationName' is invalid; must be one of"
+                . " [$supportedOperations] (for SP-API exeuction class $apiExecutionClassFqn).");
         }
 
-        return $this->_resolveClientFactoryMethodViaReflection($execute);
+        $this->clientClassFqn = $dictionary[$operationName];
+
+        return $this->execute(function ($client) use ($operationName, $operationArgs) {
+            return $client->{$operationName}(...$operationArgs);
+        });
     }
 
     protected function _resolveClientFactoryMethodViaReflection(callable $execute)
