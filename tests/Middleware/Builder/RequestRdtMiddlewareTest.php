@@ -5,6 +5,7 @@ namespace Tests\Middleware\Builder;
 use Glue\SpApi\OpenAPI\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Clients\TokensV20210301\Model\CreateRestrictedDataTokenRequest;
 use Glue\SpApi\OpenAPI\Middleware\Builder\RequestRdtMiddleware;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use Glue\SpApi\OpenAPI\Services\Rdt\RdtServiceInterface;
 use Mockery;
 use Mockery\MockInterface;
@@ -12,11 +13,6 @@ use Tests\TestCase;
 
 class RequestRdtMiddlewareTest extends TestCase
 {
-    /**
-     * @var ClientBuilder
-     */
-    public $startingBuilder;
-
     /**
      * @var RdtServiceInterface|MockInterface
      */
@@ -32,14 +28,25 @@ class RequestRdtMiddlewareTest extends TestCase
      */
     public $rdtRequest;
 
+    /**
+     * @var ClientBuilder
+     */
+    public $startingBuilder;
+
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
         parent::setup();
-        $this->startingBuilder = new ClientBuilder($this->buildSpApiConfig());
         $this->rdtService      = Mockery::mock(RdtServiceInterface::class);
         $this->next            = Mockery::mock(RequestRdtTest_ExampleInvokable::class);
         $this->rdtRequest      = new CreateRestrictedDataTokenRequest(['targetApplication' => 'fake-app']);
+        $this->startingBuilder = new ClientBuilder(
+            Mockery::mock(LwaServiceInterface::class),
+            function () {
+                return 'foo';
+            },
+            $this->buildSpApiConfig()
+        );
     }
 
     public function test_request_rdt_middleware_happy_case()

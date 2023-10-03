@@ -48,12 +48,25 @@ use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\ClientBuilderException;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
-use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
+use Glue\SpApi\OpenAPI\Middleware\Guzzle\AwsSignatureV4Middleware;
+use Glue\SpApi\OpenAPI\Middleware\Guzzle\SpApiAccessTokenMiddleware;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use Glue\SpApi\OpenAPI\SpApiRoster;
+use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 
 class ClientBuilder
 {
+    /**
+     * @var LwaServiceInterface
+     */
+    protected $lwaService;
+
+    /**
+     * @var callable
+     */
+    protected $awsCredentialProvider;
+
     /**
      * @var SpApiConfig
      */
@@ -93,13 +106,17 @@ class ClientBuilder
     protected $rdtProvider = null;
 
     public function __construct(
+        LwaServiceInterface $lwaService,
+        callable $awsCredentialProvider,
         SpApiConfig $spApiConfig,
         HandlerStack $guzzleHandlerStack = null
     ) {
         $spApiConfig->validateConfig();
 
-        $this->spApiConfig        = $spApiConfig;
-        $this->guzzleHandlerStack = $guzzleHandlerStack ?: HandlerStack::create();
+        $this->lwaService            = $lwaService;
+        $this->awsCredentialProvider = $awsCredentialProvider;
+        $this->spApiConfig           = $spApiConfig;
+        $this->guzzleHandlerStack    = $guzzleHandlerStack ?: HandlerStack::create();
     }
 
     /**
@@ -258,24 +275,48 @@ class ClientBuilder
      * @return mixed
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
-    public function createClient(
-        ClientAuthenticatorInterface $authenticator
-    ) {
+    public function createClient()
+    {
         $this->_throwIfNotReadyToCreate();
 
         $clientClassFqn = $this->clientClassFqn;
 
-        $guzzleClient = $authenticator->createAuthenticatedGuzzleClient(
-            $this->guzzleHandlerStack,
-            $this->rdtProvider,
-            $this->awsCredentialScopeServiceOverride,
-            $this->awsCredentialScopeRegionOverride
-        );
-
         return new $clientClassFqn(
-            $guzzleClient,
+            $this->_makeGuzzleClient(),
             $this->domainConfig
         );
+    }
+
+    /**
+     * @return Client
+     */
+    protected function _makeGuzzleClient()
+    {
+        $this->guzzleHandlerStack->push(
+            new SpApiAccessTokenMiddleware(
+                $this->lwaService,
+                $this->rdtProvider
+            ),
+            SpApiAccessTokenMiddleware::MIDDLEWARE_NAME
+        );
+
+        $this->guzzleHandlerStack->push(
+            AwsSignatureV4Middleware::fromSpApiConfig(
+                $this->spApiConfig,
+                $this->awsCredentialProvider,
+                $this->awsCredentialScopeServiceOverride,
+                $this->awsCredentialScopeRegionOverride
+            ),
+            AwsSignatureV4Middleware::MIDDLEWARE_NAME
+        );
+
+        // Note that several key Guzzle request fields / options such as 'base_uri',
+        // 'debug' etc. are overwritten downstream when the domain client is
+        // invoked. The source of truth for such fields are the Configuration objects
+        // with each SP-API domain being used.
+        return new Client([
+            'handler'  => $this->guzzleHandlerStack,
+        ]);
     }
 
     /**

@@ -7,14 +7,19 @@ use Glue\SpApi\OpenAPI\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
-use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 
 class ClientFactory implements ClientFactoryInterface
 {
     /**
-     * @var ClientAuthenticatorInterface
+     * @var LwaServiceInterface
      */
-    protected $authenticator;
+    protected $lwaService;
+
+    /**
+     * @var callable
+     */
+    protected $awsCredentialProvider;
 
     /**
      * @var SpApiConfig
@@ -27,16 +32,17 @@ class ClientFactory implements ClientFactoryInterface
     protected $instantiateGuzzleHandlerStack;
 
     /**
-     * @param ClientAuthenticatorInterface $authenticator
      * @param SpApiConfig $spApiConfig
      * @param callable|null $instantiateGuzzleHandlerStack Optional callback for defining how a new `HandlerStack` is instantiated for use in the `ClientBuilder`, in case the Guzzle-recommended default insantiation via `HandlerStack::create` is not desirable for a developer's use-case.
      */
     public function __construct(
-        ClientAuthenticatorInterface $authenticator,
+        LwaServiceInterface $lwaService,
+        callable $awsCredentialProvider,
         SpApiConfig $spApiConfig,
         callable $instantiateGuzzleHandlerStack = null
     ) {
-        $this->authenticator                 = $authenticator;
+        $this->lwaService                    = $lwaService;
+        $this->awsCredentialProvider         = $awsCredentialProvider;
         $this->spApiConfig                   = $spApiConfig;
         $this->instantiateGuzzleHandlerStack = $instantiateGuzzleHandlerStack
             ?: function () {
@@ -693,6 +699,8 @@ class ClientFactory implements ClientFactoryInterface
         BuilderMiddlewarePipeline $pipeline = null
     ) {
         $builder = (new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
             $this->spApiConfig,
             call_user_func($this->instantiateGuzzleHandlerStack)
         ))->forClient($clientClassFqn);
@@ -701,6 +709,6 @@ class ClientFactory implements ClientFactoryInterface
             $builder = $pipeline->send($builder);
         }
 
-        return $builder->createClient($this->authenticator);
+        return $builder->createClient();
     }
 }

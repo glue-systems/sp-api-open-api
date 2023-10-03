@@ -22,7 +22,7 @@ use ReflectionFunction;
  * Base SP-API execution class, the sub-classes of which should be instantiated
  * once per SP-API call, without persistence as singletons.
  */
-abstract class SpApiExecution
+class SpApiExecution
 {
     /**
      * @var ClientFactoryInterface
@@ -69,13 +69,13 @@ abstract class SpApiExecution
             ?: new BuilderMiddlewarePipeline();
     }
 
-    /**
-     * Get an associative array mapping the name of the SP-API operation
-     * to the client class name containing the operation.
-     *
-     * @return array
-     */
-    abstract public function getOperationToClientDictionary();
+    // /**
+    //  * Get an associative array mapping the name of the SP-API operation
+    //  * to the client class name containing the operation.
+    //  *
+    //  * @return array
+    //  */
+    // abstract public function getOperationToClientDictionary();
 
     /**
      * @param callable $execute

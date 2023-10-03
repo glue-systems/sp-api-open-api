@@ -13,7 +13,6 @@ use Dotenv\Exception\InvalidFileException;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\SpApiExecution;
 use Glue\SpApi\OpenAPI\Exceptions\DomainApiException;
-use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticator;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaClient;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaService;
@@ -119,8 +118,7 @@ class TestCase extends BaseTestCase
         $awsCredentialProvider  = CredentialProvider::fromCredentials($awsCredentials);
         $lwaClient              = new LwaClient($spApiConfig);
         $lwaService             = new LwaService($lwaClient, static::$arrayCache, $spApiConfig);
-        $clientAuthenticator    = new ClientAuthenticator($lwaService, $awsCredentialProvider, $spApiConfig);
-        $clientFactory          = new ClientFactory($clientAuthenticator, $spApiConfig);
+        $clientFactory          = new ClientFactory($lwaService, $awsCredentialProvider, $spApiConfig);
         $rdtService             = new RdtService($clientFactory);
         // ^^^^^^^^^^^^^^^^ END of singleton-safe dependencies ^^^^^^^^^^^^^^^^
 
