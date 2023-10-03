@@ -2,11 +2,11 @@
 
 namespace Glue\SpApi\OpenAPI\Services\Authenticator;
 
-use Aws\Signature\SignatureV4;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Middleware\Guzzle\AwsSignatureV4Middleware;
+use Glue\SpApi\OpenAPI\Middleware\Guzzle\SpApiAccessTokenMiddleware;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\ClientInterface;
@@ -56,6 +56,24 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
         $awsCredentialScopeServiceOverride = null,
         $awsCredentialScopeRegionOverride = null
     ) {
+        $handlerStack->push(
+            new SpApiAccessTokenMiddleware(
+                $this->lwaService,
+                $rdtProvider
+            ),
+            SpApiAccessTokenMiddleware::MIDDLEWARE_NAME
+        );
+
+        $handlerStack->push(
+            AwsSignatureV4Middleware::fromSpApiConfig(
+                $this->spApiConfig,
+                $this->awsCredentialProvider,
+                $awsCredentialScopeServiceOverride,
+                $awsCredentialScopeRegionOverride
+            ),
+            AwsSignatureV4Middleware::MIDDLEWARE_NAME
+        );
+
         // Note that several key Guzzle request fields / options such as 'base_uri',
         // 'debug' etc. are overwritten downstream when the domain Api class (e.g.
         // Clients/OrdersV0/Api/OrdersV0Api) is invoked in the internals of the
@@ -64,51 +82,7 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
         // (e.g. Clients/OrdersV0/Configuration). See ClientBuilder method
         // `_configureDomainConfigDefaults` for how these values are set.
         return new Client([
-            'headers'  => [
-                'x-amz-access-token' => $this->_resolveAccessToken($rdtProvider),
-            ],
-            'handler'  => $this->_pushAwsSignatureV4Middleware(
-                $handlerStack,
-                $awsCredentialScopeServiceOverride,
-                $awsCredentialScopeRegionOverride
-            ),
+            'handler'  => $handlerStack,
         ]);
-    }
-
-    /**
-     * @return string
-     */
-    protected function _resolveAccessToken(callable $rdtProvider = null)
-    {
-        if ($rdtProvider) {
-            $accessToken = call_user_func($rdtProvider);
-        } else {
-            $accessToken = $this->lwaService->rememberLwaAccessToken();
-        }
-        return $accessToken;
-    }
-
-    /**
-     * @return HandlerStack
-     */
-    protected function _pushAwsSignatureV4Middleware(
-        HandlerStack $handlerStack,
-        $awsCredentialScopeServiceOverride = null,
-        $awsCredentialScopeRegionOverride = null
-    ) {
-        $service = $awsCredentialScopeServiceOverride
-            ?: $this->spApiConfig->defaultAwsCredentialScopeService;
-        $region  = $awsCredentialScopeRegionOverride
-            ?: $this->spApiConfig->defaultAwsCredentialScopeRegion;
-
-        $handlerStack->push(
-            new AwsSignatureV4Middleware(
-                $this->awsCredentialProvider,
-                new SignatureV4($service, $region)
-            ),
-            AwsSignatureV4Middleware::MIDDLEWARE_NAME
-        );
-
-        return $handlerStack;
     }
 }
