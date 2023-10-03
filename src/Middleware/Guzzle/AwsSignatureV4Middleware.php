@@ -3,6 +3,7 @@
 namespace Glue\SpApi\OpenAPI\Middleware\Guzzle;
 
 use Aws\Signature\SignatureV4;
+use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Psr\Http\Message\RequestInterface;
 
 class AwsSignatureV4Middleware
@@ -37,5 +38,25 @@ class AwsSignatureV4Middleware
 
             return $next($request, $options);
         };
+    }
+
+    /**
+     * @return static
+     */
+    public static function fromSpApiConfig(
+        SpApiConfig $spApiConfig,
+        callable $awsCredentialProvider,
+        $awsCredentialScopeServiceOverride = null,
+        $awsCredentialScopeRegionOverride = null
+    ) {
+        $service = $awsCredentialScopeServiceOverride
+            ?: $spApiConfig->defaultAwsCredentialScopeService;
+        $region  = $awsCredentialScopeRegionOverride
+            ?: $spApiConfig->defaultAwsCredentialScopeRegion;
+
+        return new static(
+            $awsCredentialProvider,
+            new SignatureV4($service, $region)
+        );
     }
 }
