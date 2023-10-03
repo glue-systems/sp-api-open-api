@@ -27,27 +27,16 @@ class ClientFactory implements ClientFactoryInterface
     protected $spApiConfig;
 
     /**
-     * @var callable
-     */
-    protected $instantiateGuzzleHandlerStack;
-
-    /**
      * @param SpApiConfig $spApiConfig
-     * @param callable|null $instantiateGuzzleHandlerStack Optional callback for defining how a new `HandlerStack` is instantiated for use in the `ClientBuilder`, in case the Guzzle-recommended default insantiation via `HandlerStack::create` is not desirable for a developer's use-case.
      */
     public function __construct(
         LwaServiceInterface $lwaService,
         callable $awsCredentialProvider,
-        SpApiConfig $spApiConfig,
-        callable $instantiateGuzzleHandlerStack = null
+        SpApiConfig $spApiConfig
     ) {
         $this->lwaService                    = $lwaService;
         $this->awsCredentialProvider         = $awsCredentialProvider;
         $this->spApiConfig                   = $spApiConfig;
-        $this->instantiateGuzzleHandlerStack = $instantiateGuzzleHandlerStack
-            ?: function () {
-                return null;
-            };
     }
 
     /**
@@ -701,8 +690,7 @@ class ClientFactory implements ClientFactoryInterface
         $builder = (new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            call_user_func($this->instantiateGuzzleHandlerStack)
+            $this->spApiConfig
         ))->forClient($clientClassFqn);
 
         if ($pipeline) {

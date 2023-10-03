@@ -108,15 +108,14 @@ class ClientBuilder
     public function __construct(
         LwaServiceInterface $lwaService,
         callable $awsCredentialProvider,
-        SpApiConfig $spApiConfig,
-        HandlerStack $guzzleHandlerStack = null
+        SpApiConfig $spApiConfig
     ) {
         $spApiConfig->validateConfig();
 
         $this->lwaService            = $lwaService;
         $this->awsCredentialProvider = $awsCredentialProvider;
         $this->spApiConfig           = $spApiConfig;
-        $this->guzzleHandlerStack    = $guzzleHandlerStack ?: HandlerStack::create();
+        $this->guzzleHandlerStack    = HandlerStack::create();
     }
 
     /**
@@ -153,10 +152,10 @@ class ClientBuilder
      * @param callable $callback
      * @return static
      */
-    public function withConfig(callable $callback)
+    public function usingConfig(callable $callback)
     {
         if (!isset($this->clientClassFqn)) {
-            throw new ClientBuilderException("Method 'withConfig' cannot be called"
+            throw new ClientBuilderException("Method 'usingConfig' cannot be called"
                 . " before the target API has been set via the 'forClient' method.");
         }
 
@@ -174,6 +173,23 @@ class ClientBuilder
     public function withRdtProvider(callable $rdtProvider = null)
     {
         $this->rdtProvider = $rdtProvider;
+        return $this;
+    }
+
+    /**
+     * Set the Guzzle HandlerStack property. This is likely not needed for
+     * most developer use-cases, as the constructor of the current object
+     * already sets the `guzzleHandlerStack` property equal to the return
+     * value of `\GuzzleHttp\HandlerStack::create()`, which follows
+     * Guzzle-recommended defaults based on your system's environment.
+     * If you would like to simply push a new middleware onto the HandlerStack,
+     * call the `pushGuzzleMiddleware` method instead.
+     *
+     * @return static
+     */
+    public function withGuzzleHandlerStack(HandlerStack $guzzleHandlerStack)
+    {
+        $this->guzzleHandlerStack = $guzzleHandlerStack;
         return $this;
     }
 
