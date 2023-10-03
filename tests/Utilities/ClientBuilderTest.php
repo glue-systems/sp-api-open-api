@@ -44,12 +44,12 @@ class ClientBuilderTest extends TestCase
     public function setUp()
     {
         parent::setup();
-        $this->lwaService         = Mockery::mock(LwaServiceInterface::class);
-        $this->awsCredentialProvider         = function () {
+        $this->lwaService            = Mockery::mock(LwaServiceInterface::class);
+        $this->awsCredentialProvider = function () {
             return Mockery::mock(CredentialsInterface::class);
         };
-        $this->guzzleHandlerStack = Mockery::mock(HandlerStack::class);
-        $this->spApiConfig        = $this->buildSpApiConfig();
+        $this->guzzleHandlerStack    = Mockery::mock(HandlerStack::class);
+        $this->spApiConfig           = $this->buildSpApiConfig();
     }
 
     public function test_forClient_happy_case()
@@ -60,8 +60,7 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
         $sut->forClient($expectedClientClassFqn);
 
@@ -74,8 +73,7 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
 
         $this->expectException(ClientBuilderException::class);
@@ -88,8 +86,7 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
         $sut->forClient(OrdersV0Api::class);
 
@@ -98,7 +95,7 @@ class ClientBuilderTest extends TestCase
         $sut->forClient(OrdersV0Api::class);
     }
 
-    public function test_withConfig_happy_case_with_changes_made_via_callback()
+    public function test_usingConfig_happy_case_with_changes_made_via_callback()
     {
         $newDebugValue        = !$this->spApiConfig->domainApiCallDebug;
         $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig)
@@ -107,11 +104,10 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
         $sut->forClient(OrdersV0Api::class);
-        $sut->withConfig(function (Configuration $ordersV0Config) use ($newDebugValue) {
+        $sut->usingConfig(function (Configuration $ordersV0Config) use ($newDebugValue) {
             $ordersV0Config->setDebug($newDebugValue);
         });
 
@@ -119,7 +115,7 @@ class ClientBuilderTest extends TestCase
         $this->assertEquals($expectedDomainConfig, $sut->getDomainConfig());
     }
 
-    public function test_withConfig_happy_case_ignores_return_value_in_callback()
+    public function test_usingConfig_happy_case_ignores_return_value_in_callback()
     {
         $expectedDomainConfig  = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
         $differentDomainConfig = (new Configuration())->setHost('https://example.com');
@@ -127,11 +123,10 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
         $sut->forClient(OrdersV0Api::class);
-        $sut->withConfig(function (Configuration $ordersV0Config) use ($differentDomainConfig) {
+        $sut->usingConfig(function (Configuration $ordersV0Config) use ($differentDomainConfig) {
             return $differentDomainConfig;
         });
 
@@ -139,7 +134,7 @@ class ClientBuilderTest extends TestCase
         $this->assertEquals($expectedDomainConfig, $sut->getDomainConfig());
     }
 
-    public function test_withConfig_ignores_reassignment_in_callback()
+    public function test_usingConfig_ignores_reassignment_in_callback()
     {
         $expectedDomainConfig  = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
         $differentDomainConfig = (new Configuration())->setHost('https://example.com');
@@ -147,11 +142,10 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
         $sut->forClient(OrdersV0Api::class);
-        $sut->withConfig(function (Configuration $ordersV0Config) use ($differentDomainConfig) {
+        $sut->usingConfig(function (Configuration $ordersV0Config) use ($differentDomainConfig) {
             $ordersV0Config = $differentDomainConfig;
         });
 
@@ -159,18 +153,17 @@ class ClientBuilderTest extends TestCase
         $this->assertEquals($expectedDomainConfig, $sut->getDomainConfig());
     }
 
-    public function test_withConfig_called_before_forClient_throws_ClientBuilderException()
+    public function test_usingConfig_called_before_forClient_throws_ClientBuilderException()
     {
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
 
         $this->expectException(ClientBuilderException::class);
-        $this->expectExceptionMessage("Method 'withConfig' cannot be called before");
-        $sut->withConfig(function (Configuration $ordersV0Config) {
+        $this->expectExceptionMessage("Method 'usingConfig' cannot be called before");
+        $sut->usingConfig(function (Configuration $ordersV0Config) {
             //
         });
     }
@@ -184,12 +177,23 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
         $sut->withRdtProvider($expectedRdtProvider);
 
         $this->assertEquals($expectedRdtProvider, $sut->getRdtProvider());
+    }
+
+    public function test_withGuzzleHandlerStack()
+    {
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig
+        );
+        $sut->withGuzzleHandlerStack($this->guzzleHandlerStack);
+
+        $this->assertEquals($this->guzzleHandlerStack, $sut->getGuzzleHandlerStack());
     }
 
     public function test_pushGuzzleMiddleware()
@@ -209,9 +213,9 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
+        $sut->withGuzzleHandlerStack($this->guzzleHandlerStack);
         $sut->pushGuzzleMiddleware($middleware, $middlewareName);
 
         $this->assertEquals($this->guzzleHandlerStack, $sut->getGuzzleHandlerStack());
@@ -224,8 +228,7 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
 
         $sut->overrideAwsCredentialScopeService($awsCredentialScopeServiceOverride);
@@ -243,8 +246,7 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
 
         $sut->overrideAwsCredentialScopeRegion($awsCredentialScopeRegionOverride);
@@ -278,10 +280,10 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
         $sut->forClient(OrdersV0Api::class);
+        $sut->withGuzzleHandlerStack($this->guzzleHandlerStack);
         $sut->pushGuzzleMiddleware($middleware, $middlewareName);
 
         $actualDomainClient = $sut->createClient();
@@ -306,10 +308,10 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
         $sut->forClient(OrdersV0Api::class);
+        $sut->withGuzzleHandlerStack($this->guzzleHandlerStack);
         $sut->withRdtProvider($expectedRdtProvider);
 
         $actualDomainClient = $sut->createClient();
@@ -331,10 +333,10 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
         $sut->forClient(OrdersV0Api::class);
+        $sut->withGuzzleHandlerStack($this->guzzleHandlerStack);
         $sut->overrideAwsCredentialScopeService($awsCredentialScopeServiceOverride);
 
         $actualDomainClient = $sut->createClient();
@@ -356,10 +358,10 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
         $sut->forClient(OrdersV0Api::class);
+        $sut->withGuzzleHandlerStack($this->guzzleHandlerStack);
         $sut->overrideAwsCredentialScopeRegion($awsCredentialScopeRegionOverride);
 
         $actualDomainClient = $sut->createClient();
@@ -372,8 +374,7 @@ class ClientBuilderTest extends TestCase
         $sut = new ClientBuilder(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->guzzleHandlerStack
+            $this->spApiConfig
         );
 
         $this->expectException(ClientBuilderException::class);

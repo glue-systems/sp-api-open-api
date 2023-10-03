@@ -3,15 +3,11 @@
 namespace Tests\Services;
 
 use Aws\Credentials\CredentialsInterface;
-use Aws\Signature\SignatureV4;
 use Glue\SpApi\OpenAPI\Builder\BuilderMiddlewarePipeline;
 use Glue\SpApi\OpenAPI\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
-use Glue\SpApi\OpenAPI\Middleware\Guzzle\AwsSignatureV4Middleware;
-use Glue\SpApi\OpenAPI\Middleware\Guzzle\SpApiAccessTokenMiddleware;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
-use GuzzleHttp\HandlerStack;
 use Mockery;
 use Mockery\MockInterface;
 use Tests\TestCase;
@@ -38,16 +34,6 @@ class ClientFactoryTest extends TestCase
      */
     public $spApiConfig;
 
-    /**
-     * @var HandlerStack|MockInterface
-     */
-    public $guzzleHandlerStack;
-
-    /**
-     * @var callable
-     */
-    public $instantiateGuzzleHandlerStack;
-
     // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
     public function setUp()
     {
@@ -58,10 +44,6 @@ class ClientFactoryTest extends TestCase
         };
         $this->pipeline                      = Mockery::mock(BuilderMiddlewarePipeline::class);
         $this->spApiConfig                   = $this->buildSpApiConfig();
-        $this->guzzleHandlerStack            = Mockery::mock(HandlerStack::class);
-        $this->instantiateGuzzleHandlerStack = function () {
-            return $this->guzzleHandlerStack;
-        };
     }
 
     public function test_createAplusContentV20201101ApiClient_without_pipeline()
@@ -857,13 +839,10 @@ class ClientFactoryTest extends TestCase
         $expectedClientClass,
         $methodUnderTest
     ) {
-        $this->_arrangeHappyCaseForHandlerStack();
-
         $sut = new ClientFactory(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->instantiateGuzzleHandlerStack
+            $this->spApiConfig
         );
         $actualApiClient = $sut->{$methodUnderTest}();
 
@@ -889,12 +868,8 @@ class ClientFactoryTest extends TestCase
         $this->pipeline->shouldReceive('send')
             ->once()
             ->withArgs(function ($arg0) use ($expectedClientClass) {
-                return $arg0 == (new ClientBuilder(
-                    $this->lwaService,
-                    $this->awsCredentialProvider,
-                    $this->spApiConfig,
-                    $this->guzzleHandlerStack
-                ))->forClient($expectedClientClass);
+                return $arg0 instanceof ClientBuilder
+                    && $arg0->getClientClassFqn() === $expectedClientClass;
             })
             ->andReturn($builderToInject);
 
@@ -906,40 +881,10 @@ class ClientFactoryTest extends TestCase
         $sut = new ClientFactory(
             $this->lwaService,
             $this->awsCredentialProvider,
-            $this->spApiConfig,
-            $this->instantiateGuzzleHandlerStack
+            $this->spApiConfig
         );
         $actualApiClient = $sut->{$methodUnderTest}($this->pipeline);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
-    }
-
-    protected function _arrangeHappyCaseForHandlerStack()
-    {
-        $expectedSpApiAccessTokenMiddleware = new SpApiAccessTokenMiddleware(
-            $this->lwaService,
-            null
-        );
-        $expectedAwsSignatureV4Middleware   = new AwsSignatureV4Middleware(
-            $this->awsCredentialProvider,
-            new SignatureV4(
-                $this->spApiConfig->defaultAwsCredentialScopeService,
-                $this->spApiConfig->defaultAwsCredentialScopeRegion
-            )
-        );
-
-        $this->guzzleHandlerStack->shouldReceive('push')
-            ->once()
-            ->withArgs(function (...$args) use ($expectedSpApiAccessTokenMiddleware) {
-                return $args[0] == $expectedSpApiAccessTokenMiddleware
-                    && $args[1] === SpApiAccessTokenMiddleware::MIDDLEWARE_NAME;
-            });
-
-        $this->guzzleHandlerStack->shouldReceive('push')
-            ->once()
-            ->withArgs(function (...$args) use ($expectedAwsSignatureV4Middleware) {
-                return $args[0] == $expectedAwsSignatureV4Middleware
-                    && $args[1] === AwsSignatureV4Middleware::MIDDLEWARE_NAME;
-            });
     }
 }
