@@ -2,12 +2,15 @@
 
 namespace Tests\Services;
 
+use Aws\Credentials\CredentialsInterface;
+use Aws\Signature\SignatureV4;
 use Glue\SpApi\OpenAPI\Builder\BuilderMiddlewarePipeline;
 use Glue\SpApi\OpenAPI\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
-use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
+use Glue\SpApi\OpenAPI\Middleware\Guzzle\AwsSignatureV4Middleware;
+use Glue\SpApi\OpenAPI\Middleware\Guzzle\SpApiAccessTokenMiddleware;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
-use GuzzleHttp\ClientInterface;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use GuzzleHttp\HandlerStack;
 use Mockery;
 use Mockery\MockInterface;
@@ -16,9 +19,14 @@ use Tests\TestCase;
 class ClientFactoryTest extends TestCase
 {
     /**
-     * @var ClientAuthenticatorInterface|MockInterface
+     * @var LwaServiceInterface|MockInterface
      */
-    public $authenticator;
+    public $lwaService;
+
+    /**
+     * @var callable
+     */
+    public $awsCredentialProvider;
 
     /**
      * @var BuilderMiddlewarePipeline|MockInterface
@@ -31,9 +39,9 @@ class ClientFactoryTest extends TestCase
     public $spApiConfig;
 
     /**
-     * @var HandlerStack
+     * @var HandlerStack|MockInterface
      */
-    public $emptyGuzzleHandlerStack;
+    public $guzzleHandlerStack;
 
     /**
      * @var callable
@@ -44,12 +52,15 @@ class ClientFactoryTest extends TestCase
     public function setUp()
     {
         parent::setup();
-        $this->authenticator                 = Mockery::mock(ClientAuthenticatorInterface::class);
+        $this->lwaService                    = Mockery::mock(LwaServiceInterface::class);
+        $this->awsCredentialProvider         = function () {
+            return Mockery::mock(CredentialsInterface::class);
+        };
         $this->pipeline                      = Mockery::mock(BuilderMiddlewarePipeline::class);
         $this->spApiConfig                   = $this->buildSpApiConfig();
-        $this->emptyGuzzleHandlerStack       = new HandlerStack();
+        $this->guzzleHandlerStack            = Mockery::mock(HandlerStack::class);
         $this->instantiateGuzzleHandlerStack = function () {
-            return $this->emptyGuzzleHandlerStack;
+            return $this->guzzleHandlerStack;
         };
     }
 
@@ -846,12 +857,11 @@ class ClientFactoryTest extends TestCase
         $expectedClientClass,
         $methodUnderTest
     ) {
-        $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
-            ->once()
-            ->andReturn(Mockery::mock(ClientInterface::class));
+        $this->_arrangeHappyCaseForHandlerStack();
 
         $sut = new ClientFactory(
-            $this->authenticator,
+            $this->lwaService,
+            $this->awsCredentialProvider,
             $this->spApiConfig,
             $this->instantiateGuzzleHandlerStack
         );
@@ -880,24 +890,56 @@ class ClientFactoryTest extends TestCase
             ->once()
             ->withArgs(function ($arg0) use ($expectedClientClass) {
                 return $arg0 == (new ClientBuilder(
+                    $this->lwaService,
+                    $this->awsCredentialProvider,
                     $this->spApiConfig,
-                    $this->emptyGuzzleHandlerStack
+                    $this->guzzleHandlerStack
                 ))->forClient($expectedClientClass);
             })
             ->andReturn($builderToInject);
 
         $builderToInject->shouldReceive('createClient')
             ->once()
-            ->with($this->authenticator)
             ->andReturn($expectedApiClient);
 
+
         $sut = new ClientFactory(
-            $this->authenticator,
+            $this->lwaService,
+            $this->awsCredentialProvider,
             $this->spApiConfig,
             $this->instantiateGuzzleHandlerStack
         );
         $actualApiClient = $sut->{$methodUnderTest}($this->pipeline);
 
         $this->assertEquals($expectedApiClient, $actualApiClient);
+    }
+
+    protected function _arrangeHappyCaseForHandlerStack()
+    {
+        $expectedSpApiAccessTokenMiddleware = new SpApiAccessTokenMiddleware(
+            $this->lwaService,
+            null
+        );
+        $expectedAwsSignatureV4Middleware   = new AwsSignatureV4Middleware(
+            $this->awsCredentialProvider,
+            new SignatureV4(
+                $this->spApiConfig->defaultAwsCredentialScopeService,
+                $this->spApiConfig->defaultAwsCredentialScopeRegion
+            )
+        );
+
+        $this->guzzleHandlerStack->shouldReceive('push')
+            ->once()
+            ->withArgs(function (...$args) use ($expectedSpApiAccessTokenMiddleware) {
+                return $args[0] == $expectedSpApiAccessTokenMiddleware
+                    && $args[1] === SpApiAccessTokenMiddleware::MIDDLEWARE_NAME;
+            });
+
+        $this->guzzleHandlerStack->shouldReceive('push')
+            ->once()
+            ->withArgs(function (...$args) use ($expectedAwsSignatureV4Middleware) {
+                return $args[0] == $expectedAwsSignatureV4Middleware
+                    && $args[1] === AwsSignatureV4Middleware::MIDDLEWARE_NAME;
+            });
     }
 }

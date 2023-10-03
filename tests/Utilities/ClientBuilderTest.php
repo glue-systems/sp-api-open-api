@@ -2,26 +2,36 @@
 
 namespace Tests\Builder;
 
+use Aws\Credentials\CredentialsInterface;
+use Aws\Signature\SignatureV4;
 use Glue\SpApi\OpenAPI\Builder\ClientBuilder;
 use Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\OrdersV0Api;
 use Glue\SpApi\OpenAPI\Clients\OrdersV0\Configuration;
 use Glue\SpApi\OpenAPI\Configuration\SpApiConfig;
 use Glue\SpApi\OpenAPI\Exceptions\ClientBuilderException;
-use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
+use Glue\SpApi\OpenAPI\Middleware\Guzzle\AwsSignatureV4Middleware;
+use Glue\SpApi\OpenAPI\Middleware\Guzzle\SpApiAccessTokenMiddleware;
+use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
+use Mockery;
 use Mockery\MockInterface;
 use Tests\TestCase;
 
 class ClientBuilderTest extends TestCase
 {
     /**
-     * @var ClientAuthenticatorInterface|MockInterface
+     * @var LwaServiceInterface|MockInterface
      */
-    public $authenticator;
+    public $lwaService;
 
     /**
-     * @var HandlerStack
+     * @var callable
+     */
+    public $awsCredentialProvider;
+
+    /**
+     * @var HandlerStack|MockInterface
      */
     public $guzzleHandlerStack;
 
@@ -34,8 +44,11 @@ class ClientBuilderTest extends TestCase
     public function setUp()
     {
         parent::setup();
-        $this->authenticator      = \Mockery::mock(ClientAuthenticatorInterface::class);
-        $this->guzzleHandlerStack = HandlerStack::create();
+        $this->lwaService         = Mockery::mock(LwaServiceInterface::class);
+        $this->awsCredentialProvider         = function () {
+            return Mockery::mock(CredentialsInterface::class);
+        };
+        $this->guzzleHandlerStack = Mockery::mock(HandlerStack::class);
         $this->spApiConfig        = $this->buildSpApiConfig();
     }
 
@@ -44,7 +57,12 @@ class ClientBuilderTest extends TestCase
         $expectedClientClassFqn = OrdersV0Api::class;
         $expectedDomainConfig   = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
 
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
         $sut->forClient($expectedClientClassFqn);
 
         $this->assertEquals($expectedClientClassFqn, $sut->getClientClassFqn());
@@ -53,7 +71,12 @@ class ClientBuilderTest extends TestCase
 
     public function test_forClient_throws_ClientBuilderException_on_invalid_fqn()
     {
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage('Invalid API class FQN');
@@ -62,7 +85,12 @@ class ClientBuilderTest extends TestCase
 
     public function test_forClient_throws_ClientBuilderException_on_2nd_call()
     {
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
         $sut->forClient(OrdersV0Api::class);
 
         $this->expectException(ClientBuilderException::class);
@@ -76,7 +104,12 @@ class ClientBuilderTest extends TestCase
         $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig)
             ->setDebug($newDebugValue);
 
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
         $sut->forClient(OrdersV0Api::class);
         $sut->withConfig(function (Configuration $ordersV0Config) use ($newDebugValue) {
             $ordersV0Config->setDebug($newDebugValue);
@@ -91,7 +124,12 @@ class ClientBuilderTest extends TestCase
         $expectedDomainConfig  = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
         $differentDomainConfig = (new Configuration())->setHost('https://example.com');
 
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
         $sut->forClient(OrdersV0Api::class);
         $sut->withConfig(function (Configuration $ordersV0Config) use ($differentDomainConfig) {
             return $differentDomainConfig;
@@ -106,7 +144,12 @@ class ClientBuilderTest extends TestCase
         $expectedDomainConfig  = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
         $differentDomainConfig = (new Configuration())->setHost('https://example.com');
 
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
         $sut->forClient(OrdersV0Api::class);
         $sut->withConfig(function (Configuration $ordersV0Config) use ($differentDomainConfig) {
             $ordersV0Config = $differentDomainConfig;
@@ -118,7 +161,12 @@ class ClientBuilderTest extends TestCase
 
     public function test_withConfig_called_before_forClient_throws_ClientBuilderException()
     {
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage("Method 'withConfig' cannot be called before");
@@ -133,7 +181,12 @@ class ClientBuilderTest extends TestCase
             return 'foo';
         };
 
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
         $sut->withRdtProvider($expectedRdtProvider);
 
         $this->assertEquals($expectedRdtProvider, $sut->getRdtProvider());
@@ -145,20 +198,35 @@ class ClientBuilderTest extends TestCase
         $middleware     = function () {
             return 'fake middleware';
         };
-        $expectedHandlerStack = clone $this->guzzleHandlerStack;
-        $expectedHandlerStack->push($middleware, $middlewareName);
 
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $this->guzzleHandlerStack->shouldReceive('push')
+            ->once()
+            ->withArgs(function (...$args) use ($middlewareName, $middleware) {
+                return $args[0] == $middleware
+                    && $args[1] === $middlewareName;
+            });
+
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
         $sut->pushGuzzleMiddleware($middleware, $middlewareName);
 
-        $this->assertEquals($expectedHandlerStack, $sut->getGuzzleHandlerStack());
+        $this->assertEquals($this->guzzleHandlerStack, $sut->getGuzzleHandlerStack());
     }
 
     public function test_overrideAwsCredentialScopeService()
     {
         $awsCredentialScopeServiceOverride = 'fake-service';
 
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
 
         $sut->overrideAwsCredentialScopeService($awsCredentialScopeServiceOverride);
 
@@ -172,7 +240,12 @@ class ClientBuilderTest extends TestCase
     {
         $awsCredentialScopeRegionOverride = 'fake-region';
 
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
 
         $sut->overrideAwsCredentialScopeRegion($awsCredentialScopeRegionOverride);
 
@@ -184,30 +257,34 @@ class ClientBuilderTest extends TestCase
 
     public function test_createClient_happy_case_with_non_empty_guzzleHandlerStack()
     {
-        list($expectedGuzzleClient, $expectedDomainClient) = $this->_buildHappyCaseClients();
-        $middlewareName = 'fake_middleware_name';
-        $middleware     = function () {
+        $this->_arrangeHappyCaseForHandlerStack(
+            $this->spApiConfig->defaultAwsCredentialScopeService,
+            $this->spApiConfig->defaultAwsCredentialScopeRegion
+        );
+
+        $expectedDomainClient = $this->_buildHappyCaseDomainClient();
+        $middlewareName       = 'fake_middleware_name';
+        $middleware           = function () {
             return 'fake middleware';
         };
 
-        $expectedHandlerStack = clone $this->guzzleHandlerStack;
-        $expectedHandlerStack->push($middleware, $middlewareName);
+        $this->guzzleHandlerStack->shouldReceive('push')
+            ->once()
+            ->withArgs(function (...$args) use ($middlewareName, $middleware) {
+                return $args[0] == $middleware
+                    && $args[1] === $middlewareName;
+            });
 
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
         $sut->forClient(OrdersV0Api::class);
         $sut->pushGuzzleMiddleware($middleware, $middlewareName);
 
-        $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
-            ->once()
-            ->withArgs(function (...$args) use ($expectedHandlerStack) {
-                return $args[0] == $expectedHandlerStack
-                    && is_null($args[1])
-                    && is_null($args[2])
-                    && is_null($args[3]);
-            })
-            ->andReturn($expectedGuzzleClient);
-
-        $actualDomainClient = $sut->createClient($this->authenticator);
+        $actualDomainClient = $sut->createClient();
 
         $this->assertEquals($expectedDomainClient, $actualDomainClient);
     }
@@ -217,96 +294,105 @@ class ClientBuilderTest extends TestCase
         $expectedRdtProvider  = function () {
             return 'foo';
         };
-        list($expectedGuzzleClient, $expectedDomainClient) = $this->_buildHappyCaseClients();
 
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $this->_arrangeHappyCaseForHandlerStack(
+            $this->spApiConfig->defaultAwsCredentialScopeService,
+            $this->spApiConfig->defaultAwsCredentialScopeRegion,
+            $expectedRdtProvider
+        );
+
+        $expectedDomainClient = $this->_buildHappyCaseDomainClient();
+
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
         $sut->forClient(OrdersV0Api::class);
         $sut->withRdtProvider($expectedRdtProvider);
 
-        $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
-            ->once()
-            ->with(
-                $this->guzzleHandlerStack,
-                $expectedRdtProvider,
-                null,
-                null
-            )
-            ->andReturn($expectedGuzzleClient);
-
-        $actualDomainClient = $sut->createClient($this->authenticator);
+        $actualDomainClient = $sut->createClient();
 
         $this->assertEquals($expectedDomainClient, $actualDomainClient);
     }
 
     public function test_createClient_happy_case_with_non_null_awsCredentialScopeServiceOverride()
     {
-        list($expectedGuzzleClient, $expectedDomainClient) = $this->_buildHappyCaseClients();
         $awsCredentialScopeServiceOverride = 'fake-service';
 
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $this->_arrangeHappyCaseForHandlerStack(
+            $awsCredentialScopeServiceOverride,
+            $this->spApiConfig->defaultAwsCredentialScopeRegion
+        );
+
+        $expectedDomainClient = $this->_buildHappyCaseDomainClient();
+
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
         $sut->forClient(OrdersV0Api::class);
         $sut->overrideAwsCredentialScopeService($awsCredentialScopeServiceOverride);
 
-        $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
-            ->once()
-            ->with(
-                $this->guzzleHandlerStack,
-                null,
-                $awsCredentialScopeServiceOverride,
-                null
-            )
-            ->andReturn($expectedGuzzleClient);
-
-        $actualDomainClient = $sut->createClient($this->authenticator);
+        $actualDomainClient = $sut->createClient();
 
         $this->assertEquals($expectedDomainClient, $actualDomainClient);
     }
 
     public function test_createClient_happy_case_with_non_null_awsCredentialScopeRegionOverride()
     {
-        list($expectedGuzzleClient, $expectedDomainClient) = $this->_buildHappyCaseClients();
         $awsCredentialScopeRegionOverride = 'fake-region';
 
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $this->_arrangeHappyCaseForHandlerStack(
+            $this->spApiConfig->defaultAwsCredentialScopeService,
+            $awsCredentialScopeRegionOverride
+        );
+
+        $expectedDomainClient = $this->_buildHappyCaseDomainClient();
+
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
         $sut->forClient(OrdersV0Api::class);
         $sut->overrideAwsCredentialScopeRegion($awsCredentialScopeRegionOverride);
 
-        $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
-            ->once()
-            ->with(
-                $this->guzzleHandlerStack,
-                null,
-                null,
-                $awsCredentialScopeRegionOverride
-            )
-            ->andReturn($expectedGuzzleClient);
-
-        $actualDomainClient = $sut->createClient($this->authenticator);
+        $actualDomainClient = $sut->createClient();
 
         $this->assertEquals($expectedDomainClient, $actualDomainClient);
     }
 
     public function test_createClient_with_null_clientClassFqn_throws_ClientBuilderException()
     {
-        $sut = new ClientBuilder($this->spApiConfig, $this->guzzleHandlerStack);
+        $sut = new ClientBuilder(
+            $this->lwaService,
+            $this->awsCredentialProvider,
+            $this->spApiConfig,
+            $this->guzzleHandlerStack
+        );
 
         $this->expectException(ClientBuilderException::class);
         $this->expectExceptionMessage('Builder not ready to create');
-        $sut->createClient($this->authenticator);
+        $sut->createClient();
     }
 
     /**
      * @return array
      */
-    protected function _buildHappyCaseClients()
+    protected function _buildHappyCaseDomainClient()
     {
-        $expectedGuzzleClient = new Client(['headers' => ['foo' => 'bar']]);
+        $expectedGuzzleClient = new Client(['handler' => $this->guzzleHandlerStack]);
         $expectedDomainConfig = $this->_buildExpectedStandardOrdersV0Config($this->spApiConfig);
         $expectedDomainClient = new OrdersV0Api(
             $expectedGuzzleClient,
             $expectedDomainConfig
         );
-        return [$expectedGuzzleClient, $expectedDomainClient];
+        return $expectedDomainClient;
     }
 
     /**
@@ -318,5 +404,37 @@ class ClientBuilderTest extends TestCase
             ->setUserAgent($spApiConfig->userAgent())
             ->setHost($spApiConfig->defaultBaseUrl)
             ->setDebug($spApiConfig->domainApiCallDebug);
+    }
+
+    protected function _arrangeHappyCaseForHandlerStack(
+        $expectedAwsCredentialScopeService,
+        $expectedAwsCredentialScopeRegion,
+        callable $expectedRdtProvider = null
+    ) {
+        $expectedSpApiAccessTokenMiddleware = new SpApiAccessTokenMiddleware(
+            $this->lwaService,
+            $expectedRdtProvider
+        );
+        $expectedAwsSignatureV4Middleware   = new AwsSignatureV4Middleware(
+            $this->awsCredentialProvider,
+            new SignatureV4(
+                $expectedAwsCredentialScopeService,
+                $expectedAwsCredentialScopeRegion
+            )
+        );
+
+        $this->guzzleHandlerStack->shouldReceive('push')
+            ->once()
+            ->withArgs(function (...$args) use ($expectedSpApiAccessTokenMiddleware) {
+                return $args[0] == $expectedSpApiAccessTokenMiddleware
+                    && $args[1] === SpApiAccessTokenMiddleware::MIDDLEWARE_NAME;
+            });
+
+        $this->guzzleHandlerStack->shouldReceive('push')
+            ->once()
+            ->withArgs(function (...$args) use ($expectedAwsSignatureV4Middleware) {
+                return $args[0] == $expectedAwsSignatureV4Middleware
+                    && $args[1] === AwsSignatureV4Middleware::MIDDLEWARE_NAME;
+            });
     }
 }
