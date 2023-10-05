@@ -60,10 +60,10 @@ Example Bash scripts are provided below for each of the included SP-API domains.
 
 ```BASH
 cd path/to/your/sp-api-open-api
-rm -rf output/AplusContentV20201101
-openapi-generator-cli generate -i models/aplusContent_2020-11-01.json -g php -o output/AplusContentV20201101 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\AplusContentV20201101" --additional-properties=variableNamingConvention=camelCase
-rm -rf src/Clients/AplusContentV20201101
-mv output/AplusContentV20201101/lib src/Clients/AplusContentV20201101
+rm -rf output/APlusContentV20201101
+openapi-generator-cli generate -i models/aplusContent_2020-11-01.json -g php -o output/APlusContentV20201101 --additional-properties=invokerPackage="Glue\SpApi\OpenAPI\Clients\APlusContentV20201101" --additional-properties=variableNamingConvention=camelCase
+rm -rf src/Clients/APlusContentV20201101
+mv output/APlusContentV20201101/lib src/Clients/APlusContentV20201101
 ```
 
 #### Authorization API v1
@@ -508,7 +508,42 @@ rm -rf src/Clients/VendorTransactionStatusV1
 mv output/VendorTransactionStatusV1/lib src/Clients/VendorTransactionStatusV1
 ```
 
-## Changelog of Customizations to OpenAPI-Generated Code
+### Customizations to OpenAPI-Related Code
+
+#### Changes to the Original JSON Models
+
+The contents of the `models` directory were ported over from the official Selling Partner API Models on GitHub: https://github.com/amzn/selling-partner-api-models. They are preserved for the most part in their orignal forms, which is necessary for streamlining the maintenance of this repository.
+
+However, there is one type of modification made to the original `models` that is worth highlighting and justifying: the change of the value of the `tags` property for each SP-API operation. The reasoning for this change is as follows:
+
+- The original `tags` values are essentially arbitrary semantic groupings.
+  - They have no syntactic impact on SP-API client operations, such as how they are related to each other, etc.
+  - The semantic value they provide seems to be limited to UI concerns, such as Swagger GUI presentation.
+    - This seems unnecessary given that the SP-API domains where different `tags` groupings were used never exceeded 10 operations.
+- Preserving the original `tags` values has major negative implications on how the OpenAPI-generated code is organized:
+  - Different `tags` values within a JSON model leads to an unnecessary separation in grouping of operations into different API client classes.
+    - This separation, which as noted above is arbitrary, has an undesirable impact on developer experience:
+      - Developers are forced to hunt for the location of an operation between multiple API clients, sometimes between those that are poorly named via the `tags` value to begin with.
+      - It prevents developers from extending API client classes with the confidence that all the operations listed in the official documentation for a given domain will be contained in a single class.
+    - This separation is also inconsistent with how the official SP-API documentation is semantically organized, the latter of which is by API domain (Orders API v0, etc.).
+    - Examples:
+      - The original `ordersV0.json` has two distinct values for `tags` across its operations: `orders` and `shipment`. This leads to an unnecessary separation in the generated OpenAPI clients -- in the form of `OrdersV0Api` and `ShipmentApi` -- which is not reflected in the [official SP-API documentation for the Orders API v0](https://developer-docs.amazon.com/sp-api/docs/orders-api-v0-reference).
+  - Typos / casing issues in the `tags` carry over into the class names of OpenAPI-generated clients, such as:
+    - "aplusContent" leading to "AplusContentApi.php" (instead of "aPlusContent" -> "AplusContentApi.php")
+    - "vendorDFSandboxtransactionstatus" leading to "VendorDFSandboxtransactionstatusApi.php"
+  - Some SP-API domains contained no `tags` values, leading to the generated clients being given a confusing default name of `FinancesApi.php`.
+    - This was the case for `financesV0.json`.
+
+Thus, this package has modified the original `tags` values under the following rules:
+
+1. If there are typos or casing issues in the `tags` values, fix them.
+2. If different `tags` values are present within a given model, combine them into a single one that is sensibly named.
+   - As noted above, this should lead to a unified OpenAPI generated client class for that particular SP-API domain.
+3. If no `tags` values are present in an operation, give them a sensible name that reflects the domain they are in.
+   - Example: operations in `financesV0.json` were modified to have the `tags` value of `finances`, leading to the generated client being named as `FinancesApi.php`, reflecting its domain.
+
+#### Changes to OpenAPI-Generated Classes
+
 Some SP-API operations return values that do not conform to their OpenAPI JSON schema. One example of this is the string `"false"` being returned for certain fields that the spec says should of type `bool`.
 
 In order to account for such API idiosyncrasies, custom modifications have been made to the OpenAPI-generated code. Below is a changelog list to help us keep track of these changes and ensure they persist as newer versions of SP-API models and OpenAPI Generator CLI are released.

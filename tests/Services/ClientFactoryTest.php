@@ -46,19 +46,19 @@ class ClientFactoryTest extends TestCase
         $this->spApiConfig                   = $this->buildSpApiConfig();
     }
 
-    public function test_createAplusContentV20201101ApiClient_without_pipeline()
+    public function test_createAPlusContentV20201101ApiClient_without_pipeline()
     {
         $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi::class,
-            'createAplusContentV20201101ApiClient'
+            \Glue\SpApi\OpenAPI\Clients\APlusContentV20201101\Api\APlusContentApi::class,
+            'createAPlusContentV20201101ApiClient'
         );
     }
 
-    public function test_createAplusContentV20201101ApiClient_with_pipeline()
+    public function test_createAPlusContentV20201101ApiClient_with_pipeline()
     {
         $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi::class,
-            'createAplusContentV20201101ApiClient'
+            \Glue\SpApi\OpenAPI\Clients\APlusContentV20201101\Api\APlusContentApi::class,
+            'createAPlusContentV20201101ApiClient'
         );
     }
 
@@ -225,7 +225,7 @@ class ClientFactoryTest extends TestCase
     public function test_createFinancesV0ApiClient_without_pipeline()
     {
         $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi::class,
+            \Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\FinancesApi::class,
             'createFinancesV0ApiClient'
         );
     }
@@ -233,7 +233,7 @@ class ClientFactoryTest extends TestCase
     public function test_createFinancesV0ApiClient_with_pipeline()
     {
         $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi::class,
+            \Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\FinancesApi::class,
             'createFinancesV0ApiClient'
         );
     }
@@ -366,22 +366,6 @@ class ClientFactoryTest extends TestCase
         );
     }
 
-    public function test_createOrdersV0ShipmentApiClient_without_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi::class,
-            'createOrdersV0ShipmentApiClient'
-        );
-    }
-
-    public function test_createOrdersV0ShipmentApiClient_with_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi::class,
-            'createOrdersV0ShipmentApiClient'
-        );
-    }
-
     public function test_createProductFeesV0ApiClient_without_pipeline()
     {
         $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
@@ -414,35 +398,19 @@ class ClientFactoryTest extends TestCase
         );
     }
 
-    public function test_createReplenishmentV20221107OffersApiClient_without_pipeline()
+    public function test_createReplenishmentV20221107ApiClient_without_pipeline()
     {
         $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi::class,
-            'createReplenishmentV20221107OffersApiClient'
+            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\ReplenishmentApi::class,
+            'createReplenishmentV20221107ApiClient'
         );
     }
 
-    public function test_createReplenishmentV20221107OffersApiClient_with_pipeline()
+    public function test_createReplenishmentV20221107ApiClient_with_pipeline()
     {
         $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi::class,
-            'createReplenishmentV20221107OffersApiClient'
-        );
-    }
-
-    public function test_createReplenishmentV20221107SellingpartnersApiClient_without_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi::class,
-            'createReplenishmentV20221107SellingpartnersApiClient'
-        );
-    }
-
-    public function test_createReplenishmentV20221107SellingpartnersApiClient_with_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi::class,
-            'createReplenishmentV20221107SellingpartnersApiClient'
+            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\ReplenishmentApi::class,
+            'createReplenishmentV20221107ApiClient'
         );
     }
 
@@ -670,38 +638,6 @@ class ClientFactoryTest extends TestCase
         );
     }
 
-    public function test_createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient_without_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi::class,
-            'createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient'
-        );
-    }
-
-    public function test_createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient_with_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi::class,
-            'createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient'
-        );
-    }
-
-    public function test_createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient_without_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi::class,
-            'createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient'
-        );
-    }
-
-    public function test_createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient_with_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi::class,
-            'createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient'
-        );
-    }
-
     public function test_createVendorDirectFulfillmentShippingV1ApiClient_without_pipeline()
     {
         $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
@@ -718,38 +654,6 @@ class ClientFactoryTest extends TestCase
         );
     }
 
-    public function test_createVendorDirectFulfillmentShippingV1LabelsApiClient_without_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi::class,
-            'createVendorDirectFulfillmentShippingV1LabelsApiClient'
-        );
-    }
-
-    public function test_createVendorDirectFulfillmentShippingV1LabelsApiClient_with_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi::class,
-            'createVendorDirectFulfillmentShippingV1LabelsApiClient'
-        );
-    }
-
-    public function test_createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient_without_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi::class,
-            'createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient'
-        );
-    }
-
-    public function test_createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient_with_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi::class,
-            'createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient'
-        );
-    }
-
     public function test_createVendorDirectFulfillmentShippingV20211228ApiClient_without_pipeline()
     {
         $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
@@ -763,22 +667,6 @@ class ClientFactoryTest extends TestCase
         $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
             \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi::class,
             'createVendorDirectFulfillmentShippingV20211228ApiClient'
-        );
-    }
-
-    public function test_createVendorDirectFulfillmentShippingV20211228LabelsApiClient_without_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_without_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi::class,
-            'createVendorDirectFulfillmentShippingV20211228LabelsApiClient'
-        );
-    }
-
-    public function test_createVendorDirectFulfillmentShippingV20211228LabelsApiClient_with_pipeline()
-    {
-        $this->_arrange_and_assert_it_can_create_expected_client_with_pipeline(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi::class,
-            'createVendorDirectFulfillmentShippingV20211228LabelsApiClient'
         );
     }
 
