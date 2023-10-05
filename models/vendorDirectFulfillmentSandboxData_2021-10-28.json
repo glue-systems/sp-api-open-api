@@ -172,7 +172,7 @@
     "/vendor/directFulfillment/sandbox/2021-10-28/transactions/{transactionId}": {
       "get": {
         "tags": [
-          "vendorDFSandboxtransactionstatus"
+          "vendorDFSandbox"
         ],
         "description": "Returns the status of the transaction indicated by the specified transactionId. If the transaction was successful, also returns the requested test order data.",
         "operationId": "getOrderScenarios",
