@@ -27,7 +27,7 @@
     "/aplus/2020-11-01/contentDocuments": {
       "get": {
         "tags": [
-          "aplusContent"
+          "aPlusContent"
         ],
         "description": "Returns a list of all A+ Content documents assigned to a selling partner. This operation returns only the metadata of the A+ Content documents. Call the getContentDocument operation to get the actual contents of the A+ Content documents.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 10 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
         "operationId": "searchContentDocuments",
@@ -194,7 +194,7 @@
       },
       "post": {
         "tags": [
-          "aplusContent"
+          "aPlusContent"
         ],
         "description": "Creates a new A+ Content document.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 10 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
         "operationId": "createContentDocument",
@@ -349,7 +349,7 @@
     "/aplus/2020-11-01/contentDocuments/{contentReferenceKey}": {
       "get": {
         "tags": [
-          "aplusContent"
+          "aPlusContent"
         ],
         "description": "Returns an A+ Content document, if available.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 10 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
         "operationId": "getContentDocument",
@@ -543,7 +543,7 @@
       },
       "post": {
         "tags": [
-          "aplusContent"
+          "aPlusContent"
         ],
         "description": "Updates an existing A+ Content document.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 10 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
         "operationId": "updateContentDocument",
@@ -722,7 +722,7 @@
     "/aplus/2020-11-01/contentDocuments/{contentReferenceKey}/asins": {
       "get": {
         "tags": [
-          "aplusContent"
+          "aPlusContent"
         ],
         "description": "Returns a list of ASINs related to the specified A+ Content document, if available. If you do not include the asinSet parameter, the operation returns all ASINs related to the content document.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 10 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
         "operationId": "listContentDocumentAsinRelations",
@@ -932,7 +932,7 @@
       },
       "post": {
         "tags": [
-          "aplusContent"
+          "aPlusContent"
         ],
         "description": "Replaces all ASINs related to the specified A+ Content document, if available. This may add or remove ASINs, depending on the current set of related ASINs. Removing an ASIN has the side effect of suspending the content document from that ASIN.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 10 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
         "operationId": "postContentDocumentAsinRelations",
@@ -1111,7 +1111,7 @@
     "/aplus/2020-11-01/contentAsinValidations": {
       "post": {
         "tags": [
-          "aplusContent"
+          "aPlusContent"
         ],
         "description": "Checks if the A+ Content document is valid for use on a set of ASINs.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 10 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
         "operationId": "validateContentDocumentAsinRelations",
@@ -1279,7 +1279,7 @@
     "/aplus/2020-11-01/contentPublishRecords": {
       "get": {
         "tags": [
-          "aplusContent"
+          "aPlusContent"
         ],
         "description": "Searches for A+ Content publishing records, if available.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 10 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
         "operationId": "searchContentPublishRecords",
@@ -1441,7 +1441,7 @@
     "/aplus/2020-11-01/contentDocuments/{contentReferenceKey}/approvalSubmissions": {
       "post": {
         "tags": [
-          "aplusContent"
+          "aPlusContent"
         ],
         "description": "Submits an A+ Content document for review, approval, and publishing.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 10 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
         "operationId": "postContentDocumentApprovalSubmission",
@@ -1611,7 +1611,7 @@
     "/aplus/2020-11-01/contentDocuments/{contentReferenceKey}/suspendSubmissions": {
       "post": {
         "tags": [
-          "aplusContent"
+          "aPlusContent"
         ],
         "description": "Submits a request to suspend visible A+ Content. This neither deletes the content document nor the ASIN relations.\n\n**Usage Plans:**\n\n| Plan type | Rate (requests per second) | Burst |\n| ---- | ---- | ---- |\n|Default| 10 | 10 |\n|Selling partner specific| Variable | Variable |\n\nThe x-amzn-RateLimit-Limit response header returns the usage plan rate limits that were applied to the requested operation. Rate limits for some selling partners will vary from the default rate and burst shown in the table above. For more information, see \"Usage Plans and Rate Limits\" in the Selling Partner API documentation.",
         "operationId": "postContentDocumentSuspendSubmission",
