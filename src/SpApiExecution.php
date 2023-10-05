@@ -69,14 +69,6 @@ class SpApiExecution
             ?: new BuilderMiddlewarePipeline();
     }
 
-    // /**
-    //  * Get an associative array mapping the name of the SP-API operation
-    //  * to the client class name containing the operation.
-    //  *
-    //  * @return array
-    //  */
-    // abstract public function getOperationToClientDictionary();
-
     /**
      * @param callable $execute
      * @return mixed
@@ -158,31 +150,6 @@ class SpApiExecution
     public function getSpApiConfig()
     {
         return clone $this->spApiConfig;
-    }
-
-    /**
-     * @param string $operationName
-     * @param callable $execute
-     * @return mixed
-     * @throws DomainApiException|LwaAccessTokenException|RestrictedDataTokenException
-     */
-    protected function _executeOperation($operationName, ...$operationArgs)
-    {
-        $dictionary = $this->getOperationToClientDictionary();
-
-        if (!isset($dictionary[$operationName])) {
-            $apiExecutionClassFqn = static::class;
-            $supportedOperations  = implode(', ', array_keys($dictionary));
-            throw new SpApiResolutionException("Unable to resolve SP-API client:"
-                . " The operation '$operationName' is invalid; must be one of"
-                . " [$supportedOperations] (for SP-API exeuction class $apiExecutionClassFqn).");
-        }
-
-        $this->clientClassFqn = $dictionary[$operationName];
-
-        return $this->execute(function ($client) use ($operationName, $operationArgs) {
-            return $client->{$operationName}(...$operationArgs);
-        });
     }
 
     protected function _resolveClientFactoryMethodViaReflection(callable $execute)

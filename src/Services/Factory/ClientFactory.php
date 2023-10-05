@@ -40,14 +40,14 @@ class ClientFactory implements ClientFactoryInterface
     }
 
     /**
-     * @return \Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi
+     * @return \Glue\SpApi\OpenAPI\Clients\APlusContentV20201101\Api\APlusContentApi
      * @throws LwaAccessTokenException
      */
-    public function createAplusContentV20201101ApiClient(
+    public function createAPlusContentV20201101ApiClient(
         BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
-            \Glue\SpApi\OpenAPI\Clients\AplusContentV20201101\Api\AplusContentApi::class,
+            \Glue\SpApi\OpenAPI\Clients\APlusContentV20201101\Api\APlusContentApi::class,
             $pipeline
         );
     }
@@ -183,14 +183,14 @@ class ClientFactory implements ClientFactoryInterface
     }
 
     /**
-     * @return \Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi
+     * @return \Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\FinancesApi
      * @throws LwaAccessTokenException
      */
     public function createFinancesV0ApiClient(
         BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
-            \Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\DefaultApi::class,
+            \Glue\SpApi\OpenAPI\Clients\FinancesV0\Api\FinancesApi::class,
             $pipeline
         );
     }
@@ -300,19 +300,6 @@ class ClientFactory implements ClientFactoryInterface
     }
 
     /**
-     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi
-     * @throws LwaAccessTokenException
-     */
-    public function createOrdersV0ShipmentApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
-    ) {
-        return $this->_createClientViaBuilder(
-            \Glue\SpApi\OpenAPI\Clients\OrdersV0\Api\ShipmentApi::class,
-            $pipeline
-        );
-    }
-
-    /**
      * @return \Glue\SpApi\OpenAPI\Clients\ProductFeesV0\Api\FeesApi
      * @throws LwaAccessTokenException
      */
@@ -339,27 +326,14 @@ class ClientFactory implements ClientFactoryInterface
     }
 
     /**
-     * @return \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi
+     * @return \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\ReplenishmentApi
      * @throws LwaAccessTokenException
      */
-    public function createReplenishmentV20221107OffersApiClient(
+    public function createReplenishmentV20221107ApiClient(
         BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
-            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\OffersApi::class,
-            $pipeline
-        );
-    }
-
-    /**
-     * @return \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi
-     * @throws LwaAccessTokenException
-     */
-    public function createReplenishmentV20221107SellingpartnersApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
-    ) {
-        return $this->_createClientViaBuilder(
-            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\SellingpartnersApi::class,
+            \Glue\SpApi\OpenAPI\Clients\ReplenishmentV20221107\Api\ReplenishmentApi::class,
             $pipeline
         );
     }
@@ -547,32 +521,6 @@ class ClientFactory implements ClientFactoryInterface
     }
 
     /**
-     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi
-     * @throws LwaAccessTokenException
-     */
-    public function createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
-    ) {
-        return $this->_createClientViaBuilder(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentSandboxDataV20211228\Api\VendorDFSandboxtransactionstatusApi::class,
-            $pipeline
-        );
-    }
-
-    /**
-     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
-     */
-    public function createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
-    ) {
-        return $this->_createClientViaBuilder(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\CustomerInvoicesApi::class,
-            $pipeline
-        );
-    }
-
-    /**
      * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -586,32 +534,6 @@ class ClientFactory implements ClientFactoryInterface
     }
 
     /**
-     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
-     */
-    public function createVendorDirectFulfillmentShippingV1LabelsApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
-    ) {
-        return $this->_createClientViaBuilder(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV1\Api\VendorShippingLabelsApi::class,
-            $pipeline
-        );
-    }
-
-    /**
-     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
-     */
-    public function createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
-    ) {
-        return $this->_createClientViaBuilder(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\CustomerInvoicesApi::class,
-            $pipeline
-        );
-    }
-
-    /**
      * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
@@ -620,19 +542,6 @@ class ClientFactory implements ClientFactoryInterface
     ) {
         return $this->_createClientViaBuilder(
             \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingApi::class,
-            $pipeline
-        );
-    }
-
-    /**
-     * @return \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi
-     * @throws LwaAccessTokenException|RestrictedDataTokenException
-     */
-    public function createVendorDirectFulfillmentShippingV20211228LabelsApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
-    ) {
-        return $this->_createClientViaBuilder(
-            \Glue\SpApi\OpenAPI\Clients\VendorDirectFulfillmentShippingV20211228\Api\VendorShippingLabelsApi::class,
             $pipeline
         );
     }
