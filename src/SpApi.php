@@ -90,9 +90,9 @@ class SpApi
         try {
             return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
         } catch (DomainApiException $ex) {
-            return $this->_tryAgainIf403OrThrow($ex, $clientFactoryMethod, $execute);
+            return $this->_tryAgainIfAuthFailedOrThrow($ex, $clientFactoryMethod, $execute);
         } catch (RestrictedDataTokenException $ex) {
-            return $this->_tryAgainIf403OrThrow($ex, $clientFactoryMethod, $execute);
+            return $this->_tryAgainIfAuthFailedOrThrow($ex, $clientFactoryMethod, $execute);
         }
     }
 
@@ -912,12 +912,12 @@ class SpApi
      * @return mixed
      * @throws DomainApiException|LwaAccessTokenException|RestrictedDataTokenException
      */
-    protected function _tryAgainIf403OrThrow(
+    protected function _tryAgainIfAuthFailedOrThrow(
         $ex,
         $clientFactoryMethod,
         callable $execute
     ) {
-        if ($ex->getCode() === 403) {
+        if (in_array($ex->getCode(), [401, 403])) {
             $this->lwaService->forgetCachedLwaAccessToken();
             return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
         }
