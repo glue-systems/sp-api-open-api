@@ -91,6 +91,8 @@ class SpApi
             return $this->_invokeExecuteCallback($clientFactoryMethod, $execute);
         } catch (DomainApiException $ex) {
             return $this->_tryAgainIfAuthFailedOrThrow($ex, $clientFactoryMethod, $execute);
+        } catch (LwaAccessTokenException $ex) {
+            return $this->_tryAgainIfAuthFailedOrThrow($ex, $clientFactoryMethod, $execute);
         } catch (RestrictedDataTokenException $ex) {
             return $this->_tryAgainIfAuthFailedOrThrow($ex, $clientFactoryMethod, $execute);
         }
