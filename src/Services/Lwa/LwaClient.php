@@ -41,7 +41,7 @@ class LwaClient implements LwaClientInterface
             ]);
         } catch (GuzzleException $ex) {
             $msg = "Failed to retrieve Login with Amazon (LWA) Access Token: '{$ex->getMessage()}'";
-            throw new LwaAccessTokenException($msg, 0, $ex);
+            throw new LwaAccessTokenException($msg, $ex->getCode(), $ex);
         }
 
         return json_decode($response->getBody()->getContents(), true);
