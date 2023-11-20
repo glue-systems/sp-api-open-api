@@ -906,7 +906,7 @@ class SpApi
     }
 
     /**
-     * @param DomainApiException|RestrictedDataTokenException $ex
+     * @param DomainApiException|LwaAccessTokenException|RestrictedDataTokenException $ex
      * @param string $clientFactoryMethod
      * @param callable $execute
      * @return mixed
