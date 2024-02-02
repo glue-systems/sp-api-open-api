@@ -46,6 +46,13 @@ class UnitOfMeasurement
      */
     const INCHES = 'inches';
     const CENTIMETERS = 'centimeters';
+    /**
+     * @var string This is not present in the generated model, but
+     * is the only value present in the API response as far as this developer
+     * can see. It is possible that 'CM' can be present in responses, but it
+     * has not been added here, as it has not yet been observed.
+     */
+    const INCHES_ABBREVIATED = 'IN';
     
     /**
      * Gets allowable values of the enum
@@ -56,6 +63,7 @@ class UnitOfMeasurement
         return [
             self::INCHES,
             self::CENTIMETERS,
+            self::INCHES_ABBREVIATED,
         ];
     }
 }

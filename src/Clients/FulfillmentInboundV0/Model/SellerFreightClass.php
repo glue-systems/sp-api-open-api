@@ -69,7 +69,7 @@ class SellerFreightClass
      */
     public static function getAllowableEnumValues()
     {
-        return [
+        $modelGeneratedValues = [
             self::_50,
             self::_55,
             self::_60,
@@ -89,6 +89,32 @@ class SellerFreightClass
             self::_400,
             self::_500,
         ];
+
+        return static::getCombinedFormattedNumbers($modelGeneratedValues);
+    }
+
+    /**
+     * Answers the need to add numbers formatted as floats to the enumerable
+     * whole number string values (e.g. for '100', we also need '100.0'),
+     * as this is the way these numbers appear to be coming back from the API.
+     *
+     * @param array $modelGeneratedNumbers
+     * @return array The combined array of model-generated and dynamically-constructed
+     * float-like formatted number values
+     */
+    public static function getCombinedFormattedNumbers($modelGeneratedNumbers)
+    {
+        $decimalValues = array_map(function ($number) {
+            return number_format($number, 1);
+        }, $modelGeneratedNumbers);
+
+        $combinedValues = array_unique(
+            array_merge($modelGeneratedNumbers, $decimalValues)
+        );
+
+        sort($combinedValues);
+
+        return $combinedValues;
     }
 }
 
