@@ -513,5 +513,10 @@ Some SP-API operations return values that do not conform to their OpenAPI JSON s
 
 In order to account for such API idiosyncrasies, custom modifications have been made to the OpenAPI-generated code. Below is a changelog list to help us keep track of these changes and ensure they persist as newer versions of SP-API models and OpenAPI Generator CLI are released.
 
-- Adding coersion of string 'true' 'false' etc to into true booleans via filter_var function in OrdersV0 ObjectSerializer by @jpsilkjr86 in #15
-  - Full Changelog: v2.1.1...v2.1.2
+- Adding coercion of string `'true'`, `'false'` etc. to into true booleans via `filter_var` function in `OrdersV0` 
+  `ObjectSerializer` by [@jpsilkjr86](https://github.com/jpsilkjr86) in [#15](https://github.com/glue-systems/sp-api-open-api/pull/15)
+  - Full Changelog: [`v2.1.1...v2.1.2`](https://github.com/glue-systems/sp-api-open-api/compare/v2.1.1...v2.1.2)
+- Correcting for Swagger-generated models' noncompliance with actual SP API responses observed in production 
+  (`SellerFreightClass`, 
+  `UnitOfMeasurement`) by [@codelinde](https://github.com/codelinde) in [#21](https://github.com/glue-systems/sp-api-open-api/pull/21).
+  - Full Changelog: [`v2.3.3...v2.3.4`](https://github.com/glue-systems/sp-api-open-api/compare/v2.3.3...v2.3.4)
