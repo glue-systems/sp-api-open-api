@@ -520,3 +520,6 @@ In order to account for such API idiosyncrasies, custom modifications have been 
   (`SellerFreightClass`, 
   `UnitOfMeasurement`) by [@codelinde](https://github.com/codelinde) in [#21](https://github.com/glue-systems/sp-api-open-api/pull/21).
   - Full Changelog: [`v2.3.3...v2.3.4`](https://github.com/glue-systems/sp-api-open-api/compare/v2.3.3...v2.3.4)
+- Correcting for Swagger-generated models' noncompliance with actual SP API responses observed in production 
+  (`ShipmentStatus`) by [@codelinde](https://github.com/codelinde) in [#22](https://github.com/glue-systems/sp-api-open-api/pull/22).
+  - Full Changelog: [`v2.3.4...v2.3.5`](https://github.com/glue-systems/sp-api-open-api/compare/v2.3.4...v2.3.5)
