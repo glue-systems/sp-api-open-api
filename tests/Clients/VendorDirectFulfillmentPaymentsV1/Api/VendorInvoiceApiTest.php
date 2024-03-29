@@ -20,123 +20,125 @@ class VendorInvoiceApiTest extends TestCase
 {
     public function test_submitInvoice()
     {
-        $result = $this->sp_api()
-            ->vendorDirectFulfillmentPaymentsV1()
-            ->execute(function (VendorInvoiceApi $vendorInvoiceApi) {
-                return $vendorInvoiceApi->submitInvoiceWithHttpInfo(
-                    new SubmitInvoiceRequest([
-                        'invoices' => [
-                            new InvoiceDetail([
-                                'invoiceNumber' => '0092590411',
-                                'invoiceDate' => '2020-03-13T11:16:24Z',
-                                'remitToParty' => new PartyIdentification([
-                                    'partyId' => 'YourVendorCode',
-                                    'address' => new Address([
-                                        'name' => 'vendor name',
-                                        'addressLine1' => 'vendor address 1',
-                                        'addressLine2' => 'vendor address 2',
-                                        'addressLine3' => 'vendor address 3',
-                                        'city' => 'DECity',
-                                        'county' => 'Schwabing',
-                                        'district' => 'München',
-                                        'stateOrRegion' => 'Bayern',
-                                        'postalCode' => 'DEPostCode',
-                                        'countryCode' => 'DE',
-                                    ]),
-                                    'taxRegistrationDetails' => [
-                                        new TaxRegistrationDetail([
-                                            'taxRegistrationType'   => 'VAT',
-                                            'taxRegistrationNumber' => 'DE123456789',
-                                        ])
-                                    ],
-                                ]),
-                                'shipFromParty' => new PartyIdentification([
-                                    'partyId' => 'ABCD',
-                                ]),
-                                'billToParty' => new PartyIdentification([
-                                    'partyId' => '5450534005838',
-                                    'address' => new Address([
-                                        'name' => 'Amazon EU SARL',
-                                        'addressLine1' => 'Marcel-Breuer-Str. 12',
-                                        'city' => 'München',
-                                        'county' => 'Schwabing',
-                                        'district' => 'München',
-                                        'stateOrRegion' => 'Bayern',
-                                        'postalCode' => '80807',
-                                        'countryCode' => 'DE',
-                                    ]),
-                                    'taxRegistrationDetails' => [
-                                        new TaxRegistrationDetail([
-                                            'taxRegistrationType' => 'VAT',
-                                            'taxRegistrationNumber' => 'DE814584193',
-                                            'taxRegistrationAddress' => new Address([
-                                                'name' => 'Amazon EU SARL',
-                                                'addressLine1' => 'Marcel-Breuer-Str. 12',
-                                                'city' => 'München',
-                                                'stateOrRegion' => 'Bayern',
-                                                'postalCode' => '80807',
-                                                'countryCode' => 'DE',
-                                            ]),
-                                            'taxRegistrationMessage' => 'txmessage'
+        $result = $this->tryButSkipIfUnauthorized(function () {
+            return $this->sp_api()
+                ->vendorDirectFulfillmentPaymentsV1()
+                ->execute(function (VendorInvoiceApi $vendorInvoiceApi) {
+                    return $vendorInvoiceApi->submitInvoiceWithHttpInfo(
+                        new SubmitInvoiceRequest([
+                            'invoices' => [
+                                new InvoiceDetail([
+                                    'invoiceNumber'     => '0092590411',
+                                    'invoiceDate'       => '2020-03-13T11:16:24Z',
+                                    'remitToParty'      => new PartyIdentification([
+                                        'partyId'                => 'YourVendorCode',
+                                        'address'                => new Address([
+                                            'name'          => 'vendor name',
+                                            'addressLine1'  => 'vendor address 1',
+                                            'addressLine2'  => 'vendor address 2',
+                                            'addressLine3'  => 'vendor address 3',
+                                            'city'          => 'DECity',
+                                            'county'        => 'Schwabing',
+                                            'district'      => 'München',
+                                            'stateOrRegion' => 'Bayern',
+                                            'postalCode'    => 'DEPostCode',
+                                            'countryCode'   => 'DE',
                                         ]),
-                                    ],
-                                ]),
-                                'shipToCountryCode' => 'DE',
-                                'paymentTermsCode'  => 'Basic',
-                                'invoiceTotal' => new Money([
-                                    'currencyCode' => 'EUR',
-                                    'amount'       => '1428.00',
-                                ]),
-                                'taxTotals' => [
-                                    new TaxDetail([
-                                        'taxType' => 'CGST',
-                                        'taxRate' => '0.19',
-                                        'taxAmount' => new Money([
-                                            'currencyCode' => 'EUR',
-                                            'amount'       => '228.00',
-                                        ]),
-                                        'taxableAmount' => new Money([
-                                            'currencyCode' => 'EUR',
-                                            'amount'       => '1200.00',
-                                        ]),
-                                    ]),
-                                ],
-                                'items' => [
-                                    new InvoiceItem([
-                                        'itemSequenceNumber' => '1',
-                                        'buyerProductIdentifier' => 'B00IVLAABC',
-                                        'invoicedQuantity' => new ItemQuantity([
-                                            'amount' => 1,
-                                            'unitOfMeasure' => 'Each',
-                                        ]),
-                                        'netCost' => new Money([
-                                            'currencyCode' => 'EUR',
-                                            'amount'       => '1200.00',
-                                        ]),
-                                        'purchaseOrderNumber' => 'D3rC3KTxG',
-                                        'vendorOrderNumber' => '0092590411',
-                                        'hsnCode' => '76.06.92.99.00',
-                                        'taxDetails' => [
-                                            new TaxDetail([
-                                                'taxType' => 'CGST',
-                                                'taxRate' => '0.19',
-                                                'taxAmount' => new Money([
-                                                    'currencyCode' => 'EUR',
-                                                    'amount'       => '228.00',
-                                                ]),
-                                                'taxableAmount' => new Money([
-                                                    'currencyCode' => 'EUR',
-                                                    'amount'       => '1200.00',
-                                                ]),
+                                        'taxRegistrationDetails' => [
+                                            new TaxRegistrationDetail([
+                                                'taxRegistrationType'   => 'VAT',
+                                                'taxRegistrationNumber' => 'DE123456789',
                                             ]),
                                         ],
                                     ]),
-                                ],
-                            ]),
-                        ],
-                    ])
-                );
-            });
+                                    'shipFromParty'     => new PartyIdentification([
+                                        'partyId' => 'ABCD',
+                                    ]),
+                                    'billToParty'       => new PartyIdentification([
+                                        'partyId'                => '5450534005838',
+                                        'address'                => new Address([
+                                            'name'          => 'Amazon EU SARL',
+                                            'addressLine1'  => 'Marcel-Breuer-Str. 12',
+                                            'city'          => 'München',
+                                            'county'        => 'Schwabing',
+                                            'district'      => 'München',
+                                            'stateOrRegion' => 'Bayern',
+                                            'postalCode'    => '80807',
+                                            'countryCode'   => 'DE',
+                                        ]),
+                                        'taxRegistrationDetails' => [
+                                            new TaxRegistrationDetail([
+                                                'taxRegistrationType'    => 'VAT',
+                                                'taxRegistrationNumber'  => 'DE814584193',
+                                                'taxRegistrationAddress' => new Address([
+                                                    'name'          => 'Amazon EU SARL',
+                                                    'addressLine1'  => 'Marcel-Breuer-Str. 12',
+                                                    'city'          => 'München',
+                                                    'stateOrRegion' => 'Bayern',
+                                                    'postalCode'    => '80807',
+                                                    'countryCode'   => 'DE',
+                                                ]),
+                                                'taxRegistrationMessage' => 'txmessage',
+                                            ]),
+                                        ],
+                                    ]),
+                                    'shipToCountryCode' => 'DE',
+                                    'paymentTermsCode'  => 'Basic',
+                                    'invoiceTotal'      => new Money([
+                                        'currencyCode' => 'EUR',
+                                        'amount'       => '1428.00',
+                                    ]),
+                                    'taxTotals'         => [
+                                        new TaxDetail([
+                                            'taxType'       => 'CGST',
+                                            'taxRate'       => '0.19',
+                                            'taxAmount'     => new Money([
+                                                'currencyCode' => 'EUR',
+                                                'amount'       => '228.00',
+                                            ]),
+                                            'taxableAmount' => new Money([
+                                                'currencyCode' => 'EUR',
+                                                'amount'       => '1200.00',
+                                            ]),
+                                        ]),
+                                    ],
+                                    'items'             => [
+                                        new InvoiceItem([
+                                            'itemSequenceNumber'     => '1',
+                                            'buyerProductIdentifier' => 'B00IVLAABC',
+                                            'invoicedQuantity'       => new ItemQuantity([
+                                                'amount'        => 1,
+                                                'unitOfMeasure' => 'Each',
+                                            ]),
+                                            'netCost'                => new Money([
+                                                'currencyCode' => 'EUR',
+                                                'amount'       => '1200.00',
+                                            ]),
+                                            'purchaseOrderNumber'    => 'D3rC3KTxG',
+                                            'vendorOrderNumber'      => '0092590411',
+                                            'hsnCode'                => '76.06.92.99.00',
+                                            'taxDetails'             => [
+                                                new TaxDetail([
+                                                    'taxType'       => 'CGST',
+                                                    'taxRate'       => '0.19',
+                                                    'taxAmount'     => new Money([
+                                                        'currencyCode' => 'EUR',
+                                                        'amount'       => '228.00',
+                                                    ]),
+                                                    'taxableAmount' => new Money([
+                                                        'currencyCode' => 'EUR',
+                                                        'amount'       => '1200.00',
+                                                    ]),
+                                                ]),
+                                            ],
+                                        ]),
+                                    ],
+                                ]),
+                            ],
+                        ])
+                    );
+                });
+        });
 
         /**
          * @var SubmitInvoiceResponse $response

@@ -12,14 +12,18 @@ class FbaInboundApiTest extends TestCase
 {
     public function test_getInboundGuidance()
     {
-        $result = $this->sp_api()
-            ->fulfillmentInboundV0()
-            ->execute(function (FbaInboundApi $fbaInboundApi) {
-                return $fbaInboundApi->getInboundGuidanceWithHttpInfo(
-                    'MarketplaceId',
-                    ['sku1', 'sku2']
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(
+            function () {
+                return $this->sp_api()
+                    ->fulfillmentInboundV0()
+                    ->execute(function (FbaInboundApi $fbaInboundApi) {
+                        return $fbaInboundApi->getInboundGuidanceWithHttpInfo(
+                            'MarketplaceId',
+                            ['sku1', 'sku2']
+                        );
+                    });
+            }
+        );
 
         /**
          * @var GetInboundGuidanceResponse $response
