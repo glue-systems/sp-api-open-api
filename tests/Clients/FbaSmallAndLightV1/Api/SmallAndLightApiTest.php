@@ -27,11 +27,11 @@ class SmallAndLightApiTest extends TestCase
         /**
          * @var SmallAndLightEnrollment $response
          */
-        list($response, $statusCode, $headers) = $result;
+        [$response, $statusCode, $headers] = $result;
 
         $this->assertEquals($statusCode, 200);
         $this->assertInstanceOf(SmallAndLightEnrollment::class, $response);
         $this->assertNotEmpty($response->getSellerSKU());
-        $this->assertEquals(SmallAndLightEnrollmentStatus::ENROLLED, $this->$response->getStatus());
+        $this->assertEquals(SmallAndLightEnrollmentStatus::ENROLLED, $response->getStatus());
     }
 }
