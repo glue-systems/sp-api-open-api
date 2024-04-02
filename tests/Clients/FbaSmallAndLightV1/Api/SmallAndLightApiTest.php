@@ -11,19 +11,23 @@ class SmallAndLightApiTest extends TestCase
 {
     public function test_getSmallAndLightEnrollmentBySellerSKU()
     {
-        $result = $this->sp_api()
-            ->fbaSmallAndLightV1()
-            ->execute(function (SmallAndLightApi $smallAndLightApi) {
-                return $smallAndLightApi->getSmallAndLightEnrollmentBySellerSKUWithHttpInfo(
-                    'SKU_ENROLLED_IN_SMALL_AND_LIGHT',
-                    ['ATVPDKIKX0DER']
-                );
-            });
+        $result = $this->tryButSkipIfUnauthorized(
+            function () {
+                return $this->sp_api()
+                    ->fbaSmallAndLightV1()
+                    ->execute(function (SmallAndLightApi $smallAndLightApi) {
+                        return $smallAndLightApi->getSmallAndLightEnrollmentBySellerSKUWithHttpInfo(
+                            'SKU_ENROLLED_IN_SMALL_AND_LIGHT',
+                            ['ATVPDKIKX0DER']
+                        );
+                    });
+            }
+        );
 
         /**
          * @var SmallAndLightEnrollment $response
          */
-        list($response, $statusCode, $headers) = $result;
+        [$response, $statusCode, $headers] = $result;
 
         $this->assertEquals($statusCode, 200);
         $this->assertInstanceOf(SmallAndLightEnrollment::class, $response);

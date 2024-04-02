@@ -15,32 +15,36 @@ class UpdateInventoryApiTest extends TestCase
 {
     public function test_submitInventoryUpdate()
     {
-        $result = $this->sp_api()
-            ->vendorDirectFulfillmentInventoryV1()
-            ->execute(function (UpdateInventoryApi $updateInventoryApi) {
-                return $updateInventoryApi->submitInventoryUpdateWithHttpInfo(
-                    'FAKE-WAREHOUSE-123',
-                    new SubmitInventoryUpdateRequest([
-                        'inventory' => new InventoryUpdate([
-                            'sellingParty' => new PartyIdentification([
-                                'partyId' => 'VENDORID',
-                            ]),
-                            'isFullUpdate' => false,
-                            'items'        => [
-                                new ItemDetails([
-                                    'buyerProductIdentifier'  => 'ABCD4562',
-                                    'vendorProductIdentifier' => '7Q89K11',
-                                    'availableQuantity'       => new ItemQuantity([
-                                        'amount'        => 10,
-                                        'unitOfMeasure' => 'Each',
+        $result = $this->tryButSkipIfUnauthorized(
+            function () {
+                return $this->sp_api()
+                    ->vendorDirectFulfillmentInventoryV1()
+                    ->execute(function (UpdateInventoryApi $updateInventoryApi) {
+                        return $updateInventoryApi->submitInventoryUpdateWithHttpInfo(
+                            'FAKE-WAREHOUSE-123',
+                            new SubmitInventoryUpdateRequest([
+                                'inventory' => new InventoryUpdate([
+                                    'sellingParty' => new PartyIdentification([
+                                        'partyId' => 'VENDORID',
                                     ]),
-                                    'isObsolete'              => false,
+                                    'isFullUpdate' => false,
+                                    'items'        => [
+                                        new ItemDetails([
+                                            'buyerProductIdentifier'  => 'ABCD4562',
+                                            'vendorProductIdentifier' => '7Q89K11',
+                                            'availableQuantity'       => new ItemQuantity([
+                                                'amount'        => 10,
+                                                'unitOfMeasure' => 'Each',
+                                            ]),
+                                            'isObsolete'              => false,
+                                        ]),
+                                    ],
                                 ]),
-                            ],
-                        ]),
-                    ])
-                );
-            });
+                            ])
+                        );
+                    });
+            }
+        );
 
         /**
          * @var SubmitInventoryUpdateResponse $response
