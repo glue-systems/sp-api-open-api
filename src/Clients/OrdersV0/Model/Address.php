@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Orders
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API only supports orders that are less than two years old. Orders more than two years old will not show in the API response.
+ * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
  * OpenAPI spec version: v0
  * 
@@ -59,6 +59,7 @@ class Address implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'name' => 'string',
+        'companyName' => 'string',
         'addressLine1' => 'string',
         'addressLine2' => 'string',
         'addressLine3' => 'string',
@@ -70,6 +71,7 @@ class Address implements ModelInterface, ArrayAccess
         'postalCode' => 'string',
         'countryCode' => 'string',
         'phone' => 'string',
+        'extendedFields' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\AddressExtendedFields',
         'addressType' => 'string'
     ];
 
@@ -80,6 +82,7 @@ class Address implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'name' => null,
+        'companyName' => null,
         'addressLine1' => null,
         'addressLine2' => null,
         'addressLine3' => null,
@@ -91,6 +94,7 @@ class Address implements ModelInterface, ArrayAccess
         'postalCode' => null,
         'countryCode' => null,
         'phone' => null,
+        'extendedFields' => null,
         'addressType' => null
     ];
 
@@ -122,6 +126,7 @@ class Address implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'name' => 'Name',
+        'companyName' => 'CompanyName',
         'addressLine1' => 'AddressLine1',
         'addressLine2' => 'AddressLine2',
         'addressLine3' => 'AddressLine3',
@@ -133,6 +138,7 @@ class Address implements ModelInterface, ArrayAccess
         'postalCode' => 'PostalCode',
         'countryCode' => 'CountryCode',
         'phone' => 'Phone',
+        'extendedFields' => 'ExtendedFields',
         'addressType' => 'AddressType'
     ];
 
@@ -143,6 +149,7 @@ class Address implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'name' => 'setName',
+        'companyName' => 'setCompanyName',
         'addressLine1' => 'setAddressLine1',
         'addressLine2' => 'setAddressLine2',
         'addressLine3' => 'setAddressLine3',
@@ -154,6 +161,7 @@ class Address implements ModelInterface, ArrayAccess
         'postalCode' => 'setPostalCode',
         'countryCode' => 'setCountryCode',
         'phone' => 'setPhone',
+        'extendedFields' => 'setExtendedFields',
         'addressType' => 'setAddressType'
     ];
 
@@ -164,6 +172,7 @@ class Address implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'name' => 'getName',
+        'companyName' => 'getCompanyName',
         'addressLine1' => 'getAddressLine1',
         'addressLine2' => 'getAddressLine2',
         'addressLine3' => 'getAddressLine3',
@@ -175,6 +184,7 @@ class Address implements ModelInterface, ArrayAccess
         'postalCode' => 'getPostalCode',
         'countryCode' => 'getCountryCode',
         'phone' => 'getPhone',
+        'extendedFields' => 'getExtendedFields',
         'addressType' => 'getAddressType'
     ];
 
@@ -254,6 +264,7 @@ class Address implements ModelInterface, ArrayAccess
     public function __construct(array $data = null)
     {
         $this->container['name'] = isset($data['name']) ? $data['name'] : null;
+        $this->container['companyName'] = isset($data['companyName']) ? $data['companyName'] : null;
         $this->container['addressLine1'] = isset($data['addressLine1']) ? $data['addressLine1'] : null;
         $this->container['addressLine2'] = isset($data['addressLine2']) ? $data['addressLine2'] : null;
         $this->container['addressLine3'] = isset($data['addressLine3']) ? $data['addressLine3'] : null;
@@ -265,6 +276,7 @@ class Address implements ModelInterface, ArrayAccess
         $this->container['postalCode'] = isset($data['postalCode']) ? $data['postalCode'] : null;
         $this->container['countryCode'] = isset($data['countryCode']) ? $data['countryCode'] : null;
         $this->container['phone'] = isset($data['phone']) ? $data['phone'] : null;
+        $this->container['extendedFields'] = isset($data['extendedFields']) ? $data['extendedFields'] : null;
         $this->container['addressType'] = isset($data['addressType']) ? $data['addressType'] : null;
     }
 
@@ -277,9 +289,6 @@ class Address implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         $allowedValues = $this->getAddressTypeAllowableValues();
         if (!is_null($this->container['addressType']) && !in_array($this->container['addressType'], $allowedValues, true)) {
             $invalidProperties[] = sprintf(
@@ -306,7 +315,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -316,13 +325,37 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets name
      *
-     * @param string $name The name.
+     * @param string|null $name The name.
      *
      * @return $this
      */
     public function setName($name)
     {
         $this->container['name'] = $name;
+
+        return $this;
+    }
+
+    /**
+     * Gets companyName
+     *
+     * @return string|null
+     */
+    public function getCompanyName()
+    {
+        return $this->container['companyName'];
+    }
+
+    /**
+     * Sets companyName
+     *
+     * @param string|null $companyName The company name of the recipient.  **Note**: This attribute is only available for shipping address.
+     *
+     * @return $this
+     */
+    public function setCompanyName($companyName)
+    {
+        $this->container['companyName'] = $companyName;
 
         return $this;
     }
@@ -412,7 +445,7 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets city
      *
-     * @param string|null $city The city
+     * @param string|null $city The city.
      *
      * @return $this
      */
@@ -580,13 +613,37 @@ class Address implements ModelInterface, ArrayAccess
     /**
      * Sets phone
      *
-     * @param string|null $phone The phone number. Not returned for Fulfillment by Amazon (FBA) orders.
+     * @param string|null $phone The phone number of the buyer.  **Note**:  1. This attribute is only available for shipping address. 2. In some cases, the buyer phone number is suppressed:  a. Phone is suppressed for all `AFN` (fulfilled by Amazon) orders. b. Phone is suppressed for the shipped `MFN` (fulfilled by seller) order when the current date is past the Latest Delivery Date.
      *
      * @return $this
      */
     public function setPhone($phone)
     {
         $this->container['phone'] = $phone;
+
+        return $this;
+    }
+
+    /**
+     * Gets extendedFields
+     *
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\AddressExtendedFields|null
+     */
+    public function getExtendedFields()
+    {
+        return $this->container['extendedFields'];
+    }
+
+    /**
+     * Sets extendedFields
+     *
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\AddressExtendedFields|null $extendedFields extendedFields
+     *
+     * @return $this
+     */
+    public function setExtendedFields($extendedFields)
+    {
+        $this->container['extendedFields'] = $extendedFields;
 
         return $this;
     }

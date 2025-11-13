@@ -1,6 +1,6 @@
 <?php
 /**
- * ExceptionDates
+ * SubstitutionPreferences
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
- * ExceptionDates Class Doc Comment
+ * SubstitutionPreferences Class Doc Comment
  *
  * @category Class
- * @description Dates when the business is closed or open with a different time window.
+ * @description Substitution preferences for an order item.
  * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ExceptionDates implements ModelInterface, ArrayAccess
+class SubstitutionPreferences implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ExceptionDates';
+    protected static $openAPIModelName = 'SubstitutionPreferences';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exceptionDate' => 'string',
-        'isOpen' => 'bool',
-        'openIntervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
+        'substitutionType' => 'string',
+        'substitutionOptions' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\SubstitutionOption[]'
     ];
 
     /**
@@ -69,9 +68,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'exceptionDate' => null,
-        'isOpen' => null,
-        'openIntervals' => null
+        'substitutionType' => null,
+        'substitutionOptions' => null
     ];
 
     /**
@@ -101,9 +99,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exceptionDate' => 'ExceptionDate',
-        'isOpen' => 'IsOpen',
-        'openIntervals' => 'OpenIntervals'
+        'substitutionType' => 'SubstitutionType',
+        'substitutionOptions' => 'SubstitutionOptions'
     ];
 
     /**
@@ -112,9 +109,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exceptionDate' => 'setExceptionDate',
-        'isOpen' => 'setIsOpen',
-        'openIntervals' => 'setOpenIntervals'
+        'substitutionType' => 'setSubstitutionType',
+        'substitutionOptions' => 'setSubstitutionOptions'
     ];
 
     /**
@@ -123,9 +119,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exceptionDate' => 'getExceptionDate',
-        'isOpen' => 'getIsOpen',
-        'openIntervals' => 'getOpenIntervals'
+        'substitutionType' => 'getSubstitutionType',
+        'substitutionOptions' => 'getSubstitutionOptions'
     ];
 
     /**
@@ -169,8 +164,25 @@ class ExceptionDates implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const SUBSTITUTION_TYPE_CUSTOMER_PREFERENCE = 'CUSTOMER_PREFERENCE';
+    const SUBSTITUTION_TYPE_AMAZON_RECOMMENDED = 'AMAZON_RECOMMENDED';
+    const SUBSTITUTION_TYPE_DO_NOT_SUBSTITUTE = 'DO_NOT_SUBSTITUTE';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getSubstitutionTypeAllowableValues()
+    {
+        return [
+            self::SUBSTITUTION_TYPE_CUSTOMER_PREFERENCE,
+            self::SUBSTITUTION_TYPE_AMAZON_RECOMMENDED,
+            self::SUBSTITUTION_TYPE_DO_NOT_SUBSTITUTE,
+        ];
+    }
     
 
     /**
@@ -188,9 +200,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exceptionDate'] = isset($data['exceptionDate']) ? $data['exceptionDate'] : null;
-        $this->container['isOpen'] = isset($data['isOpen']) ? $data['isOpen'] : null;
-        $this->container['openIntervals'] = isset($data['openIntervals']) ? $data['openIntervals'] : null;
+        $this->container['substitutionType'] = isset($data['substitutionType']) ? $data['substitutionType'] : null;
+        $this->container['substitutionOptions'] = isset($data['substitutionOptions']) ? $data['substitutionOptions'] : null;
     }
 
     /**
@@ -201,6 +212,17 @@ class ExceptionDates implements ModelInterface, ArrayAccess
     public function listInvalidProperties()
     {
         $invalidProperties = [];
+
+        if ($this->container['substitutionType'] === null) {
+            $invalidProperties[] = "'substitutionType' can't be null";
+        }
+        $allowedValues = $this->getSubstitutionTypeAllowableValues();
+        if (!is_null($this->container['substitutionType']) && !in_array($this->container['substitutionType'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'substitutionType', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
 
         return $invalidProperties;
     }
@@ -218,73 +240,58 @@ class ExceptionDates implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exceptionDate
+     * Gets substitutionType
      *
-     * @return string|null
+     * @return string
      */
-    public function getExceptionDate()
+    public function getSubstitutionType()
     {
-        return $this->container['exceptionDate'];
+        return $this->container['substitutionType'];
     }
 
     /**
-     * Sets exceptionDate
+     * Sets substitutionType
      *
-     * @param string|null $exceptionDate Date when the business is closed, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date format.
+     * @param string $substitutionType The type of substitution that these preferences represent.
      *
      * @return $this
      */
-    public function setExceptionDate($exceptionDate)
+    public function setSubstitutionType($substitutionType)
     {
-        $this->container['exceptionDate'] = $exceptionDate;
+        $allowedValues = $this->getSubstitutionTypeAllowableValues();
+        if (!in_array($substitutionType, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'substitutionType', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['substitutionType'] = $substitutionType;
 
         return $this;
     }
 
     /**
-     * Gets isOpen
+     * Gets substitutionOptions
      *
-     * @return bool|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\SubstitutionOption[]|null
      */
-    public function getIsOpen()
+    public function getSubstitutionOptions()
     {
-        return $this->container['isOpen'];
+        return $this->container['substitutionOptions'];
     }
 
     /**
-     * Sets isOpen
+     * Sets substitutionOptions
      *
-     * @param bool|null $isOpen Boolean indicating if the business is closed or open on that date.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\SubstitutionOption[]|null $substitutionOptions A collection of substitution options.
      *
      * @return $this
      */
-    public function setIsOpen($isOpen)
+    public function setSubstitutionOptions($substitutionOptions)
     {
-        $this->container['isOpen'] = $isOpen;
-
-        return $this;
-    }
-
-    /**
-     * Gets openIntervals
-     *
-     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
-     */
-    public function getOpenIntervals()
-    {
-        return $this->container['openIntervals'];
-    }
-
-    /**
-     * Sets openIntervals
-     *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $openIntervals Time window during the day when the business is open.
-     *
-     * @return $this
-     */
-    public function setOpenIntervals($openIntervals)
-    {
-        $this->container['openIntervals'] = $openIntervals;
+        $this->container['substitutionOptions'] = $substitutionOptions;
 
         return $this;
     }

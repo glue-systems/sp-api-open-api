@@ -1,6 +1,6 @@
 <?php
 /**
- * VerificationStatus
+ * AssociationType
  *
  * PHP version 5
  *
@@ -31,24 +31,20 @@ namespace Glue\SpApi\OpenAPI\Clients\OrdersV0\Model;
 use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
- * VerificationStatus Class Doc Comment
+ * AssociationType Class Doc Comment
  *
  * @category Class
- * @description The verification status of the order.
+ * @description The type of association an item has with an order item.
  * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class VerificationStatus
+class AssociationType
 {
     /**
      * Possible values of this enum
      */
-    const PENDING = 'Pending';
-    const APPROVED = 'Approved';
-    const REJECTED = 'Rejected';
-    const EXPIRED = 'Expired';
-    const CANCELLED = 'Cancelled';
+    const VALUE_ADD_SERVICE = 'VALUE_ADD_SERVICE';
     
     /**
      * Gets allowable values of the enum
@@ -57,11 +53,7 @@ class VerificationStatus
     public static function getAllowableEnumValues()
     {
         return [
-            self::PENDING,
-            self::APPROVED,
-            self::REJECTED,
-            self::EXPIRED,
-            self::CANCELLED,
+            self::VALUE_ADD_SERVICE,
         ];
     }
 }

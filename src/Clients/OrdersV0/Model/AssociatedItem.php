@@ -1,6 +1,6 @@
 <?php
 /**
- * ExceptionDates
+ * AssociatedItem
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
- * ExceptionDates Class Doc Comment
+ * AssociatedItem Class Doc Comment
  *
  * @category Class
- * @description Dates when the business is closed or open with a different time window.
+ * @description An item that is associated with an order item. For example, a tire installation service that is purchased with tires.
  * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ExceptionDates implements ModelInterface, ArrayAccess
+class AssociatedItem implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ExceptionDates';
+    protected static $openAPIModelName = 'AssociatedItem';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exceptionDate' => 'string',
-        'isOpen' => 'bool',
-        'openIntervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
+        'orderId' => 'string',
+        'orderItemId' => 'string',
+        'associationType' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\AssociationType'
     ];
 
     /**
@@ -69,9 +69,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'exceptionDate' => null,
-        'isOpen' => null,
-        'openIntervals' => null
+        'orderId' => null,
+        'orderItemId' => null,
+        'associationType' => null
     ];
 
     /**
@@ -101,9 +101,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exceptionDate' => 'ExceptionDate',
-        'isOpen' => 'IsOpen',
-        'openIntervals' => 'OpenIntervals'
+        'orderId' => 'OrderId',
+        'orderItemId' => 'OrderItemId',
+        'associationType' => 'AssociationType'
     ];
 
     /**
@@ -112,9 +112,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exceptionDate' => 'setExceptionDate',
-        'isOpen' => 'setIsOpen',
-        'openIntervals' => 'setOpenIntervals'
+        'orderId' => 'setOrderId',
+        'orderItemId' => 'setOrderItemId',
+        'associationType' => 'setAssociationType'
     ];
 
     /**
@@ -123,9 +123,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exceptionDate' => 'getExceptionDate',
-        'isOpen' => 'getIsOpen',
-        'openIntervals' => 'getOpenIntervals'
+        'orderId' => 'getOrderId',
+        'orderItemId' => 'getOrderItemId',
+        'associationType' => 'getAssociationType'
     ];
 
     /**
@@ -188,9 +188,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exceptionDate'] = isset($data['exceptionDate']) ? $data['exceptionDate'] : null;
-        $this->container['isOpen'] = isset($data['isOpen']) ? $data['isOpen'] : null;
-        $this->container['openIntervals'] = isset($data['openIntervals']) ? $data['openIntervals'] : null;
+        $this->container['orderId'] = isset($data['orderId']) ? $data['orderId'] : null;
+        $this->container['orderItemId'] = isset($data['orderItemId']) ? $data['orderItemId'] : null;
+        $this->container['associationType'] = isset($data['associationType']) ? $data['associationType'] : null;
     }
 
     /**
@@ -218,73 +218,73 @@ class ExceptionDates implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exceptionDate
+     * Gets orderId
      *
      * @return string|null
      */
-    public function getExceptionDate()
+    public function getOrderId()
     {
-        return $this->container['exceptionDate'];
+        return $this->container['orderId'];
     }
 
     /**
-     * Sets exceptionDate
+     * Sets orderId
      *
-     * @param string|null $exceptionDate Date when the business is closed, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date format.
+     * @param string|null $orderId The order item's order identifier, in 3-7-7 format.
      *
      * @return $this
      */
-    public function setExceptionDate($exceptionDate)
+    public function setOrderId($orderId)
     {
-        $this->container['exceptionDate'] = $exceptionDate;
+        $this->container['orderId'] = $orderId;
 
         return $this;
     }
 
     /**
-     * Gets isOpen
+     * Gets orderItemId
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getIsOpen()
+    public function getOrderItemId()
     {
-        return $this->container['isOpen'];
+        return $this->container['orderItemId'];
     }
 
     /**
-     * Sets isOpen
+     * Sets orderItemId
      *
-     * @param bool|null $isOpen Boolean indicating if the business is closed or open on that date.
+     * @param string|null $orderItemId An Amazon-defined item identifier for the associated item.
      *
      * @return $this
      */
-    public function setIsOpen($isOpen)
+    public function setOrderItemId($orderItemId)
     {
-        $this->container['isOpen'] = $isOpen;
+        $this->container['orderItemId'] = $orderItemId;
 
         return $this;
     }
 
     /**
-     * Gets openIntervals
+     * Gets associationType
      *
-     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\AssociationType|null
      */
-    public function getOpenIntervals()
+    public function getAssociationType()
     {
-        return $this->container['openIntervals'];
+        return $this->container['associationType'];
     }
 
     /**
-     * Sets openIntervals
+     * Sets associationType
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $openIntervals Time window during the day when the business is open.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\AssociationType|null $associationType associationType
      *
      * @return $this
      */
-    public function setOpenIntervals($openIntervals)
+    public function setAssociationType($associationType)
     {
-        $this->container['openIntervals'] = $openIntervals;
+        $this->container['associationType'] = $associationType;
 
         return $this;
     }

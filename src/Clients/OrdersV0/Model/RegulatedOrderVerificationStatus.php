@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Orders
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API only supports orders that are less than two years old. Orders more than two years old will not show in the API response.
+ * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
  * OpenAPI spec version: v0
  * 
@@ -36,7 +36,7 @@ use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
  * RegulatedOrderVerificationStatus Class Doc Comment
  *
  * @category Class
- * @description The verification status of the order along with associated approval or rejection metadata.
+ * @description The verification status of the order, along with associated approval or rejection metadata.
  * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -63,7 +63,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
         'validRejectionReasons' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason[]',
         'rejectionReason' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\RejectionReason',
         'reviewDate' => 'string',
-        'externalReviewerId' => 'string'
+        'externalReviewerId' => 'string',
+        'validVerificationDetails' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ValidVerificationDetail[]'
     ];
 
     /**
@@ -77,7 +78,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
         'validRejectionReasons' => null,
         'rejectionReason' => null,
         'reviewDate' => null,
-        'externalReviewerId' => null
+        'externalReviewerId' => null,
+        'validVerificationDetails' => null
     ];
 
     /**
@@ -112,7 +114,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
         'validRejectionReasons' => 'ValidRejectionReasons',
         'rejectionReason' => 'RejectionReason',
         'reviewDate' => 'ReviewDate',
-        'externalReviewerId' => 'ExternalReviewerId'
+        'externalReviewerId' => 'ExternalReviewerId',
+        'validVerificationDetails' => 'ValidVerificationDetails'
     ];
 
     /**
@@ -126,7 +129,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
         'validRejectionReasons' => 'setValidRejectionReasons',
         'rejectionReason' => 'setRejectionReason',
         'reviewDate' => 'setReviewDate',
-        'externalReviewerId' => 'setExternalReviewerId'
+        'externalReviewerId' => 'setExternalReviewerId',
+        'validVerificationDetails' => 'setValidVerificationDetails'
     ];
 
     /**
@@ -140,7 +144,8 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
         'validRejectionReasons' => 'getValidRejectionReasons',
         'rejectionReason' => 'getRejectionReason',
         'reviewDate' => 'getReviewDate',
-        'externalReviewerId' => 'getExternalReviewerId'
+        'externalReviewerId' => 'getExternalReviewerId',
+        'validVerificationDetails' => 'getValidVerificationDetails'
     ];
 
     /**
@@ -209,6 +214,7 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
         $this->container['rejectionReason'] = isset($data['rejectionReason']) ? $data['rejectionReason'] : null;
         $this->container['reviewDate'] = isset($data['reviewDate']) ? $data['reviewDate'] : null;
         $this->container['externalReviewerId'] = isset($data['externalReviewerId']) ? $data['externalReviewerId'] : null;
+        $this->container['validVerificationDetails'] = isset($data['validVerificationDetails']) ? $data['validVerificationDetails'] : null;
     }
 
     /**
@@ -353,7 +359,7 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
     /**
      * Sets reviewDate
      *
-     * @param string|null $reviewDate The date the order was reviewed. In ISO 8601 date time format.
+     * @param string|null $reviewDate The date the order was reviewed. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format.
      *
      * @return $this
      */
@@ -384,6 +390,30 @@ class RegulatedOrderVerificationStatus implements ModelInterface, ArrayAccess
     public function setExternalReviewerId($externalReviewerId)
     {
         $this->container['externalReviewerId'] = $externalReviewerId;
+
+        return $this;
+    }
+
+    /**
+     * Gets validVerificationDetails
+     *
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ValidVerificationDetail[]|null
+     */
+    public function getValidVerificationDetails()
+    {
+        return $this->container['validVerificationDetails'];
+    }
+
+    /**
+     * Sets validVerificationDetails
+     *
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ValidVerificationDetail[]|null $validVerificationDetails A list of valid verification details that may be provided and the criteria required for when the verification detail can be provided.
+     *
+     * @return $this
+     */
+    public function setValidVerificationDetails($validVerificationDetails)
+    {
+        $this->container['validVerificationDetails'] = $validVerificationDetails;
 
         return $this;
     }

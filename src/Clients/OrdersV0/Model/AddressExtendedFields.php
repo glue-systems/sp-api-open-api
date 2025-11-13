@@ -1,6 +1,6 @@
 <?php
 /**
- * ExceptionDates
+ * AddressExtendedFields
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
- * ExceptionDates Class Doc Comment
+ * AddressExtendedFields Class Doc Comment
  *
  * @category Class
- * @description Dates when the business is closed or open with a different time window.
+ * @description The container for address extended fields (such as &#x60;street name&#x60; and &#x60;street number&#x60;). Currently only available with Brazil shipping addresses.
  * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ExceptionDates implements ModelInterface, ArrayAccess
+class AddressExtendedFields implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ExceptionDates';
+    protected static $openAPIModelName = 'AddressExtendedFields';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,10 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exceptionDate' => 'string',
-        'isOpen' => 'bool',
-        'openIntervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
+        'streetName' => 'string',
+        'streetNumber' => 'string',
+        'complement' => 'string',
+        'neighborhood' => 'string'
     ];
 
     /**
@@ -69,9 +70,10 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'exceptionDate' => null,
-        'isOpen' => null,
-        'openIntervals' => null
+        'streetName' => null,
+        'streetNumber' => null,
+        'complement' => null,
+        'neighborhood' => null
     ];
 
     /**
@@ -101,9 +103,10 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exceptionDate' => 'ExceptionDate',
-        'isOpen' => 'IsOpen',
-        'openIntervals' => 'OpenIntervals'
+        'streetName' => 'StreetName',
+        'streetNumber' => 'StreetNumber',
+        'complement' => 'Complement',
+        'neighborhood' => 'Neighborhood'
     ];
 
     /**
@@ -112,9 +115,10 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exceptionDate' => 'setExceptionDate',
-        'isOpen' => 'setIsOpen',
-        'openIntervals' => 'setOpenIntervals'
+        'streetName' => 'setStreetName',
+        'streetNumber' => 'setStreetNumber',
+        'complement' => 'setComplement',
+        'neighborhood' => 'setNeighborhood'
     ];
 
     /**
@@ -123,9 +127,10 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exceptionDate' => 'getExceptionDate',
-        'isOpen' => 'getIsOpen',
-        'openIntervals' => 'getOpenIntervals'
+        'streetName' => 'getStreetName',
+        'streetNumber' => 'getStreetNumber',
+        'complement' => 'getComplement',
+        'neighborhood' => 'getNeighborhood'
     ];
 
     /**
@@ -188,9 +193,10 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exceptionDate'] = isset($data['exceptionDate']) ? $data['exceptionDate'] : null;
-        $this->container['isOpen'] = isset($data['isOpen']) ? $data['isOpen'] : null;
-        $this->container['openIntervals'] = isset($data['openIntervals']) ? $data['openIntervals'] : null;
+        $this->container['streetName'] = isset($data['streetName']) ? $data['streetName'] : null;
+        $this->container['streetNumber'] = isset($data['streetNumber']) ? $data['streetNumber'] : null;
+        $this->container['complement'] = isset($data['complement']) ? $data['complement'] : null;
+        $this->container['neighborhood'] = isset($data['neighborhood']) ? $data['neighborhood'] : null;
     }
 
     /**
@@ -218,73 +224,97 @@ class ExceptionDates implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exceptionDate
+     * Gets streetName
      *
      * @return string|null
      */
-    public function getExceptionDate()
+    public function getStreetName()
     {
-        return $this->container['exceptionDate'];
+        return $this->container['streetName'];
     }
 
     /**
-     * Sets exceptionDate
+     * Sets streetName
      *
-     * @param string|null $exceptionDate Date when the business is closed, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date format.
+     * @param string|null $streetName The street name.
      *
      * @return $this
      */
-    public function setExceptionDate($exceptionDate)
+    public function setStreetName($streetName)
     {
-        $this->container['exceptionDate'] = $exceptionDate;
+        $this->container['streetName'] = $streetName;
 
         return $this;
     }
 
     /**
-     * Gets isOpen
+     * Gets streetNumber
      *
-     * @return bool|null
+     * @return string|null
      */
-    public function getIsOpen()
+    public function getStreetNumber()
     {
-        return $this->container['isOpen'];
+        return $this->container['streetNumber'];
     }
 
     /**
-     * Sets isOpen
+     * Sets streetNumber
      *
-     * @param bool|null $isOpen Boolean indicating if the business is closed or open on that date.
+     * @param string|null $streetNumber The house, building, or property number associated with the location's street address.
      *
      * @return $this
      */
-    public function setIsOpen($isOpen)
+    public function setStreetNumber($streetNumber)
     {
-        $this->container['isOpen'] = $isOpen;
+        $this->container['streetNumber'] = $streetNumber;
 
         return $this;
     }
 
     /**
-     * Gets openIntervals
+     * Gets complement
      *
-     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
+     * @return string|null
      */
-    public function getOpenIntervals()
+    public function getComplement()
     {
-        return $this->container['openIntervals'];
+        return $this->container['complement'];
     }
 
     /**
-     * Sets openIntervals
+     * Sets complement
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $openIntervals Time window during the day when the business is open.
+     * @param string|null $complement The floor number/unit number in the building/private house number.
      *
      * @return $this
      */
-    public function setOpenIntervals($openIntervals)
+    public function setComplement($complement)
     {
-        $this->container['openIntervals'] = $openIntervals;
+        $this->container['complement'] = $complement;
+
+        return $this;
+    }
+
+    /**
+     * Gets neighborhood
+     *
+     * @return string|null
+     */
+    public function getNeighborhood()
+    {
+        return $this->container['neighborhood'];
+    }
+
+    /**
+     * Sets neighborhood
+     *
+     * @param string|null $neighborhood The neighborhood. This value is only used in some countries (such as Brazil).
+     *
+     * @return $this
+     */
+    public function setNeighborhood($neighborhood)
+    {
+        $this->container['neighborhood'] = $neighborhood;
 
         return $this;
     }

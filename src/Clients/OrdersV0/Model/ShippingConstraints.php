@@ -1,6 +1,6 @@
 <?php
 /**
- * ExceptionDates
+ * ShippingConstraints
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
- * ExceptionDates Class Doc Comment
+ * ShippingConstraints Class Doc Comment
  *
  * @category Class
- * @description Dates when the business is closed or open with a different time window.
+ * @description Delivery constraints applicable to this order.
  * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ExceptionDates implements ModelInterface, ArrayAccess
+class ShippingConstraints implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ExceptionDates';
+    protected static $openAPIModelName = 'ShippingConstraints';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,10 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exceptionDate' => 'string',
-        'isOpen' => 'bool',
-        'openIntervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
+        'palletDelivery' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConstraintType',
+        'signatureConfirmation' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConstraintType',
+        'recipientIdentityVerification' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConstraintType',
+        'recipientAgeVerification' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConstraintType'
     ];
 
     /**
@@ -69,9 +70,10 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'exceptionDate' => null,
-        'isOpen' => null,
-        'openIntervals' => null
+        'palletDelivery' => null,
+        'signatureConfirmation' => null,
+        'recipientIdentityVerification' => null,
+        'recipientAgeVerification' => null
     ];
 
     /**
@@ -101,9 +103,10 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exceptionDate' => 'ExceptionDate',
-        'isOpen' => 'IsOpen',
-        'openIntervals' => 'OpenIntervals'
+        'palletDelivery' => 'PalletDelivery',
+        'signatureConfirmation' => 'SignatureConfirmation',
+        'recipientIdentityVerification' => 'RecipientIdentityVerification',
+        'recipientAgeVerification' => 'RecipientAgeVerification'
     ];
 
     /**
@@ -112,9 +115,10 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exceptionDate' => 'setExceptionDate',
-        'isOpen' => 'setIsOpen',
-        'openIntervals' => 'setOpenIntervals'
+        'palletDelivery' => 'setPalletDelivery',
+        'signatureConfirmation' => 'setSignatureConfirmation',
+        'recipientIdentityVerification' => 'setRecipientIdentityVerification',
+        'recipientAgeVerification' => 'setRecipientAgeVerification'
     ];
 
     /**
@@ -123,9 +127,10 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exceptionDate' => 'getExceptionDate',
-        'isOpen' => 'getIsOpen',
-        'openIntervals' => 'getOpenIntervals'
+        'palletDelivery' => 'getPalletDelivery',
+        'signatureConfirmation' => 'getSignatureConfirmation',
+        'recipientIdentityVerification' => 'getRecipientIdentityVerification',
+        'recipientAgeVerification' => 'getRecipientAgeVerification'
     ];
 
     /**
@@ -188,9 +193,10 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exceptionDate'] = isset($data['exceptionDate']) ? $data['exceptionDate'] : null;
-        $this->container['isOpen'] = isset($data['isOpen']) ? $data['isOpen'] : null;
-        $this->container['openIntervals'] = isset($data['openIntervals']) ? $data['openIntervals'] : null;
+        $this->container['palletDelivery'] = isset($data['palletDelivery']) ? $data['palletDelivery'] : null;
+        $this->container['signatureConfirmation'] = isset($data['signatureConfirmation']) ? $data['signatureConfirmation'] : null;
+        $this->container['recipientIdentityVerification'] = isset($data['recipientIdentityVerification']) ? $data['recipientIdentityVerification'] : null;
+        $this->container['recipientAgeVerification'] = isset($data['recipientAgeVerification']) ? $data['recipientAgeVerification'] : null;
     }
 
     /**
@@ -218,73 +224,97 @@ class ExceptionDates implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exceptionDate
+     * Gets palletDelivery
      *
-     * @return string|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConstraintType|null
      */
-    public function getExceptionDate()
+    public function getPalletDelivery()
     {
-        return $this->container['exceptionDate'];
+        return $this->container['palletDelivery'];
     }
 
     /**
-     * Sets exceptionDate
+     * Sets palletDelivery
      *
-     * @param string|null $exceptionDate Date when the business is closed, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date format.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConstraintType|null $palletDelivery palletDelivery
      *
      * @return $this
      */
-    public function setExceptionDate($exceptionDate)
+    public function setPalletDelivery($palletDelivery)
     {
-        $this->container['exceptionDate'] = $exceptionDate;
+        $this->container['palletDelivery'] = $palletDelivery;
 
         return $this;
     }
 
     /**
-     * Gets isOpen
+     * Gets signatureConfirmation
      *
-     * @return bool|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConstraintType|null
      */
-    public function getIsOpen()
+    public function getSignatureConfirmation()
     {
-        return $this->container['isOpen'];
+        return $this->container['signatureConfirmation'];
     }
 
     /**
-     * Sets isOpen
+     * Sets signatureConfirmation
      *
-     * @param bool|null $isOpen Boolean indicating if the business is closed or open on that date.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConstraintType|null $signatureConfirmation signatureConfirmation
      *
      * @return $this
      */
-    public function setIsOpen($isOpen)
+    public function setSignatureConfirmation($signatureConfirmation)
     {
-        $this->container['isOpen'] = $isOpen;
+        $this->container['signatureConfirmation'] = $signatureConfirmation;
 
         return $this;
     }
 
     /**
-     * Gets openIntervals
+     * Gets recipientIdentityVerification
      *
-     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConstraintType|null
      */
-    public function getOpenIntervals()
+    public function getRecipientIdentityVerification()
     {
-        return $this->container['openIntervals'];
+        return $this->container['recipientIdentityVerification'];
     }
 
     /**
-     * Sets openIntervals
+     * Sets recipientIdentityVerification
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $openIntervals Time window during the day when the business is open.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConstraintType|null $recipientIdentityVerification recipientIdentityVerification
      *
      * @return $this
      */
-    public function setOpenIntervals($openIntervals)
+    public function setRecipientIdentityVerification($recipientIdentityVerification)
     {
-        $this->container['openIntervals'] = $openIntervals;
+        $this->container['recipientIdentityVerification'] = $recipientIdentityVerification;
+
+        return $this;
+    }
+
+    /**
+     * Gets recipientAgeVerification
+     *
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConstraintType|null
+     */
+    public function getRecipientAgeVerification()
+    {
+        return $this->container['recipientAgeVerification'];
+    }
+
+    /**
+     * Sets recipientAgeVerification
+     *
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\ConstraintType|null $recipientAgeVerification recipientAgeVerification
+     *
+     * @return $this
+     */
+    public function setRecipientAgeVerification($recipientAgeVerification)
+    {
+        $this->container['recipientAgeVerification'] = $recipientAgeVerification;
 
         return $this;
     }
