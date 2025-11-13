@@ -1,6 +1,6 @@
 <?php
 /**
- * ExceptionDates
+ * ValidVerificationDetail
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
- * ExceptionDates Class Doc Comment
+ * ValidVerificationDetail Class Doc Comment
  *
  * @category Class
- * @description Dates when the business is closed or open with a different time window.
+ * @description The types of verification details that may be provided for the order and the criteria required for when the type of verification detail can be provided. The types of verification details allowed depend on the type of regulated product and will not change order to order.
  * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ExceptionDates implements ModelInterface, ArrayAccess
+class ValidVerificationDetail implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ExceptionDates';
+    protected static $openAPIModelName = 'ValidVerificationDetail';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exceptionDate' => 'string',
-        'isOpen' => 'bool',
-        'openIntervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
+        'verificationDetailType' => 'string',
+        'validVerificationStatuses' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus[]'
     ];
 
     /**
@@ -69,9 +68,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'exceptionDate' => null,
-        'isOpen' => null,
-        'openIntervals' => null
+        'verificationDetailType' => null,
+        'validVerificationStatuses' => null
     ];
 
     /**
@@ -101,9 +99,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exceptionDate' => 'ExceptionDate',
-        'isOpen' => 'IsOpen',
-        'openIntervals' => 'OpenIntervals'
+        'verificationDetailType' => 'VerificationDetailType',
+        'validVerificationStatuses' => 'ValidVerificationStatuses'
     ];
 
     /**
@@ -112,9 +109,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exceptionDate' => 'setExceptionDate',
-        'isOpen' => 'setIsOpen',
-        'openIntervals' => 'setOpenIntervals'
+        'verificationDetailType' => 'setVerificationDetailType',
+        'validVerificationStatuses' => 'setValidVerificationStatuses'
     ];
 
     /**
@@ -123,9 +119,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exceptionDate' => 'getExceptionDate',
-        'isOpen' => 'getIsOpen',
-        'openIntervals' => 'getOpenIntervals'
+        'verificationDetailType' => 'getVerificationDetailType',
+        'validVerificationStatuses' => 'getValidVerificationStatuses'
     ];
 
     /**
@@ -188,9 +183,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exceptionDate'] = isset($data['exceptionDate']) ? $data['exceptionDate'] : null;
-        $this->container['isOpen'] = isset($data['isOpen']) ? $data['isOpen'] : null;
-        $this->container['openIntervals'] = isset($data['openIntervals']) ? $data['openIntervals'] : null;
+        $this->container['verificationDetailType'] = isset($data['verificationDetailType']) ? $data['verificationDetailType'] : null;
+        $this->container['validVerificationStatuses'] = isset($data['validVerificationStatuses']) ? $data['validVerificationStatuses'] : null;
     }
 
     /**
@@ -202,6 +196,12 @@ class ExceptionDates implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['verificationDetailType'] === null) {
+            $invalidProperties[] = "'verificationDetailType' can't be null";
+        }
+        if ($this->container['validVerificationStatuses'] === null) {
+            $invalidProperties[] = "'validVerificationStatuses' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -218,73 +218,49 @@ class ExceptionDates implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exceptionDate
+     * Gets verificationDetailType
      *
-     * @return string|null
+     * @return string
      */
-    public function getExceptionDate()
+    public function getVerificationDetailType()
     {
-        return $this->container['exceptionDate'];
+        return $this->container['verificationDetailType'];
     }
 
     /**
-     * Sets exceptionDate
+     * Sets verificationDetailType
      *
-     * @param string|null $exceptionDate Date when the business is closed, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date format.
+     * @param string $verificationDetailType A supported type of verification detail. The type indicates which verification detail could be shared while updating the regulated order. Valid value: `prescriptionDetail`.
      *
      * @return $this
      */
-    public function setExceptionDate($exceptionDate)
+    public function setVerificationDetailType($verificationDetailType)
     {
-        $this->container['exceptionDate'] = $exceptionDate;
+        $this->container['verificationDetailType'] = $verificationDetailType;
 
         return $this;
     }
 
     /**
-     * Gets isOpen
+     * Gets validVerificationStatuses
      *
-     * @return bool|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus[]
      */
-    public function getIsOpen()
+    public function getValidVerificationStatuses()
     {
-        return $this->container['isOpen'];
+        return $this->container['validVerificationStatuses'];
     }
 
     /**
-     * Sets isOpen
+     * Sets validVerificationStatuses
      *
-     * @param bool|null $isOpen Boolean indicating if the business is closed or open on that date.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus[] $validVerificationStatuses A list of valid verification statuses where the associated verification detail type may be provided. For example, if the value of this field is [\"Approved\"], calls to provide the associated verification detail will fail for orders with a `VerificationStatus` of `Pending`, `Rejected`, `Expired`, or `Cancelled`.
      *
      * @return $this
      */
-    public function setIsOpen($isOpen)
+    public function setValidVerificationStatuses($validVerificationStatuses)
     {
-        $this->container['isOpen'] = $isOpen;
-
-        return $this;
-    }
-
-    /**
-     * Gets openIntervals
-     *
-     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
-     */
-    public function getOpenIntervals()
-    {
-        return $this->container['openIntervals'];
-    }
-
-    /**
-     * Sets openIntervals
-     *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $openIntervals Time window during the day when the business is open.
-     *
-     * @return $this
-     */
-    public function setOpenIntervals($openIntervals)
-    {
-        $this->container['openIntervals'] = $openIntervals;
+        $this->container['validVerificationStatuses'] = $validVerificationStatuses;
 
         return $this;
     }

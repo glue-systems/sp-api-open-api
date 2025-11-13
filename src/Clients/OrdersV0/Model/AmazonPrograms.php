@@ -1,6 +1,6 @@
 <?php
 /**
- * ExceptionDates
+ * AmazonPrograms
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
- * ExceptionDates Class Doc Comment
+ * AmazonPrograms Class Doc Comment
  *
  * @category Class
- * @description Dates when the business is closed or open with a different time window.
+ * @description Contains the list of programs that Amazon associates with an item.  Possible programs are:  - **Subscribe and Save**: Offers recurring, scheduled deliveries to Amazon customers and Amazon Business customers for their frequently ordered products. - **FBM Ship+**: Unlocks expedited shipping without the extra cost. Helps you to provide accurate and fast delivery dates to Amazon customers. You also receive protection from late deliveries, a discount on expedited shipping rates, and cash back when you ship.
  * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ExceptionDates implements ModelInterface, ArrayAccess
+class AmazonPrograms implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ExceptionDates';
+    protected static $openAPIModelName = 'AmazonPrograms';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exceptionDate' => 'string',
-        'isOpen' => 'bool',
-        'openIntervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
+        'programs' => 'string[]'
     ];
 
     /**
@@ -69,9 +67,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'exceptionDate' => null,
-        'isOpen' => null,
-        'openIntervals' => null
+        'programs' => null
     ];
 
     /**
@@ -101,9 +97,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exceptionDate' => 'ExceptionDate',
-        'isOpen' => 'IsOpen',
-        'openIntervals' => 'OpenIntervals'
+        'programs' => 'Programs'
     ];
 
     /**
@@ -112,9 +106,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exceptionDate' => 'setExceptionDate',
-        'isOpen' => 'setIsOpen',
-        'openIntervals' => 'setOpenIntervals'
+        'programs' => 'setPrograms'
     ];
 
     /**
@@ -123,9 +115,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exceptionDate' => 'getExceptionDate',
-        'isOpen' => 'getIsOpen',
-        'openIntervals' => 'getOpenIntervals'
+        'programs' => 'getPrograms'
     ];
 
     /**
@@ -188,9 +178,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exceptionDate'] = isset($data['exceptionDate']) ? $data['exceptionDate'] : null;
-        $this->container['isOpen'] = isset($data['isOpen']) ? $data['isOpen'] : null;
-        $this->container['openIntervals'] = isset($data['openIntervals']) ? $data['openIntervals'] : null;
+        $this->container['programs'] = isset($data['programs']) ? $data['programs'] : null;
     }
 
     /**
@@ -202,6 +190,9 @@ class ExceptionDates implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['programs'] === null) {
+            $invalidProperties[] = "'programs' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -218,73 +209,25 @@ class ExceptionDates implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exceptionDate
+     * Gets programs
      *
-     * @return string|null
+     * @return string[]
      */
-    public function getExceptionDate()
+    public function getPrograms()
     {
-        return $this->container['exceptionDate'];
+        return $this->container['programs'];
     }
 
     /**
-     * Sets exceptionDate
+     * Sets programs
      *
-     * @param string|null $exceptionDate Date when the business is closed, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date format.
+     * @param string[] $programs A list of the programs that Amazon associates with the order item.  **Possible values**: `SUBSCRIBE_AND_SAVE`, `FBM_SHIP_PLUS`
      *
      * @return $this
      */
-    public function setExceptionDate($exceptionDate)
+    public function setPrograms($programs)
     {
-        $this->container['exceptionDate'] = $exceptionDate;
-
-        return $this;
-    }
-
-    /**
-     * Gets isOpen
-     *
-     * @return bool|null
-     */
-    public function getIsOpen()
-    {
-        return $this->container['isOpen'];
-    }
-
-    /**
-     * Sets isOpen
-     *
-     * @param bool|null $isOpen Boolean indicating if the business is closed or open on that date.
-     *
-     * @return $this
-     */
-    public function setIsOpen($isOpen)
-    {
-        $this->container['isOpen'] = $isOpen;
-
-        return $this;
-    }
-
-    /**
-     * Gets openIntervals
-     *
-     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
-     */
-    public function getOpenIntervals()
-    {
-        return $this->container['openIntervals'];
-    }
-
-    /**
-     * Sets openIntervals
-     *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $openIntervals Time window during the day when the business is open.
-     *
-     * @return $this
-     */
-    public function setOpenIntervals($openIntervals)
-    {
-        $this->container['openIntervals'] = $openIntervals;
+        $this->container['programs'] = $programs;
 
         return $this;
     }

@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Orders
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API only supports orders that are less than two years old. Orders more than two years old will not show in the API response.
+ * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
  * OpenAPI spec version: v0
  * 
@@ -299,7 +299,7 @@ class PackageDetail implements ModelInterface, ArrayAccess
     /**
      * Sets carrierCode
      *
-     * @param string $carrierCode Identifies the carrier that will deliver the package. This field is required for all marketplaces, see [reference](https://developer-docs.amazon.com/sp-api/changelog/carriercode-value-required-in-shipment-confirmations-for-br-mx-ca-sg-au-in-jp-marketplaces).
+     * @param string $carrierCode Identifies the carrier that will deliver the package. This field is required for all marketplaces. For more information, refer to the [`CarrierCode` announcement](https://developer-docs.amazon.com/sp-api/changelog/carriercode-value-required-in-shipment-confirmations-for-br-mx-ca-sg-au-in-jp-marketplaces).
      *
      * @return $this
      */
@@ -323,7 +323,7 @@ class PackageDetail implements ModelInterface, ArrayAccess
     /**
      * Sets carrierName
      *
-     * @param string|null $carrierName Carrier Name that will deliver the package. Required when carrierCode is \"Others\"
+     * @param string|null $carrierName Carrier name that will deliver the package. Required when `carrierCode` is \"Other\"
      *
      * @return $this
      */
@@ -395,7 +395,7 @@ class PackageDetail implements ModelInterface, ArrayAccess
     /**
      * Sets shipDate
      *
-     * @param \DateTime $shipDate The shipping date for the package. Must be in ISO-8601 date/time format.
+     * @param \DateTime $shipDate The shipping date for the package. Must be in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date/time format.
      *
      * @return $this
      */
@@ -419,7 +419,7 @@ class PackageDetail implements ModelInterface, ArrayAccess
     /**
      * Sets shipFromSupplySourceId
      *
-     * @param string|null $shipFromSupplySourceId The unique identifier of the supply source.
+     * @param string|null $shipFromSupplySourceId The unique identifier for the supply source.
      *
      * @return $this
      */

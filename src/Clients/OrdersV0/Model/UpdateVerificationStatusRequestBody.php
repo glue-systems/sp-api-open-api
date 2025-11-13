@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Orders
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API only supports orders that are less than two years old. Orders more than two years old will not show in the API response.
+ * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
  * OpenAPI spec version: v0
  * 
@@ -36,7 +36,7 @@ use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
  * UpdateVerificationStatusRequestBody Class Doc Comment
  *
  * @category Class
- * @description The updated values of the VerificationStatus field.
+ * @description The updated values of the &#x60;VerificationStatus&#x60; field.
  * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -60,7 +60,8 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     protected static $openAPITypes = [
         'status' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus',
         'externalReviewerId' => 'string',
-        'rejectionReasonId' => 'string'
+        'rejectionReasonId' => 'string',
+        'verificationDetails' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationDetails'
     ];
 
     /**
@@ -71,7 +72,8 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     protected static $openAPIFormats = [
         'status' => null,
         'externalReviewerId' => null,
-        'rejectionReasonId' => null
+        'rejectionReasonId' => null,
+        'verificationDetails' => null
     ];
 
     /**
@@ -103,7 +105,8 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     protected static $attributeMap = [
         'status' => 'status',
         'externalReviewerId' => 'externalReviewerId',
-        'rejectionReasonId' => 'rejectionReasonId'
+        'rejectionReasonId' => 'rejectionReasonId',
+        'verificationDetails' => 'verificationDetails'
     ];
 
     /**
@@ -114,7 +117,8 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     protected static $setters = [
         'status' => 'setStatus',
         'externalReviewerId' => 'setExternalReviewerId',
-        'rejectionReasonId' => 'setRejectionReasonId'
+        'rejectionReasonId' => 'setRejectionReasonId',
+        'verificationDetails' => 'setVerificationDetails'
     ];
 
     /**
@@ -125,7 +129,8 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     protected static $getters = [
         'status' => 'getStatus',
         'externalReviewerId' => 'getExternalReviewerId',
-        'rejectionReasonId' => 'getRejectionReasonId'
+        'rejectionReasonId' => 'getRejectionReasonId',
+        'verificationDetails' => 'getVerificationDetails'
     ];
 
     /**
@@ -191,6 +196,7 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
         $this->container['status'] = isset($data['status']) ? $data['status'] : null;
         $this->container['externalReviewerId'] = isset($data['externalReviewerId']) ? $data['externalReviewerId'] : null;
         $this->container['rejectionReasonId'] = isset($data['rejectionReasonId']) ? $data['rejectionReasonId'] : null;
+        $this->container['verificationDetails'] = isset($data['verificationDetails']) ? $data['verificationDetails'] : null;
     }
 
     /**
@@ -202,9 +208,6 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['status'] === null) {
-            $invalidProperties[] = "'status' can't be null";
-        }
         if ($this->container['externalReviewerId'] === null) {
             $invalidProperties[] = "'externalReviewerId' can't be null";
         }
@@ -226,7 +229,7 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     /**
      * Gets status
      *
-     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus|null
      */
     public function getStatus()
     {
@@ -236,7 +239,7 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets status
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus $status status
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationStatus|null $status status
      *
      * @return $this
      */
@@ -260,7 +263,7 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets externalReviewerId
      *
-     * @param string $externalReviewerId The identifier for the order's regulated information reviewer.
+     * @param string $externalReviewerId The identifier of the order's regulated information reviewer.
      *
      * @return $this
      */
@@ -284,13 +287,37 @@ class UpdateVerificationStatusRequestBody implements ModelInterface, ArrayAccess
     /**
      * Sets rejectionReasonId
      *
-     * @param string|null $rejectionReasonId The unique identifier for the rejection reason used for rejecting the order's regulated information. Only required if the new status is rejected.
+     * @param string|null $rejectionReasonId The unique identifier of the rejection reason used for rejecting the order's regulated information. Only required if the new status is rejected.
      *
      * @return $this
      */
     public function setRejectionReasonId($rejectionReasonId)
     {
         $this->container['rejectionReasonId'] = $rejectionReasonId;
+
+        return $this;
+    }
+
+    /**
+     * Gets verificationDetails
+     *
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationDetails|null
+     */
+    public function getVerificationDetails()
+    {
+        return $this->container['verificationDetails'];
+    }
+
+    /**
+     * Sets verificationDetails
+     *
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\VerificationDetails|null $verificationDetails verificationDetails
+     *
+     * @return $this
+     */
+    public function setVerificationDetails($verificationDetails)
+    {
+        $this->container['verificationDetails'] = $verificationDetails;
 
         return $this;
     }

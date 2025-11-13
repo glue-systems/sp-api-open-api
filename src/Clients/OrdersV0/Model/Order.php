@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Orders
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API only supports orders that are less than two years old. Orders more than two years old will not show in the API response.
+ * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
  * OpenAPI spec version: v0
  * 
@@ -713,7 +713,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets lastUpdateDate
      *
-     * @param string $lastUpdateDate The date when the order was last updated.  __Note__: LastUpdateDate is returned with an incorrect date for orders that were last updated before 2009-04-01.
+     * @param string $lastUpdateDate The date when the order was last updated.  __Note__: `LastUpdateDate` is returned with an incorrect date for orders that were last updated before 2009-04-01.
      *
      * @return $this
      */
@@ -770,7 +770,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets fulfillmentChannel
      *
-     * @param string|null $fulfillmentChannel Whether the order was fulfilled by Amazon (AFN) or by the seller (MFN).
+     * @param string|null $fulfillmentChannel Whether the order was fulfilled by Amazon (`AFN`) or by the seller (`MFN`).
      *
      * @return $this
      */
@@ -803,7 +803,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets salesChannel
      *
-     * @param string|null $salesChannel The sales channel of the first item in the order.
+     * @param string|null $salesChannel The sales channel for the first item in the order.
      *
      * @return $this
      */
@@ -827,7 +827,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets orderChannel
      *
-     * @param string|null $orderChannel The order channel of the first item in the order.
+     * @param string|null $orderChannel The order channel for the first item in the order.
      *
      * @return $this
      */
@@ -851,7 +851,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets shipServiceLevel
      *
-     * @param string|null $shipServiceLevel The shipment service level of the order.
+     * @param string|null $shipServiceLevel The order's shipment service level.
      *
      * @return $this
      */
@@ -971,7 +971,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets paymentMethod
      *
-     * @param string|null $paymentMethod The payment method for the order. This property is limited to Cash On Delivery (COD) and Convenience Store (CVS) payment methods. Unless you need the specific COD payment information provided by the PaymentExecutionDetailItem object, we recommend using the PaymentMethodDetails property to get payment method information.
+     * @param string|null $paymentMethod The payment method for the order. This property is limited to COD and CVS payment methods. Unless you need the specific COD payment information provided by the `PaymentExecutionDetailItem` object, we recommend using the `PaymentMethodDetails` property to get payment method information.
      *
      * @return $this
      */
@@ -1052,7 +1052,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets shipmentServiceLevelCategory
      *
-     * @param string|null $shipmentServiceLevelCategory The shipment service level category of the order.  Possible values: Expedited, FreeEconomy, NextDay, SameDay, SecondDay, Scheduled, Standard.
+     * @param string|null $shipmentServiceLevelCategory The shipment service level category for the order.  **Possible values**: `Expedited`, `FreeEconomy`, `NextDay`, `Priority`, `SameDay`, `SecondDay`, `Scheduled`, and `Standard`.
      *
      * @return $this
      */
@@ -1124,7 +1124,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets orderType
      *
-     * @param string|null $orderType The type of the order.
+     * @param string|null $orderType The order's type.
      *
      * @return $this
      */
@@ -1157,7 +1157,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets earliestShipDate
      *
-     * @param string|null $earliestShipDate The start of the time period within which you have committed to ship the order. In ISO 8601 date time format. Returned only for seller-fulfilled orders.  __Note__: EarliestShipDate might not be returned for orders placed before February 1, 2013.
+     * @param string|null $earliestShipDate The start of the time period within which you have committed to ship the order. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. Only returned for seller-fulfilled orders.  __Note__: `EarliestShipDate` might not be returned for orders placed before February 1, 2013.
      *
      * @return $this
      */
@@ -1181,7 +1181,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets latestShipDate
      *
-     * @param string|null $latestShipDate The end of the time period within which you have committed to ship the order. In ISO 8601 date time format. Returned only for seller-fulfilled orders.  __Note__: LatestShipDate might not be returned for orders placed before February 1, 2013.
+     * @param string|null $latestShipDate The end of the time period within which you have committed to ship the order. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. Only returned for seller-fulfilled orders.  __Note__: `LatestShipDate` might not be returned for orders placed before February 1, 2013.
      *
      * @return $this
      */
@@ -1205,7 +1205,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets earliestDeliveryDate
      *
-     * @param string|null $earliestDeliveryDate The start of the time period within which you have committed to fulfill the order. In ISO 8601 date time format. Returned only for seller-fulfilled orders.
+     * @param string|null $earliestDeliveryDate The start of the time period within which you have committed to fulfill the order. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. Only returned for seller-fulfilled orders.
      *
      * @return $this
      */
@@ -1229,7 +1229,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets latestDeliveryDate
      *
-     * @param string|null $latestDeliveryDate The end of the time period within which you have committed to fulfill the order. In ISO 8601 date time format. Returned only for seller-fulfilled orders that do not have a PendingAvailability, Pending, or Canceled status.
+     * @param string|null $latestDeliveryDate The end of the time period within which you have committed to fulfill the order. In [ISO 8601](https://developer-docs.amazon.com/sp-api/docs/iso-8601) date time format. Only returned for seller-fulfilled orders that do not have a `PendingAvailability`, `Pending`, or `Canceled` status.
      *
      * @return $this
      */
@@ -1301,7 +1301,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets isPremiumOrder
      *
-     * @param bool|null $isPremiumOrder When true, the order has a Premium Shipping Service Level Agreement. For more information about Premium Shipping orders, see \"Premium Shipping Options\" in the Seller Central Help for your marketplace.
+     * @param bool|null $isPremiumOrder When true, the order has a Premium Shipping Service Level Agreement. For more information about Premium Shipping orders, refer to \"Premium Shipping Options\" in the Seller Central Help for your marketplace.
      *
      * @return $this
      */
@@ -1325,7 +1325,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets isGlobalExpressEnabled
      *
-     * @param bool|null $isGlobalExpressEnabled When true, the order is a GlobalExpress order.
+     * @param bool|null $isGlobalExpressEnabled When true, the order is a `GlobalExpress` order.
      *
      * @return $this
      */
@@ -1397,7 +1397,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets promiseResponseDueDate
      *
-     * @param string|null $promiseResponseDueDate Indicates the date by which the seller must respond to the buyer with an estimated ship date. Returned only for Sourcing on Demand orders.
+     * @param string|null $promiseResponseDueDate Indicates the date by which the seller must respond to the buyer with an estimated ship date. Only returned for Sourcing on Demand orders.
      *
      * @return $this
      */
@@ -1421,7 +1421,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets isEstimatedShipDateSet
      *
-     * @param bool|null $isEstimatedShipDateSet When true, the estimated ship date is set for the order. Returned only for Sourcing on Demand orders.
+     * @param bool|null $isEstimatedShipDateSet When true, the estimated ship date is set for the order. Only returned for Sourcing on Demand orders.
      *
      * @return $this
      */
@@ -1517,7 +1517,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets buyerInvoicePreference
      *
-     * @param string|null $buyerInvoicePreference The buyer's invoicing preference. Available only in the TR marketplace.
+     * @param string|null $buyerInvoicePreference The buyer's invoicing preference. Sellers can use this data to issue electronic invoices for orders in Turkey.  **Note**: This attribute is only available in the Turkey marketplace.
      *
      * @return $this
      */
@@ -1670,7 +1670,7 @@ class Order implements ModelInterface, ArrayAccess
     /**
      * Sets sellerDisplayName
      *
-     * @param string|null $sellerDisplayName The seller’s friendly name registered in the marketplace.
+     * @param string|null $sellerDisplayName The seller’s friendly name registered in the marketplace where the sale took place. Sellers can use this data to issue electronic invoices for orders in Brazil.  **Note**: This attribute is only available in the Brazil marketplace for the orders with `Pending` or `Unshipped` status.
      *
      * @return $this
      */

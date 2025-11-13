@@ -1,6 +1,6 @@
 <?php
 /**
- * ExceptionDates
+ * SubstitutionOption
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
- * ExceptionDates Class Doc Comment
+ * SubstitutionOption Class Doc Comment
  *
  * @category Class
- * @description Dates when the business is closed or open with a different time window.
+ * @description Substitution options for an order item.
  * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ExceptionDates implements ModelInterface, ArrayAccess
+class SubstitutionOption implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ExceptionDates';
+    protected static $openAPIModelName = 'SubstitutionOption';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,11 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exceptionDate' => 'string',
-        'isOpen' => 'bool',
-        'openIntervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
+        'aSIN' => 'string',
+        'quantityOrdered' => 'int',
+        'sellerSKU' => 'string',
+        'title' => 'string',
+        'measurement' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Measurement'
     ];
 
     /**
@@ -69,9 +71,11 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'exceptionDate' => null,
-        'isOpen' => null,
-        'openIntervals' => null
+        'aSIN' => null,
+        'quantityOrdered' => null,
+        'sellerSKU' => null,
+        'title' => null,
+        'measurement' => null
     ];
 
     /**
@@ -101,9 +105,11 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exceptionDate' => 'ExceptionDate',
-        'isOpen' => 'IsOpen',
-        'openIntervals' => 'OpenIntervals'
+        'aSIN' => 'ASIN',
+        'quantityOrdered' => 'QuantityOrdered',
+        'sellerSKU' => 'SellerSKU',
+        'title' => 'Title',
+        'measurement' => 'Measurement'
     ];
 
     /**
@@ -112,9 +118,11 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exceptionDate' => 'setExceptionDate',
-        'isOpen' => 'setIsOpen',
-        'openIntervals' => 'setOpenIntervals'
+        'aSIN' => 'setASIN',
+        'quantityOrdered' => 'setQuantityOrdered',
+        'sellerSKU' => 'setSellerSKU',
+        'title' => 'setTitle',
+        'measurement' => 'setMeasurement'
     ];
 
     /**
@@ -123,9 +131,11 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exceptionDate' => 'getExceptionDate',
-        'isOpen' => 'getIsOpen',
-        'openIntervals' => 'getOpenIntervals'
+        'aSIN' => 'getASIN',
+        'quantityOrdered' => 'getQuantityOrdered',
+        'sellerSKU' => 'getSellerSKU',
+        'title' => 'getTitle',
+        'measurement' => 'getMeasurement'
     ];
 
     /**
@@ -188,9 +198,11 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exceptionDate'] = isset($data['exceptionDate']) ? $data['exceptionDate'] : null;
-        $this->container['isOpen'] = isset($data['isOpen']) ? $data['isOpen'] : null;
-        $this->container['openIntervals'] = isset($data['openIntervals']) ? $data['openIntervals'] : null;
+        $this->container['aSIN'] = isset($data['aSIN']) ? $data['aSIN'] : null;
+        $this->container['quantityOrdered'] = isset($data['quantityOrdered']) ? $data['quantityOrdered'] : null;
+        $this->container['sellerSKU'] = isset($data['sellerSKU']) ? $data['sellerSKU'] : null;
+        $this->container['title'] = isset($data['title']) ? $data['title'] : null;
+        $this->container['measurement'] = isset($data['measurement']) ? $data['measurement'] : null;
     }
 
     /**
@@ -218,73 +230,121 @@ class ExceptionDates implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exceptionDate
+     * Gets aSIN
      *
      * @return string|null
      */
-    public function getExceptionDate()
+    public function getASIN()
     {
-        return $this->container['exceptionDate'];
+        return $this->container['aSIN'];
     }
 
     /**
-     * Sets exceptionDate
+     * Sets aSIN
      *
-     * @param string|null $exceptionDate Date when the business is closed, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date format.
+     * @param string|null $aSIN The item's Amazon Standard Identification Number (ASIN).
      *
      * @return $this
      */
-    public function setExceptionDate($exceptionDate)
+    public function setASIN($aSIN)
     {
-        $this->container['exceptionDate'] = $exceptionDate;
+        $this->container['aSIN'] = $aSIN;
 
         return $this;
     }
 
     /**
-     * Gets isOpen
+     * Gets quantityOrdered
      *
-     * @return bool|null
+     * @return int|null
      */
-    public function getIsOpen()
+    public function getQuantityOrdered()
     {
-        return $this->container['isOpen'];
+        return $this->container['quantityOrdered'];
     }
 
     /**
-     * Sets isOpen
+     * Sets quantityOrdered
      *
-     * @param bool|null $isOpen Boolean indicating if the business is closed or open on that date.
+     * @param int|null $quantityOrdered The number of items to be picked for this substitution option.
      *
      * @return $this
      */
-    public function setIsOpen($isOpen)
+    public function setQuantityOrdered($quantityOrdered)
     {
-        $this->container['isOpen'] = $isOpen;
+        $this->container['quantityOrdered'] = $quantityOrdered;
 
         return $this;
     }
 
     /**
-     * Gets openIntervals
+     * Gets sellerSKU
      *
-     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
+     * @return string|null
      */
-    public function getOpenIntervals()
+    public function getSellerSKU()
     {
-        return $this->container['openIntervals'];
+        return $this->container['sellerSKU'];
     }
 
     /**
-     * Sets openIntervals
+     * Sets sellerSKU
      *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $openIntervals Time window during the day when the business is open.
+     * @param string|null $sellerSKU The item's seller stock keeping unit (SKU).
      *
      * @return $this
      */
-    public function setOpenIntervals($openIntervals)
+    public function setSellerSKU($sellerSKU)
     {
-        $this->container['openIntervals'] = $openIntervals;
+        $this->container['sellerSKU'] = $sellerSKU;
+
+        return $this;
+    }
+
+    /**
+     * Gets title
+     *
+     * @return string|null
+     */
+    public function getTitle()
+    {
+        return $this->container['title'];
+    }
+
+    /**
+     * Sets title
+     *
+     * @param string|null $title The item's title.
+     *
+     * @return $this
+     */
+    public function setTitle($title)
+    {
+        $this->container['title'] = $title;
+
+        return $this;
+    }
+
+    /**
+     * Gets measurement
+     *
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Measurement|null
+     */
+    public function getMeasurement()
+    {
+        return $this->container['measurement'];
+    }
+
+    /**
+     * Sets measurement
+     *
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Measurement|null $measurement measurement
+     *
+     * @return $this
+     */
+    public function setMeasurement($measurement)
+    {
+        $this->container['measurement'] = $measurement;
 
         return $this;
     }

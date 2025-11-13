@@ -1,6 +1,6 @@
 <?php
 /**
- * ExceptionDates
+ * Measurement
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
- * ExceptionDates Class Doc Comment
+ * Measurement Class Doc Comment
  *
  * @category Class
- * @description Dates when the business is closed or open with a different time window.
+ * @description Measurement information for an order item.
  * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ExceptionDates implements ModelInterface, ArrayAccess
+class Measurement implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ExceptionDates';
+    protected static $openAPIModelName = 'Measurement';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exceptionDate' => 'string',
-        'isOpen' => 'bool',
-        'openIntervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
+        'unit' => 'string',
+        'value' => 'float'
     ];
 
     /**
@@ -69,9 +68,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'exceptionDate' => null,
-        'isOpen' => null,
-        'openIntervals' => null
+        'unit' => null,
+        'value' => null
     ];
 
     /**
@@ -101,9 +99,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exceptionDate' => 'ExceptionDate',
-        'isOpen' => 'IsOpen',
-        'openIntervals' => 'OpenIntervals'
+        'unit' => 'Unit',
+        'value' => 'Value'
     ];
 
     /**
@@ -112,9 +109,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exceptionDate' => 'setExceptionDate',
-        'isOpen' => 'setIsOpen',
-        'openIntervals' => 'setOpenIntervals'
+        'unit' => 'setUnit',
+        'value' => 'setValue'
     ];
 
     /**
@@ -123,9 +119,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exceptionDate' => 'getExceptionDate',
-        'isOpen' => 'getIsOpen',
-        'openIntervals' => 'getOpenIntervals'
+        'unit' => 'getUnit',
+        'value' => 'getValue'
     ];
 
     /**
@@ -169,8 +164,67 @@ class ExceptionDates implements ModelInterface, ArrayAccess
         return self::$openAPIModelName;
     }
 
+    const UNIT_OUNCES = 'OUNCES';
+    const UNIT_POUNDS = 'POUNDS';
+    const UNIT_KILOGRAMS = 'KILOGRAMS';
+    const UNIT_GRAMS = 'GRAMS';
+    const UNIT_MILLIGRAMS = 'MILLIGRAMS';
+    const UNIT_INCHES = 'INCHES';
+    const UNIT_FEET = 'FEET';
+    const UNIT_METERS = 'METERS';
+    const UNIT_CENTIMETERS = 'CENTIMETERS';
+    const UNIT_MILLIMETERS = 'MILLIMETERS';
+    const UNIT_SQUARE_METERS = 'SQUARE_METERS';
+    const UNIT_SQUARE_CENTIMETERS = 'SQUARE_CENTIMETERS';
+    const UNIT_SQUARE_FEET = 'SQUARE_FEET';
+    const UNIT_SQUARE_INCHES = 'SQUARE_INCHES';
+    const UNIT_GALLONS = 'GALLONS';
+    const UNIT_PINTS = 'PINTS';
+    const UNIT_QUARTS = 'QUARTS';
+    const UNIT_FLUID_OUNCES = 'FLUID_OUNCES';
+    const UNIT_LITERS = 'LITERS';
+    const UNIT_CUBIC_METERS = 'CUBIC_METERS';
+    const UNIT_CUBIC_FEET = 'CUBIC_FEET';
+    const UNIT_CUBIC_INCHES = 'CUBIC_INCHES';
+    const UNIT_CUBIC_CENTIMETERS = 'CUBIC_CENTIMETERS';
+    const UNIT_COUNT = 'COUNT';
     
 
+    
+    /**
+     * Gets allowable values of the enum
+     *
+     * @return string[]
+     */
+    public function getUnitAllowableValues()
+    {
+        return [
+            self::UNIT_OUNCES,
+            self::UNIT_POUNDS,
+            self::UNIT_KILOGRAMS,
+            self::UNIT_GRAMS,
+            self::UNIT_MILLIGRAMS,
+            self::UNIT_INCHES,
+            self::UNIT_FEET,
+            self::UNIT_METERS,
+            self::UNIT_CENTIMETERS,
+            self::UNIT_MILLIMETERS,
+            self::UNIT_SQUARE_METERS,
+            self::UNIT_SQUARE_CENTIMETERS,
+            self::UNIT_SQUARE_FEET,
+            self::UNIT_SQUARE_INCHES,
+            self::UNIT_GALLONS,
+            self::UNIT_PINTS,
+            self::UNIT_QUARTS,
+            self::UNIT_FLUID_OUNCES,
+            self::UNIT_LITERS,
+            self::UNIT_CUBIC_METERS,
+            self::UNIT_CUBIC_FEET,
+            self::UNIT_CUBIC_INCHES,
+            self::UNIT_CUBIC_CENTIMETERS,
+            self::UNIT_COUNT,
+        ];
+    }
     
 
     /**
@@ -188,9 +242,8 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exceptionDate'] = isset($data['exceptionDate']) ? $data['exceptionDate'] : null;
-        $this->container['isOpen'] = isset($data['isOpen']) ? $data['isOpen'] : null;
-        $this->container['openIntervals'] = isset($data['openIntervals']) ? $data['openIntervals'] : null;
+        $this->container['unit'] = isset($data['unit']) ? $data['unit'] : null;
+        $this->container['value'] = isset($data['value']) ? $data['value'] : null;
     }
 
     /**
@@ -202,6 +255,20 @@ class ExceptionDates implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
+        if ($this->container['unit'] === null) {
+            $invalidProperties[] = "'unit' can't be null";
+        }
+        $allowedValues = $this->getUnitAllowableValues();
+        if (!is_null($this->container['unit']) && !in_array($this->container['unit'], $allowedValues, true)) {
+            $invalidProperties[] = sprintf(
+                "invalid value for 'unit', must be one of '%s'",
+                implode("', '", $allowedValues)
+            );
+        }
+
+        if ($this->container['value'] === null) {
+            $invalidProperties[] = "'value' can't be null";
+        }
         return $invalidProperties;
     }
 
@@ -218,73 +285,58 @@ class ExceptionDates implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exceptionDate
+     * Gets unit
      *
-     * @return string|null
+     * @return string
      */
-    public function getExceptionDate()
+    public function getUnit()
     {
-        return $this->container['exceptionDate'];
+        return $this->container['unit'];
     }
 
     /**
-     * Sets exceptionDate
+     * Sets unit
      *
-     * @param string|null $exceptionDate Date when the business is closed, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date format.
+     * @param string $unit The unit of measure.
      *
      * @return $this
      */
-    public function setExceptionDate($exceptionDate)
+    public function setUnit($unit)
     {
-        $this->container['exceptionDate'] = $exceptionDate;
+        $allowedValues = $this->getUnitAllowableValues();
+        if (!in_array($unit, $allowedValues, true)) {
+            throw new \InvalidArgumentException(
+                sprintf(
+                    "Invalid value for 'unit', must be one of '%s'",
+                    implode("', '", $allowedValues)
+                )
+            );
+        }
+        $this->container['unit'] = $unit;
 
         return $this;
     }
 
     /**
-     * Gets isOpen
+     * Gets value
      *
-     * @return bool|null
+     * @return float
      */
-    public function getIsOpen()
+    public function getValue()
     {
-        return $this->container['isOpen'];
+        return $this->container['value'];
     }
 
     /**
-     * Sets isOpen
+     * Sets value
      *
-     * @param bool|null $isOpen Boolean indicating if the business is closed or open on that date.
+     * @param float $value The measurement value.
      *
      * @return $this
      */
-    public function setIsOpen($isOpen)
+    public function setValue($value)
     {
-        $this->container['isOpen'] = $isOpen;
-
-        return $this;
-    }
-
-    /**
-     * Gets openIntervals
-     *
-     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
-     */
-    public function getOpenIntervals()
-    {
-        return $this->container['openIntervals'];
-    }
-
-    /**
-     * Sets openIntervals
-     *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $openIntervals Time window during the day when the business is open.
-     *
-     * @return $this
-     */
-    public function setOpenIntervals($openIntervals)
-    {
-        $this->container['openIntervals'] = $openIntervals;
+        $this->container['value'] = $value;
 
         return $this;
     }

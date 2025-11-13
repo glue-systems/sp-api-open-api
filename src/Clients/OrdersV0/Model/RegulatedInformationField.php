@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Orders
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API only supports orders that are less than two years old. Orders more than two years old will not show in the API response.
+ * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
  * OpenAPI spec version: v0
  * 
@@ -271,7 +271,7 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess
     /**
      * Sets fieldId
      *
-     * @param string $fieldId The unique identifier for the field.
+     * @param string $fieldId The unique identifier of the field.
      *
      * @return $this
      */
@@ -295,7 +295,7 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess
     /**
      * Sets fieldLabel
      *
-     * @param string $fieldLabel The name for the field.
+     * @param string $fieldLabel The name of the field.
      *
      * @return $this
      */
@@ -352,7 +352,7 @@ class RegulatedInformationField implements ModelInterface, ArrayAccess
     /**
      * Sets fieldValue
      *
-     * @param string $fieldValue The content of the field as collected in regulatory form. Note that FileAttachment type fields will contain a URL to download the attachment here.
+     * @param string $fieldValue The content of the field as collected in regulatory form. Note that `FileAttachment` type fields contain a URL where you can download the attachment.
      *
      * @return $this
      */

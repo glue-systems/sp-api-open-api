@@ -1,6 +1,6 @@
 <?php
 /**
- * ExceptionDates
+ * VerificationDetails
  *
  * PHP version 5
  *
@@ -33,15 +33,15 @@ use \ArrayAccess;
 use \Glue\SpApi\OpenAPI\Clients\OrdersV0\ObjectSerializer;
 
 /**
- * ExceptionDates Class Doc Comment
+ * VerificationDetails Class Doc Comment
  *
  * @category Class
- * @description Dates when the business is closed or open with a different time window.
+ * @description Additional information related to the verification of a regulated order.
  * @package  Glue\SpApi\OpenAPI\Clients\OrdersV0
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
  */
-class ExceptionDates implements ModelInterface, ArrayAccess
+class VerificationDetails implements ModelInterface, ArrayAccess
 {
     const DISCRIMINATOR = null;
 
@@ -50,7 +50,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       *
       * @var string
       */
-    protected static $openAPIModelName = 'ExceptionDates';
+    protected static $openAPIModelName = 'VerificationDetails';
 
     /**
       * Array of property to type mappings. Used for (de)serialization
@@ -58,9 +58,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPITypes = [
-        'exceptionDate' => 'string',
-        'isOpen' => 'bool',
-        'openIntervals' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]'
+        'prescriptionDetail' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PrescriptionDetail'
     ];
 
     /**
@@ -69,9 +67,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
       * @var string[]
       */
     protected static $openAPIFormats = [
-        'exceptionDate' => null,
-        'isOpen' => null,
-        'openIntervals' => null
+        'prescriptionDetail' => null
     ];
 
     /**
@@ -101,9 +97,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $attributeMap = [
-        'exceptionDate' => 'ExceptionDate',
-        'isOpen' => 'IsOpen',
-        'openIntervals' => 'OpenIntervals'
+        'prescriptionDetail' => 'prescriptionDetail'
     ];
 
     /**
@@ -112,9 +106,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $setters = [
-        'exceptionDate' => 'setExceptionDate',
-        'isOpen' => 'setIsOpen',
-        'openIntervals' => 'setOpenIntervals'
+        'prescriptionDetail' => 'setPrescriptionDetail'
     ];
 
     /**
@@ -123,9 +115,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @var string[]
      */
     protected static $getters = [
-        'exceptionDate' => 'getExceptionDate',
-        'isOpen' => 'getIsOpen',
-        'openIntervals' => 'getOpenIntervals'
+        'prescriptionDetail' => 'getPrescriptionDetail'
     ];
 
     /**
@@ -188,9 +178,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      */
     public function __construct(array $data = null)
     {
-        $this->container['exceptionDate'] = isset($data['exceptionDate']) ? $data['exceptionDate'] : null;
-        $this->container['isOpen'] = isset($data['isOpen']) ? $data['isOpen'] : null;
-        $this->container['openIntervals'] = isset($data['openIntervals']) ? $data['openIntervals'] : null;
+        $this->container['prescriptionDetail'] = isset($data['prescriptionDetail']) ? $data['prescriptionDetail'] : null;
     }
 
     /**
@@ -218,73 +206,25 @@ class ExceptionDates implements ModelInterface, ArrayAccess
 
 
     /**
-     * Gets exceptionDate
+     * Gets prescriptionDetail
      *
-     * @return string|null
+     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PrescriptionDetail|null
      */
-    public function getExceptionDate()
+    public function getPrescriptionDetail()
     {
-        return $this->container['exceptionDate'];
+        return $this->container['prescriptionDetail'];
     }
 
     /**
-     * Sets exceptionDate
+     * Sets prescriptionDetail
      *
-     * @param string|null $exceptionDate Date when the business is closed, in <a href='https://developer-docs.amazon.com/sp-api/docs/iso-8601'>ISO 8601</a> date format.
+     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\PrescriptionDetail|null $prescriptionDetail prescriptionDetail
      *
      * @return $this
      */
-    public function setExceptionDate($exceptionDate)
+    public function setPrescriptionDetail($prescriptionDetail)
     {
-        $this->container['exceptionDate'] = $exceptionDate;
-
-        return $this;
-    }
-
-    /**
-     * Gets isOpen
-     *
-     * @return bool|null
-     */
-    public function getIsOpen()
-    {
-        return $this->container['isOpen'];
-    }
-
-    /**
-     * Sets isOpen
-     *
-     * @param bool|null $isOpen Boolean indicating if the business is closed or open on that date.
-     *
-     * @return $this
-     */
-    public function setIsOpen($isOpen)
-    {
-        $this->container['isOpen'] = $isOpen;
-
-        return $this;
-    }
-
-    /**
-     * Gets openIntervals
-     *
-     * @return \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null
-     */
-    public function getOpenIntervals()
-    {
-        return $this->container['openIntervals'];
-    }
-
-    /**
-     * Sets openIntervals
-     *
-     * @param \Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\OpenInterval[]|null $openIntervals Time window during the day when the business is open.
-     *
-     * @return $this
-     */
-    public function setOpenIntervals($openIntervals)
-    {
-        $this->container['openIntervals'] = $openIntervals;
+        $this->container['prescriptionDetail'] = $prescriptionDetail;
 
         return $this;
     }

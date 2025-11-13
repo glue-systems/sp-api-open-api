@@ -13,7 +13,7 @@
 /**
  * Selling Partner API for Orders
  *
- * The Selling Partner API for Orders helps you programmatically retrieve order information. These APIs let you develop fast, flexible, custom applications in areas like order synchronization, order research, and demand-based decision support tools. The Orders API only supports orders that are less than two years old. Orders more than two years old will not show in the API response.
+ * Use the Orders Selling Partner API to programmatically retrieve order information. With this API, you can develop fast, flexible, and custom applications to manage order synchronization, perform order research, and create demand-based decision support tools.   _Note:_ For the JP, AU, and SG marketplaces, the Orders API supports orders from 2016 onward. For all other marketplaces, the Orders API supports orders for the last two years (orders older than this don't show up in the response).
  *
  * OpenAPI spec version: v0
  * 
@@ -59,7 +59,10 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess
       */
     protected static $openAPITypes = [
         'payment' => '\Glue\SpApi\OpenAPI\Clients\OrdersV0\Model\Money',
-        'paymentMethod' => 'string'
+        'paymentMethod' => 'string',
+        'acquirerId' => 'string',
+        'cardBrand' => 'string',
+        'authorizationCode' => 'string'
     ];
 
     /**
@@ -69,7 +72,10 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess
       */
     protected static $openAPIFormats = [
         'payment' => null,
-        'paymentMethod' => null
+        'paymentMethod' => null,
+        'acquirerId' => null,
+        'cardBrand' => null,
+        'authorizationCode' => null
     ];
 
     /**
@@ -100,7 +106,10 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess
      */
     protected static $attributeMap = [
         'payment' => 'Payment',
-        'paymentMethod' => 'PaymentMethod'
+        'paymentMethod' => 'PaymentMethod',
+        'acquirerId' => 'AcquirerId',
+        'cardBrand' => 'CardBrand',
+        'authorizationCode' => 'AuthorizationCode'
     ];
 
     /**
@@ -110,7 +119,10 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess
      */
     protected static $setters = [
         'payment' => 'setPayment',
-        'paymentMethod' => 'setPaymentMethod'
+        'paymentMethod' => 'setPaymentMethod',
+        'acquirerId' => 'setAcquirerId',
+        'cardBrand' => 'setCardBrand',
+        'authorizationCode' => 'setAuthorizationCode'
     ];
 
     /**
@@ -120,7 +132,10 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess
      */
     protected static $getters = [
         'payment' => 'getPayment',
-        'paymentMethod' => 'getPaymentMethod'
+        'paymentMethod' => 'getPaymentMethod',
+        'acquirerId' => 'getAcquirerId',
+        'cardBrand' => 'getCardBrand',
+        'authorizationCode' => 'getAuthorizationCode'
     ];
 
     /**
@@ -185,6 +200,9 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess
     {
         $this->container['payment'] = isset($data['payment']) ? $data['payment'] : null;
         $this->container['paymentMethod'] = isset($data['paymentMethod']) ? $data['paymentMethod'] : null;
+        $this->container['acquirerId'] = isset($data['acquirerId']) ? $data['acquirerId'] : null;
+        $this->container['cardBrand'] = isset($data['cardBrand']) ? $data['cardBrand'] : null;
+        $this->container['authorizationCode'] = isset($data['authorizationCode']) ? $data['authorizationCode'] : null;
     }
 
     /**
@@ -254,13 +272,85 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess
     /**
      * Sets paymentMethod
      *
-     * @param string $paymentMethod A sub-payment method for a COD order.  Possible values: * `COD`: Cash On Delivery. * `GC`: Gift Card. * `PointsAccount`: Amazon Points. * `Invoice`: Invoice.
+     * @param string $paymentMethod The sub-payment method for an order.   **Possible values**: * `COD`: Cash on delivery  * `GC`: Gift card  * `PointsAccount`: Amazon Points  * `Invoice`: Invoice  * `CreditCard`: Credit card  * `Pix`: Pix  * `Other`: Other.
      *
      * @return $this
      */
     public function setPaymentMethod($paymentMethod)
     {
         $this->container['paymentMethod'] = $paymentMethod;
+
+        return $this;
+    }
+
+    /**
+     * Gets acquirerId
+     *
+     * @return string|null
+     */
+    public function getAcquirerId()
+    {
+        return $this->container['acquirerId'];
+    }
+
+    /**
+     * Sets acquirerId
+     *
+     * @param string|null $acquirerId The Brazilian Taxpayer Identifier (CNPJ) of the payment processor or acquiring bank that authorizes the payment.   **Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `PaymentMethod` is `CreditCard` or `Pix`.
+     *
+     * @return $this
+     */
+    public function setAcquirerId($acquirerId)
+    {
+        $this->container['acquirerId'] = $acquirerId;
+
+        return $this;
+    }
+
+    /**
+     * Gets cardBrand
+     *
+     * @return string|null
+     */
+    public function getCardBrand()
+    {
+        return $this->container['cardBrand'];
+    }
+
+    /**
+     * Sets cardBrand
+     *
+     * @param string|null $cardBrand The card network or brand used in the payment transaction (for example, Visa or Mastercard).   **Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `PaymentMethod` is `CreditCard`.
+     *
+     * @return $this
+     */
+    public function setCardBrand($cardBrand)
+    {
+        $this->container['cardBrand'] = $cardBrand;
+
+        return $this;
+    }
+
+    /**
+     * Gets authorizationCode
+     *
+     * @return string|null
+     */
+    public function getAuthorizationCode()
+    {
+        return $this->container['authorizationCode'];
+    }
+
+    /**
+     * Sets authorizationCode
+     *
+     * @param string|null $authorizationCode The unique code that confirms the payment authorization.   **Note**: This attribute is only available for orders in the Brazil (BR) marketplace when the `PaymentMethod` is `CreditCard` or `Pix`.
+     *
+     * @return $this
+     */
+    public function setAuthorizationCode($authorizationCode)
+    {
+        $this->container['authorizationCode'] = $authorizationCode;
 
         return $this;
     }
