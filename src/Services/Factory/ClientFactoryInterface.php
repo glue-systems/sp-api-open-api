@@ -62,7 +62,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createAplusContentV20201101ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -70,7 +70,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createAuthorizationV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -78,7 +78,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createCatalogItemsV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -86,7 +86,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createCatalogItemsV20201201ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -94,7 +94,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createDefinitionsProductTypesV20200901ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -102,7 +102,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createEasyShipV20220323ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -110,7 +110,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFbaInboundEligibilityV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -118,7 +118,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFbaInventoryV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -126,7 +126,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFbaSmallAndLightV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -134,7 +134,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFeedsV20200904ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -142,7 +142,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFeedsV20210630ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -150,7 +150,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFinancesV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -158,7 +158,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFulfillmentInboundV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -166,7 +166,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFulfillmentOutboundV20200701ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -174,7 +174,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createListingsItemsV20200901ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -182,7 +182,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createListingsItemsV20210801ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -190,7 +190,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createListingsRestrictionsV20210801ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -198,7 +198,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createMerchantFulfillmentV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -206,7 +206,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createNotificationsV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -214,7 +214,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createOrdersV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -222,7 +222,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createOrdersV0ShipmentApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -230,7 +230,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createProductFeesV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -238,7 +238,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createProductPricingV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -246,7 +246,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createReplenishmentV20221107OffersApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -254,7 +254,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createReplenishmentV20221107SellingpartnersApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -262,7 +262,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createReportsV20200904ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -270,7 +270,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createReportsV20210630ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -278,7 +278,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createSalesV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -286,7 +286,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createSellersV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -294,7 +294,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createServicesV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -302,7 +302,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createShipmentInvoicingV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -310,7 +310,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createSupplySourcesV20200701ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -318,7 +318,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createTokensV20210301ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -326,7 +326,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createUploadsV20201101ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -334,7 +334,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentInventoryV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -342,7 +342,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentOrdersV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -350,7 +350,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentOrdersV20211228ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -358,7 +358,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentPaymentsV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -366,7 +366,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentSandboxDataV20211228ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -374,7 +374,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -382,7 +382,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -390,7 +390,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -398,7 +398,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1LabelsApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -406,7 +406,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -414,7 +414,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -422,7 +422,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228LabelsApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -430,7 +430,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentTransactionsV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -438,7 +438,7 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentTransactionsV20211228ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 
     /**
@@ -446,6 +446,6 @@ interface ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorTransactionStatusV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     );
 }

@@ -59,7 +59,7 @@ class SpApi
         RdtServiceInterface $rdtService,
         LwaServiceInterface $lwaService,
         SpApiConfig $spApiConfig,
-        BuilderMiddlewarePipeline $builderMiddlewarePipeline = null
+        ?BuilderMiddlewarePipeline $builderMiddlewarePipeline = null
     ) {
         $this->clientFactory             = $clientFactory;
         $this->rdtService                = $rdtService;
@@ -852,22 +852,20 @@ class SpApi
                 . implode(', ', SpApiRoster::allApiClassFqns()) . "]");
         }
 
-        // TODO: Update the use of `getClass()` to `getType()`, as the former is deprecated
-        // and highly discouraged as of PHP 8, whereas the latter is only available from PHP 7.
-        $typeHintedParameterClass = $parameters[0]->getClass();
-        if (empty($typeHintedParameterClass->name)) {
+        $typeHintedParameterClassFqn = $parameters[0]->getType()?->getName() ?? null;
+        if (empty($typeHintedParameterClassFqn)) {
             throw new SpApiResolutionException("Unable to resolve API client class"
                 . " in the callback of SpApi::execute; please type-hint a valid API class name,"
                 . " or call a setter method explicitly (e.g. ordersV0(), reportsV20210630() etc).");
         }
 
-        if (!SpApiRoster::isValidApiClassFqn($typeHintedParameterClass->name)) {
+        if (!SpApiRoster::isValidApiClassFqn($typeHintedParameterClassFqn)) {
             throw new SpApiResolutionException("Invalid type-hinted class name"
-                . " [{$typeHintedParameterClass->name}] in the callback of SpApi::execute;"
+                . " [{$typeHintedParameterClassFqn}] in the callback of SpApi::execute;"
                 . " must be one of: [" . implode(', ', SpApiRoster::allApiClassFqns()) . "]");
         }
 
-        return SpApiRoster::getFactoryMethodFromApiClassFqn($typeHintedParameterClass->name);
+        return SpApiRoster::getFactoryMethodFromApiClassFqn($typeHintedParameterClassFqn);
     }
 
     /**

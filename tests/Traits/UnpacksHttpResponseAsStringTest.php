@@ -24,8 +24,7 @@ class UnpacksHttpResponseAsStringTest extends TestCase
      */
     public $response;
 
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
+    public function setUp(): void
     {
         parent::setup();
         $this->stream        = Mockery::mock(StreamInterface::class);

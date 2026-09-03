@@ -27,8 +27,7 @@ class LwaServiceTest extends TestCase
      */
     public $spApiConfig;
 
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
+    public function setUp(): void
     {
         parent::setup();
         $this->cache       = \Mockery::mock(CacheInterface::class);

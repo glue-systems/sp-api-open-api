@@ -9,7 +9,7 @@ class LwaAccessTokenException extends Exception
     /**
      * @param string $message
      * @param int $code
-     * @param Exception|null $previous
+     * @param \Throwable|null $previous
      */
     public function __construct($message = '', $code = 0, $previous = null)
     {

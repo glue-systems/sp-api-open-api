@@ -21,9 +21,7 @@ use Glue\SpApi\OpenAPI\Services\Rdt\RdtService;
 use Glue\SpApi\OpenAPI\Utilities\SpApiRoster;
 use Mockery;
 use PHPUnit_Framework_SkippedTestError;
-// TODO: Switch to this after upgrading.
-// use PHPUnit\Framework\TestCase as BaseTestCase;
-use \PHPUnit_Framework_TestCase as BaseTestCase;
+use PHPUnit\Framework\TestCase as BaseTestCase;
 
 class TestCase extends BaseTestCase
 {
@@ -32,8 +30,7 @@ class TestCase extends BaseTestCase
      */
     public static $arrayCache;
 
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading phpunit.
-    public function setUp()
+    public function setUp(): void
     {
         $this->loadEnv();
 
@@ -147,7 +144,7 @@ class TestCase extends BaseTestCase
         }
     }
 
-    public function tearDown()
+    public function tearDown(): void
     {
         if (env('TESTING_ALWAYS_RESET_ARRAY_CACHE', false)) {
             static::$arrayCache = null;

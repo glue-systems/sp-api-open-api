@@ -41,8 +41,7 @@ class LwaClientTest extends TestCase
      */
     public $stream;
 
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
+    public function setUp(): void
     {
         parent::setup();
         $this->spApiConfig  = $this->buildSpApiConfig();

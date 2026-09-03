@@ -142,7 +142,7 @@ class ClientBuilder
 
     public function __construct(
         SpApiConfig $spApiConfig,
-        HandlerStack $guzzleHandlerStack = null
+        ?HandlerStack $guzzleHandlerStack = null
     ) {
         $spApiConfig->validateConfig();
 
@@ -202,7 +202,7 @@ class ClientBuilder
      *
      * @return static
      */
-    public function withRdtProvider(callable $rdtProvider = null)
+    public function withRdtProvider(?callable $rdtProvider = null)
     {
         $this->rdtProvider = $rdtProvider;
         return $this;
