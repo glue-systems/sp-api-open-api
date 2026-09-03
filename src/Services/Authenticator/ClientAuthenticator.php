@@ -9,7 +9,6 @@ use Glue\SpApi\OpenAPI\Exceptions\RestrictedDataTokenException;
 use Glue\SpApi\OpenAPI\Middleware\Guzzle\AwsSignatureV4Middleware;
 use Glue\SpApi\OpenAPI\Services\Lwa\LwaServiceInterface;
 use GuzzleHttp\Client;
-use GuzzleHttp\ClientInterface;
 use GuzzleHttp\HandlerStack;
 
 class ClientAuthenticator implements ClientAuthenticatorInterface
@@ -47,7 +46,7 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
      * @param callable|null $rdtProvider Callable restricted data token provider that returns an RDT, if needed for the SP-API operation.
      * @param string|null $awsCredentialScopeServiceOverride
      * @param string|null $awsCredentialScopeRegionOverride
-     * @return ClientInterface
+     * @return Client
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createAuthenticatedGuzzleClient(

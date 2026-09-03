@@ -7,7 +7,7 @@ use Glue\SpApi\OpenAPI\Services\Authenticator\ClientAuthenticatorInterface;
 use Glue\SpApi\OpenAPI\Services\Factory\ClientFactory;
 use Glue\SpApi\OpenAPI\Utilities\BuilderMiddlewarePipeline;
 use Glue\SpApi\OpenAPI\Utilities\ClientBuilder;
-use GuzzleHttp\ClientInterface;
+use GuzzleHttp\Client;
 use GuzzleHttp\HandlerStack;
 use Mockery;
 use Mockery\MockInterface;
@@ -847,7 +847,7 @@ class ClientFactoryTest extends TestCase
     ) {
         $this->authenticator->shouldReceive('createAuthenticatedGuzzleClient')
             ->once()
-            ->andReturn(Mockery::mock(ClientInterface::class));
+            ->andReturn(Mockery::mock(Client::class));
 
         $sut = new ClientFactory(
             $this->authenticator,
@@ -862,7 +862,6 @@ class ClientFactoryTest extends TestCase
     /**
      * @param string $expectedApiClass
      * @param string $methodUnderTest
-     * @param BuilderMiddlewarePipeline $pipeline
      * @return void
      */
     protected function _arrange_and_assert_it_can_create_expected_client_with_pipeline(
