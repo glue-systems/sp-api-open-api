@@ -83,7 +83,7 @@ class ClientFactory implements ClientFactoryInterface
     public function __construct(
         ClientAuthenticatorInterface $authenticator,
         SpApiConfig $spApiConfig,
-        callable $instantiateGuzzleHandlerStack = null
+        ?callable $instantiateGuzzleHandlerStack = null
     ) {
         $this->authenticator                 = $authenticator;
         $this->spApiConfig                   = $spApiConfig;
@@ -98,7 +98,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createAplusContentV20201101ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             AplusContentV20201101Api::class,
@@ -111,7 +111,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createAuthorizationV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             AuthorizationV1Api::class,
@@ -124,7 +124,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createCatalogItemsV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             CatalogItemsV0Api::class,
@@ -137,7 +137,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createCatalogItemsV20201201ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             CatalogItemsV20201201Api::class,
@@ -150,7 +150,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createDefinitionsProductTypesV20200901ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             DefinitionsProductTypesV20200901Api::class,
@@ -163,7 +163,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createEasyShipV20220323ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             EasyShipV20220323Api::class,
@@ -176,7 +176,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFbaInboundEligibilityV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             FbaInboundEligibilityV1Api::class,
@@ -189,7 +189,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFbaInventoryV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             FbaInventoryV1Api::class,
@@ -202,7 +202,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFbaSmallAndLightV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             FbaSmallAndLightV1Api::class,
@@ -215,7 +215,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFeedsV20200904ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             FeedsV20200904Api::class,
@@ -228,7 +228,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFeedsV20210630ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             FeedsV20210630Api::class,
@@ -241,7 +241,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFinancesV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             FinancesV0Api::class,
@@ -254,7 +254,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFulfillmentInboundV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             FulfillmentInboundV0Api::class,
@@ -267,7 +267,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createFulfillmentOutboundV20200701ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             FulfillmentOutboundV20200701Api::class,
@@ -280,7 +280,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createListingsItemsV20200901ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             ListingsItemsV20200901Api::class,
@@ -293,7 +293,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createListingsItemsV20210801ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             ListingsItemsV20210801Api::class,
@@ -306,7 +306,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createListingsRestrictionsV20210801ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             ListingsRestrictionsV20210801Api::class,
@@ -319,7 +319,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createMerchantFulfillmentV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             MerchantFulfillmentV0Api::class,
@@ -332,7 +332,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createNotificationsV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             NotificationsV1Api::class,
@@ -345,7 +345,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createOrdersV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             OrdersV0Api::class,
@@ -358,7 +358,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createOrdersV0ShipmentApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             OrdersV0ShipmentApi::class,
@@ -371,7 +371,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createProductFeesV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             ProductFeesV0Api::class,
@@ -384,7 +384,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createProductPricingV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             ProductPricingV0Api::class,
@@ -397,7 +397,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createReplenishmentV20221107OffersApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             ReplenishmentV20221107OffersApi::class,
@@ -410,7 +410,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createReplenishmentV20221107SellingpartnersApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             ReplenishmentV20221107SellingpartnersApi::class,
@@ -423,7 +423,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createReportsV20200904ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             ReportsV20200904Api::class,
@@ -436,7 +436,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createReportsV20210630ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             ReportsV20210630Api::class,
@@ -449,7 +449,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createSalesV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             SalesV1Api::class,
@@ -462,7 +462,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createSellersV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             SellersV1Api::class,
@@ -475,7 +475,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createServicesV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             ServicesV1Api::class,
@@ -488,7 +488,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createShipmentInvoicingV0ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             ShipmentInvoicingV0Api::class,
@@ -501,7 +501,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createSupplySourcesV20200701ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             SupplySourcesV20200701Api::class,
@@ -514,7 +514,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createTokensV20210301ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             TokensV20210301Api::class,
@@ -527,7 +527,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createUploadsV20201101ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             UploadsV20201101Api::class,
@@ -540,7 +540,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentInventoryV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentInventoryV1Api::class,
@@ -553,7 +553,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentOrdersV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentOrdersV1Api::class,
@@ -566,7 +566,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentOrdersV20211228ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentOrdersV20211228Api::class,
@@ -579,7 +579,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentPaymentsV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentPaymentsV1Api::class,
@@ -592,7 +592,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentSandboxDataV20211228ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentSandboxDataV20211228Api::class,
@@ -605,7 +605,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentSandboxDataV20211228transactionstatusApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentSandboxDataV20211228transactionstatusApi::class,
@@ -618,7 +618,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1CustomerInvoicesApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentShippingV1CustomerInvoicesApi::class,
@@ -631,7 +631,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentShippingV1Api::class,
@@ -644,7 +644,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV1LabelsApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentShippingV1LabelsApi::class,
@@ -657,7 +657,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228CustomerInvoicesApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentShippingV20211228CustomerInvoicesApi::class,
@@ -670,7 +670,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentShippingV20211228Api::class,
@@ -683,7 +683,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException|RestrictedDataTokenException
      */
     public function createVendorDirectFulfillmentShippingV20211228LabelsApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentShippingV20211228LabelsApi::class,
@@ -696,7 +696,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentTransactionsV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentTransactionsV1Api::class,
@@ -709,7 +709,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorDirectFulfillmentTransactionsV20211228ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorDirectFulfillmentTransactionsV20211228Api::class,
@@ -722,7 +722,7 @@ class ClientFactory implements ClientFactoryInterface
      * @throws LwaAccessTokenException
      */
     public function createVendorTransactionStatusV1ApiClient(
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         return $this->_createClientViaBuilder(
             VendorTransactionStatusV1Api::class,
@@ -739,7 +739,7 @@ class ClientFactory implements ClientFactoryInterface
      */
     protected function _createClientViaBuilder(
         $apiClassFqn,
-        BuilderMiddlewarePipeline $pipeline = null
+        ?BuilderMiddlewarePipeline $pipeline = null
     ) {
         $builder = (new ClientBuilder(
             $this->spApiConfig,

@@ -52,7 +52,7 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
      */
     public function createAuthenticatedGuzzleClient(
         HandlerStack $handlerStack,
-        callable $rdtProvider = null,
+        ?callable $rdtProvider = null,
         $awsCredentialScopeServiceOverride = null,
         $awsCredentialScopeRegionOverride = null
     ) {
@@ -78,7 +78,7 @@ class ClientAuthenticator implements ClientAuthenticatorInterface
     /**
      * @return string
      */
-    protected function _resolveAccessToken(callable $rdtProvider = null)
+    protected function _resolveAccessToken(?callable $rdtProvider = null)
     {
         if ($rdtProvider) {
             $accessToken = call_user_func($rdtProvider);

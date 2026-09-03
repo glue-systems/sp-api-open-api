@@ -22,7 +22,7 @@ interface ClientAuthenticatorInterface
      */
     public function createAuthenticatedGuzzleClient(
         HandlerStack $handlerStack,
-        callable $rdtProvider = null,
+        ?callable $rdtProvider = null,
         $awsCredentialScopeServiceOverride = null,
         $awsCredentialScopeRegionOverride = null
     );
