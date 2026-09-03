@@ -206,7 +206,7 @@ class TaxRegistrationDetail implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['taxRegistrationType'] = isset($data['taxRegistrationType']) ? $data['taxRegistrationType'] : null;
         $this->container['taxRegistrationNumber'] = isset($data['taxRegistrationNumber']) ? $data['taxRegistrationNumber'] : null;

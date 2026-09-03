@@ -181,7 +181,7 @@ class GetInventorySummariesResult implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['granularity'] = isset($data['granularity']) ? $data['granularity'] : null;
         $this->container['inventorySummaries'] = isset($data['inventorySummaries']) ? $data['inventorySummaries'] : null;

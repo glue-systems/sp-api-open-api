@@ -181,7 +181,7 @@ class ShipmentDates implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['requiredShipDate'] = isset($data['requiredShipDate']) ? $data['requiredShipDate'] : null;
         $this->container['promisedDeliveryDate'] = isset($data['promisedDeliveryDate']) ? $data['promisedDeliveryDate'] : null;

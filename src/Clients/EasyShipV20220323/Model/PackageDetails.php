@@ -186,7 +186,7 @@ class PackageDetails implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['packageItems'] = isset($data['packageItems']) ? $data['packageItems'] : null;
         $this->container['packageTimeSlot'] = isset($data['packageTimeSlot']) ? $data['packageTimeSlot'] : null;

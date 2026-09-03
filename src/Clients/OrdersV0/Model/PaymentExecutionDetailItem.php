@@ -181,7 +181,7 @@ class PaymentExecutionDetailItem implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['payment'] = isset($data['payment']) ? $data['payment'] : null;
         $this->container['paymentMethod'] = isset($data['paymentMethod']) ? $data['paymentMethod'] : null;

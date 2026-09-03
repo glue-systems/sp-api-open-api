@@ -181,7 +181,7 @@ class AdditionalInputs implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['additionalInputFieldName'] = isset($data['additionalInputFieldName']) ? $data['additionalInputFieldName'] : null;
         $this->container['sellerInputDefinition'] = isset($data['sellerInputDefinition']) ? $data['sellerInputDefinition'] : null;

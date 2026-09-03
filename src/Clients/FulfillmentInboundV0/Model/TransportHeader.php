@@ -191,7 +191,7 @@ class TransportHeader implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['sellerId'] = isset($data['sellerId']) ? $data['sellerId'] : null;
         $this->container['shipmentId'] = isset($data['shipmentId']) ? $data['shipmentId'] : null;

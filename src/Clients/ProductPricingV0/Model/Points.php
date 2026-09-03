@@ -180,7 +180,7 @@ class Points implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['pointsNumber'] = isset($data['pointsNumber']) ? $data['pointsNumber'] : null;
         $this->container['pointsMonetaryValue'] = isset($data['pointsMonetaryValue']) ? $data['pointsMonetaryValue'] : null;

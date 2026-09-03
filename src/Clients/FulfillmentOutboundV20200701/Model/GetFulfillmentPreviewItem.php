@@ -191,7 +191,7 @@ class GetFulfillmentPreviewItem implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['sellerSku'] = isset($data['sellerSku']) ? $data['sellerSku'] : null;
         $this->container['quantity'] = isset($data['quantity']) ? $data['quantity'] : null;

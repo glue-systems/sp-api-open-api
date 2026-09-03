@@ -221,7 +221,7 @@ class RentalTransactionEvent implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['amazonOrderId'] = isset($data['amazonOrderId']) ? $data['amazonOrderId'] : null;
         $this->container['rentalEventType'] = isset($data['rentalEventType']) ? $data['rentalEventType'] : null;

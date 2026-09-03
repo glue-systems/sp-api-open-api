@@ -206,7 +206,7 @@ class UnfulfillableQuantity implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['totalUnfulfillableQuantity'] = isset($data['totalUnfulfillableQuantity']) ? $data['totalUnfulfillableQuantity'] : null;
         $this->container['customerDamagedQuantity'] = isset($data['customerDamagedQuantity']) ? $data['customerDamagedQuantity'] : null;

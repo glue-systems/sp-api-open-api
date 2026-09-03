@@ -181,7 +181,7 @@ class RescheduleAppointmentRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['appointmentTime'] = isset($data['appointmentTime']) ? $data['appointmentTime'] : null;
         $this->container['rescheduleReasonCode'] = isset($data['rescheduleReasonCode']) ? $data['rescheduleReasonCode'] : null;

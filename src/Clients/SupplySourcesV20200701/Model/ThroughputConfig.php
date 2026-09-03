@@ -181,7 +181,7 @@ class ThroughputConfig implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['throughputCap'] = isset($data['throughputCap']) ? $data['throughputCap'] : null;
         $this->container['throughputUnit'] = isset($data['throughputUnit']) ? $data['throughputUnit'] : null;

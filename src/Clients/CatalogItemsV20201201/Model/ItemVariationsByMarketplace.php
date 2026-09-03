@@ -201,7 +201,7 @@ class ItemVariationsByMarketplace implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['marketplaceId'] = isset($data['marketplaceId']) ? $data['marketplaceId'] : null;
         $this->container['asins'] = isset($data['asins']) ? $data['asins'] : null;

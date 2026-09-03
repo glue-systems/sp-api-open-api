@@ -186,7 +186,7 @@ class SetAppointmentFulfillmentDataRequest implements ModelInterface, ArrayAcces
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['fulfillmentTime'] = isset($data['fulfillmentTime']) ? $data['fulfillmentTime'] : null;
         $this->container['appointmentResources'] = isset($data['appointmentResources']) ? $data['appointmentResources'] : null;

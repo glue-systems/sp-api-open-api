@@ -180,7 +180,7 @@ class ShippingLabelList implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['pagination'] = isset($data['pagination']) ? $data['pagination'] : null;
         $this->container['shippingLabels'] = isset($data['shippingLabels']) ? $data['shippingLabels'] : null;

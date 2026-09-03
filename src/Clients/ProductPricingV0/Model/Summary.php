@@ -221,7 +221,7 @@ class Summary implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['totalOfferCount'] = isset($data['totalOfferCount']) ? $data['totalOfferCount'] : null;
         $this->container['numberOfOffers'] = isset($data['numberOfOffers']) ? $data['numberOfOffers'] : null;

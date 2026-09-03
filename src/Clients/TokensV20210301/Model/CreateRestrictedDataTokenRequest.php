@@ -181,7 +181,7 @@ class CreateRestrictedDataTokenRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['targetApplication'] = isset($data['targetApplication']) ? $data['targetApplication'] : null;
         $this->container['restrictedResources'] = isset($data['restrictedResources']) ? $data['restrictedResources'] : null;

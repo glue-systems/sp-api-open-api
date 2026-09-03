@@ -206,7 +206,7 @@ class FailedAdhocDisbursementEventList implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['fundsTransfersType'] = isset($data['fundsTransfersType']) ? $data['fundsTransfersType'] : null;
         $this->container['transferId'] = isset($data['transferId']) ? $data['transferId'] : null;

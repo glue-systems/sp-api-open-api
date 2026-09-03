@@ -251,7 +251,7 @@ class ContentModule implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['contentModuleType'] = isset($data['contentModuleType']) ? $data['contentModuleType'] : null;
         $this->container['standardCompanyLogo'] = isset($data['standardCompanyLogo']) ? $data['standardCompanyLogo'] : null;

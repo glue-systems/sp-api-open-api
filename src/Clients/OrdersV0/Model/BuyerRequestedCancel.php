@@ -181,7 +181,7 @@ class BuyerRequestedCancel implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['isBuyerRequestedCancel'] = isset($data['isBuyerRequestedCancel']) ? $data['isBuyerRequestedCancel'] : null;
         $this->container['buyerCancelReason'] = isset($data['buyerCancelReason']) ? $data['buyerCancelReason'] : null;

@@ -191,7 +191,7 @@ class FulfillmentShipmentPackage implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['packageNumber'] = isset($data['packageNumber']) ? $data['packageNumber'] : null;
         $this->container['carrierCode'] = isset($data['carrierCode']) ? $data['carrierCode'] : null;

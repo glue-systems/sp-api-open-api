@@ -196,7 +196,7 @@ class CreateInboundShipmentPlanRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['shipFromAddress'] = isset($data['shipFromAddress']) ? $data['shipFromAddress'] : null;
         $this->container['labelPrepPreference'] = isset($data['labelPrepPreference']) ? $data['labelPrepPreference'] : null;

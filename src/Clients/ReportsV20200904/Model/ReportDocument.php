@@ -203,7 +203,7 @@ class ReportDocument implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['reportDocumentId'] = isset($data['reportDocumentId']) ? $data['reportDocumentId'] : null;
         $this->container['url'] = isset($data['url']) ? $data['url'] : null;

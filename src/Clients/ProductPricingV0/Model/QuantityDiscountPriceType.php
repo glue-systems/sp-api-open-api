@@ -186,7 +186,7 @@ class QuantityDiscountPriceType implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['quantityTier'] = isset($data['quantityTier']) ? $data['quantityTier'] : null;
         $this->container['quantityDiscountType'] = isset($data['quantityDiscountType']) ? $data['quantityDiscountType'] : null;

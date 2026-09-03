@@ -185,7 +185,7 @@ class Categories implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['productCategoryId'] = isset($data['productCategoryId']) ? $data['productCategoryId'] : null;
         $this->container['productCategoryName'] = isset($data['productCategoryName']) ? $data['productCategoryName'] : null;

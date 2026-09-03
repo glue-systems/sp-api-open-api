@@ -186,7 +186,7 @@ class TransportContent implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['transportHeader'] = isset($data['transportHeader']) ? $data['transportHeader'] : null;
         $this->container['transportDetails'] = isset($data['transportDetails']) ? $data['transportDetails'] : null;

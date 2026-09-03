@@ -216,7 +216,7 @@ class AdditionalSellerInput implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['dataType'] = isset($data['dataType']) ? $data['dataType'] : null;
         $this->container['valueAsString'] = isset($data['valueAsString']) ? $data['valueAsString'] : null;

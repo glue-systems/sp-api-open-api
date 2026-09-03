@@ -201,7 +201,7 @@ class OrderMetricsInterval implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['interval'] = isset($data['interval']) ? $data['interval'] : null;
         $this->container['unitCount'] = isset($data['unitCount']) ? $data['unitCount'] : null;

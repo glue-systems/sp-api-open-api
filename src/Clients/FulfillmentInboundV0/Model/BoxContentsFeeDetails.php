@@ -186,7 +186,7 @@ class BoxContentsFeeDetails implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['totalUnits'] = isset($data['totalUnits']) ? $data['totalUnits'] : null;
         $this->container['feePerUnit'] = isset($data['feePerUnit']) ? $data['feePerUnit'] : null;

@@ -185,7 +185,7 @@ class StatusUpdateDetailsShipmentSchedule implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['apptWindowStartDateTime'] = isset($data['apptWindowStartDateTime']) ? $data['apptWindowStartDateTime'] : null;
         $this->container['estimatedDeliveryDateTime'] = isset($data['estimatedDeliveryDateTime']) ? $data['estimatedDeliveryDateTime'] : null;

@@ -240,7 +240,7 @@ class OrderDetails implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['customerOrderNumber'] = isset($data['customerOrderNumber']) ? $data['customerOrderNumber'] : null;
         $this->container['orderDate'] = isset($data['orderDate']) ? $data['orderDate'] : null;

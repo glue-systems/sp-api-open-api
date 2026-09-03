@@ -191,7 +191,7 @@ class ShippingOfferingFilter implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['includePackingSlipWithLabel'] = isset($data['includePackingSlipWithLabel']) ? $data['includePackingSlipWithLabel'] : null;
         $this->container['includeComplexShippingOptions'] = isset($data['includeComplexShippingOptions']) ? $data['includeComplexShippingOptions'] : null;

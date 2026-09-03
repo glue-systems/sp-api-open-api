@@ -191,7 +191,7 @@ class DebtRecoveryItem implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['recoveryAmount'] = isset($data['recoveryAmount']) ? $data['recoveryAmount'] : null;
         $this->container['originalAmount'] = isset($data['originalAmount']) ? $data['originalAmount'] : null;

@@ -181,7 +181,7 @@ class LoanServicingEvent implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['loanAmount'] = isset($data['loanAmount']) ? $data['loanAmount'] : null;
         $this->container['sourceBusinessEventType'] = isset($data['sourceBusinessEventType']) ? $data['sourceBusinessEventType'] : null;

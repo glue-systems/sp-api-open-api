@@ -248,7 +248,7 @@ class ProductTypeDefinition implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['metaSchema'] = isset($data['metaSchema']) ? $data['metaSchema'] : null;
         $this->container['schema'] = isset($data['schema']) ? $data['schema'] : null;

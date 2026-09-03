@@ -181,7 +181,7 @@ class GiftDetails implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['giftMessage'] = isset($data['giftMessage']) ? $data['giftMessage'] : null;
         $this->container['giftWrapId'] = isset($data['giftWrapId']) ? $data['giftWrapId'] : null;

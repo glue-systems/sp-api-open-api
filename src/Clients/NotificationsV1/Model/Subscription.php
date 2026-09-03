@@ -191,7 +191,7 @@ class Subscription implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['subscriptionId'] = isset($data['subscriptionId']) ? $data['subscriptionId'] : null;
         $this->container['payloadVersion'] = isset($data['payloadVersion']) ? $data['payloadVersion'] : null;

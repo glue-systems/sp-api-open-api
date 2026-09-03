@@ -181,7 +181,7 @@ class TaxWithheldComponent implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['taxCollectionModel'] = isset($data['taxCollectionModel']) ? $data['taxCollectionModel'] : null;
         $this->container['taxesWithheld'] = isset($data['taxesWithheld']) ? $data['taxesWithheld'] : null;

@@ -191,7 +191,7 @@ class ChargeRefundEvent implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['postedDate'] = isset($data['postedDate']) ? $data['postedDate'] : null;
         $this->container['reasonCode'] = isset($data['reasonCode']) ? $data['reasonCode'] : null;

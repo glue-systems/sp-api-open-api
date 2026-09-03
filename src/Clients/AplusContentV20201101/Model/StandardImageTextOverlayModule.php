@@ -181,7 +181,7 @@ class StandardImageTextOverlayModule implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['overlayColorType'] = isset($data['overlayColorType']) ? $data['overlayColorType'] : null;
         $this->container['block'] = isset($data['block']) ? $data['block'] : null;

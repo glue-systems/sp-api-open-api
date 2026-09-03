@@ -59,7 +59,7 @@ class SpApi
         RdtServiceInterface $rdtService,
         LwaServiceInterface $lwaService,
         SpApiConfig $spApiConfig,
-        BuilderMiddlewarePipeline $builderMiddlewarePipeline = null
+        ?BuilderMiddlewarePipeline $builderMiddlewarePipeline = null
     ) {
         $this->clientFactory             = $clientFactory;
         $this->rdtService                = $rdtService;

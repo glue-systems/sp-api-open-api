@@ -181,7 +181,7 @@ class FulfillmentDocument implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['uploadDestinationId'] = isset($data['uploadDestinationId']) ? $data['uploadDestinationId'] : null;
         $this->container['contentSha256'] = isset($data['contentSha256']) ? $data['contentSha256'] : null;

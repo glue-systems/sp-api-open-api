@@ -250,7 +250,7 @@ class OfferDetail implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['myOffer'] = isset($data['myOffer']) ? $data['myOffer'] : null;
         $this->container['offerType'] = isset($data['offerType']) ? $data['offerType'] : null;

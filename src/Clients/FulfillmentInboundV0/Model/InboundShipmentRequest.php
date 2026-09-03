@@ -186,7 +186,7 @@ class InboundShipmentRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['inboundShipmentHeader'] = isset($data['inboundShipmentHeader']) ? $data['inboundShipmentHeader'] : null;
         $this->container['inboundShipmentItems'] = isset($data['inboundShipmentItems']) ? $data['inboundShipmentItems'] : null;

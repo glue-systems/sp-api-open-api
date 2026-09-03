@@ -201,7 +201,7 @@ class StandardSingleImageHighlightsModule implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['image'] = isset($data['image']) ? $data['image'] : null;
         $this->container['headline'] = isset($data['headline']) ? $data['headline'] : null;

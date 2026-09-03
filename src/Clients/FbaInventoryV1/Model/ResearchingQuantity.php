@@ -181,7 +181,7 @@ class ResearchingQuantity implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['totalResearchingQuantity'] = isset($data['totalResearchingQuantity']) ? $data['totalResearchingQuantity'] : null;
         $this->container['researchingQuantityBreakdown'] = isset($data['researchingQuantityBreakdown']) ? $data['researchingQuantityBreakdown'] : null;

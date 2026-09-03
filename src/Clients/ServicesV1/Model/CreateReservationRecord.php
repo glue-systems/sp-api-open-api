@@ -186,7 +186,7 @@ class CreateReservationRecord implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['reservation'] = isset($data['reservation']) ? $data['reservation'] : null;
         $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;

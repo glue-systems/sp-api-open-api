@@ -181,7 +181,7 @@ class UpdatePackageDetails implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['scheduledPackageId'] = isset($data['scheduledPackageId']) ? $data['scheduledPackageId'] : null;
         $this->container['packageTimeSlot'] = isset($data['packageTimeSlot']) ? $data['packageTimeSlot'] : null;

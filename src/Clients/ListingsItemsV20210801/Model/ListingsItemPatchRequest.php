@@ -181,7 +181,7 @@ class ListingsItemPatchRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['productType'] = isset($data['productType']) ? $data['productType'] : null;
         $this->container['patches'] = isset($data['patches']) ? $data['patches'] : null;

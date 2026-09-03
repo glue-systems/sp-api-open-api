@@ -186,7 +186,7 @@ class ExceptionDates implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['exceptionDate'] = isset($data['exceptionDate']) ? $data['exceptionDate'] : null;
         $this->container['isOpen'] = isset($data['isOpen']) ? $data['isOpen'] : null;

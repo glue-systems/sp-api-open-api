@@ -186,7 +186,7 @@ class RangeSlot implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['startDateTime'] = isset($data['startDateTime']) ? $data['startDateTime'] : null;
         $this->container['endDateTime'] = isset($data['endDateTime']) ? $data['endDateTime'] : null;

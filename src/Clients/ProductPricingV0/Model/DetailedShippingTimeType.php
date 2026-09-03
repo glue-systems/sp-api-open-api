@@ -208,7 +208,7 @@ class DetailedShippingTimeType implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['minimumHours'] = isset($data['minimumHours']) ? $data['minimumHours'] : null;
         $this->container['maximumHours'] = isset($data['maximumHours']) ? $data['maximumHours'] : null;

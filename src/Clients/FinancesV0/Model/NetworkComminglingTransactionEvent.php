@@ -211,7 +211,7 @@ class NetworkComminglingTransactionEvent implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['transactionType'] = isset($data['transactionType']) ? $data['transactionType'] : null;
         $this->container['postedDate'] = isset($data['postedDate']) ? $data['postedDate'] : null;

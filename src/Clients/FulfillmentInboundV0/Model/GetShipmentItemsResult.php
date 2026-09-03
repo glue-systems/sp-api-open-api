@@ -180,7 +180,7 @@ class GetShipmentItemsResult implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['itemData'] = isset($data['itemData']) ? $data['itemData'] : null;
         $this->container['nextToken'] = isset($data['nextToken']) ? $data['nextToken'] : null;

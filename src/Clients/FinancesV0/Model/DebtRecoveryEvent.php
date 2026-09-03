@@ -196,7 +196,7 @@ class DebtRecoveryEvent implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['debtRecoveryType'] = isset($data['debtRecoveryType']) ? $data['debtRecoveryType'] : null;
         $this->container['recoveryAmount'] = isset($data['recoveryAmount']) ? $data['recoveryAmount'] : null;

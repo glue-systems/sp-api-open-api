@@ -181,7 +181,7 @@ class Participation implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['isParticipating'] = isset($data['isParticipating']) ? $data['isParticipating'] : null;
         $this->container['hasSuspendedListings'] = isset($data['hasSuspendedListings']) ? $data['hasSuspendedListings'] : null;

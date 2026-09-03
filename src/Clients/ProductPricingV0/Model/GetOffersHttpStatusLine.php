@@ -181,7 +181,7 @@ class GetOffersHttpStatusLine implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['statusCode'] = isset($data['statusCode']) ? $data['statusCode'] : null;
         $this->container['reasonPhrase'] = isset($data['reasonPhrase']) ? $data['reasonPhrase'] : null;

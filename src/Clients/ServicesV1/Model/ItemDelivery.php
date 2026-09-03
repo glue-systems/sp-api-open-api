@@ -181,7 +181,7 @@ class ItemDelivery implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['estimatedDeliveryDate'] = isset($data['estimatedDeliveryDate']) ? $data['estimatedDeliveryDate'] : null;
         $this->container['itemDeliveryPromise'] = isset($data['itemDeliveryPromise']) ? $data['itemDeliveryPromise'] : null;

@@ -211,7 +211,7 @@ class RemovalShipmentItem implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['removalShipmentItemId'] = isset($data['removalShipmentItemId']) ? $data['removalShipmentItemId'] : null;
         $this->container['taxCollectionModel'] = isset($data['taxCollectionModel']) ? $data['taxCollectionModel'] : null;

@@ -186,7 +186,7 @@ class SetAppointmentResponse implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['appointmentId'] = isset($data['appointmentId']) ? $data['appointmentId'] : null;
         $this->container['warnings'] = isset($data['warnings']) ? $data['warnings'] : null;

@@ -191,7 +191,7 @@ class ReservedQuantity implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['totalReservedQuantity'] = isset($data['totalReservedQuantity']) ? $data['totalReservedQuantity'] : null;
         $this->container['pendingCustomerOrderQuantity'] = isset($data['pendingCustomerOrderQuantity']) ? $data['pendingCustomerOrderQuantity'] : null;

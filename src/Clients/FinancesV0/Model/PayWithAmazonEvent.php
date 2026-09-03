@@ -221,7 +221,7 @@ class PayWithAmazonEvent implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['sellerOrderId'] = isset($data['sellerOrderId']) ? $data['sellerOrderId'] : null;
         $this->container['transactionPostedDate'] = isset($data['transactionPostedDate']) ? $data['transactionPostedDate'] : null;

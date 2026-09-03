@@ -201,7 +201,7 @@ class CreateShipmentRequest implements ModelInterface, ArrayAccess
      * @param mixed[] $data Associated array of property values
      *                      initializing the model
      */
-    public function __construct(array $data = null)
+    public function __construct(?array $data = null)
     {
         $this->container['shipmentRequestDetails'] = isset($data['shipmentRequestDetails']) ? $data['shipmentRequestDetails'] : null;
         $this->container['shippingServiceId'] = isset($data['shippingServiceId']) ? $data['shippingServiceId'] : null;
