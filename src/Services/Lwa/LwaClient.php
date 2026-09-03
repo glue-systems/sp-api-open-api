@@ -7,6 +7,7 @@ use Glue\SpApi\OpenAPI\Exceptions\LwaAccessTokenException;
 use GuzzleHttp\ClientInterface;
 use GuzzleHttp\Exception\GuzzleException;
 use GuzzleHttp\Exception\RequestException;
+use GuzzleHttp\Exception\ResponseException;
 use GuzzleHttp\RequestOptions;
 
 class LwaClient implements LwaClientInterface
@@ -43,7 +44,7 @@ class LwaClient implements LwaClientInterface
         } catch (RequestException $ex) {
             $msg = "Request exception when attempting to retrieve Login with Amazon (LWA)"
                 . " Access Token: '{$ex->getMessage()}'";
-            $errorCode = $ex->hasResponse()
+            $errorCode = $ex instanceof ResponseException
                 ? $ex->getResponse()->getStatusCode()
                 : $ex->getCode();
             throw new LwaAccessTokenException($msg, $errorCode, $ex);

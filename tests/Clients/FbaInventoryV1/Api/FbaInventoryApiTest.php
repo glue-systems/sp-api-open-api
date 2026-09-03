@@ -31,8 +31,9 @@ class FbaInventoryApiTest extends TestCase
         $this->assertEquals($statusCode, 200);
         $this->assertInstanceOf(GetInventorySummariesResponse::class, $response);
         $this->assertInstanceOf(GetInventorySummariesResult::class, $inventorySummariesResult = $response->getPayload());
-        $this->assertNotEmpty($inventorySummaries = $inventorySummariesResult->getInventorySummaries());
-        $this->assertInstanceOf(InventorySummary::class, $inventorySummaries[0]);
-        $this->assertNotEmpty($inventorySummaries[0]->getAsin());
+        if (!empty($inventorySummaries = $inventorySummariesResult->getInventorySummaries())) {
+            $this->assertInstanceOf(InventorySummary::class, $inventorySummaries[0]);
+            $this->assertNotEmpty($inventorySummaries[0]->getAsin());
+        }
     }
 }

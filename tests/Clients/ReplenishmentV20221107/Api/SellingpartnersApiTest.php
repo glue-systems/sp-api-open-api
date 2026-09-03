@@ -29,6 +29,7 @@ class SellingpartnersApiTest extends TestCase
                         ]),
                         'metrics'          => [
                             Metric::TOTAL_SUBSCRIPTIONS_REVENUE,
+                            Metric::REVENUE_PENETRATION,
                         ],
                         'timePeriodType' => TimePeriodType::PERFORMANCE,
                         'marketplaceId' => 'ATVPDKIKX0DER',

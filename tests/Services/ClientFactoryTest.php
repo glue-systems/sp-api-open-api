@@ -40,8 +40,7 @@ class ClientFactoryTest extends TestCase
      */
     public $instantiateGuzzleHandlerStack;
 
-    // TODO: This will need to be changed to `public function setUp(): void` after upgrading.
-    public function setUp()
+    public function setUp(): void
     {
         parent::setup();
         $this->authenticator                 = Mockery::mock(ClientAuthenticatorInterface::class);
