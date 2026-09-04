@@ -8,7 +8,16 @@ class ArrayCache implements CacheInterface
 {
     protected $storage = [];
 
-    public function get($key, $default = null)
+    /**
+     * Retrieve an item from the cache by key.
+     *
+     * @template TCacheValue
+     *
+     * @param  array|string  $key
+     * @param  TCacheValue|(\Closure(): TCacheValue)  $default
+     * @return (TCacheValue is null ? mixed : TCacheValue)
+     */
+    public function get($key, $default = null): mixed
     {
         if ($this->has($key)) {
             return $this->storage[$key];
@@ -16,39 +25,75 @@ class ArrayCache implements CacheInterface
         return $default;
     }
 
-    public function set($key, $value, $ttl = null)
+    /**
+     * {@inheritdoc}
+     *
+     * @return bool
+     */
+    public function set($key, $value, $ttl = null): bool
     {
         $this->storage[$key] = $value;
         return true;
     }
 
-    public function delete($key)
+    /**
+     * {@inheritdoc}
+     *
+     * @return bool
+     */
+    public function delete($key): bool
     {
         unset($this->storage[$key]);
         return true;
     }
 
-    public function clear()
+    /**
+     * {@inheritdoc}
+     *
+     * @return bool
+     */
+    public function clear(): bool
     {
         throw new \RuntimeException("Method not implemented.");
     }
 
-    public function getMultiple($keys, $default = null)
+    /**
+     * {@inheritdoc}
+     *
+     * @return iterable
+     */
+    public function getMultiple($keys, $default = null): iterable
     {
         throw new \RuntimeException("Method not implemented.");
     }
 
-    public function setMultiple($values, $ttl = null)
+    /**
+     * {@inheritdoc}
+     *
+     * @return bool
+     */
+    public function setMultiple($values, $ttl = null): bool
     {
         throw new \RuntimeException("Method not implemented.");
     }
 
-    public function deleteMultiple($keys)
+    /**
+     * {@inheritdoc}
+     *
+     * @return bool
+     */
+    public function deleteMultiple($keys): bool
     {
         throw new \RuntimeException("Method not implemented.");
     }
 
-    public function has($key)
+    /**
+     * Determine if an item exists in the cache.
+     *
+     * @param  array|string  $key
+     * @return bool
+     */
+    public function has($key): bool
     {
         return array_key_exists($key, $this->storage);
     }
